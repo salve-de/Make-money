@@ -101,7 +101,7 @@ test('1件が分析で落ちても他の件は止まらず、落ちた件と理�
   assert.equal(ai.filter((a) => a.label.startsWith('audit')).length, 2);
 });
 
-test('原文照合の不合格は公開データの作成から外すだけで、他の段は続く', async () => {
+test('原文照合の不合格は、その事実を保留にして外し、事例は先へ進める', async () => {
   const root = setupRoot(); const calls: string[] = [];
   let prepared: string[] = [];
   const base = fakeExec(root, calls, { sourceCheckFail: 'fx-003' });
@@ -110,12 +110,10 @@ test('原文照合の不合格は公開データの作成から外すだけで�
     return base(name, argv);
   };
   const s = await runCases(opts(root), { exec, caller: fakeCaller(root, []) });
-  assert.deepEqual(prepared.sort(), ['fx-001', 'fx-002']);
-  // 公開データの作成が拾う「仕上げ済み一覧」からも外れている
-  assert.ok(!readFileSync(join(root, 'data/catalog-finished-ids.txt'), 'utf8').split('\n').includes('fx-003'));
-  assert.deepEqual(s.blockedFromPublish, ['fx-003']);
-  assert.ok(calls.includes('audit-build'), '落ちた件も分析・監査は続く');
-  assert.equal(s.failures.find((f) => f.id === 'fx-003')?.soft, true);
+  assert.ok(calls.includes('source-check-hold'), '不合格の事実は直ちに保留にする');
+  assert.deepEqual(prepared.sort(), ['fx-001', 'fx-002', 'fx-003']);
+  assert.deepEqual(s.blockedFromPublish, []);
+  assert.ok(calls.includes('audit-build'));
 });
 
 test('--publish の時だけ catalog:publish を呼ぶ', async () => {

@@ -1,0 +1,872 @@
+{
+ "version": 1,
+ "source": {
+  "manifest": "/private/tmp/claude-501/-Users-satoushinya-project-Make-Money/2be145c1-d0c7-4f02-9457-3c8f190a0980/scratchpad/gen2/indiehackers-record.json",
+  "manifestSha256": "59e2d7baf23958f1a3a68a34c5979e971e1c558047026fb471e62ed4c227e26b",
+  "artifactsDir": "",
+  "collectedAt": "2026-10-07T10:48:23.433Z"
+ },
+ "records": [
+  {
+   "id": "ent_indiehackers_6548833164b0",
+   "provenance": {
+    "detailsHash": "4bd23f1728d10256f1bab5d93f8d2dd475c675d007a486d333dfc805d5fb5b7a",
+    "artifactSha256": "59e2d7baf23958f1a3a68a34c5979e971e1c558047026fb471e62ed4c227e26b"
+   },
+   "record": {
+    "id": "ent_indiehackers_6548833164b0",
+    "ticker": "INDIEHCK",
+    "name": "Indie Hackers",
+    "legalEntity": "Indie Hackers, Inc.（公式サイトの著作権表記）",
+    "tagline": "収益を公開する創業者の取材10件から始まり、事業の事例集と起業家同士の相談の場になった。現在は有料の事例・アイデア資料も提供する",
+    "description": "Courtland Allenが2016年8月に始めた創業者の取材・交流サイト。2017年4月にStripeが買収し、2023年3月に再び独立した。現在は公開コミュニティに加え、Indie Hackers Plusで事例集、アイデア資料などを販売する。",
+    "sector": "CONTENT_MEDIA",
+    "scale": "SMALL_TEAM",
+    "founder": "Courtland Allen",
+    "country": "",
+    "url": "https://www.indiehackers.com",
+    "officialUrl": "https://www.indiehackers.com",
+    "verifiedBadge": false,
+    "growthRateYoY": 0,
+    "architecturePattern": "創業者の取材記事、交流の場、ニュースレターを提供し、現在は有料資料と会員機能を年額で販売する。",
+    "pipelineStack": "公式紹介の記載: Ember.js、Ember FastBoot、Node/Express、Render、Firebase、Cloudflare",
+    "targetPainWallet": "",
+    "tags": [
+     "創業者取材",
+     "起業家コミュニティ",
+     "有料事例集",
+     "収集事例"
+    ],
+    "pnl": {
+     "monthlyRevenue": 0,
+     "cogs": 0,
+     "grossProfit": 0,
+     "grossMargin": 0,
+     "operatingExpenses": {
+      "serverAndApi": 0,
+      "advertising": 0,
+      "subcontracting": 0,
+      "toolsAndSaaS": 0,
+      "other": 0
+     },
+     "operatingProfit": 0,
+     "operatingMargin": 0,
+     "estimatedAnnualNetProfit": 0,
+     "isRevenueUnconfirmed": true,
+     "isOperatingProfitUnconfirmed": true,
+     "isMarginUnconfirmed": true,
+     "isGrossProfitUnconfirmed": true,
+     "isGrossMarginUnconfirmed": true,
+     "isCogsUnconfirmed": true,
+     "isCostsUnconfirmed": true,
+     "isNetProfitUnconfirmed": true,
+     "financialStatus": "UNAVAILABLE",
+     "dataSnapshotPeriod": "2016-08〜2026-10-07。回想の公開日と出来事の時点は事実ごとに分離。",
+     "revenueLabel": "現在の総売上は空欄。過去の本人回想では2017年4月の売上約6,000ドル。2023年の独立発表時は月次継続売上0ドル。期間と定義を分けて事実欄に記録。",
+     "sourceDoc": "https://www.indiehackers.com/post/i-created-and-run-indie-hackers-ama-2e6643ba07",
+     "sourceClass": "PRIMARY"
+    },
+    "facts": [
+     {
+      "kind": "DESCRIPTION",
+      "text": "収益のある事業・副業の創業者が経験を公開し、読者が学び、経験や助言を交換する交流の場と公式に説明している。",
+      "sourceUrl": "https://www.indiehackers.com/about",
+      "statedAt": null,
+      "checkedAt": "2026-10-07",
+      "attribution": "公式",
+      "id": "ent_indiehackers_6548833164b0_fact_1",
+      "researchSection": "やり方の具体",
+      "dateNote": "出典の公開日は表示なし。確認日現在の公開表示を記録。"
+     },
+     {
+      "kind": "FOUNDING",
+      "text": "Courtland Allenが2016年8月にIndie Hackersを作った。",
+      "sourceUrl": "https://www.indiehackers.com/about",
+      "statedAt": null,
+      "checkedAt": "2026-10-07",
+      "attribution": "公式",
+      "id": "ent_indiehackers_6548833164b0_fact_2",
+      "researchSection": "時間順の流れ",
+      "eventDate": "2016-08",
+      "dateNote": "出典の公開日は表示なし。確認日現在の公開表示を記録。"
+     },
+     {
+      "kind": "EVENT",
+      "text": "2017年4月にStripeが買収し、Courtlandの弟Channing Allenが共同創業者として加わった。",
+      "sourceUrl": "https://www.indiehackers.com/about",
+      "statedAt": null,
+      "checkedAt": "2026-10-07",
+      "attribution": "公式",
+      "id": "ent_indiehackers_6548833164b0_fact_3",
+      "researchSection": "時間順の流れ",
+      "eventDate": "2017-04",
+      "dateNote": "出典の公開日は表示なし。確認日現在の公開表示を記録。"
+     },
+     {
+      "kind": "EVENT",
+      "text": "公式紹介では2023年3月に独立企業へ戻り、Stripeは初期出資者になったとしている。",
+      "sourceUrl": "https://www.indiehackers.com/about",
+      "statedAt": null,
+      "checkedAt": "2026-10-07",
+      "attribution": "公式",
+      "id": "ent_indiehackers_6548833164b0_fact_4",
+      "researchSection": "時間順の流れ",
+      "eventDate": "2023-03",
+      "dateNote": "出典の公開日は表示なし。確認日現在の公開表示を記録。"
+     },
+     {
+      "kind": "TOOL",
+      "text": "公式紹介の構成はEmber.js、Ember FastBoot、Node/Express、Render、Firebase、Cloudflare。自社開発の掲示板を運営する。",
+      "sourceUrl": "https://www.indiehackers.com/about",
+      "statedAt": null,
+      "checkedAt": "2026-10-07",
+      "attribution": "公式",
+      "id": "ent_indiehackers_6548833164b0_fact_5",
+      "researchSection": "やり方の具体",
+      "dateNote": "出典の公開日は表示なし。確認日現在の公開表示を記録。"
+     },
+     {
+      "kind": "TEAM",
+      "text": "公開初期の取材とニュースレターの運営はCourtlandが1人で行っていたと説明している。",
+      "sourceUrl": "https://www.ycombinator.com/blog/your-whole-goal-is-to-not-quit-courtland-allen-of-indie-hackers/",
+      "statedAt": "2017-09-22",
+      "checkedAt": "2026-10-07",
+      "attribution": "本人",
+      "id": "ent_indiehackers_6548833164b0_fact_6",
+      "researchSection": "出発点",
+      "eventDate": "2016-08"
+     },
+     {
+      "kind": "FOUNDING",
+      "text": "約3週間で公開し、取材10件を掲載した。うち1件は自身の事業で、残り9人の協力を得るため数百通のメールを送った。",
+      "sourceUrl": "https://www.ycombinator.com/blog/your-whole-goal-is-to-not-quit-courtland-allen-of-indie-hackers/",
+      "statedAt": "2017-09-22",
+      "checkedAt": "2026-10-07",
+      "attribution": "本人",
+      "id": "ent_indiehackers_6548833164b0_fact_7",
+      "researchSection": "出発点",
+      "eventDate": "2016-08"
+     },
+     {
+      "kind": "CHANNEL",
+      "text": "公開時は未完成の掲示板へのリンクを置き、MailChimpの登録フォームで交流の場を望む人がいるか調べた。",
+      "sourceUrl": "https://www.ycombinator.com/blog/your-whole-goal-is-to-not-quit-courtland-allen-of-indie-hackers/",
+      "statedAt": "2017-09-22",
+      "checkedAt": "2026-10-07",
+      "attribution": "本人",
+      "id": "ent_indiehackers_6548833164b0_fact_8",
+      "researchSection": "やり方の具体",
+      "eventDate": "2016-08"
+     },
+     {
+      "kind": "OTHER",
+      "text": "取材の追加質問が多くなったため、よく不足する情報を整理し、質問ごとに10〜11項目の説明を添える形に変えた。返答の質が上がり、編集の負担が減ったと説明する。",
+      "sourceUrl": "https://www.ycombinator.com/blog/your-whole-goal-is-to-not-quit-courtland-allen-of-indie-hackers/",
+      "statedAt": "2017-09-22",
+      "checkedAt": "2026-10-07",
+      "attribution": "本人",
+      "id": "ent_indiehackers_6548833164b0_fact_9",
+      "researchSection": "つまずきと立て直し"
+     },
+     {
+      "kind": "CHANNEL",
+      "text": "取材記事でメールの読者を集め、その読者へ掲示板の話題を知らせて、継続してコミュニティへ人を送っていた。",
+      "sourceUrl": "https://www.ycombinator.com/blog/your-whole-goal-is-to-not-quit-courtland-allen-of-indie-hackers/",
+      "statedAt": "2017-09-22",
+      "checkedAt": "2026-10-07",
+      "attribution": "本人",
+      "id": "ent_indiehackers_6548833164b0_fact_10",
+      "researchSection": "やり方の具体"
+     },
+     {
+      "kind": "CHANNEL",
+      "text": "掲示板の最初の週には複数の架空アカウントを作り、自分同士の会話や利用者への返信を行ったと本人が説明している。",
+      "sourceUrl": "https://www.ycombinator.com/blog/your-whole-goal-is-to-not-quit-courtland-allen-of-indie-hackers/",
+      "statedAt": "2017-09-22",
+      "checkedAt": "2026-10-07",
+      "attribution": "本人",
+      "id": "ent_indiehackers_6548833164b0_fact_11",
+      "researchSection": "やり方の具体",
+      "dateNote": "回想の公開日2017-09-22。実施日の記載はない。実施の事実のみ記録し、再現の手順は記載しない。"
+     },
+     {
+      "kind": "OTHER",
+      "text": "読者から音声番組を望む声が多く、収益を明かしたくない取材対象者の話も載せられるため、音声番組を始めた。",
+      "sourceUrl": "https://www.ycombinator.com/blog/your-whole-goal-is-to-not-quit-courtland-allen-of-indie-hackers/",
+      "statedAt": "2017-09-22",
+      "checkedAt": "2026-10-07",
+      "attribution": "本人",
+      "id": "ent_indiehackers_6548833164b0_fact_12",
+      "researchSection": "やり方の具体"
+     },
+     {
+      "kind": "OTHER",
+      "text": "2017年9月の本人説明では、取材記事は200件、音声番組は30回になっていた。",
+      "sourceUrl": "https://www.ycombinator.com/blog/your-whole-goal-is-to-not-quit-courtland-allen-of-indie-hackers/",
+      "statedAt": "2017-09-22",
+      "checkedAt": "2026-10-07",
+      "attribution": "本人",
+      "id": "ent_indiehackers_6548833164b0_fact_13",
+      "researchSection": "時間順の流れ",
+      "eventDate": "2017-09"
+     },
+     {
+      "kind": "CHANNEL",
+      "text": "2016年8月11日にCourtlandのアカウントからHacker Newsへ公開紹介を投稿した。確認したページには971票と184件のコメントが表示されている。",
+      "sourceUrl": "https://news.ycombinator.com/item?id=12269425",
+      "statedAt": "2016-08-11",
+      "checkedAt": "2026-10-07",
+      "attribution": "本人",
+      "id": "ent_indiehackers_6548833164b0_fact_14",
+      "researchSection": "時間順の流れ",
+      "eventDate": "2016-08-11",
+      "dateNote": "投稿日は2016-08-11。票数とコメント数は2026-10-07に確認した公開表示で、公開当日の確定値ではない。"
+     },
+     {
+      "kind": "CHANNEL",
+      "text": "掲載協力者cyberferretは、Courtlandから個別メールで誘われ、回答後にも具体化の追加質問を受けたと投稿している。",
+      "sourceUrl": "https://news.ycombinator.com/item?id=12269425",
+      "statedAt": "2016-08-11",
+      "checkedAt": "2026-10-07",
+      "attribution": "第三者",
+      "id": "ent_indiehackers_6548833164b0_fact_15",
+      "researchSection": "やり方の具体",
+      "eventDate": "2016-08-11"
+     },
+     {
+      "kind": "OTHER",
+      "text": "利用者radarsat1は、売上の最高値を月収のように表紙に出すと誤解を招くとして、平均値の表示を求めた。",
+      "sourceUrl": "https://news.ycombinator.com/item?id=12269425",
+      "statedAt": "2016-08-11",
+      "checkedAt": "2026-10-07",
+      "attribution": "第三者",
+      "id": "ent_indiehackers_6548833164b0_fact_16",
+      "researchSection": "客の声",
+      "eventDate": "2016-08-11"
+     },
+     {
+      "kind": "OTHER",
+      "text": "Courtlandは最高月商を丸めて表示していたと説明し、最高値と平均値を両方載せる方針に同意した。変更完了の数字は示されていない。",
+      "sourceUrl": "https://news.ycombinator.com/item?id=12269425",
+      "statedAt": "2016-08-11",
+      "checkedAt": "2026-10-07",
+      "attribution": "本人",
+      "id": "ent_indiehackers_6548833164b0_fact_17",
+      "researchSection": "つまずきと立て直し",
+      "eventDate": "2016-08-11"
+     },
+     {
+      "kind": "OTHER",
+      "text": "利用者jpalomakiは、表紙で具体的な金額がすぐ見えるため、読みたい情報があると判断できたと投稿している。",
+      "sourceUrl": "https://news.ycombinator.com/item?id=12269425",
+      "statedAt": "2016-08-11",
+      "checkedAt": "2026-10-07",
+      "attribution": "第三者",
+      "id": "ent_indiehackers_6548833164b0_fact_18",
+      "researchSection": "客の声",
+      "eventDate": "2016-08-11"
+     },
+     {
+      "kind": "REVENUE",
+      "text": "2018年11月の質疑応答で、Courtlandは前年4月の売上を記憶では約6,000ドルと答えた。本人の回想値であり、現在の売上ではない。",
+      "sourceUrl": "https://www.indiehackers.com/post/i-created-and-run-indie-hackers-ama-2e6643ba07",
+      "statedAt": "2018-11-14",
+      "checkedAt": "2026-10-07",
+      "attribution": "本人",
+      "id": "ent_indiehackers_6548833164b0_fact_19",
+      "researchSection": "時間順の流れ",
+      "eventDate": "2017-04"
+     },
+     {
+      "kind": "CHANNEL",
+      "text": "初期にはメール、取材、開発を行い、取材を効率化した後は掲示板、音声番組、スポンサーによる収益化に取り組んだと振り返っている。",
+      "sourceUrl": "https://www.indiehackers.com/post/i-created-and-run-indie-hackers-ama-2e6643ba07",
+      "statedAt": "2018-11-14",
+      "checkedAt": "2026-10-07",
+      "attribution": "本人",
+      "id": "ent_indiehackers_6548833164b0_fact_20",
+      "researchSection": "やり方の具体"
+     },
+     {
+      "kind": "OTHER",
+      "text": "創業者の困りごとに直接応える機能を作る前に、共同創業者探しなどのハッシュタグで需要を試していた。",
+      "sourceUrl": "https://www.indiehackers.com/post/i-created-and-run-indie-hackers-ama-2e6643ba07",
+      "statedAt": "2018-11-14",
+      "checkedAt": "2026-10-07",
+      "attribution": "本人",
+      "id": "ent_indiehackers_6548833164b0_fact_21",
+      "researchSection": "やり方の具体"
+     },
+     {
+      "kind": "EVENT",
+      "text": "2018年1月1日、会話が各人の製品に集中しているため、製品ごとのページを導入した。",
+      "sourceUrl": "https://www.indiehackers.com/product/indie-hackers",
+      "statedAt": "2018-01-01",
+      "checkedAt": "2026-10-07",
+      "attribution": "本人",
+      "id": "ent_indiehackers_6548833164b0_fact_22",
+      "researchSection": "時間順の流れ",
+      "eventDate": "2018-01-01"
+     },
+     {
+      "kind": "EVENT",
+      "text": "2018年1月17日、掲示板を中心にサイトを組み直した。Product Huntでその日の1位になったと本人の更新記録にある。",
+      "sourceUrl": "https://www.indiehackers.com/product/indie-hackers",
+      "statedAt": "2018-01-17",
+      "checkedAt": "2026-10-07",
+      "attribution": "本人",
+      "id": "ent_indiehackers_6548833164b0_fact_23",
+      "researchSection": "時間順の流れ",
+      "eventDate": "2018-01-17"
+     },
+     {
+      "kind": "EVENT",
+      "text": "2018年2月28日、製品の目録を公開した。閲覧者の会員登録率は約2.5%で、会員向け機能を増やす実験だった。8%超は目標であり達成値ではない。",
+      "sourceUrl": "https://www.indiehackers.com/product/indie-hackers",
+      "statedAt": "2018-02-28",
+      "checkedAt": "2026-10-07",
+      "attribution": "本人",
+      "id": "ent_indiehackers_6548833164b0_fact_24",
+      "researchSection": "時間順の流れ",
+      "eventDate": "2018-02-28"
+     },
+     {
+      "kind": "EVENT",
+      "text": "2018年6月13日、外部で作った交流会のリンクを投稿し、一覧とニュースレターで知らせる最小構成の機能を公開した。",
+      "sourceUrl": "https://www.indiehackers.com/product/indie-hackers",
+      "statedAt": "2018-06-13",
+      "checkedAt": "2026-10-07",
+      "attribution": "本人",
+      "id": "ent_indiehackers_6548833164b0_fact_25",
+      "researchSection": "時間順の流れ",
+      "eventDate": "2018-06-13"
+     },
+     {
+      "kind": "OTHER",
+      "text": "2018年7月24日、掲示板では多くの投稿が埋もれるため、製品ページの投稿に反応とコメントの機能を追加した。",
+      "sourceUrl": "https://www.indiehackers.com/product/indie-hackers",
+      "statedAt": "2018-07-24",
+      "checkedAt": "2026-10-07",
+      "attribution": "本人",
+      "id": "ent_indiehackers_6548833164b0_fact_26",
+      "researchSection": "つまずきと立て直し",
+      "eventDate": "2018-07-24"
+     },
+     {
+      "kind": "FOUNDING",
+      "text": "最初は自作のブログとして公開した。青い背景、白い文字、記事ごとの鮮明な図柄で、他のブログと見分けられる見た目にしたと説明する。",
+      "sourceUrl": "https://www.softwaresessions.com/episodes/building-indie-hackers-with-courtland-allen/",
+      "statedAt": "2020-04-22",
+      "checkedAt": "2026-10-07",
+      "attribution": "本人",
+      "id": "ent_indiehackers_6548833164b0_fact_27",
+      "researchSection": "出発点",
+      "eventDate": "2016-08"
+     },
+     {
+      "kind": "TOOL",
+      "text": "初期はAWSのElastic Beanstalkに配置し、画面にはEmber.jsを使ったと本人が説明している。現在の公式紹介とは時点が違う。",
+      "sourceUrl": "https://www.softwaresessions.com/episodes/building-indie-hackers-with-courtland-allen/",
+      "statedAt": "2020-04-22",
+      "checkedAt": "2026-10-07",
+      "attribution": "本人",
+      "id": "ent_indiehackers_6548833164b0_fact_28",
+      "researchSection": "出発点",
+      "eventDate": "2016-08"
+     },
+     {
+      "kind": "EVENT",
+      "text": "2023年4月6日の公式ニュースレターは、創業者が再び所有する独立事業になったというCourtlandの発表を掲載した。",
+      "sourceUrl": "https://www.indiehackers.com/post/whats-new-indie-hackers-is-indie-again-1d228c6387",
+      "statedAt": "2023-04-06",
+      "checkedAt": "2026-10-07",
+      "attribution": "本人",
+      "id": "ent_indiehackers_6548833164b0_fact_29",
+      "researchSection": "時間順の流れ",
+      "eventDate": "2023-04-06"
+     },
+     {
+      "kind": "REVENUE",
+      "text": "同ニュースレターに再掲された本人説明では、独立発表時の月次継続売上は0ドルだった。現在値や総収入とは扱わない。",
+      "sourceUrl": "https://www.indiehackers.com/post/whats-new-indie-hackers-is-indie-again-1d228c6387",
+      "statedAt": "2023-04-06",
+      "checkedAt": "2026-10-07",
+      "attribution": "本人",
+      "id": "ent_indiehackers_6548833164b0_fact_30",
+      "researchSection": "時間順の流れ",
+      "eventDate": "2023-04"
+     },
+     {
+      "kind": "OTHER",
+      "text": "2023年7月、本人は2022年の大部分で招待コードを使い、迷惑投稿がほぼなくなったと説明した。増加率の測定値は示されていない。",
+      "sourceUrl": "https://www.indiehackers.com/post/courtland-allen-on-ai-spam-bots-and-the-future-of-social-platforms-like-ih-2b979782b0",
+      "statedAt": "2023-07-21",
+      "checkedAt": "2026-10-07",
+      "attribution": "本人",
+      "id": "ent_indiehackers_6548833164b0_fact_31",
+      "researchSection": "つまずきと立て直し",
+      "eventDate": "2022"
+     },
+     {
+      "kind": "TOOL",
+      "text": "本人はGPT-4を従来型の迷惑投稿の検出に使っていたと説明した。生成文の迷惑投稿にも同じ効果があるとはしていない。",
+      "sourceUrl": "https://www.indiehackers.com/post/courtland-allen-on-ai-spam-bots-and-the-future-of-social-platforms-like-ih-2b979782b0",
+      "statedAt": "2023-07-21",
+      "checkedAt": "2026-10-07",
+      "attribution": "本人",
+      "id": "ent_indiehackers_6548833164b0_fact_32",
+      "researchSection": "やり方の具体",
+      "eventDate": "2023-07"
+     },
+     {
+      "kind": "EVENT",
+      "text": "執筆者Ottoは、Indie Hackersが文章へ重点を移して執筆者を採用し、自身がアイデア資料用に80社を調べたと2024年11月に記録した。",
+      "sourceUrl": "https://foundersconfidential418.substack.com/p/i-profiled-80-companies-for-indie",
+      "statedAt": "2024-11-05",
+      "checkedAt": "2026-10-07",
+      "attribution": "第三者",
+      "id": "ent_indiehackers_6548833164b0_fact_33",
+      "researchSection": "時間順の流れ",
+      "eventDate": "2024-11"
+     },
+     {
+      "kind": "PRICING",
+      "text": "2026年10月7日に開いた公式ページでは、Indie Hackers Plusは年198ドルで販売されている。",
+      "sourceUrl": "https://www.indiehackers.com/plus",
+      "statedAt": null,
+      "checkedAt": "2026-10-07",
+      "attribution": "公式",
+      "id": "ent_indiehackers_6548833164b0_fact_34",
+      "researchSection": "価格の変遷",
+      "eventDate": "2026-10-07",
+      "dateNote": "出典の公開日は表示なし。確認日現在の公開表示を記録。"
+     },
+     {
+      "kind": "DESCRIPTION",
+      "text": "有料会員向けに600件超の取材を含む事例集、アイデア資料、動向分析、会員用プロフィールなどを案内している。",
+      "sourceUrl": "https://www.indiehackers.com/plus",
+      "statedAt": null,
+      "checkedAt": "2026-10-07",
+      "attribution": "公式",
+      "id": "ent_indiehackers_6548833164b0_fact_35",
+      "researchSection": "やり方の具体",
+      "eventDate": "2026-10-07",
+      "dateNote": "出典の公開日は表示なし。確認日現在の公開表示を記録。"
+     },
+     {
+      "kind": "PRICING",
+      "text": "不満がある場合は30日間の比例計算による返金を案内し、解約後も支払済み期間の終わりまで使えると説明している。",
+      "sourceUrl": "https://www.indiehackers.com/plus",
+      "statedAt": null,
+      "checkedAt": "2026-10-07",
+      "attribution": "公式",
+      "id": "ent_indiehackers_6548833164b0_fact_36",
+      "researchSection": "価格の変遷",
+      "eventDate": "2026-10-07",
+      "dateNote": "出典の公開日は表示なし。確認日現在の公開表示を記録。"
+     },
+     {
+      "kind": "OTHER",
+      "text": "公式ページの推薦文でLynne Tyeは、数か月読んだことがKey Valuesを始めるきっかけになったと述べている。公式が選んだ推薦文で、有料会員の評価とは確認できない。",
+      "sourceUrl": "https://www.indiehackers.com/plus",
+      "statedAt": null,
+      "checkedAt": "2026-10-07",
+      "attribution": "公式",
+      "id": "ent_indiehackers_6548833164b0_fact_37",
+      "researchSection": "客の声",
+      "eventDate": "2026-10-07",
+      "dateNote": "出典の公開日は表示なし。確認日現在の公開表示を記録。"
+     }
+    ],
+    "reaudit": {
+     "status": "PARTIAL",
+     "auditDate": "2026-10-07",
+     "timezone": "Asia/Tokyo",
+     "auditOwner": "Codex",
+     "method": "MANUAL_REAUDIT",
+     "family": "new-collection",
+     "sources": [
+      {
+       "url": "https://www.indiehackers.com/about",
+       "publisher": "Indie Hackers公式紹介",
+       "sourceType": "official_website",
+       "publicationDate": null,
+       "checkedAt": "2026-10-07",
+       "rightsTier": "TIER1_OFFICIAL"
+      },
+      {
+       "url": "https://news.ycombinator.com/item?id=12269425",
+       "publisher": "Hacker News公開時の投稿と返信",
+       "sourceType": "founder_post",
+       "publicationDate": "2016-08-11",
+       "checkedAt": "2026-10-07",
+       "rightsTier": "TIER2_FACTS_ONLY"
+      },
+      {
+       "url": "https://www.ycombinator.com/blog/your-whole-goal-is-to-not-quit-courtland-allen-of-indie-hackers/",
+       "publisher": "Y Combinatorの本人インタビュー本文",
+       "sourceType": "founder_interview",
+       "publicationDate": "2017-09-22",
+       "checkedAt": "2026-10-07",
+       "rightsTier": "TIER2_FACTS_ONLY"
+      },
+      {
+       "url": "https://www.indiehackers.com/post/i-created-and-run-indie-hackers-ama-2e6643ba07",
+       "publisher": "Courtland Allenの公開質疑応答",
+       "sourceType": "founder_post",
+       "publicationDate": "2018-11-14",
+       "checkedAt": "2026-10-07",
+       "rightsTier": "TIER2_FACTS_ONLY"
+      },
+      {
+       "url": "https://www.indiehackers.com/product/indie-hackers",
+       "publisher": "Indie Hackers公式の製品更新記録",
+       "sourceType": "official_blog",
+       "publicationDate": null,
+       "checkedAt": "2026-10-07",
+       "rightsTier": "TIER1_OFFICIAL"
+      },
+      {
+       "url": "https://www.softwaresessions.com/episodes/building-indie-hackers-with-courtland-allen/",
+       "publisher": "Software Sessionsの本人インタビュー本文",
+       "sourceType": "founder_interview",
+       "publicationDate": "2020-04-22",
+       "checkedAt": "2026-10-07",
+       "rightsTier": "TIER2_FACTS_ONLY"
+      },
+      {
+       "url": "https://www.indiehackers.com/post/whats-new-indie-hackers-is-indie-again-1d228c6387",
+       "publisher": "Indie Hackers公式ニュースレターの本人説明再掲",
+       "sourceType": "official_blog",
+       "publicationDate": "2023-04-06",
+       "checkedAt": "2026-10-07",
+       "rightsTier": "TIER1_OFFICIAL"
+      },
+      {
+       "url": "https://www.indiehackers.com/post/courtland-allen-on-ai-spam-bots-and-the-future-of-social-platforms-like-ih-2b979782b0",
+       "publisher": "Indie Hackers掲載のCourtland Allen本人インタビュー",
+       "sourceType": "founder_interview",
+       "publicationDate": "2023-07-21",
+       "checkedAt": "2026-10-07",
+       "rightsTier": "TIER2_FACTS_ONLY"
+      },
+      {
+       "url": "https://foundersconfidential418.substack.com/p/i-profiled-80-companies-for-indie",
+       "publisher": "Ottoの執筆経験の公開記録",
+       "sourceType": "participant_post",
+       "publicationDate": "2024-11-05",
+       "checkedAt": "2026-10-07",
+       "rightsTier": "TIER2_FACTS_ONLY"
+      },
+      {
+       "url": "https://www.indiehackers.com/plus",
+       "publisher": "Indie Hackers Plus公式料金・機能ページ",
+       "sourceType": "official_pricing",
+       "publicationDate": null,
+       "checkedAt": "2026-10-07",
+       "rightsTier": "TIER1_OFFICIAL"
+      }
+     ],
+     "supported": [
+      "ent_indiehackers_6548833164b0_fact_1",
+      "ent_indiehackers_6548833164b0_fact_2",
+      "ent_indiehackers_6548833164b0_fact_3",
+      "ent_indiehackers_6548833164b0_fact_4",
+      "ent_indiehackers_6548833164b0_fact_5",
+      "ent_indiehackers_6548833164b0_fact_6",
+      "ent_indiehackers_6548833164b0_fact_7",
+      "ent_indiehackers_6548833164b0_fact_8",
+      "ent_indiehackers_6548833164b0_fact_9",
+      "ent_indiehackers_6548833164b0_fact_10",
+      "ent_indiehackers_6548833164b0_fact_11",
+      "ent_indiehackers_6548833164b0_fact_12",
+      "ent_indiehackers_6548833164b0_fact_13",
+      "ent_indiehackers_6548833164b0_fact_14",
+      "ent_indiehackers_6548833164b0_fact_15",
+      "ent_indiehackers_6548833164b0_fact_16",
+      "ent_indiehackers_6548833164b0_fact_17",
+      "ent_indiehackers_6548833164b0_fact_18",
+      "ent_indiehackers_6548833164b0_fact_19",
+      "ent_indiehackers_6548833164b0_fact_20",
+      "ent_indiehackers_6548833164b0_fact_21",
+      "ent_indiehackers_6548833164b0_fact_22",
+      "ent_indiehackers_6548833164b0_fact_23",
+      "ent_indiehackers_6548833164b0_fact_24",
+      "ent_indiehackers_6548833164b0_fact_25",
+      "ent_indiehackers_6548833164b0_fact_26",
+      "ent_indiehackers_6548833164b0_fact_27",
+      "ent_indiehackers_6548833164b0_fact_28",
+      "ent_indiehackers_6548833164b0_fact_29",
+      "ent_indiehackers_6548833164b0_fact_30",
+      "ent_indiehackers_6548833164b0_fact_31",
+      "ent_indiehackers_6548833164b0_fact_32",
+      "ent_indiehackers_6548833164b0_fact_33",
+      "ent_indiehackers_6548833164b0_fact_34",
+      "ent_indiehackers_6548833164b0_fact_35",
+      "ent_indiehackers_6548833164b0_fact_36",
+      "ent_indiehackers_6548833164b0_fact_37"
+     ],
+     "unknown": [
+      "2026年現在の総売上、有料会員数、費用、利益、利益率、手残り。過去の回想値だけでは現在の損益を作れない。",
+      "開始時の元手の金額と現在の総人数。開始時1人は確認できたが、金額や現在人数の本文根拠はない。",
+      "スポンサー枠の単価・成約件数・最初の支払客、初期の月別売上の連続記録。該当する古い月次記事の本文にアクセスできなかった。",
+      "Indie Hackers Plusの発売日と過去料金の確定した変更履歴。2024年の存在と現在の年額は確認したが、変更日と旧価格は未取得。",
+      "変更施策ごとの売上・登録率の前後比較。掲示板の登録率8%は目標であり達成の証拠ではない。",
+      "有料会員に限定した評価・不満。無料の読者の声と公式掲載の推薦文は得られたが、支払者の属性は確認できない。",
+      "公式紹介・現行料金の公開日。公開日表示がないため確認日を別に記録した。",
+      "対象国、堀、大手の盲点、客の心理、自動化率。出典にない解釈は空欄にした。"
+     ],
+     "conflicts": [
+      "独立の時期は公式紹介が2023年3月、ニュースレターの発表が2023年4月6日。独立した月と公表日を分けて記録。",
+      "2020年の回想は音声番組・掲示板の追加を公開から3〜4か月後とまとめるが、各機能の正確な公開日はその本文では確定しない。回想を正確な年表へ転用しない。",
+      "2017年の売上約6,000ドルは2018年の本人の記憶、2023年の0ドルは月次継続売上。指標も時点も違い、連続した売上推移にはしない。"
+     ]
+    },
+    "observationsStream": [],
+    "observations": [],
+    "temporal": {
+     "foundedYear": 2016,
+     "initialTractionPeriod": "2016年8月公開。準備約3週間、公開時の取材10件。2016年8月11日にHacker Newsへ投稿。",
+     "dataSnapshotPeriod": "2016-08〜2026-10-07。回想の公開日と出来事の時点は事実ごとに分離。",
+     "viabilityStatus": "UNKNOWN",
+     "eraContext": "",
+     "currentViabilityAnalysis": "",
+     "viabilityLabel": ""
+    },
+    "operations": {
+     "teamSize": 0,
+     "weeklyHours": 0,
+     "initialCapitalRequired": 0,
+     "automationLevel": 0,
+     "primaryChannels": [
+      "Hacker News",
+      "ニュースレター",
+      "公開コミュニティ"
+     ],
+     "toolStack": [
+      {
+       "name": "Ember.js",
+       "category": "UNKNOWN",
+       "monthlyCost": 0,
+       "isCostUnconfirmed": true
+      },
+      {
+       "name": "Ember FastBoot",
+       "category": "UNKNOWN",
+       "monthlyCost": 0,
+       "isCostUnconfirmed": true
+      },
+      {
+       "name": "Render",
+       "category": "UNKNOWN",
+       "monthlyCost": 0,
+       "isCostUnconfirmed": true
+      },
+      {
+       "name": "Firebase",
+       "category": "UNKNOWN",
+       "monthlyCost": 0,
+       "isCostUnconfirmed": true
+      },
+      {
+       "name": "Cloudflare",
+       "category": "UNKNOWN",
+       "monthlyCost": 0,
+       "isCostUnconfirmed": true
+      },
+      {
+       "name": "Node/Express",
+       "category": "UNKNOWN",
+       "monthlyCost": 0,
+       "isCostUnconfirmed": true
+      }
+     ],
+     "isTeamSizeUnconfirmed": true,
+     "isWeeklyHoursUnconfirmed": true,
+     "isCapitalUnconfirmed": true,
+     "isAutomationUnconfirmed": true,
+     "initialTeamSize": 1
+    },
+    "strategy": {
+     "moatType": "UNKNOWN",
+     "blindspot": "",
+     "moatDescription": "",
+     "secretInsight": "",
+     "initialTraction": [],
+     "actionPlaybook": [],
+     "coldOutreachTemplate": "",
+     "incumbentDilemma": ""
+    },
+    "evidenceCards": [
+     {
+      "id": "ent_indiehackers_6548833164b0_chapter_1",
+      "type": "UNKNOWN_AUDIT",
+      "title": "取材記事からニュースレターと相談の場へ",
+      "badge": "やり方の具体",
+      "evidenceStatus": "REPORTED",
+      "punchline": "本人の取材、読者登録、掲示板への送客、需要確認の実施記録。",
+      "details": [
+       "ent_indiehackers_6548833164b0_fact_1｜出典: https://www.indiehackers.com/about｜発言・公開日: 表示なし｜確認日: 2026-10-07｜印: 公式",
+       "ent_indiehackers_6548833164b0_fact_5｜出典: https://www.indiehackers.com/about｜発言・公開日: 表示なし｜確認日: 2026-10-07｜印: 公式",
+       "ent_indiehackers_6548833164b0_fact_8｜出典: https://www.ycombinator.com/blog/your-whole-goal-is-to-not-quit-courtland-allen-of-indie-hackers/｜発言・公開日: 2017-09-22｜確認日: 2026-10-07｜印: 本人",
+       "ent_indiehackers_6548833164b0_fact_10｜出典: https://www.ycombinator.com/blog/your-whole-goal-is-to-not-quit-courtland-allen-of-indie-hackers/｜発言・公開日: 2017-09-22｜確認日: 2026-10-07｜印: 本人",
+       "ent_indiehackers_6548833164b0_fact_11｜出典: https://www.ycombinator.com/blog/your-whole-goal-is-to-not-quit-courtland-allen-of-indie-hackers/｜発言・公開日: 2017-09-22｜確認日: 2026-10-07｜印: 本人",
+       "ent_indiehackers_6548833164b0_fact_12｜出典: https://www.ycombinator.com/blog/your-whole-goal-is-to-not-quit-courtland-allen-of-indie-hackers/｜発言・公開日: 2017-09-22｜確認日: 2026-10-07｜印: 本人",
+       "ent_indiehackers_6548833164b0_fact_15｜出典: https://news.ycombinator.com/item?id=12269425｜発言・公開日: 2016-08-11｜確認日: 2026-10-07｜印: 第三者",
+       "ent_indiehackers_6548833164b0_fact_20｜出典: https://www.indiehackers.com/post/i-created-and-run-indie-hackers-ama-2e6643ba07｜発言・公開日: 2018-11-14｜確認日: 2026-10-07｜印: 本人",
+       "ent_indiehackers_6548833164b0_fact_21｜出典: https://www.indiehackers.com/post/i-created-and-run-indie-hackers-ama-2e6643ba07｜発言・公開日: 2018-11-14｜確認日: 2026-10-07｜印: 本人",
+       "ent_indiehackers_6548833164b0_fact_32｜出典: https://www.indiehackers.com/post/courtland-allen-on-ai-spam-bots-and-the-future-of-social-platforms-like-ih-2b979782b0｜発言・公開日: 2023-07-21｜確認日: 2026-10-07｜印: 本人",
+       "ent_indiehackers_6548833164b0_fact_35｜出典: https://www.indiehackers.com/plus｜発言・公開日: 表示なし｜確認日: 2026-10-07｜印: 公式"
+      ],
+      "url": "https://www.indiehackers.com/about",
+      "sourceNote": "実際に開いた公開本文の事実を日本語で要約。詳細は対応する事実の識別子を参照。",
+      "sourceClass": "PRIMARY"
+     },
+     {
+      "id": "ent_indiehackers_6548833164b0_chapter_2",
+      "type": "UNKNOWN_AUDIT",
+      "title": "質問の改善と埋もれる投稿への対応",
+      "badge": "つまずきと立て直し",
+      "evidenceStatus": "REPORTED",
+      "punchline": "本人が変更した内容を記録。数値で立て直しが実証されたとは扱わない。",
+      "details": [
+       "ent_indiehackers_6548833164b0_fact_9｜出典: https://www.ycombinator.com/blog/your-whole-goal-is-to-not-quit-courtland-allen-of-indie-hackers/｜発言・公開日: 2017-09-22｜確認日: 2026-10-07｜印: 本人",
+       "ent_indiehackers_6548833164b0_fact_17｜出典: https://news.ycombinator.com/item?id=12269425｜発言・公開日: 2016-08-11｜確認日: 2026-10-07｜印: 本人",
+       "ent_indiehackers_6548833164b0_fact_26｜出典: https://www.indiehackers.com/product/indie-hackers｜発言・公開日: 2018-07-24｜確認日: 2026-10-07｜印: 本人",
+       "ent_indiehackers_6548833164b0_fact_31｜出典: https://www.indiehackers.com/post/courtland-allen-on-ai-spam-bots-and-the-future-of-social-platforms-like-ih-2b979782b0｜発言・公開日: 2023-07-21｜確認日: 2026-10-07｜印: 本人"
+      ],
+      "url": "https://www.ycombinator.com/blog/your-whole-goal-is-to-not-quit-courtland-allen-of-indie-hackers/",
+      "sourceNote": "実際に開いた公開本文の事実を日本語で要約。詳細は対応する事実の識別子を参照。",
+      "sourceClass": "PRIMARY"
+     },
+     {
+      "id": "ent_indiehackers_6548833164b0_chapter_3",
+      "type": "UNKNOWN_AUDIT",
+      "title": "取材10件から製品目録と有料資料へ",
+      "badge": "時間順の流れ",
+      "evidenceStatus": "REPORTED",
+      "punchline": "公開、機能追加、独立発表、文章資料への移行を時点別に記録。",
+      "details": [
+       "ent_indiehackers_6548833164b0_fact_2｜出典: https://www.indiehackers.com/about｜発言・公開日: 表示なし｜確認日: 2026-10-07｜印: 公式",
+       "ent_indiehackers_6548833164b0_fact_3｜出典: https://www.indiehackers.com/about｜発言・公開日: 表示なし｜確認日: 2026-10-07｜印: 公式",
+       "ent_indiehackers_6548833164b0_fact_4｜出典: https://www.indiehackers.com/about｜発言・公開日: 表示なし｜確認日: 2026-10-07｜印: 公式",
+       "ent_indiehackers_6548833164b0_fact_13｜出典: https://www.ycombinator.com/blog/your-whole-goal-is-to-not-quit-courtland-allen-of-indie-hackers/｜発言・公開日: 2017-09-22｜確認日: 2026-10-07｜印: 本人",
+       "ent_indiehackers_6548833164b0_fact_14｜出典: https://news.ycombinator.com/item?id=12269425｜発言・公開日: 2016-08-11｜確認日: 2026-10-07｜印: 本人",
+       "ent_indiehackers_6548833164b0_fact_19｜出典: https://www.indiehackers.com/post/i-created-and-run-indie-hackers-ama-2e6643ba07｜発言・公開日: 2018-11-14｜確認日: 2026-10-07｜印: 本人",
+       "ent_indiehackers_6548833164b0_fact_22｜出典: https://www.indiehackers.com/product/indie-hackers｜発言・公開日: 2018-01-01｜確認日: 2026-10-07｜印: 本人",
+       "ent_indiehackers_6548833164b0_fact_23｜出典: https://www.indiehackers.com/product/indie-hackers｜発言・公開日: 2018-01-17｜確認日: 2026-10-07｜印: 本人",
+       "ent_indiehackers_6548833164b0_fact_24｜出典: https://www.indiehackers.com/product/indie-hackers｜発言・公開日: 2018-02-28｜確認日: 2026-10-07｜印: 本人",
+       "ent_indiehackers_6548833164b0_fact_25｜出典: https://www.indiehackers.com/product/indie-hackers｜発言・公開日: 2018-06-13｜確認日: 2026-10-07｜印: 本人",
+       "ent_indiehackers_6548833164b0_fact_29｜出典: https://www.indiehackers.com/post/whats-new-indie-hackers-is-indie-again-1d228c6387｜発言・公開日: 2023-04-06｜確認日: 2026-10-07｜印: 本人",
+       "ent_indiehackers_6548833164b0_fact_30｜出典: https://www.indiehackers.com/post/whats-new-indie-hackers-is-indie-again-1d228c6387｜発言・公開日: 2023-04-06｜確認日: 2026-10-07｜印: 本人",
+       "ent_indiehackers_6548833164b0_fact_33｜出典: https://foundersconfidential418.substack.com/p/i-profiled-80-companies-for-indie｜発言・公開日: 2024-11-05｜確認日: 2026-10-07｜印: 第三者"
+      ],
+      "url": "https://www.indiehackers.com/about",
+      "sourceNote": "実際に開いた公開本文の事実を日本語で要約。詳細は対応する事実の識別子を参照。",
+      "sourceClass": "PRIMARY"
+     },
+     {
+      "id": "ent_indiehackers_6548833164b0_chapter_4",
+      "type": "UNKNOWN_AUDIT",
+      "title": "1人で約3週間、公開時は取材10件",
+      "badge": "出発点",
+      "evidenceStatus": "REPORTED",
+      "punchline": "人数、準備期間、最初の掲載数と初期の構成を確認。",
+      "details": [
+       "ent_indiehackers_6548833164b0_fact_6｜出典: https://www.ycombinator.com/blog/your-whole-goal-is-to-not-quit-courtland-allen-of-indie-hackers/｜発言・公開日: 2017-09-22｜確認日: 2026-10-07｜印: 本人",
+       "ent_indiehackers_6548833164b0_fact_7｜出典: https://www.ycombinator.com/blog/your-whole-goal-is-to-not-quit-courtland-allen-of-indie-hackers/｜発言・公開日: 2017-09-22｜確認日: 2026-10-07｜印: 本人",
+       "ent_indiehackers_6548833164b0_fact_27｜出典: https://www.softwaresessions.com/episodes/building-indie-hackers-with-courtland-allen/｜発言・公開日: 2020-04-22｜確認日: 2026-10-07｜印: 本人",
+       "ent_indiehackers_6548833164b0_fact_28｜出典: https://www.softwaresessions.com/episodes/building-indie-hackers-with-courtland-allen/｜発言・公開日: 2020-04-22｜確認日: 2026-10-07｜印: 本人"
+      ],
+      "url": "https://www.ycombinator.com/blog/your-whole-goal-is-to-not-quit-courtland-allen-of-indie-hackers/",
+      "sourceNote": "実際に開いた公開本文の事実を日本語で要約。詳細は対応する事実の識別子を参照。",
+      "sourceClass": "PRIMARY"
+     },
+     {
+      "id": "ent_indiehackers_6548833164b0_chapter_5",
+      "type": "UNKNOWN_AUDIT",
+      "title": "確認できた現行年額は198ドル",
+      "badge": "価格の変遷",
+      "evidenceStatus": "REPORTED",
+      "punchline": "現行料金と返金条件。発売価格や中間の変更日は空欄。",
+      "details": [
+       "ent_indiehackers_6548833164b0_fact_34｜出典: https://www.indiehackers.com/plus｜発言・公開日: 表示なし｜確認日: 2026-10-07｜印: 公式",
+       "ent_indiehackers_6548833164b0_fact_36｜出典: https://www.indiehackers.com/plus｜発言・公開日: 表示なし｜確認日: 2026-10-07｜印: 公式"
+      ],
+      "url": "https://www.indiehackers.com/plus",
+      "sourceNote": "実際に開いた公開本文の事実を日本語で要約。詳細は対応する事実の識別子を参照。",
+      "sourceClass": "PRIMARY"
+     },
+     {
+      "id": "ent_indiehackers_6548833164b0_chapter_6",
+      "type": "UNKNOWN_AUDIT",
+      "title": "具体的な金額への評価と最高値表示への指摘",
+      "badge": "客の声",
+      "evidenceStatus": "REPORTED",
+      "punchline": "当時の公開コメントと、公式が選んだ推薦文を区別。",
+      "details": [
+       "ent_indiehackers_6548833164b0_fact_16｜出典: https://news.ycombinator.com/item?id=12269425｜発言・公開日: 2016-08-11｜確認日: 2026-10-07｜印: 第三者",
+       "ent_indiehackers_6548833164b0_fact_18｜出典: https://news.ycombinator.com/item?id=12269425｜発言・公開日: 2016-08-11｜確認日: 2026-10-07｜印: 第三者",
+       "ent_indiehackers_6548833164b0_fact_37｜出典: https://www.indiehackers.com/plus｜発言・公開日: 表示なし｜確認日: 2026-10-07｜印: 公式"
+      ],
+      "url": "https://news.ycombinator.com/item?id=12269425",
+      "sourceNote": "実際に開いた公開本文の事実を日本語で要約。詳細は対応する事実の識別子を参照。",
+      "sourceClass": "INDEPENDENT_SECONDARY"
+     }
+    ],
+    "claimBindings": [],
+    "publishability": "PARTIAL",
+    "batchId": "codex_gen2_20261007",
+    "financialStatus": "UNAVAILABLE",
+    "incumbentDilemma": "",
+    "blindspot": "",
+    "moatDescription": "",
+    "unknownsNotes": [
+     "2026年現在の総売上、有料会員数、費用、利益、利益率、手残り。過去の回想値だけでは現在の損益を作れない。",
+     "開始時の元手の金額と現在の総人数。開始時1人は確認できたが、金額や現在人数の本文根拠はない。",
+     "スポンサー枠の単価・成約件数・最初の支払客、初期の月別売上の連続記録。該当する古い月次記事の本文にアクセスできなかった。",
+     "Indie Hackers Plusの発売日と過去料金の確定した変更履歴。2024年の存在と現在の年額は確認したが、変更日と旧価格は未取得。",
+     "変更施策ごとの売上・登録率の前後比較。掲示板の登録率8%は目標であり達成の証拠ではない。",
+     "有料会員に限定した評価・不満。無料の読者の声と公式掲載の推薦文は得られたが、支払者の属性は確認できない。",
+     "公式紹介・現行料金の公開日。公開日表示がないため確認日を別に記録した。",
+     "対象国、堀、大手の盲点、客の心理、自動化率。出典にない解釈は空欄にした。"
+    ],
+    "isGrowthUnconfirmed": true,
+    "essencePartial": {
+     "whatItDoes": "利益の出ている事業の創業者の経験を集め、取材記事と相談の場を提供する。",
+     "targetCustomer": "起業を考える人と、事業を始めた創業者"
+    },
+    "normalizedFromResearch": [
+     "publishability: REVIEW_REQUIRED→PARTIAL",
+     "growthRateYoY: 空→0",
+     "pnl.monthlyRevenue: 空→0",
+     "pnl.cogs: 空→0",
+     "pnl.grossProfit: 空→0",
+     "pnl.grossMargin: 空→0",
+     "pnl.operatingProfit: 空→0",
+     "pnl.operatingMargin: 空→0",
+     "pnl.estimatedAnnualNetProfit: 空→0",
+     "pnl.operatingExpenses.serverAndApi: 空→0",
+     "pnl.operatingExpenses.advertising: 空→0",
+     "pnl.operatingExpenses.subcontracting: 空→0",
+     "pnl.operatingExpenses.toolsAndSaaS: 空→0",
+     "pnl.operatingExpenses.other: 空→0",
+     "operations.teamSize: 空→0",
+     "operations.weeklyHours: 空→0",
+     "operations.initialCapitalRequired: 空→0",
+     "operations.automationLevel: 空→0",
+     "operations.currentTeamSize: 空→欄を外す",
+     "operations.toolStack: 文字列→名前と用途",
+     "evidenceCards.0.type: \"RESEARCH_MATERIAL\"→UNKNOWN_AUDIT",
+     "evidenceCards.1.type: \"RESEARCH_MATERIAL\"→UNKNOWN_AUDIT",
+     "evidenceCards.2.type: \"RESEARCH_MATERIAL\"→UNKNOWN_AUDIT",
+     "evidenceCards.3.type: \"RESEARCH_MATERIAL\"→UNKNOWN_AUDIT",
+     "evidenceCards.4.type: \"RESEARCH_MATERIAL\"→UNKNOWN_AUDIT",
+     "evidenceCards.5.type: \"RESEARCH_MATERIAL\"→UNKNOWN_AUDIT",
+     "evidenceCards.5.sourceClass: SECONDARY→INDEPENDENT_SECONDARY",
+     "essence: 空欄あり→essencePartial へ移して欄を外す"
+    ]
+   }
+  }
+ ]
+}

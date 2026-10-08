@@ -1,0 +1,765 @@
+{
+ "version": 1,
+ "source": {
+  "manifest": "/private/tmp/claude-501/-Users-satoushinya-project-Make-Money/2be145c1-d0c7-4f02-9457-3c8f190a0980/scratchpad/gen2/typedream-record.json",
+  "manifestSha256": "d1dcf212444cca7bec5e3350c5cfd6f57f275e46c202d898074a802d78c66b4b",
+  "artifactsDir": "",
+  "collectedAt": "2026-10-07T10:48:24.508Z"
+ },
+ "records": [
+  {
+   "id": "ent_typedream_c02cf9d5426e",
+   "provenance": {
+    "detailsHash": "aef7e02a9ab2a892c1403e4b47ef005f212943716f46a612e9a48e499590833f",
+    "artifactSha256": "d1dcf212444cca7bec5e3350c5cfd6f57f275e46c202d898074a802d78c66b4b"
+   },
+   "record": {
+    "id": "ent_typedream_c02cf9d5426e",
+    "ticker": "TYPEDREAM",
+    "name": "Typedream",
+    "legalEntity": "beehiiv, Inc.（現在の公式料金ページの著作権表記）",
+    "tagline": "Notionのように文章を編集してサイトを作る。利用者の声からボタンやナビゲーションを足し、独自ドメインなどをサイトごとの継続課金で提供する",
+    "description": "文章を直接編集する操作でサイトを作るサービス。創業者は認証サービスの利用者からNotion連携を求められ、サイト作成に足りない機能を聞き取って製品化した。現在の料金表には無料枠とサイトごとの有料プラン、商品販売の取引手数料が掲載されている。",
+    "sector": "NICHE_SAAS",
+    "scale": "SMALL_TEAM",
+    "founder": "Kevin Chandra、Anthony Christian、Putri Karunia、Michelle Marcelline、Albert Purnama",
+    "country": "米国（Y Combinatorの所在地表記はSan Francisco）",
+    "url": "https://typedream.com/",
+    "officialUrl": "https://typedream.com/",
+    "verifiedBadge": false,
+    "growthRateYoY": 0,
+    "architecturePattern": "無料の1ページ公開から、独自ドメインと複数ページなどを備えるサイト単位の月払い・年払いへつなぐ。商品販売は取引手数料も設定。",
+    "pipelineStack": "",
+    "targetPainWallet": "",
+    "tags": [
+     "コード不要のサイト作成",
+     "文章編集",
+     "独自ドメイン",
+     "利用者への聞き取り",
+     "紹介報酬",
+     "収集事例"
+    ],
+    "pnl": {
+     "monthlyRevenue": 0,
+     "cogs": 0,
+     "grossProfit": 0,
+     "grossMargin": 0,
+     "operatingExpenses": {
+      "serverAndApi": 0,
+      "advertising": 0,
+      "subcontracting": 0,
+      "toolsAndSaaS": 0,
+      "other": 0
+     },
+     "operatingProfit": 0,
+     "operatingMargin": 0,
+     "estimatedAnnualNetProfit": 0,
+     "isRevenueUnconfirmed": true,
+     "isOperatingProfitUnconfirmed": true,
+     "isMarginUnconfirmed": true,
+     "isGrossProfitUnconfirmed": true,
+     "isGrossMarginUnconfirmed": true,
+     "isCogsUnconfirmed": true,
+     "isCostsUnconfirmed": true,
+     "isNetProfitUnconfirmed": true,
+     "financialStatus": "UNAVAILABLE",
+     "dataSnapshotPeriod": "2021〜2024年の発言・記事と、2026-10-07に確認した現行ページ",
+     "revenueLabel": "",
+     "sourceDoc": "https://typedream.com/",
+     "sourceClass": "PRIMARY"
+    },
+    "facts": [
+     {
+      "kind": "DESCRIPTION",
+      "text": "コードを書かずにサイトを作り、電子書籍・講座・テンプレート・サービスを販売し、フォームでメールアドレスを集める機能を提供している。",
+      "sourceUrl": "https://typedream.com/",
+      "statedAt": null,
+      "checkedAt": "2026-10-07",
+      "originLabel": "公式",
+      "materialSection": "実際にやったこと",
+      "eventPeriod": null,
+      "dateNote": "公表日は記載なし。確認日を記録し、出来事の時期とは区別。"
+     },
+     {
+      "kind": "OTHER",
+      "text": "公式サイトには、作成されたサイト135,000件と記載されている。累計作成数の表示であり、有料客数や稼働中サイト数ではない。",
+      "sourceUrl": "https://typedream.com/",
+      "statedAt": null,
+      "checkedAt": "2026-10-07",
+      "originLabel": "公式",
+      "materialSection": "時間順の流れ",
+      "eventPeriod": "2026-10-07の表示",
+      "dateNote": "公表日は記載なし。確認日を記録し、出来事の時期とは区別。"
+     },
+     {
+      "kind": "PRICING",
+      "text": "現在のLaunchは1サイトごとに月払い$20、年払いは月額換算$15。独自ドメイン、無制限のページ、解析、ブログ1件を含む。",
+      "sourceUrl": "https://typedream.com/pricing",
+      "statedAt": null,
+      "checkedAt": "2026-10-07",
+      "originLabel": "公式",
+      "materialSection": "価格の変遷",
+      "eventPeriod": "2026-10-07の表示",
+      "dateNote": "公表日は記載なし。確認日を記録し、出来事の時期とは区別。"
+     },
+     {
+      "kind": "PRICING",
+      "text": "現在のGrowは1サイトごとに月払い$49、年払いは月額換算$42。ブログ数とフォーム送信数の上限がなくなる。",
+      "sourceUrl": "https://typedream.com/pricing",
+      "statedAt": null,
+      "checkedAt": "2026-10-07",
+      "originLabel": "公式",
+      "materialSection": "価格の変遷",
+      "eventPeriod": "2026-10-07の表示",
+      "dateNote": "公表日は記載なし。確認日を記録し、出来事の時期とは区別。"
+     },
+     {
+      "kind": "PRICING",
+      "text": "無料枠は1ページを公開できる。商品販売の取引手数料は無料枠5%、LaunchとGrowは2%で、カードまたはPayPalの手数料は別にかかる。",
+      "sourceUrl": "https://typedream.com/pricing",
+      "statedAt": null,
+      "checkedAt": "2026-10-07",
+      "originLabel": "公式",
+      "materialSection": "価格の変遷",
+      "eventPeriod": "2026-10-07の表示",
+      "dateNote": "公表日は記載なし。確認日を記録し、出来事の時期とは区別。"
+     },
+     {
+      "kind": "FOUNDING",
+      "text": "Kevin Chandraは、Typedreamを2021年に始めたと記している。",
+      "sourceUrl": "https://typedream.com/blogs/typedream-joins-beehiiv-june-2024",
+      "statedAt": "2024-06-25",
+      "checkedAt": "2026-10-07",
+      "originLabel": "本人",
+      "materialSection": "出発点",
+      "eventPeriod": "2021年",
+      "dateNote": "日付は資料の公表日。出来事の時期は別記。"
+     },
+     {
+      "kind": "OTHER",
+      "text": "顧客との通話、機能要望、障害報告を受けながら製品を改善してきたと説明している。",
+      "sourceUrl": "https://typedream.com/blogs/typedream-joins-beehiiv-june-2024",
+      "statedAt": "2024-06-25",
+      "checkedAt": "2026-10-07",
+      "originLabel": "本人",
+      "materialSection": "実際にやったこと",
+      "eventPeriod": "2021〜2024年",
+      "dateNote": "日付は資料の公表日。出来事の時期は別記。"
+     },
+     {
+      "kind": "TEAM",
+      "text": "創業者としてKevin Chandra、Anthony Christian、Putri Karunia、Michelle Marcelline、Albert Purnamaの5人が掲載されている。",
+      "sourceUrl": "https://www.ycombinator.com/companies/typedream",
+      "statedAt": null,
+      "checkedAt": "2026-10-07",
+      "originLabel": "公式",
+      "materialSection": "出発点",
+      "eventPeriod": null,
+      "dateNote": "公表日は記載なし。確認日を記録し、出来事の時期とは区別。"
+     },
+     {
+      "kind": "FOUNDING",
+      "text": "Y Combinatorの企業欄は設立年を2020年、参加期を2020年冬、所在地をSan Franciscoとしている。Typedreamという製品の開始年とは分けて扱う。",
+      "sourceUrl": "https://www.ycombinator.com/companies/typedream",
+      "statedAt": null,
+      "checkedAt": "2026-10-07",
+      "originLabel": "公式",
+      "materialSection": "出発点",
+      "eventPeriod": "2020年",
+      "dateNote": "公表日は記載なし。確認日を記録し、出来事の時期とは区別。"
+     },
+     {
+      "kind": "EVENT",
+      "text": "beehiivの発表によると、2021年7月にProduct Huntの月間1位になった。",
+      "sourceUrl": "https://www.beehiiv.com/blog/beehiiv-acquires-ai-based-website-builder-typedream",
+      "statedAt": "2024-06-25",
+      "checkedAt": "2026-10-07",
+      "originLabel": "公式",
+      "materialSection": "時間順の流れ",
+      "eventPeriod": "2021年7月",
+      "dateNote": "日付は資料の公表日。出来事の時期は別記。"
+     },
+     {
+      "kind": "OTHER",
+      "text": "2024年6月の公式発表では、Typedream上で数万件のサイトが稼働していると説明した。有料客数の公表ではない。",
+      "sourceUrl": "https://www.beehiiv.com/blog/beehiiv-acquires-ai-based-website-builder-typedream",
+      "statedAt": "2024-06-25",
+      "checkedAt": "2026-10-07",
+      "originLabel": "公式",
+      "materialSection": "時間順の流れ",
+      "eventPeriod": "2024年6月",
+      "dateNote": "日付は資料の公表日。出来事の時期は別記。"
+     },
+     {
+      "kind": "TEAM",
+      "text": "beehiivの発表は、Typedreamを5人の技術者が創業したサービスと説明している。",
+      "sourceUrl": "https://www.beehiiv.com/blog/beehiiv-acquires-ai-based-website-builder-typedream",
+      "statedAt": "2024-06-25",
+      "checkedAt": "2026-10-07",
+      "originLabel": "公式",
+      "materialSection": "出発点",
+      "eventPeriod": null,
+      "dateNote": "日付は資料の公表日。出来事の時期は別記。"
+     },
+     {
+      "kind": "OTHER",
+      "text": "認証サービスを作っていた際、Notionとの連携を求められた。利用者に聞くと、文章を直接編集できる操作が好まれ、ボタンやナビゲーションが不足していた。",
+      "sourceUrl": "https://news.ycombinator.com/item?id=29084309",
+      "statedAt": "2021-11-02",
+      "checkedAt": "2026-10-07",
+      "originLabel": "本人",
+      "materialSection": "実際にやったこと",
+      "eventPeriod": "2021-11-02までの経緯",
+      "dateNote": "日付は資料の公表日。出来事の時期は別記。"
+     },
+     {
+      "kind": "OTHER",
+      "text": "その聞き取りから、文章編集の操作にサイト用の部品と標準デザインを足し、画面サイズへの対応も製品側で受け持つ形にした。",
+      "sourceUrl": "https://news.ycombinator.com/item?id=29084309",
+      "statedAt": "2021-11-02",
+      "checkedAt": "2026-10-07",
+      "originLabel": "本人",
+      "materialSection": "実際にやったこと",
+      "eventPeriod": "2021-11-02までの経緯",
+      "dateNote": "日付は資料の公表日。出来事の時期は別記。"
+     },
+     {
+      "kind": "OTHER",
+      "text": "Putri Karuniaは、以前は利用者を十分に定められなかったため、今回は制作前に候補利用者を徹底して聞き取ったと返答した。返答日は2021年11月3日。",
+      "sourceUrl": "https://news.ycombinator.com/item?id=29084309",
+      "statedAt": "2021-11-03",
+      "checkedAt": "2026-10-07",
+      "originLabel": "本人",
+      "materialSection": "つまずきと立て直し",
+      "eventPeriod": "2021-11-03",
+      "dateNote": "日付は創業者の返答投稿日。議論の開始日は2021-11-02。"
+     },
+     {
+      "kind": "PRICING",
+      "text": "2021年11月2日の投稿で試用者が年$144の価格を挙げ、創業者は他のサイト作成サービスの価格を参考にしたと返答した。料金表そのものの確認とは区別する。",
+      "sourceUrl": "https://news.ycombinator.com/item?id=29084309",
+      "statedAt": "2021-11-02",
+      "checkedAt": "2026-10-07",
+      "originLabel": "本人・第三者",
+      "materialSection": "価格の変遷",
+      "eventPeriod": "2021-11-02",
+      "dateNote": "日付は資料の公表日。出来事の時期は別記。"
+     },
+     {
+      "kind": "OTHER",
+      "text": "試用者yutersはNotion利用者ならなじみやすいと評価した一方、背景色の変更と画面外に隠れる操作メニューを指摘。創業者は改善点と障害を認めた。",
+      "sourceUrl": "https://news.ycombinator.com/item?id=29084309",
+      "statedAt": "2021-11-02",
+      "checkedAt": "2026-10-07",
+      "originLabel": "第三者・本人",
+      "materialSection": "客の声",
+      "eventPeriod": "2021-11-02",
+      "dateNote": "日付は資料の公表日。出来事の時期は別記。"
+     },
+     {
+      "kind": "PRICING",
+      "text": "旧料金ページのLaunchは月払い$15、年払いは月額換算$12。公開ページ数無制限と独自ドメインを含む。適用開始日と終了日はページから分からない。",
+      "sourceUrl": "https://typedream.com/old-pricing",
+      "statedAt": null,
+      "checkedAt": "2026-10-07",
+      "originLabel": "公式",
+      "materialSection": "価格の変遷",
+      "eventPeriod": "旧料金ページを2026-10-07に確認",
+      "dateNote": "公表日は記載なし。確認日を記録し、出来事の時期とは区別。"
+     },
+     {
+      "kind": "PRICING",
+      "text": "旧料金ページのProは月払い$25、年払いは月額換算$20。保護ページとNotionのデータ表示などを含む。",
+      "sourceUrl": "https://typedream.com/old-pricing",
+      "statedAt": null,
+      "checkedAt": "2026-10-07",
+      "originLabel": "公式",
+      "materialSection": "価格の変遷",
+      "eventPeriod": "旧料金ページを2026-10-07に確認",
+      "dateNote": "公表日は記載なし。確認日を記録し、出来事の時期とは区別。"
+     },
+     {
+      "kind": "OTHER",
+      "text": "旧料金ページには、月または年ごとの自動更新と、解約時は支払期間末まで利用できることが記載されている。",
+      "sourceUrl": "https://typedream.com/old-pricing",
+      "statedAt": null,
+      "checkedAt": "2026-10-07",
+      "originLabel": "公式",
+      "materialSection": "実際にやったこと",
+      "eventPeriod": "旧料金ページを2026-10-07に確認",
+      "dateNote": "公表日は記載なし。確認日を記録し、出来事の時期とは区別。"
+     },
+     {
+      "kind": "OTHER",
+      "text": "Kyleigh Smithは、Dry January Challengeの募集ページを約1日で用意できたことが最大の利点だったと述べた。",
+      "sourceUrl": "https://typedream.com/blog/kyleigh-smith",
+      "statedAt": "2023-05-15",
+      "checkedAt": "2026-10-07",
+      "originLabel": "第三者",
+      "materialSection": "客の声",
+      "eventPeriod": "2023-05-15までの利用経験",
+      "dateNote": "日付は資料の公表日。出来事の時期は別記。"
+     },
+     {
+      "kind": "OTHER",
+      "text": "Kyleigh Smithは、約1年前の試用でドラッグ操作に困り、Unicorn Platformを使い続けたが、再試用では問題が解消され、Typedreamを採用したと述べた。",
+      "sourceUrl": "https://typedream.com/blog/kyleigh-smith",
+      "statedAt": "2023-05-15",
+      "checkedAt": "2026-10-07",
+      "originLabel": "第三者",
+      "materialSection": "つまずきと立て直し",
+      "eventPeriod": "2023-05-15までの利用経験",
+      "dateNote": "日付は資料の公表日。出来事の時期は別記。"
+     },
+     {
+      "kind": "OTHER",
+      "text": "Kyleigh Smithは、TwitterとProduct HuntでTypedreamのチームを見かけて知ったと述べた。販売促進経路の利用者側の証言である。",
+      "sourceUrl": "https://typedream.com/blog/kyleigh-smith",
+      "statedAt": "2023-05-15",
+      "checkedAt": "2026-10-07",
+      "originLabel": "第三者",
+      "materialSection": "実際にやったこと",
+      "eventPeriod": "2023-05-15までの利用経験",
+      "dateNote": "日付は資料の公表日。出来事の時期は別記。"
+     },
+     {
+      "kind": "OTHER",
+      "text": "Kyleigh Smithは、あらかじめ整った部品を動かして自分の意図に合わせられることと、公開や修正の容易さを評価した。",
+      "sourceUrl": "https://typedream.com/blog/kyleigh-smith",
+      "statedAt": "2023-05-15",
+      "checkedAt": "2026-10-07",
+      "originLabel": "第三者",
+      "materialSection": "客の声",
+      "eventPeriod": "2023-05-15までの利用経験",
+      "dateNote": "日付は資料の公表日。出来事の時期は別記。"
+     },
+     {
+      "kind": "OTHER",
+      "text": "紹介報酬の案内は、継続課金に対して20%の報酬を提示し、PayPalで毎月支払うと説明している。実際の集客件数や費用ではない。",
+      "sourceUrl": "https://typedream.com/affiliate",
+      "statedAt": null,
+      "checkedAt": "2026-10-07",
+      "originLabel": "公式",
+      "materialSection": "実際にやったこと",
+      "eventPeriod": "2026-10-07の表示",
+      "dateNote": "公表日は記載なし。確認日を記録し、出来事の時期とは区別。"
+     },
+     {
+      "kind": "OTHER",
+      "text": "紹介報酬ページには、2022年4月19日のEasloの投稿が掲載されている。本人がTypedreamで募集ページを約5分で作ったとする利用談である。",
+      "sourceUrl": "https://typedream.com/affiliate",
+      "statedAt": null,
+      "checkedAt": "2026-10-07",
+      "originLabel": "第三者",
+      "materialSection": "客の声",
+      "eventPeriod": "2022-04-19",
+      "dateNote": "公表日は記載なし。確認日を記録し、出来事の時期とは区別。"
+     },
+     {
+      "kind": "PRICING",
+      "text": "2023年5月9日更新の返金規定は、新規の有料プランをカードで購入した場合、最初の14日以内を全額返金の対象とする。更新料金は原則として対象外。",
+      "sourceUrl": "https://typedream.com/refund-policy",
+      "statedAt": "2023-05-09",
+      "checkedAt": "2026-10-07",
+      "originLabel": "公式",
+      "materialSection": "価格の変遷",
+      "eventPeriod": "2023-05-09の規定",
+      "dateNote": "日付は資料の公表日。出来事の時期は別記。"
+     },
+     {
+      "kind": "EVENT",
+      "text": "公式記事目録は、2023年4月28日に無料枠へブログとフォームを開放した記事を掲載している。目録の要約確認であり、その時点の詳細上限は確認していない。",
+      "sourceUrl": "https://typedream.com/blog",
+      "statedAt": null,
+      "checkedAt": "2026-10-07",
+      "originLabel": "公式",
+      "materialSection": "時間順の流れ",
+      "eventPeriod": "2023-04-28",
+      "dateNote": "公表日は記載なし。確認日を記録し、出来事の時期とは区別。"
+     },
+     {
+      "kind": "EVENT",
+      "text": "公式記事目録には、2023年5月15日付でKyleigh Smithへの利用者インタビューが掲載されている。",
+      "sourceUrl": "https://typedream.com/blog",
+      "statedAt": null,
+      "checkedAt": "2026-10-07",
+      "originLabel": "公式",
+      "materialSection": "時間順の流れ",
+      "eventPeriod": "2023-05-15",
+      "dateNote": "公表日は記載なし。確認日を記録し、出来事の時期とは区別。"
+     }
+    ],
+    "reaudit": {
+     "status": "PARTIAL",
+     "auditDate": "2026-10-07",
+     "timezone": "Asia/Tokyo",
+     "auditOwner": "codex_gen2_20261007",
+     "method": "MANUAL_REAUDIT",
+     "family": "new-collection",
+     "sources": [
+      {
+       "url": "https://typedream.com/",
+       "publisher": "Typedream（公式製品紹介）",
+       "sourceType": "official_website",
+       "publicationDate": null,
+       "checkedAt": "2026-10-07",
+       "rightsTier": "TIER1_OFFICIAL"
+      },
+      {
+       "url": "https://typedream.com/pricing",
+       "publisher": "Typedream（現在の料金表）",
+       "sourceType": "official_pricing",
+       "publicationDate": null,
+       "checkedAt": "2026-10-07",
+       "rightsTier": "TIER1_OFFICIAL"
+      },
+      {
+       "url": "https://typedream.com/blogs/typedream-joins-beehiiv-june-2024",
+       "publisher": "Typedream（Kevin Chandraの発表）",
+       "sourceType": "official_blog",
+       "publicationDate": "2024-06-25",
+       "checkedAt": "2026-10-07",
+       "rightsTier": "TIER1_OFFICIAL"
+      },
+      {
+       "url": "https://www.ycombinator.com/companies/typedream",
+       "publisher": "Y Combinator（企業紹介）",
+       "sourceType": "official_website",
+       "publicationDate": null,
+       "checkedAt": "2026-10-07",
+       "rightsTier": "TIER1_OFFICIAL"
+      },
+      {
+       "url": "https://www.beehiiv.com/blog/beehiiv-acquires-ai-based-website-builder-typedream",
+       "publisher": "beehiiv（公式発表）",
+       "sourceType": "official_blog",
+       "publicationDate": "2024-06-25",
+       "checkedAt": "2026-10-07",
+       "rightsTier": "TIER1_OFFICIAL"
+      },
+      {
+       "url": "https://news.ycombinator.com/item?id=29084309",
+       "publisher": "Hacker News（創業者投稿と試用者の返答）",
+       "sourceType": "founder_post",
+       "publicationDate": "2021-11-02",
+       "checkedAt": "2026-10-07",
+       "rightsTier": "TIER2_FACTS_ONLY"
+      },
+      {
+       "url": "https://typedream.com/old-pricing",
+       "publisher": "Typedream（旧料金ページ）",
+       "sourceType": "official_pricing",
+       "publicationDate": null,
+       "checkedAt": "2026-10-07",
+       "rightsTier": "TIER1_OFFICIAL"
+      },
+      {
+       "url": "https://typedream.com/blog/kyleigh-smith",
+       "publisher": "Typedream（利用者Kyleigh Smithへのインタビュー）",
+       "sourceType": "official_blog",
+       "publicationDate": "2023-05-15",
+       "checkedAt": "2026-10-07",
+       "rightsTier": "TIER1_OFFICIAL"
+      },
+      {
+       "url": "https://typedream.com/affiliate",
+       "publisher": "Typedream（紹介報酬の案内）",
+       "sourceType": "official_website",
+       "publicationDate": null,
+       "checkedAt": "2026-10-07",
+       "rightsTier": "TIER1_OFFICIAL"
+      },
+      {
+       "url": "https://typedream.com/refund-policy",
+       "publisher": "Typedream（返金規定）",
+       "sourceType": "official_website",
+       "publicationDate": "2023-05-09",
+       "checkedAt": "2026-10-07",
+       "rightsTier": "TIER1_OFFICIAL"
+      },
+      {
+       "url": "https://typedream.com/blog",
+       "publisher": "Typedream（記事目録）",
+       "sourceType": "official_website",
+       "publicationDate": null,
+       "checkedAt": "2026-10-07",
+       "rightsTier": "TIER1_OFFICIAL"
+      }
+     ],
+     "supported": [],
+     "unknown": [
+      "売上・利益・原価・現金手残りの実額: 確認した公開資料に該当金額がない。価格やサイト作成数から売上を逆算しない。",
+      "出発点の元手・制作期間・最初の有料客数: 創業者5人と製品開始年は確認できたが、必要な初期金額・期間・有料化の記録は見つからなかった。",
+      "最初の1,000人を獲得した具体策と内訳: 該当の公式記事を開いたが、見出し・日付・紹介文しか取得できず本文を確認できなかった。人数を確定事実にしない。",
+      "改善前後の売上・登録率・継続率: 聞き取りと利用者の再採用は確認できたが、会社全体の前後比較数値は見つからなかった。",
+      "料金変更の実施日と全履歴: 旧料金と現在の料金を確認できたが、切り替え日と中間の料金は確認できなかった。旧ページの著作権年を適用年にしない。",
+      "現在の人数・作業時間・自動化率: 公表年を伴う現在人数の確認なし。作業時間は手順書の対象外。数値を推計しない。",
+      "競合が参入しない理由・模倣の命令手順・現在の勝てる可能性: 前者の根拠がなく、後二者は依頼範囲外のため空欄。"
+     ],
+     "conflicts": [
+      "設立年: Y Combinatorは2020年、創業者の公式記事はTypedream開始を2021年とする。会社の設立・参加期と製品開始を分け、製品事例の開始年は2021年を採用。",
+      "料金: 旧料金と現行料金が並存する。現行の案内は/pricingを採用し、旧料金の適用期間は断定しない。",
+      "サイト数: 135,000件は作成数、2024年の数万件は稼働中数。指標と時点が異なり、有料客数には置き換えない。"
+     ]
+    },
+    "observationsStream": [],
+    "observations": [],
+    "temporal": {
+     "foundedYear": 2021,
+     "initialTractionPeriod": "2021年に製品開始。2021年7月にProduct Huntの月間1位、11月にHacker Newsで紹介。",
+     "dataSnapshotPeriod": "2021〜2024年の発言・記事と、2026-10-07に確認した現行ページ",
+     "viabilityStatus": "UNKNOWN",
+     "eraContext": "",
+     "currentViabilityAnalysis": "",
+     "viabilityLabel": ""
+    },
+    "operations": {
+     "teamSize": 0,
+     "weeklyHours": 0,
+     "initialCapitalRequired": 0,
+     "automationLevel": 0,
+     "primaryChannels": [],
+     "toolStack": [],
+     "isTeamSizeUnconfirmed": true,
+     "isWeeklyHoursUnconfirmed": true,
+     "isCapitalUnconfirmed": true,
+     "isAutomationUnconfirmed": true,
+     "initialTeamSize": 5
+    },
+    "strategy": {
+     "moatType": "UNKNOWN",
+     "blindspot": "",
+     "moatDescription": "",
+     "secretInsight": "",
+     "initialTraction": [],
+     "actionPlaybook": [],
+     "coldOutreachTemplate": "",
+     "incumbentDilemma": ""
+    },
+    "essence": {
+     "whatItDoes": "文章編集に近い操作でサイトを作り、商品販売・フォーム・ブログをまとめて提供する。",
+     "targetCustomer": "サイトを手早く公開したい創業者や、テンプレート・講座などを売る制作者",
+     "painRelief": "コードや細かなデザイン設定に時間をかけず、募集や販売のページを公開できる。"
+    },
+    "evidenceCards": [
+     {
+      "id": "ent_typedream_c02cf9d5426e_source_1",
+      "type": "UNKNOWN_AUDIT",
+      "title": "出典: Typedream（公式製品紹介）",
+      "badge": "出典",
+      "evidenceStatus": "REPORTED",
+      "punchline": "公開ページを実際に開き、本文の該当箇所を確認。事実ごとの対応先は調査記録内に記載。",
+      "details": [
+       "出典URL: https://typedream.com/",
+       "公表日: 記載なし",
+       "確認日: 2026-10-07"
+      ],
+      "url": "https://typedream.com/",
+      "sourceNote": "公開資料の本文確認。日本語で要約し、原文の長い転載は行わない。",
+      "sourceClass": "PRIMARY"
+     },
+     {
+      "id": "ent_typedream_c02cf9d5426e_source_2",
+      "type": "UNKNOWN_AUDIT",
+      "title": "出典: Typedream（現在の料金表）",
+      "badge": "出典",
+      "evidenceStatus": "REPORTED",
+      "punchline": "公開ページを実際に開き、本文の該当箇所を確認。事実ごとの対応先は調査記録内に記載。",
+      "details": [
+       "出典URL: https://typedream.com/pricing",
+       "公表日: 記載なし",
+       "確認日: 2026-10-07"
+      ],
+      "url": "https://typedream.com/pricing",
+      "sourceNote": "公開資料の本文確認。日本語で要約し、原文の長い転載は行わない。",
+      "sourceClass": "PRIMARY"
+     },
+     {
+      "id": "ent_typedream_c02cf9d5426e_source_3",
+      "type": "UNKNOWN_AUDIT",
+      "title": "出典: Typedream（Kevin Chandraの発表）",
+      "badge": "出典",
+      "evidenceStatus": "REPORTED",
+      "punchline": "公開ページを実際に開き、本文の該当箇所を確認。事実ごとの対応先は調査記録内に記載。",
+      "details": [
+       "出典URL: https://typedream.com/blogs/typedream-joins-beehiiv-june-2024",
+       "公表日: 2024-06-25",
+       "確認日: 2026-10-07"
+      ],
+      "url": "https://typedream.com/blogs/typedream-joins-beehiiv-june-2024",
+      "sourceNote": "公開資料の本文確認。日本語で要約し、原文の長い転載は行わない。",
+      "sourceClass": "PRIMARY"
+     },
+     {
+      "id": "ent_typedream_c02cf9d5426e_source_4",
+      "type": "UNKNOWN_AUDIT",
+      "title": "出典: Y Combinator（企業紹介）",
+      "badge": "出典",
+      "evidenceStatus": "REPORTED",
+      "punchline": "公開ページを実際に開き、本文の該当箇所を確認。事実ごとの対応先は調査記録内に記載。",
+      "details": [
+       "出典URL: https://www.ycombinator.com/companies/typedream",
+       "公表日: 記載なし",
+       "確認日: 2026-10-07"
+      ],
+      "url": "https://www.ycombinator.com/companies/typedream",
+      "sourceNote": "公開資料の本文確認。日本語で要約し、原文の長い転載は行わない。",
+      "sourceClass": "PRIMARY"
+     },
+     {
+      "id": "ent_typedream_c02cf9d5426e_source_5",
+      "type": "UNKNOWN_AUDIT",
+      "title": "出典: beehiiv（公式発表）",
+      "badge": "出典",
+      "evidenceStatus": "REPORTED",
+      "punchline": "公開ページを実際に開き、本文の該当箇所を確認。事実ごとの対応先は調査記録内に記載。",
+      "details": [
+       "出典URL: https://www.beehiiv.com/blog/beehiiv-acquires-ai-based-website-builder-typedream",
+       "公表日: 2024-06-25",
+       "確認日: 2026-10-07"
+      ],
+      "url": "https://www.beehiiv.com/blog/beehiiv-acquires-ai-based-website-builder-typedream",
+      "sourceNote": "公開資料の本文確認。日本語で要約し、原文の長い転載は行わない。",
+      "sourceClass": "PRIMARY"
+     },
+     {
+      "id": "ent_typedream_c02cf9d5426e_source_6",
+      "type": "UNKNOWN_AUDIT",
+      "title": "出典: Hacker News（創業者投稿と試用者の返答）",
+      "badge": "出典",
+      "evidenceStatus": "REPORTED",
+      "punchline": "公開ページを実際に開き、本文の該当箇所を確認。事実ごとの対応先は調査記録内に記載。",
+      "details": [
+       "出典URL: https://news.ycombinator.com/item?id=29084309",
+       "公表日: 2021-11-02",
+       "確認日: 2026-10-07"
+      ],
+      "url": "https://news.ycombinator.com/item?id=29084309",
+      "sourceNote": "公開資料の本文確認。日本語で要約し、原文の長い転載は行わない。",
+      "sourceClass": "INDEPENDENT_SECONDARY"
+     },
+     {
+      "id": "ent_typedream_c02cf9d5426e_source_7",
+      "type": "UNKNOWN_AUDIT",
+      "title": "出典: Typedream（旧料金ページ）",
+      "badge": "出典",
+      "evidenceStatus": "REPORTED",
+      "punchline": "公開ページを実際に開き、本文の該当箇所を確認。事実ごとの対応先は調査記録内に記載。",
+      "details": [
+       "出典URL: https://typedream.com/old-pricing",
+       "公表日: 記載なし",
+       "確認日: 2026-10-07"
+      ],
+      "url": "https://typedream.com/old-pricing",
+      "sourceNote": "公開資料の本文確認。日本語で要約し、原文の長い転載は行わない。",
+      "sourceClass": "PRIMARY"
+     },
+     {
+      "id": "ent_typedream_c02cf9d5426e_source_8",
+      "type": "UNKNOWN_AUDIT",
+      "title": "出典: Typedream（利用者Kyleigh Smithへのインタビュー）",
+      "badge": "出典",
+      "evidenceStatus": "REPORTED",
+      "punchline": "公開ページを実際に開き、本文の該当箇所を確認。事実ごとの対応先は調査記録内に記載。",
+      "details": [
+       "出典URL: https://typedream.com/blog/kyleigh-smith",
+       "公表日: 2023-05-15",
+       "確認日: 2026-10-07"
+      ],
+      "url": "https://typedream.com/blog/kyleigh-smith",
+      "sourceNote": "公開資料の本文確認。日本語で要約し、原文の長い転載は行わない。",
+      "sourceClass": "PRIMARY"
+     },
+     {
+      "id": "ent_typedream_c02cf9d5426e_source_9",
+      "type": "UNKNOWN_AUDIT",
+      "title": "出典: Typedream（紹介報酬の案内）",
+      "badge": "出典",
+      "evidenceStatus": "REPORTED",
+      "punchline": "公開ページを実際に開き、本文の該当箇所を確認。事実ごとの対応先は調査記録内に記載。",
+      "details": [
+       "出典URL: https://typedream.com/affiliate",
+       "公表日: 記載なし",
+       "確認日: 2026-10-07"
+      ],
+      "url": "https://typedream.com/affiliate",
+      "sourceNote": "公開資料の本文確認。日本語で要約し、原文の長い転載は行わない。",
+      "sourceClass": "PRIMARY"
+     },
+     {
+      "id": "ent_typedream_c02cf9d5426e_source_10",
+      "type": "UNKNOWN_AUDIT",
+      "title": "出典: Typedream（返金規定）",
+      "badge": "出典",
+      "evidenceStatus": "REPORTED",
+      "punchline": "公開ページを実際に開き、本文の該当箇所を確認。事実ごとの対応先は調査記録内に記載。",
+      "details": [
+       "出典URL: https://typedream.com/refund-policy",
+       "公表日: 2023-05-09",
+       "確認日: 2026-10-07",
+       "日付はページの最終編集日。"
+      ],
+      "url": "https://typedream.com/refund-policy",
+      "sourceNote": "公開資料の本文確認。日本語で要約し、原文の長い転載は行わない。",
+      "sourceClass": "PRIMARY"
+     },
+     {
+      "id": "ent_typedream_c02cf9d5426e_source_11",
+      "type": "UNKNOWN_AUDIT",
+      "title": "出典: Typedream（記事目録）",
+      "badge": "出典",
+      "evidenceStatus": "REPORTED",
+      "punchline": "公開ページを実際に開き、本文の該当箇所を確認。事実ごとの対応先は調査記録内に記載。",
+      "details": [
+       "出典URL: https://typedream.com/blog",
+       "公表日: 記載なし",
+       "確認日: 2026-10-07"
+      ],
+      "url": "https://typedream.com/blog",
+      "sourceNote": "公開資料の本文確認。日本語で要約し、原文の長い転載は行わない。",
+      "sourceClass": "PRIMARY"
+     }
+    ],
+    "claimBindings": [],
+    "publishability": "PARTIAL",
+    "batchId": "codex_gen2_20261007",
+    "financialStatus": "UNAVAILABLE",
+    "incumbentDilemma": "",
+    "blindspot": "",
+    "moatDescription": "",
+    "unknownsNotes": [
+     "売上・利益・原価・現金手残りの実額: 確認した公開資料に該当金額がない。価格やサイト作成数から売上を逆算しない。",
+     "出発点の元手・制作期間・最初の有料客数: 創業者5人と製品開始年は確認できたが、必要な初期金額・期間・有料化の記録は見つからなかった。",
+     "最初の1,000人を獲得した具体策と内訳: 該当の公式記事を開いたが、見出し・日付・紹介文しか取得できず本文を確認できなかった。人数を確定事実にしない。",
+     "改善前後の売上・登録率・継続率: 聞き取りと利用者の再採用は確認できたが、会社全体の前後比較数値は見つからなかった。",
+     "料金変更の実施日と全履歴: 旧料金と現在の料金を確認できたが、切り替え日と中間の料金は確認できなかった。旧ページの著作権年を適用年にしない。",
+     "現在の人数・作業時間・自動化率: 公表年を伴う現在人数の確認なし。作業時間は手順書の対象外。数値を推計しない。",
+     "競合が参入しない理由・模倣の命令手順・現在の勝てる可能性: 前者の根拠がなく、後二者は依頼範囲外のため空欄。"
+    ],
+    "isGrowthUnconfirmed": true,
+    "normalizedFromResearch": [
+     "publishability: \"HOLD\"→PARTIAL",
+     "growthRateYoY: 空→0",
+     "pnl.monthlyRevenue: 空→0",
+     "pnl.cogs: 空→0",
+     "pnl.grossProfit: 空→0",
+     "pnl.grossMargin: 空→0",
+     "pnl.operatingProfit: 空→0",
+     "pnl.operatingMargin: 空→0",
+     "pnl.estimatedAnnualNetProfit: 空→0",
+     "pnl.operatingExpenses.serverAndApi: 空→0",
+     "pnl.operatingExpenses.advertising: 空→0",
+     "pnl.operatingExpenses.subcontracting: 空→0",
+     "pnl.operatingExpenses.toolsAndSaaS: 空→0",
+     "pnl.operatingExpenses.other: 空→0",
+     "pnl.sourceDoc: 空→https://typedream.com/",
+     "operations.teamSize: 空→0",
+     "operations.weeklyHours: 空→0",
+     "operations.initialCapitalRequired: 空→0",
+     "operations.automationLevel: 空→0",
+     "operations.currentTeamSize: 空→欄を外す"
+    ]
+   }
+  }
+ ]
+}

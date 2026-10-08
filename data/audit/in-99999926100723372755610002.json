@@ -1,0 +1,685 @@
+{
+ "cases": [
+  {
+   "entityId": "ent_feature_upvote_3d6a00d965f0",
+   "scope": "full",
+   "facts": [
+    {
+     "id": "f1",
+     "kind": "OTHER",
+     "text": "2017年に開始。運営はスペインの Barbary Software。公式は自己資金で黒字の持続的事業と説明する。",
+     "attribution": "OFFICIAL"
+    },
+    {
+     "id": "f2",
+     "kind": "OTHER",
+     "text": "料金ページには、掲示板ごとの月額で49ドルと99ドルのプランが表示され、年払いでは20%割引になる。",
+     "attribution": "OFFICIAL"
+    },
+    {
+     "id": "f3",
+     "kind": "OTHER",
+     "text": "30日試用はカード不要。投票者と投稿数は無制限。支払いは Stripe、一定額以上の年払いは銀行振込に対応する。",
+     "attribution": "OFFICIAL"
+    },
+    {
+     "id": "f4",
+     "kind": "OTHER",
+     "text": "2018年の振り返りでは、想定以上の顧客が非公開設定で掲示板を使っており、社内の知見の活用、アイデアの日、少数の法人顧客の要望の集約といった用途があったと述べる。また、プロダクトマネージャーの顧客生涯価値は、失敗率の高い新興SaaS企業の創業者よりも有望だったとする。",
+     "attribution": "OFFICIAL"
+    },
+    {
+     "id": "f5",
+     "kind": "OTHER",
+     "text": "自作せずに購入して使うSaaSとして Algolia、Cloudinary、Postmark、Sentry を紹介する。",
+     "attribution": "OFFICIAL"
+    },
+    {
+     "id": "f9",
+     "kind": "OTHER",
+     "text": "利用者は管理画面等から解約でき、支払い済み期間後は掲示板を非表示にする。3か月は書き出し可能で、その後にデータを削除する。",
+     "attribution": "OFFICIAL"
+    },
+    {
+     "id": "f10",
+     "kind": "OTHER",
+     "text": "投票・要望管理に加え、非公開掲示板、独自ドメイン、ロゴや配色、CSSによる表示調整を案内する。",
+     "attribution": "OFFICIAL"
+    }
+   ],
+   "metrics": [],
+   "sources": [
+    {
+     "sourceId": "s1",
+     "url": "https://featureupvote.com/aboutus/",
+     "publisher": "Feature Upvote",
+     "snapshot": {
+      "url": "https://featureupvote.com/aboutus/",
+      "finalUrl": "https://web.archive.org/web/20260221171916/https://featureupvote.com/aboutus/",
+      "status": 200,
+      "fetchedAt": "2026-10-07T09:51:20.708Z",
+      "via": "wayback",
+      "contentType": "text/html; charset=UTF-8",
+      "textHash": "e820108c0e05ec099e0c472130f3f774d502761fee25fd82de1d21943f3142be"
+     },
+     "text": "About us - Feature Upvote\nFeature Upvote is a sustainable software company with a distinct ethos. We believe that by looking after ourselves we look after you, our customers, as well.\nAbout us - Feature Upvote\nFeature Upvote is a sustainable software company with a distinct ethos. We believe that by looking after ourselves we look after you, our customers, as well.\nAbout us - Feature Upvote\n31 captures\n08 Jul 2017 - 21 Feb 2026\nJan\nFEB\nMar\n21\n2025\n2026\n2027\nsuccess\nfail\nAbout this capture\nTIMESTAMPS\nThe Wayback Machine - https://web.archive.org/web/20260221171916/https://featureupvote.com/aboutus/\nUnfortunately, it looks like you are using an outdated browser.\nTo improve your experience on our site and ensure your security, please upgrade to a modern browser such as Chrome, Firefox, Safari, or Edge.\nSkip to main content\nMenu\nCustomer stories\nCommunity Lounge\nPricing\nSupport\nRequest a demo\nSign in\nStart free trial\nAbout us\nWe’re stable, self-funded and low stress\nFeature Upvote was created in 2017 by the Barbary Software team. It’s since become our main focus. Feature Upvote is that rare software product: one that we love working on and that our customers enjoy using.\nWe’re profitable and self-funded\nWe’re proud to be a profitable, sustainable, self-funded company. That means we’re going to be around for the long term.\nThere’ll be no sudden demands by investors that change everything about our product overnight. And no sudden disappearance because we’re not growing 20% month-on-month.\nYou can sign up for Feature Upvote safe in the knowledge that we’ll keep improving our product and supporting you.\nWe’re serious about being low stress\nDo you know how we begin our monthly meetings? With a reminder that Feature Upvote is a low-stress company. This has been company policy right from the beginning. Steve McLeod, our founder, says:\nI don’t want endless ambition to drive our company. Endless ambition leads to endless exhaustion. Exhaustion doesn’t benefit our team, it doesn’t benefit our customers, and it doesn’t benefit our families.\nBeing content with modest growth allows our team to maintain a healthy balance between work and everything else in their life. It assures us – and our customers – that our company is stable and healthy and will be around for many years.\nRead more about our company ethos .\nWe use Feature Upvote ourselves\nWe originally built Feature Upvote because we needed it and we couldn’t find another solution that worked for us .\nOur internal feedback and upvoting tool was so useful to us. We decided to see if anyone else wanted to use it. They did, and we now have customers in dozens of different countries.\nWe continue to use Feature Upvote in-house to collect and prioritise feature requests for Feature Upvote. So we know what it feels like to use Feature Upvote on a daily basis.\nJoin a growing number of companies using Feature Upvote\nOur customers include video games, bootstrapped startups, charities, government bodies, banks, and educational establishments.\nWe’ve created a product that makes it easy for everyone to give you feedback. It will help you surface great ideas and build a community around your product.\nEmail us at support@featureupvote.com to get in touch.\nFeature Upvote is developed and owned by\nBarbary Software SL\nCarrer Doctor Trueta 65\n08005 Barcelona\nSpain\nCompany registration number : ES B65915647\nTrademark : Feature Upvote is a registered trademark (EU trademark 019207974).\nDownload our logo\nFeature Upvote is owned by:\nBarbary Software SL\nCarrer Doctor Trueta 65\n08005 Barcelona\nSpain\nVAT #: ES B65915647\nLegal\nLegal information\nTerms & Conditions\nPrivacy Policy\nGDPR\nSecurity\nUsing Feature Upvote\nHelp centre\nDemo video\nArticles for product managers\nChangelog\nFeature voting tool\nOur Company\nAbout us\nThe Feature Upvote way\nContact us\nBlog\nOur newsletter\nThe Community Lounge podcast\nEnglish\nDeutsch\nFrançais\nCopyright 2017-2026 Feature Upvote",
+     "policy": {
+      "policyId": "rights.official-company-website.v1",
+      "sourceId": "src.official-company-website",
+      "providerName": "Official company or product website (entity-bound)",
+      "displayTier": "automatic",
+      "registryHash": "30d893f5b810c363886fbef8bc35e9535700abdcb83e6a517b66018b3993cacc"
+     }
+    },
+    {
+     "sourceId": "s2",
+     "url": "https://featureupvote.com/pricing/",
+     "publisher": "Feature Upvote",
+     "snapshot": {
+      "url": "https://featureupvote.com/pricing/",
+      "finalUrl": "https://web.archive.org/web/20260116183003/https://featureupvote.com/pricing/",
+      "status": 200,
+      "fetchedAt": "2026-10-07T09:51:21.244Z",
+      "via": "wayback",
+      "contentType": "text/html; charset=UTF-8",
+      "textHash": "fb12c711b110666aef120f5c19de864ef7bff174903c21f80a4136d50c4d881b"
+     },
+     "text": "Pricing - Feature Upvote\nSee our pricing page for Feature Upvote. You can subscribe monthly or annually and cancel at any time.\nPricing - Feature Upvote\nSee our pricing page for Feature Upvote. You can subscribe monthly or annually and cancel at any time.\nPricing - Feature Upvote\n35 captures\n23 Jul 2019 - 16 Jan 2026\nDec\nJAN\nFeb\n16\n2025\n2026\n2027\nsuccess\nfail\nAbout this capture\nTIMESTAMPS\nThe Wayback Machine - https://web.archive.org/web/20260116183003/https://featureupvote.com/pricing/\nUnfortunately, it looks like you are using an outdated browser.\nTo improve your experience on our site and ensure your security, please upgrade to a modern browser such as Chrome, Firefox, Safari, or Edge.\nSkip to main content\nMenu\nCustomer stories\nCommunity Lounge\nPricing\nSupport\nRequest a demo\nSign in\nStart free trial\nTry Feature Upvote for free for 30 days\nNo credit card required\nMonthly\nYearly\nUSD\nEUR\nGBP\nSave 20% with yearly pricing\nIndie\n$\n49\n/board/month\nStart free trial\nUnlimited contributors\nUnlimited team members\nMultiple languages\nCustom domain name\nPrivate boards\nCustom statuses and tags\nCustom CSS\nIntegration with Slack and Discord\nIntegration with Microsoft Teams, Jira, and Zapier\nSingle sign-on (SSO) using SAML 2.0\nHide “Powered by Feature Upvote”\nGDPR compliance\nSame day support\nStandard\n$\n99\n/board/month\nStart free trial\nUnlimited contributors\nUnlimited team members\nMultiple languages\nCustom domain name\nPrivate boards\nCustom statuses and tags\nCustom CSS\nIntegration with Slack and Discord\nIntegration with Microsoft Teams, Jira, and Zapier\nSingle sign-on (SSO) using SAML 2.0\nHide “Powered by Feature Upvote”\nGDPR compliance\nPriority support\nEnterprise\nPrice on request\nContact us\nContact us if you need any of these:\nPricing for more than 10 boards\nSecurity audit\nCustom T&Cs\nCustom Data Processing Agreement\nPayment via reseller\nFeature Upvote helps us prioritize our product roadmap better and improves our communication with our customers. It also motivates our developers more knowing they are working on the most requested features, rather than what my gut feels or a vocal customer demands on any given day.\nPJ Celis Founder of Judge.me\nPricing Questions & Answers\nHow do I pay?\nWe accept payments via Visa, Mastercard, and American Express. We support credit cards and debit cards. All card payments are processed by our payment processor, Stripe. They follow industry best practices to keep your data safe; your credit card details are never directly available to anyone at Feature Upvote.\nCan we pay via bank transfer?\nYes, on request. There are two conditions:\nyou need to pay yearly; and\nthe total yearly invoice amount must be at least $1,000/year.\nWill I receive an invoice?\nYes. After each payment, we’ll email you a PDF invoice. The invoice contains full billing info, including company name, address, and tax number where applicable.\nWhen am I billed?\nYou’ll be billed for the first time when you sign up for a paid account. Then one month later with monthly accounts, or one year later with yearly accounts.\nWhat’s your cancellation policy?\nYou can cancel at any time, with no penalties, charges, or minimum duration.\nWhat if I have multiple products?\nOur price is per feedback board. Some of our customers with two similar products or audiences use one feedback board with our tagging feature. But typically you’d use one board per product. We have no limits on suggestions, comments, votes, contributors, and admins per board. You can have as many as you want of each of these.\nDo you have a free trial?\nWe sure do. Use Feature Upvote fully for 30 days. Almost all features are enabled during the trial period. When you choose a paid plan you keep all suggestions and configuration changes. It is a smooth, seamless process.\nOur needs are unique. Do you have custom solutions or pricing?\nOur enterprise plan is for you. Let us know what you need and we’ll see if we can find a solution that fits.\nDo you have a discount for charities and non-profits?\nYes, we do .\nHow flexible are you about adding and removing extra boards?\nOur pricing is a simple per-board amount, and includes all features and integrations. It is easy to add and remove feedback boards at any time, so you only need to pay for a feedback board when you need it.\nBuild better products by surfacing valuable feedback\nStart using Feature Upvote for free with our 30-day free trial\nStart free trial →\nNo credit card required\nFeature Upvote is owned by:\nBarbary Software SL\nCarrer Doctor Trueta 65\n08005 Barcelona\nSpain\nVAT #: ES B65915647\nLegal\nLegal information\nTerms & Conditions\nPrivacy Policy\nGDPR\nSecurity\nUsing Feature Upvote\nHelp centre\nDemo video\nArticles for product managers\nChangelog\nFeature voting tool\nOur Company\nAbout us\nThe Feature Upvote way\nContact us\nBlog\nOur newsletter\nThe Community Lounge podcast\nEnglish\nDeutsch\nFrançais\nCopyright 2017-2026 Feature Upvote",
+     "policy": {
+      "policyId": "rights.official-company-website.v1",
+      "sourceId": "src.official-company-website",
+      "providerName": "Official company or product website (entity-bound)",
+      "displayTier": "automatic",
+      "registryHash": "30d893f5b810c363886fbef8bc35e9535700abdcb83e6a517b66018b3993cacc"
+     }
+    },
+    {
+     "sourceId": "s5",
+     "url": "https://featureupvote.com/blog/what-i-learnt-in-2018-while-running-feature-upvote/",
+     "publisher": "Steve McLeod",
+     "snapshot": {
+      "url": "https://featureupvote.com/blog/what-i-learnt-in-2018-while-running-feature-upvote/",
+      "finalUrl": "https://web.archive.org/web/20211018173818/https://featureupvote.com/blog/what-i-learnt-in-2018-while-running-feature-upvote/",
+      "status": 200,
+      "fetchedAt": "2026-10-07T09:51:23.680Z",
+      "via": "wayback",
+      "contentType": "text/html; charset=UTF-8",
+      "textHash": "2eef8b40f9f737018b3c20ab7e007e13747c0abd1c21f962db35d328e3d33907"
+     },
+     "text": "What I learnt in 2018 while running Feature Upvote\nDirect customer feedback is invaluable; don\nWhat I learnt in 2018 while running Feature Upvote\nDirect customer feedback is invaluable; don\nWhat I learnt in 2018 while running Feature Upvote\n7 captures\n23 Jul 2019 - 18 Oct 2021\nSep\nOCT\nNov\n18\n2020\n2021\n2022\nsuccess\nfail\nAbout this capture\nTIMESTAMPS\nThe Wayback Machine - https://web.archive.org/web/20211018173818/https://featureupvote.com/blog/what-i-learnt-in-2018-while-running-feature-upvote/\nWhy Feature Upvote?\nAbout Us\nWe are stable, self-funded and low stress\nCustomers\nRead our success stories\nUse Cases\nHow you can use Feature Upvote\nWhat FUV is and isn’t\nWhat we do well – and what we don’t\n100% GDPR ready\nWe're strongly committed to the GDPR\nPricing\nSupport\nSign in\nStart free trial\nBlog | Our Story\nWhat I learnt in 2018 while running Feature Upvote\nLast updated: 14 January 2019\nI run Feature Upvote, a B2B SaaS product that offers features & ideas tracking via a simple online board,\nwhich can be made public or kept private.\nFirst, a chart. Here’s our MRR growth for the year, with the dollar amounts hidden (gotta keep some things private!)\nOn average MRR this year has grown at about 20% per month. Admittedly, this was from a low start. I’m expecting growth\nto slow down soon to a more sustainable rate.\nThis might be the only time I’ll publicly post Feature Upvote’s MRR chart, partly because it is unlikely to ever look\nthis good again. 😀\nAnyway, we’re heading in the right direction, for me at least.\nThis is what I’ve learnt in 2018.\nI’m growing our company in a way that makes sense for me\nWell, this is really a continuation of my 2017 strategy, but it’s important:\nI want to run a company that doesn’t require me to work 24/7 and to take millions from outside investors\n(we’re entirely bootstrapped).\nSo in 2018 we focused clearly on growth strategies that didn’t require outside investment, that concentrated on\nlonger-term returns, and where customers were encouraged to self-service, where possible.\nThese strategies included:\nImproving our help centre so customers can self-service before contacting us. I also value this approach because\nit is easy for customers. It is much simpler to quickly read a step-by-step guide on how to do something\n(or watch a short video) than have to email someone, wait for a response and then have to email again for further\nclarification.\nConcentrating on SEO growth by creating quality content that ranks well with search engines and answers the queries\nof customers. This growth channel has performed well for us during a test period so we’re investing more resources.\nIt fits well with our aim of sustainable fairly low-cost growth.\nTest out landing pages in two different languages: our ideas board is available in over 8 different languages and is\nalready used by people around the world. It makes sense for us to globalise our content as soon as possible, so we’re\ntesting this approach at the moment.\nValidate (and then validate again) new features because they are time consuming, require maintenance and can make\nthe user interface annoying for customers who want useful options – not every option ever suggested. Although a\nnumber of our competitors inhabit the ‘high price point and many features’ territory I’ve found that we’re justified\nin offering better value with a product that is straightforward, easy to use and cost-effective. This also fits with\nmy vision for the company.\nI now have a clear strategy that encompasses content as well as product improvements\nHaving a clear company strategy is an aspiration of pretty much every founder (and product manager, if you have one).\nHowever, what I learnt in 2018 is that it’s not enough just to plan product strategy. You also need to plan your\ncontent strategy because — and this is not exactly a revelation — good content boosts growth at every stage of the\nsales funnel.\nSo if you want you product to be a success and your product improvements to be noticed then you need to support your\nproduct roadmap with a content strategy.\nSo for the last few months a freelance content specialist has been working with us. It has made an enormous difference.\nWe now have Notion boards for content strategy, for content, for audience research and for message architecture &\nstyle guide so we know what we’re doing, why, how, and how this impacts our audience.\nWe have new or revised content for customer acquisition, customer onboarding and customer retention. Much of the\nrewritten content is based on customer feedback and surveys.\nIn short, our team now have a content strategy that supports and informs our company strategy.\nI learnt who our target market is\nOur target market is product managers.\nWhen we launched in early 2017 we were targeting small software companies who wanted to easily collect and prioritise\ncustomer feedback. In late 2017 a fellow software business owner told me my target market should be product managers.\nIt turns out he knows what he is talking about.\nOver the course of 2018, we achieved that all-important “product/market fit”. We did this by changing our targeting to\nproduct managers.\nHow did we realise we needed to change?\nBy paying attention to our customers. We have our own public facing ideas board\nwhich is a great way for us to find out what our customers and prospective customers want.\nWe also began to notice that more customers than we expected were using our boards on the private setting.\nWe reached out to those customers and found some pretty interesting use cases: companies that wanted to leverage the\ndepths and breadth of knowledge within their companies on a daily basis; companies who were having an ideas day or\nevent; companies who had a few B2B clients whose feedback they wanted to contain on one board rather than spread\nacross meetings and email chains.\nWe also began to notice that the lifetime value of product managers was very promising. Much more so than SaaS startup\nfounders with a high fail rate (sorry people: we share your pain!).\nSo we made a decision: to target product managers and product directors as a matter of priority.\nThis resulted in a homepage redesign and new core content, including a use case page that clearly explains the different ways you can use Feature Upvote.\nWe also widened our SEO content to include an idea management landing page , as well as a post on why ideas boards are better than spreadsheets (spreadsheets are still much used by product managers).\nI learnt that LinkedIn has value for B2B products\nA good LinkedIn company profile gives credibility.\nUntil this year I didn’t really understand the value of LinkedIn. Then came an email from a potential customer\n(who happens to be a product manager):\nI like your product a lot. However I’m having trouble selling the solution to our management compared to\nUserVoice … LinkedIn says there is only 1 employee at the company and that the company is 9 months old.\nThis helped me discover that potential customers often do their “CYA” research via LinkedIn.\nSo I improved our LinkedIn profile, dispelling potential doubts and describing the history of our company, which has\nbeen running since 2008.\nWas this worthwhile? Yes. LinkedIn shows us who visits our profile. Many of our paying customers visit our LinkedIn\nprofile before signing up.\nWhich again supports the idea of having a content strategy. All your content should support your business goals.\nI learnt we have a lot of competitors\nFor some reason, friends love to tell me when they discover a competitor of ours. It seems every month I hear of yet\nanother competitor.\nEach time this happens I briefly feel despondent and wonder if there is any hope for the product. Then I remind myself that:\nThe presence of competitors helps to validate the market.\nMy competitors probably have the same feelings of doubt and despondency when they hear of us (I hope).\nWe should focus on what customers say to us and not what our competitors are doing, nor how many competitors we have.\nLaunching a SaaS can be done by almost anyone with software development skills and using close to zero funds.\nTherefore the number of competitors for any proven SaaS product will keep rising. That’s a reality I try to accept.\nWhat we offer in terms of features, approach, pricing and ethos is unique, so we can differentiate ourselves, even\nin a competitive market.\nNeed a product ideas board? Give Feature Upvote a try!\nLearn more about Feature Upvote\nProduct Managers!\nGet helpful articles like this in your inbox once a month. See past issues .\nSubscribe\nLoading...\nUsually 1 email per month. Unsubscribe anytime.\nSubscribe\nLoading...\nThank you!\nYou have successfully joined our subscriber list.\nFeature Upvote is owned by:\nBarbary Software SL\nCarrer Marina 60\n08005 Barcelona\nSpain\nVAT #: ES B65915647\nCopyright 2017 - 2021. Feature Upvote.\nEnglish\nEnglish\nDeutsch\nFrançais\nItaliano\nLegal\nLegal information\nTerms & Conditions\nPrivacy Policy\nGDPR\nSecurity\nUsing Feature Upvote\nHelp centre\nDemo video\nSuggest an improvement\nArticles for product managers\nChangelog\nUserVoice alternative\nAha! alternative\nOur Company\nAbout us\nThe Feature Upvote way\nContact us\nBlog\nOur newsletter\nTwitter",
+     "policy": {
+      "policyId": "rights.official-company-website.v1",
+      "sourceId": "src.official-company-website",
+      "providerName": "Official company or product website (entity-bound)",
+      "displayTier": "automatic",
+      "registryHash": "30d893f5b810c363886fbef8bc35e9535700abdcb83e6a517b66018b3993cacc"
+     }
+    },
+    {
+     "sourceId": "s6",
+     "url": "https://featureupvote.com/blog/buying_not_building_concentrate_on_our_core_saas_product/",
+     "publisher": "Feature Upvote",
+     "snapshot": {
+      "url": "https://featureupvote.com/blog/buying_not_building_concentrate_on_our_core_saas_product/",
+      "finalUrl": "https://web.archive.org/web/20221224143642/https://featureupvote.com/blog/buying_not_building_concentrate_on_our_core_saas_product/",
+      "status": 200,
+      "fetchedAt": "2026-10-07T09:51:24.144Z",
+      "via": "wayback",
+      "contentType": "text/html; charset=UTF-8",
+      "textHash": "f73e314b3884fbf8c20e4290064a753df91dc1e7c9799d83ad64f5298b6bb7de"
+     },
+     "text": "Why we concentrate on building our core SaaS product - Feature Upvote\nThis article shows why buying rather than building means your team can concentrate on building core functionality rather than getting diverted by side projects.\nWhy we concentrate on building our core SaaS product - Feature Upvote\nThis article shows why buying rather than building means your team can concentrate on building core functionality rather than getting diverted by side projects.\nWhy we concentrate on building our core SaaS product - Feature Upvote\n6 captures\n18 Aug 2019 - 24 Dec 2022\nNov\nDEC\nJan\n24\n2021\n2022\n2023\nsuccess\nfail\nAbout this capture\nTIMESTAMPS\nThe Wayback Machine - https://web.archive.org/web/20221224143642/https://featureupvote.com/blog/buying_not_building_concentrate_on_our_core_saas_product/\nUnfortunately, it looks like you are using an outdated browser.\nTo improve your experience on our site and ensure your security, please upgrade to a modern browser such as Chrome, Firefox, Safari, or Edge.\nSkip to main content\nMenu\nWhy Feature Upvote?\nAbout us We are stable, self-funded and low stress\nCustomer Stories Read our success stories\nUse cases for Feature Upvote How you can use Feature Upvote\nWhat Feature Upvote is and isn’t What we do well – and what we don’t\nThe Feature Upvote way The way we do business\n100% GDPR ready We’re strongly committed to the GDPR\nDemo\nDemo video\nInteractive demo feedback board\nPricing\nSupport\nSign in\nStart free trial\nBlog\nOur Story\nWhy we concentrate on building our core SaaS product\nIncluding a list of the SaaS companies we rely on\nLast updated: 10 December 2018\n“Not Invented Here” syndrome is so pervasive in the world of software development, it has its own well-known abbreviation: “NIH Syndrome”.\nDevelopment teams too often believe that available solutions will only meet 90% of their needs, and so they decide to build their own alternative.\nDon’t let NIH syndrome weigh you down.\nThe problem is, they vastly underestimate the time needed to build, test, and maintain their own “invented here” alternative. They end up with a solution that is often inferior and still meets just 90% of their needs – at best.\nMeanwhile the third-party product they chose not to use has just released a new version adding functionality the team had complained was missing.\nWorst of all, during the time they worked on recreating existing tools, they’ve neglected to work on their core product. Opportunity cost, people!\nWe are doing our best to avoid the “NIH Syndrome” as we continue to improve Feature Upvote. What’s making this easy is the proliferation of excellent “Software as a Service” (SaaS) products that are highly affordable.\nHere are some of our favourites:\nAlgolia for search\nOur original search was just good enough for an MVP (Minimum Viable Product). But our customers soon started complaining about it. Google and others have shown people that sub-par search is not acceptable. People expect to find exactly the information they need as soon as they need it.\nWe gave a passing thought to improving our search function ourselves and ruled it out. The development cost was substantial and we’ve never been a fan of reinventing the wheel.\nUsing Algolia , our search now has support for typos, alternative spellings, multiple languages, and word stemming. Oh, and did I say instant-search-as-you-type?\nFeature Upvote’s search powered by Algolia.\nWith Algolia we got all of this, with blazing speed. Good job people!\nCloudinary for image uploading and hosting\nOur early customers told us they wanted to be able to add screenshots and images to suggestions. Seeing as we provide a feature request voting tool this was an important request.\nCustomers and team members needed to be able to add a feature request or idea to the feedback board as quickly and usefully as possible. Images can say the same as 1000 words (which is far too long for the web!).\nWe tried building this functionality ourselves but wisely stopped when it turned out we were inadvertently creating a content delivery network.\n“We can’t be the only team needing a way for our customers to upload images and then efficiently and reliably serve those images”, we told ourselves.\nAnd so we found Cloudinary . Cloudinary is why it is so painless to add an image to a Feature Upvote suggestion.\nFeature Upvote’s image uploading powered by Cloudinary.\nCloudinary gives us both the front end and the back end of image hosting. On the back end they solve the problem of dealing with very large images and scaling them appropriately. On the front end they give our customers an excellent way to add an images on a range of devices.\nOne less feature to worry about.\nPostmark for email delivery\nA modern web application like ours needs to send emails. Lots of emails. Email verification for new customers. Email notifications when things happen. Emails to warn customers of trial end dates. And plenty more. It turns out that delivering emails reliably is hard.\nPlus we are committed to making sure that our service is as secure as possible. Emails can often be a target for spammers.\nThis is where Postmark saves us.\nInstead of building own own email delivery system (and that one was never going to happen) we contracted out this unenviable job to people that are really good at it.\nWe send our emails via Postmark and Postmark tells us if they were delivered, opened, and clicked. Postmark monitors email bounces and saves us from sending emails to fake or erroneous email addresses in the future.\nEach week we get a summary email for Postmark that makes us happy that our emails are getting delivered as expected.\nTake that spammers.\nSentry for bug detection\nLast week we accidentally deployed a bug to our production servers. Thanks to Sentry we knew about this bug as soon as the first customer encountered it. Within minutes we had a fix deployed.\nPhew.\nTime saved in terms of answering emails to support. Reputation saved in terms of customers thinking ‘Why isn’t this product working. I hate buggy software. I am CROSS ’.\nSentry is error tracking that helps developers monitor and fix crashes in real time. When something goes wrong in Feature Upvote, Sentry collates the error information – sometimes from multiple users – and emails us. When the error happens we typically can pinpoint exactly where in our code the error is lurking.\nWe are currently using Sentry’s free plan, because we don’t have enough bugs to reach their paid limits. But the day we need to start paying Sentry, we will do.\nThey are definitely worth it.\nConclusion\nAlgolia, Cloudinary, Postmark, and Sentry are all affordable, reliable, and an indispensable part of our business.\nWithout them, we’d be out in the wilderness somewhere building and maintaining email systems and search functions while neglecting our core product.\nAs it is, these SaaS companies have given us the freedom to focus on our core product.\nI believe our own customers have chosen Feature Upvote for the same reason. They could have tried to build a product ideas tool in-house.\nBut by choosing Feature Upvote, they have a solution to ideas tracking that is affordable, reliable, and ever-improving.\nIsn’t it time to bin NIH syndrome and say instead:\nHey, you might not have been invented by our company, but for that we’re deeply thankful! Hello and welcome.\nInterested in a feature request board?\nGreat. Come and have a look around .\nWe offer a 30-day free trial with full features (and no sales call) so you can see if we’re a good fit for your company. Plus our pricing is competitive from $99/month so you won’t break the bank by using us.\nStill not sure why you’d use a feature request board? Read our article on why collecting, tracking and qualifying customer feature requests is a great idea . Here’s a quick preview:\nYour customers see that you actually care about their feedback\nYou gain unexpected business insights into what new features your customers actually want\nYou save time and money by roadmapping product improvements that will actually be a success\nProduct Managers!\nGet helpful articles like this in your inbox once a month. See past issues .\nSubscribe\nLoading...\nUsually 1 email per month. Unsubscribe anytime.\nSubscribe\nLoading...\nThank you!\nYou have successfully joined our subscriber list.\nFeature Upvote is owned by:\nBarbary Software SL\nCarrer Doctor Trueta 65\n08005 Barcelona\nSpain\nVAT #: ES B65915647\nLegal\nLegal information\nTerms & Conditions\nPrivacy Policy\nGDPR\nSecurity\nUsing Feature Upvote\nHelp centre\nDemo video\nSuggest an improvement\nArticles for product managers\nChangelog\nUserVoice alternative\nAha! alternative\nCanny alternative\nOur Company\nAbout us\nThe Feature Upvote way\nContact us\nBlog\nOur newsletter\nTwitter\nEnglish\nDeutsch\nFrançais\nItaliano\nCopyright 2017-2022. Feature Upvote.",
+     "policy": {
+      "policyId": "rights.official-company-website.v1",
+      "sourceId": "src.official-company-website",
+      "providerName": "Official company or product website (entity-bound)",
+      "displayTier": "automatic",
+      "registryHash": "30d893f5b810c363886fbef8bc35e9535700abdcb83e6a517b66018b3993cacc"
+     }
+    },
+    {
+     "sourceId": "s10",
+     "url": "https://help.featureupvote.com/article/25-cancelling-your-subscription",
+     "publisher": "Feature Upvote",
+     "snapshot": {
+      "url": "https://help.featureupvote.com/article/25-cancelling-your-subscription",
+      "finalUrl": "https://help.featureupvote.com/article/25-cancelling-your-subscription",
+      "status": 200,
+      "fetchedAt": "2026-10-07T09:51:26.097Z",
+      "via": "direct",
+      "contentType": "text/html; charset=utf-8",
+      "textHash": "c90c411abc54f8434038e9140d46e597a38602512473cc527afcb4f3220ee006"
+     },
+     "text": "Cancelling your subscription - Feature Upvote\nYou can freely cancel your Feature Upvote account at any time. To do so, from your Feature Upvote dashboard, open the profile menu (it is in the top-right corne\nCancelling your subscription - Feature Upvote\nFeature Upvote\nToggle Navigation\nFeature Upvote Help Center\nCancelling your subscription\nYou can freely cancel your Feature Upvote account at any time. To do so,\nfrom your Feature Upvote dashboard, open the profile menu (it is in the top-right corner), and select “ Billing ”\non the “Billing” page click on “ Manage billing ”\nclick on “ Cancel plan ”, and confirm when prompted.\nCan't find the “Billing” page or “Manage billing” option?\nThe “Billing” page is only visible to account admins. If you can’t see it, it is probably because you’ve only got moderator access.\nIf you are paying by invoice, then you won’t see the “Manage billing” option. In this case, email us at support@featureupvote.com and let us know you want to cancel.\nWhat happens when I cancel?\nWe ensure that your credit card won’t be billed in the future\nYour account stays active for the duration of any subscription you’ve already paid for\nAt the end of the current subscription period, your feedback board is no longer visible, and is given a status of ‘cancelled’\nFor three months after the cancellation, you can still sign in to your Feature Upvote dashboard and view and export your data\nDo you keep my data?\nWe keep all your suggestions, comments, and votes available for you for three months after cancellation.\nThree months after your cancellation, we’ll purge your data. That means all your suggestions, comments, and votes will be permanently deleted.\nYou can reactivate your account at any time during this three month period.\nLast updated on November 21, 2025\nToggle Search\nCategories\nGetting started\nHow customers use your feedback board\nUsing your feedback board as a moderator\nCustomising your feedback board\nCompany Portals\nThird-party integrations and API\nTips\nBilling\nFAQs\nNo results found\n&copy;\nFeature Upvote\n2026. Powered by Help Scout",
+     "policy": {
+      "policyId": "rights.official-company-website.v1",
+      "sourceId": "src.official-company-website",
+      "providerName": "Official company or product website (entity-bound)",
+      "displayTier": "automatic",
+      "registryHash": "30d893f5b810c363886fbef8bc35e9535700abdcb83e6a517b66018b3993cacc"
+     }
+    },
+    {
+     "sourceId": "s11",
+     "url": "https://featureupvote.com/product-feedback-tool/",
+     "publisher": "Feature Upvote",
+     "snapshot": {
+      "url": "https://featureupvote.com/product-feedback-tool/",
+      "finalUrl": "https://web.archive.org/web/20260209193548/https://featureupvote.com/product-feedback-tool/",
+      "status": 200,
+      "fetchedAt": "2026-10-07T09:51:26.298Z",
+      "via": "wayback",
+      "contentType": "text/html; charset=UTF-8",
+      "textHash": "dd99f9a228ba500a12d54f3afbc960d6fee8c39421ef3fdec69ac355ae92fa54"
+     },
+     "text": "Feature Upvote - Product Feedback Tool with User Voting\nFeature Upvote is a product feedback tool that lets you collect and manage feature requests. Made for product managers who value simplicity.\nFeature Upvote - Product Feedback Tool with User Voting\nFeature Upvote is a product feedback tool that lets you collect and manage feature requests. Made for product managers who value simplicity.\nFeature Upvote - Product Feedback Tool with User Voting\n7 captures\n23 May 2023 - 09 Feb 2026\nJan\nFEB\nMar\n09\n2025\n2026\n2027\nsuccess\nfail\nAbout this capture\nTIMESTAMPS\nThe Wayback Machine - https://web.archive.org/web/20260209193548/https://featureupvote.com/product-feedback-tool/\nUnfortunately, it looks like you are using an outdated browser.\nTo improve your experience on our site and ensure your security, please upgrade to a modern browser such as Chrome, Firefox, Safari, or Edge.\nSkip to main content\nMenu\nCustomer stories\nCommunity Lounge\nPricing\nSupport\nRequest a demo\nSign in\nStart free trial\nProduct feedback tool with voting\nFeature Upvote is a product feedback tool that lets you collect and manage feature requests. It is the #1 tool for product managers who value simplicity.\nGet easy-to-use feedback boards with built-in voting functionality.\nStart your 30-day trial\nNo credit card required. All features included. Cancel anytime.\nTrusted by\nHow does it work?\n👍 See which feature requests are most popular with your users\nFeedback voting gives your customers an easy way to tell you what feature requests matter most to them. Watch the best ideas rise to the top—as opposed to the ones made by the loudest people—and build a roadmap that addresses the most pressing needs of your customers.\n🧹 Approve, merge, and edit user feedback in a few clicks\nWe believe product managers should not spend their valuable time triaging feedback. That’s why Feature Upvote comes with powerful features that allow you to quickly merge, organise, and sort feature requests and reduce the time you spend doing housework.\n🔌 Move feedback from and to your favourite product management tools\nWant an easy way to move feature requests to your project management software? Or be notified in real-time when someone interacts with your board? Our suite of integrations allows you to seamlessly add Feature Upvote to your existing workflow.\nWhy Feature Upvote?\n😌 Simplicity at its core\nFeature Upvote is designed to be a simple way to collect, organise, and prioritise customer feedback. It does what it does well and doesn’t try to be anything more.\nAlternative solutions often feel too complex and cluttered for product managers who just want a simple product feedback tool.\n🎨 White label your feedback board\nYou can rebrand your feedback board to look like an extension of your site. You can use your logo, your domain name, and your colour scheme. You can also add your own CSS and customise just about anything from fonts to sizes.\nYou can also embed the feedback board directly on your site using an iframe .\n🌎 Your feedback board in any of 15+ languages\nWe’re a multilingual team based in Barcelona, Spain and have customers in more than 30 countries. We understand your users might not all speak English, which is why we offer boards in Spanish, German, French, Japanese, and another dozen languages .\nDon’t see your language on the list? No worries! Just contact us and we’ll make it available.\nWhat clients say\n“Feature Upvote is a simple product. It’s not expensive. It’s embeddable. And it’s simple for the end users to use. What we found was a lot of the other products in the market were really complex. And expensive.”\nMark Seemann\nCEO at StaffCircle\n“Before Feature Upvote, the process of feedback gathering was a mess! It was the loudest, squeakiest wheel that made things happen. Whoever came back the most, and whoever was most comfortable yelling about the problem got the most attention.”\nJeremy Crane\nVP of Product Development at Dockwa\n“It’s a fantastic tool. Honestly, there’s no one on our team that isn’t happy with exactly how it performs and what it allows us to do. I don’t see us ever stopping using it.”\nAllen Goode\nHead of Design of External Projects at Digital Extremes\nHow much does it cost?\nOur plans start at $49/month.\nMonthly\nYearly\nUSD\nEUR\nGBP\nSave 20% with yearly pricing\nBootstrapper\n$\n49\n/board/month\nStart free trial\nUnlimited contributors\nUnlimited team members\nMultiple languages\nCustom domain name\nPrivate boards\nCustom statuses and tags\nCustom CSS\nIntegration with Slack and Discord\nIntegration with Microsoft Teams, Jira, and Zapier\nSingle sign-on (SSO) using SAML 2.0\nHide “Powered by Feature Upvote”\nGDPR compliance\nSame day support\nStandard\n$\n99\n/board/month\nStart free trial\nUnlimited contributors\nUnlimited team members\nMultiple languages\nCustom domain name\nPrivate boards\nCustom statuses and tags\nCustom CSS\nIntegration with Slack and Discord\nIntegration with Microsoft Teams, Jira, and Zapier\nSingle sign-on (SSO) using SAML 2.0\nHide “Powered by Feature Upvote”\nGDPR compliance\nPriority support\nEnterprise\nPrice on request\nContact us\nContact us if you need any of these:\nPricing for more than 10 boards\nSecurity audit\nCustom T&Cs\nCustom Data Processing Agreement\nPayment via reseller\nFrequently Asked Questions\nOur company is debating whether to make our product feedback visible to the public. Thoughts?\nA lot of your feedback is already public: on social media, in forums, on question and answer sites, and on review sites. You can’t really keep feedback about your product private. So why not shape the conversation instead?\nMaking your product feedback public shows your confidence in your product and customers, demonstrates your interest in customer feedback, and keeps your users informed about what features and improvements you are working on (and not working on).\nCan I make feedback boards private?\nYes. If you want to hide feedback from the public (eg. you want to create an idea board for internal use only), you can make your Feature Upvote feedback board private by using a password , creating an access list , or with Single Sign-on .\nWill my users need to create an account with Feature Upvote to contribute?\nNo. End users simply need to enter a valid email address to submit a new suggestion or comment on an existing one. Voting doesn’t require any credentials.\nWorried about spam? Feature Upvote comes with auto-moderation tools and spam prevention technology to prevent abuse and fraud.\nOur needs are unique. Do you have custom solutions or pricing?\nOur enterprise plan is for you. Let us know what you need and we’ll see if we can find a solution that fits.\nReady to try Feature Upvote?\nStart managing product feedback with Feature Upvote. Your customers will be able to suggest and upvote improvements – making sure your feature improvements are a hit rather than an expensive miss.\nTry our free 30-day trial. No credit card required.\nTry Feature Upvote free\nor watch a demo\nFeature Upvote is owned by:\nBarbary Software SL\nCarrer Doctor Trueta 65\n08005 Barcelona\nSpain\nVAT #: ES B65915647\nLegal\nLegal information\nTerms & Conditions\nPrivacy Policy\nGDPR\nSecurity\nUsing Feature Upvote\nHelp centre\nDemo video\nArticles for product managers\nChangelog\nFeature voting tool\nOur Company\nAbout us\nThe Feature Upvote way\nContact us\nBlog\nOur newsletter\nThe Community Lounge podcast\nEnglish\nDeutsch\nFrançais\nCopyright 2017-2026 Feature Upvote",
+     "policy": {
+      "policyId": "rights.official-company-website.v1",
+      "sourceId": "src.official-company-website",
+      "providerName": "Official company or product website (entity-bound)",
+      "displayTier": "automatic",
+      "registryHash": "30d893f5b810c363886fbef8bc35e9535700abdcb83e6a517b66018b3993cacc"
+     }
+    }
+   ],
+   "analysis": [
+    {
+     "id": "a-business_model",
+     "item": "BUSINESS_MODEL",
+     "text": "製品の要望を集めて投票させる掲示板を、掲示板1枚ごとの月額で売る。払うのはソフトや製品を持つ会社で、エンドユーザーの投票者と投稿数は無制限。非公開掲示板、独自ドメイン、ロゴや配色、CSS による見た目の調整まで含め、自社サイトの一部に見える要望窓口を借りる対価として払う。支払いは Stripe 経由のカード払いで、一定額以上の年払いは銀行振込も受ける。",
+     "basis": [
+      "f2",
+      "f3",
+      "f10"
+     ],
+     "presentation": "FACT_SUMMARY"
+    },
+    {
+     "id": "a-customer",
+     "item": "CUSTOMER",
+     "text": "中心はプロダクトマネージャー。自社製品への要望を外の客から集める会社に加え、ボードを非公開にして社員のアイデアを集める会社、アイデアの日を開く会社、少数の法人顧客の要望を会議やメールに散らさず1か所にまとめたい会社が払っている。公式サイトによると、ゲーム会社、自己資金のスタートアップ、慈善団体、政府機関、銀行、教育機関も客にいる。",
+     "basis": [
+      "f4",
+      "f10"
+     ],
+     "presentation": "FACT_SUMMARY"
+    },
+    {
+     "id": "a-customer_pain",
+     "item": "CUSTOMER_PAIN",
+     "text": "要望の優先順位が、声の大きい客やしつこく催促する客に引きずられて決まってしまう。客の言い分をメールや会議、表計算ソフトに散らしたまま整理に時間を取られ、作った機能が外れる損失を払っている。",
+     "basis": [
+      "f4",
+      "f10"
+     ],
+     "presentation": "FACT_SUMMARY"
+    },
+    {
+     "id": "a-channels",
+     "item": "CHANNELS",
+     "text": "2018年は、検索で上位に出る記事を作る SEO に資金と手間を寄せた。試した期間の成果が良く、安く伸ばせる経路だったため。外部の書き手と組み、客の獲得・導入・継続それぞれの文章を作り直した。LinkedIn の会社ページも整えた。ある見込み客から、社員1人で設立9か月の会社では UserVoice と比べて上司を説得しにくいと言われたのがきっかけで、その後は多くの有料客が登録前に LinkedIn のページを見ている。",
+     "basis": [
+      "f4"
+     ],
+     "presentation": "FACT_SUMMARY"
+    },
+    {
+     "id": "a-tools",
+     "item": "TOOLS",
+     "text": "検索に Algolia、画像に Cloudinary、メール配信に Postmark、不具合検知に Sentry、決済に Stripe を使う。",
+     "basis": [
+      "f3",
+      "f5"
+     ],
+     "presentation": "FACT_SUMMARY"
+    },
+    {
+     "id": "a-dependencies",
+     "item": "DEPENDENCIES",
+     "text": "決済は Stripe、検索・画像・メール配信・不具合検知は Algolia、Cloudinary、Postmark、Sentry に任せている。どれかが値上げや障害を起こせば、検索やメール通知など客が日々触る部分が止まる。",
+     "basis": [
+      "f3",
+      "f5"
+     ],
+     "presentation": "FACT_SUMMARY"
+    },
+    {
+     "id": "a-lock_in",
+     "item": "LOCK_IN",
+     "text": "解約すると、払い済みの期間が終わった時点で掲示板が非表示になる。書き出せるのは3か月だけで、その後は投稿・コメント・投票がすべて消える。独自ドメインと自社の配色で客向けの窓口として公開していれば、やめると客の目に触れる窓口ごと作り直しになる。",
+     "basis": [
+      "f9",
+      "f10"
+     ],
+     "presentation": "FACT_SUMMARY"
+    },
+    {
+     "id": "a-upfront_cash",
+     "item": "UPFRONT_CASH",
+     "text": "年払いを選んだ客からは1年分が初回に入る。1掲示板あたり49ドルのプランで約470ドル、99ドルのプランで約950ドル。一定額以上の年払いは銀行振込でも受ける。",
+     "basis": [
+      "f2",
+      "f3"
+     ],
+     "formula": "年払い額 = 月額 × 12 × (1 − 20%)。49ドル × 12 × 0.8 = 470.4ドル、99ドル × 12 × 0.8 = 950.4ドル（掲示板1枚あたり、公式料金）",
+     "presentation": "ESTIMATE"
+    },
+    {
+     "id": "a-capital_and_team",
+     "item": "CAPITAL_AND_TEAM",
+     "text": "外部の出資を受けず自己資金で始め、黒字で回している。",
+     "basis": [
+      "f1"
+     ],
+     "presentation": "FACT_SUMMARY"
+    },
+    {
+     "id": "a-pivots",
+     "item": "PIVOTS",
+     "text": "2017年の開始時は、客の要望を手軽に集めたい小さなソフト会社を狙っていた。同業の経営者の助言と、非公開ボードの思わぬ使われ方をきっかけに、狙いをプロダクトマネージャーに絞った。新興SaaSの創業者より長く払い続けると分かったためで、トップページと主要な説明を作り直し、アイデア管理の記事などで検索から呼び込む形に変えた。",
+     "basis": [
+      "f1",
+      "f4"
+     ],
+     "presentation": "FACT_SUMMARY"
+    },
+    {
+     "id": "a-timeline",
+     "item": "TIMELINE",
+     "text": "2017年：Barbary Software が開始。2018年：非公開での使われ方とプロダクトマネージャーの継続性に気づき、狙いを絞る。その後も自己資金・黒字で営業を続けている。",
+     "basis": [
+      "f1",
+      "f4"
+     ],
+     "presentation": "FACT_SUMMARY"
+    },
+    {
+     "id": "a-viability",
+     "item": "VIABILITY",
+     "text": "特化しないと困難。要望投票ボードは開発の腕があればほぼ資金無しで作れるため、競合は増え続ける。勝てたのは、潰れにくく長く払うプロダクトマネージャーに客を絞り、掲示板単位の安い月額と単純さで高価格の競合と分けたからで、汎用の要望ボードをもう一つ出すだけでは埋もれる。",
+     "basis": [
+      "f2",
+      "f4"
+     ],
+     "presentation": "FACT_SUMMARY"
+    },
+    {
+     "id": "a-lesson",
+     "item": "LESSON",
+     "text": "客の名簿を「誰が長く払い続けるか」で見直すと、狙う相手が変わる。この会社は潰れやすい新興SaaSの創業者から、会社に根を張るプロダクトマネージャーへ乗り換えて伸ばした。",
+     "basis": [
+      "f4"
+     ],
+     "presentation": "FACT_SUMMARY"
+    }
+   ],
+   "changedClaims": [
+    "f1",
+    "f2",
+    "f3",
+    "f4",
+    "f5",
+    "f9",
+    "f10"
+   ],
+   "identity": {
+    "id": "ent_feature_upvote_3d6a00d965f0",
+    "name": "Feature Upvote",
+    "url": "https://featureupvote.com/",
+    "publishability": "PARTIAL"
+   },
+   "media": {
+    "assets": [
+     {
+      "assetId": "ma_08b4d02bb115b5b86e0e3560",
+      "entityId": "ent_feature_upvote_3d6a00d965f0",
+      "kind": "screenshot_home",
+      "sourcePageUrl": "https://featureupvote.com/",
+      "assetUrl": null,
+      "retrievedAt": "2026-10-07T10:03:33.278Z",
+      "capturedBy": "media-fetch-20261007",
+      "sha256": "08b4d02bb115b5b86e0e3560fcd632722ef04e788414d5ed7f43e2b31d5f86fc",
+      "bytes": 106474,
+      "contentType": "image/png",
+      "width": 1280,
+      "height": 800,
+      "rights": {
+       "basis": "official_marketing_material",
+       "termsUrl": null,
+       "licence": null,
+       "attribution": "出典: Feature Upvote 公式サイト (https://featureupvote.com/)",
+       "decision": "held",
+       "reviewedAt": null,
+       "notes": "ビューポート 1280x800 で当方が描画したスクリーンショット。同意バナーが写り込むことがある。 自動取得 (media-fetch)。権利審査前のため held。許可前に目視で (1) 人物が主題でない (2) 同意バナー・個人情報・ログイン画面が写っていない (3) 識別・説明目的に限る、を確認し、review-assets で判定を追記する（この manifest は書き換えない。自動取得の既定値 subjectIsPerson=true は「未確認」の意味）。"
+      },
+      "storage": {
+       "bucket": "foundation-raw",
+       "key": "media/ent_feature_upvote_3d6a00d965f0/08b4d02bb115b5b86e0e3560fcd632722ef04e788414d5ed7f43e2b31d5f86fc.png",
+       "publicKey": null
+      },
+      "subjectIsPerson": true,
+      "review": null
+     },
+     {
+      "assetId": "ma_b9ec42fbacf124bbb63fc880",
+      "entityId": "ent_feature_upvote_3d6a00d965f0",
+      "kind": "screenshot_pricing",
+      "sourcePageUrl": "https://featureupvote.com/pricing/",
+      "assetUrl": null,
+      "retrievedAt": "2026-10-07T10:03:35.521Z",
+      "capturedBy": "media-fetch-20261007",
+      "sha256": "b9ec42fbacf124bbb63fc8807ab246b99845893af8c0953a62d28d552414b03e",
+      "bytes": 84171,
+      "contentType": "image/png",
+      "width": 1280,
+      "height": 800,
+      "rights": {
+       "basis": "official_marketing_material",
+       "termsUrl": null,
+       "licence": null,
+       "attribution": "出典: Feature Upvote 公式サイト (https://featureupvote.com/pricing/)",
+       "decision": "held",
+       "reviewedAt": null,
+       "notes": "ビューポート 1280x800 で当方が描画したスクリーンショット。同意バナーが写り込むことがある。 自動取得 (media-fetch)。権利審査前のため held。許可前に目視で (1) 人物が主題でない (2) 同意バナー・個人情報・ログイン画面が写っていない (3) 識別・説明目的に限る、を確認し、review-assets で判定を追記する（この manifest は書き換えない。自動取得の既定値 subjectIsPerson=true は「未確認」の意味）。"
+      },
+      "storage": {
+       "bucket": "foundation-raw",
+       "key": "media/ent_feature_upvote_3d6a00d965f0/b9ec42fbacf124bbb63fc8807ab246b99845893af8c0953a62d28d552414b03e.png",
+       "publicKey": null
+      },
+      "subjectIsPerson": true,
+      "review": null
+     }
+    ],
+    "displayableIds": [],
+    "problems": []
+   },
+   "caseHash": "068e45e23a63ad3817873e310a03cecfaee3873635aad4d28dd68017031c1dcc",
+   "itemHashes": {
+    "fact:f1": "3ccf9d8828f599f8641a3af174cd2dd38ff3b99eebbddc74764fce95b270dc71",
+    "fact:f2": "88d1831af5793e9d322e3b71145b9f49725384a69e6348c86170e6f667523616",
+    "fact:f3": "704b713df2bcdf955dee4ff98b5f59a318be1d853b0bd09dee177a5bfde4728c",
+    "fact:f4": "316ca47f215ec3c687d931da8c0ccacd02db623c1ec85b338daaffa3efa6173e",
+    "fact:f5": "c09aaab27d6bd2567ceb325f8318558af9299a009f7327656d8efa81017336f1",
+    "fact:f9": "16adda234fa5595d74074967be188d61b6c107fbfd8e9fc5cfbdf19e25bb25de",
+    "fact:f10": "f9583a11ff404e83eab355ee4da324470b9c8620db5c4f2952bebd39b198de88",
+    "analysis:a-business_model": "8027cdafebe8399f1752c6f6fec49700eb24171bd56a1f2042883225a9212da1",
+    "analysis:a-customer": "aedebea18c37501dcabf95201964c9843685d70be26944b0a75f580a4e94da4f",
+    "analysis:a-customer_pain": "80d6d1389fb60566f97e33f7eee8049968fef340dd46aab170df09002e3ba4d5",
+    "analysis:a-channels": "0dcdfc164918a84bf0c820a8d03b6c92062fc7c41be50f2cd6a686289783bccd",
+    "analysis:a-tools": "3ecac3f50bd882dd7e96190f078706235fbe411a5e952fc0612a9e1f60f020ff",
+    "analysis:a-dependencies": "3f7272647479d6e40ca657b379d11e91abf93f37a85ff13fa694a780c105c178",
+    "analysis:a-lock_in": "e323337a9c3c621c823f2a3019cd2552a98045fc35ae5d70940894c0cc5bb325",
+    "analysis:a-upfront_cash": "e3594073ba1ddc8c908817df5edc4f13b368ebda7621e3c8b2012f14152a092b",
+    "analysis:a-capital_and_team": "37914369617a3715dfa0cbd00cfa82b9fd0417522646e9840cbddda76f73ea38",
+    "analysis:a-pivots": "284098c5b2c3eb843ee0137338cb128875d847072a7709ee702f5785f5750123",
+    "analysis:a-timeline": "39a98c66dab7b0d97702c32c2000a11a941a9ed1b5550d82820e4a878597d50c",
+    "analysis:a-viability": "e52ac539a24bbcc4e857f479ae78d1e3136fb6727004b0a344ad05f9ab1aef90",
+    "analysis:a-lesson": "300115a54b3c9bc82f09211b8e88b6a94fb41c8c491592703732bb9900dc605c"
+   },
+   "review": [
+    "fact:f1",
+    "fact:f2",
+    "fact:f3",
+    "fact:f4",
+    "fact:f5",
+    "fact:f9",
+    "fact:f10",
+    "analysis:a-business_model",
+    "analysis:a-customer",
+    "analysis:a-customer_pain",
+    "analysis:a-channels",
+    "analysis:a-tools",
+    "analysis:a-dependencies",
+    "analysis:a-lock_in",
+    "analysis:a-upfront_cash",
+    "analysis:a-capital_and_team",
+    "analysis:a-pivots",
+    "analysis:a-timeline",
+    "analysis:a-viability",
+    "analysis:a-lesson"
+   ],
+   "reader": {
+    "sources": [
+     {
+      "id": "s1",
+      "url": "https://featureupvote.com/aboutus/",
+      "publisher": "Feature Upvote",
+      "checkedAt": "2026-10-07",
+      "kind": "OFFICIAL"
+     },
+     {
+      "id": "s2",
+      "url": "https://featureupvote.com/pricing/",
+      "publisher": "Feature Upvote",
+      "checkedAt": "2026-10-07",
+      "kind": "OFFICIAL"
+     },
+     {
+      "id": "s5",
+      "url": "https://featureupvote.com/blog/what-i-learnt-in-2018-while-running-feature-upvote/",
+      "publisher": "Steve McLeod",
+      "checkedAt": "2026-10-07",
+      "kind": "OFFICIAL"
+     },
+     {
+      "id": "s6",
+      "url": "https://featureupvote.com/blog/buying_not_building_concentrate_on_our_core_saas_product/",
+      "publisher": "Feature Upvote",
+      "checkedAt": "2026-10-07",
+      "kind": "OFFICIAL"
+     },
+     {
+      "id": "s10",
+      "url": "https://help.featureupvote.com/article/25-cancelling-your-subscription",
+      "publisher": "Feature Upvote",
+      "publishedAt": "2025-11-21",
+      "checkedAt": "2026-10-07",
+      "kind": "OFFICIAL"
+     },
+     {
+      "id": "s11",
+      "url": "https://featureupvote.com/product-feedback-tool/",
+      "publisher": "Feature Upvote",
+      "checkedAt": "2026-10-07",
+      "kind": "OFFICIAL"
+     }
+    ],
+    "facts": [
+     {
+      "id": "f1",
+      "kind": "OTHER",
+      "text": "2017年に開始。運営はスペインの Barbary Software。公式は自己資金で黒字の持続的事業と説明する。",
+      "sourceId": "s1",
+      "attribution": "OFFICIAL"
+     },
+     {
+      "id": "f2",
+      "kind": "OTHER",
+      "text": "料金ページには、掲示板ごとの月額で49ドルと99ドルのプランが表示され、年払いでは20%割引になる。",
+      "sourceId": "s2",
+      "attribution": "OFFICIAL"
+     },
+     {
+      "id": "f3",
+      "kind": "OTHER",
+      "text": "30日試用はカード不要。投票者と投稿数は無制限。支払いは Stripe、一定額以上の年払いは銀行振込に対応する。",
+      "sourceId": "s2",
+      "attribution": "OFFICIAL"
+     },
+     {
+      "id": "f4",
+      "kind": "OTHER",
+      "text": "2018年の振り返りでは、想定以上の顧客が非公開設定で掲示板を使っており、社内の知見の活用、アイデアの日、少数の法人顧客の要望の集約といった用途があったと述べる。また、プロダクトマネージャーの顧客生涯価値は、失敗率の高い新興SaaS企業の創業者よりも有望だったとする。",
+      "sourceId": "s5",
+      "attribution": "OFFICIAL"
+     },
+     {
+      "id": "f5",
+      "kind": "OTHER",
+      "text": "自作せずに購入して使うSaaSとして Algolia、Cloudinary、Postmark、Sentry を紹介する。",
+      "sourceId": "s6",
+      "attribution": "OFFICIAL"
+     },
+     {
+      "id": "f9",
+      "kind": "OTHER",
+      "text": "利用者は管理画面等から解約でき、支払い済み期間後は掲示板を非表示にする。3か月は書き出し可能で、その後にデータを削除する。",
+      "sourceId": "s10",
+      "statedAt": "2025-11-21",
+      "attribution": "OFFICIAL"
+     },
+     {
+      "id": "f10",
+      "kind": "OTHER",
+      "text": "投票・要望管理に加え、非公開掲示板、独自ドメイン、ロゴや配色、CSSによる表示調整を案内する。",
+      "sourceId": "s11",
+      "attribution": "OFFICIAL"
+     }
+    ],
+    "metrics": [],
+    "unknowns": [
+     "REVENUE",
+     "PROFIT",
+     "COST",
+     "TEAM",
+     "CHANNEL",
+     "TOOLS",
+     "PRICING",
+     "FOUNDED"
+    ],
+    "analysis": [
+     {
+      "id": "a-business_model",
+      "item": "BUSINESS_MODEL",
+      "text": "製品の要望を集めて投票させる掲示板を、掲示板1枚ごとの月額で売る。払うのはソフトや製品を持つ会社で、エンドユーザーの投票者と投稿数は無制限。非公開掲示板、独自ドメイン、ロゴや配色、CSS による見た目の調整まで含め、自社サイトの一部に見える要望窓口を借りる対価として払う。支払いは Stripe 経由のカード払いで、一定額以上の年払いは銀行振込も受ける。",
+      "basis": [
+       "f2",
+       "f3",
+       "f10"
+      ],
+      "presentation": "FACT_SUMMARY"
+     },
+     {
+      "id": "a-customer",
+      "item": "CUSTOMER",
+      "text": "中心はプロダクトマネージャー。自社製品への要望を外の客から集める会社に加え、ボードを非公開にして社員のアイデアを集める会社、アイデアの日を開く会社、少数の法人顧客の要望を会議やメールに散らさず1か所にまとめたい会社が払っている。公式サイトによると、ゲーム会社、自己資金のスタートアップ、慈善団体、政府機関、銀行、教育機関も客にいる。",
+      "basis": [
+       "f4",
+       "f10"
+      ],
+      "presentation": "FACT_SUMMARY"
+     },
+     {
+      "id": "a-customer_pain",
+      "item": "CUSTOMER_PAIN",
+      "text": "要望の優先順位が、声の大きい客やしつこく催促する客に引きずられて決まってしまう。客の言い分をメールや会議、表計算ソフトに散らしたまま整理に時間を取られ、作った機能が外れる損失を払っている。",
+      "basis": [
+       "f4",
+       "f10"
+      ],
+      "presentation": "FACT_SUMMARY"
+     },
+     {
+      "id": "a-channels",
+      "item": "CHANNELS",
+      "text": "2018年は、検索で上位に出る記事を作る SEO に資金と手間を寄せた。試した期間の成果が良く、安く伸ばせる経路だったため。外部の書き手と組み、客の獲得・導入・継続それぞれの文章を作り直した。LinkedIn の会社ページも整えた。ある見込み客から、社員1人で設立9か月の会社では UserVoice と比べて上司を説得しにくいと言われたのがきっかけで、その後は多くの有料客が登録前に LinkedIn のページを見ている。",
+      "basis": [
+       "f4"
+      ],
+      "presentation": "FACT_SUMMARY"
+     },
+     {
+      "id": "a-tools",
+      "item": "TOOLS",
+      "text": "検索に Algolia、画像に Cloudinary、メール配信に Postmark、不具合検知に Sentry、決済に Stripe を使う。",
+      "basis": [
+       "f3",
+       "f5"
+      ],
+      "presentation": "FACT_SUMMARY"
+     },
+     {
+      "id": "a-dependencies",
+      "item": "DEPENDENCIES",
+      "text": "決済は Stripe、検索・画像・メール配信・不具合検知は Algolia、Cloudinary、Postmark、Sentry に任せている。どれかが値上げや障害を起こせば、検索やメール通知など客が日々触る部分が止まる。",
+      "basis": [
+       "f3",
+       "f5"
+      ],
+      "presentation": "FACT_SUMMARY"
+     },
+     {
+      "id": "a-lock_in",
+      "item": "LOCK_IN",
+      "text": "解約すると、払い済みの期間が終わった時点で掲示板が非表示になる。書き出せるのは3か月だけで、その後は投稿・コメント・投票がすべて消える。独自ドメインと自社の配色で客向けの窓口として公開していれば、やめると客の目に触れる窓口ごと作り直しになる。",
+      "basis": [
+       "f9",
+       "f10"
+      ],
+      "presentation": "FACT_SUMMARY"
+     },
+     {
+      "id": "a-upfront_cash",
+      "item": "UPFRONT_CASH",
+      "text": "年払いを選んだ客からは1年分が初回に入る。1掲示板あたり49ドルのプランで約470ドル、99ドルのプランで約950ドル。一定額以上の年払いは銀行振込でも受ける。",
+      "basis": [
+       "f2",
+       "f3"
+      ],
+      "formula": "年払い額 = 月額 × 12 × (1 − 20%)。49ドル × 12 × 0.8 = 470.4ドル、99ドル × 12 × 0.8 = 950.4ドル（掲示板1枚あたり、公式料金）",
+      "presentation": "ESTIMATE"
+     },
+     {
+      "id": "a-capital_and_team",
+      "item": "CAPITAL_AND_TEAM",
+      "text": "外部の出資を受けず自己資金で始め、黒字で回している。",
+      "basis": [
+       "f1"
+      ],
+      "presentation": "FACT_SUMMARY"
+     },
+     {
+      "id": "a-pivots",
+      "item": "PIVOTS",
+      "text": "2017年の開始時は、客の要望を手軽に集めたい小さなソフト会社を狙っていた。同業の経営者の助言と、非公開ボードの思わぬ使われ方をきっかけに、狙いをプロダクトマネージャーに絞った。新興SaaSの創業者より長く払い続けると分かったためで、トップページと主要な説明を作り直し、アイデア管理の記事などで検索から呼び込む形に変えた。",
+      "basis": [
+       "f1",
+       "f4"
+      ],
+      "presentation": "FACT_SUMMARY"
+     },
+     {
+      "id": "a-timeline",
+      "item": "TIMELINE",
+      "text": "2017年：Barbary Software が開始。2018年：非公開での使われ方とプロダクトマネージャーの継続性に気づき、狙いを絞る。その後も自己資金・黒字で営業を続けている。",
+      "basis": [
+       "f1",
+       "f4"
+      ],
+      "presentation": "FACT_SUMMARY"
+     },
+     {
+      "id": "a-viability",
+      "item": "VIABILITY",
+      "text": "特化しないと困難。要望投票ボードは開発の腕があればほぼ資金無しで作れるため、競合は増え続ける。勝てたのは、潰れにくく長く払うプロダクトマネージャーに客を絞り、掲示板単位の安い月額と単純さで高価格の競合と分けたからで、汎用の要望ボードをもう一つ出すだけでは埋もれる。",
+      "basis": [
+       "f2",
+       "f4"
+      ],
+      "presentation": "FACT_SUMMARY"
+     },
+     {
+      "id": "a-lesson",
+      "item": "LESSON",
+      "text": "客の名簿を「誰が長く払い続けるか」で見直すと、狙う相手が変わる。この会社は潰れやすい新興SaaSの創業者から、会社に根を張るプロダクトマネージャーへ乗り換えて伸ばした。",
+      "basis": [
+       "f4"
+      ],
+      "presentation": "FACT_SUMMARY"
+     }
+    ]
+   }
+  }
+ ]
+}

@@ -1,0 +1,1029 @@
+{
+ "version": 1,
+ "source": {
+  "manifest": "/private/tmp/claude-501/-Users-satoushinya-project-Make-Money/2be145c1-d0c7-4f02-9457-3c8f190a0980/scratchpad/gen2/auto/hostifi-record.json",
+  "manifestSha256": "d07d30e1270081618f2a6ba0d5519894906aaa47c5590e1fe6457e72bdaed9f8",
+  "artifactsDir": "",
+  "collectedAt": "2026-10-07T10:48:25.233Z"
+ },
+ "records": [
+  {
+   "id": "ent_hostifi_cf9ec73a42d2",
+   "provenance": {
+    "detailsHash": "cb62a3a32d3613680a897be7e11588eb59ad1503f51366adc3d58481edd1c002",
+    "artifactSha256": "d07d30e1270081618f2a6ba0d5519894906aaa47c5590e1fe6457e72bdaed9f8"
+   },
+   "workNotes": [
+    "本記録は指定された一時保存先での調査成果。中央台帳への登録・R2保存・本番表示は実施していない。"
+   ],
+   "record": {
+    "id": "ent_hostifi_cf9ec73a42d2",
+    "ticker": "HOSTIFI",
+    "name": "HostiFi",
+    "legalEntity": "法人の正確な登記名は未確認",
+    "tagline": "ネットワーク管理の保守を引き受け、代理運営事業者の継続契約を積む",
+    "description": "個人が始めた UniFi 等のネットワーク管理用ホスティング。顧客獲得・運営の作り直し・税引後の本人受取まで公開されているが、受取は独立監査のない自己申告。",
+    "sector": "NICHE_SAAS",
+    "scale": "SMALL_TEAM",
+    "founder": "Reilly Chase",
+    "country": "米国",
+    "url": "https://www.hostifi.com/",
+    "officialUrl": "https://www.hostifi.com/",
+    "verifiedBadge": false,
+    "growthRateYoY": 0,
+    "architecturePattern": "用途を限定した月額サービス。運営の自動化範囲は出典ごとに区別。",
+    "pipelineStack": "WordPress（創業期）、Easy Digital Downloads（創業期）、Stripe（創業期）、Python（創業期）、Vultr（2019年）、DigitalOcean Spaces（2019年）",
+    "targetPainWallet": "管理サーバーの更新・復元・障害対応を自前で担う負担。",
+    "tags": [
+     "個人開発から事業化",
+     "小規模運営",
+     "継続課金",
+     "一次情報あり",
+     "収集事例"
+    ],
+    "pnl": {
+     "monthlyRevenue": 0,
+     "cogs": 0,
+     "grossProfit": 0,
+     "grossMargin": 0,
+     "operatingExpenses": {
+      "serverAndApi": 0,
+      "advertising": 0,
+      "subcontracting": 0,
+      "toolsAndSaaS": 0,
+      "other": 0
+     },
+     "operatingProfit": 0,
+     "operatingMargin": 0,
+     "estimatedAnnualNetProfit": 0,
+     "isRevenueUnconfirmed": true,
+     "isOperatingProfitUnconfirmed": true,
+     "isMarginUnconfirmed": true,
+     "isGrossProfitUnconfirmed": true,
+     "isGrossMarginUnconfirmed": true,
+     "isCogsUnconfirmed": true,
+     "isCostsUnconfirmed": true,
+     "isNetProfitUnconfirmed": true,
+     "financialStatus": "UNAVAILABLE",
+     "dataSnapshotPeriod": "2018年5〜6月の初動／2019・2021年の売上／2025年の受取／2026年の製品",
+     "revenueLabel": "過去の開示値は事実欄に原通貨と期間付きで保存。現在の同一期間の損益一式は未確認。",
+     "sourceDoc": "https://www.hostifi.com/",
+     "sourceClass": "PRIMARY"
+    },
+    "facts": [
+     {
+      "id": "ent_hostifi_cf9ec73a42d2_fact_1",
+      "kind": "FACT",
+      "text": "2018年に開始。ネットワーク導入を行った Locklin Networks の経験から生まれ、2019年に Calm Company Fund から10万ドルを調達したと公式が説明する。",
+      "sourceUrl": "https://www.hostifi.com/",
+      "sourceId": "ent_hostifi_cf9ec73a42d2_source_1",
+      "attribution": "事業者・創業者の申告",
+      "statedAt": null
+     },
+     {
+      "id": "ent_hostifi_cf9ec73a42d2_fact_2",
+      "kind": "FACT",
+      "text": "公式の現在表示は顧客5000超。機器25台は月19ドルまたは年199ドル、250台は月99ドルまたは年999ドル、1000台は月249ドルまたは年2499ドル。",
+      "sourceUrl": "https://www.hostifi.com/",
+      "sourceId": "ent_hostifi_cf9ec73a42d2_source_1",
+      "attribution": "事業者・創業者の申告",
+      "statedAt": null
+     },
+     {
+      "id": "ent_hostifi_cf9ec73a42d2_fact_3",
+      "kind": "FACT",
+      "text": "上位プランでは更新の検査、長めのバックアップ保持、個別支援等を提供。30日返金保証を表示する。",
+      "sourceUrl": "https://www.hostifi.com/",
+      "sourceId": "ent_hostifi_cf9ec73a42d2_source_1",
+      "attribution": "事業者・創業者の申告",
+      "statedAt": null
+     },
+     {
+      "id": "ent_hostifi_cf9ec73a42d2_fact_4",
+      "kind": "FACT",
+      "text": "創業者は2018年5月24日〜6月16日の約3週間で顧客が0から11になったと報告。購入者名と初回決済額は不明。",
+      "sourceUrl": "https://blog.rchase.com/my-first-saas-from-0-10-customers/",
+      "sourceId": "ent_hostifi_cf9ec73a42d2_source_2",
+      "attribution": "事業者・創業者の申告",
+      "statedAt": "2018-10-10"
+     },
+     {
+      "id": "ent_hostifi_cf9ec73a42d2_fact_5",
+      "kind": "FACT",
+      "text": "Twitter の関連タグで交流し、技術掲示板で質問に答える方法から流入・顧客を得たという。",
+      "sourceUrl": "https://blog.rchase.com/my-first-saas-from-0-10-customers/",
+      "sourceId": "ent_hostifi_cf9ec73a42d2_source_2",
+      "attribution": "事業者・創業者の申告",
+      "statedAt": "2018-10-10"
+     },
+     {
+      "id": "ent_hostifi_cf9ec73a42d2_fact_6",
+      "kind": "FACT",
+      "text": "Upwork は見込み客を得られず、Reddit の宣伝は削除。掲示板の私信は6返信あっても関心を得られなかった。",
+      "sourceUrl": "https://blog.rchase.com/my-first-saas-from-0-10-customers/",
+      "sourceId": "ent_hostifi_cf9ec73a42d2_source_2",
+      "attribution": "事業者・創業者の申告",
+      "statedAt": "2018-10-10"
+     },
+     {
+      "id": "ent_hostifi_cf9ec73a42d2_fact_7",
+      "kind": "FACT",
+      "text": "2018年10月には、成約した紹介1件につき15ドルの Amazon ギフト券を送ると説明していた。現行制度とは確認していない。",
+      "sourceUrl": "https://blog.rchase.com/my-first-saas-from-0-10-customers/",
+      "sourceId": "ent_hostifi_cf9ec73a42d2_source_2",
+      "attribution": "事業者・創業者の申告",
+      "statedAt": "2018-10-10"
+     },
+     {
+      "id": "ent_hostifi_cf9ec73a42d2_fact_8",
+      "kind": "FACT",
+      "text": "2019年5月の本人報告は月次継続売上5735ドル、有料契約者266、サーバー309、管理機器1万2000超。",
+      "sourceUrl": "https://blog.rchase.com/hostifi-2-0-why-im-completely-rewriting-my-5-735-mrr-saas/",
+      "sourceId": "ent_hostifi_cf9ec73a42d2_source_3",
+      "attribution": "事業者・創業者の申告",
+      "statedAt": "2019-05-18"
+     },
+     {
+      "id": "ent_hostifi_cf9ec73a42d2_fact_9",
+      "kind": "FACT",
+      "text": "当初は WordPress と Easy Digital Downloads、Stripe の継続課金、Python の自動構築を利用。メール依存と契約変更の難しさから作り直しを計画した。",
+      "sourceUrl": "https://blog.rchase.com/hostifi-2-0-why-im-completely-rewriting-my-5-735-mrr-saas/",
+      "sourceId": "ent_hostifi_cf9ec73a42d2_source_3",
+      "attribution": "事業者・創業者の申告",
+      "statedAt": "2019-05-18"
+     },
+     {
+      "id": "ent_hostifi_cf9ec73a42d2_fact_10",
+      "kind": "FACT",
+      "text": "Ubiquiti の無料 UNMS 提供に対し、有料顧客は外部バックアップ、独自ドメイン、資源の拡張などを選んだと創業者は説明する。",
+      "sourceUrl": "https://blog.rchase.com/why-were-reinvesting-in-our-unms-cloud-hosting-product/",
+      "sourceId": "ent_hostifi_cf9ec73a42d2_source_4",
+      "attribution": "事業者・創業者の申告",
+      "statedAt": "2019-12-16"
+     },
+     {
+      "id": "ent_hostifi_cf9ec73a42d2_fact_11",
+      "kind": "FACT",
+      "text": "2019年は Vultr のサーバーと DigitalOcean Spaces の外部バックアップを使用。現在の構成とは確認していない。",
+      "sourceUrl": "https://blog.rchase.com/why-were-reinvesting-in-our-unms-cloud-hosting-product/",
+      "sourceId": "ent_hostifi_cf9ec73a42d2_source_4",
+      "attribution": "事業者・創業者の申告",
+      "statedAt": "2019-12-16"
+     },
+     {
+      "id": "ent_hostifi_cf9ec73a42d2_fact_12",
+      "kind": "FACT",
+      "text": "2021年9月に年次継続売上100万ドル、年末に約130万ドル。通年の実売上100万ドル超と継続売上の年換算を分けて報告する。",
+      "sourceUrl": "https://blog.rchase.com/2021-year-in-review/",
+      "sourceId": "ent_hostifi_cf9ec73a42d2_source_5",
+      "attribution": "事業者・創業者の申告",
+      "statedAt": "2021-12-30"
+     },
+     {
+      "id": "ent_hostifi_cf9ec73a42d2_fact_13",
+      "kind": "FACT",
+      "text": "2025年8月、2018年から自身に支払われた税引後利益の累計が300万ドル超と本人が報告。単年の利益や監査済み個人通帳の値ではない。",
+      "sourceUrl": "https://blog.rchase.com/profit-first/",
+      "sourceId": "ent_hostifi_cf9ec73a42d2_source_6",
+      "attribution": "事業者・創業者の申告",
+      "statedAt": "2025-08-08"
+     },
+     {
+      "id": "ent_hostifi_cf9ec73a42d2_fact_14",
+      "kind": "FACT",
+      "text": "前年の EBITDA 利益率は約50%と報告。原価・給与・税の詳細と通年損益の原本は提示されていない。",
+      "sourceUrl": "https://blog.rchase.com/profit-first/",
+      "sourceId": "ent_hostifi_cf9ec73a42d2_source_6",
+      "attribution": "事業者・創業者の申告",
+      "statedAt": "2025-08-08"
+     },
+     {
+      "id": "ent_hostifi_cf9ec73a42d2_fact_15",
+      "kind": "FACT",
+      "text": "配分方針は本人報酬30%、税15%、会社の利益留保5%、運営費30%、給与20%。実績の損益明細ではない。",
+      "sourceUrl": "https://blog.rchase.com/profit-first/",
+      "sourceId": "ent_hostifi_cf9ec73a42d2_source_6",
+      "attribution": "事業者・創業者の申告",
+      "statedAt": "2025-08-08"
+     },
+     {
+      "id": "ent_hostifi_cf9ec73a42d2_fact_16",
+      "kind": "FACT",
+      "text": "Hubox を25万ドルで買収した後、別々の開発・支援、信頼できないバックアップのため残した解約後サーバー等が費用を増やしたという。",
+      "sourceUrl": "https://blog.rchase.com/my-250k-acquisition-and-the-start-of-a-ubiquiti-roll-up/",
+      "sourceId": "ent_hostifi_cf9ec73a42d2_source_7",
+      "attribution": "事業者・創業者の申告",
+      "statedAt": "2025-05-01"
+     },
+     {
+      "id": "ent_hostifi_cf9ec73a42d2_fact_17",
+      "kind": "FACT",
+      "text": "2025年3月の移行で Hubox のサーバー費を半減し、重複ツールを廃止して年間3万ドル超を削減したと報告。HostiFi 全体の費用半減ではない。",
+      "sourceUrl": "https://blog.rchase.com/my-250k-acquisition-and-the-start-of-a-ubiquiti-roll-up/",
+      "sourceId": "ent_hostifi_cf9ec73a42d2_source_7",
+      "attribution": "事業者・創業者の申告",
+      "statedAt": "2025-05-01"
+     },
+     {
+      "id": "ent_hostifi_cf9ec73a42d2_fact_18",
+      "kind": "FACT",
+      "text": "代理運営事業者は独自ドメインで顧客へ再販売できる。顧客への請求は別途行う。",
+      "sourceUrl": "https://support.hostifi.com/en/articles/3446785-white-label",
+      "sourceId": "ent_hostifi_cf9ec73a42d2_source_8",
+      "attribution": "事業者・創業者の申告",
+      "statedAt": "2022-06-22"
+     },
+     {
+      "id": "ent_hostifi_cf9ec73a42d2_fact_19",
+      "kind": "FACT",
+      "text": "無料プランは新規提供を終了。既存契約は残り、共有資源を使う。現行の新規獲得策として無料プランを前提にできない。",
+      "sourceUrl": "https://www.hostifi.com/support/hostifi-using-the-hostifi-free-plan",
+      "sourceId": "ent_hostifi_cf9ec73a42d2_source_9",
+      "attribution": "事業者・創業者の申告",
+      "statedAt": "2026-06-19"
+     },
+     {
+      "id": "ent_hostifi_cf9ec73a42d2_fact_20",
+      "kind": "FACT",
+      "text": "UniFi と UISP の機器一覧を表形式で書き出す工具を提供。全設定の復元や完全移行とは区別する。",
+      "sourceUrl": "https://www.hostifi.com/support/what-is-hostifi-export",
+      "sourceId": "ent_hostifi_cf9ec73a42d2_source_10",
+      "attribution": "事業者・創業者の申告",
+      "statedAt": "2026-09-26"
+     },
+     {
+      "id": "ent_hostifi_cf9ec73a42d2_fact_21",
+      "kind": "FACT",
+      "text": "無料の機器発見ツールを提供し、廃止された Chrome 向け旧ツールの代替として案内する。集客効果の数値は未確認。",
+      "sourceUrl": "https://www.hostifi.com/support/what-is-the-hostifi-device-discovery-tool",
+      "sourceId": "ent_hostifi_cf9ec73a42d2_source_11",
+      "attribution": "事業者・創業者の申告",
+      "statedAt": "2026-06-22"
+     },
+     {
+      "id": "ent_hostifi_cf9ec73a42d2_fact_22",
+      "kind": "FACT",
+      "text": "匿名投稿には支援や検査済み更新を評価する声と、自前運営の方が安いという声がある。契約関係は検証できない。",
+      "sourceUrl": "https://www.reddit.com/r/msp/comments/1llnwuu",
+      "sourceId": "ent_hostifi_cf9ec73a42d2_source_12",
+      "attribution": "第三者資料内の発言・記述",
+      "statedAt": "2025-06-27"
+     },
+     {
+      "id": "ent_hostifi_cf9ec73a42d2_fact_23",
+      "kind": "FACT",
+      "text": "匿名投稿には更新が遅いという不満がある。保守品質全体を判定できる母数や障害率はない。",
+      "sourceUrl": "https://www.reddit.com/r/Ubiquiti/comments/1p00soh/hostifi_slacking_off_or_just_super_cautious/",
+      "sourceId": "ent_hostifi_cf9ec73a42d2_source_13",
+      "attribution": "第三者資料内の発言・記述",
+      "statedAt": "2025-11-18"
+     },
+     {
+      "id": "ent_hostifi_cf9ec73a42d2_fact_24",
+      "kind": "FACT",
+      "text": "Latka は調達額を0と記載するが、公式の2019年10万ドル調達と食い違うため採用しない。",
+      "sourceUrl": "https://getlatka.com/companies/hostifi-1/team",
+      "sourceId": "ent_hostifi_cf9ec73a42d2_source_14",
+      "attribution": "第三者資料内の発言・記述",
+      "statedAt": "2024-10-17"
+     }
+    ],
+    "reaudit": {
+     "status": "PARTIAL",
+     "auditDate": "2026-10-07",
+     "timezone": "Asia/Tokyo",
+     "auditOwner": "codex-three-success-20261007",
+     "method": "MANUAL_REAUDIT",
+     "family": "new-collection",
+     "sources": [
+      {
+       "url": "https://www.hostifi.com/",
+       "publisher": "HostiFi",
+       "title": "製品・現在料金・創業経緯",
+       "sourceType": "official_website",
+       "publicationDate": null,
+       "checkedAt": "2026-10-07",
+       "rightsTier": "TIER1_OFFICIAL",
+       "sourceClass": "PRIMARY",
+       "rightsNote": "出典区分は転載許諾を意味しない。独自の日本語要約と所在のみ記録し、原文・画像の公開許諾は未確認。",
+       "id": "ent_hostifi_cf9ec73a42d2_source_1"
+      },
+      {
+       "url": "https://blog.rchase.com/my-first-saas-from-0-10-customers/",
+       "publisher": "Reilly Chase",
+       "title": "最初の顧客獲得",
+       "sourceType": "founder_post",
+       "publicationDate": "2018-10-10",
+       "checkedAt": "2026-10-07",
+       "rightsTier": "TIER1_OFFICIAL",
+       "sourceClass": "PRIMARY",
+       "rightsNote": "出典区分は転載許諾を意味しない。独自の日本語要約と所在のみ記録し、原文・画像の公開許諾は未確認。",
+       "id": "ent_hostifi_cf9ec73a42d2_source_2"
+      },
+      {
+       "url": "https://blog.rchase.com/hostifi-2-0-why-im-completely-rewriting-my-5-735-mrr-saas/",
+       "publisher": "Reilly Chase",
+       "title": "2019年の売上と運営基盤",
+       "sourceType": "founder_post",
+       "publicationDate": "2019-05-18",
+       "checkedAt": "2026-10-07",
+       "rightsTier": "TIER1_OFFICIAL",
+       "sourceClass": "PRIMARY",
+       "rightsNote": "出典区分は転載許諾を意味しない。独自の日本語要約と所在のみ記録し、原文・画像の公開許諾は未確認。",
+       "id": "ent_hostifi_cf9ec73a42d2_source_3"
+      },
+      {
+       "url": "https://blog.rchase.com/why-were-reinvesting-in-our-unms-cloud-hosting-product/",
+       "publisher": "Reilly Chase",
+       "title": "無料競合とインフラ",
+       "sourceType": "founder_post",
+       "publicationDate": "2019-12-16",
+       "checkedAt": "2026-10-07",
+       "rightsTier": "TIER1_OFFICIAL",
+       "sourceClass": "PRIMARY",
+       "rightsNote": "出典区分は転載許諾を意味しない。独自の日本語要約と所在のみ記録し、原文・画像の公開許諾は未確認。",
+       "id": "ent_hostifi_cf9ec73a42d2_source_4"
+      },
+      {
+       "url": "https://blog.rchase.com/2021-year-in-review/",
+       "publisher": "Reilly Chase",
+       "title": "2021年の成長",
+       "sourceType": "founder_post",
+       "publicationDate": "2021-12-30",
+       "checkedAt": "2026-10-07",
+       "rightsTier": "TIER1_OFFICIAL",
+       "sourceClass": "PRIMARY",
+       "rightsNote": "出典区分は転載許諾を意味しない。独自の日本語要約と所在のみ記録し、原文・画像の公開許諾は未確認。",
+       "id": "ent_hostifi_cf9ec73a42d2_source_5"
+      },
+      {
+       "url": "https://blog.rchase.com/profit-first/",
+       "publisher": "Reilly Chase",
+       "title": "累計の本人受取と資金配分",
+       "sourceType": "founder_post",
+       "publicationDate": "2025-08-08",
+       "checkedAt": "2026-10-07",
+       "rightsTier": "TIER1_OFFICIAL",
+       "sourceClass": "PRIMARY",
+       "rightsNote": "出典区分は転載許諾を意味しない。独自の日本語要約と所在のみ記録し、原文・画像の公開許諾は未確認。",
+       "id": "ent_hostifi_cf9ec73a42d2_source_6"
+      },
+      {
+       "url": "https://blog.rchase.com/my-250k-acquisition-and-the-start-of-a-ubiquiti-roll-up/",
+       "publisher": "Reilly Chase",
+       "title": "買収後の重複費用と統合",
+       "sourceType": "founder_post",
+       "publicationDate": "2025-05-01",
+       "checkedAt": "2026-10-07",
+       "rightsTier": "TIER1_OFFICIAL",
+       "sourceClass": "PRIMARY",
+       "rightsNote": "出典区分は転載許諾を意味しない。独自の日本語要約と所在のみ記録し、原文・画像の公開許諾は未確認。",
+       "id": "ent_hostifi_cf9ec73a42d2_source_7"
+      },
+      {
+       "url": "https://support.hostifi.com/en/articles/3446785-white-label",
+       "publisher": "HostiFi",
+       "title": "代理運営事業者による再販売",
+       "sourceType": "official_help",
+       "publicationDate": "2022-06-22",
+       "checkedAt": "2026-10-07",
+       "rightsTier": "TIER1_OFFICIAL",
+       "sourceClass": "PRIMARY",
+       "rightsNote": "出典区分は転載許諾を意味しない。独自の日本語要約と所在のみ記録し、原文・画像の公開許諾は未確認。",
+       "id": "ent_hostifi_cf9ec73a42d2_source_8"
+      },
+      {
+       "url": "https://www.hostifi.com/support/hostifi-using-the-hostifi-free-plan",
+       "publisher": "HostiFi",
+       "title": "無料プランの現状",
+       "sourceType": "official_help",
+       "publicationDate": "2026-06-19",
+       "checkedAt": "2026-10-07",
+       "rightsTier": "TIER1_OFFICIAL",
+       "sourceClass": "PRIMARY",
+       "rightsNote": "出典区分は転載許諾を意味しない。独自の日本語要約と所在のみ記録し、原文・画像の公開許諾は未確認。",
+       "id": "ent_hostifi_cf9ec73a42d2_source_9"
+      },
+      {
+       "url": "https://www.hostifi.com/support/what-is-hostifi-export",
+       "publisher": "HostiFi",
+       "title": "機器一覧の書き出し",
+       "sourceType": "official_help",
+       "publicationDate": "2026-09-26",
+       "checkedAt": "2026-10-07",
+       "rightsTier": "TIER1_OFFICIAL",
+       "sourceClass": "PRIMARY",
+       "rightsNote": "出典区分は転載許諾を意味しない。独自の日本語要約と所在のみ記録し、原文・画像の公開許諾は未確認。",
+       "id": "ent_hostifi_cf9ec73a42d2_source_10"
+      },
+      {
+       "url": "https://www.hostifi.com/support/what-is-the-hostifi-device-discovery-tool",
+       "publisher": "HostiFi",
+       "title": "無料の機器発見ツール",
+       "sourceType": "official_help",
+       "publicationDate": "2026-06-22",
+       "checkedAt": "2026-10-07",
+       "rightsTier": "TIER1_OFFICIAL",
+       "sourceClass": "PRIMARY",
+       "rightsNote": "出典区分は転載許諾を意味しない。独自の日本語要約と所在のみ記録し、原文・画像の公開許諾は未確認。",
+       "id": "ent_hostifi_cf9ec73a42d2_source_11"
+      },
+      {
+       "url": "https://www.reddit.com/r/msp/comments/1llnwuu",
+       "publisher": "Reddit の匿名投稿者",
+       "title": "支援への評価と自前運営との比較",
+       "sourceType": "forum_post",
+       "publicationDate": "2025-06-27",
+       "checkedAt": "2026-10-07",
+       "rightsTier": "TIER2_FACTS_ONLY",
+       "sourceClass": "INDEPENDENT_SECONDARY",
+       "rightsNote": "出典区分は転載許諾を意味しない。独自の日本語要約と所在のみ記録し、原文・画像の公開許諾は未確認。",
+       "id": "ent_hostifi_cf9ec73a42d2_source_12"
+      },
+      {
+       "url": "https://www.reddit.com/r/Ubiquiti/comments/1p00soh/hostifi_slacking_off_or_just_super_cautious/",
+       "publisher": "Reddit の匿名投稿者",
+       "title": "更新速度への不満",
+       "sourceType": "forum_post",
+       "publicationDate": "2025-11-18",
+       "checkedAt": "2026-10-07",
+       "rightsTier": "TIER2_FACTS_ONLY",
+       "sourceClass": "INDEPENDENT_SECONDARY",
+       "rightsNote": "出典区分は転載許諾を意味しない。独自の日本語要約と所在のみ記録し、原文・画像の公開許諾は未確認。",
+       "id": "ent_hostifi_cf9ec73a42d2_source_13"
+      },
+      {
+       "url": "https://getlatka.com/companies/hostifi-1/team",
+       "publisher": "Latka",
+       "title": "外部の資金調達・業績記載",
+       "sourceType": "third_party_estimate",
+       "publicationDate": "2024-10-17",
+       "checkedAt": "2026-10-07",
+       "rightsTier": "TIER2_FACTS_ONLY",
+       "sourceClass": "INDEPENDENT_SECONDARY",
+       "rightsNote": "出典区分は転載許諾を意味しない。独自の日本語要約と所在のみ記録し、原文・画像の公開許諾は未確認。",
+       "id": "ent_hostifi_cf9ec73a42d2_source_14"
+      }
+     ],
+     "supported": [
+      "ent_hostifi_cf9ec73a42d2_fact_1",
+      "ent_hostifi_cf9ec73a42d2_fact_2",
+      "ent_hostifi_cf9ec73a42d2_fact_3",
+      "ent_hostifi_cf9ec73a42d2_fact_4",
+      "ent_hostifi_cf9ec73a42d2_fact_5",
+      "ent_hostifi_cf9ec73a42d2_fact_6",
+      "ent_hostifi_cf9ec73a42d2_fact_7",
+      "ent_hostifi_cf9ec73a42d2_fact_8",
+      "ent_hostifi_cf9ec73a42d2_fact_9",
+      "ent_hostifi_cf9ec73a42d2_fact_10",
+      "ent_hostifi_cf9ec73a42d2_fact_11",
+      "ent_hostifi_cf9ec73a42d2_fact_12",
+      "ent_hostifi_cf9ec73a42d2_fact_13",
+      "ent_hostifi_cf9ec73a42d2_fact_14",
+      "ent_hostifi_cf9ec73a42d2_fact_15",
+      "ent_hostifi_cf9ec73a42d2_fact_16",
+      "ent_hostifi_cf9ec73a42d2_fact_17",
+      "ent_hostifi_cf9ec73a42d2_fact_18",
+      "ent_hostifi_cf9ec73a42d2_fact_19",
+      "ent_hostifi_cf9ec73a42d2_fact_20",
+      "ent_hostifi_cf9ec73a42d2_fact_21",
+      "ent_hostifi_cf9ec73a42d2_fact_22",
+      "ent_hostifi_cf9ec73a42d2_fact_23",
+      "ent_hostifi_cf9ec73a42d2_fact_24"
+     ],
+     "unknown": [
+      "2026年の実売上、同一期間の売上原価・営業利益・税・創業者受取。",
+      "本人申告の累計300万ドル超を裏付ける決済・通帳・監査原本。",
+      "現在の人数、創業時資金、週の作業時間、現行インフラ単価。",
+      "最初の顧客名・初回価格、顧客別継続率、獲得費。",
+      "現行の紹介報酬率と旧制度の獲得件数。",
+      "初期 Wayback Machine の本文、現行の契約者ごとの移行費用。"
+     ],
+     "conflicts": [
+      "公式の別ページに顧客3000超・従業員10人等の時期不明な表記があり、トップの顧客5000超とは更新時点が揃わない。現在人数は保留。",
+      "外部データの調達0は公式の10万ドルと矛盾。外部の売上値も期間と継続売上の定義を揃えられず不採用。",
+      "税引後受取の累計、前年の EBITDA、予算配分、別年の継続売上を掛け合わせて現在の手残りを作らない。"
+     ]
+    },
+    "observationsStream": [
+     {
+      "id": "ent_hostifi_cf9ec73a42d2_metric_1",
+      "evidenceIds": [
+       "ent_hostifi_cf9ec73a42d2_source_3"
+      ],
+      "category": "TECH_VERIFICATION",
+      "categoryLabel": "数値の期間・定義",
+      "text": "2019年5月の月次継続売上。",
+      "originType": "reported",
+      "verificationStatus": "SUPPORTED",
+      "sourceUrl": "https://blog.rchase.com/hostifi-2-0-why-im-completely-rewriting-my-5-735-mrr-saas/",
+      "observedAt": "2026-10-07",
+      "author": "Reilly Chase",
+      "observationType": "financial_metric",
+      "publicPayload": {
+       "amount": 5735,
+       "currency": "USD",
+       "metric": "MRR",
+       "period": "2019-05",
+       "approximate": false,
+       "selfReported": true
+      },
+      "sourceClass": "PRIMARY"
+     },
+     {
+      "id": "ent_hostifi_cf9ec73a42d2_metric_2",
+      "evidenceIds": [
+       "ent_hostifi_cf9ec73a42d2_source_5"
+      ],
+      "category": "TECH_VERIFICATION",
+      "categoryLabel": "数値の期間・定義",
+      "text": "2021年9月の年次継続売上。年実売上とは区別。",
+      "originType": "reported",
+      "verificationStatus": "SUPPORTED",
+      "sourceUrl": "https://blog.rchase.com/2021-year-in-review/",
+      "observedAt": "2026-10-07",
+      "author": "Reilly Chase",
+      "observationType": "financial_metric",
+      "publicPayload": {
+       "amount": 1000000,
+       "currency": "USD",
+       "metric": "ARR",
+       "period": "2021-09",
+       "selfReported": true
+      },
+      "sourceClass": "PRIMARY"
+     },
+     {
+      "id": "ent_hostifi_cf9ec73a42d2_metric_3",
+      "evidenceIds": [
+       "ent_hostifi_cf9ec73a42d2_source_6"
+      ],
+      "category": "TECH_VERIFICATION",
+      "categoryLabel": "数値の期間・定義",
+      "text": "創業以来の税引後利益からの本人受取累計。",
+      "originType": "reported",
+      "verificationStatus": "SUPPORTED",
+      "sourceUrl": "https://blog.rchase.com/profit-first/",
+      "observedAt": "2026-10-07",
+      "author": "Reilly Chase",
+      "observationType": "financial_metric",
+      "publicPayload": {
+       "amount": 3000000,
+       "currency": "USD",
+       "comparison": "GT",
+       "metric": "founder_cumulative_after_tax_distribution",
+       "period": "2018〜2025-08",
+       "selfReported": true
+      },
+      "sourceClass": "PRIMARY"
+     },
+     {
+      "id": "ent_hostifi_cf9ec73a42d2_metric_4",
+      "evidenceIds": [
+       "ent_hostifi_cf9ec73a42d2_source_6"
+      ],
+      "category": "TECH_VERIFICATION",
+      "categoryLabel": "数値の期間・定義",
+      "text": "資金配分方針の合計は100%。財務実績ではない。",
+      "originType": "reported",
+      "verificationStatus": "SUPPORTED",
+      "sourceUrl": "https://blog.rchase.com/profit-first/",
+      "observedAt": "2026-10-07",
+      "author": "Reilly Chase",
+      "observationType": "financial_metric",
+      "publicPayload": {
+       "ownerPayPercent": 30,
+       "taxPercent": 15,
+       "retainedProfitPercent": 5,
+       "operatingExpensePercent": 30,
+       "payrollPercent": 20,
+       "sumPercent": 100,
+       "metric": "allocation_policy",
+       "period": "2025-08",
+       "actualResults": false
+      },
+      "sourceClass": "PRIMARY"
+     },
+     {
+      "id": "ent_hostifi_cf9ec73a42d2_application",
+      "evidenceIds": [
+       "ent_hostifi_cf9ec73a42d2_source_2",
+       "ent_hostifi_cf9ec73a42d2_source_4",
+       "ent_hostifi_cf9ec73a42d2_source_8"
+      ],
+      "category": "MARKET_DISTORTION",
+      "categoryLabel": "根拠付きの転用仮説",
+      "text": "推論: 代理運営事業者が自社の請求に組み込める保守基盤を売る。自作より安いことだけでなく、更新検査・復元・支援の引受範囲を契約で明示する。",
+      "originType": "inferred",
+      "verificationStatus": "UNVERIFIED",
+      "observedAt": "2026-10-07",
+      "observationType": "application_hypothesis",
+      "publicPayload": {
+       "basisFactIds": [
+        "ent_hostifi_cf9ec73a42d2_fact_4",
+        "ent_hostifi_cf9ec73a42d2_fact_5",
+        "ent_hostifi_cf9ec73a42d2_fact_6",
+        "ent_hostifi_cf9ec73a42d2_fact_7",
+        "ent_hostifi_cf9ec73a42d2_fact_10",
+        "ent_hostifi_cf9ec73a42d2_fact_11",
+        "ent_hostifi_cf9ec73a42d2_fact_18"
+       ],
+       "limitation": "同じ結果が得られるとは確認していない。小さな有料検証を先に行う。"
+      }
+     },
+     {
+      "id": "ent_hostifi_cf9ec73a42d2_media",
+      "category": "RESEARCH_LIMIT",
+      "categoryLabel": "公開画面素材の所在",
+      "text": "公式の製品画面・紹介画像の掲載ページを確認。画像ファイルは取得しておらず、転載許諾と利用者情報の除去は未審査。",
+      "originType": "observed",
+      "verificationStatus": "SUPPORTED",
+      "observedAt": "2026-10-07",
+      "observationType": "media_location",
+      "publicPayload": {
+       "locationUrls": [
+        "https://www.hostifi.com/"
+       ],
+       "downloaded": false,
+       "publicationPermissionVerified": false
+      }
+     }
+    ],
+    "observations": [
+     "公式資料同士でも同一組織内の記述であり、独立した監査証拠ではない。"
+    ],
+    "temporal": {
+     "foundedYear": 2018,
+     "initialTractionPeriod": "2018年5〜6月の初動",
+     "dataSnapshotPeriod": "2018年5〜6月の初動／2019・2021年の売上／2025年の受取／2026年の製品",
+     "viabilityStatus": "UNKNOWN",
+     "eraContext": "創業期の集客経路と現在の購入経路を別に扱う。創業当時の競争環境が現在も同じとは認定しない。",
+     "currentViabilityAnalysis": "Ubiquiti の製品と仕様に依存する。無料の公式提供と自前運用が代替となる。更新の安全性と速さは両立の検証が必要で、買収による重複運営費も消えない。",
+     "viabilityLabel": "現在の新規参入者の採算・再現性は未確認"
+    },
+    "operations": {
+     "teamSize": 0,
+     "weeklyHours": 0,
+     "initialCapitalRequired": 0,
+     "automationLevel": 0,
+     "primaryChannels": [
+      "2018年: Twitter と技術掲示板",
+      "2018年時点: 紹介ギフト券",
+      "現在: 支援記事と無料の周辺ツール"
+     ],
+     "toolStack": [
+      {
+       "name": "WordPress",
+       "category": "UNKNOWN",
+       "monthlyCost": 0,
+       "isCostUnconfirmed": true,
+       "purpose": "創業期"
+      },
+      {
+       "name": "Easy Digital Downloads",
+       "category": "UNKNOWN",
+       "monthlyCost": 0,
+       "isCostUnconfirmed": true,
+       "purpose": "創業期"
+      },
+      {
+       "name": "Stripe",
+       "category": "UNKNOWN",
+       "monthlyCost": 0,
+       "isCostUnconfirmed": true,
+       "purpose": "創業期"
+      },
+      {
+       "name": "Python",
+       "category": "UNKNOWN",
+       "monthlyCost": 0,
+       "isCostUnconfirmed": true,
+       "purpose": "創業期"
+      },
+      {
+       "name": "Vultr",
+       "category": "UNKNOWN",
+       "monthlyCost": 0,
+       "isCostUnconfirmed": true,
+       "purpose": "2019年"
+      },
+      {
+       "name": "DigitalOcean Spaces",
+       "category": "UNKNOWN",
+       "monthlyCost": 0,
+       "isCostUnconfirmed": true,
+       "purpose": "2019年"
+      }
+     ],
+     "isTeamSizeUnconfirmed": true,
+     "isWeeklyHoursUnconfirmed": true,
+     "isCapitalUnconfirmed": true,
+     "isAutomationUnconfirmed": true
+    },
+    "strategy": {
+     "moatType": "UNKNOWN",
+     "blindspot": "代理運営事業者が自社の請求に組み込める保守基盤を売る。自作より安いことだけでなく、更新検査・復元・支援の引受範囲を契約で明示する。",
+     "moatDescription": "Ubiquiti の製品と仕様に依存する。無料の公式提供と自前運用が代替となる。更新の安全性と速さは両立の検証が必要で、買収による重複運営費も消えない。",
+     "secretInsight": "推論: 代理運営事業者が自社の請求に組み込める保守基盤を売る。自作より安いことだけでなく、更新検査・復元・支援の引受範囲を契約で明示する。",
+     "initialTraction": [
+      "ent_hostifi_cf9ec73a42d2_fact_4 の事実を参照。",
+      "ent_hostifi_cf9ec73a42d2_fact_9 の事実を参照。"
+     ],
+     "actionPlaybook": [
+      "推論: 代理運営事業者が自社の請求に組み込める保守基盤を売る。自作より安いことだけでなく、更新検査・復元・支援の引受範囲を契約で明示する。",
+      "未確認の採算や継続率は、実際の有料顧客と運営費の観測で確かめる。"
+     ],
+     "coldOutreachTemplate": "",
+     "incumbentDilemma": "大手の既存売上を守るための参入不能を裏付ける資料は未確認。"
+    },
+    "essence": {
+     "whatItDoes": "UniFi 等の管理サーバーを運用し、更新の検査、バックアップ、支援を提供する。",
+     "targetCustomer": "複数の顧客ネットワークを管理する事業者と企業の管理担当者。",
+     "painRelief": "管理サーバーの更新・復元・障害対応を自前で担う負担。"
+    },
+    "evidenceCards": [
+     {
+      "id": "ent_hostifi_cf9ec73a42d2_source_1",
+      "type": "UNKNOWN_AUDIT",
+      "title": "出典: 製品・現在料金・創業経緯",
+      "badge": "出典",
+      "evidenceStatus": "REPORTED",
+      "punchline": "出典の所在・確認日・発言主体を記録。照合対象は事実欄の出典識別子で対応。",
+      "details": [
+       "URL: https://www.hostifi.com/",
+       "確認日: 2026-10-07",
+       "公開日: 未確認",
+       "発言主体: HostiFi"
+      ],
+      "url": "https://www.hostifi.com/",
+      "sourceNote": "日本語で独自要約。元資料に記載があることの確認と、数値の独立監査・転載許諾は別。",
+      "sourceClass": "PRIMARY"
+     },
+     {
+      "id": "ent_hostifi_cf9ec73a42d2_source_2",
+      "type": "UNKNOWN_AUDIT",
+      "title": "出典: 最初の顧客獲得",
+      "badge": "出典",
+      "evidenceStatus": "REPORTED",
+      "punchline": "出典の所在・確認日・発言主体を記録。照合対象は事実欄の出典識別子で対応。",
+      "details": [
+       "URL: https://blog.rchase.com/my-first-saas-from-0-10-customers/",
+       "確認日: 2026-10-07",
+       "公開日: 2018-10-10",
+       "発言主体: Reilly Chase"
+      ],
+      "url": "https://blog.rchase.com/my-first-saas-from-0-10-customers/",
+      "sourceNote": "日本語で独自要約。元資料に記載があることの確認と、数値の独立監査・転載許諾は別。",
+      "sourceClass": "PRIMARY"
+     },
+     {
+      "id": "ent_hostifi_cf9ec73a42d2_source_3",
+      "type": "UNKNOWN_AUDIT",
+      "title": "出典: 2019年の売上と運営基盤",
+      "badge": "出典",
+      "evidenceStatus": "REPORTED",
+      "punchline": "出典の所在・確認日・発言主体を記録。照合対象は事実欄の出典識別子で対応。",
+      "details": [
+       "URL: https://blog.rchase.com/hostifi-2-0-why-im-completely-rewriting-my-5-735-mrr-saas/",
+       "確認日: 2026-10-07",
+       "公開日: 2019-05-18",
+       "発言主体: Reilly Chase"
+      ],
+      "url": "https://blog.rchase.com/hostifi-2-0-why-im-completely-rewriting-my-5-735-mrr-saas/",
+      "sourceNote": "日本語で独自要約。元資料に記載があることの確認と、数値の独立監査・転載許諾は別。",
+      "sourceClass": "PRIMARY"
+     },
+     {
+      "id": "ent_hostifi_cf9ec73a42d2_source_4",
+      "type": "UNKNOWN_AUDIT",
+      "title": "出典: 無料競合とインフラ",
+      "badge": "出典",
+      "evidenceStatus": "REPORTED",
+      "punchline": "出典の所在・確認日・発言主体を記録。照合対象は事実欄の出典識別子で対応。",
+      "details": [
+       "URL: https://blog.rchase.com/why-were-reinvesting-in-our-unms-cloud-hosting-product/",
+       "確認日: 2026-10-07",
+       "公開日: 2019-12-16",
+       "発言主体: Reilly Chase"
+      ],
+      "url": "https://blog.rchase.com/why-were-reinvesting-in-our-unms-cloud-hosting-product/",
+      "sourceNote": "日本語で独自要約。元資料に記載があることの確認と、数値の独立監査・転載許諾は別。",
+      "sourceClass": "PRIMARY"
+     },
+     {
+      "id": "ent_hostifi_cf9ec73a42d2_source_5",
+      "type": "UNKNOWN_AUDIT",
+      "title": "出典: 2021年の成長",
+      "badge": "出典",
+      "evidenceStatus": "REPORTED",
+      "punchline": "出典の所在・確認日・発言主体を記録。照合対象は事実欄の出典識別子で対応。",
+      "details": [
+       "URL: https://blog.rchase.com/2021-year-in-review/",
+       "確認日: 2026-10-07",
+       "公開日: 2021-12-30",
+       "発言主体: Reilly Chase"
+      ],
+      "url": "https://blog.rchase.com/2021-year-in-review/",
+      "sourceNote": "日本語で独自要約。元資料に記載があることの確認と、数値の独立監査・転載許諾は別。",
+      "sourceClass": "PRIMARY"
+     },
+     {
+      "id": "ent_hostifi_cf9ec73a42d2_source_6",
+      "type": "UNKNOWN_AUDIT",
+      "title": "出典: 累計の本人受取と資金配分",
+      "badge": "出典",
+      "evidenceStatus": "REPORTED",
+      "punchline": "出典の所在・確認日・発言主体を記録。照合対象は事実欄の出典識別子で対応。",
+      "details": [
+       "URL: https://blog.rchase.com/profit-first/",
+       "確認日: 2026-10-07",
+       "公開日: 2025-08-08",
+       "発言主体: Reilly Chase"
+      ],
+      "url": "https://blog.rchase.com/profit-first/",
+      "sourceNote": "日本語で独自要約。元資料に記載があることの確認と、数値の独立監査・転載許諾は別。",
+      "sourceClass": "PRIMARY"
+     },
+     {
+      "id": "ent_hostifi_cf9ec73a42d2_source_7",
+      "type": "UNKNOWN_AUDIT",
+      "title": "出典: 買収後の重複費用と統合",
+      "badge": "出典",
+      "evidenceStatus": "REPORTED",
+      "punchline": "出典の所在・確認日・発言主体を記録。照合対象は事実欄の出典識別子で対応。",
+      "details": [
+       "URL: https://blog.rchase.com/my-250k-acquisition-and-the-start-of-a-ubiquiti-roll-up/",
+       "確認日: 2026-10-07",
+       "公開日: 2025-05-01",
+       "発言主体: Reilly Chase"
+      ],
+      "url": "https://blog.rchase.com/my-250k-acquisition-and-the-start-of-a-ubiquiti-roll-up/",
+      "sourceNote": "日本語で独自要約。元資料に記載があることの確認と、数値の独立監査・転載許諾は別。",
+      "sourceClass": "PRIMARY"
+     },
+     {
+      "id": "ent_hostifi_cf9ec73a42d2_source_8",
+      "type": "UNKNOWN_AUDIT",
+      "title": "出典: 代理運営事業者による再販売",
+      "badge": "出典",
+      "evidenceStatus": "REPORTED",
+      "punchline": "出典の所在・確認日・発言主体を記録。照合対象は事実欄の出典識別子で対応。",
+      "details": [
+       "URL: https://support.hostifi.com/en/articles/3446785-white-label",
+       "確認日: 2026-10-07",
+       "公開日: 2022-06-22",
+       "発言主体: HostiFi"
+      ],
+      "url": "https://support.hostifi.com/en/articles/3446785-white-label",
+      "sourceNote": "日本語で独自要約。元資料に記載があることの確認と、数値の独立監査・転載許諾は別。",
+      "sourceClass": "PRIMARY"
+     },
+     {
+      "id": "ent_hostifi_cf9ec73a42d2_source_9",
+      "type": "UNKNOWN_AUDIT",
+      "title": "出典: 無料プランの現状",
+      "badge": "出典",
+      "evidenceStatus": "REPORTED",
+      "punchline": "出典の所在・確認日・発言主体を記録。照合対象は事実欄の出典識別子で対応。",
+      "details": [
+       "URL: https://www.hostifi.com/support/hostifi-using-the-hostifi-free-plan",
+       "確認日: 2026-10-07",
+       "公開日: 2026-06-19",
+       "発言主体: HostiFi"
+      ],
+      "url": "https://www.hostifi.com/support/hostifi-using-the-hostifi-free-plan",
+      "sourceNote": "日本語で独自要約。元資料に記載があることの確認と、数値の独立監査・転載許諾は別。",
+      "sourceClass": "PRIMARY"
+     },
+     {
+      "id": "ent_hostifi_cf9ec73a42d2_source_10",
+      "type": "UNKNOWN_AUDIT",
+      "title": "出典: 機器一覧の書き出し",
+      "badge": "出典",
+      "evidenceStatus": "REPORTED",
+      "punchline": "出典の所在・確認日・発言主体を記録。照合対象は事実欄の出典識別子で対応。",
+      "details": [
+       "URL: https://www.hostifi.com/support/what-is-hostifi-export",
+       "確認日: 2026-10-07",
+       "公開日: 2026-09-26",
+       "発言主体: HostiFi"
+      ],
+      "url": "https://www.hostifi.com/support/what-is-hostifi-export",
+      "sourceNote": "日本語で独自要約。元資料に記載があることの確認と、数値の独立監査・転載許諾は別。",
+      "sourceClass": "PRIMARY"
+     },
+     {
+      "id": "ent_hostifi_cf9ec73a42d2_source_11",
+      "type": "UNKNOWN_AUDIT",
+      "title": "出典: 無料の機器発見ツール",
+      "badge": "出典",
+      "evidenceStatus": "REPORTED",
+      "punchline": "出典の所在・確認日・発言主体を記録。照合対象は事実欄の出典識別子で対応。",
+      "details": [
+       "URL: https://www.hostifi.com/support/what-is-the-hostifi-device-discovery-tool",
+       "確認日: 2026-10-07",
+       "公開日: 2026-06-22",
+       "発言主体: HostiFi"
+      ],
+      "url": "https://www.hostifi.com/support/what-is-the-hostifi-device-discovery-tool",
+      "sourceNote": "日本語で独自要約。元資料に記載があることの確認と、数値の独立監査・転載許諾は別。",
+      "sourceClass": "PRIMARY"
+     },
+     {
+      "id": "ent_hostifi_cf9ec73a42d2_source_12",
+      "type": "UNKNOWN_AUDIT",
+      "title": "出典: 支援への評価と自前運営との比較",
+      "badge": "出典",
+      "evidenceStatus": "REPORTED",
+      "punchline": "出典の所在・確認日・発言主体を記録。照合対象は事実欄の出典識別子で対応。",
+      "details": [
+       "URL: https://www.reddit.com/r/msp/comments/1llnwuu",
+       "確認日: 2026-10-07",
+       "公開日: 2025-06-27",
+       "発言主体: Reddit の匿名投稿者"
+      ],
+      "url": "https://www.reddit.com/r/msp/comments/1llnwuu",
+      "sourceNote": "日本語で独自要約。元資料に記載があることの確認と、数値の独立監査・転載許諾は別。",
+      "sourceClass": "INDEPENDENT_SECONDARY"
+     },
+     {
+      "id": "ent_hostifi_cf9ec73a42d2_source_13",
+      "type": "UNKNOWN_AUDIT",
+      "title": "出典: 更新速度への不満",
+      "badge": "出典",
+      "evidenceStatus": "REPORTED",
+      "punchline": "出典の所在・確認日・発言主体を記録。照合対象は事実欄の出典識別子で対応。",
+      "details": [
+       "URL: https://www.reddit.com/r/Ubiquiti/comments/1p00soh/hostifi_slacking_off_or_just_super_cautious/",
+       "確認日: 2026-10-07",
+       "公開日: 2025-11-18",
+       "発言主体: Reddit の匿名投稿者"
+      ],
+      "url": "https://www.reddit.com/r/Ubiquiti/comments/1p00soh/hostifi_slacking_off_or_just_super_cautious/",
+      "sourceNote": "日本語で独自要約。元資料に記載があることの確認と、数値の独立監査・転載許諾は別。",
+      "sourceClass": "INDEPENDENT_SECONDARY"
+     },
+     {
+      "id": "ent_hostifi_cf9ec73a42d2_source_14",
+      "type": "UNKNOWN_AUDIT",
+      "title": "出典: 外部の資金調達・業績記載",
+      "badge": "出典",
+      "evidenceStatus": "REPORTED",
+      "punchline": "出典の所在・確認日・発言主体を記録。照合対象は事実欄の出典識別子で対応。",
+      "details": [
+       "URL: https://getlatka.com/companies/hostifi-1/team",
+       "確認日: 2026-10-07",
+       "公開日: 2024-10-17",
+       "発言主体: Latka"
+      ],
+      "url": "https://getlatka.com/companies/hostifi-1/team",
+      "sourceNote": "日本語で独自要約。元資料に記載があることの確認と、数値の独立監査・転載許諾は別。",
+      "sourceClass": "INDEPENDENT_SECONDARY"
+     }
+    ],
+    "claimBindings": [],
+    "publishability": "PARTIAL",
+    "batchId": "codex_three_success_20261007",
+    "financialStatus": "UNAVAILABLE",
+    "incumbentDilemma": "大手の既存売上を守るための参入不能を裏付ける資料は未確認。",
+    "blindspot": "代理運営事業者が自社の請求に組み込める保守基盤を売る。自作より安いことだけでなく、更新検査・復元・支援の引受範囲を契約で明示する。",
+    "moatDescription": "Ubiquiti の製品と仕様に依存する。無料の公式提供と自前運用が代替となる。更新の安全性と速さは両立の検証が必要で、買収による重複運営費も消えない。",
+    "unknownsNotes": [
+     "2026年の実売上、同一期間の売上原価・営業利益・税・創業者受取。",
+     "本人申告の累計300万ドル超を裏付ける決済・通帳・監査原本。",
+     "現在の人数、創業時資金、週の作業時間、現行インフラ単価。",
+     "最初の顧客名・初回価格、顧客別継続率、獲得費。",
+     "現行の紹介報酬率と旧制度の獲得件数。",
+     "初期 Wayback Machine の本文、現行の契約者ごとの移行費用。",
+     "同一期間の売上・費用・税・創業者受取を一続きに検算できる原資料は未取得。"
+    ],
+    "isGrowthUnconfirmed": true,
+    "normalizedFromResearch": [
+     "growthRateYoY: 空→0",
+     "unknownsNotes: 文字列→配列",
+     "pnl.monthlyRevenue: 空→0",
+     "pnl.cogs: 空→0",
+     "pnl.grossProfit: 空→0",
+     "pnl.grossMargin: 空→0",
+     "pnl.operatingProfit: 空→0",
+     "pnl.operatingMargin: 空→0",
+     "pnl.estimatedAnnualNetProfit: 空→0",
+     "pnl.operatingExpenses.serverAndApi: 空→0",
+     "pnl.operatingExpenses.advertising: 空→0",
+     "pnl.operatingExpenses.subcontracting: 空→0",
+     "pnl.operatingExpenses.toolsAndSaaS: 空→0",
+     "pnl.operatingExpenses.other: 空→0",
+     "operations.teamSize: 空→0",
+     "operations.weeklyHours: 空→0",
+     "operations.initialCapitalRequired: 空→0",
+     "operations.automationLevel: 空→0",
+     "operations.initialTeamSize: 空→欄を外す",
+     "operations.currentTeamSize: 空→欄を外す",
+     "operations.toolStack: 文字列→名前と用途",
+     "observations: 未取得の断り→unknownsNotes",
+     "observations: 作業メモ→workNotes"
+    ]
+   }
+  }
+ ]
+}

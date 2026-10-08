@@ -1,5 +1,705 @@
 [
  {
+  "entityId": "ent_button_shy_f1545f17d98e",
+  "kind": "fact",
+  "targetId": "f2",
+  "hash": "03e4d6e2",
+  "text": "Jason Tagmire は Pixel Lincoln や Maximum Throwdown などのゲーム制作者として紹介される。"
+ },
+ {
+  "entityId": "ent_button_shy_f1545f17d98e",
+  "kind": "fact",
+  "targetId": "f3",
+  "hash": "62f19b4f",
+  "text": "Alex Strang の Movie Plotz というゲームを、小さく送りやすいゲームとして、資金を募るサイト Kickstarter で募集した。"
+ },
+ {
+  "entityId": "ent_button_shy_f1545f17d98e",
+  "kind": "fact",
+  "targetId": "f4",
+  "hash": "0cf4a5b7",
+  "text": "本人の説明では、募集の目標1,000米ドルは、財布型の包装と折りたたみ式の説明書の費用にあてるためだった。"
+ },
+ {
+  "entityId": "ent_button_shy_f1545f17d98e",
+  "kind": "fact",
+  "targetId": "f5",
+  "hash": "7d4cffa0",
+  "text": "本人の記録では、募集の初日に目標の約25％、2日目に約35％まで集まった。"
+ },
+ {
+  "entityId": "ent_button_shy_f1545f17d98e",
+  "kind": "fact",
+  "targetId": "f6",
+  "hash": "ff1ce487",
+  "text": "本人の記録では、その後、遊んだ内容をもとに猫を使った架空映画の画像を投稿すると、数時間で支援額が倍になった。"
+ },
+ {
+  "entityId": "ent_button_shy_f1545f17d98e",
+  "kind": "fact",
+  "targetId": "f7",
+  "hash": "267ba62f",
+  "text": "本人の記録では、同じ朝に約800人へ便りも送っており、画像と便りのどちらが効いたかは区別できない。"
+ },
+ {
+  "entityId": "ent_button_shy_f1545f17d98e",
+  "kind": "fact",
+  "targetId": "f8",
+  "hash": "ecb81cf3",
+  "text": "本人の振り返りでは、ゲーム好きが集まるサイト BoardGameGeek で包装を紹介すると、反応と議論は得られたが、支援の増加にはつながらなかった。"
+ },
+ {
+  "entityId": "ent_button_shy_f1545f17d98e",
+  "kind": "fact",
+  "targetId": "f9",
+  "hash": "1416d965",
+  "text": "2015年1月の予告で、Pretense を小型の財布型シリーズの2作目として紹介した。"
+ },
+ {
+  "entityId": "ent_button_shy_f1545f17d98e",
+  "kind": "fact",
+  "targetId": "f11",
+  "hash": "3679c2be",
+  "text": "新作の募集で旧作も割引で合わせて売り、全作品をそろえる組合せでは Pretense が実質無料になると案内した。"
+ },
+ {
+  "entityId": "ent_button_shy_f1545f17d98e",
+  "kind": "fact",
+  "targetId": "f14",
+  "hash": "d2f17f48",
+  "text": "創業者によると、複数作を一緒に募集すると、短い告知の枠ではそれぞれの魅力を伝えにくい。"
+ },
+ {
+  "entityId": "ent_button_shy_f1545f17d98e",
+  "kind": "fact",
+  "targetId": "f18",
+  "hash": "4dcd58cb",
+  "text": "毎月の会員向け発送の期限と職員の給与があるため、海外の提携が決まるまで米国での販売を止めて待つことはできないと述べている。"
+ },
+ {
+  "entityId": "ent_button_shy_f1545f17d98e",
+  "kind": "fact",
+  "targetId": "f21",
+  "hash": "019bcb6b",
+  "text": "公式発表では、財布型の基本価格を15米ドルに上げ、拡張も1米ドル値上げした。"
+ },
+ {
+  "entityId": "ent_button_shy_f1545f17d98e",
+  "kind": "fact",
+  "targetId": "f22",
+  "hash": "04daa7ef",
+  "text": "5年以上値上げしていなかったが、原価の上昇と関税を理由に値上げした。"
+ },
+ {
+  "entityId": "ent_button_shy_f1545f17d98e",
+  "kind": "fact",
+  "targetId": "f23",
+  "hash": "0335fb60",
+  "text": "資金を募るクラウドファンディングでの予約価格は、基本10米ドル、拡張を含めると最大14米ドルと案内している。"
+ },
+ {
+  "entityId": "ent_button_shy_f1545f17d98e",
+  "kind": "fact",
+  "targetId": "f24",
+  "hash": "5d3f2c84",
+  "text": "2026年5月28日の紹介によると、ニュージャージー州の事務所に6人いる。"
+ },
+ {
+  "entityId": "ent_button_shy_f1545f17d98e",
+  "kind": "fact",
+  "targetId": "f25",
+  "hash": "e58eb2e3",
+  "text": "社内で企画と制作を担当するのは、Jason Tagmire、George Tagmire、Andrew Basile の3人と紹介している。"
+ },
+ {
+  "entityId": "ent_button_shy_f1545f17d98e",
+  "kind": "fact",
+  "targetId": "f26",
+  "hash": "5cc00927",
+  "text": "Elle は告知、Long と Anthony は試遊を担当し、社外の Milan と Filip は美術と図案を担当すると紹介している。"
+ },
+ {
+  "entityId": "ent_button_shy_f1545f17d98e",
+  "kind": "fact",
+  "targetId": "f27",
+  "hash": "2210bc29",
+  "text": "手作業での組み立てに使っていた時間をゲーム制作に回せるようになったことを喜び、もっと早く変えてもよかったと述べている。"
+ },
+ {
+  "entityId": "ent_button_shy_f1545f17d98e",
+  "kind": "fact",
+  "targetId": "f28",
+  "hash": "49dd7a8d",
+  "text": "Sprawlopolis は18枚で都市を作る1〜4人の協力型ゲームとして売られている。"
+ },
+ {
+  "entityId": "ent_button_shy_f1545f17d98e",
+  "kind": "fact",
+  "targetId": "f29",
+  "hash": "abfe8e98",
+  "text": "Sprawlopolis の基本商品の表示価格は2,500円。"
+ },
+ {
+  "entityId": "ent_button_shy_f1545f17d98e",
+  "kind": "fact",
+  "targetId": "f30",
+  "hash": "f6f089a4",
+  "text": "制作者は Steven Aramini、Danny Devine、Paul Kluka で、絵の担当は Danny Devine と明示している。"
+ },
+ {
+  "entityId": "ent_button_shy_f1545f17d98e",
+  "kind": "fact",
+  "targetId": "f31",
+  "hash": "23b86abe",
+  "text": "Sprawlopolis には複数の拡張があり、全拡張をまとめた Expansion Collection も売られている。"
+ },
+ {
+  "entityId": "ent_button_shy_f1545f17d98e",
+  "kind": "fact",
+  "targetId": "f32",
+  "hash": "0777a833",
+  "text": "公式店のページは、ネット店舗を作るサービス Shopify を使っていると、ページ下部に表示している。"
+ },
+ {
+  "entityId": "ent_button_shy_f1545f17d98e",
+  "kind": "fact",
+  "targetId": "f33",
+  "hash": "90db5338",
+  "text": "ある投稿者は、Foster the Meeple の推薦をきっかけに会員となったが、12月と1月の2か月分を払っても届かず、3月22日時点でも届いていないと訴えている。"
+ },
+ {
+  "entityId": "ent_button_shy_f1545f17d98e",
+  "kind": "fact",
+  "targetId": "f34",
+  "hash": "c6789f81",
+  "text": "別の利用者は、発送が遅れたことはあるが、いつも埋め合わせてもらえたと述べている。"
+ },
+ {
+  "entityId": "ent_button_shy_f1545f17d98e",
+  "kind": "fact",
+  "targetId": "f36",
+  "hash": "d7decd34",
+  "text": "海外向けの案内では、まとめて注文して1個あたりの送料を下げる方法、現地での販売提携、印刷用データを挙げている。"
+ },
+ {
+  "entityId": "ent_button_shy_f1545f17d98e",
+  "kind": "fact",
+  "targetId": "f37",
+  "hash": "745aa3eb",
+  "text": "海外向けには、手作り品などの売買サイト Etsy で主要5作品を販売すると案内している。ネットの売買サイト eBay では箱型作品をすでに販売しており、店の拡充は準備中と記載している。"
+ },
+ {
+  "entityId": "ent_button_shy_f1545f17d98e",
+  "kind": "fact",
+  "targetId": "f40",
+  "hash": "fedb31d6",
+  "text": "通関で郵便物がまとめて戻され、約500米ドルの損失になったと本人は説明する。"
+ },
+ {
+  "entityId": "ent_button_shy_f1545f17d98e",
+  "kind": "labels",
+  "targetId": "labels",
+  "hash": "811c9dc5",
+  "text": "ゲーム、クラウドファンディング"
+ },
+ {
+  "entityId": "ent_candy_japan_954236d663a8",
+  "kind": "fact",
+  "targetId": "f2",
+  "hash": "d3d4a976",
+  "text": "1人分の月の費用は、送料 USD 6.40、菓子 USD 5.80、資材 USD 0.50。当月は624包を発送した。"
+ },
+ {
+  "entityId": "ent_candy_japan_954236d663a8",
+  "kind": "fact",
+  "targetId": "f3",
+  "hash": "f9c64c7a",
+  "text": "再送は無料で、梱包は外注している。経理費は月 USD 100、広告の実験には当月 USD 260 を使った。"
+ },
+ {
+  "entityId": "ent_candy_japan_954236d663a8",
+  "kind": "fact",
+  "targetId": "f4",
+  "hash": "cad96a93",
+  "text": "諸費用を引いた後の本人の収入を約 USD 2,000 と見積もった。約20%の税・保険などを払った後は約 USD 1,600。"
+ },
+ {
+  "entityId": "ent_candy_japan_954236d663a8",
+  "kind": "fact",
+  "targetId": "f5",
+  "hash": "e369a577",
+  "text": "後年の振り返りでは、最初の2か月の客は以前の漫画通販の客2人。開発者向けの投稿サイトHacker Newsへの投稿で約100人。その後はブログのリンクや検索から客が増え、1年後に300人になった。"
+ },
+ {
+  "entityId": "ent_candy_japan_954236d663a8",
+  "kind": "fact",
+  "targetId": "f6",
+  "hash": "32703f77",
+  "text": "理由として、当時の目新しさ、開発者向けの投稿サイトHacker Newsに長く参加していたこと、運を挙げた。同じ方法が今も通用するとは、本人も保証していない。"
+ },
+ {
+  "entityId": "ent_candy_japan_954236d663a8",
+  "kind": "fact",
+  "targetId": "f7",
+  "hash": "bef96f4d",
+  "text": "月2便、月額 USD 25 の事業で、月の定期売上が USD 10,000 を超えたと本人が報告した。利益の数字ではない。"
+ },
+ {
+  "entityId": "ent_candy_japan_954236d663a8",
+  "kind": "fact",
+  "targetId": "f9",
+  "hash": "eef605c6",
+  "text": "メーカーに550セットを直接注文して仕入れ値を下げたが、ラムネ中心になり、品揃えを続けにくかったと書いている。"
+ },
+ {
+  "entityId": "ent_candy_japan_954236d663a8",
+  "kind": "fact",
+  "targetId": "f10",
+  "hash": "6571797f",
+  "text": "配信する説明文のために菓子について調べ、文章を書くのに毎月1日以上かかった。名前入りの箸を贈る取り組みでは、その月の利益を使い切った。"
+ },
+ {
+  "entityId": "ent_candy_japan_954236d663a8",
+  "kind": "fact",
+  "targetId": "f11",
+  "hash": "4765494e",
+  "text": "2011年に始め、2011〜2014年の購読者は約300人だった。2014年に人数が約3倍になったと振り返っている。"
+ },
+ {
+  "entityId": "ent_candy_japan_954236d663a8",
+  "kind": "fact",
+  "targetId": "f12",
+  "hash": "032816d4",
+  "text": "2015年の購読者1,200人超には、不正な決済が混じっていた。800人を超えた分には偽の登録も含まれていたと説明した。"
+ },
+ {
+  "entityId": "ent_candy_japan_954236d663a8",
+  "kind": "fact",
+  "targetId": "f13",
+  "hash": "cb353162",
+  "text": "2017年の購読者は636人から385人に減った。"
+ },
+ {
+  "entityId": "ent_candy_japan_954236d663a8",
+  "kind": "fact",
+  "targetId": "f14",
+  "hash": "a5c827f9",
+  "text": "2017年の売上は、返金を引いて USD 141,220。費用は USD 102,846（菓子・送料・箱・広告）、利益は USD 38,374 と本人が申告した。"
+ },
+ {
+  "entityId": "ent_candy_japan_954236d663a8",
+  "kind": "fact",
+  "targetId": "f15",
+  "hash": "9fdd526c",
+  "text": "検索からのクリックは、2016年の68,383件から2017年は41,358件に減った。競合との競争と需要の減少が理由というのは、本人の説明。"
+ },
+ {
+  "entityId": "ent_candy_japan_954236d663a8",
+  "kind": "fact",
+  "targetId": "f16",
+  "hash": "94ccce79",
+  "text": "購読者は385人から323人に減った。返金を引いた売上は約 USD 100,000、費用は約 USD 86,000、利益は約 USD 13,000。"
+ },
+ {
+  "entityId": "ent_candy_japan_954236d663a8",
+  "kind": "fact",
+  "targetId": "f17",
+  "hash": "b95a8316",
+  "text": "費用の内訳は菓子44%、送料34%、箱8%、広告4%、その他10%。その他には、配信する文章の作成・経理・翻訳・客対応を外部に頼む費用が入る。"
+ },
+ {
+  "entityId": "ent_candy_japan_954236d663a8",
+  "kind": "fact",
+  "targetId": "f18",
+  "hash": "688cde84",
+  "text": "本人の作業は1日約3時間、年約1,000時間と見積もった。"
+ },
+ {
+  "entityId": "ent_candy_japan_954236d663a8",
+  "kind": "fact",
+  "targetId": "f19",
+  "hash": "ffda1660",
+  "text": "ドイツ宛ての返送が増え、同国への配送を止めた。ドイツの客は約10%だったと本人が説明した。"
+ },
+ {
+  "entityId": "ent_candy_japan_954236d663a8",
+  "kind": "fact",
+  "targetId": "f20",
+  "hash": "67f5a246",
+  "text": "180人のYouTube投稿者への打診や試供品を送る取り組みに約 USD 1,000 を使ったが、新規の購読者は0人だった。"
+ },
+ {
+  "entityId": "ent_candy_japan_954236d663a8",
+  "kind": "fact",
+  "targetId": "f22",
+  "hash": "34a8dcee",
+  "text": "最初の便を毎日出る航空便にして、一部の客は最初の箱が最大4倍早く着いた。対応できる時は、最初の便に限って USD 5 の追跡も付けた。"
+ },
+ {
+  "entityId": "ent_candy_japan_954236d663a8",
+  "kind": "fact",
+  "targetId": "f23",
+  "hash": "40dc5edd",
+  "text": "決済サービスStripeに移して、決済の仲介費を年約 USD 2,000 減らした。1週間の予定が3週間かかり、6月に終わった。"
+ },
+ {
+  "entityId": "ent_candy_japan_954236d663a8",
+  "kind": "fact",
+  "targetId": "f25",
+  "hash": "378bd6f9",
+  "text": "2019年の月平均は、売上 USD 6,560、費用 USD 5,270、利益 USD 1,290（本人の申告）。購読者は1月の314人から12月の207人に減った。"
+ },
+ {
+  "entityId": "ent_candy_japan_954236d663a8",
+  "kind": "fact",
+  "targetId": "f26",
+  "hash": "e2f95ba8",
+  "text": "月平均の費用として、菓子 USD 2,450、送料 USD 1,800、広告 USD 310 を挙げた。配信と対応を外部に頼んでいた2人への依頼をやめ、月 USD 120 節約した。"
+ },
+ {
+  "entityId": "ent_candy_japan_954236d663a8",
+  "kind": "fact",
+  "targetId": "f27",
+  "hash": "623496c3",
+  "text": "月2便で USD 29 のほか、前半の便だけ USD 12.95、後半の便だけ USD 17.95 の選択を加えた。実装に1週間かかった。"
+ },
+ {
+  "entityId": "ent_candy_japan_954236d663a8",
+  "kind": "fact",
+  "targetId": "f28",
+  "hash": "dfe2ae6f",
+  "text": "Instagramは6か月で51投稿、フォロワー40人で、売上は0。Googleのおすすめ記事欄Google Discoverの約15,000クリックからも、新規の購読者は0人だった。"
+ },
+ {
+  "entityId": "ent_candy_japan_954236d663a8",
+  "kind": "fact",
+  "targetId": "f29",
+  "hash": "fc7c4b8a",
+  "text": "菓子の動画を作る道具を新製品の紹介サイトProduct Huntに出し、訪問約6,000件から売れたのは2件だった。"
+ },
+ {
+  "entityId": "ent_candy_japan_954236d663a8",
+  "kind": "fact",
+  "targetId": "f30",
+  "hash": "8a4ef8f0",
+  "text": "3か月続けたページの比較試験は、閲覧者の情報を保存する仕組みであるCookieの不具合で集計が無効になった。良い結果が出た案も、その効果を示す証拠には使えない。"
+ },
+ {
+  "entityId": "ent_candy_japan_954236d663a8",
+  "kind": "fact",
+  "targetId": "f32",
+  "hash": "ec315730",
+  "text": "サイトのトップには、配送休止の案内と、USD 12.95 からの料金が表示されている。"
+ },
+ {
+  "entityId": "ent_candy_japan_954236d663a8",
+  "kind": "fact",
+  "targetId": "f33",
+  "hash": "b9d7633d",
+  "text": "月2箱で月に約400〜500g。箱は17×23×4cm。月2箱で月 USD 29、1箱だけなら安くなると表示している。"
+ },
+ {
+  "entityId": "ent_candy_japan_954236d663a8",
+  "kind": "fact",
+  "targetId": "f35",
+  "hash": "cffc7d26",
+  "text": "14日と28日にまとめて発送する。準備に3〜10日、配送に2〜3週間かかる。菓子の説明は紙ではなくメールで送ると表示している。"
+ },
+ {
+  "entityId": "ent_candy_japan_954236d663a8",
+  "kind": "fact",
+  "targetId": "f36",
+  "hash": "33761552",
+  "text": "評者のdmixは、広告に実際の菓子が映らず、サービスの魅力を十分に伝えていないと批評した。"
+ },
+ {
+  "entityId": "ent_candy_japan_954236d663a8",
+  "kind": "fact",
+  "targetId": "f37",
+  "hash": "0c7cab4b",
+  "text": "カード決済の不正で数千 USD を失った。カード決済を一時止めて決済サービスのPayPalだけで支払いを受け付け、確認の手順を変えてカード決済を再開したと報告した。"
+ },
+ {
+  "entityId": "ent_candy_japan_954236d663a8",
+  "kind": "fact",
+  "targetId": "f39",
+  "hash": "ace9591f",
+  "text": "2011年からの累計売上が USD 1,000,000 を超え、生活を支えたと報告した。大部分は菓子代と送料で、年商や累計利益ではない。"
+ },
+ {
+  "entityId": "ent_candy_japan_954236d663a8",
+  "kind": "fact",
+  "targetId": "f41",
+  "hash": "85f4e3c2",
+  "text": "本人による累計売上の報告は、2017年8月25日に公開された。"
+ },
+ {
+  "entityId": "ent_candy_japan_954236d663a8",
+  "kind": "analysis",
+  "targetId": "a-pricing",
+  "hash": "61367d45",
+  "text": "2014年は月2便で月 USD 25 だったが、のちに月2箱で月 USD 29 とし、前半の便だけ USD 12.95、後半の便だけ USD 17.95 の選択も加えた。"
+ },
+ {
+  "entityId": "ent_churnkey_8d7f2b269c21",
+  "kind": "fact",
+  "targetId": "f1",
+  "hash": "9f3aba2e",
+  "text": "顧客が1,000人に近づき、月に120〜150件の新規登録があった頃、解約が売上の伸びを打ち消し、月の継続売上は30,000ドルを超えて伸びないという予測が出た。"
+ },
+ {
+  "entityId": "ent_churnkey_8d7f2b269c21",
+  "kind": "fact",
+  "targetId": "f2",
+  "hash": "4bc97b22",
+  "text": "不具合の修正や要望の多い機能の追加を進めても、解約率は下がらなかったと報告している。"
+ },
+ {
+  "entityId": "ent_churnkey_8d7f2b269c21",
+  "kind": "fact",
+  "targetId": "f3",
+  "hash": "fc7b90ad",
+  "text": "解約時に理由の入力を必須にすると、一時的に休みたいという声が見つかり、契約の休止機能を加えた。本人の報告では、解約率は15％下がった。"
+ },
+ {
+  "entityId": "ent_churnkey_8d7f2b269c21",
+  "kind": "fact",
+  "targetId": "f4",
+  "hash": "44865831",
+  "text": "その後の6か月の改善で、解約率はさらに30％下がり、年間の継続売上25,000ドルを守ったという。"
+ },
+ {
+  "entityId": "ent_churnkey_8d7f2b269c21",
+  "kind": "fact",
+  "targetId": "f5",
+  "hash": "a7b611c2",
+  "text": "2020年9月1日の記事で、他の定額課金のソフト事業に解約対応の道具を提供するChurnkeyの先行利用を告知した。"
+ },
+ {
+  "entityId": "ent_churnkey_8d7f2b269c21",
+  "kind": "fact",
+  "targetId": "f6",
+  "hash": "cbf6a6d0",
+  "text": "2021年の年初からの成果として、Churnkeyの顧客企業は解約画面に来た利用者の平均40％を引き留め、Churnkeyは3,000人超の継続課金の利用者をすでに維持したと公表した。"
+ },
+ {
+  "entityId": "ent_churnkey_8d7f2b269c21",
+  "kind": "fact",
+  "targetId": "f7",
+  "hash": "1cc751d5",
+  "text": "解約画面を事前に確認できる表示と、支払い間隔やプラン別に絞り込める分析機能を加えた。"
+ },
+ {
+  "entityId": "ent_churnkey_8d7f2b269c21",
+  "kind": "fact",
+  "targetId": "f8",
+  "hash": "7428e38c",
+  "text": "解約率が事業の成長の上限にどう影響するかを図で示す、無料の計算機を公開した。"
+ },
+ {
+  "entityId": "ent_churnkey_8d7f2b269c21",
+  "kind": "fact",
+  "targetId": "f9",
+  "hash": "53b034c0",
+  "text": "2022年8月31日に、失敗した決済を回収する機能の公開を告知した。"
+ },
+ {
+  "entityId": "ent_churnkey_8d7f2b269c21",
+  "kind": "fact",
+  "targetId": "f10",
+  "hash": "b73c8cb6",
+  "text": "決済回収機能の公開時は、初月が無料だった。月の継続売上が25,000ドル未満の事業は、この機能をずっと無料で使えると案内した。"
+ },
+ {
+  "entityId": "ent_churnkey_8d7f2b269c21",
+  "kind": "fact",
+  "targetId": "f11",
+  "hash": "a2470cbe",
+  "text": "公開時の料金は固定で、回収した売上の一定割合を手数料として取らないと説明した。"
+ },
+ {
+  "entityId": "ent_churnkey_8d7f2b269c21",
+  "kind": "fact",
+  "targetId": "f12",
+  "hash": "b90c1eeb",
+  "text": "対談の紹介文では、資金がほぼ尽きた状態から8か月で黒字になり、売上が300％伸びたと述べている。"
+ },
+ {
+  "entityId": "ent_churnkey_8d7f2b269c21",
+  "kind": "fact",
+  "targetId": "f13",
+  "hash": "c4d2b1c4",
+  "text": "Scott Hurffは、Nick Fogleを共に事業を営む仲間で共同創業者だと紹介している。"
+ },
+ {
+  "entityId": "ent_churnkey_8d7f2b269c21",
+  "kind": "fact",
+  "targetId": "f14",
+  "hash": "c92e533e",
+  "text": "2024年4月の報告によると、顧客企業は数百社に達した。"
+ },
+ {
+  "entityId": "ent_churnkey_8d7f2b269c21",
+  "kind": "fact",
+  "targetId": "f15",
+  "hash": "f3c2d374",
+  "text": "自社の売上を7桁、既存顧客の売上継続率をプラスと表現している。"
+ },
+ {
+  "entityId": "ent_churnkey_8d7f2b269c21",
+  "kind": "fact",
+  "targetId": "f16",
+  "hash": "054566d5",
+  "text": "直前の1年に、解約画面の比較試験、決済の再試行、感情に応じて再契約を勧める機能、顧客が離れそうかを点数で示す機能を加えたと報告した。"
+ },
+ {
+  "entityId": "ent_churnkey_8d7f2b269c21",
+  "kind": "fact",
+  "targetId": "f17",
+  "hash": "46e0ea7c",
+  "text": "公式紹介では、Nick Fogleが最高経営責任者、Baird Hallが営業とマーケティング、Scott Hurffが製品責任者を務める。"
+ },
+ {
+  "entityId": "ent_churnkey_8d7f2b269c21",
+  "kind": "fact",
+  "targetId": "f18",
+  "hash": "63476cfb",
+  "text": "前の事業では解約率が14％ほどに達し、Google広告に費用をかけても効率が悪く、現状を維持するのがやっとだったと振り返る。"
+ },
+ {
+  "entityId": "ent_churnkey_8d7f2b269c21",
+  "kind": "fact",
+  "targetId": "f19",
+  "hash": "659ee4a4",
+  "text": "本人たちによると、相談した専門家は導入時の支援を重視したが、自分たちは解約する瞬間の理由と対応に焦点を移した。"
+ },
+ {
+  "entityId": "ent_churnkey_8d7f2b269c21",
+  "kind": "fact",
+  "targetId": "f20",
+  "hash": "efb45188",
+  "text": "Nick Fogleは、解約理由を理解して顧客を引き留めたところ、数か月で解約率が14％から12％になったと述べている。"
+ },
+ {
+  "entityId": "ent_churnkey_8d7f2b269c21",
+  "kind": "fact",
+  "targetId": "f21",
+  "hash": "5f167578",
+  "text": "Baird Hallは、約1年半の改善後に解約率が一桁台になり、8％ほどの月もあったと述べている。"
+ },
+ {
+  "entityId": "ent_churnkey_8d7f2b269c21",
+  "kind": "fact",
+  "targetId": "f22",
+  "hash": "25a51595",
+  "text": "定期的に料金を受け取る事業向けに、解約時の休止・割引・契約の利用枠を別の人へ移す機能と、失敗した決済の回収を提供する。"
+ },
+ {
+  "entityId": "ent_churnkey_8d7f2b269c21",
+  "kind": "fact",
+  "targetId": "f24",
+  "hash": "64e2319b",
+  "text": "Feedback AIは、自由記述の意見を分類し、月の継続売上と結び付けて、影響の大きい順に並べる。"
+ },
+ {
+  "entityId": "ent_churnkey_8d7f2b269c21",
+  "kind": "fact",
+  "targetId": "f25",
+  "hash": "c1fe8153",
+  "text": "公式サイトの法人名表記は Churnkey, Inc.。"
+ },
+ {
+  "entityId": "ent_churnkey_8d7f2b269c21",
+  "kind": "fact",
+  "targetId": "f27",
+  "hash": "12ffa535",
+  "text": "Precision Retriesは、失敗した決済を再試行する時刻を調整する。顧客企業の名前と独自のドメインを使った通知にも対応する。"
+ },
+ {
+  "entityId": "ent_churnkey_8d7f2b269c21",
+  "kind": "fact",
+  "targetId": "f31",
+  "hash": "0df9f20a",
+  "text": "Buildertrendは、解約理由の記録方法がそろわず、支援担当に負担が集中していたため、Feedback AIで理由を分類し、自社のデータ保存先に通知を送る仕組みを導入した。"
+ },
+ {
+  "entityId": "ent_churnkey_8d7f2b269c21",
+  "kind": "fact",
+  "targetId": "f32",
+  "hash": "4ad0b8dd",
+  "text": "取材記事によると、5か月で再契約率は45％となり、顧客あたり570ドルの売上を維持できた。"
+ },
+ {
+  "entityId": "ent_churnkey_8d7f2b269c21",
+  "kind": "fact",
+  "targetId": "f33",
+  "hash": "eccb9e84",
+  "text": "Charley Burtwistleは、解約理由のデータが整理された一貫した形で得られる点を評価している。公式サイトに載った顧客の発言。"
+ },
+ {
+  "entityId": "ent_churnkey_8d7f2b269c21",
+  "kind": "fact",
+  "targetId": "f34",
+  "hash": "afc453b7",
+  "text": "Superhumanは、チーム契約の利用枠を削除する場面で、別のメンバーへ利用枠を移す提案を表示した。その後、個人契約の解約対応にも広げた。"
+ },
+ {
+  "entityId": "ent_churnkey_8d7f2b269c21",
+  "kind": "fact",
+  "targetId": "f35",
+  "hash": "bccbdc6a",
+  "text": "取材記事は、導入から数か月でチーム契約の利用枠の削除が15％減り、解約対応だけで契約の継続が4％向上したと報告している。"
+ },
+ {
+  "entityId": "ent_churnkey_8d7f2b269c21",
+  "kind": "fact",
+  "targetId": "f36",
+  "hash": "a0a1afe6",
+  "text": "Ben Ophoven-Baldwinは、顧客が何を求めているかを学べることも導入の利点だと述べている。公式サイトに載った顧客の発言。"
+ },
+ {
+  "entityId": "ent_churnkey_8d7f2b269c21",
+  "kind": "fact",
+  "targetId": "f37",
+  "hash": "9cbf89ee",
+  "text": "HostiFiのReilly Chaseは、通常の月にChurnkeyが20,000ドル超の売上を回収し、200人超の顧客の解約を防いでいると述べている。"
+ },
+ {
+  "entityId": "ent_churnkey_8d7f2b269c21",
+  "kind": "fact",
+  "targetId": "f38",
+  "hash": "3a0a795b",
+  "text": "OneUpのDavis Baerは、解約理由を集めて学ぶ価値も、料金を払う理由だと述べている。公式サイトに載った顧客の発言。"
+ },
+ {
+  "entityId": "ent_churnkey_8d7f2b269c21",
+  "kind": "fact",
+  "targetId": "f40",
+  "hash": "fac3f43d",
+  "text": "Starterというプランは年払いで月あたり250ドル。解約によって失う月の売上が5,000ドル未満のチーム向け。"
+ },
+ {
+  "entityId": "ent_churnkey_8d7f2b269c21",
+  "kind": "fact",
+  "targetId": "f41",
+  "hash": "4dec5119",
+  "text": "Starterというプランには解約画面、決済回収、分析機能が含まれ、カード登録なしで14日間試せると案内している。"
+ },
+ {
+  "entityId": "ent_churnkey_8d7f2b269c21",
+  "kind": "fact",
+  "targetId": "f42",
+  "hash": "3ef16585",
+  "text": "CoreとIntelligenceというプランは、解約によって失う月の売上が10,000ドル以上のチーム向けと案内している。IntelligenceとEnterpriseというプランの料金は見積もり制。"
+ },
+ {
+  "entityId": "ent_churnkey_8d7f2b269c21",
+  "kind": "formula",
+  "targetId": "a-upfront_cash",
+  "hash": "f07ff3e3",
+  "text": "Starter 月あたり250ドル × 12か月（年払い）= 3,000ドル"
+ },
+ {
   "entityId": "ent_codementor_ba692caa3db3",
   "kind": "fact",
   "targetId": "f2",
@@ -98,6 +798,454 @@
   "text": "開発者向け、オンライン指導"
  },
  {
+  "entityId": "ent_data_fetcher_8e6a5e22ce2a",
+  "kind": "fact",
+  "targetId": "f3",
+  "hash": "db9018b2",
+  "text": "公式サイトによると、自分たちの資金で運営し、黒字になっている。数百の顧客と数千の利用者にサービスを提供している。"
+ },
+ {
+  "entityId": "ent_data_fetcher_8e6a5e22ce2a",
+  "kind": "fact",
+  "targetId": "f5",
+  "hash": "5b9da333",
+  "text": "無料枠は月100回の実行、応答10,000件、保存した処理5件、1人まで。期限付きの試用ではなく、無料枠に期限はない。"
+ },
+ {
+  "entityId": "ent_data_fetcher_8e6a5e22ce2a",
+  "kind": "fact",
+  "targetId": "f6",
+  "hash": "09937e02",
+  "text": "年払いの月あたりの料金は、Starter が USD 15、Pro が USD 30、Business が USD 75、Business+ が USD 112。"
+ },
+ {
+  "entityId": "ent_data_fetcher_8e6a5e22ce2a",
+  "kind": "fact",
+  "targetId": "f7",
+  "hash": "d996548c",
+  "text": "Starterは月3,000回の実行、応答300,000件、1人まで、30分ごとの実行。Proは月10,000回、応答1,000,000件、3人まで、5分ごとの実行。"
+ },
+ {
+  "entityId": "ent_data_fetcher_8e6a5e22ce2a",
+  "kind": "fact",
+  "targetId": "f8",
+  "hash": "ba5fd6b0",
+  "text": "Businessは月40,000回の実行、応答4,000,000件、10人まで。Business+は月80,000回、応答8,000,000件、20人まで。"
+ },
+ {
+  "entityId": "ent_data_fetcher_8e6a5e22ce2a",
+  "kind": "fact",
+  "targetId": "f9",
+  "hash": "006807e6",
+  "text": "1回の実行は、外部への要求1件として数える。ページ分割は追加で数え、失敗した要求は数えない。変化のない応答も件数に入る。"
+ },
+ {
+  "entityId": "ent_data_fetcher_8e6a5e22ce2a",
+  "kind": "fact",
+  "targetId": "f10",
+  "hash": "ae9ae272",
+  "text": "上限に達すると自動実行が止まる。決済は決済代行のStripeで、いつでも解約できる。年払いは最大48%割引と表示している。"
+ },
+ {
+  "entityId": "ent_data_fetcher_8e6a5e22ce2a",
+  "kind": "fact",
+  "targetId": "f12",
+  "hash": "94573ed0",
+  "text": "本人の振り返りでは、開始時は無料100回、有料は月 USD 12。価格を USD 15、18 へ上げても月の定期売上は約 USD 600 で伸び悩み、その後、最安プランを USD 24 へ上げた。"
+ },
+ {
+  "entityId": "ent_data_fetcher_8e6a5e22ce2a",
+  "kind": "fact",
+  "targetId": "f13",
+  "hash": "52eef463",
+  "text": "本人の集計では、Google Mapsのデータを取り込む動画は8回の視聴で客1人につながった。最も人気の動画は約1,000回の視聴で、30人超の客につながった。"
+ },
+ {
+  "entityId": "ent_data_fetcher_8e6a5e22ce2a",
+  "kind": "fact",
+  "targetId": "f14",
+  "hash": "df403486",
+  "text": "2021年末に専業へ移り、12月には、すぐに使える接続設定を増やした新版を出した。"
+ },
+ {
+  "entityId": "ent_data_fetcher_8e6a5e22ce2a",
+  "kind": "fact",
+  "targetId": "f15",
+  "hash": "4f653a82",
+  "text": "有料の利用分を謝礼にして客に操作を試してもらい、客が実際に使う場面を観察した。"
+ },
+ {
+  "entityId": "ent_data_fetcher_8e6a5e22ce2a",
+  "kind": "fact",
+  "targetId": "f17",
+  "hash": "3b729609",
+  "text": "求人サイトIndeedで制作の外注2人を採り、本人が週2〜3日かけていた制作を、半日の確認に変えたと記載している。"
+ },
+ {
+  "entityId": "ent_data_fetcher_8e6a5e22ce2a",
+  "kind": "fact",
+  "targetId": "f18",
+  "hash": "5f93d6b5",
+  "text": "業務管理サービスmonday.com向けを6週間試したが、更新が遅く制限もあったため、やめた。"
+ },
+ {
+  "entityId": "ent_data_fetcher_8e6a5e22ce2a",
+  "kind": "fact",
+  "targetId": "f19",
+  "hash": "9be44240",
+  "text": "サービスを動かす基盤の Heroku と、データを保存する仕組みの Redis に関わる障害対応や、規模の拡大への対応に数週間を使った。"
+ },
+ {
+  "entityId": "ent_data_fetcher_8e6a5e22ce2a",
+  "kind": "fact",
+  "targetId": "f20",
+  "hash": "fa9fbc91",
+  "text": "簡単な問い合わせ向けに管理画面を作り、予約サービスCalendlyで誰でも予約できるサポート通話を設けた。通話は週に数時間を超えないと記載している。"
+ },
+ {
+  "entityId": "ent_data_fetcher_8e6a5e22ce2a",
+  "kind": "fact",
+  "targetId": "f26",
+  "hash": "cb433ea6",
+  "text": "記事の題名では月の定期売上は USD 8,600。最初の50人の客を得るまで約6か月だったと本人が回答している。"
+ },
+ {
+  "entityId": "ent_data_fetcher_8e6a5e22ce2a",
+  "kind": "fact",
+  "targetId": "f27",
+  "hash": "3449d20c",
+  "text": "本人の回答では、記事と動画から来た客は30〜40%。無料で使い始め、数か月後に具体的な用途ができて有料にする客もいる。"
+ },
+ {
+  "entityId": "ent_data_fetcher_8e6a5e22ce2a",
+  "kind": "fact",
+  "targetId": "f29",
+  "hash": "fadbe8a7",
+  "text": "本人の説明では、裏側は Airtable が用意するデータへの接続口に頼っている。表の名前を変えると自動実行が失敗するなどの癖があり、対応が必要。"
+ },
+ {
+  "entityId": "ent_data_fetcher_8e6a5e22ce2a",
+  "kind": "fact",
+  "targetId": "f30",
+  "hash": "69fdad87",
+  "text": "取材後に月の定期売上が USD 9,400 へ増えたと投稿されている。取材本文の USD 8,600 とは、数えた時点が違う。"
+ },
+ {
+  "entityId": "ent_data_fetcher_8e6a5e22ce2a",
+  "kind": "fact",
+  "targetId": "f32",
+  "hash": "88d02f8e",
+  "text": "本人の説明では、専業で働くのは本人1人。制作担当と元同僚の開発担当など、時間単位で働く協力者を使っている。"
+ },
+ {
+  "entityId": "ent_data_fetcher_8e6a5e22ce2a",
+  "kind": "fact",
+  "targetId": "f33",
+  "hash": "35bacbe7",
+  "text": "本人の説明では、2023年初めに1日2時間の客対応担当を採ったが、合わず終了した。"
+ },
+ {
+  "entityId": "ent_data_fetcher_8e6a5e22ce2a",
+  "kind": "fact",
+  "targetId": "f34",
+  "hash": "0576aa38",
+  "text": "本人の申告では、2023年8月から約5か月伸びが止まり、月の解約は10〜11%だった。12月に年払い50%割引を導入し、年払いを最初に表示するようにした後、約7%になった。"
+ },
+ {
+  "entityId": "ent_data_fetcher_8e6a5e22ce2a",
+  "kind": "fact",
+  "targetId": "f35",
+  "hash": "54c164e9",
+  "text": "説明文と商品を直し、顧客が増えても対応の件数を1日3件から2件へ減らしたと申告。"
+ },
+ {
+  "entityId": "ent_data_fetcher_8e6a5e22ce2a",
+  "kind": "fact",
+  "targetId": "f36",
+  "hash": "3a8a1442",
+  "text": "本人の説明では、接続先が40以上になって保守が重くなり、接続を増やす判断を慎重にした。"
+ },
+ {
+  "entityId": "ent_data_fetcher_8e6a5e22ce2a",
+  "kind": "fact",
+  "targetId": "f37",
+  "hash": "595898c6",
+  "text": "本人の説明では、Airtable が無料プランから拡張機能を外し、料金も変えたため、新規登録が減った。Airtable の接続口の実行回数制限への対応も必要になった。"
+ },
+ {
+  "entityId": "ent_data_fetcher_8e6a5e22ce2a",
+  "kind": "fact",
+  "targetId": "f40",
+  "hash": "f696b9d7",
+  "text": "本人の振り返りでは、初版の開発に1か月、審査にさらに3か月かかった。開発は本人が行い、主な投資は時間だった。"
+ },
+ {
+  "entityId": "ent_data_fetcher_8e6a5e22ce2a",
+  "kind": "fact",
+  "targetId": "f41",
+  "hash": "6f8ac215",
+  "text": "本人の説明では、Twitter で開発を伝えて案内ページにメールを集め、公開時に通知し、Airtable の利用者の集まりに投稿した。最初の2週間で客を得た。"
+ },
+ {
+  "entityId": "ent_data_fetcher_8e6a5e22ce2a",
+  "kind": "fact",
+  "targetId": "f43",
+  "hash": "541f46bd",
+  "text": "本人の表現では、サーバーと道具に月約 USD 500 かかり、本人の給与を引く前の利益率は約90%。給与・外注・税などの全費用を引いた純利益ではない。"
+ },
+ {
+  "entityId": "ent_data_fetcher_8e6a5e22ce2a",
+  "kind": "fact",
+  "targetId": "f45",
+  "hash": "9536772a",
+  "text": "外部の出資は受けていないと説明した。"
+ },
+ {
+  "entityId": "ent_data_fetcher_8e6a5e22ce2a",
+  "kind": "fact",
+  "targetId": "f46",
+  "hash": "a7334f38",
+  "text": "初掲載は2020年12月15日、2.0 の掲載は2022年2月24日。"
+ },
+ {
+  "entityId": "ent_data_fetcher_8e6a5e22ce2a",
+  "kind": "fact",
+  "targetId": "f47",
+  "hash": "3f51abb6",
+  "text": "最終更新の表示は2025年4月10日。料金は返金できず、いつでも解約でき、支払済みの期間は使えると記載している。"
+ },
+ {
+  "entityId": "ent_data_fetcher_8e6a5e22ce2a",
+  "kind": "fact",
+  "targetId": "f48",
+  "hash": "d943f5ed",
+  "text": "顧客データは顧客のもので、サービス提供者は所有権を主張しないと記載している。"
+ },
+ {
+  "entityId": "ent_data_fetcher_8e6a5e22ce2a",
+  "kind": "fact",
+  "targetId": "f49",
+  "hash": "cee6f471",
+  "text": "停止や中断があり得ること、稼働を保証しないことが書かれている。取り込んだデータの確認は利用者の責任とされている。"
+ },
+ {
+  "entityId": "ent_data_fetcher_8e6a5e22ce2a",
+  "kind": "fact",
+  "targetId": "f50",
+  "hash": "e4aa9b9c",
+  "text": "Fox Logisticsは、Data Fetcherを導入した後、人数を増やさずに週の出荷が1,800件から2,500件に増えたと紹介されている。"
+ },
+ {
+  "entityId": "ent_dnsimple_c8560498b136",
+  "kind": "fact",
+  "targetId": "f3",
+  "hash": "6dfb2cdb",
+  "text": "現在の法人名はDNSimple Corporation。"
+ },
+ {
+  "entityId": "ent_dnsimple_c8560498b136",
+  "kind": "fact",
+  "targetId": "f4",
+  "hash": "6bab894e",
+  "text": "2010年4月7日に、開発の最初の記録を残した。既存サービスを使うのにうんざりしたのが、始めた理由。そのサービス名は明かしていない。"
+ },
+ {
+  "entityId": "ent_dnsimple_c8560498b136",
+  "kind": "fact",
+  "targetId": "f5",
+  "hash": "08004c7b",
+  "text": "5周年の時点でチームは7人。現在の人数ではない。"
+ },
+ {
+  "entityId": "ent_dnsimple_c8560498b136",
+  "kind": "fact",
+  "targetId": "f6",
+  "hash": "c04d53e4",
+  "text": "2015年4月時点で、顧客は15,000人超、システム上のドメインは130,000件超と公表している。"
+ },
+ {
+  "entityId": "ent_dnsimple_c8560498b136",
+  "kind": "fact",
+  "targetId": "f7",
+  "hash": "aeee431e",
+  "text": "顧客は2012年初めの2,000人強から、年末の5,000人超に増えたと公表している。"
+ },
+ {
+  "entityId": "ent_dnsimple_c8560498b136",
+  "kind": "fact",
+  "targetId": "f8",
+  "hash": "2e67d890",
+  "text": "管理しているドメインは約40,000件弱、登録済みのドメインは約15,000件。管理している数と登録した数を分けて書いている。"
+ },
+ {
+  "entityId": "ent_dnsimple_c8560498b136",
+  "kind": "fact",
+  "targetId": "f9",
+  "hash": "b3fc3f4a",
+  "text": "2012年半ばにRoboDomain Inc.を買収し、Simone Carlettiが加わった。買収後に技術の統合を始め、その例として週ごとに期限を知らせる機能を提供した。"
+ },
+ {
+  "entityId": "ent_dnsimple_c8560498b136",
+  "kind": "fact",
+  "targetId": "f10",
+  "hash": "b27c2514",
+  "text": "2012年11月にDarrinが専業になり、常勤が2人になったと記している。協力者を含む総人数とは限らない。"
+ },
+ {
+  "entityId": "ent_dnsimple_c8560498b136",
+  "kind": "fact",
+  "targetId": "f13",
+  "hash": "6bb54b59",
+  "text": "製品はカンファレンスで広まった。フランスのヌガーやキャンディーも役に立ったという。"
+ },
+ {
+  "entityId": "ent_dnsimple_c8560498b136",
+  "kind": "fact",
+  "targetId": "f14",
+  "hash": "7ffb2e39",
+  "text": "複数の国にいるメンバーが遠隔で運営し、全員が問い合わせに対応する。開発者が対応すると費用が高く、他の作業が遅れることを認めている。"
+ },
+ {
+  "entityId": "ent_dnsimple_c8560498b136",
+  "kind": "fact",
+  "targetId": "f16",
+  "hash": "226bc23b",
+  "text": "以前のSilverというプランは$8/月。2015年のPersonalは$5/月で5ドメインまで、追加は1件$0.50/月。8件なら$6.50/月になる例を載せている。"
+ },
+ {
+  "entityId": "ent_dnsimple_c8560498b136",
+  "kind": "fact",
+  "targetId": "f17",
+  "hash": "9e3d9cbb",
+  "text": "1人の利用者が複数のアカウントを扱い、顧客別・業務別に請求と管理を分けられる機能を入れた。"
+ },
+ {
+  "entityId": "ent_dnsimple_c8560498b136",
+  "kind": "fact",
+  "targetId": "f22",
+  "hash": "ab9cc28f",
+  "text": "2年かけて顧客の利用状況を調べ、価値と、運営・改善の費用が釣り合うよう料金を変更したという。"
+ },
+ {
+  "entityId": "ent_dnsimple_c8560498b136",
+  "kind": "fact",
+  "targetId": "f28",
+  "hash": "aa569663",
+  "text": "Soloには、止まらず使える割合の保証はない。Teamsは99%、Enterpriseは100%の保証を案内している。実際の稼働率や、止まらなかった証明ではない。"
+ },
+ {
+  "entityId": "ent_dnsimple_c8560498b136",
+  "kind": "fact",
+  "targetId": "f31",
+  "hash": "9bf1ed2f",
+  "text": "再販者は、他のソフトから使える接続口を通じて、登録・更新・向け先の管理を自社の仕組みに組み込み、自分の価格とブランドで提供できる。"
+ },
+ {
+  "entityId": "ent_dnsimple_c8560498b136",
+  "kind": "fact",
+  "targetId": "f33",
+  "hash": "08f3178e",
+  "text": "国際的なドメイン管理組織が認定した登録事業者と説明し、同じ認定を受けた他のパートナーとも連携して登録を扱う。"
+ },
+ {
+  "entityId": "ent_dnsimple_c8560498b136",
+  "kind": "fact",
+  "targetId": "f34",
+  "hash": "eda45e15",
+  "text": "顧客によると、登録先とログイン情報が散らばって困った。前の委託先のメールで登録されていたドメインの回収に、数週間かかったという。"
+ },
+ {
+  "entityId": "ent_dnsimple_c8560498b136",
+  "kind": "fact",
+  "targetId": "f35",
+  "hash": "c09f7f8b",
+  "text": "顧客別のアカウント、権限、請求の分離と、他のソフトから使える接続口が、選んだ理由だという。低リスクなドメインから移し、試験環境でMicrosoft 365の設定を確認したという。"
+ },
+ {
+  "entityId": "ent_dnsimple_c8560498b136",
+  "kind": "fact",
+  "targetId": "f36",
+  "hash": "07cef75d",
+  "text": "顧客によると、月5〜10時間以上の節約になった。公式が選んだ体験談で、第三者の実測ではない。"
+ },
+ {
+  "entityId": "ent_dnsimple_c8560498b136",
+  "kind": "fact",
+  "targetId": "f37",
+  "hash": "e8bdd7a6",
+  "text": "2014年12月1日の攻撃では、通信量が最大25gb/s、通信データの小さな単位であるパケットが毎秒約5,000万に達し、同社と顧客のサイトに大きな停止を招いたと報告している。"
+ },
+ {
+  "entityId": "ent_dnsimple_c8560498b136",
+  "kind": "fact",
+  "targetId": "f38",
+  "hash": "40ca076e",
+  "text": "大容量の防御機器を通った通信の量が原因で、ドメイン名の向け先などを答えるサーバーのソフトが停止した。チームは、顧客へのメール対応、Twitter対応、技術調整、通信をつなぐ上流業者との連絡を分担した。"
+ },
+ {
+  "entityId": "ent_dnsimple_c8560498b136",
+  "kind": "fact",
+  "targetId": "f40",
+  "hash": "d69247a1",
+  "text": "全員で対応する方式では責任の所在が曖昧になり、一部の問い合わせへの対応が滞り、文体もばらついた。2019年4月に顧客対応の責任者を採用した。"
+ },
+ {
+  "entityId": "ent_dnsimple_c8560498b136",
+  "kind": "fact",
+  "targetId": "f41",
+  "hash": "d50048d3",
+  "text": "質問を専門分野ごとに振り分け、解決まで1人が受け持ち、週ごとに指導する運用に変えた。"
+ },
+ {
+  "entityId": "ent_dnsimple_c8560498b136",
+  "kind": "fact",
+  "targetId": "f44",
+  "hash": "d1315de0",
+  "text": "攻撃と、問い合わせの再試行で通信が増えたことを受け、防御の調整、再起動、保存済みの応答を使うキャッシュで復旧した。状況表示を早く「監視中」にしてしまった伝達上の誤りも認めている。"
+ },
+ {
+  "entityId": "ent_dnsimple_c8560498b136",
+  "kind": "fact",
+  "targetId": "f48",
+  "hash": "1ee6b189",
+  "text": "2026年7月末に、ドメイン名の向け先などを答える4つのサーバーについて、応答を返す通信経路をすべて自前の管理に移した。2つの供給先が提供する16拠点で稼働している。"
+ },
+ {
+  "entityId": "ent_dnsimple_c8560498b136",
+  "kind": "fact",
+  "targetId": "f50",
+  "hash": "eccb0182",
+  "text": "初期の紹介制度は、影響力のある利用者の助けで成功した。その後は目立たなくなり、2017年に制度を作り直して再開した。"
+ },
+ {
+  "entityId": "ent_dnsimple_c8560498b136",
+  "kind": "fact",
+  "targetId": "f51",
+  "hash": "cb7df1de",
+  "text": "2024年6月の追記で、紹介制度の終了を告知した。"
+ },
+ {
+  "entityId": "ent_dnsimple_c8560498b136",
+  "kind": "fact",
+  "targetId": "f54",
+  "hash": "0cdf4fb2",
+  "text": "創業者の説明では、登録事業者の卸値や、基盤、通信、運用ツールの費用が上がった。以前のBasic Resellerというプランは数年間赤字だった。"
+ },
+ {
+  "entityId": "ent_dnsimple_c8560498b136",
+  "kind": "fact",
+  "targetId": "f55",
+  "hash": "02e1e7cb",
+  "text": "創業者は、変更の伝え方が不十分だと感じた顧客に謝罪した。利用者bwwの話では、予告なく高いプランに移されたことなどを理由に、ドメインを移管して解約した。"
+ },
+ {
+  "entityId": "ent_dnsimple_c8560498b136",
+  "kind": "fact",
+  "targetId": "f56",
+  "hash": "6551e7d9",
+  "text": "5周年の記事は、初期の顧客としてJudi ClarkとKen Mayerを紹介している。"
+ },
+ {
   "entityId": "ent_ejunkie_7e9e46bd9643",
   "kind": "fact",
   "targetId": "f2",
@@ -159,6 +1307,139 @@
   "targetId": "m1",
   "hash": "38b6c5a6",
   "text": "過去ほぼ10年の年平均（2019年5月のインタビュー）"
+ },
+ {
+  "entityId": "ent_geocodio_c64c0721d500",
+  "kind": "fact",
+  "targetId": "f1",
+  "hash": "68983db9",
+  "text": "公開時の投稿に、もう一人の共同創業者も返信した。住所変換に1万米ドルを払えない開発者でも使えるようにするのが狙いで、データの使い方に制限は設けていないと説明した。"
+ },
+ {
+  "entityId": "ent_geocodio_c64c0721d500",
+  "kind": "fact",
+  "targetId": "f2",
+  "hash": "d1e51aec",
+  "text": "大量の住所を一度の接続でまとめて処理する方式を紹介した。利用者のjoelverhagenは、通信の往復が減ることを歓迎した。"
+ },
+ {
+  "entityId": "ent_geocodio_c64c0721d500",
+  "kind": "fact",
+  "targetId": "f3",
+  "hash": "521d4b97",
+  "text": "創業者は、無作為に選んだ100住所で試したところ、90件がGoogle Mapsの外部接続機能が返す位置から1マイル以内だったと説明した。一方、利用者からは、位置の精度、海外で使えるか、無料の代替サービスと何が違うかを問う声があった。"
+ },
+ {
+  "entityId": "ent_geocodio_c64c0721d500",
+  "kind": "fact",
+  "targetId": "f5",
+  "hash": "69a3c672",
+  "text": "2014年の開始以降、15万人以上が利用し、数十億件の住所を処理したという。"
+ },
+ {
+  "entityId": "ent_geocodio_c64c0721d500",
+  "kind": "fact",
+  "targetId": "f7",
+  "hash": "dad09c3a",
+  "text": "公式サイトの法人表記はDotsquare LLC、所在地はVirginia州Norfolk。"
+ },
+ {
+  "entityId": "ent_geocodio_c64c0721d500",
+  "kind": "fact",
+  "targetId": "f8",
+  "hash": "9fbadb89",
+  "text": "住所と緯度・経度の相互変換、住所の整形、地域・選挙区・時間帯などの付加情報を提供する。対象は米国、カナダ、メキシコ、英国。"
+ },
+ {
+  "entityId": "ent_geocodio_c64c0721d500",
+  "kind": "fact",
+  "targetId": "f11",
+  "hash": "46c3c787",
+  "text": "従量プランは1日2,500単位まで無料で、超えた分は1,000単位あたり1米ドル。住所変換1件と追加情報の付加は、別々に数える。前月の利用分は翌月1日に請求する。"
+ },
+ {
+  "entityId": "ent_geocodio_c64c0721d500",
+  "kind": "fact",
+  "targetId": "f12",
+  "hash": "903fba4c",
+  "text": "従量プランは米国・カナダ・メキシコ向け。利用者1人、接続キー3個、毎分1,000件、同時に処理できるファイル1件までの上限がある。"
+ },
+ {
+  "entityId": "ent_geocodio_c64c0721d500",
+  "kind": "fact",
+  "targetId": "f14",
+  "hash": "7d85304a",
+  "text": "別に購入した処理単位は失効しない。定額契約に含まれる単位は、契約が有効な間に限って繰り越せる。"
+ },
+ {
+  "entityId": "ent_geocodio_c64c0721d500",
+  "kind": "fact",
+  "targetId": "f15",
+  "hash": "4f223c88",
+  "text": "従量料金を1,000単位あたり0.50米ドルから1米ドルに値上げした。1日2,500単位の無料枠は変えていない。"
+ },
+ {
+  "entityId": "ent_geocodio_c64c0721d500",
+  "kind": "fact",
+  "targetId": "f16",
+  "hash": "2302e7d9",
+  "text": "新規顧客向けに、自己利用向けUnlimitedの基本月額を1,000米ドルから1,350米ドル、企業向けは2,500米ドルから3,250米ドルへ改定。"
+ },
+ {
+  "entityId": "ent_geocodio_c64c0721d500",
+  "kind": "fact",
+  "targetId": "f17",
+  "hash": "f01bc58d",
+  "text": "2026年1月31日に有効だった既存契約には、自己利用向けで月100米ドル、企業向けで月300米ドルの割引を続けている。解約して再契約すると、この割引はなくなる。"
+ },
+ {
+  "entityId": "ent_geocodio_c64c0721d500",
+  "kind": "fact",
+  "targetId": "f19",
+  "hash": "0c6d1617",
+  "text": "従量プランを個人向けとし、新しい共同利用者は追加できなくした。既存の共同利用者はそのまま使える。支払いはカードだけにし、請求書払いと口座振替はFlexに移す。"
+ },
+ {
+  "entityId": "ent_geocodio_c64c0721d500",
+  "kind": "fact",
+  "targetId": "f24",
+  "hash": "e255b491",
+  "text": "2025年に主要リリースを12回行った。住所変換の仕組みの改良で、処理速度が5%上がり、精度の低い代替結果が57%減ったと報告している。"
+ },
+ {
+  "entityId": "ent_geocodio_c64c0721d500",
+  "kind": "fact",
+  "targetId": "f25",
+  "hash": "57cd7c7a",
+  "text": "Google互換の接続方式と公式Pythonライブラリを追加し、地図機能にヒートマップ表示（密度を色で示す表示）を加えた。"
+ },
+ {
+  "entityId": "ent_geocodio_c64c0721d500",
+  "kind": "fact",
+  "targetId": "f26",
+  "hash": "7cc2d1ed",
+  "text": "2025年に3人が加わったと報告した。設備担当の主任ソフトウェア技術者はSylvester Damgaard、経営補助はEmily Backe、初のマーケティング担当はKimberlee Keene。"
+ },
+ {
+  "entityId": "ent_geocodio_c64c0721d500",
+  "kind": "fact",
+  "targetId": "f28",
+  "hash": "11ec93c6",
+  "text": "技術対応の仕事には、住所解析、欠けたデータ、選挙区、接続仕様の誤りの調査が含まれる。米国東部時間帯で働く人たちと協力できる人を求める。"
+ },
+ {
+  "entityId": "ent_geocodio_c64c0721d500",
+  "kind": "fact",
+  "targetId": "f29",
+  "hash": "5df8d863",
+  "text": "9月7日に展開を中止した後、2台のサーバーで不正な通信を防ぐ機能が無効のまま残った。9月16日にデータを一時保存するRedisのサーバーへの不正アクセスを発見した。保存項目の3.2%でラベルが閲覧され、そのラベルには接続キーが含まれる可能性があると報告した。"
+ },
+ {
+  "entityId": "ent_geocodio_c64c0721d500",
+  "kind": "fact",
+  "targetId": "f31",
+  "hash": "41400c60",
+  "text": "監査を予定より早め、防御を強化し、後日、原因を報告する予定だと公表した。"
  },
  {
   "entityId": "ent_gorails_640d8f688451",
@@ -266,6 +1547,468 @@
   "text": "公式ブログの利用例。アーティストのKellie DeFriesは夜11時の撮影をデジタルツインに置き換えてオンライン講座を教えさせ、不動産業者のCraig Veroniは個人ブランドのInstagram動画に使い、Lisa Anugwom NarhはYouTubeのチャンネルを1回の収録から広げた。"
  },
  {
+  "entityId": "ent_hostifi_cf9ec73a42d2",
+  "kind": "fact",
+  "targetId": "f2",
+  "hash": "1d20eebc",
+  "text": "公式サイトの現在の表示では、顧客は5000超。管理する機器25台までは月19ドルまたは年199ドル、250台までは月99ドルまたは年999ドル、1000台までは月249ドルまたは年2499ドル。"
+ },
+ {
+  "entityId": "ent_hostifi_cf9ec73a42d2",
+  "kind": "fact",
+  "targetId": "f3",
+  "hash": "8d72597d",
+  "text": "上位プランには、更新の検査、長めのバックアップ保持、個別支援が付く。30日以内なら返金を受けられると公式サイトに表示している。"
+ },
+ {
+  "entityId": "ent_hostifi_cf9ec73a42d2",
+  "kind": "fact",
+  "targetId": "f4",
+  "hash": "7a94b6e7",
+  "text": "顧客のネットワークを代わりに運営する事業者は、自社のドメイン名で顧客に再販売できる。顧客への請求は事業者が別に行う。"
+ },
+ {
+  "entityId": "ent_hostifi_cf9ec73a42d2",
+  "kind": "fact",
+  "targetId": "f5",
+  "hash": "4bb2468a",
+  "text": "無料プランは新規の受付を終えた。すでに使っている人は引き続き使え、サーバーの処理能力などを他の利用者と共有する。"
+ },
+ {
+  "entityId": "ent_hostifi_cf9ec73a42d2",
+  "kind": "analysis",
+  "targetId": "a-pricing",
+  "hash": "78c09408",
+  "text": "料金は管理できる機器の台数で決まり、25台まで月19ドルまたは年199ドル、250台まで月99ドルまたは年999ドル、1000台まで月249ドルまたは年2499ドル。"
+ },
+ {
+  "entityId": "ent_indiehackers_6548833164b0",
+  "kind": "fact",
+  "targetId": "f1",
+  "hash": "e8cc69d2",
+  "text": "公式の説明では、収益のある事業や副業をする創業者が経験を公開し、読者が学べる。経験や助言を交換する交流の場でもある。"
+ },
+ {
+  "entityId": "ent_indiehackers_6548833164b0",
+  "kind": "fact",
+  "targetId": "f2",
+  "hash": "8622179d",
+  "text": "Courtland Allenが2016年8月にIndie Hackersを作った。"
+ },
+ {
+  "entityId": "ent_indiehackers_6548833164b0",
+  "kind": "fact",
+  "targetId": "f3",
+  "hash": "fa8d52d9",
+  "text": "2017年4月に決済会社Stripeが買収した。Courtlandの兄弟Channingが共同創業者として加わった。"
+ },
+ {
+  "entityId": "ent_indiehackers_6548833164b0",
+  "kind": "fact",
+  "targetId": "f4",
+  "hash": "2d8e3241",
+  "text": "公式紹介によると、2023年3月に独立企業へ戻り、Stripeは初期出資者になった。"
+ },
+ {
+  "entityId": "ent_indiehackers_6548833164b0",
+  "kind": "fact",
+  "targetId": "f5",
+  "hash": "31d89ca1",
+  "text": "公式紹介によると、サイトはAstro、Node、Render、Google Cloud、Firebase、Cloudflareという技術や外部サービスで動いている。掲示板は自社で開発して運営している。"
+ },
+ {
+  "entityId": "ent_indiehackers_6548833164b0",
+  "kind": "fact",
+  "targetId": "f6",
+  "hash": "828941c1",
+  "text": "2016年8月11日、CourtlandのアカウントでHacker News（開発者向けの投稿サイト）に紹介を投稿した。971ポイントが付き、コメントは184件付いている。"
+ },
+ {
+  "entityId": "ent_indiehackers_6548833164b0",
+  "kind": "fact",
+  "targetId": "f7",
+  "hash": "4338266e",
+  "text": "掲載に協力したcyberferretは、Courtlandから個別のメールで誘われ、回答後も内容を詰めるための追加の質問を受けたと投稿している。"
+ },
+ {
+  "entityId": "ent_indiehackers_6548833164b0",
+  "kind": "fact",
+  "targetId": "f10",
+  "hash": "21a0ada7",
+  "text": "利用者jpalomakiは、表紙で具体的な金額がすぐ見えたので、読みたい情報があると判断できたと投稿している。"
+ },
+ {
+  "entityId": "ent_indiehackers_6548833164b0",
+  "kind": "fact",
+  "targetId": "f11",
+  "hash": "5de686cc",
+  "text": "2018年11月の質疑応答で、Courtlandは売上が「この前の4月」に記憶では約6,000ドルだったと答えた。これは本人の記憶による値で、現在の売上ではない。"
+ },
+ {
+  "entityId": "ent_indiehackers_6548833164b0",
+  "kind": "fact",
+  "targetId": "f13",
+  "hash": "290a1e74",
+  "text": "創業者の困りごとに直接応える機能を作る前に、共同創業者探しなどのハッシュタグを使って、需要があるか試していた。"
+ },
+ {
+  "entityId": "ent_indiehackers_6548833164b0",
+  "kind": "fact",
+  "targetId": "f19",
+  "hash": "887fb70d",
+  "text": "2023年4月6日の公式ニュースレターに、創業者が再び所有する独立事業になったというCourtlandの発表が載った。"
+ },
+ {
+  "entityId": "ent_indiehackers_6548833164b0",
+  "kind": "fact",
+  "targetId": "f20",
+  "hash": "d450ed35",
+  "text": "同じニュースレターに再掲された本人の説明では、独立を発表した時点の月ごとの継続売上は0ドルだった。現在の売上や総収入ではない。"
+ },
+ {
+  "entityId": "ent_indiehackers_6548833164b0",
+  "kind": "fact",
+  "targetId": "f21",
+  "hash": "c835117f",
+  "text": "2023年7月、本人は2022年の大部分で招待コードを使い、迷惑投稿がほぼなくなったと説明した。"
+ },
+ {
+  "entityId": "ent_indiehackers_6548833164b0",
+  "kind": "fact",
+  "targetId": "f23",
+  "hash": "bfef0580",
+  "text": "執筆者Ottoは2024年11月に、Indie Hackersが文章に重点を移して執筆者を採用したことと、自分がアイデア資料のために80社を調べたことを記録した。"
+ },
+ {
+  "entityId": "ent_indiehackers_6548833164b0",
+  "kind": "fact",
+  "targetId": "f27",
+  "hash": "734fe0f7",
+  "text": "公式ページの推薦文でLynne Tyeは、数か月読んでいたことがKey Valuesを始めた理由だと述べている。"
+ },
+ {
+  "entityId": "ent_lunch_money_be2eeb1f4fdf",
+  "kind": "fact",
+  "targetId": "f2",
+  "hash": "9f0178d3",
+  "text": "決めた条件に従って作業を自動化する機能、月ごとの支出の詳しい統計、純資産（資産から負債を引いた額）の月ごとの追跡を提供する。"
+ },
+ {
+  "entityId": "ent_lunch_money_be2eeb1f4fdf",
+  "kind": "fact",
+  "targetId": "f3",
+  "hash": "5cf5d440",
+  "text": "2019年創業。創業者の説明では、多通貨の支出をGoogle Sheets（表計算ソフト）で1年半管理した後、趣味としてアプリにした。"
+ },
+ {
+  "entityId": "ent_lunch_money_be2eeb1f4fdf",
+  "kind": "fact",
+  "targetId": "f4",
+  "hash": "580e33b4",
+  "text": "外部投資を受けず、利用者の購読料のみで運営すると記載する。"
+ },
+ {
+  "entityId": "ent_lunch_money_be2eeb1f4fdf",
+  "kind": "fact",
+  "targetId": "f5",
+  "hash": "42312ff2",
+  "text": "有料会員13,000人超、提供先30か国超と公式サイトに表示されている。"
+ },
+ {
+  "entityId": "ent_lunch_money_be2eeb1f4fdf",
+  "kind": "fact",
+  "targetId": "f7",
+  "hash": "a9609af4",
+  "text": "中核チームとして創業者、顧客対応、開発者支援、開発、販促の5人を紹介し、別に外部協力者を載せる。"
+ },
+ {
+  "entityId": "ent_lunch_money_be2eeb1f4fdf",
+  "kind": "fact",
+  "targetId": "f9",
+  "hash": "c0248b70",
+  "text": "運営会社はLunchbag Labs, Inc.。本拠地はToronto、Ontario、Canadaと記載する。"
+ },
+ {
+  "entityId": "ent_lunch_money_be2eeb1f4fdf",
+  "kind": "fact",
+  "targetId": "f10",
+  "hash": "2b4fc9d2",
+  "text": "Jen YipはUniversity of Waterlooで計算機工学を学び、Twitterで開発職を経験した。"
+ },
+ {
+  "entityId": "ent_lunch_money_be2eeb1f4fdf",
+  "kind": "fact",
+  "targetId": "f11",
+  "hash": "f5232df0",
+  "text": "2025年の自社の利用者調査には1,170人が答えた。満足度の平均は10点満点で8.4、NPS（人にすすめたい度合いを示す指標）は57と公表している。"
+ },
+ {
+  "entityId": "ent_lunch_money_be2eeb1f4fdf",
+  "kind": "fact",
+  "targetId": "f12",
+  "hash": "c913e7cc",
+  "text": "同じ調査で、使い始めるのが容易と答えた人は82%、毎日か数日ごとに使う人は61%だった。"
+ },
+ {
+  "entityId": "ent_lunch_money_be2eeb1f4fdf",
+  "kind": "fact",
+  "targetId": "f15",
+  "hash": "b3120398",
+  "text": "2019年8月29日に、開発者向けの投稿サイトの作品紹介欄Show HNに公開した。"
+ },
+ {
+  "entityId": "ent_lunch_money_be2eeb1f4fdf",
+  "kind": "fact",
+  "targetId": "f16",
+  "hash": "2caa5d33",
+  "text": "公開時の構成はNode.js、TypeScript、React、Semantic UI、PostgreSQL、Redis、Bullと本人が説明した。"
+ },
+ {
+  "entityId": "ent_lunch_money_be2eeb1f4fdf",
+  "kind": "fact",
+  "targetId": "f17",
+  "hash": "cbd795eb",
+  "text": "Fiahilは、画面が簡潔で速いと評価した一方、銀行口座をネット上のサービスにつなぎたくないため、自分で設置できることを絶対条件に挙げた。"
+ },
+ {
+  "entityId": "ent_lunch_money_be2eeb1f4fdf",
+  "kind": "fact",
+  "targetId": "f18",
+  "hash": "90b899f5",
+  "text": "jval43は外出先で入力するためのモバイルアプリが重要だと述べた。"
+ },
+ {
+  "entityId": "ent_lunch_money_be2eeb1f4fdf",
+  "kind": "fact",
+  "targetId": "f19",
+  "hash": "c7856573",
+  "text": "2024年3月22日の取材記事で、Lunch Moneyの月の定期売上が$34,000に達したと紹介している。"
+ },
+ {
+  "entityId": "ent_lunch_money_be2eeb1f4fdf",
+  "kind": "fact",
+  "targetId": "f26",
+  "hash": "4f35e99c",
+  "text": "直近10か月で月の定期売上はほぼ倍増したが、家計アプリMintの終了も重なったため、料金変更の効果を見分けるのは難しいと本人が書いている。"
+ },
+ {
+  "entityId": "ent_lunch_money_be2eeb1f4fdf",
+  "kind": "fact",
+  "targetId": "f27",
+  "hash": "6f21dc9e",
+  "text": "出典によると、新料金の利用者の約37%が年$100超を払い、この人たちが収入の60%超を占める。月$10の利用者も含む。"
+ },
+ {
+  "entityId": "ent_lunch_money_be2eeb1f4fdf",
+  "kind": "fact",
+  "targetId": "f28",
+  "hash": "b56a042c",
+  "text": "2023年8月にスパム業者が数千の新規アカウントを作り、その月の指標が歪んだと書いている。決済サービスStripeからは、そのデータを除けないという。"
+ },
+ {
+  "entityId": "ent_lunch_money_be2eeb1f4fdf",
+  "kind": "fact",
+  "targetId": "f29",
+  "hash": "30714fd4",
+  "text": "Jen以外に、非常勤の請負者が5人いる。会議はほとんど開かず、連絡用のサービスDiscordで、全員が同時に集まらずに仕事を進めると書いている。"
+ },
+ {
+  "entityId": "ent_lunch_money_be2eeb1f4fdf",
+  "kind": "fact",
+  "targetId": "f30",
+  "hash": "0999a8c4",
+  "text": "購読を解約する代わりにデータを残して休止する選択肢を追加した。"
+ },
+ {
+  "entityId": "ent_lunch_money_be2eeb1f4fdf",
+  "kind": "fact",
+  "targetId": "f34",
+  "hash": "fbac56ef",
+  "text": "2026年3月15日から、新規の年額の下限を$50から$60に変えると通知した。既存の継続購読者は従来の額のまま。"
+ },
+ {
+  "entityId": "ent_lunch_money_be2eeb1f4fdf",
+  "kind": "fact",
+  "targetId": "f36",
+  "hash": "0d0adc7e",
+  "text": "基盤としてHeroku、Netlify、Cloudflare、Node.js、React、TypeScript、PostgreSQL、Redis、Bullを掲載する。"
+ },
+ {
+  "entityId": "ent_lunch_money_be2eeb1f4fdf",
+  "kind": "fact",
+  "targetId": "f37",
+  "hash": "5e8590b7",
+  "text": "外部連携はStripe、Plaid、Fixer.io、Twilio、Postmark、CoinGeckoなど。"
+ },
+ {
+  "entityId": "ent_lunch_money_be2eeb1f4fdf",
+  "kind": "fact",
+  "targetId": "f38",
+  "hash": "8c5b24ad",
+  "text": "業務にFront、Discord、Canny、PostHog、Customer.io、Sentry、CircleCI、GitHubなどを掲載する。"
+ },
+ {
+  "entityId": "ent_lunch_money_be2eeb1f4fdf",
+  "kind": "fact",
+  "targetId": "f39",
+  "hash": "d72fd756",
+  "text": "紹介された人は、試用後の1か月が無料になる。紹介した人は、相手への継続的な請求のたびに、請求額の10%が口座残高に加わる。現金の報酬ではない。"
+ },
+ {
+  "entityId": "ent_lunch_money_be2eeb1f4fdf",
+  "kind": "fact",
+  "targetId": "f41",
+  "hash": "436a5ee8",
+  "text": "公式のiOS・Android補助アプリを提供している。"
+ },
+ {
+  "entityId": "ent_lunch_money_be2eeb1f4fdf",
+  "kind": "fact",
+  "targetId": "f42",
+  "hash": "ad8ea1a6",
+  "text": "離れた場所から働く請負者として迎える方針で、応募時に時給を尋ねる。機材の支給、健康保険、401k（米国の退職金積立制度）などの福利厚生は期待しないよう説明している。現在、公開募集中の職はない。"
+ },
+ {
+  "entityId": "ent_lunch_money_be2eeb1f4fdf",
+  "kind": "fact",
+  "targetId": "f45",
+  "hash": "cbc36459",
+  "text": "月額・年額は自動更新。休止中は更新せず未使用分を再開時の残高にし、解約は支払済み期間の終わりに効くと規定する。"
+ },
+ {
+  "entityId": "ent_lunch_money_be2eeb1f4fdf",
+  "kind": "fact",
+  "targetId": "f46",
+  "hash": "1737b2fb",
+  "text": "解約時の残り期間分は通常は返金しないが、個別の相談は認める。休止中の残高の返金条件は、2025年11月3日の前後で分かれている。"
+ },
+ {
+  "entityId": "ent_lunch_money_be2eeb1f4fdf",
+  "kind": "fact",
+  "targetId": "f47",
+  "hash": "50f6cdb5",
+  "text": "知的財産の複製・配布・改変・保存・送信などは、書面で別途合意しない限り認めないと規定する。"
+ },
+ {
+  "entityId": "ent_memberful_0dff1f9c00fa",
+  "kind": "fact",
+  "targetId": "f2",
+  "hash": "b24afc56",
+  "text": "自分のサイトやアプリで会員から料金を受け取り、コンテンツを届けるクリエイター・出版社・コミュニティ向けのサービス。"
+ },
+ {
+  "entityId": "ent_memberful_0dff1f9c00fa",
+  "kind": "fact",
+  "targetId": "f5",
+  "hash": "080ad0fd",
+  "text": "試用に期限はない。本番として公開し、会員からの支払いを受け付け始めた時点から、利用料金がかかる。"
+ },
+ {
+  "entityId": "ent_memberful_0dff1f9c00fa",
+  "kind": "fact",
+  "targetId": "f6",
+  "hash": "42f48a3a",
+  "text": "2018年8月8日の報道では、料金プラン「Pro」は月額25米ドルに取引額の4.9%を加えた額だった。"
+ },
+ {
+  "entityId": "ent_memberful_0dff1f9c00fa",
+  "kind": "fact",
+  "targetId": "f7",
+  "hash": "6615704c",
+  "text": "2018年の公式発表では、既存客の価格は維持し、新規客に限って、料金プラン「Pro」と「Premium」の取引手数料を引き上げた。"
+ },
+ {
+  "entityId": "ent_memberful_0dff1f9c00fa",
+  "kind": "fact",
+  "targetId": "f8",
+  "hash": "61d9588a",
+  "text": "2018年8月8日の発表で、Patreonの完全子会社になり、Memberfulは別の製品として続けると説明した。"
+ },
+ {
+  "entityId": "ent_memberful_0dff1f9c00fa",
+  "kind": "fact",
+  "targetId": "f9",
+  "hash": "4ef46506",
+  "text": "2018年の発表によると、数百の独立出版社・教育者・クリエイターとともに成長し、黒字で事業を広げていた。"
+ },
+ {
+  "entityId": "ent_memberful_0dff1f9c00fa",
+  "kind": "fact",
+  "targetId": "f10",
+  "hash": "f5722c50",
+  "text": "会社紹介には100万人超の会員を支えるとある。"
+ },
+ {
+  "entityId": "ent_memberful_0dff1f9c00fa",
+  "kind": "fact",
+  "targetId": "f11",
+  "hash": "f4724188",
+  "text": "Talia Korenによると、Workweek Lunchでは50人に3週間の無料試用をしてもらい、その後、メールとInstagramで会員サービスを知らせた。"
+ },
+ {
+  "entityId": "ent_memberful_0dff1f9c00fa",
+  "kind": "fact",
+  "targetId": "f13",
+  "hash": "59d30f4a",
+  "text": "2021年11月24日、誤って本番公開し、不要な課金が発生する問題を防ぐため、決済サービスStripeに接続するときの追加確認を導入した。"
+ },
+ {
+  "entityId": "ent_memberful_0dff1f9c00fa",
+  "kind": "fact",
+  "targetId": "f14",
+  "hash": "8d5098ea",
+  "text": "2021年11月24日、利用者が自分で料金プラン「Premium」に変更できるようにした。それまではサポートへの連絡が必要だった。"
+ },
+ {
+  "entityId": "ent_memberful_0dff1f9c00fa",
+  "kind": "fact",
+  "targetId": "f15",
+  "hash": "b531f68a",
+  "text": "2025年5月8日、これまでスタッフが代わりに行っていた、複数契約の請求日と自動更新設定の変更を、管理画面からまとめて操作できるようにした。"
+ },
+ {
+  "entityId": "ent_memberful_0dff1f9c00fa",
+  "kind": "fact",
+  "targetId": "f16",
+  "hash": "72e4b4cc",
+  "text": "2026年10月1日、WordPress で一定数の無料記事を読んだ後に課金案内を表示する機能と、コードを書かずに課金案内を作る機能を追加した。"
+ },
+ {
+  "entityId": "ent_memberful_0dff1f9c00fa",
+  "kind": "fact",
+  "targetId": "f17",
+  "hash": "7014784f",
+  "text": "メール配信のMailchimpやKit、交流サービスのDiscordやDiscourse、WordPressなどと連携し、会員情報とアクセス権を同期する。"
+ },
+ {
+  "entityId": "ent_memberful_0dff1f9c00fa",
+  "kind": "fact",
+  "targetId": "f18",
+  "hash": "dbae87c3",
+  "text": "外部システムとの独自連携に、データをやり取りするGraphQLと、出来事を外部に通知するWebhookを使える。利用者が設ける紹介報酬制度には、その管理サービスTapfiliateを連携できる。"
+ },
+ {
+  "entityId": "ent_memberful_0dff1f9c00fa",
+  "kind": "fact",
+  "targetId": "f19",
+  "hash": "87f64e14",
+  "text": "認定提携先制度では、制作会社に対し、紹介記事の掲載、公式一覧への掲載、共同の営業資料、技術支援、見込み客の紹介を提供する。"
+ },
+ {
+  "entityId": "ent_memberful_0dff1f9c00fa",
+  "kind": "fact",
+  "targetId": "f20",
+  "hash": "edd0e400",
+  "text": "提携先のClockは、サイト作成に使うPayloadやWebflowのサイトにMemberfulを組み込んでいると、提携先一覧で説明されている。"
+ },
+ {
+  "entityId": "ent_memberful_0dff1f9c00fa",
+  "kind": "fact",
+  "targetId": "f22",
+  "hash": "e4bc8789",
+  "text": "移行支援ページには、Chris Gresham-Brittが、移行は円滑に進み、公開時の負担も軽くなったと評価する発言が載っている。"
+ },
+ {
   "entityId": "ent_myoperator_49c393230a2d",
   "kind": "fact",
   "targetId": "f2",
@@ -341,6 +2084,244 @@
   "targetId": "m4",
   "hash": "ac0890c5",
   "text": "2016年時点"
+ },
+ {
+  "entityId": "ent_noteforms_003fcbdd14cf",
+  "kind": "fact",
+  "targetId": "f2",
+  "hash": "f3864a05",
+  "text": "公式サイトによると、以前の名称はNotionFormsだった。"
+ },
+ {
+  "entityId": "ent_noteforms_003fcbdd14cf",
+  "kind": "fact",
+  "targetId": "f4",
+  "hash": "184b2511",
+  "text": "2021年5月にAmazon Web Servicesを退職し、LondonからParisへ戻った。"
+ },
+ {
+  "entityId": "ent_noteforms_003fcbdd14cf",
+  "kind": "fact",
+  "targetId": "f5",
+  "hash": "018d83c8",
+  "text": "1〜2年分の貯蓄はあったが、使わない計画だった。必要なら受託の仕事を簡単に見つけられると考えていた。"
+ },
+ {
+  "entityId": "ent_noteforms_003fcbdd14cf",
+  "kind": "fact",
+  "targetId": "f6",
+  "hash": "2401a515",
+  "text": "使い慣れた構成とひな形で、4日間で最初の版を作った。Notionとの接続に絞り、回答に応じた質問の出し分け・細かな見た目の変更・複数ページは省いた。事前の需要調査はしなかった。"
+ },
+ {
+  "entityId": "ent_noteforms_003fcbdd14cf",
+  "kind": "fact",
+  "targetId": "f7",
+  "hash": "c9d778cb",
+  "text": "最初の2〜3か月は無料だった。初期のサーバー費は月$20だと申告している。"
+ },
+ {
+  "entityId": "ent_noteforms_003fcbdd14cf",
+  "kind": "fact",
+  "targetId": "f8",
+  "hash": "b581b2d7",
+  "text": "有料化は月$15の定額で、使った量に応じた課金は避けた。競合の安いプランの約半分の値段を目安にした。"
+ },
+ {
+  "entityId": "ent_noteforms_003fcbdd14cf",
+  "kind": "fact",
+  "targetId": "f9",
+  "hash": "733a5b9b",
+  "text": "見た目の変更や添付ファイルなど、費用がかかる機能を有料にした。すでに使っていた人には、ずっと続く40%の割引を配った。"
+ },
+ {
+  "entityId": "ent_noteforms_003fcbdd14cf",
+  "kind": "fact",
+  "targetId": "f10",
+  "hash": "5f8996d3",
+  "text": "無料フォームの製品名表示と、利用者による共有やリンクが、集客につながったと書かれている。"
+ },
+ {
+  "entityId": "ent_noteforms_003fcbdd14cf",
+  "kind": "fact",
+  "targetId": "f11",
+  "hash": "535670ac",
+  "text": "初期から利用者に意見を求め、毎日通話した。Facebookグループも運営した。"
+ },
+ {
+  "entityId": "ent_noteforms_003fcbdd14cf",
+  "kind": "fact",
+  "targetId": "f12",
+  "hash": "2a408025",
+  "text": "本文の時点で、登録者は26,000人、有料利用者は850人。継続的に得る売上は年額換算で$182,000と申告している。"
+ },
+ {
+  "entityId": "ent_noteforms_003fcbdd14cf",
+  "kind": "fact",
+  "targetId": "f13",
+  "hash": "ab1b9e26",
+  "text": "資料の利用ツール欄に、Webサイトを作る道具のLaravelとVue、クラウドのAmazon Web Services、決済サービスのStripeが載っている。"
+ },
+ {
+  "entityId": "ent_noteforms_003fcbdd14cf",
+  "kind": "fact",
+  "targetId": "f14",
+  "hash": "74abdbf7",
+  "text": "Basicプランは$0。利用者は1人、接続先は1つで、フォームと回答の件数は無制限。"
+ },
+ {
+  "entityId": "ent_noteforms_003fcbdd14cf",
+  "kind": "fact",
+  "targetId": "f16",
+  "hash": "7178ae4a",
+  "text": "Proでは、製品名の表示を消す機能、条件分岐、10MBのファイル添付が案内されている。Teamでは、複数人での利用、独自ドメインの使用、100MBのファイル添付が案内されている。"
+ },
+ {
+  "entityId": "ent_noteforms_003fcbdd14cf",
+  "kind": "fact",
+  "targetId": "f17",
+  "hash": "c67f84ae",
+  "text": "有料プランには3日間の試用がある。個別契約や請求書払いも相談できる。"
+ },
+ {
+  "entityId": "ent_noteforms_003fcbdd14cf",
+  "kind": "fact",
+  "targetId": "f18",
+  "hash": "755bdf1b",
+  "text": "紹介した客が継続して払う料金の30%を、決済サービスのPayPalで毎月紹介者に支払うと掲載されている。支払いに最低金額の条件はない。"
+ },
+ {
+  "entityId": "ent_noteforms_003fcbdd14cf",
+  "kind": "fact",
+  "targetId": "f19",
+  "hash": "9c0eee1f",
+  "text": "同じページで、この紹介制度は終了し、新しい紹介者は受け付けないと書かれている。"
+ },
+ {
+  "entityId": "ent_noteforms_003fcbdd14cf",
+  "kind": "fact",
+  "targetId": "f21",
+  "hash": "d70d654f",
+  "text": "返金については、不満がある場合に連絡して相談するよう案内されている。"
+ },
+ {
+  "entityId": "ent_noteforms_003fcbdd14cf",
+  "kind": "fact",
+  "targetId": "f22",
+  "hash": "69bcb5fc",
+  "text": "素材の複製や配布には、はっきりした許可が必要だと書かれている。"
+ },
+ {
+  "entityId": "ent_noteforms_003fcbdd14cf",
+  "kind": "fact",
+  "targetId": "f23",
+  "hash": "8e9dddbd",
+  "text": "投稿者のJhumanJは、接続先とデータベースを選ぶだけで使える製品だと説明し、実演のリンクを投稿した。"
+ },
+ {
+  "entityId": "ent_noteforms_003fcbdd14cf",
+  "kind": "fact",
+  "targetId": "f24",
+  "hash": "f2883953",
+  "text": "投稿者のGelatoInRomeは、入力の手軽さを評価した一方、全データへのアクセス権を心配して質問した。"
+ },
+ {
+  "entityId": "ent_noteforms_003fcbdd14cf",
+  "kind": "fact",
+  "targetId": "f25",
+  "hash": "4447e7a3",
+  "text": "投稿者のJhumanJは、共有するデータベースを選べると返答した。"
+ },
+ {
+  "entityId": "ent_noteforms_003fcbdd14cf",
+  "kind": "fact",
+  "targetId": "f26",
+  "hash": "fb1a6eb9",
+  "text": "投稿者のneoscoobは、料金が高いことと、基本機能の利用にも料金がかかることへの不満を投稿した。"
+ },
+ {
+  "entityId": "ent_noteforms_003fcbdd14cf",
+  "kind": "fact",
+  "targetId": "f27",
+  "hash": "ab0f2540",
+  "text": "投稿者のAssolutamenteSiは、週間予定を入力するフォームをNotionに埋め込んだ実演を投稿した。"
+ },
+ {
+  "entityId": "ent_noteforms_003fcbdd14cf",
+  "kind": "fact",
+  "targetId": "f28",
+  "hash": "91b8d55e",
+  "text": "投稿者のThomasは、無料の個人用フォームを保護できないことと、全機能のうち有料の機能が占める割合への不満を投稿した。"
+ },
+ {
+  "entityId": "ent_noteforms_003fcbdd14cf",
+  "kind": "fact",
+  "targetId": "f29",
+  "hash": "1ac8c752",
+  "text": "投稿者のChris Cireficeは、関連項目を検索しても候補が出ず、学期が始まる時に再利用できないと投稿した。"
+ },
+ {
+  "entityId": "ent_noteforms_003fcbdd14cf",
+  "kind": "fact",
+  "targetId": "f30",
+  "hash": "de2bf6f3",
+  "text": "投稿者のCalabash Collectiveは、複数ページにわたる長いフォームでは、質問の並べ替えが扱いにくいと投稿した。"
+ },
+ {
+  "entityId": "ent_noteforms_003fcbdd14cf",
+  "kind": "labels",
+  "targetId": "labels",
+  "hash": "811c9dc5",
+  "text": "SaaS、サブスクリプション"
+ },
+ {
+  "entityId": "ent_poolsuite_6d5ad6895563",
+  "kind": "fact",
+  "targetId": "f2",
+  "hash": "8509f3e8",
+  "text": "開発者を一人も知らなかったため、友人の友人であるGrant Macに案を話し、すぐに協力を得た。"
+ },
+ {
+  "entityId": "ent_poolsuite_6d5ad6895563",
+  "kind": "fact",
+  "targetId": "f4",
+  "hash": "5d1414c5",
+  "text": "2021 年 6 月の取材では、Poolsuite に取り組むチームは 10 人と紹介された。"
+ },
+ {
+  "entityId": "ent_poolsuite_6d5ad6895563",
+  "kind": "fact",
+  "targetId": "f5",
+  "hash": "c79d60b3",
+  "text": "2021 年 6 月 10 日の記事によると、Vacation by Poolsuite の正式発売は当日で、新製品の紹介サイト Product Hunt での先行公開は 4 月だった。Vacation by Poolsuite は同社の新しい日焼け止めで、形のある初めての製品である。"
+ },
+ {
+  "entityId": "ent_poolsuite_6d5ad6895563",
+  "kind": "fact",
+  "targetId": "f7",
+  "hash": "bea2ee6f",
+  "text": "本人の説明では、Vacation の日焼け止め Classic Lotion SPF 50 は、2023 年の登場から 2025 年 9 月の取材までに約 150 万本売れた。これは Vacation の商品の販売数で、Poolsuite の売上ではない。"
+ },
+ {
+  "entityId": "ent_poolsuite_6d5ad6895563",
+  "kind": "fact",
+  "targetId": "f10",
+  "hash": "0fd6a210",
+  "text": "2020 年 10 月 1 日の Trevor Peach のレビューによると、最初は見た目でアプリを入れたが、使ってから気に入り、友人にも勧めた。ほかの音楽アプリの多くを使わなくなったという。"
+ },
+ {
+  "entityId": "ent_poolsuite_6d5ad6895563",
+  "kind": "fact",
+  "targetId": "f11",
+  "hash": "f36ba90c",
+  "text": "2021 年 10 月 12 日の Mikezila のレビューは、見た目と機能を評価する一方、音楽サイト SoundCloud の利用上限の表示が出て音が鳴らないことが多く、代わりにウェブ版を使っていると述べた。これは 1 人の当時の経験である。"
+ },
+ {
+  "entityId": "ent_poolsuite_6d5ad6895563",
+  "kind": "analysis",
+  "targetId": "a-pricing",
+  "hash": "5fc94fbc",
+  "text": "App Store では Poolsuite FM は無料と表示されている。販売者は POOLSIDE WORLDWIDE CORPORATION LTD。"
  },
  {
   "entityId": "ent_practicaltypographycom_e9aa6bc94ccf",
@@ -467,6 +2448,195 @@
   "targetId": "labels",
   "hash": "ebf5bdea",
   "text": "デザイン、クリエイター、無料"
+ },
+ {
+  "entityId": "ent_quaderno_81236030d721",
+  "kind": "fact",
+  "targetId": "f1",
+  "hash": "06e1a26f",
+  "text": "Carlos が2014年に公開し、外部出資に頼らず始めたと会社は説明している。"
+ },
+ {
+  "entityId": "ent_quaderno_81236030d721",
+  "kind": "fact",
+  "targetId": "f2",
+  "hash": "92f790dc",
+  "text": "最初の公開前に約1か月、夜間に開発したと振り返っている。"
+ },
+ {
+  "entityId": "ent_quaderno_81236030d721",
+  "kind": "fact",
+  "targetId": "f3",
+  "hash": "c85c970a",
+  "text": "公開時は資源の限られた4人のチームだったと振り返っている。"
+ },
+ {
+  "entityId": "ent_quaderno_81236030d721",
+  "kind": "fact",
+  "targetId": "f4",
+  "hash": "444ae0f9",
+  "text": "2014年5月14日に、開発者向けの投稿サイトHacker Newsへ、決済サービスStripe向けの請求書サービスとして投稿された。"
+ },
+ {
+  "entityId": "ent_quaderno_81236030d721",
+  "kind": "fact",
+  "targetId": "f5",
+  "hash": "bc83405b",
+  "text": "本人の報告では、この投稿はHacker Newsのトップページに8時間載った。"
+ },
+ {
+  "entityId": "ent_quaderno_81236030d721",
+  "kind": "fact",
+  "targetId": "f6",
+  "hash": "cbb4bdd6",
+  "text": "投稿の2週間後の集計は訪問410人、登録19人、決済サービスStripeへの接続5人、有料客2人だったと報告している。"
+ },
+ {
+  "entityId": "ent_quaderno_81236030d721",
+  "kind": "fact",
+  "targetId": "f7",
+  "hash": "4f1caf7c",
+  "text": "本人の報告では、この掲載から有料客2人、月の定期売上100ドルを得た。"
+ },
+ {
+  "entityId": "ent_quaderno_81236030d721",
+  "kind": "fact",
+  "targetId": "f9",
+  "hash": "6130994a",
+  "text": "創業者は同日、決済サービスStripeへの接続を登録手順の最初に移したと返答した。"
+ },
+ {
+  "entityId": "ent_quaderno_81236030d721",
+  "kind": "fact",
+  "targetId": "f10",
+  "hash": "b176d3f4",
+  "text": "5月19日の返答では、追加情報を設定しなくても、決済サービスStripeでの支払いから付加価値税を計算できるようにしたと報告した。"
+ },
+ {
+  "entityId": "ent_quaderno_81236030d721",
+  "kind": "fact",
+  "targetId": "f11",
+  "hash": "1f1df228",
+  "text": "顧客データを第三者に渡す不安と、自分の環境に設置する版の要望が出た。創業者は、当時その版を開発する予定はないと返答した。"
+ },
+ {
+  "entityId": "ent_quaderno_81236030d721",
+  "kind": "fact",
+  "targetId": "f12",
+  "hash": "02ecbdd3",
+  "text": "当時の投稿者は月24ドルと48ドルの料金に言及している。"
+ },
+ {
+  "entityId": "ent_quaderno_81236030d721",
+  "kind": "fact",
+  "targetId": "f13",
+  "hash": "e393d4ce",
+  "text": "ネットで売る事業者向けに、販売地ごとの税額の計算、請求書、税の登録が必要になる基準額の通知、申告の支援を提供する。"
+ },
+ {
+  "entityId": "ent_quaderno_81236030d721",
+  "kind": "fact",
+  "targetId": "f15",
+  "hash": "e6bc507a",
+  "text": "公式サイトのトップは、Quadernoを通じて処理された売上が140億ドルを超えたと表示している。"
+ },
+ {
+  "entityId": "ent_quaderno_81236030d721",
+  "kind": "fact",
+  "targetId": "f16",
+  "hash": "713437da",
+  "text": "150超の国を支援すると表示する。"
+ },
+ {
+  "entityId": "ent_quaderno_81236030d721",
+  "kind": "fact",
+  "targetId": "f17",
+  "hash": "6c65954b",
+  "text": "月額は安い方から順に29、49、99、149。料金表はユーロとドルを併記している。"
+ },
+ {
+  "entityId": "ent_quaderno_81236030d721",
+  "kind": "fact",
+  "targetId": "f18",
+  "hash": "f8858697",
+  "text": "月の取引の上限は、料金の段階の順に25件、250件、1,000件、2,500件。外部サービスとの連携の呼び出し回数の上限は、取引上限の10倍。"
+ },
+ {
+  "entityId": "ent_quaderno_81236030d721",
+  "kind": "fact",
+  "targetId": "f19",
+  "hash": "ca5f4399",
+  "text": "料金で数える取引件数には、請求書・領収書・請求額を減らすための書類である貸方票・経費が含まれる。販売件数だけを数える料金ではない。"
+ },
+ {
+  "entityId": "ent_quaderno_81236030d721",
+  "kind": "fact",
+  "targetId": "f21",
+  "hash": "b3d6b0f6",
+  "text": "料金ページによると、ある月だけ上限を超えた場合は、1取引あたり25セントで対応できる。2か月続けて超えると、自動で上の料金段階に移る。"
+ },
+ {
+  "entityId": "ent_quaderno_81236030d721",
+  "kind": "fact",
+  "targetId": "f22",
+  "hash": "46b74b13",
+  "text": "サービスの稼働水準を約束する特別契約は、月10,000取引以上の料金段階からと記載されている。"
+ },
+ {
+  "entityId": "ent_quaderno_81236030d721",
+  "kind": "fact",
+  "targetId": "f23",
+  "hash": "83ab29f8",
+  "text": "料金ページは、カード登録が要らない7日間の試用と、最初の設定についての個別相談を案内している。"
+ },
+ {
+  "entityId": "ent_quaderno_81236030d721",
+  "kind": "fact",
+  "targetId": "f25",
+  "hash": "ce6d0112",
+  "text": "紹介した有料客が支払う金額の30％を、最長24か月、紹介報酬として支払うと案内している。申し込みは人が審査する。"
+ },
+ {
+  "entityId": "ent_quaderno_81236030d721",
+  "kind": "fact",
+  "targetId": "f26",
+  "hash": "c7afbc6b",
+  "text": "紹介報酬は四半期ごとに支払われる。支払いを受けるには、報酬額が100ドル以上あり、有効な紹介先が3件あることが条件となる。"
+ },
+ {
+  "entityId": "ent_quaderno_81236030d721",
+  "kind": "fact",
+  "targetId": "f28",
+  "hash": "eb779439",
+  "text": "紹介制度のヘルプは、最低支払額を50ドル、支払い時期を1月・4月・7月・10月の最初の週と記載している。"
+ },
+ {
+  "entityId": "ent_quaderno_81236030d721",
+  "kind": "fact",
+  "targetId": "f32",
+  "hash": "b934d4c2",
+  "text": "規約には、いつでも解約でき、請求書・顧客・商品などのデータを、項目ごとに整理された形式で無料で取り出せると記載されている。"
+ },
+ {
+  "entityId": "ent_quaderno_81236030d721",
+  "kind": "fact",
+  "targetId": "f33",
+  "hash": "ad2b4cf0",
+  "text": "解約後にデータを削除する時期について、規約の第5節は6か月、第6節は30日の取り出し期間の後と記載しており、同じ規約の中で食い違っている。"
+ },
+ {
+  "entityId": "ent_quaderno_81236030d721",
+  "kind": "fact",
+  "targetId": "f34",
+  "hash": "fc12baf8",
+  "text": "規約は第三者サービスとして Zamp Technologies, Inc. と Global VAT Compliance B.V. の条件を参照する。"
+ },
+ {
+  "entityId": "ent_quaderno_81236030d721",
+  "kind": "labels",
+  "targetId": "labels",
+  "hash": "811c9dc5",
+  "text": "SaaS、EC"
  },
  {
   "entityId": "ent_referralrock_8c13d5ee4cfc",
@@ -700,6 +2870,300 @@
   "text": "2022年9月13日の投稿時点の累計"
  },
  {
+  "entityId": "ent_snipcart_9a1012111695",
+  "kind": "fact",
+  "targetId": "f2",
+  "hash": "d9696c73",
+  "text": "サイトにJavaScriptを追加し、商品のボタンに必要な設定を書き加えると、カートを組み込める。"
+ },
+ {
+  "entityId": "ent_snipcart_9a1012111695",
+  "kind": "fact",
+  "targetId": "f4",
+  "hash": "d7168300",
+  "text": "所在地はカナダのQuébec City。著作権表記の法人名はSnipcart inc.。"
+ },
+ {
+  "entityId": "ent_snipcart_9a1012111695",
+  "kind": "fact",
+  "targetId": "f5",
+  "hash": "1ef81fa1",
+  "text": "Charlesは最初の版を2013年8月に公開したと説明。"
+ },
+ {
+  "entityId": "ent_snipcart_9a1012111695",
+  "kind": "fact",
+  "targetId": "f9",
+  "hash": "85b98c11",
+  "text": "6月にCarbon Adsで出した広告について、費用は$1,575、表示回数は464,464回だったと記載されている。"
+ },
+ {
+  "entityId": "ent_snipcart_9a1012111695",
+  "kind": "fact",
+  "targetId": "f10",
+  "hash": "e11a97b7",
+  "text": "登録は19件、実際に取引に至った利用者は5人で、1人当たりの広告費は$315だったと記載されている。"
+ },
+ {
+  "entityId": "ent_snipcart_9a1012111695",
+  "kind": "fact",
+  "targetId": "f11",
+  "hash": "26830cfc",
+  "text": "専用の着地ページを用意すべきだったと記述。再び広告費を使うなら、Syndicateのように有用な内容を自社の製品と結びつける形を試すと記述。"
+ },
+ {
+  "entityId": "ent_snipcart_9a1012111695",
+  "kind": "fact",
+  "targetId": "f12",
+  "hash": "916ed77c",
+  "text": "Carbon Adsの広告を試した記事の初出日は、2014年7月3日。"
+ },
+ {
+  "entityId": "ent_snipcart_9a1012111695",
+  "kind": "fact",
+  "targetId": "f13",
+  "hash": "1ff0a5e2",
+  "text": "開発者に働きかけ、実際にお金を払う商店主や上司に提案してもらう形だった。"
+ },
+ {
+  "entityId": "ent_snipcart_9a1012111695",
+  "kind": "fact",
+  "targetId": "f14",
+  "hash": "2b84180c",
+  "text": "大企業向けの営業や個別の要望に応える余力がなく、個人の開発者に広く呼びかけた。"
+ },
+ {
+  "entityId": "ent_snipcart_9a1012111695",
+  "kind": "fact",
+  "targetId": "f15",
+  "hash": "e9df8140",
+  "text": "商店主はShopify、開発者はMoltinやFoxy.ioを比較対象にしやすいと観察。"
+ },
+ {
+  "entityId": "ent_snipcart_9a1012111695",
+  "kind": "fact",
+  "targetId": "f16",
+  "hash": "f28dba6f",
+  "text": "利用料金は取引額の2%。決済会社の手数料は別にかかる。"
+ },
+ {
+  "entityId": "ent_snipcart_9a1012111695",
+  "kind": "fact",
+  "targetId": "f18",
+  "hash": "08ff5990",
+  "text": "開発用の試験利用は期限なしで無料で、カードの登録も要らない。"
+ },
+ {
+  "entityId": "ent_snipcart_9a1012111695",
+  "kind": "fact",
+  "targetId": "f20",
+  "hash": "2874b546",
+  "text": "価格を変える時は、60日前にメールで知らせる。解約は管理画面かメールででき、最後の請求がある。"
+ },
+ {
+  "entityId": "ent_snipcart_9a1012111695",
+  "kind": "fact",
+  "targetId": "f22",
+  "hash": "8198e642",
+  "text": "Ayo Adesinaの推薦文は、導入のしやすさと、サポートチームの対応の良さを評価している。公式の紹介ページに載っている。"
+ },
+ {
+  "entityId": "ent_snipcart_9a1012111695",
+  "kind": "fact",
+  "targetId": "f26",
+  "hash": "b37eb730",
+  "text": "最低料金を$20にした理由として、サポートの質を保つことと、使われていない店舗を減らすことを挙げている。"
+ },
+ {
+  "entityId": "ent_snipcart_9a1012111695",
+  "kind": "fact",
+  "targetId": "f27",
+  "hash": "e378c46b",
+  "text": "注文や顧客の情報を書き出す方法を案内している。個人データの写しや削除をメールで依頼できる窓口も案内している。"
+ },
+ {
+  "entityId": "ent_snipcart_9a1012111695",
+  "kind": "labels",
+  "targetId": "labels",
+  "hash": "811c9dc5",
+  "text": "EC、開発者ツール"
+ },
+ {
+  "entityId": "ent_statusgator_316d3eb5edf6",
+  "kind": "fact",
+  "targetId": "f2",
+  "hash": "0daa7be6",
+  "text": "2015年6月までに月1,000米ドルの売上を目指したが届かなかった。2016年12月の継続月額売上は330米ドルだった。"
+ },
+ {
+  "entityId": "ent_statusgator_316d3eb5edf6",
+  "kind": "fact",
+  "targetId": "f3",
+  "hash": "c8bfeb3c",
+  "text": "2016年12月の公表費用は、決済サービスStripeが10米ドル、サーバーを借りるHerokuが154米ドル、DigitalOceanが5米ドル。売上から引いた差額は161米ドルと表示しているが、創業者の給与と一部の小額費用は含まない。"
+ },
+ {
+  "entityId": "ent_statusgator_316d3eb5edf6",
+  "kind": "fact",
+  "targetId": "f4",
+  "hash": "1824fefb",
+  "text": "当時の有料利用者は22人、無料利用者は1,159人。無料枠は3サービスの監視までで、旧利用者には5または10サービスの枠を残した。"
+ },
+ {
+  "entityId": "ent_statusgator_316d3eb5edf6",
+  "kind": "fact",
+  "targetId": "f6",
+  "hash": "44730ab6",
+  "text": "Facebook、Google AdWords、Twitterの広告を試したが効果は乏しく、検索と口コミが有効だったと報告している。開発者向けサイトStackShareへの寄稿は、長くサイトへの訪問につながった。"
+ },
+ {
+  "entityId": "ent_statusgator_316d3eb5edf6",
+  "kind": "fact",
+  "targetId": "f7",
+  "hash": "abbc6c14",
+  "text": "買収提案を1件受けたが、提示額が小さく、応じる気にならなかった。"
+ },
+ {
+  "entityId": "ent_statusgator_316d3eb5edf6",
+  "kind": "fact",
+  "targetId": "f8",
+  "hash": "1c545045",
+  "text": "Colin Bartlettが2014年に考案し、2015年に公開した。"
+ },
+ {
+  "entityId": "ent_statusgator_316d3eb5edf6",
+  "kind": "fact",
+  "targetId": "f9",
+  "hash": "50c9b1d7",
+  "text": "2018年にAndy Libbyが加わり、Nimble Industriesという会社を作った。複数の国にいるメンバーが遠隔勤務で運営している。"
+ },
+ {
+  "entityId": "ent_statusgator_316d3eb5edf6",
+  "kind": "fact",
+  "targetId": "f10",
+  "hash": "9e5876b2",
+  "text": "2020年に、幼稚園から高校までの学校（K12）向けの提供を始め、遠隔授業中の学校への問い合わせを減らす支援をした。"
+ },
+ {
+  "entityId": "ent_statusgator_316d3eb5edf6",
+  "kind": "fact",
+  "targetId": "f12",
+  "hash": "0120e52b",
+  "text": "2024年に、他社が障害を公式に告知するより早く異常を捉える機能Early Warning Signalsを一般提供した。"
+ },
+ {
+  "entityId": "ent_statusgator_316d3eb5edf6",
+  "kind": "fact",
+  "targetId": "f14",
+  "hash": "f05ada77",
+  "text": "長期利用者5件を失った一方、新規9件を獲得したと報告している。既存客が上位プランへ変更した件数も過去最多だったという。"
+ },
+ {
+  "entityId": "ent_statusgator_316d3eb5edf6",
+  "kind": "fact",
+  "targetId": "f15",
+  "hash": "aa1fc767",
+  "text": "月額継続売上は前月比で差し引き15%増え、3,000米ドル近くに達したと報告している。"
+ },
+ {
+  "entityId": "ent_statusgator_316d3eb5edf6",
+  "kind": "fact",
+  "targetId": "f16",
+  "hash": "4dad998c",
+  "text": "解約した旧契約の料金は、今の最安プランより33〜66%安かった。運営者の報告では、新しい段階料金にすると新規客の単価が高くなった。"
+ },
+ {
+  "entityId": "ent_statusgator_316d3eb5edf6",
+  "kind": "fact",
+  "targetId": "f26",
+  "hash": "cccba984",
+  "text": "無料版は、監視3件、状況ページ1件、管理者1人、通知は月10通、履歴は1か月分まで。14日間は全機能を試せ、カードの登録は要らない。"
+ },
+ {
+  "entityId": "ent_statusgator_316d3eb5edf6",
+  "kind": "fact",
+  "targetId": "f27",
+  "hash": "aad8d0e7",
+  "text": "Starterプランは月払いで79米ドル、年払いは月あたり72米ドル。監視25件、状況ページ1件、管理者1人、通知の購読者500人、履歴3か月分まで使える。"
+ },
+ {
+  "entityId": "ent_statusgator_316d3eb5edf6",
+  "kind": "fact",
+  "targetId": "f28",
+  "hash": "77eacdc9",
+  "text": "Teamプランは月払いで149米ドル、年払いは月あたり137米ドル。監視75件、状況ページ3件、管理者3人、通知の購読者1,000人、履歴6か月分まで使える。"
+ },
+ {
+  "entityId": "ent_statusgator_316d3eb5edf6",
+  "kind": "fact",
+  "targetId": "f29",
+  "hash": "638219a5",
+  "text": "監視150件、状況ページ5件、管理者10人、履歴12か月分が使えるプランは、月払いで299米ドル、年払いで月あたり274米ドル。"
+ },
+ {
+  "entityId": "ent_statusgator_316d3eb5edf6",
+  "kind": "fact",
+  "targetId": "f31",
+  "hash": "1a7f0e6c",
+  "text": "上位プランへの変更は、決済サービスStripeで支払い情報を入力すれば完了し、確認後すぐに反映される。"
+ },
+ {
+  "entityId": "ent_statusgator_316d3eb5edf6",
+  "kind": "fact",
+  "targetId": "f32",
+  "hash": "830f6d39",
+  "text": "無料版を含む下位プランへは、いつでも変更できる。月払いと年払いを切り替えると、更新日がそれに合わせて調整される。"
+ },
+ {
+  "entityId": "ent_statusgator_316d3eb5edf6",
+  "kind": "fact",
+  "targetId": "f34",
+  "hash": "0150fd09",
+  "text": "直近12か月の稼働率は99.92%で、低下・停止は年間約7時間だと自社で表示している。"
+ },
+ {
+  "entityId": "ent_statusgator_316d3eb5edf6",
+  "kind": "fact",
+  "targetId": "f36",
+  "hash": "01368871",
+  "text": "TinySeedの投資先とSaaS Instituteの会員向けに、Teamを2年間無料、その後2年間は任意のプランを50%引きで提供する。"
+ },
+ {
+  "entityId": "ent_statusgator_316d3eb5edf6",
+  "kind": "fact",
+  "targetId": "f38",
+  "hash": "8dc530c0",
+  "text": "ある事例記事では、未対応のサービスの追加を要望したところ、数分で追加されたという。"
+ },
+ {
+  "entityId": "ent_statusgator_316d3eb5edf6",
+  "kind": "fact",
+  "targetId": "f39",
+  "hash": "af647fa4",
+  "text": "自社集計では、教育関係の利用者191人が127種類のサービスを監視していた。約55%は1サービスだけの監視で、運営者は、無料枠で多くの教育機関の需要を満たせるとしている。"
+ },
+ {
+  "entityId": "ent_statusgator_316d3eb5edf6",
+  "kind": "fact",
+  "targetId": "f40",
+  "hash": "38bc3eec",
+  "text": "iOSとAndroid向けに公開。状況ページにアクセスできる人は誰でもQRコードで追加でき、早期警告を含む通知、監視選択、通知停止、障害報告を使える。"
+ },
+ {
+  "entityId": "ent_statusgator_316d3eb5edf6",
+  "kind": "formula",
+  "targetId": "a-take_home",
+  "hash": "f9db9ae9",
+  "text": "2016年12月の継続月額売上 330米ドル − Stripe 10米ドル − Heroku 154米ドル − DigitalOcean 5米ドル = 161米ドル。これは事業の差額で、創業者の給与と一部の小額費用は含まない。"
+ },
+ {
+  "entityId": "ent_statusgator_316d3eb5edf6",
+  "kind": "analysis",
+  "targetId": "a-take_home",
+  "hash": "55fa9400",
+  "text": "2016年12月の売上から公表費用を引いた事業の差額は月約161米ドル。創業者の労働は無給として扱い、一部の小額費用も引いていないため、創業者個人の収入ではない。"
+ },
+ {
   "entityId": "ent_teamcamp_ae0c21986c4d",
   "kind": "fact",
   "targetId": "f2",
@@ -721,10 +3185,563 @@
   "text": "創業者のPratham Naikは、検索対策の担当として複数の顧客案件を抱え、複雑な管理ツールにうんざりして作り始めたと説明する。他の管理ツールについては、Asanaは簡単なタスクを作るだけで宇宙船の操縦のようで、Mondayは使わない機能にも料金を払うことになり、Trelloは単純すぎたという。"
  },
  {
-  "entityId": "ent_teamcamp_ae0c21986c4d",
+  "entityId": "ent_tuple_20261007",
+  "kind": "fact",
+  "targetId": "f1",
+  "hash": "0d26cce8",
+  "text": "離れた開発者が画面・音声を共有し、相手の端末を操作しながら共同でコードを書くためのソフト。"
+ },
+ {
+  "entityId": "ent_tuple_20261007",
+  "kind": "fact",
+  "targetId": "f2",
+  "hash": "a0960fc4",
+  "text": "公式サイトによると、最大5Kの画面共有ができる。共通の処理部分は、プログラミング言語C++で作っている。"
+ },
+ {
+  "entityId": "ent_tuple_20261007",
+  "kind": "fact",
+  "targetId": "f4",
+  "hash": "48e5813a",
+  "text": "確認時点で、開発チーム向けの料金は1人あたり月30ドル。共同作業の回数に上限はない。"
+ },
+ {
+  "entityId": "ent_tuple_20261007",
+  "kind": "fact",
+  "targetId": "f5",
+  "hash": "61b0a63a",
+  "text": "14日間の無料試用がある。"
+ },
+ {
+  "entityId": "ent_tuple_20261007",
+  "kind": "fact",
+  "targetId": "f6",
+  "hash": "50a4eb02",
+  "text": "外部の協力者との通話に追加料金はかからない。通話に加わる人のうち少なくとも1人が有料利用者であればよく、招待された人はブラウザから参加できる。"
+ },
+ {
+  "entityId": "ent_tuple_20261007",
+  "kind": "fact",
+  "targetId": "f7",
+  "hash": "ebbde7ee",
+  "text": "大企業向けは個別見積もりで、独自契約と請求書・発注書での支払いに対応する。"
+ },
+ {
+  "entityId": "ent_tuple_20261007",
   "kind": "fact",
   "targetId": "f8",
-  "hash": "aa11acf8",
-  "text": "2025年10月7日の本人投稿によると、買い切り999ドル（ユーザーも案件も無制限）を月額プランと並べて4か月試すと、売上の約4割が買い切りで、買い切りの客は月額の客の3.2倍の人数を紹介し、解約はゼロだが問い合わせは多かった。サーバー費は利用量に比例するため、買い切りの客が50人規模のチームを入れると利益が崩れると本人は懸念する。"
+  "hash": "3226db38",
+  "text": "設立から2年未満で従業員50人未満の会社には、1年間90%割引を提供するとしている。"
+ },
+ {
+  "entityId": "ent_tuple_20261007",
+  "kind": "fact",
+  "targetId": "f9",
+  "hash": "a539241c",
+  "text": "2018年に創業し、2019年1月に、招待した人だけが使える初期版を提供した。"
+ },
+ {
+  "entityId": "ent_tuple_20261007",
+  "kind": "fact",
+  "targetId": "f10",
+  "hash": "19c79785",
+  "text": "初期版は約12チームで始まり、順番待ちの名簿からおおむね毎月招待した。2019年10月からは、利用者が自分で登録できるようになった。"
+ },
+ {
+  "entityId": "ent_tuple_20261007",
+  "kind": "fact",
+  "targetId": "f11",
+  "hash": "4e92b031",
+  "text": "2019年末のチームは共同創業者3人だった。"
+ },
+ {
+  "entityId": "ent_tuple_20261007",
+  "kind": "fact",
+  "targetId": "f13",
+  "hash": "9041f277",
+  "text": "同月は、応急の修正と基盤の強化を優先し、営業を非常勤の担当者に任せた。対応を手伝う人も後から雇い、月末には状況を管理できるようになったと振り返っている。"
+ },
+ {
+  "entityId": "ent_tuple_20261007",
+  "kind": "fact",
+  "targetId": "f14",
+  "hash": "d960a500",
+  "text": "本人の発言によると、2020年3月に増えた売上は、その前の14か月で増えた売上の合計より多かった。"
+ },
+ {
+  "entityId": "ent_tuple_20261007",
+  "kind": "fact",
+  "targetId": "f15",
+  "hash": "f4aaa6b4",
+  "text": "2020年には接続・操作・音声の処理を書き直し、公開前に外部の品質検査を受けるようにした。ソフトが突然停止する回数は過去最少となり、通話品質の評価を低い順に並べたときの真ん中の値は、5点満点の5点だったという。"
+ },
+ {
+  "entityId": "ent_tuple_20261007",
+  "kind": "fact",
+  "targetId": "f16",
+  "hash": "115d58d9",
+  "text": "初期の接続管理には、外部サービスHeroku上で動くAction Cableという仕組みを使っていた。処理能力を使い切り、数時間ごとの再起動も必要になったため、外部サービスAblyへ移行した。"
+ },
+ {
+  "entityId": "ent_tuple_20261007",
+  "kind": "fact",
+  "targetId": "f17",
+  "hash": "947a6f7b",
+  "text": "他の基本ソフトにも広げるため、Firebaseという外部サービスを並行して導入した。しかし、通信が突然切れた利用者が接続中のまま残る問題があり、採用を断念した。"
+ },
+ {
+  "entityId": "ent_tuple_20261007",
+  "kind": "fact",
+  "targetId": "f18",
+  "hash": "fed0b5a9",
+  "text": "その後、GoとRedisという技術を使って自前の接続管理サービスを作り、既存の基盤と並行して段階的に導入した。"
+ },
+ {
+  "entityId": "ent_tuple_20261007",
+  "kind": "fact",
+  "targetId": "f19",
+  "hash": "04203466",
+  "text": "多くの利用者が同時につないだ場合を想定した試験で、数百万の同時接続と、ミリ秒単位の往復の遅れを確認したという。"
+ },
+ {
+  "entityId": "ent_tuple_20261007",
+  "kind": "fact",
+  "targetId": "f20",
+  "hash": "04b3a389",
+  "text": "2021年9月、コードを公開しているソフトの開発チームには、期限なしで無料で提供すると発表した。"
+ },
+ {
+  "entityId": "ent_tuple_20261007",
+  "kind": "fact",
+  "targetId": "f21",
+  "hash": "d024a525",
+  "text": "更新頻度を減らしてほしいという複数の利用者の要望を受け、2020年8月に月1回の更新を試していると発表した。"
+ },
+ {
+  "entityId": "ent_tuple_20261007",
+  "kind": "fact",
+  "targetId": "f22",
+  "hash": "1ad828da",
+  "text": "2020年12月、3人目の参加者も、キーボード・マウス操作、画面への描画、相手のクリップボード（文字を一時的に置く場所）への文字送信ができるようにした。"
+ },
+ {
+  "entityId": "ent_tuple_20261007",
+  "kind": "fact",
+  "targetId": "f23",
+  "hash": "7728cfd6",
+  "text": "2024年5月24日、一般の人がWindows版を試せるように公開した。"
+ },
+ {
+  "entityId": "ent_tuple_20261007",
+  "kind": "fact",
+  "targetId": "f26",
+  "hash": "38cf38ed",
+  "text": "仕事で使ったというbantmenは、価格のせいで、個人の開発や仕事以外での共有には使いにくかったと投稿した。"
+ },
+ {
+  "entityId": "ent_tuple_20261007",
+  "kind": "fact",
+  "targetId": "f27",
+  "hash": "87f2ba2e",
+  "text": "univerioという利用者は、映像が止まるためZoomも併用したことと、更新後に通話を再開しにくいことを投稿した。"
+ },
+ {
+  "entityId": "ent_tuple_20261007",
+  "kind": "fact",
+  "targetId": "f28",
+  "hash": "f961871e",
+  "text": "以前は、一括認証（1回の認証で複数のサービスを使える仕組み）を、通常の約2倍の料金の大企業向けに限っていた。2022年6月1日から、全プランで追加料金なしにした。"
+ },
+ {
+  "entityId": "ent_tuple_20261007",
+  "kind": "fact",
+  "targetId": "f30",
+  "hash": "2052e6a9",
+  "text": "公式の顧客取材によると、SuppliのDavid Paluyは、Slackでの音声通話が不安定だったため、WhatsAppも使っていた。数人の技術者とTupleを試したところ、利用がチーム全体へ広がった。"
+ },
+ {
+  "entityId": "ent_tuple_20261007",
+  "kind": "fact",
+  "targetId": "f31",
+  "hash": "43f56853",
+  "text": "公式の顧客取材によると、Suppliは、障害の調査、コード変更の確認、設計の相談、AIに作業を任せる前の計画づくりにTupleを使っている。"
+ },
+ {
+  "entityId": "ent_tuple_20261007",
+  "kind": "fact",
+  "targetId": "f32",
+  "hash": "58e776de",
+  "text": "2026年9月29日、端末内の文字起こし機能を強化し、Captureという名前でmacOSとWindowsの両方へ公開した。"
+ },
+ {
+  "entityId": "ent_userlist_a288fcf9f741",
+  "kind": "fact",
+  "targetId": "f2",
+  "hash": "42c78a34",
+  "text": "2017年10月に共同創業契約を結んだ。創業者はJane PortmanとBenedikt Deicke。3人目の共同創業者でマーケティング担当のClaire Suellentropは、1年後に離れたと記載している。"
+ },
+ {
+  "entityId": "ent_userlist_a288fcf9f741",
+  "kind": "fact",
+  "targetId": "f3",
+  "hash": "ea8aa179",
+  "text": "2018年10月に非公開の試用版で最初の有料顧客の導入を始めたと記載している。"
+ },
+ {
+  "entityId": "ent_userlist_a288fcf9f741",
+  "kind": "fact",
+  "targetId": "f4",
+  "hash": "4bfecd11",
+  "text": "公式発表では、2019年8月の正式公開で、製品紹介サイトProduct Huntの当日1位になった。"
+ },
+ {
+  "entityId": "ent_userlist_a288fcf9f741",
+  "kind": "fact",
+  "targetId": "f5",
+  "hash": "39aaf0bb",
+  "text": "2020年5月に、アプリ内メッセージの機能を追加した。"
+ },
+ {
+  "entityId": "ent_userlist_a288fcf9f741",
+  "kind": "fact",
+  "targetId": "f6",
+  "hash": "3792ae4b",
+  "text": "2021年4月に企業アカウントを追加した。同年10月には、利用の各段階で送る顧客向けメッセージに加えて、マーケティングメールも送れるようにした。"
+ },
+ {
+  "entityId": "ent_userlist_a288fcf9f741",
+  "kind": "fact",
+  "targetId": "f7",
+  "hash": "c52fe535",
+  "text": "2023年1月に新しい動的メール編集機能を公開した。"
+ },
+ {
+  "entityId": "ent_userlist_a288fcf9f741",
+  "kind": "fact",
+  "targetId": "f9",
+  "hash": "feef8da2",
+  "text": "Tiny Reminder の利用者と行動を把握できず、行動に応じた連絡を送りたいという課題が、新製品の出発点になった。"
+ },
+ {
+  "entityId": "ent_userlist_a288fcf9f741",
+  "kind": "fact",
+  "targetId": "f11",
+  "hash": "464c0e30",
+  "text": "2017年末にUserlistの作業を始めた。2018年2月の記事では、数か月の調査と設計を終えて、最初の版を開発していた。"
+ },
+ {
+  "entityId": "ent_userlist_a288fcf9f741",
+  "kind": "fact",
+  "targetId": "f13",
+  "hash": "68f41299",
+  "text": "機能の感想よりも、相手が利用者の行動をどう把握し、どう連絡しているか、今のやり方での困り事を聞いた。"
+ },
+ {
+  "entityId": "ent_userlist_a288fcf9f741",
+  "kind": "fact",
+  "targetId": "f14",
+  "hash": "ab70d071",
+  "text": "会話を録画し、文字起こしサービスのRev.comで文字にして、表に整理した。その結果、行動に応じて利用を促すメッセージに開発の焦点を絞った。"
+ },
+ {
+  "entityId": "ent_userlist_a288fcf9f741",
+  "kind": "fact",
+  "targetId": "f16",
+  "hash": "e9bf8b1e",
+  "text": "2018年4月の通常月額は、利用者1,000人までのプランが49米ドル、5,000人までのプランが99米ドルだった。"
+ },
+ {
+  "entityId": "ent_userlist_a288fcf9f741",
+  "kind": "fact",
+  "targetId": "f17",
+  "hash": "2c9876e4",
+  "text": "同じ告知では、利用者20,000人までのプランが月229米ドル、100,000人までのプランが月499米ドルだった。"
+ },
+ {
+  "entityId": "ent_userlist_a288fcf9f741",
+  "kind": "fact",
+  "targetId": "f18",
+  "hash": "b715854f",
+  "text": "2018年4月4日から11日までの先行販売は、最初の6か月を30％引きとし、各プランを205・415・961・2,095米ドルで提示した。"
+ },
+ {
+  "entityId": "ent_userlist_a288fcf9f741",
+  "kind": "fact",
+  "targetId": "f19",
+  "hash": "493f4368",
+  "text": "先行販売では、購入時に6か月分の代金をすぐ請求した。利用期間は利用できるようになってから始まり、創業者が導入を支援し、全額返金保証が付いた。"
+ },
+ {
+  "entityId": "ent_userlist_a288fcf9f741",
+  "kind": "fact",
+  "targetId": "f20",
+  "hash": "b21d6cc7",
+  "text": "初期の客ごとに、創業者3人で1時間の導入面談をした。Benedikt はデータ連携を支援し、Claire は支援が必要な客に限り、追跡する行動と配信内容の設計を支援した。"
+ },
+ {
+  "entityId": "ent_userlist_a288fcf9f741",
+  "kind": "fact",
+  "targetId": "f21",
+  "hash": "56f93751",
+  "text": "初回は送信機能を外し、利用者一覧と個別の行動記録を先に渡した。顧客の反応を早く得て、開発の順序を決めるためだった。"
+ },
+ {
+  "entityId": "ent_userlist_a288fcf9f741",
+  "kind": "fact",
+  "targetId": "f22",
+  "hash": "9ca900b5",
+  "text": "見栄えを整えたメールを用意する計画だったが、客は個人から届いたような簡素なメールを好んだ。そのため、両方を選べる形を検討した。実装が終わったという記載ではない。"
+ },
+ {
+  "entityId": "ent_userlist_a288fcf9f741",
+  "kind": "fact",
+  "targetId": "f23",
+  "hash": "7c7f0ebe",
+  "text": "正式公開の前、試用版の表示が登録を妨げていると考えた。有料顧客の利用実績と面談の結果を踏まえて、公開を決めた。"
+ },
+ {
+  "entityId": "ent_userlist_a288fcf9f741",
+  "kind": "fact",
+  "targetId": "f24",
+  "hash": "bae8ddb3",
+  "text": "2019年8月6日に製品紹介サイトProduct Huntで公開する予定を立て、その準備ができるかどうかを7月23日に判断する日程を組んだ。"
+ },
+ {
+  "entityId": "ent_userlist_a288fcf9f741",
+  "kind": "fact",
+  "targetId": "f25",
+  "hash": "29c672c3",
+  "text": "衝動買いされにくい製品だと考え、メール計画用の無料の記入表を配って、関心を持った人の連絡先を集めた。"
+ },
+ {
+  "entityId": "ent_userlist_a288fcf9f741",
+  "kind": "fact",
+  "targetId": "f26",
+  "hash": "3c06786f",
+  "text": "2019年8月6日に試用版を終えて正式公開し、製品紹介サイトProduct Huntに掲載したと、当日の記事で告知した。"
+ },
+ {
+  "entityId": "ent_userlist_a288fcf9f741",
+  "kind": "fact",
+  "targetId": "f27",
+  "hash": "14420ac7",
+  "text": "正式公開の告知で、自分の読者を持つ人に、提携制度への参加を呼びかけた。"
+ },
+ {
+  "entityId": "ent_userlist_a288fcf9f741",
+  "kind": "fact",
+  "targetId": "f28",
+  "hash": "c0d1816e",
+  "text": "2019年の検討では、メール自動化という説明から顧客へのメッセージという説明に変え、Intercom と自作を比較対象として明示した。製品自体は変えなかった。"
+ },
+ {
+  "entityId": "ent_userlist_a288fcf9f741",
+  "kind": "fact",
+  "targetId": "f29",
+  "hash": "9f9842dc",
+  "text": "本人の話では、説明を変えた後、見込み客が製品の内容をすぐ理解し、価値を認めるようになった。"
+ },
+ {
+  "entityId": "ent_userlist_a288fcf9f741",
+  "kind": "fact",
+  "targetId": "f31",
+  "hash": "31b8bfed",
+  "text": "追加利用者1,000人あたりの月額は Basic が10米ドル、Professional が12米ドル。料金は過去30日の最大利用者数で計算する。"
+ },
+ {
+  "entityId": "ent_userlist_a288fcf9f741",
+  "kind": "fact",
+  "targetId": "f32",
+  "hash": "5443ef17",
+  "text": "年払いは20％引き。全プランに14日の無料試用があり、始めるときにカード情報が必要と記載している。"
+ },
+ {
+  "entityId": "ent_userlist_a288fcf9f741",
+  "kind": "fact",
+  "targetId": "f34",
+  "hash": "af92391f",
+  "text": "Customer Loyalty Kit は3,290米ドル、期間の目安は2〜3週間。既に導入支援を購入した顧客は10％引きと提示している。"
+ },
+ {
+  "entityId": "ent_userlist_a288fcf9f741",
+  "kind": "fact",
+  "targetId": "f36",
+  "hash": "072336bb",
+  "text": "AgentMethodsのAaron Kassoverの話では、Userlistで少数のメッセージを設定して、3か月で解約を約25％減らした。"
+ },
+ {
+  "entityId": "ent_userlist_a288fcf9f741",
+  "kind": "fact",
+  "targetId": "f37",
+  "hash": "9c194fc3",
+  "text": "AgentMethodsの話では、客の特定の行動をきっかけに自動配信を作り、支援対応の量を減らし、起こりそうな問題に先回りできるようになった。"
+ },
+ {
+  "entityId": "ent_userlist_a288fcf9f741",
+  "kind": "fact",
+  "targetId": "f38",
+  "hash": "8df0178e",
+  "text": "Fileinbox の Christian Genco は MicroConf で Userlist を知り、組み込み済みのメール見本を出発点に導入したと述べている。"
+ },
+ {
+  "entityId": "ent_userlist_a288fcf9f741",
+  "kind": "fact",
+  "targetId": "f39",
+  "hash": "67f9719d",
+  "text": "Christian Genco は、行動に応じた導入案内が転換に良い影響を与えていると述べている。"
+ },
+ {
+  "entityId": "ent_userlist_a288fcf9f741",
+  "kind": "fact",
+  "targetId": "f40",
+  "hash": "56c64002",
+  "text": "機能が増える一方で、余白の多さ、狭い入力欄、整理不足の案内が問題になった。2025年9月9日に、案内と画面内の情報量を見直した新版を公開した。"
+ },
+ {
+  "entityId": "ent_wip_5eef8a985270",
+  "kind": "fact",
+  "targetId": "f1",
+  "hash": "ad0678a5",
+  "text": "製品を作って世に出す人たちが、互いに自分の行動や結果を説明し、目標の達成を助け合う集まりだと、公式に説明している。"
+ },
+ {
+  "entityId": "ent_wip_5eef8a985270",
+  "kind": "fact",
+  "targetId": "f3",
+  "hash": "67bffb80",
+  "text": "2022年9月6日、運営者は、月20ドルの料金が入会の妨げになっているとして、無料・招待制・任意の有料機能を組み合わせる案を公開した。"
+ },
+ {
+  "entityId": "ent_wip_5eef8a985270",
+  "kind": "fact",
+  "targetId": "f4",
+  "hash": "8a54f3e3",
+  "text": "Martijn Verboveは月20ドルを払う価値を感じ、交流会が増えるならさらに払ってもよいと投稿した。"
+ },
+ {
+  "entityId": "ent_wip_5eef8a985270",
+  "kind": "fact",
+  "targetId": "f5",
+  "hash": "eeb9e354",
+  "text": "Philip Thomasはコミュニティに払うことには納得するが、Telegramが好みでなく、参加を妨げているため、同時に接続しなくても参加できる形を望んだ。"
+ },
+ {
+  "entityId": "ent_wip_5eef8a985270",
+  "kind": "fact",
+  "targetId": "f6",
+  "hash": "52b3eeac",
+  "text": "2022年9月の運営者の回想では、150ドルを払うと1年間の追加特典が付く仕組みがあった。その後、新規入会者は年150ドル（または月20ドル）の支払いが必須になった。"
+ },
+ {
+  "entityId": "ent_wip_5eef8a985270",
+  "kind": "fact",
+  "targetId": "f7",
+  "hash": "1ed6b2dc",
+  "text": "2022年9月22日の運営者の説明では、前の月の新規登録は3人だけだった。"
+ },
+ {
+  "entityId": "ent_wip_5eef8a985270",
+  "kind": "fact",
+  "targetId": "f8",
+  "hash": "e8173834",
+  "text": "2022年9月の運営者の説明では、毎月継続して入る売上の平均は2,000ドルだった。"
+ },
+ {
+  "entityId": "ent_wip_5eef8a985270",
+  "kind": "fact",
+  "targetId": "f9",
+  "hash": "8a462ff4",
+  "text": "2022年9月22日、お金を払わずに入会できる招待制の無料枠を設け、有料会員の機能や特典は続けると発表した。運営者はこれを実験と位置づけた。"
+ },
+ {
+  "entityId": "ent_wip_5eef8a985270",
+  "kind": "fact",
+  "targetId": "f10",
+  "hash": "b4b30329",
+  "text": "2022年12月5日、Marcは、連続記録が途切れると意欲を失う人がいるとして、記録がすべて消えない別の計算方式を提案した。実装を終えたという発表ではない。"
+ },
+ {
+  "entityId": "ent_wip_5eef8a985270",
+  "kind": "fact",
+  "targetId": "f11",
+  "hash": "fa97f053",
+  "text": "Nilsは、1,373日続いた記録を入力忘れで失い、再開する意欲が落ちたと投稿した。一方で、毎日続ける厳しい挑戦の価値も残したいと述べた。"
+ },
+ {
+  "entityId": "ent_wip_5eef8a985270",
+  "kind": "fact",
+  "targetId": "f12",
+  "hash": "93271f3b",
+  "text": "Rodは、厳しい連続記録が意欲を保つ助けになっていると投稿した。"
+ },
+ {
+  "entityId": "ent_wip_5eef8a985270",
+  "kind": "fact",
+  "targetId": "f13",
+  "hash": "030365ff",
+  "text": "2024年1月25日、運営者は、費用削減と速度改善のためサーバーをRenderからDigitalOceanへ、移行用の道具Kamalで移そうとして、サービスが停止したと説明した。"
+ },
+ {
+  "entityId": "ent_wip_5eef8a985270",
+  "kind": "fact",
+  "targetId": "f14",
+  "hash": "ca6871dd",
+  "text": "停止で連続記録が途切れた会員には、完了した作業のリンクと時刻を送れば日付を直すと案内した。移行を続けるかRenderに戻すかは、当時まだ決めていなかった。"
+ },
+ {
+  "entityId": "ent_wip_5eef8a985270",
+  "kind": "fact",
+  "targetId": "f15",
+  "hash": "0e0d24b4",
+  "text": "2024年8月29日の運営者の説明では、毎月継続して入る売上は約1,000ドルだった。"
+ },
+ {
+  "entityId": "ent_wip_5eef8a985270",
+  "kind": "fact",
+  "targetId": "f16",
+  "hash": "9eef65a2",
+  "text": "2024年8月29日、新規会員の料金を月29ドルまたは年199ドルにし、1か月の無料試用を案内した。既存の無料会員と有料会員の条件は変えなかった。"
+ },
+ {
+  "entityId": "ent_wip_5eef8a985270",
+  "kind": "fact",
+  "targetId": "f17",
+  "hash": "b0e3c3fc",
+  "text": "料金を変えた後も、招待制を続ける方針を示した。"
+ },
+ {
+  "entityId": "ent_wip_5eef8a985270",
+  "kind": "fact",
+  "targetId": "f18",
+  "hash": "f36e2c61",
+  "text": "Jill Binderは、友人に合うコミュニティだとして、招待の入手方法を質問した。"
+ },
+ {
+  "entityId": "ent_wip_5eef8a985270",
+  "kind": "fact",
+  "targetId": "f19",
+  "hash": "8cb79505",
+  "text": "Marcは、招待枠はサイトの利用に応じて自動で配られ、連続記録の節目はその方法の1つだが必須ではないと返答した。"
+ },
+ {
+  "entityId": "ent_wip_5eef8a985270",
+  "kind": "fact",
+  "targetId": "f20",
+  "hash": "51bd95f7",
+  "text": "入会ページでは、月29ドルまたは年199ドルと表示している。"
+ },
+ {
+  "entityId": "ent_wip_5eef8a985270",
+  "kind": "fact",
+  "targetId": "f21",
+  "hash": "80badcf2",
+  "text": "現在の入会ページの説明では、買い切りの会員はなく、価格は世界共通で、クレジットカードで払える。"
+ },
+ {
+  "entityId": "ent_wip_5eef8a985270",
+  "kind": "fact",
+  "targetId": "f22",
+  "hash": "dc7b52ad",
+  "text": "有料機能には、連続記録の保護、製品の登録数の上限解除、利用状況の詳細、広告の非表示、非公開の製品、外部の道具との連携などがある。"
  }
 ]

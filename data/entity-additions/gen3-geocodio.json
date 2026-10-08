@@ -1,0 +1,1224 @@
+{
+ "version": 1,
+ "source": {
+  "manifest": "/private/tmp/claude-501/-Users-satoushinya-project-Make-Money/2be145c1-d0c7-4f02-9457-3c8f190a0980/scratchpad/gen3/geocodio-record.json",
+  "manifestSha256": "fa91b01f61aed74ca864c2af9a3b950da920d082a75bac1160756eb17ac87606",
+  "artifactsDir": "",
+  "collectedAt": "2026-10-07T11:28:52.729Z"
+ },
+ "records": [
+  {
+   "id": "ent_geocodio_c64c0721d500",
+   "provenance": {
+    "detailsHash": "4bd40fd6f076b5318f3df06387982f4b4ceff8adccf15b3582b5e38fa3929d5b",
+    "artifactSha256": "fa91b01f61aed74ca864c2af9a3b950da920d082a75bac1160756eb17ac87606"
+   },
+   "record": {
+    "id": "ent_geocodio_c64c0721d500",
+    "ticker": "GEOCODIO",
+    "name": "Geocodio",
+    "legalEntity": "Dotsquare LLC（公式サイトの法人表記）",
+    "tagline": "住所と緯度・経度の変換、住所の整形、地理情報の付加を、外部接続と表計算ファイル処理で提供する。夫婦が2014年に公開した。",
+    "description": "住所と緯度・経度の変換、住所の整形、地理情報の付加を、外部接続と表計算ファイル処理で提供する。夫婦が2014年に公開した。",
+    "sector": "NICHE_SAAS",
+    "scale": "SMALL_TEAM",
+    "founder": "Michele Hansen、Mathias Hansen",
+    "country": "米国",
+    "url": "https://www.geocod.io/",
+    "officialUrl": "https://www.geocod.io/",
+    "verifiedBadge": false,
+    "growthRateYoY": 0,
+    "architecturePattern": "",
+    "pipelineStack": "",
+    "targetPainWallet": "",
+    "tags": [
+     "小規模事業",
+     "収集記録",
+     "収集事例"
+    ],
+    "pnl": {
+     "monthlyRevenue": 0,
+     "cogs": 0,
+     "grossProfit": 0,
+     "grossMargin": 0,
+     "operatingExpenses": {
+      "serverAndApi": 0,
+      "advertising": 0,
+      "subcontracting": 0,
+      "toolsAndSaaS": 0,
+      "other": 0
+     },
+     "operatingProfit": 0,
+     "operatingMargin": 0,
+     "estimatedAnnualNetProfit": 0,
+     "isRevenueUnconfirmed": true,
+     "isOperatingProfitUnconfirmed": true,
+     "isMarginUnconfirmed": true,
+     "isGrossProfitUnconfirmed": true,
+     "isGrossMarginUnconfirmed": true,
+     "isCogsUnconfirmed": true,
+     "isCostsUnconfirmed": true,
+     "isNetProfitUnconfirmed": true,
+     "financialStatus": "UNAVAILABLE",
+     "dataSnapshotPeriod": "現在の完全な損益は未確認。歴史的な金額は時期別に事実欄へ保存。",
+     "revenueLabel": "現在の完全な損益は未確認。過去の原通貨の数字と限定条件を事実欄へ記録。",
+     "sourceDoc": "https://www.geocod.io/about",
+     "sourceClass": "PRIMARY"
+    },
+    "facts": [
+     {
+      "id": "ent_geocodio_c64c0721d500_fact_001",
+      "kind": "EVENT",
+      "text": "2014年1月21日に公開。Hacker Newsの表紙にほぼ丸一日載ったが、その後流入は急減した。",
+      "sourceUrl": "https://mjwhansen.com/bootstrapping-a-business-5-years-in/",
+      "statedAt": "2019-01-21",
+      "checkedAt": "2026-10-07",
+      "period": "2014年初月、2019年1月時点",
+      "attribution": "創業者の本人申告"
+     },
+     {
+      "id": "ent_geocodio_c64c0721d500_fact_002",
+      "kind": "OTHER",
+      "text": "初月の総売上は30.68米ドル、決済手数料控除後は28.29米ドル。個人の手残りを示す数字ではない。",
+      "sourceUrl": "https://mjwhansen.com/bootstrapping-a-business-5-years-in/",
+      "statedAt": "2019-01-21",
+      "checkedAt": "2026-10-07",
+      "period": "2014年初月、2019年1月時点",
+      "attribution": "創業者の本人申告",
+      "measure": "REVENUE"
+     },
+     {
+      "id": "ent_geocodio_c64c0721d500_fact_003",
+      "kind": "OTHER",
+      "text": "初月はDigitalOceanのサーバー2台で月20米ドルを支払った。費用の完全な内訳はない。",
+      "sourceUrl": "https://mjwhansen.com/bootstrapping-a-business-5-years-in/",
+      "statedAt": "2019-01-21",
+      "checkedAt": "2026-10-07",
+      "period": "2014年初月、2019年1月時点",
+      "attribution": "創業者の本人申告",
+      "measure": "COST"
+     },
+     {
+      "id": "ent_geocodio_c64c0721d500_fact_004",
+      "kind": "FOUNDING",
+      "text": "開始時の目的は、自分たちの別のアプリに必要なサーバー費を賄うことだった。",
+      "sourceUrl": "https://mjwhansen.com/bootstrapping-a-business-5-years-in/",
+      "statedAt": "2019-01-21",
+      "checkedAt": "2026-10-07",
+      "period": "2014年初月、2019年1月時点",
+      "attribution": "創業者の本人申告"
+     },
+     {
+      "id": "ent_geocodio_c64c0721d500_fact_005",
+      "kind": "OTHER",
+      "text": "2019年1月の回顧では累計売上が100万米ドルを超えたと報告。単年売上ではない。",
+      "sourceUrl": "https://mjwhansen.com/bootstrapping-a-business-5-years-in/",
+      "statedAt": "2019-01-21",
+      "checkedAt": "2026-10-07",
+      "period": "2014年初月、2019年1月時点",
+      "attribution": "創業者の本人申告",
+      "measure": "REVENUE"
+     },
+     {
+      "id": "ent_geocodio_c64c0721d500_fact_006",
+      "kind": "OTHER",
+      "text": "顧客1人あたり平均売上139米ドルと報告。月額・年額・累計のどれかは明示を確認できない。",
+      "sourceUrl": "https://mjwhansen.com/bootstrapping-a-business-5-years-in/",
+      "statedAt": "2019-01-21",
+      "checkedAt": "2026-10-07",
+      "period": "2014年初月、2019年1月時点",
+      "attribution": "創業者の本人申告",
+      "measure": "REVENUE"
+     },
+     {
+      "id": "ent_geocodio_c64c0721d500_fact_007",
+      "kind": "FUNDING",
+      "text": "2019年時点で融資、カード借金、外部出資を使わず、両創業者が専業になったと報告。",
+      "sourceUrl": "https://mjwhansen.com/bootstrapping-a-business-5-years-in/",
+      "statedAt": "2019-01-21",
+      "checkedAt": "2026-10-07",
+      "period": "2014年初月、2019年1月時点",
+      "attribution": "創業者の本人申告"
+     },
+     {
+      "id": "ent_geocodio_c64c0721d500_fact_008",
+      "kind": "FOUNDING",
+      "text": "前作は2013年10月のOpen Nearby。米国の店舗営業時間を表示し、Googleの住所処理の制限が自作の契機になった。",
+      "sourceUrl": "https://mjwhansen.com/how-we-bootstrapped-the-nitty-gritty/",
+      "statedAt": "2020-11-19",
+      "checkedAt": "2026-10-07",
+      "period": "2013年〜2014年",
+      "attribution": "創業者の回顧・本人申告"
+     },
+     {
+      "id": "ent_geocodio_c64c0721d500_fact_009",
+      "kind": "CHANNEL",
+      "text": "前作は地元記者へのメール、Reddit、Facebookで告知し、DCistなどに掲載された。前作の広告収入は月500米ドル超だった。Geocodioの収入ではない。",
+      "sourceUrl": "https://mjwhansen.com/how-we-bootstrapped-the-nitty-gritty/",
+      "statedAt": "2020-11-19",
+      "checkedAt": "2026-10-07",
+      "period": "2013年〜2014年",
+      "attribution": "創業者の回顧・本人申告"
+     },
+     {
+      "id": "ent_geocodio_c64c0721d500_fact_010",
+      "kind": "FOUNDING",
+      "text": "自作の住所変換を友人の開発者に見せると、同じ不満を抱えており、有料公開を勧められた。",
+      "sourceUrl": "https://mjwhansen.com/how-we-bootstrapped-the-nitty-gritty/",
+      "statedAt": "2020-11-19",
+      "checkedAt": "2026-10-07",
+      "period": "2013年〜2014年",
+      "attribution": "創業者の回顧・本人申告"
+     },
+     {
+      "id": "ent_geocodio_c64c0721d500_fact_011",
+      "kind": "EVENT",
+      "text": "初期数か月は利用者の要望を受け、座標から住所への逆変換、議会選挙区と地域コードの付加、表計算ファイルの処理を追加した。",
+      "sourceUrl": "https://mjwhansen.com/how-we-bootstrapped-the-nitty-gritty/",
+      "statedAt": "2020-11-19",
+      "checkedAt": "2026-10-07",
+      "period": "2013年〜2014年",
+      "attribution": "創業者の回顧・本人申告"
+     },
+     {
+      "id": "ent_geocodio_c64c0721d500_fact_012",
+      "kind": "PRICING",
+      "text": "2014年5月に大量利用向け定額プランを導入。創業者は成長の転機と回顧するが、導入前後の売上実額は未確認。",
+      "sourceUrl": "https://mjwhansen.com/how-we-bootstrapped-the-nitty-gritty/",
+      "statedAt": "2020-11-19",
+      "checkedAt": "2026-10-07",
+      "period": "2013年〜2014年",
+      "attribution": "創業者の回顧・本人申告"
+     },
+     {
+      "id": "ent_geocodio_c64c0721d500_fact_013",
+      "kind": "OTHER",
+      "text": "前作を複製したHappy Kitchenは地図更新の不具合を2日で直せず失敗。広告収入も不安定だった。",
+      "sourceUrl": "https://mjwhansen.com/how-we-bootstrapped-the-nitty-gritty/",
+      "statedAt": "2020-11-19",
+      "checkedAt": "2026-10-07",
+      "period": "2013年〜2014年",
+      "attribution": "創業者の回顧・本人申告"
+     },
+     {
+      "id": "ent_geocodio_c64c0721d500_fact_014",
+      "kind": "EVENT",
+      "text": "2014年12月には前作アプリの収入が僅かになり、Geocodioへ集中した。",
+      "sourceUrl": "https://mjwhansen.com/how-we-bootstrapped-the-nitty-gritty/",
+      "statedAt": "2020-11-19",
+      "checkedAt": "2026-10-07",
+      "period": "2013年〜2014年",
+      "attribution": "創業者の回顧・本人申告"
+     },
+     {
+      "id": "ent_geocodio_c64c0721d500_fact_015",
+      "kind": "FUNDING",
+      "text": "2014年には別の受託仕事で5,000米ドルを得た。Geocodioの売上でも、開始資金総額でもない。",
+      "sourceUrl": "https://mjwhansen.com/how-we-bootstrapped-the-nitty-gritty/",
+      "statedAt": "2020-11-19",
+      "checkedAt": "2026-10-07",
+      "period": "2013年〜2014年",
+      "attribution": "創業者の回顧・本人申告"
+     },
+     {
+      "id": "ent_geocodio_c64c0721d500_fact_016",
+      "kind": "CHANNEL",
+      "text": "Mathias Hansenの投稿にMichele Hansenも応答。大口の企業契約を払えない開発者、処理結果を保存したい開発者の用途を説明した。",
+      "sourceUrl": "https://news.ycombinator.com/item?id=7095228",
+      "statedAt": "2014-01-21",
+      "checkedAt": "2026-10-07",
+      "period": "2014-01-21",
+      "attribution": "創業者の発言と同時代の利用者の発言"
+     },
+     {
+      "id": "ent_geocodio_c64c0721d500_fact_017",
+      "kind": "DESCRIPTION",
+      "text": "大量の住所を一度の接続でまとめて処理する方式を紹介した。利用者joelverhagenは通信往復の削減を歓迎した。",
+      "sourceUrl": "https://news.ycombinator.com/item?id=7095228",
+      "statedAt": "2014-01-21",
+      "checkedAt": "2026-10-07",
+      "period": "2014-01-21",
+      "attribution": "創業者の発言と同時代の利用者の発言"
+     },
+     {
+      "id": "ent_geocodio_c64c0721d500_fact_018",
+      "kind": "OTHER",
+      "text": "創業者は100住所の自社試験で90件が1マイル以内と説明。一方で利用者から精度、海外対応、無料の代替との差を問う発言があった。独立した精度検証ではない。",
+      "sourceUrl": "https://news.ycombinator.com/item?id=7095228",
+      "statedAt": "2014-01-21",
+      "checkedAt": "2026-10-07",
+      "period": "2014-01-21",
+      "attribution": "創業者の発言と同時代の利用者の発言"
+     },
+     {
+      "id": "ent_geocodio_c64c0721d500_fact_019",
+      "kind": "CHANNEL",
+      "text": "2020年時点の主な流入は検索。外向き営業はせず、知人の会議への少額協賛は行ったという。",
+      "sourceUrl": "https://www.startupsfortherestofus.com/episodes/episode-524-bootstrapping-a-commodity-saas",
+      "statedAt": "2020-11-24",
+      "checkedAt": "2026-10-07",
+      "period": "2019年〜2020年",
+      "attribution": "Michele Hansenの本人申告。司会の提案は実績から除外。"
+     },
+     {
+      "id": "ent_geocodio_c64c0721d500_fact_020",
+      "kind": "CHANNEL",
+      "text": "無料利用から小口課金へ進んだ担当者が、大企業の社内推進者となって年契約に進む経路を説明した。",
+      "sourceUrl": "https://www.startupsfortherestofus.com/episodes/episode-524-bootstrapping-a-commodity-saas",
+      "statedAt": "2020-11-24",
+      "checkedAt": "2026-10-07",
+      "period": "2019年〜2020年",
+      "attribution": "Michele Hansenの本人申告。司会の提案は実績から除外。"
+     },
+     {
+      "id": "ent_geocodio_c64c0721d500_fact_021",
+      "kind": "EVENT",
+      "text": "Fortune 100企業との契約は2020年夏。商談開始は2019年5月で、1年以上を要した。",
+      "sourceUrl": "https://www.startupsfortherestofus.com/episodes/episode-524-bootstrapping-a-commodity-saas",
+      "statedAt": "2020-11-24",
+      "checkedAt": "2026-10-07",
+      "period": "2019年〜2020年",
+      "attribution": "Michele Hansenの本人申告。司会の提案は実績から除外。"
+     },
+     {
+      "id": "ent_geocodio_c64c0721d500_fact_022",
+      "kind": "OTHER",
+      "text": "医療情報の取扱要望を受け独立した設備を用意したが、初期には申込みがなく固定費が発生した。従量版をやめ、契約時だけ費用の出る定額版に絞った。",
+      "sourceUrl": "https://www.startupsfortherestofus.com/episodes/episode-524-bootstrapping-a-commodity-saas",
+      "statedAt": "2020-11-24",
+      "checkedAt": "2026-10-07",
+      "period": "2019年〜2020年",
+      "attribution": "Michele Hansenの本人申告。司会の提案は実績から除外。"
+     },
+     {
+      "id": "ent_geocodio_c64c0721d500_fact_023",
+      "kind": "OTHER",
+      "text": "従量利用は顧客の処理件数に左右され、月々の売上を予測しにくいと説明した。",
+      "sourceUrl": "https://www.startupsfortherestofus.com/episodes/episode-524-bootstrapping-a-commodity-saas",
+      "statedAt": "2020-11-24",
+      "checkedAt": "2026-10-07",
+      "period": "2019年〜2020年",
+      "attribution": "Michele Hansenの本人申告。司会の提案は実績から除外。",
+      "measure": "REVENUE"
+     },
+     {
+      "id": "ent_geocodio_c64c0721d500_fact_024",
+      "kind": "TEAM",
+      "text": "Michele Hansenが最高経営責任者、Mathias Hansenが最高技術責任者。夫婦で創業し、意図して小さなチームを維持すると説明する。現在の総人数は未確認。",
+      "sourceUrl": "https://www.geocod.io/about",
+      "statedAt": null,
+      "checkedAt": "2026-10-07",
+      "period": "2026-10-07確認時",
+      "attribution": "公式の説明・自社申告"
+     },
+     {
+      "id": "ent_geocodio_c64c0721d500_fact_025",
+      "kind": "DESCRIPTION",
+      "text": "2014年以降、15万人以上が利用し、数十億件の住所を処理したと説明。有料契約者だけの人数ではない。",
+      "sourceUrl": "https://www.geocod.io/about",
+      "statedAt": null,
+      "checkedAt": "2026-10-07",
+      "period": "2026-10-07確認時",
+      "attribution": "公式の説明・自社申告"
+     },
+     {
+      "id": "ent_geocodio_c64c0721d500_fact_026",
+      "kind": "OTHER",
+      "text": "最初の接続仕様の版を現在も維持し、互換性を壊す変更は別の版へ分ける方針を説明。",
+      "sourceUrl": "https://www.geocod.io/about",
+      "statedAt": null,
+      "checkedAt": "2026-10-07",
+      "period": "2026-10-07確認時",
+      "attribution": "公式の説明・自社申告"
+     },
+     {
+      "id": "ent_geocodio_c64c0721d500_fact_027",
+      "kind": "OTHER",
+      "text": "公式サイトの法人表記はDotsquare LLC、所在地はVirginia州Norfolk。",
+      "sourceUrl": "https://www.geocod.io/about",
+      "statedAt": null,
+      "checkedAt": "2026-10-07",
+      "period": "2026-10-07確認時",
+      "attribution": "公式の説明・自社申告"
+     },
+     {
+      "id": "ent_geocodio_c64c0721d500_fact_028",
+      "kind": "DESCRIPTION",
+      "text": "住所と座標の相互変換、住所整形、地域・選挙区・時間帯などの付加情報を提供。対象は米国、カナダ、メキシコ、英国。",
+      "sourceUrl": "https://www.geocod.io/",
+      "statedAt": null,
+      "checkedAt": "2026-10-07",
+      "period": "2026-10-07確認時",
+      "attribution": "公式の説明。推薦文は公式掲載の利用者発言。"
+     },
+     {
+      "id": "ent_geocodio_c64c0721d500_fact_029",
+      "kind": "OTHER",
+      "text": "Sherwin-WilliamsのRan Dingは、12,000住所を他社で処理すると50〜60米ドル、Googleへの接続をExcelで自作すると遅く頻繁に停止したと公式推薦文で述べる。",
+      "sourceUrl": "https://www.geocod.io/",
+      "statedAt": null,
+      "checkedAt": "2026-10-07",
+      "period": "2026-10-07確認時",
+      "attribution": "公式の説明。推薦文は公式掲載の利用者発言。"
+     },
+     {
+      "id": "ent_geocodio_c64c0721d500_fact_030",
+      "kind": "OTHER",
+      "text": "SimplyRETSのChristopher Reichertは、数年にわたり中核設備として組み込み、問題調査の時間を減らしたと公式推薦文で述べる。第三者媒体の独立検証ではない。",
+      "sourceUrl": "https://www.geocod.io/",
+      "statedAt": null,
+      "checkedAt": "2026-10-07",
+      "period": "2026-10-07確認時",
+      "attribution": "公式の説明。推薦文は公式掲載の利用者発言。"
+     },
+     {
+      "id": "ent_geocodio_c64c0721d500_fact_031",
+      "kind": "PRICING",
+      "text": "従量プランは1日2,500単位まで無料、超過分は1,000単位あたり1米ドル。住所変換1件と追加情報の付加は別の課金単位。前月の利用分を翌月1日に請求する。",
+      "sourceUrl": "https://www.geocod.io/pricing",
+      "statedAt": null,
+      "checkedAt": "2026-10-07",
+      "period": "2026-10-07確認時",
+      "attribution": "公式の料金表示"
+     },
+     {
+      "id": "ent_geocodio_c64c0721d500_fact_032",
+      "kind": "PRICING",
+      "text": "従量プランは米国・カナダ・メキシコ向け。利用者1人、接続キー3個、毎分1,000件、同時処理ファイル1件の上限がある。",
+      "sourceUrl": "https://www.geocod.io/pricing",
+      "statedAt": null,
+      "checkedAt": "2026-10-07",
+      "period": "2026-10-07確認時",
+      "attribution": "公式の料金表示"
+     },
+     {
+      "id": "ent_geocodio_c64c0721d500_fact_033",
+      "kind": "PRICING",
+      "text": "Flex 350は月350,000単位で月325米ドルまたは年3,250米ドル。Flex 650は月600米ドルまたは年6,000米ドル、Flex 850は月775米ドルまたは年7,750米ドル。",
+      "sourceUrl": "https://www.geocod.io/pricing",
+      "statedAt": null,
+      "checkedAt": "2026-10-07",
+      "period": "2026-10-07確認時",
+      "attribution": "公式の料金表示"
+     },
+     {
+      "id": "ent_geocodio_c64c0721d500_fact_034",
+      "kind": "PRICING",
+      "text": "別途購入した処理単位は失効しない。定額契約に含む単位の繰越は契約が有効な間に限る。",
+      "sourceUrl": "https://www.geocod.io/pricing",
+      "statedAt": null,
+      "checkedAt": "2026-10-07",
+      "period": "2026-10-07確認時",
+      "attribution": "公式の料金表示"
+     },
+     {
+      "id": "ent_geocodio_c64c0721d500_fact_035",
+      "kind": "PRICING",
+      "text": "従量料金を1,000単位あたり0.50米ドルから1米ドルへ改定。1日2,500単位の無料枠は維持。",
+      "sourceUrl": "https://www.geocod.io/updates/2025-12-01-pricing-updates-2026",
+      "statedAt": "2025-12",
+      "checkedAt": "2026-10-07",
+      "period": "2026-02-01適用",
+      "attribution": "公式の改定告知"
+     },
+     {
+      "id": "ent_geocodio_c64c0721d500_fact_036",
+      "kind": "PRICING",
+      "text": "自己利用向けUnlimitedの基本月額を1,000米ドルから1,350米ドル、企業向けは2,500米ドルから3,250米ドルへ改定。",
+      "sourceUrl": "https://www.geocod.io/updates/2025-12-01-pricing-updates-2026",
+      "statedAt": "2025-12",
+      "checkedAt": "2026-10-07",
+      "period": "2026-02-01適用",
+      "attribution": "公式の改定告知"
+     },
+     {
+      "id": "ent_geocodio_c64c0721d500_fact_037",
+      "kind": "PRICING",
+      "text": "2026年1月31日に有効な既存契約は、自己利用向け月100米ドル、企業向け月300米ドルを継続中割引する。解約して再契約すると割引を失う。",
+      "sourceUrl": "https://www.geocod.io/updates/2025-12-01-pricing-updates-2026",
+      "statedAt": "2025-12",
+      "checkedAt": "2026-10-07",
+      "period": "2026-02-01適用",
+      "attribution": "公式の改定告知"
+     },
+     {
+      "id": "ent_geocodio_c64c0721d500_fact_038",
+      "kind": "OTHER",
+      "text": "値上げの理由を、データ・設備の費用増と精度・処理基盤の改善と説明。費用実額は示していない。",
+      "sourceUrl": "https://www.geocod.io/updates/2025-12-01-pricing-updates-2026",
+      "statedAt": "2025-12",
+      "checkedAt": "2026-10-07",
+      "period": "2026-02-01適用",
+      "attribution": "公式の改定告知",
+      "measure": "COST"
+     },
+     {
+      "id": "ent_geocodio_c64c0721d500_fact_039",
+      "kind": "PRICING",
+      "text": "従量プランを個人向けとし、新しい共同利用者の追加を不可にした。既存の共同利用者は維持。支払いはカードに限定し、請求書・口座振替はFlexへ移す。",
+      "sourceUrl": "https://www.geocod.io/updates/2026-06-10-changes-to-pay-as-you-go-plan",
+      "statedAt": "2026-06",
+      "checkedAt": "2026-10-07",
+      "period": "2026年6月の告知",
+      "attribution": "公式の変更告知"
+     },
+     {
+      "id": "ent_geocodio_c64c0721d500_fact_040",
+      "kind": "OTHER",
+      "text": "英国データの許諾が利用者ごとの年契約を要するため、従量課金に合わず、数か月の交渉を経て定額のFlexを用意したと説明。",
+      "sourceUrl": "https://www.geocod.io/updates/2026-06-10-changes-to-pay-as-you-go-plan",
+      "statedAt": "2026-06",
+      "checkedAt": "2026-10-07",
+      "period": "2026年6月の告知",
+      "attribution": "公式の変更告知"
+     },
+     {
+      "id": "ent_geocodio_c64c0721d500_fact_041",
+      "kind": "TOOL",
+      "text": "2,000以上の公開情報源と自社の住所変換基盤を使用し、競合製品の再販売ではないと説明。米国国勢調査、OpenStreetMap、OpenAddresses、GeoNames、Statistics Canadaなどを列挙。",
+      "sourceUrl": "https://www.geocod.io/data-sources",
+      "statedAt": null,
+      "checkedAt": "2026-10-07",
+      "period": "2026-10-07確認時",
+      "attribution": "公式の仕入・技術説明"
+     },
+     {
+      "id": "ent_geocodio_c64c0721d500_fact_042",
+      "kind": "OTHER",
+      "text": "英国はRoyal MailとOrdnance Survey、米国ではUSPSの許諾を使用する。公開データだけで全てを賄う構造ではない。",
+      "sourceUrl": "https://www.geocod.io/data-sources",
+      "statedAt": null,
+      "checkedAt": "2026-10-07",
+      "period": "2026-10-07確認時",
+      "attribution": "公式の仕入・技術説明"
+     },
+     {
+      "id": "ent_geocodio_c64c0721d500_fact_043",
+      "kind": "OTHER",
+      "text": "Canada Postの完全な郵便番号データは独自財産で、通常は先頭3文字を返す。入力された完全な番号を返す場合も、その番号の正しさを検証したことにはならない。",
+      "sourceUrl": "https://www.geocod.io/data-sources",
+      "statedAt": null,
+      "checkedAt": "2026-10-07",
+      "period": "2026-10-07確認時",
+      "attribution": "公式の仕入・技術説明"
+     },
+     {
+      "id": "ent_geocodio_c64c0721d500_fact_044",
+      "kind": "EVENT",
+      "text": "2025年に主要更新を12回実施。自社測定で処理速度5%改善、低精度の代替結果57%減と報告。独立測定ではない。",
+      "sourceUrl": "https://www.geocod.io/updates/2025-12-17-geocodio-2025-year-in-review",
+      "statedAt": "2025-12",
+      "checkedAt": "2026-10-07",
+      "period": "2025年",
+      "attribution": "公式の自社測定・報告"
+     },
+     {
+      "id": "ent_geocodio_c64c0721d500_fact_045",
+      "kind": "TOOL",
+      "text": "Google互換接続、公式Pythonライブラリ、ファイル処理後の地図表示を追加した。",
+      "sourceUrl": "https://www.geocod.io/updates/2025-12-17-geocodio-2025-year-in-review",
+      "statedAt": "2025-12",
+      "checkedAt": "2026-10-07",
+      "period": "2025年",
+      "attribution": "公式の自社測定・報告"
+     },
+     {
+      "id": "ent_geocodio_c64c0721d500_fact_046",
+      "kind": "TEAM",
+      "text": "設備担当Sylvester Damgaard、経営補助Emily Backe、初の営業宣伝担当Kimberlee Keeneの3人が加わったと報告。既存人数との合計は不明。",
+      "sourceUrl": "https://www.geocod.io/updates/2025-12-17-geocodio-2025-year-in-review",
+      "statedAt": "2025-12",
+      "checkedAt": "2026-10-07",
+      "period": "2025年",
+      "attribution": "公式の自社測定・報告"
+     },
+     {
+      "id": "ent_geocodio_c64c0721d500_fact_047",
+      "kind": "TOOL",
+      "text": "2014年からLaravelとPHPを使用し、一部にGoを使うと説明。開発担当と技術対応担当を募集。",
+      "sourceUrl": "https://www.geocod.io/code-and-coordinates/2026-07-20-were-hiring-a-software-engineer-and-a-technical-support-engineer",
+      "statedAt": "2026-07",
+      "checkedAt": "2026-10-07",
+      "period": "2026年7月の募集時",
+      "attribution": "公式の求人・運営説明"
+     },
+     {
+      "id": "ent_geocodio_c64c0721d500_fact_048",
+      "kind": "TEAM",
+      "text": "技術対応の実務に、住所解析、欠けたデータ、選挙区、接続仕様の誤りの調査を挙げる。米国東部時間帯との協働を求める。",
+      "sourceUrl": "https://www.geocod.io/code-and-coordinates/2026-07-20-were-hiring-a-software-engineer-and-a-technical-support-engineer",
+      "statedAt": "2026-07",
+      "checkedAt": "2026-10-07",
+      "period": "2026年7月の募集時",
+      "attribution": "公式の求人・運営説明"
+     },
+     {
+      "id": "ent_geocodio_c64c0721d500_fact_049",
+      "kind": "OTHER",
+      "text": "Chris H（公共事業の技術担当、2026-03-06、謝礼なしの投稿）は速さ・価格・時間帯付加を評価する一方、時折小さなデータ誤りがあり、対応担当が素早く修正したと述べる。",
+      "sourceUrl": "https://www.capterra.com/p/239419/Geocodio/reviews/",
+      "statedAt": "2026-03-06",
+      "checkedAt": "2026-10-07",
+      "period": "2025年12月〜2026年8月の投稿",
+      "attribution": "第三者の場における利用者の自己申告。個別の投稿日は本文に記録。"
+     },
+     {
+      "id": "ent_geocodio_c64c0721d500_fact_050",
+      "kind": "OTHER",
+      "text": "Alexandre A（建設業の分析担当、2025-12-25、謝礼なしの投稿）はカード不要の無料利用と使用量制限を評価する一方、大量の住所処理では費用が増えると述べる。",
+      "sourceUrl": "https://www.capterra.com/p/239419/Geocodio/reviews/",
+      "statedAt": "2025-12-25",
+      "checkedAt": "2026-10-07",
+      "period": "2025年12月〜2026年8月の投稿",
+      "attribution": "第三者の場における利用者の自己申告。個別の投稿日は本文に記録。"
+     },
+     {
+      "id": "ent_geocodio_c64c0721d500_fact_051",
+      "kind": "OTHER",
+      "text": "Peter R（機械業の製品担当、2026-08-26、謝礼なしの投稿）は価格、処理結果を保存できること、説明資料を評価した。",
+      "sourceUrl": "https://www.capterra.com/p/239419/Geocodio/reviews/",
+      "statedAt": "2026-08-26",
+      "checkedAt": "2026-10-07",
+      "period": "2025年12月〜2026年8月の投稿",
+      "attribution": "第三者の場における利用者の自己申告。個別の投稿日は本文に記録。"
+     },
+     {
+      "id": "ent_geocodio_c64c0721d500_fact_052",
+      "kind": "EVENT",
+      "text": "9月7日の展開中止後に2台の防壁が無効のまま残り、9月16日にRedisの一時保存情報への不正閲覧を発見。保存項目の3.2%のラベルが閲覧され、一部の接続キーが含まれたと報告。利用者の3.2%という意味ではない。",
+      "sourceUrl": "https://www.geocod.io/updates/2026-09-17-self-serve-platform-security-incident-disclosure",
+      "statedAt": "2026-09",
+      "checkedAt": "2026-10-07",
+      "period": "2026-09-07〜2026-09-16",
+      "attribution": "公式の事故説明。独立調査の確認はない。"
+     },
+     {
+      "id": "ent_geocodio_c64c0721d500_fact_053",
+      "kind": "OTHER",
+      "text": "9月16日20:58から23:24までに調査・対処。企業向け設備は分離され影響せず、請求情報・暗証情報・原本ファイルは露出せず、接続キーの悪用の証拠もないと自社は説明。",
+      "sourceUrl": "https://www.geocod.io/updates/2026-09-17-self-serve-platform-security-incident-disclosure",
+      "statedAt": "2026-09",
+      "checkedAt": "2026-10-07",
+      "period": "2026-09-07〜2026-09-16",
+      "attribution": "公式の事故説明。独立調査の確認はない。"
+     },
+     {
+      "id": "ent_geocodio_c64c0721d500_fact_054",
+      "kind": "EVENT",
+      "text": "監査の前倒しと防御強化、後続の原因報告を予定すると公表。後続報告の履行は今回確認できなかった。",
+      "sourceUrl": "https://www.geocod.io/updates/2026-09-17-self-serve-platform-security-incident-disclosure",
+      "statedAt": "2026-09",
+      "checkedAt": "2026-10-07",
+      "period": "2026-09-07〜2026-09-16",
+      "attribution": "公式の事故説明。独立調査の確認はない。"
+     },
+     {
+      "id": "ent_geocodio_c64c0721d500_fact_055",
+      "kind": "DESCRIPTION",
+      "text": "CSV・Excel・TSVまたは直接貼付で住所を渡し、列の対応付け、地域情報の選択、住所変換、地図化へ進む。既存列を上書きしないと説明。",
+      "sourceUrl": "https://www.geocod.io/geocode-spreadsheets",
+      "statedAt": null,
+      "checkedAt": "2026-10-07",
+      "period": "2026-10-07確認時",
+      "attribution": "公式の製品画面案内"
+     },
+     {
+      "id": "ent_geocodio_c64c0721d500_fact_056",
+      "kind": "OTHER",
+      "text": "公式のファイル処理案内ページに、ファイル投入画面の図へのリンクが掲載されている。",
+      "sourceUrl": "https://www.geocod.io/geocode-spreadsheets",
+      "statedAt": null,
+      "checkedAt": "2026-10-07",
+      "period": "2026-10-07確認時",
+      "attribution": "公式の製品画面案内",
+      "imageAsset": {
+       "url": "https://www.geocod.io/assets/new-upload-flow-0-new.png",
+       "kind": "PRODUCT_SCREENSHOT",
+       "purpose": "ファイル投入手順の所在",
+       "checkedAt": "2026-10-07",
+       "retrieved": false,
+       "visualVerified": false,
+       "reusePermission": null,
+       "reason": "公開ページの画像リンクは確認。本体取得は失敗。転載許諾は未確認。"
+      }
+     }
+    ],
+    "reaudit": {
+     "status": "PARTIAL",
+     "auditDate": "2026-10-07",
+     "timezone": "Asia/Tokyo",
+     "auditOwner": "収集担当",
+     "method": "MANUAL_REAUDIT",
+     "family": "new-collection",
+     "sources": [
+      {
+       "url": "https://mjwhansen.com/bootstrapping-a-business-5-years-in/",
+       "publisher": "Michele Hansenの創業5年回顧",
+       "sourceType": "founder_post",
+       "publicationDate": "2019-01-21",
+       "checkedAt": "2026-10-07",
+       "rightsTier": "TIER2_FACTS_ONLY",
+       "accessMethod": "検索サービスに掲載された公開本文の抜粋。直接取得は失敗。",
+       "publicationDateNote": "創業者サイトの記事一覧 https://mjwhansen.com/category/writing/ で2019-01-21を確認。"
+      },
+      {
+       "url": "https://mjwhansen.com/how-we-bootstrapped-the-nitty-gritty/",
+       "publisher": "Michele Hansenの開始経緯",
+       "sourceType": "founder_post",
+       "publicationDate": "2020-11-19",
+       "checkedAt": "2026-10-07",
+       "rightsTier": "TIER2_FACTS_ONLY",
+       "accessMethod": "検索サービスに掲載された公開本文の抜粋。直接取得は失敗。",
+       "publicationDateNote": "創業者サイトの記事一覧で2020-11-19を確認。"
+      },
+      {
+       "url": "https://news.ycombinator.com/item?id=7095228",
+       "publisher": "Hacker Newsの公開時投稿と応答",
+       "sourceType": "founder_post",
+       "publicationDate": "2014-01-21",
+       "checkedAt": "2026-10-07",
+       "rightsTier": "TIER2_FACTS_ONLY",
+       "accessMethod": "公開本文",
+       "publicationDateNote": "公開日を本文または掲載一覧で確認。"
+      },
+      {
+       "url": "https://www.startupsfortherestofus.com/episodes/episode-524-bootstrapping-a-commodity-saas",
+       "publisher": "Startups For the Rest of Usの創業者対談",
+       "sourceType": "founder_interview",
+       "publicationDate": "2020-11-24",
+       "checkedAt": "2026-10-07",
+       "rightsTier": "TIER2_FACTS_ONLY",
+       "accessMethod": "公開本文",
+       "publicationDateNote": "公開日を本文または掲載一覧で確認。"
+      },
+      {
+       "url": "https://www.geocod.io/about",
+       "publisher": "Geocodioの会社紹介",
+       "sourceType": "official_website",
+       "publicationDate": null,
+       "checkedAt": "2026-10-07",
+       "rightsTier": "TIER1_OFFICIAL",
+       "accessMethod": "公開本文",
+       "publicationDateNote": "公開日の表示を確認できず。確認日は公開日と別に保持。"
+      },
+      {
+       "url": "https://www.geocod.io/",
+       "publisher": "Geocodioの製品案内",
+       "sourceType": "official_website",
+       "publicationDate": null,
+       "checkedAt": "2026-10-07",
+       "rightsTier": "TIER1_OFFICIAL",
+       "accessMethod": "公開本文",
+       "publicationDateNote": "公開日の表示を確認できず。確認日は公開日と別に保持。"
+      },
+      {
+       "url": "https://www.geocod.io/pricing",
+       "publisher": "Geocodioの現在の料金",
+       "sourceType": "official_website",
+       "publicationDate": null,
+       "checkedAt": "2026-10-07",
+       "rightsTier": "TIER1_OFFICIAL",
+       "accessMethod": "公開本文",
+       "publicationDateNote": "公開日の表示を確認できず。確認日は公開日と別に保持。"
+      },
+      {
+       "url": "https://www.geocod.io/updates/2025-12-01-pricing-updates-2026",
+       "publisher": "Geocodioの2026年料金改定",
+       "sourceType": "official_blog",
+       "publicationDate": "2025-12",
+       "checkedAt": "2026-10-07",
+       "rightsTier": "TIER1_OFFICIAL",
+       "accessMethod": "公開本文",
+       "publicationDateNote": "本文の掲載年月は2025年12月。URLは12月1日を含むが本文で日まで確認できず、年月で保持。"
+      },
+      {
+       "url": "https://www.geocod.io/updates/2026-06-10-changes-to-pay-as-you-go-plan",
+       "publisher": "Geocodioの従量プラン変更",
+       "sourceType": "official_blog",
+       "publicationDate": "2026-06",
+       "checkedAt": "2026-10-07",
+       "rightsTier": "TIER1_OFFICIAL",
+       "accessMethod": "公開本文",
+       "publicationDateNote": "本文の掲載年月を記録。URLの日付は参考にとどめる。"
+      },
+      {
+       "url": "https://www.geocod.io/data-sources",
+       "publisher": "Geocodioの地理データ出典",
+       "sourceType": "official_website",
+       "publicationDate": null,
+       "checkedAt": "2026-10-07",
+       "rightsTier": "TIER1_OFFICIAL",
+       "accessMethod": "公開本文",
+       "publicationDateNote": "公開日の表示を確認できず。確認日は公開日と別に保持。"
+      },
+      {
+       "url": "https://www.geocod.io/updates/2025-12-17-geocodio-2025-year-in-review",
+       "publisher": "Geocodioの2025年回顧",
+       "sourceType": "official_blog",
+       "publicationDate": "2025-12",
+       "checkedAt": "2026-10-07",
+       "rightsTier": "TIER1_OFFICIAL",
+       "accessMethod": "公開本文",
+       "publicationDateNote": "本文の掲載年月を記録。URLの日付は参考にとどめる。"
+      },
+      {
+       "url": "https://www.geocod.io/code-and-coordinates/2026-07-20-were-hiring-a-software-engineer-and-a-technical-support-engineer",
+       "publisher": "Geocodioの採用告知",
+       "sourceType": "official_job",
+       "publicationDate": "2026-07",
+       "checkedAt": "2026-10-07",
+       "rightsTier": "TIER1_OFFICIAL",
+       "accessMethod": "公開本文",
+       "publicationDateNote": "本文の掲載年月を記録。URLの日付は参考にとどめる。"
+      },
+      {
+       "url": "https://www.capterra.com/p/239419/Geocodio/reviews/",
+       "publisher": "CapterraのGeocodio利用者投稿",
+       "sourceType": "customer_review",
+       "publicationDate": null,
+       "checkedAt": "2026-10-07",
+       "rightsTier": "TIER2_FACTS_ONLY",
+       "accessMethod": "検索サービスに掲載された公開口コミ本文。直接取得は失敗。",
+       "publicationDateNote": "公開日の表示を確認できず。確認日は公開日と別に保持。"
+      },
+      {
+       "url": "https://www.geocod.io/updates/2026-09-17-self-serve-platform-security-incident-disclosure",
+       "publisher": "Geocodioの情報漏えい公表",
+       "sourceType": "official_blog",
+       "publicationDate": "2026-09",
+       "checkedAt": "2026-10-07",
+       "rightsTier": "TIER1_OFFICIAL",
+       "accessMethod": "公開本文",
+       "publicationDateNote": "公開年月は本文、9月17日はURL上の日付。発生・対処の日は本文で確認。"
+      },
+      {
+       "url": "https://www.geocod.io/geocode-spreadsheets",
+       "publisher": "Geocodioのファイル処理画面案内",
+       "sourceType": "official_website",
+       "publicationDate": null,
+       "checkedAt": "2026-10-07",
+       "rightsTier": "TIER1_OFFICIAL",
+       "accessMethod": "公開本文",
+       "publicationDateNote": "公開日の表示を確認できず。確認日は公開日と別に保持。"
+      }
+     ],
+     "supported": [
+      "ent_geocodio_c64c0721d500_fact_001",
+      "ent_geocodio_c64c0721d500_fact_002",
+      "ent_geocodio_c64c0721d500_fact_003",
+      "ent_geocodio_c64c0721d500_fact_004",
+      "ent_geocodio_c64c0721d500_fact_005",
+      "ent_geocodio_c64c0721d500_fact_006",
+      "ent_geocodio_c64c0721d500_fact_007",
+      "ent_geocodio_c64c0721d500_fact_008",
+      "ent_geocodio_c64c0721d500_fact_009",
+      "ent_geocodio_c64c0721d500_fact_010",
+      "ent_geocodio_c64c0721d500_fact_011",
+      "ent_geocodio_c64c0721d500_fact_012",
+      "ent_geocodio_c64c0721d500_fact_013",
+      "ent_geocodio_c64c0721d500_fact_014",
+      "ent_geocodio_c64c0721d500_fact_015",
+      "ent_geocodio_c64c0721d500_fact_016",
+      "ent_geocodio_c64c0721d500_fact_017",
+      "ent_geocodio_c64c0721d500_fact_018",
+      "ent_geocodio_c64c0721d500_fact_019",
+      "ent_geocodio_c64c0721d500_fact_020",
+      "ent_geocodio_c64c0721d500_fact_021",
+      "ent_geocodio_c64c0721d500_fact_022",
+      "ent_geocodio_c64c0721d500_fact_023",
+      "ent_geocodio_c64c0721d500_fact_024",
+      "ent_geocodio_c64c0721d500_fact_025",
+      "ent_geocodio_c64c0721d500_fact_026",
+      "ent_geocodio_c64c0721d500_fact_027",
+      "ent_geocodio_c64c0721d500_fact_028",
+      "ent_geocodio_c64c0721d500_fact_029",
+      "ent_geocodio_c64c0721d500_fact_030",
+      "ent_geocodio_c64c0721d500_fact_031",
+      "ent_geocodio_c64c0721d500_fact_032",
+      "ent_geocodio_c64c0721d500_fact_033",
+      "ent_geocodio_c64c0721d500_fact_034",
+      "ent_geocodio_c64c0721d500_fact_035",
+      "ent_geocodio_c64c0721d500_fact_036",
+      "ent_geocodio_c64c0721d500_fact_037",
+      "ent_geocodio_c64c0721d500_fact_038",
+      "ent_geocodio_c64c0721d500_fact_039",
+      "ent_geocodio_c64c0721d500_fact_040",
+      "ent_geocodio_c64c0721d500_fact_041",
+      "ent_geocodio_c64c0721d500_fact_042",
+      "ent_geocodio_c64c0721d500_fact_043",
+      "ent_geocodio_c64c0721d500_fact_044",
+      "ent_geocodio_c64c0721d500_fact_045",
+      "ent_geocodio_c64c0721d500_fact_046",
+      "ent_geocodio_c64c0721d500_fact_047",
+      "ent_geocodio_c64c0721d500_fact_048",
+      "ent_geocodio_c64c0721d500_fact_049",
+      "ent_geocodio_c64c0721d500_fact_050",
+      "ent_geocodio_c64c0721d500_fact_051",
+      "ent_geocodio_c64c0721d500_fact_052",
+      "ent_geocodio_c64c0721d500_fact_053",
+      "ent_geocodio_c64c0721d500_fact_054",
+      "ent_geocodio_c64c0721d500_fact_055",
+      "ent_geocodio_c64c0721d500_fact_056"
+     ],
+     "unknown": [
+      "現在の売上実額と有料契約者数: 公式の利用人数は無料と有料を分けない。公開資料で確定できず。",
+      "完全な損益・税引後利益・創業者個人の着金: 初月資料は決済手数料とサーバー費のみ。現在の給与・税・費用全体は未確認。",
+      "開始資金総額と準備時間: サーバー月20米ドルや別の受託収入はあるが、開発時間を含む総額は示されない。",
+      "初課金客の氏名・日時・金額: 公開時投稿と初月合計は確認できたが、最初の取引の内訳はない。",
+      "現在の総人数・週労働時間・対応負荷: 採用と役職の材料はあるが、全員の人数と時間集計は未確認。",
+      "獲得単価・流入経路別構成・有料転換率・解約率: 検索と社内推進者経由の説明に留まり、比較可能な集計はない。",
+      "紹介報酬の割合と規定: 公開サイト・検索で確認できず。制度が存在しないとは断定しない。",
+      "創業当時の保存された画面と料金全体: Wayback Machineは取得できず。同時代の投稿と回顧で部分的に補完。",
+      "画像の本体・転載許諾: 公式画面画像のURLは得たが取得は失敗。商用表示の許諾は未確認。",
+      "医療向け変更前後の売上と後続事故報告: 経緯の申告はあるが、数値比較や後続報告の履行は未確認。"
+     ],
+     "conflicts": [
+      "初月売上: 2019年の回顧は総額30.68米ドル、手数料後28.29米ドル。2020年の回顧は28米ドルを総売上のように記述。精密な内訳のある2019年資料を採り、残額を利益と呼ばない。",
+      "旧Google料金: 2020年の回顧と対談では記憶に基づく年額が異なる。競合の当時の確定料金として採らず、保存や利用量の制限が契機だったことだけを保持。",
+      "利用人数: 公式の15万人以上は有料顧客数ではない。現在の月額売上への逆算に使わない。",
+      "対応国と料金: 公開時・2020年・2026年の対象国や料金は異なる。英国対応や新単価を創業時へ遡らせない。",
+      "事故の3.2%は一時保存された項目のラベルの割合。利用者人数、契約数、漏えいした住所件数の割合ではない。"
+     ]
+    },
+    "observationsStream": [],
+    "observations": [],
+    "temporal": {
+     "foundedYear": 2014,
+     "initialTractionPeriod": "2014-01-21公開。2014年5月に大量利用向け定額プランを導入。",
+     "dataSnapshotPeriod": "創業期から2026-10-07確認時まで。資料ごとの対象時期は事実欄に記録。",
+     "viabilityStatus": "UNKNOWN",
+     "eraContext": "",
+     "currentViabilityAnalysis": "",
+     "viabilityLabel": ""
+    },
+    "operations": {
+     "teamSize": 0,
+     "weeklyHours": 0,
+     "initialCapitalRequired": 0,
+     "automationLevel": 0,
+     "primaryChannels": [],
+     "toolStack": [],
+     "isTeamSizeUnconfirmed": true,
+     "isWeeklyHoursUnconfirmed": true,
+     "isCapitalUnconfirmed": true,
+     "isAutomationUnconfirmed": true
+    },
+    "strategy": {
+     "moatType": "UNKNOWN",
+     "blindspot": "",
+     "moatDescription": "",
+     "secretInsight": "",
+     "initialTraction": [],
+     "actionPlaybook": [],
+     "coldOutreachTemplate": "",
+     "incumbentDilemma": ""
+    },
+    "essence": {
+     "whatItDoes": "住所の変換・整形・地理情報付加。",
+     "targetCustomer": "住所データを処理する開発者、分析担当、研究者、企業・団体。",
+     "painRelief": "住所処理の自作・保守、表計算での大量処理、地理データの購入と組み合わせ。"
+    },
+    "evidenceCards": [
+     {
+      "id": "ent_geocodio_c64c0721d500_source_01",
+      "type": "UNKNOWN_AUDIT",
+      "title": "出典: Michele Hansenの創業5年回顧",
+      "badge": "出典",
+      "evidenceStatus": "REPORTED",
+      "punchline": "収集した事実の出典所在。記事用の章・分析文は未作成。",
+      "details": [
+       "出典: https://mjwhansen.com/bootstrapping-a-business-5-years-in/",
+       "公開日: 2019-01-21",
+       "確認日: 2026-10-07",
+       "情報の性質: 創業者の本人申告"
+      ],
+      "url": "https://mjwhansen.com/bootstrapping-a-business-5-years-in/",
+      "sourceNote": "検索サービスに掲載された公開本文の抜粋。直接取得は失敗。。転載許諾は未確認。短い日本語の事実要約のみ記録。",
+      "sourceClass": "PRIMARY"
+     },
+     {
+      "id": "ent_geocodio_c64c0721d500_source_02",
+      "type": "UNKNOWN_AUDIT",
+      "title": "出典: Michele Hansenの開始経緯",
+      "badge": "出典",
+      "evidenceStatus": "REPORTED",
+      "punchline": "収集した事実の出典所在。記事用の章・分析文は未作成。",
+      "details": [
+       "出典: https://mjwhansen.com/how-we-bootstrapped-the-nitty-gritty/",
+       "公開日: 2020-11-19",
+       "確認日: 2026-10-07",
+       "情報の性質: 創業者の回顧・本人申告"
+      ],
+      "url": "https://mjwhansen.com/how-we-bootstrapped-the-nitty-gritty/",
+      "sourceNote": "検索サービスに掲載された公開本文の抜粋。直接取得は失敗。。転載許諾は未確認。短い日本語の事実要約のみ記録。",
+      "sourceClass": "PRIMARY"
+     },
+     {
+      "id": "ent_geocodio_c64c0721d500_source_03",
+      "type": "UNKNOWN_AUDIT",
+      "title": "出典: Hacker Newsの公開時投稿と応答",
+      "badge": "出典",
+      "evidenceStatus": "REPORTED",
+      "punchline": "収集した事実の出典所在。記事用の章・分析文は未作成。",
+      "details": [
+       "出典: https://news.ycombinator.com/item?id=7095228",
+       "公開日: 2014-01-21",
+       "確認日: 2026-10-07",
+       "情報の性質: 創業者の発言と同時代の利用者の発言"
+      ],
+      "url": "https://news.ycombinator.com/item?id=7095228",
+      "sourceNote": "公開本文。転載許諾は未確認。短い日本語の事実要約のみ記録。",
+      "sourceClass": "PRIMARY"
+     },
+     {
+      "id": "ent_geocodio_c64c0721d500_source_04",
+      "type": "UNKNOWN_AUDIT",
+      "title": "出典: Startups For the Rest of Usの創業者対談",
+      "badge": "出典",
+      "evidenceStatus": "REPORTED",
+      "punchline": "収集した事実の出典所在。記事用の章・分析文は未作成。",
+      "details": [
+       "出典: https://www.startupsfortherestofus.com/episodes/episode-524-bootstrapping-a-commodity-saas",
+       "公開日: 2020-11-24",
+       "確認日: 2026-10-07",
+       "情報の性質: Michele Hansenの本人申告。司会の提案は実績から除外。"
+      ],
+      "url": "https://www.startupsfortherestofus.com/episodes/episode-524-bootstrapping-a-commodity-saas",
+      "sourceNote": "公開本文。転載許諾は未確認。短い日本語の事実要約のみ記録。",
+      "sourceClass": "PRIMARY"
+     },
+     {
+      "id": "ent_geocodio_c64c0721d500_source_05",
+      "type": "UNKNOWN_AUDIT",
+      "title": "出典: Geocodioの会社紹介",
+      "badge": "出典",
+      "evidenceStatus": "REPORTED",
+      "punchline": "収集した事実の出典所在。記事用の章・分析文は未作成。",
+      "details": [
+       "出典: https://www.geocod.io/about",
+       "公開日: 未確認",
+       "確認日: 2026-10-07",
+       "情報の性質: 公式の説明・自社申告"
+      ],
+      "url": "https://www.geocod.io/about",
+      "sourceNote": "公開本文。転載許諾は未確認。短い日本語の事実要約のみ記録。",
+      "sourceClass": "PRIMARY"
+     },
+     {
+      "id": "ent_geocodio_c64c0721d500_source_06",
+      "type": "UNKNOWN_AUDIT",
+      "title": "出典: Geocodioの製品案内",
+      "badge": "出典",
+      "evidenceStatus": "REPORTED",
+      "punchline": "収集した事実の出典所在。記事用の章・分析文は未作成。",
+      "details": [
+       "出典: https://www.geocod.io/",
+       "公開日: 未確認",
+       "確認日: 2026-10-07",
+       "情報の性質: 公式の説明。推薦文は公式掲載の利用者発言。"
+      ],
+      "url": "https://www.geocod.io/",
+      "sourceNote": "公開本文。転載許諾は未確認。短い日本語の事実要約のみ記録。",
+      "sourceClass": "PRIMARY"
+     },
+     {
+      "id": "ent_geocodio_c64c0721d500_source_07",
+      "type": "UNKNOWN_AUDIT",
+      "title": "出典: Geocodioの現在の料金",
+      "badge": "出典",
+      "evidenceStatus": "REPORTED",
+      "punchline": "収集した事実の出典所在。記事用の章・分析文は未作成。",
+      "details": [
+       "出典: https://www.geocod.io/pricing",
+       "公開日: 未確認",
+       "確認日: 2026-10-07",
+       "情報の性質: 公式の料金表示"
+      ],
+      "url": "https://www.geocod.io/pricing",
+      "sourceNote": "公開本文。転載許諾は未確認。短い日本語の事実要約のみ記録。",
+      "sourceClass": "PRIMARY"
+     },
+     {
+      "id": "ent_geocodio_c64c0721d500_source_08",
+      "type": "UNKNOWN_AUDIT",
+      "title": "出典: Geocodioの2026年料金改定",
+      "badge": "出典",
+      "evidenceStatus": "REPORTED",
+      "punchline": "収集した事実の出典所在。記事用の章・分析文は未作成。",
+      "details": [
+       "出典: https://www.geocod.io/updates/2025-12-01-pricing-updates-2026",
+       "公開日: 2025-12",
+       "確認日: 2026-10-07",
+       "情報の性質: 公式の改定告知"
+      ],
+      "url": "https://www.geocod.io/updates/2025-12-01-pricing-updates-2026",
+      "sourceNote": "公開本文。転載許諾は未確認。短い日本語の事実要約のみ記録。",
+      "sourceClass": "PRIMARY"
+     },
+     {
+      "id": "ent_geocodio_c64c0721d500_source_09",
+      "type": "UNKNOWN_AUDIT",
+      "title": "出典: Geocodioの従量プラン変更",
+      "badge": "出典",
+      "evidenceStatus": "REPORTED",
+      "punchline": "収集した事実の出典所在。記事用の章・分析文は未作成。",
+      "details": [
+       "出典: https://www.geocod.io/updates/2026-06-10-changes-to-pay-as-you-go-plan",
+       "公開日: 2026-06",
+       "確認日: 2026-10-07",
+       "情報の性質: 公式の変更告知"
+      ],
+      "url": "https://www.geocod.io/updates/2026-06-10-changes-to-pay-as-you-go-plan",
+      "sourceNote": "公開本文。転載許諾は未確認。短い日本語の事実要約のみ記録。",
+      "sourceClass": "PRIMARY"
+     },
+     {
+      "id": "ent_geocodio_c64c0721d500_source_10",
+      "type": "UNKNOWN_AUDIT",
+      "title": "出典: Geocodioの地理データ出典",
+      "badge": "出典",
+      "evidenceStatus": "REPORTED",
+      "punchline": "収集した事実の出典所在。記事用の章・分析文は未作成。",
+      "details": [
+       "出典: https://www.geocod.io/data-sources",
+       "公開日: 未確認",
+       "確認日: 2026-10-07",
+       "情報の性質: 公式の仕入・技術説明"
+      ],
+      "url": "https://www.geocod.io/data-sources",
+      "sourceNote": "公開本文。転載許諾は未確認。短い日本語の事実要約のみ記録。",
+      "sourceClass": "PRIMARY"
+     },
+     {
+      "id": "ent_geocodio_c64c0721d500_source_11",
+      "type": "UNKNOWN_AUDIT",
+      "title": "出典: Geocodioの2025年回顧",
+      "badge": "出典",
+      "evidenceStatus": "REPORTED",
+      "punchline": "収集した事実の出典所在。記事用の章・分析文は未作成。",
+      "details": [
+       "出典: https://www.geocod.io/updates/2025-12-17-geocodio-2025-year-in-review",
+       "公開日: 2025-12",
+       "確認日: 2026-10-07",
+       "情報の性質: 公式の自社測定・報告"
+      ],
+      "url": "https://www.geocod.io/updates/2025-12-17-geocodio-2025-year-in-review",
+      "sourceNote": "公開本文。転載許諾は未確認。短い日本語の事実要約のみ記録。",
+      "sourceClass": "PRIMARY"
+     },
+     {
+      "id": "ent_geocodio_c64c0721d500_source_12",
+      "type": "UNKNOWN_AUDIT",
+      "title": "出典: Geocodioの採用告知",
+      "badge": "出典",
+      "evidenceStatus": "REPORTED",
+      "punchline": "収集した事実の出典所在。記事用の章・分析文は未作成。",
+      "details": [
+       "出典: https://www.geocod.io/code-and-coordinates/2026-07-20-were-hiring-a-software-engineer-and-a-technical-support-engineer",
+       "公開日: 2026-07",
+       "確認日: 2026-10-07",
+       "情報の性質: 公式の求人・運営説明"
+      ],
+      "url": "https://www.geocod.io/code-and-coordinates/2026-07-20-were-hiring-a-software-engineer-and-a-technical-support-engineer",
+      "sourceNote": "公開本文。転載許諾は未確認。短い日本語の事実要約のみ記録。",
+      "sourceClass": "PRIMARY"
+     },
+     {
+      "id": "ent_geocodio_c64c0721d500_source_13",
+      "type": "UNKNOWN_AUDIT",
+      "title": "出典: CapterraのGeocodio利用者投稿",
+      "badge": "出典",
+      "evidenceStatus": "REPORTED",
+      "punchline": "収集した事実の出典所在。記事用の章・分析文は未作成。",
+      "details": [
+       "出典: https://www.capterra.com/p/239419/Geocodio/reviews/",
+       "公開日: 未確認",
+       "確認日: 2026-10-07",
+       "情報の性質: 第三者の場における利用者の自己申告。個別の投稿日は本文に記録。"
+      ],
+      "url": "https://www.capterra.com/p/239419/Geocodio/reviews/",
+      "sourceNote": "検索サービスに掲載された公開口コミ本文。直接取得は失敗。。転載許諾は未確認。短い日本語の事実要約のみ記録。",
+      "sourceClass": "PRIMARY"
+     },
+     {
+      "id": "ent_geocodio_c64c0721d500_source_14",
+      "type": "UNKNOWN_AUDIT",
+      "title": "出典: Geocodioの情報漏えい公表",
+      "badge": "出典",
+      "evidenceStatus": "REPORTED",
+      "punchline": "収集した事実の出典所在。記事用の章・分析文は未作成。",
+      "details": [
+       "出典: https://www.geocod.io/updates/2026-09-17-self-serve-platform-security-incident-disclosure",
+       "公開日: 2026-09",
+       "確認日: 2026-10-07",
+       "情報の性質: 公式の事故説明。独立調査の確認はない。"
+      ],
+      "url": "https://www.geocod.io/updates/2026-09-17-self-serve-platform-security-incident-disclosure",
+      "sourceNote": "公開本文。転載許諾は未確認。短い日本語の事実要約のみ記録。",
+      "sourceClass": "PRIMARY"
+     },
+     {
+      "id": "ent_geocodio_c64c0721d500_source_15",
+      "type": "UNKNOWN_AUDIT",
+      "title": "出典: Geocodioのファイル処理画面案内",
+      "badge": "出典",
+      "evidenceStatus": "REPORTED",
+      "punchline": "収集した事実の出典所在。記事用の章・分析文は未作成。",
+      "details": [
+       "出典: https://www.geocod.io/geocode-spreadsheets",
+       "公開日: 未確認",
+       "確認日: 2026-10-07",
+       "情報の性質: 公式の製品画面案内"
+      ],
+      "url": "https://www.geocod.io/geocode-spreadsheets",
+      "sourceNote": "公開本文。転載許諾は未確認。短い日本語の事実要約のみ記録。",
+      "sourceClass": "PRIMARY"
+     }
+    ],
+    "claimBindings": [],
+    "publishability": "PARTIAL",
+    "batchId": "gen3_20261007_geocodio_statusgator",
+    "financialStatus": "UNAVAILABLE",
+    "incumbentDilemma": "",
+    "blindspot": "",
+    "moatDescription": "",
+    "unknownsNotes": [
+     "現在の売上実額と有料契約者数: 公式の利用人数は無料と有料を分けない。公開資料で確定できず。",
+     "完全な損益・税引後利益・創業者個人の着金: 初月資料は決済手数料とサーバー費のみ。現在の給与・税・費用全体は未確認。",
+     "開始資金総額と準備時間: サーバー月20米ドルや別の受託収入はあるが、開発時間を含む総額は示されない。",
+     "初課金客の氏名・日時・金額: 公開時投稿と初月合計は確認できたが、最初の取引の内訳はない。",
+     "現在の総人数・週労働時間・対応負荷: 採用と役職の材料はあるが、全員の人数と時間集計は未確認。",
+     "獲得単価・流入経路別構成・有料転換率・解約率: 検索と社内推進者経由の説明に留まり、比較可能な集計はない。",
+     "紹介報酬の割合と規定: 公開サイト・検索で確認できず。制度が存在しないとは断定しない。",
+     "創業当時の保存された画面と料金全体: Wayback Machineは取得できず。同時代の投稿と回顧で部分的に補完。",
+     "画像の本体・転載許諾: 公式画面画像のURLは得たが取得は失敗。商用表示の許諾は未確認。",
+     "医療向け変更前後の売上と後続事故報告: 経緯の申告はあるが、数値比較や後続報告の履行は未確認。"
+    ],
+    "isGrowthUnconfirmed": true,
+    "normalizedFromResearch": [
+     "publishability: RAW（調査段の未審査）→PARTIAL",
+     "growthRateYoY: 空→0",
+     "pnl.monthlyRevenue: 空→0",
+     "pnl.cogs: 空→0",
+     "pnl.grossProfit: 空→0",
+     "pnl.grossMargin: 空→0",
+     "pnl.operatingProfit: 空→0",
+     "pnl.operatingMargin: 空→0",
+     "pnl.estimatedAnnualNetProfit: 空→0",
+     "pnl.operatingExpenses.serverAndApi: 空→0",
+     "pnl.operatingExpenses.advertising: 空→0",
+     "pnl.operatingExpenses.subcontracting: 空→0",
+     "pnl.operatingExpenses.toolsAndSaaS: 空→0",
+     "pnl.operatingExpenses.other: 空→0",
+     "pnl.sourceDoc: 空→https://www.geocod.io/about",
+     "operations.teamSize: 空→0",
+     "operations.weeklyHours: 空→0",
+     "operations.initialCapitalRequired: 空→0",
+     "operations.automationLevel: 空→0",
+     "operations.initialTeamSize: 空→欄を外す",
+     "operations.currentTeamSize: 空→欄を外す"
+    ]
+   }
+  }
+ ]
+}

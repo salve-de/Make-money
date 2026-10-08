@@ -1,0 +1,1107 @@
+{
+ "cases": [
+  {
+   "entityId": "ent_indiehackers_6548833164b0",
+   "scope": "full",
+   "facts": [
+    {
+     "id": "f1",
+     "kind": "DESCRIPTION",
+     "text": "収益のある事業・副業の創業者が経験を公開し、読者が学び、経験や助言を交換する交流の場と公式に説明している。",
+     "attribution": "OFFICIAL"
+    },
+    {
+     "id": "f2",
+     "kind": "FOUNDING",
+     "text": "Courtland Allenが2016年8月にIndie Hackersを作った。",
+     "attribution": "OFFICIAL"
+    },
+    {
+     "id": "f3",
+     "kind": "EVENT",
+     "text": "2017年4月にStripeが買収し、Courtlandの兄弟Channingが共同創業者として加わった。",
+     "attribution": "OFFICIAL"
+    },
+    {
+     "id": "f4",
+     "kind": "EVENT",
+     "text": "公式紹介では2023年3月に独立企業へ戻り、Stripeは初期出資者になったとしている。",
+     "attribution": "OFFICIAL"
+    },
+    {
+     "id": "f5",
+     "kind": "TOOL",
+     "text": "公式紹介の構成はAstro、Node、Render、Google Cloud、Firebase、Cloudflare。自社開発の掲示板を運営する。",
+     "attribution": "OFFICIAL"
+    },
+    {
+     "id": "f6",
+     "kind": "CHANNEL",
+     "text": "2016年8月11日にCourtlandのアカウントからHacker Newsへ公開紹介を投稿した。971ポイントと184件のコメントが表示されている。",
+     "attribution": "SELF_REPORTED"
+    },
+    {
+     "id": "f7",
+     "kind": "CHANNEL",
+     "text": "掲載協力者cyberferretは、Courtlandから個別メールで誘われ、回答後にも具体化の追加質問を受けたと投稿している。",
+     "attribution": "SELF_REPORTED"
+    },
+    {
+     "id": "f8",
+     "kind": "OTHER",
+     "text": "利用者radarsat1は、平均ではなく過去最高値を表示するのは誤解を招くとして、表紙でより正直な売上表示を求めた。",
+     "attribution": "SELF_REPORTED"
+    },
+    {
+     "id": "f9",
+     "kind": "OTHER",
+     "text": "Courtlandは最高月商を100ドル単位に丸めて表示していたと説明し、今後は最高値と平均値を両方載せる方針に同意した。",
+     "attribution": "SELF_REPORTED"
+    },
+    {
+     "id": "f10",
+     "kind": "OTHER",
+     "text": "利用者jpalomakiは、表紙で具体的な金額がすぐ見えるため、読みたい情報があると判断できたと投稿している。",
+     "attribution": "SELF_REPORTED"
+    },
+    {
+     "id": "f11",
+     "kind": "OTHER",
+     "text": "2018年11月の質疑応答で、Courtlandは売上が「この前の4月」に記憶では約6,000ドルだったと答えた。本人の回想値であり、現在の売上ではない。",
+     "attribution": "OFFICIAL"
+    },
+    {
+     "id": "f12",
+     "kind": "CHANNEL",
+     "text": "初期にはメール、取材、開発を行い、取材を効率化した後は掲示板、音声番組、スポンサーによる収益化に取り組んだと振り返っている。",
+     "attribution": "OFFICIAL"
+    },
+    {
+     "id": "f13",
+     "kind": "OTHER",
+     "text": "創業者の困りごとに直接応える機能を作る前に、共同創業者探しなどのハッシュタグで需要を試していた。",
+     "attribution": "OFFICIAL"
+    },
+    {
+     "id": "f19",
+     "kind": "EVENT",
+     "text": "2023年4月6日の公式ニュースレターは、創業者が再び所有する独立事業になったというCourtlandの発表を掲載した。",
+     "attribution": "OFFICIAL"
+    },
+    {
+     "id": "f20",
+     "kind": "OTHER",
+     "text": "同ニュースレターに再掲された本人説明では、独立発表時の月次継続売上は0ドルだった。現在値や総収入とは扱わない。",
+     "attribution": "OFFICIAL"
+    },
+    {
+     "id": "f21",
+     "kind": "OTHER",
+     "text": "2023年7月、本人は2022年の大部分で招待コードを使い、迷惑投稿がほぼなくなったと説明した。",
+     "attribution": "OFFICIAL"
+    },
+    {
+     "id": "f22",
+     "kind": "TOOL",
+     "text": "本人はGPT-4を従来型の迷惑投稿の検出に使っていたと説明した。生成文の迷惑投稿にも同じ効果があるとはしていない。",
+     "attribution": "OFFICIAL"
+    },
+    {
+     "id": "f23",
+     "kind": "EVENT",
+     "text": "執筆者Ottoは、Indie Hackersが文章へ重点を移して執筆者を採用し、自身がアイデア資料用に80社を調べたと2024年11月に記録した。",
+     "attribution": "ARTICLE"
+    },
+    {
+     "id": "f24",
+     "kind": "PRICING",
+     "text": "公式ページでは、Indie Hackers Plusの年間会員は年198ドルで販売されている。",
+     "attribution": "OFFICIAL"
+    },
+    {
+     "id": "f25",
+     "kind": "DESCRIPTION",
+     "text": "有料会員向けに600件超の取材を含む事例集、アイデア資料、動向分析、会員用プロフィールなどを案内している。",
+     "attribution": "OFFICIAL"
+    },
+    {
+     "id": "f26",
+     "kind": "PRICING",
+     "text": "不満がある場合は30日間の比例計算による返金を案内し、解約後も支払済み期間の終わりまで使えると説明している。",
+     "attribution": "OFFICIAL"
+    },
+    {
+     "id": "f27",
+     "kind": "OTHER",
+     "text": "公式ページの推薦文でLynne Tyeは、数か月読んでいたことがKey Valuesを始めた理由だと述べている。",
+     "attribution": "OFFICIAL"
+    }
+   ],
+   "metrics": [],
+   "sources": [
+    {
+     "sourceId": "s1",
+     "url": "https://www.indiehackers.com/about",
+     "publisher": "Indie Hackers公式紹介",
+     "snapshot": {
+      "url": "https://www.indiehackers.com/about",
+      "finalUrl": "https://www.indiehackers.com/about",
+      "status": 200,
+      "fetchedAt": "2026-10-07T09:51:31.965Z",
+      "via": "direct",
+      "contentType": "text/html; charset=utf-8",
+      "textHash": "93ec8809be97997904058bd410b4f8b7fbb12afef4a88f86037c3a06771d743b"
+     },
+     "text": "Learn from Profitable Online Businesses\nIndie Hackers is about openness and community. It\nIndie Hackers is about openness and community. It\nLearn from Profitable Online Businesses\nLearn from Profitable Online Businesses Home Starting Up Case Studies DB Products Ideas DB Vibe Coding Tools Subscribe to IH+\nStarting Up Case Studies\nIdeas DB Products DB Sign in Join\nHello, I'm Courtland Allen.\nI created Indie Hackers .\n@csallen\nWhat is Indie Hackers?\nIndie Hackers is a place where the founders of profitable businesses and side projects can share their stories transparently, and where entrepreneurs can come to read and learn from those examples.\nIt's also a community where individual \"indie hackers\" come together to share their experiences, give and receive feedback, and rely on each other for support.\nI created Indie Hackers in August of 2016. In April of 2017 it was acquired by Stripe , and my brother, Channing , joined as a co-founder.\nIn March of 2023 we spun Indie Hackers back out as an independent business, with Stripe as a seed investor.\nWhat makes someone an indie hacker?\nYou're an indie hacker if you've set out to make money independently. That means you're generating revenue directly from your customers, not indirectly through an employer. Other than that, there are no requirements!\nIndie hackers are often solo founders, software engineers, and bootstrapped, but it's totally okay if you have cofounders, can't code, and have raised money.\nWhat's the plan for Indie Hackers?\nWith the exception of Indie Hackers' stint at Stripe, I've never worked a full-time job. Entrepreneurship is where my heart lies, and I want to do whatever I can to help others achieve their dreams of financial independence.\nMy goal is for Indie Hackers to be a source of inspiration, education, and community for early founders and aspiring entrepreneurs on a global scale.\nTaking the plunge and starting your own business is hard as hell, but it's also tremendously fulfilling to work on your own terms! 🤗\nAs for the newsletter, we compile the top interviews, posts, and articles for the week in each issue, as determined by what the community is upvoting.\nWhat's the best way to contact you?\nIf you're looking for help, feedback, or guidance with something personal, I encourage you to submit a post instead of contacting me. You're likely to get some great replies from experienced entrepreneurs. If you email me directly, I'll just end up pointing you back to the site, anyway. 😁\nHow was Indie Hackers built?\nIndie Hackers is an Astro app running on a Node server hosted by Render . I do all the design. The community forum is custom-built. We've also got a bunch of cron jobs and background tasks running on Render and Google Cloud.\nI'm using Firebase for the database and for user authentication.\nMost pages are cached via Cloudflare .\nStay informed as an indie hacker.\nMarket insights that help you start and grow your business.\nSubscribe\nFollow @IndieHackers on X for stories and insights about founders building profitable online businesses, and to connect with others in the Indie Hackers community.\n© Indie Hackers, Inc. &middot; FAQ &middot; Terms &middot; Privacy &middot; Cookie Settings / Policy &middot;\nCommunity\nTop Today Top This Week Top This Month Join\nProducts\nAll Products Highest Revenue Add Yours\nDatabases\nIdeas Products Stories",
+     "policy": {
+      "policyId": "rights.indiehackers.v2",
+      "sourceId": "src.indiehackers",
+      "providerName": "Indie Hackers",
+      "displayTier": "facts_only",
+      "registryHash": "30d893f5b810c363886fbef8bc35e9535700abdcb83e6a517b66018b3993cacc"
+     }
+    },
+    {
+     "sourceId": "s3",
+     "url": "https://news.ycombinator.com/item?id=12269425",
+     "publisher": "Hacker News公開時の投稿と返信",
+     "snapshot": {
+      "url": "https://news.ycombinator.com/item?id=12269425",
+      "finalUrl": "https://news.ycombinator.com/item?id=12269425",
+      "status": 200,
+      "fetchedAt": "2026-10-07T09:51:32.118Z",
+      "via": "direct",
+      "contentType": "text/html; charset=utf-8",
+      "textHash": "4f6183ebc0719e00722a07a32990d58071a41d8a2d28ef8e9abf8c041ecc7a85"
+     },
+     "text": "Indie Hackers: Learn how developers are making money | Hacker News\nIndie Hackers: Learn how developers are making money | Hacker News Hacker News new | past | comments | ask | show | jobs | submit login\nIndie Hackers: Learn how developers are making money ( indiehackers.com )\n971 points by csallen on Aug 11, 2016 | hide | past | favorite | 184 comments\nradarsat1 on Aug 11, 2016 | next [–]\nVery cool, but also a bit misleading.. I was wondering how the hell wub machine actually makes 900$/month, so I read it. > Record high was $850/mo, record low was $40, with the average month bringing in around $300. Certainly not quit-my-job money, but it helps. Posting the all-time high instead of the average is a bit off-putting imho, considering it's supposed to represent \"paychecks.\" This is more like getting lucky once. Anyways, haven't read the rest of the stories, and I think it's pretty inspirational. I'd just appreciate more honest revenue reporting on the front page. (It actually says $900/mo, not just $900, so it's not like I'm reading this ambiguously..) Edit: On second thought, it's not clear to me from the description whether he means that it made $900/mo for some kind of long streak or just one month.\nkohanz on Aug 11, 2016 | parent | next [–]\nI came here just to post the same comment. I hate to be negative because this site seems very interesting and I love the content, but what I would say is that I don't think there is any need to embellish the numbers for the audience this content will attract. I would have read the article had it said $300/month or $900/month all the same, except now I trust the overall site less than I would have had it been honest.\npseudointellect on Aug 11, 2016 | root | parent | next [–]\nThanks for questioning the honesty of the site. Your comment is truly productive and, sadly, at home against all the jaded (and envious) comments here on HN.\ncsallen on Aug 11, 2016 | parent | prev | next [–]\nSorry, I'm rounding peak monthly revenue to the nearest $100, which works well for dollar amounts in the thousands (e.g. $2.2k) but not in the hundreds. Also, in the future, I'll definitely include both peak and average revenue numbers.\nimh on Aug 11, 2016 | root | parent | next [–]\nThe problem isn't rounding, it's that you report peak instead of average.\ncsallen on Aug 11, 2016 | root | parent | next [–]\nYep, I agree! Will include peak and average in the future.\nradarsat1 on Aug 11, 2016 | root | parent | next [–]\nCool ;) Edit: I'll just note that considering the presence of peaks, probably median would be a better indicator than average. Hell, a whole distribution would be pretty informative lol, but that's probably too much info..\nmalcolmocean on Aug 11, 2016 | root | parent | next [–]\nI mean, mean is better than median in that if you multiply it by time then it gives you the sum. But mean over what period? It's a bit complex. I think that probably @csallen was using \"peak\" because some of the projects had since gone defunct and he wanted to count them. Although I think in such cases it would make sense to do an average of the best year or something like that. For projects like mine ( https://complice.co/ ) which are still growing, \"peak\" is also weird, because it suggests that... I'm not still growing? I'm not even sure. At any rate, it doesn't make sense to use my average over the last year if my average over the next year is going to be twice as much. Better is probably just the total of my active subscriptions.\njaggederest on Aug 11, 2016 | root | parent | next [–]\nMoving average as an annual or monthly run rate is a decent way to express it.\nradarsat1 on Aug 11, 2016 | root | parent | prev | next [–]\nOh yeah, true.. I just meant to be less sensitive to outliers but you make a good point.\nswah on Aug 11, 2016 | root | parent | prev | next [–]\nSparklines!\neon1 on Aug 11, 2016 | root | parent | prev | next [–]\nNeeds more D3..\njoantune on Aug 12, 2016 | root | parent | prev | next [–]\n@csallen, I might have an easy solution for this, DM me on Twitter\nchrishacken on Aug 11, 2016 | parent | prev | next [–]\nSimilar thoughts here. However, the one project Apex Ping, says he's making $600/m but not cash flow positive yet. I'm confused as to how that's even possible. I can run that service on a handful of VM's for ~$60/m. He says he's using Lamda, perhaps he should rethink that decision if his overhead is really that high.\ntjholowaychuk on Aug 11, 2016 | root | parent | next [–]\nThere's a lot more to it than that, and I'm currently supporting ~2000 users on the free plan as well (though I'm phasing that plan out). Ping is running in 7 regions, has an Elasticsearch cluster for logging, another for the check data itself, thousands of checks running each minute and thousands of alerts running each minute. RDS for the primary store, SES for emails, EC2 for hosting the app itself. Add on extra services such as Baremetrics and these things add up quickly. Run 7 EC2 nodes and you're already well over $250, not to mention the loads in each region are different. Lambda's pricing is indeed not competitive with VMs right now, but that will go down with FaaS becoming wildly available from other providers. The more important thing to me is that it's close to zero maintenance, no bastions, no AMIs, no provisioning, no third-party monitoring, etc. If you've ever worked with Elasticsearch you'd also know that it requires a pretty substantial set of resources to function well. I'm happy to over-provision for the beginning if it means providing a better experience. Nothing would be worse than under-provisioning IMO.\nalex_hitchins on Aug 12, 2016 | root | parent | next [–]\n>(though I'm phasing that plan out). Would you recomend starting something with a free tier and phasing it out if it's not working over charging up front from the beginning? I can see pros/cons to both sides.\nwwalser on Aug 12, 2016 | root | parent | next [–]\nI've been looking into myself recently. From successful bootstrappers in B2B, nearly 100% of the advice that I've gotten is to start without free and add it later as a lead-gen mechanism if it fits your business. Early on customer acquisition is a slog and generally relies on 1:1 conversations often with a pre-existing relationship (in-network). Hopefully feedback from these people help you get close enough to product market fit that outsiders will consider using the product. From there it's a marketing and lead nurturing game where freemium may make sense. Advice for B2C would be quite different.\ntjholowaychuk on Aug 12, 2016 | root | parent | prev | next [–]\nI think it depends greatly on the cost of supporting the free plans, mine just went a little out of control, I was getting ~100 or more users per day. If it was really cheap to support them it might be worth the marketing side of things. And of course for VC backed companies this still looks more attractive than not having the free users at all.\naleem on Aug 11, 2016 | root | parent | prev | next [–]\nCould be that most customers are on the free tier and he has multi AZ deployments plus other AWS services (data, queues, etc). Typically base costs are higher when you design for scale vs when you don't. And marginal costs are lower when you design for scale vs when you don't.\nchrishacken on Aug 11, 2016 | root | parent | next [–]\nThere is no free tier. There's a trial. And yes, that's obviously a concern, but you can design for profit first and refine for scale. It wouldn't be very difficult to put some of those things in a VM to start and then move them to lambda once breaking even is no longer an issue.\ntjholowaychuk on Aug 11, 2016 | root | parent | next [–]\nResponded above, there was a free plan initially.\nrafapaez on Aug 11, 2016 | prev | next [–]\nThis is very cool, but can I ask you a question? Some days ago I posted a very similar website here ( http://www.transparentstartups.com/ ) and I didn't get barely any vote whereas this one is getting totally viral (385 votes and adding). Please let me know what I'm doing wrong. The only thing I can think of is that I didn't mention some key words like \"developers\" and \"money\" but \"startups\" and \"transparency\". Or is there anything else I'm missing here? Thank you in advance. UPDATE: I'm learning a lot today, thank you guys for the feedback.\ncyberferret on Aug 11, 2016 | parent | next [–]\nHi. My startup was listed in IndieHackers, and here is my experience, which I think might explain why this thread did as well as it did. A few weeks ago, Courtland, the dev who built IndieHackers contacted my via email with a polite request for me to list my startup on his upcoming site. He had obviously done a lot of work scouring HN and Reddit threads to pick out people who fit his criteria of starting independent apps and emailed them one by one. I was interested, so signed up on his site and started filling in my profile. And here is the clincher - I've filled out my startup profile on LOTS of sites, but IH was the only one where the creator emailed me back and asked for more information and clarification about my story. It felt more like an interview than a straight up submission, and it also lead me to believe that someone actually cares. Then, yesterday, I received an email from Courtland mentioning that he would be posting about his site to HN as a \"Show HN\" post and asked me to support it by upvoting. By this stage, I had totally 'bought in' to the whole deal, and when I woke up this morning, eagerly sought out the thread to participate and upvote. I was actually alarmed when I couldn't find the thread. A quick email and response from Courtland indicated that the thread name had been changed from a 'Show HN' thread. I am thinking that it was the personalised contact with the participants, then the email follow and actual request to support the thread which lead to it getting the response that it has to date.\nrafapaez on Aug 11, 2016 | root | parent | next [–]\nHi cyberferret. This is a great answer that makes a lot of sense to me. Indeed, I didn't contact most of the featured startups, mostly because I thought they won't answer me until I have some volume on the site. That's a big lesson I learned today. Many thanks for the feedback.\njuancampa on Aug 12, 2016 | root | parent | next [–]\nHe/she did \"things that don't scale\". See: http://paulgraham.com/ds.html\nrafapaez on Aug 12, 2016 | root | parent | next [–]\nTrue, contacting personally people and manually reviewing all the stories is not very scalable. But I believe that's probably the most \"lean\" way to startup a Startup or Side Project. You start doing things that don't scale then, if you have the luck of getting bigger, you should start automating as much as possible. Giving the response he received, I think this non-scalable start has been absolutely awesome.\ndavidfm on Aug 12, 2016 | root | parent | prev | next [–]\nBut there are lots of ways to automate personalisation :-)\nrafapaez on Aug 12, 2016 | root | parent | next [–]\nWould be great if you can elaborate more about this :)\nodbol_ on Aug 12, 2016 | root | parent | prev | next [–]\naka vote brigading\ncloudjacker on Aug 14, 2016 | root | parent | next [–]\nNothing is organically viral\nrafapaez on Aug 12, 2016 | root | parent | prev | next [–]\nThanks for term - good to know it!\ncurun1r on Aug 11, 2016 | parent | prev | next [–]\nIn addition to what others have said, which I agree with, I want to point out one other small difference that makes me much more interested in IH than your site...the focus on an individual developer rather than a startup. I've been through startups and know much of the work that it entails. I know (roughly) how much of my life I'm going to have to devote to that idea and the pain of fundraising/bootstrapping. But I've never had a revenue-generating side project or lifestyle business, so it's great to see examples of that and concrete numbers on how much those types of projects can generate. I'm far less interested in this kind of information at the level of a startup than I am at an individual level since I'm far more likely to put something together over the course of a few weekends and see if it can make enough for me to quit my day job rather than to opt into the commitment needed to do a startup.\nrafapaez on Aug 11, 2016 | root | parent | next [–]\nI agree. Being a developer myself and knowing how hard is to make a successful side project, it is definitely more inspiring seeing those stories from solo developers like us working hard to become profitable. Actually I have a mixture of young bootstrapped startups that were side projects just months ago like Nomad List (by levelsio), BugMuncher, StoreMapper, ... And other more stable startups like Buffer, Baremetrics, Groove, ... that are also very inspiring in my opinion. I should add some filters asap to be able to filter by Bootstrapped vs Founded, Work Remotely vs Colocated, etc. Thanks a lot for your comment! Great point mentioned.\njpalomaki on Aug 11, 2016 | parent | prev | next [–]\nBased on quick glance (which is what most sites get from me) one key difference is that indiehackers shows the actual amounts right there on front page. This is quite small thing, but for me it tells this site might actually contain something I'm interested in.\nbonestamp2 on Aug 11, 2016 | root | parent | next [–]\nYes, whether I'm looking to spend money or earn money the first thing I want to see is how much money. I hate product reviews where the price is buried in the article, put it where everyone can find it quickly.\nrafapaez on Aug 12, 2016 | root | parent | next [–]\nI don't think this is about earning or spending money, is it? (but I've got the point, ShowMeTheMoney!)\nlimelight on Aug 12, 2016 | root | parent | next [–]\nFor me, it is absolutely about earning money. Frankly, I'm not interested in someone who built a side business with <$1k/m in revenue. That's a single retainer for my consulting company. Stories where the developer has been able to attract meaningful revenue are for more interesting.\nrafapaez on Aug 12, 2016 | root | parent | next [–]\nThat's fear enough - and that's why I'm featured only Startups. All them generate much more than much $1k/m. The interesting thing is too see the reach that level starting from 0. This is what I call on the Site the startup \"growth journey\".\nrafapaez on Aug 11, 2016 | root | parent | prev | next [–]\nThat's a good point, thank you for the feedback. Yeah, I'm not focusing on \"money\" but in \"transparency\"(which is a broad term). What I show in the list however, is what is the Startup notable for (aka \"champion\" in), e.g. remote work or bootstrapping. Definitely something I should think about.\nwtvanhest on Aug 11, 2016 | root | parent | next [–]\nI viewed the site because it displayed revenue. That was the interesting thing to me.\nrafapaez on Aug 11, 2016 | root | parent | next [–]\nGood to know that. I guess the revenue thing is very attractive. Not sure if maybe others may be interested in Remote Work or in Open Source? I don't know. The problem I'm realising now is that my site is maybe too generic and that makes not clear enough its purpose. I didn't want to saturate the list items with lots of info so I tried to summarised it with the \"Champion\" icon, but I agree it seems not 100% clear. I will work on that.\nrafapaez on Aug 12, 2016 | parent | prev | next [–]\nFINAL UPDATE: Before this thread is buried, I'd like to say a BIG THANK YOU to ALL of you that gave me Honest and Transparent Feedback. Despite my previous submissions didn't succeeded (e.g. https://news.ycombinator.com/item?id=12127979 , only 3 votes), I feel very lucky to have raised this question in this thread and then received the great amount of comments that opened my eyes about why Transparent Startups is not engaging as I expected. Now with all this feedback I can work on these issues to try to make something better and useful that provides value. You are awesome. Thanks again,\nRafa\nCalRobert on Aug 12, 2016 | parent | prev | next [–]\nI went to your page. After 8 or 9 seconds, I thought \"What is a transparent startup? This is just some random list of companies\" and left. I have no idea what the content on your landing page means, at least within ten seconds.\nrafapaez on Aug 12, 2016 | root | parent | next [–]\nGood insight. I need to work more on the \"transparent\" meaning for startups. Thank you.\ntasteup on Aug 12, 2016 | root | parent | prev | next [–]\nSame thoughts here.\nrafapaez on Aug 12, 2016 | root | parent | next [–]\nThank you too!\nemeraldd on Aug 11, 2016 | parent | prev | next [–]\nA couple of points: First and probably most important: * IH - Big empty block at the top that states in clear, large letters what's going on. The text pops out and draws the reader to it.\n* TS - First thing my eye's go to is the first startup in the list. I have no idea why it's there or what I'm looking at. Second:\n* IH - I see companies, names and logos and a revenue number that ties in directly with the stated purpose.\n* TS - I see logos, and a name but again don't know why they are there. It looks like a generic feed of some kind. Basically, I'd say IH needs a site redesign. The current one doesn't tell me, as a reader, much about what's going on or what an item being on the list is about. IH doesn't look bad, it's just not as immediately obvious what the purpose is. (missed a t)\nrafapaez on Aug 11, 2016 | root | parent | next [–]\nHi emeralds. Thank you so much for the feedback. I see your point. I need to work on removing ambiguity, making the front page very clear about what is Transparent Startups.\naiyodev on Aug 12, 2016 | parent | prev | next [–]\nInstead of \"embracing transparency\" it should say something like \"embracing transparent business practices\". Someone landing on your site for the first time won't know what you mean by \"transparency\" especially when the first company listed on the page is named \"Ghost\".\nrafapaez on Aug 12, 2016 | root | parent | next [–]\nI see, that's a minor but critical detail. I will reword the motto to make it clear. The challenge is to explain what \"Transparency\" means in this context with just a few words. \"Ghost\" is actually very transparent :). Today there is a new one. I'm featuring one Startup every day at the moment. Great thanks for the feedback!\nbemmu on Aug 11, 2016 | parent | prev | next [–]\nI want to see how much money different sites are making roughly, and your site doesn't seem to do that. It isn't really pushing the same buttons for me as Indie Hackers.\nrafapaez on Aug 11, 2016 | root | parent | next [–]\nWell, actually in their profile, the startup not only shows the revenues (money) but also many other things like: if they work remotely, how is their culture, their open source projects, their growth journey, if they have open salaries, etc... I believe is quite complete, not just money.\njambalaya on Aug 11, 2016 | root | parent | next [–]\nWhat about listing something like annual or monthly revenue and profit on the home page for each company?\nrafapaez on Aug 11, 2016 | root | parent | next [–]\nThat could help, but not all the startups are featured because of the revenue. For example, some have total Transparent Pricing but they don't disclose their total company profit. For me is more inspiring and interesting the Story behind the startup rather than how much is the startup making at the moment... but yeah, that's me.\nrafapaez on Aug 12, 2016 | parent | prev | next [–]\nUPDATE 2: Most of you agreed about the key point of showing clearly the money or revenue. I've been thinking about it. I agree revenue it is a very interesting data to show but I see a potential big problem: keeping this money amount up-to-date. So personally I'd try to avoid displaying volatile data (like revenue) unless I have a mechanisms in place to update it regularly. Otherwise the info could not be accurate after some weeks of the publication. That's why I prefer linking to their revenue boards, so it's up to the startup/founder to keep them updated. What do you think?\ncsallen on Aug 11, 2016 | parent | prev | next [–]\nHi Rafa! Nice to meet you. I didn't notice your submission. What are your goals with TransparentStartups.com? Let's talk over email if you'd like, maybe we can work together. (courtland@indiehackers.com)\nrafapaez on Aug 11, 2016 | root | parent | next [–]\nHey Cortland. Nice to meet you too! Congratulations for the site and this great thread that raised. There are a few of bootstrappers on my site I'm pretty sure they will love to appear in yours as well. Cool, let's talk.\nryandrake on Aug 11, 2016 | prev | next [–]\nI'd be interested in learning from founders of full-time businesses that started as side projects, how they made that transition from side project to full-time. The amount of time you need to spend on a side project to grow probably increases faster than revenue. So inevitably there will be some point in time where your level of effort is much more than what you'd call a side project, yet your revenue is much less than what you'd call a business. I bet that's a frustrating point for many, as you can't just quit your job and stop paying your bills. I'd love to hear creative ways people have gotten past that hump that don't involve mortgaging the house, selling all your possessions and depleting your life savings.\nidlewords on Aug 11, 2016 | parent | next [–]\nI found two useful solutions to this problem: 1. Work as a contractor, rather than full time. That gives you some flexibility in how much time to devote to your side project as it grows. 2. Compete with a Yahoo! property and wait for them to do something stupid.\nSilhouette on Aug 12, 2016 | root | parent | next [–]\nWork as a contractor, rather than full time. That gives you some flexibility in how much time to devote to your side project as it grows. My upvote won't be visible to others, so I'm also posting to second the above explicitly. Working independently usually means you have more flexibility in both time and money than you typically get as a regular hours, salaried employee. You can balance how much contract work you take on against what you need to do for your side project. There may well still be a point where you have to give up a relatively large amount of immediate revenue from the (absence of) contract work in return for much less immediate extra revenue for your side business. However, if you think the side business will grow in the future based on that work, you might consider that a worthwhile investment. Another advantage is that operating independently also usually means you have a contract to work on one specific project. That contract would normally be explicit that things like the IP rights transferred to the client are only those relating to that specific project. In contrast, an employment contract is usually broader, and shady employers often try to include clauses that claim IP rights to pretty much anything the employee ever does, out of hours or otherwise. This is a legal minefield and the effect of those clauses depends on where you are, but in any case the last thing you need if your side project starts to become successful is a dispute with a past employer's lawyers.\ncloudjacker on Aug 11, 2016 | parent | prev | next [–]\n> I'd love to hear creative ways people have gotten past that hump that don't involve mortgaging the house, selling all your possessions and depleting your life savings. Got some bad news for you bub http://imgur.com/a/WdCwm\ninputcoffee on Aug 11, 2016 | prev | next [–]\nThis is a very useful contribution. The only thing I would add is how many man hours the project took over what period of time. I have to click on them and sort of guess if that site took 5hr/week for 10 weeks, or if it took 10 people working 10 hour days for 2 years. Since you already ask for the tech stack, this would also help launch a dozen \"which tech stack is more productive?\" studies. On a final note, I appreciate that you also ask about marketing. Maybe the marketing efforts and man hours can be summarized too?\nmalcolmocean on Aug 11, 2016 | parent | next [–]\nI'm the founder of Complice, one of the sites featured. It took me a bit under 2 years to reach my \"poverty threshold\" target, working an estimate of 20h/week on average. To break it down further, it was more like 5-15 hours/week for the first 7 months, then 30-50h/week that summer when I was off from school, and other similar fluctuations. These are all total ballpark estimates that I made a couple weeks ago: I've used various time-tracking systems but none that give accurate overall time spent. Based on my within-Complice stats though, I can tell you that I've done 2800 tasks towards Complice. That's not very specific, but still kind of a neat figure. I don't have a good breakdown between programming and marketing time, but I would estimate that 80-90% of my time was spent on things more product-development related. Only 75% of Complice tasks, but the programming tasks are more likely to have been eg 8h working on a single feature.\nleblancfg on Aug 12, 2016 | root | parent | next [–]\nThanks Malcolm! Discovering your site has been a real eye-opener.\ncyberferret on Aug 11, 2016 | parent | prev | next [–]\nFounder of HR Partner here. I wrote the entire site from start to finish in about 3 months (from Nov/Dec 2015 to Feb/Mar 2016). Mainly working in the evenings (from 6pm to around 1-2am), after my usual consulting work during the day. The site is around 22,000 lines of Ruby code, and has around 80 database tables. Not sure whether that is a normal rate of productivity for most devs, but as my interview explains, I am pushing 50 years old now, so my speed of development and my endurance is nowhere near what it was decades ago. I did all the front end stuff as well for the public site, and the documentation site and the blog, status page site etc. About the only help I got was my wife to do the voiceover on the explainer video on the web site. (I had to learn After Effects to do the explainer video too).\nwwalser on Aug 12, 2016 | parent | prev | next [–]\nI'm not featured on the site but I am a dev starting a company ( http://www.askinline.com ). I worked solo for ~2 months then asked a friend who I had been keeping updated on progress to join me as a co-founder. All up we've been going for just shy of 6 months and I believe we're just reaching the point where the product makes sense as a purchase decision for our target market. I say this based on continual discussions with early customers (in-network, pay nominal fee) and the fact that we're starting to land out-of-network customers. You seem interested in the tech stacks. I have to say that when people have asked me what they should use I just tell them to go with whatever they are most productive in. Unless you're doing something to try out a tech or you're dependent on an outside system that demands a specific stack I wouldn't recommend going out of your way to learn too many new things while also starting a company. It's hard enough without adding tech concerns. Patrick's thoughts on this resonate with me: https://twitter.com/patio11/status/763650535727648769\ntjholowaychuk on Aug 11, 2016 | parent | prev | next [–]\nI (Apex Ping) went down the road of playing with newer more hyped tech like React etc, not really necessary for the project, and I can't say it saved any time (if anything wasted time) but still interesting. AWS Lambda on the other hand has been a nice time saver aside from the fact that there weren't any good frameworks available really (with Go support) so I wrote https://github.com/apex/apex .\nmalcolmocean on Aug 11, 2016 | prev | next [–]\nFounder of Complice ( https://complice.co/ ) here, one of the sites featured ( https://indiehackers.com/businesses/complice ). I'm game to answer questions that people have that weren't answered in the interview!\ngoodJobWalrus on Aug 11, 2016 | parent | next [–]\nIn the interview, you said that you had 10 paying customers before you even started coding or had a company. My question is: How did you get those people paying you, and how much they paid? Since you have a monthly service, surely they haven't been paying your usual monthly fee for all that time while you were coding?\nmalcolmocean on Aug 12, 2016 | root | parent | next [–]\nI reached out to some friends of mine, pitching them something like \"I'm developing a system to help you achieve your goals. It's based on daily planning and reflection. Paypal me $10 for the first month if you're interested.\" The actual conversations were much longer than that, in which I explained a bunch of the high-level thinking behind it, mentioned that I was looking for some beta testers, etc. I probably also mentioned that I'd trialed the basic system myself and informally with another person. One of the nice things about offering \"I'll help you achieve your goals\" is that pretty much anyone wants it if you can actually do it. The latter part is of course hard. But yeah, because of this I probably asked only 15-20 friends and got 10 to pay based on that. It also helps that I have friends who are willing to experiment and who trust me not to just run off with their money. Part of what also helped, I'm sure, is that I reached out to people I knew individually and they got to have the sense of being part of this early group of testers. I followed the \"do things that don't scale\" approach. At the start, I didn't have custom software, but I queued up emails manually using Boomerang, to bug people each day at the time they specified, to plan their day and reflect. They replied, and I put their data into a spreadsheet and elsewhere. I spent about an hour per week for each of those users at the start. I was giving them value manually/personally, rather than with software.\ndudeget on Aug 12, 2016 | parent | prev | next [–]\nwhat were you big motivating milestones that kept you going? if anything caused you to almost give up, what was it and how did you overcome it?\nmalcolmocean on Aug 12, 2016 | root | parent | next [–]\nHmm. I think my biggest milestone came when someone signed up for the free trial, didn't respond at all to the personal \"how is the trial going?\" message... didn't respond to my \"btw, your trial is ending in a couple days... any questions?\" message... ...and then their trial ended and they paid. Even though I'd written a full software system at that point, the app was still fairly hands-on, and it wasn't until then that it was fully obvious that someone would pay for just the software. In retrospect this is a pretty big thing that it would have made sense to test much earlier somehow. I'm pretty optimistic by nature, and Complice has felt promising since the beginning. I think it probably helped that while I had a vision/goal (= become ramen-profitable by graduation) I didn't spend too much time fretting about it. I just focused on making incremental improvements to the system (eg UX). And this in many ways is the philosophy of Complice itself: stay oriented towards the big picture, but focus on what you can do today .\nwhamlastxmas on Aug 11, 2016 | prev | next [–]\nIf I was personally making thousands a month from a web app I made, I don't think I'd want to advertise that. Partially because it motivates competition, and partially because I feel like public information about my income could later be used against me (no concrete examples other than alimony/child support). I wonder why these people aren't bothered by this.\ncyberferret on Aug 12, 2016 | parent | next [–]\n@harmegido is correct. I am one of the founders listed (HR Partner), and things like this go down as part of 'marketing' for me. I have already had hundreds of hits on my site this morning from the post in IndieHackers and the mention here, and a few sign ups, which is great. I normally hate divulging figures too, but these days I have given myself permission to do so. I realised that in the past, I was acting from a scarcity mentality and was afraid that people would steal my ideas and concepts. But of late, I have realised that this is simply not true. I am grateful that in my previous posts here on HN and on Reddit, when I have asked questions about marketing and sales, the most helpful answers have been from other developers of HR or Time and Attendance apps (Special shout out to the founders of StaffSquared and Tanda). We dance in the same space, but we all recognise the difficulties inherent and look out for each other, rather than steal from each other. In fact, I have actually referred some of my customers on to these competitors when I have realised that we don't fit their needs 100% and that someone else's solution will be a better match.\nformula_ninguna on Aug 12, 2016 | root | parent | next [–]\n>But of late, I have realised that this is simply not true. why not?\nwwalser on Aug 12, 2016 | root | parent | next [–]\nThe theory is that building something and turning it into a company are wildly divergent things. Yes, someone could copy your idea and implementation. But are they going to dedicate themselves to this full time for a year like it took you before you reached a poverty level income? Are they going to cold call 10 people per day for three months? Are they going to learn to write, nurture a following of people and provide content and value to those people in the hopes that <5% convert to customers? Anyone who starts by copying an idea probably doesn't have the same drive to make the idea successful. The actual trouble isn't that transparency invites competition. The trouble is competition that already exists somehow using the transparency against you. Numbers, to me, don't seem like the type of thing that an outsider could use against you. Effective marketing tactics and growth hacks on the other hand can be gold.\nformula_ninguna on Aug 12, 2016 | root | parent | next [–]\nInteresting. What does \"The trouble is competition that already exists somehow using the transparency against you.\" mean, how does it use the transparency against me?\nwwalser on Aug 13, 2016 | root | parent | next [–]\nYeah, sure thing: I've seen it happen a few times mostly with companies whose founders I listen to regularly on podcasts. It's almost always tactical growth advice, something that every startup struggles to find early on. Where are our customers hanging out, consuming content, how do we engender trust with them etc. Basically a founder says something like \"We've recently discovered that paying a couple of talented designers to re-purpose our blog content as SlideShare presentations works surprisingly well for.\" Companies have tried SlideShare as a means of creating additional distribution around their content marketing. It works for some and doesn't for others. It's basically target market dependent. Some markets have bloggers/curators who will pick up the Slideshare content and embed it on their site. Other target markets don't attach to that kind of content. So, this founder shares this (and keep in mind Slideshare is just an example, it could be any marketing tactic) and the week after his podcast is released their largest competitor starts publishing content on Slideshare. Maybe their marketing team just decided to run an experiment? If the same thing happens three more times? Eventually that founder is going to start doing a cost-benefit analysis of this particular brand of transparency. He could continue sharing some stuff, their MRR and ARR seem like fair game to me but he probably wants to hold back on being specific about growth tactics.\nformula_ninguna on Aug 17, 2016 | root | parent | next [–]\nwhy do they share that advice then? to disinform their competitors?\nharmegido on Aug 11, 2016 | parent | prev | next [–]\nI suspect most of the founders are extremely focused on growing their business. Anything that can help with that (free advertising in this case) is something they'll do. This is just a guess though - I'm not one of these founders.\nbubu139 on Aug 17, 2016 | parent | prev | next [–]\nI'd just reply to this even though it's probably too late, I hope you'll get notified in case you're interested.\nI've built Trackin ( http://www.gotrackin.com ) then MobyDish ( http://www.mobydish.com ) powered by Trackin. First don't forget that the money doesn't get into OUR pocket, but to the company, then I'll have two reasons for me to share this info: 1- Having competitors is actually motivating, forces you to always do better and validate your market. 2- What matters the most is the execution. Google arrived after Yahoo, Apple took over Microsoft, etc.\nNowadays, it's pretty \"easy\" to copy a software, but the way you'll deal with everything else (employees, customers, communication) is what will make you be the winner (on top of a product that people want... and some luck!) 3- (bonus answer) I'm not doing this for money anyway, mostly because I'm passionated about the delivery business and the food space and I believe it's lacking good tech. I started this as a full time job, and I'm still working more than everybody else in the company, while paying myself less than my employees. I believe most of the founders feel the same, and if you think of starting a project that you want to make full time, you shouldn't do it for money. But if you do want to work on a side project as a complementary of your income, then it's a totally different approach. But in any case, you shouldn't be scared about the competition, if they do better, then learn from them as well :)\nepalmer on Aug 11, 2016 | prev | next [–]\nSo I went to the site in Chrome and tried to back arrow to HN and the site cleaned out the history queue in Chrome. I stopped there. This is bad form in opinion.\ncsallen on Aug 11, 2016 | parent | next [–]\nSorry! It was a bug due to redirecting from / to /businesses. Therefore clicking the back button would take you to / again, which would automatically redirect to /businesses. I just fixed it by using replaceState. I hadn't tested this before, because I just launched the site and therefore hadn't previously linked to it -- I'd always visited directly.\nepalmer on Aug 11, 2016 | root | parent | next [–]\nThanks for clarifying and fixing.\nwwalser on Aug 12, 2016 | root | parent | next [–]\nAs a quick tip, I don't think any modern browsers allow a site to wipe out history from previously visited sites. In this case for example two quick hits to the back button should have worked. You can click and hold the back button to move backward more than one history instance.\njordanlev on Aug 11, 2016 | parent | prev | next [–]\nSame here. Wasn't sure exactly how (or more importantly, why) it was doing this. Some lame attempt to keep me on the site? Or some misconfigured / misunderstood / improperly-used feature of a web app framework?\nhnrodey on Aug 11, 2016 | root | parent | next [–]\n\"Never attribute to malice that which is adequately explained by carelessness.\"\ntopspin on Aug 11, 2016 | parent | prev | next [–]\nYes, I noticed that as well. Hijacking the back button just makes it look more like a scam than it already appears... Write your own paycheck with this one weird trick! Maybe I'm all wet and this is totally legit, but that's not the experience I've had with people that make sites that do this. Huge red flag.\ndopamean on Aug 11, 2016 | root | parent | next [–]\nScam? Are you serious? It doesn't appear that the site is selling anything. What could the scam possibly be?\nKarawebnetwork on Aug 11, 2016 | parent | prev | next [–]\nYou can't use the back arrow on Chrome anymore.\npat_space on Aug 11, 2016 | parent | prev | next [–]\nthis appears to be fixed\ncyberferret on Aug 11, 2016 | prev | next [–]\nHi all, founder of HR Partner ( http://hrpartner.io ) as featured on Indie Hackers here. Happy to answer any questions that anyone has. As we are 'pre revenue', I would also appreciate tips and hints with respect to marketing and B2B sales from anyone who has been there, done that. :)\ndudeget on Aug 12, 2016 | parent | next [–]\nwhat was your first sale like?\ncyberferret on Aug 12, 2016 | root | parent | next [–]\nWell, since our beta a few months back, we have had about 180 companies sign up, but all are under the 10 employee limit, which at the moment is free, so we haven't actually had anyone pay for a higher tier as yet. Of that 180 sign ups, about 30 or 40 are quite active and visit the site often, although it is hard to judge because some only need to revisit the site once a month or so to update details and respond to reminders etc. We are looking at scrapping the free 10 employee limit soon, and making everyone pay (except the early sign ups - we will honour their free tier pricing indefinitely).\nvatotemking on Aug 12, 2016 | root | parent | next [–]\nHow did you find your first customers?\nnodesocket on Aug 11, 2016 | prev | next [–]\nFounder of Commando.io here ( https://indiehackers.com/businesses/commando-io ). Let me know if you have any questions.\npalerdot on Aug 11, 2016 | parent | next [–]\nHow do you market/reach out to potential customers? Just word of mouth from your inner circle or do you spend actively on marketing?\nnodesocket on Aug 11, 2016 | root | parent | next [–]\nMarketing and growth this is the hard part. Currently all word of mouth, blog, links, etc. I haven't really tried ad spending, because I feel like it would be a money pit, and hard to see a ROI. However, I am open to trying a Google AdWords campaign. Any advise?\nstvswn on Aug 12, 2016 | root | parent | next [–]\n(I'm a PM for AdWords, sharing my personal opinion based on experience and not speaking on behalf of Google) If you want to avoid a money pit, I think you can. The trick is to pipe conversion data back to AdWords. This is pretty easy with Google Analytics but also not too bad to set up with any analytics provider. If you're starting fresh, you will need to spend some money blindly (without the benefit of historic conversion data). But, once you start seeing some conversions, you can use our automated bidding strategies to say \"only advertise when you are confident you can drive new users to sign up for less than $X.\" My other tip would be to spend some time writing good ads (clear articulation of benefits, use all of the space provided to you, and make at least 5 that can be rotated against each other) and picking good keywords (multi-word as a general rule, and specifically related to your business, not too general and not too competitive). Finally, call support and say you're new and you'd like help. We have big teams of specialists ready to get new advertisers off on the right foot, because we know that your first couple of weeks are crucial to keeping you. They're actually really good.\nJhsto on Aug 11, 2016 | root | parent | prev | next [–]\nHere goes my two cents, but I don't think that advertising is necessarily the correct way to increase revenue -- at least on a long term. As far as I have understood traditional offline companies use advertising to sustain and defend their position from their competitors in the market. I personally recognize your project's name and remember what it does just by its name, but lately all the Docker orchestration tools seem to do pretty much the same thing. Maybe create a blog post explaining the difference and pros and cons of each one? Case studies maybe?\nnodesocket on Aug 11, 2016 | root | parent | next [–]\nAbsolutely content marketing is the best, it is just very time consuming and soul crushing. I'm thinking of trying to hire some people to write articles about infrastructure, orchestration, deployments, server security, etc.\nJhsto on Aug 11, 2016 | root | parent | next [–]\nI'd personally go that route. Best of luck with the project!\nhugocbp on Aug 11, 2016 | parent | prev | next [–]\nI also found it awesome! I too don't have a need for it yet, but I'll sure take a look at it later when the need arrives!\npc86 on Aug 11, 2016 | parent | prev | next [–]\nLooks like a great service, I'm actually sorry to say I don't have a need for it. Best of luck growing!\npc86 on Aug 11, 2016 | root | parent | next [–]\nWho the hell downvotes this?\nherbst on Aug 11, 2016 | prev | next [–]\nThat you include actual numbers is awesome. Kudos\ncsallen on Aug 11, 2016 | parent | next [–]\nThanks! I think hearing these types of stories is a lot more useful and educational when actual revenue and growth numbers shared.\nnegrit on Aug 11, 2016 | prev | next [–]\nI'm very confuse with sentence: sideProject.generate(8500, 'dollars').per('month');\nThose are not side projects\nArcsech on Aug 11, 2016 | parent | next [–]\nWell, some of the ones making that kind of money probably started out as side projects. Obviously once you're making $8.5k/month, you can probably afford to focus on it full-time.\nderefr on Aug 11, 2016 | root | parent | next [–]\nIf you're making $8.5k/mo on something without focusing on it full-time, why would you give it more of your time? Just quit your job and enjoy only having to do a \"side-project\" amount of work to live comfortably.\nTrundle on Aug 11, 2016 | root | parent | next [–]\nBusiness is very much a timing/market thing. The money faucet could turn off any day. If you come across easy money you generally want to see if you can turn it in to not so easy but still efficient use of time money in exchange for getting a lot more of it while you can.\nGuest98123 on Aug 12, 2016 | root | parent | next [–]\nAlso, it's a great time to diversify. If you have one successful project, you can leverage that audience to help get your next project off the ground.\nzupreme on Aug 14, 2016 | root | parent | prev | next [–]\nI agree...for some people. If you're comfortable living at a middle class level or just want to travel the world for a couple of years, then this is perfect for you. Do the Tim Ferris thing and just devote the bare minimum of time to it so that it keeps running and generating money - until it doesn't. If you hope to become rich, then you would be better off either focusing your time into this business so you can grow it 100x+ or use it to cover your bills and to stack some savings while you try to build whatever business you are really passionate about. If you instead want to get your education (like pursuing advanced degrees) then you can use this to cover your tuition and living expenses while you do so. Just know that whatever makes you $8500/mo today will probably not keep doing so without some type of conscious effort to acquire new customers, to support current customers, and to either buy out or otherwise stave off competition. All of these require dedicated focus to do correctly. You can either do these yourself or you can hire help to do them for you but someone has to do them if you want your money to keep flowing in.\nArcsech on Aug 11, 2016 | root | parent | prev | next [–]\nGranted. It depends on the project though, I think - If you think that by working on it full time, you could get it to a point where you could have to do no work to live comfortably (either by hiring people to do it for you, or by selling it for enough cash to live off for the rest of your life) I'd say do that. If it's not that kind of business though, I definitely agree - go the Pinboard route and blog about your trips to Antarctica or whatever while doing a minimum of work.\npascalxus on Aug 12, 2016 | root | parent | prev | next [–]\nOpportunities dry up very quickly, once people and businesses discover there's money to be made. Hence, why there's always a big rush to grow fast.\nerikb on Aug 11, 2016 | parent | prev | next [–]\nI think it's more of a marketing gag. If you can make 850/m you are already quite good with your side project.\nfreyr on Aug 11, 2016 | parent | prev | next [–]\nAt least a couple of the companies I clicked on started as side projects.\ndalacv on Aug 11, 2016 | parent | prev | next [–]\nI think period should be a third parameter: sideProject.generate(8500,'USD','monthly');\ndc_gregory on Aug 11, 2016 | root | parent | next [–]\nProbably makes it a bit complicated. revenue { amount: 8500, currency: 'USD' }\nperiodic_revenue { interval: 'month', amount: revenue }\nThen you can act on revenue amounts around the place, and only have to think/handle interval's if/when it's appropriate.\ntimbowhite on Aug 11, 2016 | prev | next [–]\nGreat site, considering sharing some of my projects. > Learn how developers are writing their own paychecks. Would love to see a forum dedicated solely to \"indie hacking\" for developers. ie. threads related to all the ins-and-outs of independent product development, idea validation, market research, dealing with customers, marketing strategies, founder Q&A, etc.\nseibelj on Aug 11, 2016 | parent | next [–]\nWhile there are certainly nuances and specifics to marketing independent software, the truth is that market research, market validation, business plans, customer service, etc. are skills that are independent and not tightly coupled with software. Reading entrepreneur / business / marketing books can be very useful. You can take lessons learned from one business and apply it to your software business. But yes, I've been looking for a a place where sharp solo tech entrepreneurs can talk, and even created a failed slack channel once, but I have yet to find it.\nquicksilver03 on Aug 11, 2016 | parent | prev | next [–]\nThe http://discuss.bootstrapped.fm/ forum should be fairly close to what you're looking for.\ncsallen on Aug 11, 2016 | parent | prev | next [–]\nI'd love to add something like that to the site. If you're on the mailing list then in a few days you'll get an email asking for site ideas, so I'd love to hear more from you!\nvram22 on Aug 11, 2016 | parent | prev | next [–]\ndiscuss.bootstrapped.fm and barnacl.es are similar to what you say. Somewhat low volume of posts and comments. First has been around a few years, second started somewhat recently, IIRC.\nSilhouette on Aug 11, 2016 | prev | next [–]\nOn very rare occasions, there's a post on HN that I wish I could upvote so much it would pin at the top of the home page until everyone had a chance to see it. This is one of those rare posts: fascinating, well presented, and I can see it being practically useful for a lot of people who aren't there yet as well.\nmettamage on Aug 11, 2016 | prev | next [–]\nThis is awesome. Soon, I'm going to devour all the stories. How do the companies get to know your site and share their story before you were on HN?\ncsallen on Aug 11, 2016 | parent | next [–]\nI spent a lot of time scouring \"Ask HN\" and \"Show HN\" posts to find people who were running revenue-generating businesses. I think I compiled a list of over 140 people. I was able to track down about half of their email addresses and Twitter accounts. From there, I got in contact with everyone I could, and told them about the site. If they wanted to share and were comfortable revealing revenue (lots of people weren't), I sent them a Wufoo form I made. Then I edited their answers into the format you see on the site. There are still 20+ people who were interested in being included but haven't gotten me their info yet. EDIT: A few people have submitted their businesses since I posted this Show HN, too.\nvram22 on Aug 12, 2016 | root | parent | next [–]\nGood hustling and startuppy stuff :)\nvram22 on Aug 12, 2016 | root | parent | next [–]\nOf the right kind.\njohnward on Aug 11, 2016 | prev | next [–]\nI'd like to be able to subscribe via RSS\ncsallen on Aug 11, 2016 | parent | next [–]\nAdded to my to-do list!\nswiftisthebest on Aug 11, 2016 | root | parent | next [–]\nPlease send an update to email subscribers when this is available. Thanks. :)\nkzisme on Aug 11, 2016 | parent | prev | next [–]\nI would be interested in this as well.\nmaxxxxx on Aug 11, 2016 | parent | prev | next [–]\nMe too\ndanr4 on Aug 11, 2016 | prev | next [–]\nIt's not every day I'm happy to give out my email. very nice.\nstockkid on Aug 11, 2016 | prev | next [–]\nThis actually motivates me a lot. Thanks for making this. UI nitpick: when I navigate to the project's page, the if the project name is long, it goes out of screen on Nexus 5X + Chrome.\ngricardo99 on Aug 11, 2016 | prev | next [–]\nCool project! One forward-looking idea for your site: You could start to incorporate a community platform where people can post side-project ideas, skills they're willing to contribute, skills they're looking for, etc..\nredstripe on Aug 12, 2016 | prev | next [–]\nI'd like to see an additional question asked: How did you go about designing the interface of your app? I'm blown away by how good these and so many \"show HN\" entries usually look. Everything I've put online is functional but looks so obviously \"designed by a programmer\" that it's embarrassing to mention. Do people first work on a prototype and then run it by a graphic artist/UI designer to make it look decent? Where do you find these people?\nmalcolmocean on Aug 12, 2016 | parent | next [–]\nI'm kind of a jack-of-all-trades, so I did all of my own design. I don't know that I could get hired by a big company to do design work, but I'm good enough to make my own UIs. One thing that has helped a lot is doing a lot of \"hallway\" tests: you watch someone sign up, then you cringe at how bad your UI is, then you fix it. (I'm the guy behind https://indiehackers.com/businesses/complice )\nimaginology on Aug 11, 2016 | prev | next [–]\nNice site, I enjoyed reading it. I like the effect when transitioning from grid view to list view. Is that just CSS or is there some Javascript magic doing that?\npascalxus on Aug 12, 2016 | prev | next [–]\nI think this site is Awesome! IndieDevs love to find out what worked and what didn't. Can I make a suggestion? Perhaps, you can add a section or another site that lists how any successful businesses got their start, especially with elaborate insights on distribution as this is the number 1 barrier to entry for most start ups. Thanks!\npalerdot on Aug 11, 2016 | prev | next [–]\nGreat work. Please provide an easy way to clear all the filters in one click. Subscribed and will be eagerly following.\nSindrome on Aug 12, 2016 | prev | next [–]\nWas literally lying in bed sleepless last night thinking about which side project on my list to start. Was digging through \"Ask HN: How do you make recurring revenue\" posts. There's always someone asking in HN. Didn't even think about researching side projects as a side project.\nswah on Aug 11, 2016 | prev | next [–]\nVery motivational that some apps can make those numbers - thank you for making this! (subscribed!)\nwas_boring on Aug 11, 2016 | prev | next [–]\nI really like this idea, and even signed up for the mailing list. I've been scratching my head for years trying to crack income diversification without a lot of money to begin with. It's good to see some success stories.\nvatotemking on Aug 12, 2016 | prev | next [–]\nVery important question but isn't mentioned much is: How do you let other people know about your business after launch?\ntummybug on Aug 11, 2016 | prev | next [–]\nGreat site for inspiration. Gave me the same feels reading revenuenumbers.com (posted here a while ago) did.\nandretti1977 on Aug 12, 2016 | prev | next [–]\nGreat job, subscribed! But here it is a simple question: what is the business model of indiehackers.com?\ncsallen on Aug 12, 2016 | parent | next [–]\nI have no business model yet! What I'm focusing on right now is how to make the site as useful as possible, so I can sustain the kind of traffic I've seen in the past 24 hours that this has been on HN's front page.\nharvestmoon on Aug 12, 2016 | root | parent | next [–]\nFind out what tools and services the startups/projects are using. You can then put a link to those services and get a commission. :)\nandretti1977 on Aug 12, 2016 | root | parent | next [–]\nSomething like builtwith.com( http://builtwith.com ). This reminded me of the story of Builtwith, which started without knowing the commercial potential ( http://www.startupdaily.net/2015/09/builtwith-is-perhaps-one... )...i wish you to reach the same results!\nktu100 on Aug 11, 2016 | prev | next [–]\nIt would be great if there is a comment section, or private Q&A, to ask founders questions.\nchrischen on Aug 11, 2016 | parent | next [–]\nI'm the founder of Instapainting. Feel free to ask questions here!\ncommenter789 on Aug 12, 2016 | root | parent | next [–]\nTechcrunch article you refered to, mentioned Instapainting is YC Backed company. Quick look at CrunchBase says \"The company is backed by Y Combinator and Start Fund (SV Angel and Yuri Milner).\" I thought the site was about self funded single developers? I am missing something? Either way congrats and best wishes.\ncsallen on Aug 12, 2016 | root | parent | next [–]\nThere's no rule on the site against having external funding of some sort. It really depends on the circumstances. I wouldn't accept a company that has raised enough money to hire a bunch of people or to spend months building out a complex product full-time, because most indie hackers can't do that. Chris, however, was working alone when he started Instapainting. His funding had dried up and he was in significant debt. And it only took him 2 days to build and launch his product. So there's a lot there that we can all learn from, and nothing that none of us could do without relying on personal savings and a lot of creativity and hustle.\ncommenter789 on Aug 12, 2016 | root | parent | next [–]\nI definitely think it was a good success story. I am merely asking whether Instapainting was YC Backed company as mentioned in TC Article as reading TC and looking at CrunchBase gives different picture from whats mentioned on Indie Hackers. Hope the question is not out of line.\nshellerik on Aug 11, 2016 | prev | next [–]\nSorted by revenue only seven make more than my Amazon affiliate site. I'm not sure if that type of site would fit in there but I did develop quite a bit of code for it. It's not a review site but rather a searchable product catalog.\ncsallen on Aug 11, 2016 | parent | next [–]\nIt would definitely fit, and I'm already intrigued just hearing that! You should submit if you like.\nNinjaTrappeur on Aug 12, 2016 | prev | next [–]\nFeature request: it would be nice to be able to communicate with the indie developer within your website. Maybe though a comment section at the bottom of the page or a community FAQ. Anyways, nice website I will come back!\nLooking forward the rss feed ;)\n_isus on Aug 12, 2016 | prev | next [–]\nHaving the month and year of the \"interview\" would be helpful. Down-the-road, it will help give context to the information. A neat idea would be to allow for follow-up \"interviews\" later.\notto_ortega on Aug 11, 2016 | prev | next [–]\nCool idea, I hope to build something one day that I can publish on it.\n_isus on Aug 11, 2016 | prev | next [–]\nI like that you can filter on solo vs. multiple founders. Very cool.\nchrischen on Aug 11, 2016 | parent | next [–]\nInteresting that there is only 1 multi-founder project listed.\ntener on Aug 11, 2016 | prev | next [–]\nReally good read, the structured Q&A format is great.\navipars on Aug 14, 2016 | prev | next [–]\nGreat. I wish there could be charts of the monthly cash rate, also it would be nice to mention how much maintenance time and cost of servers and such...\nrobotnoises on Aug 11, 2016 | prev | next [–]\nThis is very cool and one of the most handsome designs I've seen in a while.\ndudeget on Aug 12, 2016 | prev | next [–]\nwow, very interesting reads. Many of them make me inspired and frustrated at the same time. Inspired because of how cool the ideas are, frustrated because \"why didn't I think of that?!\"\none_thawt on Aug 11, 2016 | prev | next [–]\nCool. Although the site breaks my back button on Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.116 Safari/537.36\ncsallen on Aug 11, 2016 | parent | next [–]\nYep, thanks for pointing that out. I need to fix the redirect from / to /businesses.\ngjkood on Aug 11, 2016 | root | parent | next [–]\nSame here on Safari Version 9.1.2 (11601.7.7). Just adding some data points to help you fix :). Certainly not meaning to pile on. I like it and I have subscribed. Very useful to see practical working examples of options for passive income in the field. I say passive because I could see myself doing something as a side business.\ngoldenkey on Aug 11, 2016 | parent | prev | next [–]\nSame but on latest Android Chrome\nhartator on Aug 11, 2016 | parent | prev | next [–]\nSame but on iOS Safari lastest.\njackmaney on Aug 11, 2016 | prev | next [–]\nNice site, but it hijacked my back button. There's no excuse for that.\nokket on Aug 11, 2016 | prev | next [–]\nEvil site, blocks back button.\nmetamet on Aug 11, 2016 | parent | next [–]\nWhy do sites do this? To make us hate them?\nundefined1 on Aug 11, 2016 | root | parent | next [–]\nYeah, unless it's just a redirect bug.\ncsallen on Aug 11, 2016 | root | parent | next [–]\nThis! Will be fixed shortly.\nphilmander on Aug 11, 2016 | root | parent | prev | next [–]\nI think it is\nrhizome on Aug 11, 2016 | root | parent | prev | next [–]\nIt's the easiest way to make your portal sticky.\nmusesum on Aug 11, 2016 | parent | prev | next [–]\nLet's implement all the retention tricks of a pron site.\nPuffinBlue on Aug 11, 2016 | root | parent | next [–]\nAnd the BBC (news on mobile at least).\nazernik on Aug 11, 2016 | prev [–]\nCould we get a less link-baity title? Something like \"Viable Single-Developer Businesses\" or the like?\ntasteup on Aug 12, 2016 | parent [–]\nI think the current title does a better job than the title you suggested.\nazernik on Aug 15, 2016 | root | parent [–]\nTitle when I wrote that didn't day \"Indie Hackers\". Those were a magical extra two words ^__^\nConsider applying for YC's Winter 2027 batch! Applications are open till November 2.\nGuidelines | FAQ | Lists | API | Security | Legal | Apply to YC | Contact\nSearch:",
+     "policy": {
+      "policyId": "rights.hacker-news.v1",
+      "sourceId": "src.hacker-news",
+      "providerName": "Hacker News",
+      "displayTier": "facts_only",
+      "registryHash": "30d893f5b810c363886fbef8bc35e9535700abdcb83e6a517b66018b3993cacc"
+     }
+    },
+    {
+     "sourceId": "s4",
+     "url": "https://www.indiehackers.com/post/i-created-and-run-indie-hackers-ama-2e6643ba07",
+     "publisher": "Courtland Allenの公開質疑応答",
+     "snapshot": {
+      "url": "https://www.indiehackers.com/post/i-created-and-run-indie-hackers-ama-2e6643ba07",
+      "finalUrl": "https://www.indiehackers.com/post/i-created-and-run-indie-hackers-ama-2e6643ba07",
+      "status": 200,
+      "fetchedAt": "2026-10-07T09:51:32.447Z",
+      "via": "direct",
+      "contentType": "text/html; charset=utf-8",
+      "textHash": "3b9b41e441b4e2109f95fc359de635beae5ad6bc8909ee4c689c38809a5a43bc"
+     },
+     "text": "I created and run Indie Hackers, AMA! - Indie Hackers\nHello indie hackers! We\nHello indie hackers! We\nI created and run Indie Hackers, AMA!\nI created and run Indie Hackers, AMA! - Indie Hackers Home Starting Up Case Studies DB Products Ideas DB Vibe Coding Tools Subscribe to IH+\nStarting Up Case Studies\nIdeas DB Products DB Sign in Join\n18\nUpvotes\n42 Comments\nI created and run Indie Hackers, AMA!\nby Courtland Allen\nHello indie hackers! We've invited numerous people to come do an #AMA in the past, but I just realized that I've never done one myself. 🙈\nFeel free to ask me absolutely anything below — whether you're curious about the future of IH or you'd like some personal feedback on an idea or business you're working on. I'll do my best to answer over the course of the next few days.\nCourtland Allen\non November 14, 2018\n18\nUpvotes\nShare\nSay something nice to csallen…\nPost Comment\n6\nFinally! :)\nWhat would you be working on if it wasn't IH? Which other idea(s) would you like to pursue?\nWhich are your top growth hacking tricks you'd recommend to fellow IHs to generate traction?\nDo you have a specific ritual to get into \"focussed work mode\"? Like, specific music, noise reducing headphones, exercising before,...?\ndigitalbreed\n&middot;\n8 years ago\n&middot;\nReply\n4\nWhat else would I be working on? This may be a disappointing answer, but I'm sure I'd be working on figuring out what to work on! If you can afford to, I think it makes sense to spend lots of time aiming the cannon before firing it, so to speak. At least that's true for me. IH was the result of a very deliberate and analytical process I went through to come up with an idea to work on.\nThere are many things I'm interested in outside the world of internet businesses — fiction and storytelling, for instance. But I'm sure I'll start another business eventually. I'm now convinced that the best/easiest way to change things in the world is to start a business. I'm continually surprised by how strong of an effect IH has had on so many people's lives. It doesn't feel real sometimes.\nMy top growth-hacking tricks? Hmm. I don't have any, really. On that note, I should say I don't consider myself an expert. I've talked to lots of experts over the past two years, and I'm happy to help when I see newcomers make the same old mistakes, but that doesn't make me an expert. IH is my only real success, and it was the result of a very small number of good insights I had early on and did a decent job executing on.\nGenerally, I think most people (myself included) aren't that disciplined. We all read lots of good advice, but we get impatient and don't internalize it or put it in to practice, and instead follow our intuition. It took me getting burned many times before I started taking a lot of the common startup advice seriously, truly understanding what it meant, and applying it to my own efforts dispassionately. So that's my best \"trick\" — improve your own knowledge and discipline.\nEveryone is struggling with different things, so one-size-fits-all advice is tough to give. Regardless, here are some things I find myself saying often:\nCharge more. It generally forces you to target better customers, and allows you to go through easier distribution channels (e.g. sales and ads vs marketing and word-of-mouth).\nOn that note, don't fear sales. I sincerely think it's easier than marketing. Plus it forces you to talk to customers individually, so you learn more. Plus it forces you to charge more to justify the cost.\nTarget businesses, not consumers. It's easier. Businesses spend more money and they spend it more easily.\nLaunch earlier. If you take too long to launch you're more likely to get bored and quit. If you can't launch quickly, choose a smaller idea.\nCharge earlier. Charge before you launch or even build your product. If you can't charge early, choose another idea.\nIf you want to make money, enter a market where lots of money changes hands. Solve a problem people are already paying lots of money to solve.\nYes, you want your product to stand out. But don't confuse providing a unique solution with solving a unique problem . Too many founders end up targeting low-value problems that nobody cares much about, because they think the problem they solve has to be unique. It doesn't.\nI don't have any rituals to get in the habit of working. I just love working and building stuff! I spend an unhealthy amount of time at my computer. I have since I was a kid.\nSometimes I'm not excited to work on one particular thing or another, and what helps me there is being accountable to someone. Early on it was the IH community — I had to send a weekly progress report email every Thursday and it stressed me out. I'd pull all-nighters just to show meaningful progress.\nCourtland Allen\n&middot;\n8 years ago\n&middot;\nReply\n1\nThanks, Courtland! I appreciate you putting so much effort into answering!\ndigitalbreed\n&middot;\n8 years ago\n&middot;\nReply\n4\nWhich episode of your podcast is your mom's favorite? How competent is she in how to start a startup from having listened to all of them?\njulian\n&middot;\n8 years ago\n&middot;\nReply\n3\nI just called her to ask her these questions. (She says thanks for getting me to call her.) Her answers:\n\"My favorite episode was the guy who travels from place to place. What was his business? Nomad something.\"\n\"I feel very confident I could start a business.\" \"Why?\" \"Because there is so much in there about what not to do that people always do. I would try to get something out there as fast as I could. I wouldn't worry too much what people thought before launching it. I would charge money upfront and go from there.\"\nCourtland Allen\n&middot;\n8 years ago\n&middot;\nReply\n3\n💕\njulian\n&middot;\n8 years ago\n&middot;\nReply\n4\nWow about time you did one of these!\nI have a few questions (feel free to just choose the ones you think are interesting for the IH community)...\nWhat's next for Indie Hackers?\nIndie Hackers, December 2018... How different is it to what you envisioned for IH a year ago? What is better/worse?\nHow are you going to get people using this 'Twitter feed' part of Indie Hackers more frequently? I really want it to work out!\nLastly (and most importantly) - will there be an official 'Indie Hackers podcasting robe' when you launch the swag? ;)\nlouisswiss\n&middot;\n8 years ago\n&middot;\nReply\n2\nWhat's next for IH? Lots of things!\nCurrently, you have to be fairly creative/proactive in figuring out how to get the most out of the IH community. I want it to be more direct in how it solves founders' problems. I literally plan on enumerating problems that founders encounter in their journey, picking the ones that a community can really help solve, and building features for each of them. The new hashtags you see on the homepage (e.g. #looking-for-cofounder) are a cheap way to test out solving each problem before I build anything. Looking at the past year or two of forum threads is also helpful, as people have been describing their problems in their own concise words.\nHow is IH different from what I envisioned a year ago?\nIt's not as big as I'd hoped in terms of traffic. And it's slower. 🙈 But the community itself is thriving! A year ago IH was primarily a content site, and the community was a minor feature. Today the forum is bustling, people are helping each other, and there are hundreds of meetups happening across the world. ( Just posted about this earlier today.) Last week I flew to IH meetups in three different countries with over 150 ppl attending in total, and there were 5 or 6 meetups I missed that were happening in other countries at the same time!\nHow will I get people using the new \"Following\" section of IH?\nI'll just keep making it more useful by adding the features you'd expect, bringing on guests to do AMAs, helping users follow other active users, increasing its visibility via the homepage and the newsletter, etc. I'm fairly confident it'll work out in the end if I keep pushing at it. It's a harder feature to bootstrap than the forum was initially, but this time I know a lot more, and I have a lot more traffic to help. I've deliberately kept the feed semi-hidden while I've been working to improve it.\nWill there be an official IH podcasting robe? Sounds like an e-commerce business in the making…\nCourtland Allen\n&middot;\n8 years ago\n&middot;\nReply\n2\nHey Courtland!\nWhat was the experience like studying CS at MIT? And how would has your time there affected your problem-solving skills as a developer and knowing what questions to ask for (technical/nontechnical founders) questions on your podcast?\nWhat cultural barriers/ challenges both race & skill wise have you faced being a minority in the tech industry (and how have you overcome them) and what advice would you give to a founder raising seed money in this current climate? (FinTech industry specifically)\nIf you had the knowledge now on industry and developer skillsets 5 years ago, how would you teach yourself how to code/ about product?\nszechuansaas\n&middot;\n8 years ago\n&middot;\nReply\n2\nI'm not the world's best student. I was ready to drop out of school when I was 16. Going to college was a stretch. The whole time I was there I was thinking about startups, working on side projects, taking contract gigs, etc. I almost never went to class. That I managed to graduate in 4 years with a decent GPA is astonishing.\nI met lots of smart people who pushed me to do things I might not have done on my own. Being in their company and being told \"you belong here\" was a huge confidence boost, and confidence becomes a self-fulfilling prophecy. (Because with more confidence, you try harder, which raises your chances of success, which gives you more confidence…)\nI learned a lot about developing at MIT, but it was mostly through working on my own side projects for dozens of hours every week. I kept learning throughout my 20s, trying to build and launch startups as the only technical founder. I'm a big fan of learning by doing, at least as it comes to code. My skillset might not be the best for, say, getting an FTE role at Google. But it's great for starting startups.\nMy advice for minority founders is to be so good they can't ignore you. I don't spend much time thinking about my race, especially not as a disadvantage or an obstacle to overcome. As I mentioned earlier, I'm big on confidence/optimism. I think that attitude pays off.\nI'm happy about how I learned to code. Again, learning by doing. I ended up picking up the exact skills I needed to build most of the things I want to build. I'm a decent at design, front-end, back-end, devops, etc.\nAs for product, I spent too many years trying to build a \"high-growth\" startup and obsessing over product. There is a lot more to business than product. I wish I'd spent more of my time focusing on market analysis, distribution channels, business models, sales, etc. It's very easy to spend 10 years building product and neglecting all of the above.\nCourtland Allen\n&middot;\n8 years ago\n&middot;\nReply\n2\nWhat books on community management can you recommend?\npoppingtonic\n&middot;\n8 years ago\n&middot;\nReply\n1\nI haven't read any! The closest things I could recommend are general-purpose books on psychology and therapy, for dealing with people effectively.\nCourtland Allen\n&middot;\n8 years ago\n&middot;\nReply\n2\nHey Courtland!\nHow has your life looked like before you started IH? Did you have any connections to Stripe before that?\nDuring the early stages of IH, what did you do there? Was it a side project or did fully concentrate on building this community?\nHow does your life look like today? How has your work on IndieHackers changed since the acquisition, how did your private life change?\nFinally, how are acquisitions of a tiny bootstrapped company different to big multi-billion acquisitions we see in the media?\ndqmonn\n&middot;\n8 years ago\n&middot;\nReply\n2\nI spent my 20s starting startups and working as an contract web developer in stints. I learned a ton about design, back-end and front-end programming, and how to build something that nobody wants. 😂\nIn the beginning of 2016 I quit my contract job to live off my savings and try my hand at startups again, after a 2-year break. It took me about 6 months of messing around on projects I never released before I came up with the idea for IH.\nThe early days involved doing lots of emailing, interviewing, and coding. After I got the interviews streamlined, I had more time to focus on growing the forum, starting the podcast, and making money via sponsorships.\nI didn't have any connection to Stripe (except as as user) until the day Patrick sent a cold email asking if they could acquire Indie Hackers. It really was out of the blue! Although Stripe was at the top of my list of ideal sponsors.\nMy life has barely changed since joining Stripe. I still work from home for the most part. Stripe is fairly hands off. However, I don't have to worry about generating revenue to pay my salary, so instead I spend all my time focused on making IH bigger and more impactful. Additionally, I think joining Stripe and talking to Patrick greatly increased my ambitions for the site.\nAcquisitions of tiny companies are much faster than with big ones. It was all super informal and largely happened via text messages over the course of a few days. 😶\nCourtland Allen\n&middot;\n8 years ago\n&middot;\nReply\n2\nHave you ever wanted to quit IH in the beginnings ?\nwimgz\n&middot;\n8 years ago\n&middot;\nReply\n1\nI actually haven't seriously considered quitting a single time, especially not in the beginning. The first three weeks I spent all my time building and interviewing people, and there was so much traction when I launched it that all I could think about was, \"How do I not fuck this up?!\"\nI think I would've been more likely to quit if it had taken me more than three weeks to get it launched. I've given up on projects before that I spent months working on without any users, which is why I was adamant about getting IH built and launched quickly.\nCourtland Allen\n&middot;\n8 years ago\n&middot;\nReply\n2\nHey Courtland! I've been lurking on IH for a while now, think it's time I started posting.\nPrior to the Stripe acquisition, IH was using a sponsor-based revenue model.\nWhat are your thoughts on it being a viable business model for niche 'content' sites (Like IH, NomadList, Dev.to )?\nDo you think it's sustainable over the long term?\nAnd if you hadn't sold IH, what do you project your revenue from sponsors would be now?\nPersonally think it could be a game changer for individuals (like yourself) starting niche content sites. Any thoughts you have would be greatly appreciated.\nycparak\n&middot;\n8 years ago\n&middot;\nReply\n2\nI think finding sponsorships is totally a viable business model, indefinitely. Companies are always looking for a way to find more customers. If you create a niche content site in a valuable area, chances are high that some industry is really interested in reaching your audience. If the businesses in that industry have an ARPU high enough to justify spending money on ads, then they'll likely pay to sponsor your site if you give them a call and the price is right.\nIt's not my favorite business model, mind you. I'd rather provide something of monetary value to my audience and charge directly for that. But most people won't pay for most forms of content, sadly.\nWhat would my revenue be now? Hmm. It was around $6000 last April if my memory serves me correctly, off significantly less traffic than IH has today. I could probably make around $20k/month in podcast ads alone nowadays, to say nothing of the newsletter and the website, which have both grown a similar amount. Maybe $40k/month or something, or more if I got clever.\nThat said, IH certainly wouldn't have grown to its current size had it not been acquired by Stripe, who've provided the resources that allowed me to stop focusing on revenue.\nAll-in-all I'm really bullish on niche content sites. If you're considering starting one, go for it!\nCourtland Allen\n&middot;\n8 years ago\n&middot;\nReply\n2\nIf tomorrow you were told to no longer focus on IH and to work on a new independent project, how would you start? What would the first month or two look like?\nitsmarcel\n&middot;\n8 years ago\n&middot;\nReply\n1\nI answered a little bit here and here .\nCourtland Allen\n&middot;\n8 years ago\n&middot;\nReply\n1\n@csallen Can you share the development experience/tech stack of the this site? Its good to hear from you :)\nayyappa99\n&middot;\n7 years ago\n&middot;\nReply\n1\nHi Courtland,\nAny feedback on www.glimm.io ?\nBest,\nJosh\nJoshRuby\n&middot;\n7 years ago\n&middot;\nReply\n1\nWhat did you do before Indie Hackers?\nsergeis\n&middot;\n8 years ago\n&middot;\nReply\n2\nCheck this answer and let me know if it isn't helpful!\nCourtland Allen\n&middot;\n8 years ago\n&middot;\nReply\n1\nWhat do you use for transcribing your podcasts?\nDo you see an SEO benefit from including those transcriptions on the podcast episode pages?\nWhat do you use for hosting?\nCare to share any other details about your podcast setup/flow?\ncaseyfulgenzi\n&middot;\n8 years ago\n&middot;\nReply\n1\nI use Podwords.co for transcription. They're great! (And cheap.) I use Backtracks.io for hosting. No huge SEO wins from the podcast. IH overall does a pretty poor job on the SEO front. I don't know many business/startup sites that are killing it with SEO without publishing tons of low-quality general purpose articles, e.g. \"10 inspirational quotes for 2018\".\nI record my podcast using Zencastr. As a backup, I make a local recording via Adobe Audition. I have a program called Loopback installed that allows Audition to record my voice and the guest's voice (coming in via the Zencastr call in Google Chrome) to separate audio channels.\nAfter the recording is done, I lightly edit it, then send to my real editor who makes it sound great and adds the music/intro/outro/etc. Then I send it to Podwords.\nCourtland Allen\n&middot;\n8 years ago\n&middot;\nReply\n1\nAwesome, Courtland! 👏\n@robwalling gave a great talk at MicroConf Las Vegas earlier this year talking about some of the negatives he saw after Drip was acquired by a venture-backed company. He mentioned some big advantages as well (which of course can't be ignored) but at the end of the day, there were some major changes that took place, many of them a bummer. 🤔\nHow have things changed for you and @channingallen after IH was acquired by Stripe? Are there any negatives, even if they're small things, that came out of joining Stripe? 🆕\nThanks for rocking! 🙏🏻\njoehhoward\n&middot;\n8 years ago\n&middot;\nReply\n1\nThings have been stellar! Stripe has been very hands-off for the most part, except in terms of providing support where they can. The few things they \"make\" us do, e.g. long-term planning, have actually been quite helpful.\nJoining Stripe also ratcheted up my ambition for the site by a couple orders of magnitude, which I think is a good thing for everyone involved.\nThe only negative is the obvious one, i.e. I no longer control IH and can't simply do as I please 24/7. Of course, that's true by definition when you sell your business. But in practice, I haven't run against any walls here.\nCourtland Allen\n&middot;\n8 years ago\n&middot;\nReply\n1\nHi Courtland. I'm a big fan of your podcast, I think you ask really insightful questions and are great at pointing out when an entrepreneur's experiences go against the common tropes of startups these days. It's helpful that you point out how many different paths there can be. My question is about the state of indie hackers as a forum. Have you considered other models besides the hacker news / subreddit upvoting model? Maybe this is crazy but I feel like so much of this forum is based on giving good feedback to other indie hackers on their site, that you could add special votes / karma to incentivize that constructive feedback. I think upvotes work great for link aggregation but less so for community discussions and threads where the ideal outcome is everyone who posts getting real, solid feedback. A \"simple\" idea is that top-level posts in feedback threads are ordered based on which posters have given the most / best feedback to other users in the threads.\nnlowell\n&middot;\n8 years ago\n&middot;\nReply\n1\nI've thought about that kind of stuff. In a sense it's dangerous to try to reinvent the wheel. Lots of other sites have shown what tends to work. I think Q&A sites like Quora and Stack Overflow are probably the closest to what you're describing. They aren't a bad model for IH, exactly.\nThe IH community needs to help founders with numerous challenges, and that includes getting feedback on their startups/ideas/landing pages/etc is a big one. I think that as time goes on, the community should become increasingly tailored to solve these specific problems rather than being simply a general-purpose discussion board. That said, the broad nature of the forum as it stands is great for learning.\nCourtland Allen\n&middot;\n8 years ago\n&middot;\nReply\n1\nA meteor destroys Stripe and IH. What would you do instead?\nwimgz\n&middot;\n8 years ago\n&middot;\nReply\n1\nIf it was a huge financial hit to me, I'd start another revenue-generating internet business. I don't know what the idea would be yet, so I'd start by trying to come up with one. It would have to score pretty high on my idea validation checklist, which I'd have to take some initial time to refine. Sorry, I don't have any ideas to share at this point. 🤷‍♀️\nBut at the top of my mind as of late is making sure whatever I do has a high ARPU and targets an existing problem that I already see people paying for.\nAssuming it wasn't a huge financial hit to me, I'd probably do a passion project. That might be another revenue-generating internet business, but I'm not sure. Hopefully it would involve me learning a lot of new things.\nCourtland Allen\n&middot;\n8 years ago\n&middot;\nReply\n1\nFor validation and keeping things lean. Would you recommmend either:\nOption 1. Releasing the 1 most important feature as beta, letting users sign up for free and weigh in on what features come next. Then once you have a few main features, start charging.\nOption 2. Try to presell your app before building with the promise of more key features when it's released.\nWith option 1, You get more valuable user feedback. But I'm also worried that the feedback may lead you to build the wrong things since it's not coming from paying customers.\njakebernstein\n&middot;\n8 years ago\n&middot;\nReply\n2\nOption 2 hands down. I don't think feedback from free users is all that valuable for the reason you stated.\nCourtland Allen\n&middot;\n8 years ago\n&middot;\nReply\n1\nHey Courtland :)\nCould you possibly feedback on my product idea http://www.presspal.co\nWhat it does:\nPressPal helps press advertising sales teams easily find new brands to buy their unsold / discounted inventory. A common problem when approaching a print deadline.\nThe current solution is mainly people desperately calling existing clients or giant media agencies (e.g. Carat/Mediacom). I think there's potentially an interesting marketplace opportunity there.\nAlso these deals are currently inaccessible / time consuming to find for brands, who often need a direct relationship with a publisher... or be a client of a giant media agency.\nSo far I've had a super cool magazine agree to sell some of their inventory with me when I fully launch, and positive feedback from a couple of conversations with people who work at brands (who would buy the inventory), but need to talk to a few more customers.\nAny initial thoughts, let me know!\nCharlie\ncharlierward\n&middot;\n8 years ago\n&middot;\nReply\n1\nAt first glance I think this looks promising! You're solving an existing problem that doesn't take much explaining, which makes things easier for you. It also means you know, roughly, how valuable this problem is your customers. And I like how this will be mostly sales driven. You'll have to actually call people up and talk to them individually to get them to buy in, which means you'll be more effective at learning. Finally, this doesn't require a whole lot of code to build, so you can start testing your hypotheses immediately.\nOf course there are still lots of challenges ahead. Who in the press do you call and what do you say to sell them on your solution? What brands should you work with? How do you reliably bridge the gap and make both sides of this marketplace work? Etc.\nCourtland Allen\n&middot;\n8 years ago\n&middot;\nReply\n1\nAlso - do you have any go-to mental models for making decisions?\ncharlierward\n&middot;\n8 years ago\n&middot;\nReply\n1\nProbably the biggest one is the standard cost-benefit analysis. I treat every decision, without exception, as a cost-benefit analysis. If the benefits outweigh the costs then I make the decision, otherwise I don't.\nI try my best to avoid the common mistakes when evaluating the costs and benefits. That means ignoring sunk costs, accounting for opportunity costs, etc.\nCourtland Allen\n&middot;\n8 years ago\n&middot;\nReply\n1\nAlways thought you should be interviewed :) Think I missed a recent podcast you were on!\nAny features you really want to see in IH?\nWhat do you think IHers are doing wrong often? And things we're missing and should do?\nAndrewV\n&middot;\n8 years ago\n&middot;\nReply\n1\nMore features tailor-made to help solve specific founder problems: finding cofounders, ideation, hiring, launching, fundraising, getting feedback, etc. There are many dozens.\nIHers are launching too late, charging too late, charging too little, worrying too much about competition, and picking problems that nobody's willing to pay to have solved.\nCourtland Allen\n&middot;\n8 years ago\n&middot;\nReply\n1\nThis comment was deleted 5 years ago\nDeletedUser\n&middot;\n8 years ago\n1\nImproving my technical skills has almost always come as a side effect of building things. When I get stuck trying to build something, then I read whatever I need to get my technical skills up to par. Every now and then I'll have a period of learning tech stuff just for fun, usually in between projects.\nCool project! It's hard to give feedback without knowing what your goal is, so I'll give different types of feedback:\nAssuming this is a project meant to help you get better at coding, I think it's great. Doing lots of \"small\" projects like this over and over is one of the best ways to improve.\nAs a product, I think you could do a better job helping the user solve their problem. For example, all of my searches revealed nothing, but for some of them you provided a list of alternative suggestions. That's great! But maybe some metadata for those suggestions would be helpful, so I know which ones to choose. Also, if there are no search results, let users know where they can go to find what they're looking for. And instead of telling users to check back tomorrow, perhaps allow us to subscribe to email notifications so we don't have to remember. Etc.\nAs a business, you need a business model! How will this make money? Affiliate/referral revenue from people buying drugs that they found on your site? Also, what's the distribution strategy? How will people find this, and why won't they use Google instead? These are some obstacles you'll need to overcome.\nOverall great work and thanks for sharing!\nCourtland Allen\n&middot;\n8 years ago\n&middot;\nReply\n4\nThis comment was deleted 7 years ago\nDeletedUser\n&middot;\n8 years ago\n1\nIn college I worked on a side project called Fmail . It's how I taught myself web programming. It was sort of pointless, and we didn't charge any money for it, so we ended up letting it die. But I was proud to actually launch it and get some press for it, which led to some lucrative contract gigs.\nLater I teamed up with some grad students to build Syphir . It let you set up advanced filters for your Gmail account, e.g. \"If I haven't responded to an email in 5 days, archive it,\" or \"If an email arrives between 2-8am, hide it until 8am.\" It was fairly popular, but again, we didn't charge any money for it, ran out of funding, and it died. (Beginning to see a pattern here…)\nI worked on another app called Taskforce and once again tried to give it away for free. But then Stripe entered beta, so I charged for it, and it worked! Sort of. Growth was tough, and I moved on to other things. This was back in 2011, but Taskforce is still around, and it actually reliably generates anywhere from $100-$300/month in revenue. I touch the code maybe once a year, when things break and I get angry emails. 😆\nI've done a lot of other things, too, that I never launched. For example, I wanted an app to help me categorize my finances as soon as possible after making the transactions (when I would still remember what they were) by sending me push notifications. I got halfway through building it, then quit to start Indie Hackers.\nCourtland Allen\n&middot;\n8 years ago\n&middot;\nReply\nStay informed as an indie hacker.\nMarket insights that help you start and grow your business.\nSubscribe\nFollow @IndieHackers on X for stories and insights about founders building profitable online businesses, and to connect with others in the Indie Hackers community.\n© Indie Hackers, Inc. &middot; FAQ &middot; Terms &middot; Privacy &middot; Cookie Settings / Policy &middot;\nCommunity\nTop Today Top This Week Top This Month Join\nProducts\nAll Products Highest Revenue Add Yours\nDatabases\nIdeas Products Stories",
+     "policy": {
+      "policyId": "rights.indiehackers.v2",
+      "sourceId": "src.indiehackers",
+      "providerName": "Indie Hackers",
+      "displayTier": "facts_only",
+      "registryHash": "30d893f5b810c363886fbef8bc35e9535700abdcb83e6a517b66018b3993cacc"
+     }
+    },
+    {
+     "sourceId": "s7",
+     "url": "https://www.indiehackers.com/post/whats-new-indie-hackers-is-indie-again-1d228c6387",
+     "publisher": "Indie Hackers公式ニュースレターの本人説明再掲",
+     "snapshot": {
+      "url": "https://www.indiehackers.com/post/whats-new-indie-hackers-is-indie-again-1d228c6387",
+      "finalUrl": "https://www.indiehackers.com/post/whats-new-indie-hackers-is-indie-again-1d228c6387",
+      "status": 200,
+      "fetchedAt": "2026-10-07T09:51:32.576Z",
+      "via": "direct",
+      "contentType": "text/html; charset=utf-8",
+      "textHash": "df8f54ee31c94c48e74a664156ad98808a77b35c4e608f00ae615fd3b558c21d"
+     },
+     "text": "What's New: Indie Hackers is indie again! - Indie Hackers\n*(from the latest issue of the Indie Hackers newsletter)* We\n*(from the latest issue of the Indie Hackers newsletter)* We\nWhat\nWhat's New: Indie Hackers is indie again! - Indie Hackers Home Starting Up Case Studies DB Products Ideas DB Vibe Coding Tools Subscribe to IH+\nStarting Up Case Studies\nIdeas DB Products DB Sign in Join\n4\nUpvotes\n1 Comment\nWhat's New: Indie Hackers is indie again!\nby jayavery\n(from the latest issue of the Indie Hackers newsletter )\nWe've got some major news!\nIndie Hackers is back to being run as a standalone business, owned by the founders. Check out more on this below. We are excited for what's to come!\nIf you're building an AI app (or planning to), consider these things before getting started. Hint: Combine AI and non-AI to help guard your app from becoming obsolete with the next GPT update.\nFounder Karthik is building LaunchPedia, a suite of tools and resources that helps founders launch their products. Here's how he hit over 13,000 unique visitors on the website in just 3 months!\nWant to share something with nearly 120,000 indie hackers? Submit a section for us to include in a future newsletter. — Channing\n🛠 Indie Hackers is Indie Again!\nby Courtland Allen\nExactly six years ago (to the day!), Stripe acquired Indie Hackers to help us grow, and inspire millions of people building online businesses.\nToday, I'm happy to announce that Channing Allen and I are indie hackers again!\nSpecifically, this means that we're back to running Indie Hackers as a standalone business, owned by the founders. Although we're no longer part of Stripe, Stripe continues to be supportive of Indie Hackers as an investor to help us get going.\nThis has been about four months in the making. Branching out on our own is something we mutually decided on with Stripe, and we're excited about it!\nIt goes without saying that I'm incredibly grateful for Stripe believing in, and supporting, Indie Hackers over the years. It still blows my mind that Patrick Collison reached out and took a chance on us when we were just a tiny bootstrapped company ourselves.\nWe were able to run Indie Hackers freely and autonomously, despite being part of a much bigger company. We now have the chance to own Indie Hackers again, and Stripe couldn't have handled things any better! I want to personally thank Patrick and everyone else at Stripe for their support throughout the years.\nSo, what now?\nWell, if we want to survive and thrive, we're going to have to generate revenue just like any other business! I'm an entrepreneur at heart, and always have been. In fact, working at Stripe was my first and only salaried job.\nRight now, we're sitting at exactly $0 MRR, so the journey is just now (re)starting.\nI'm fired up!!! 🔥🔥🔥\nDiscuss this story.\n📰 In the News\nfrom the Growth Trends newsletter by Darko\n🛑 OpenAI has temporarily stopped selling its Plus plan.\n🤔 Does going viral help with SEO?\n💻 31% of international websites contain hreflang errors.\n🤖 Here's how AI is infiltrating influencer marketing.\n👂 Is Clubhouse still a thing? Technically, yes.\nCheck out Growth Trends for more curated news items focused on user acquisition and new product ideas.\n📝 Consider This Before Building an AI App\nby Wael\nI've been running TopAI.tools for two months, and I am exposed to a decent number of AI apps every day. Below, I'm sharing some quick thoughts about building an AI app! Hope it helps other founders.\nReplacement guard\nTry to ensure that what you are building won't soon be replaced by a button in Google Suite or Microsoft Office.\nIt's only a matter of time before AI features become native in the apps that we use every day. For example, at the very least, basic email writing features will soon become part of Outlook or Gmail.\nTherefore, make sure that your app provides something unique that wouldn't be disrupted by in-product features rolled out by tech giants.\nProblem solving\nMake sure that your product solves a real problem, then add AI features to enhance its value.\nInstead of just building an AI app for the sake of FOMO, your app should be solving a real problem for a specific group of people. Add AI features into your app to make it even better, rather than creating them as the core of the app.\nAvoid saturation\nTry to avoid saturated niches. There are already somewhat saturated niches. If you check any AI tools directory these days, you will quickly see that there are niches with an overwhelming number of options. There are other niches with very limited options, or at least a limited number of good ones.\nWhile it's not necessary to look for blue oceans, it's crucial to avoid building an app in a bloody red ocean market unless you have a real advantage that will make a group of users prioritize your app over others.\nGeneral copywriting and content creation are both quite saturated markets, for example. If you plan to launch in these areas, you need to have an advantage around something involving your product or pricing model.\nAre you building an AI app? What has your experience been? Let's chat!\nDiscuss this story.\n🔥 Landing Page Hot Tips\nby Rob Hope\nStrengthen your landing page with these design, development, and conversion tips:\nLeverage your customer testimonials by highlighting features and answering doubts.\nRound up all of your customer testimonials, and select only the ones that add real value.\nSubscribe to Rob's One Page Love newsletter for his favorite UI, design, and development finds.\n🚀 Karthik is Building LaunchPedia\nby Karthik\nHey, indie hackers! I'm Karthik , and I'm building LaunchPedia, a suite of tools and resources that helps founders launch their products.\nWe set up the website in the last week of December, and have launched several products since January:\nLaunchPedia Tools: 200+ handpicked tools for product launches.\nPlaces to promote your startup: 60+ places to launch a startup and get initial traffic.\nProduct Hunt Launch Guide: A step-by-step guide on how to nail Product Hunt launches, featuring interviews from 15 founders.\nReddit e-book: A list of 30 viral post ideas to help you promote your product on Reddit.\nRead on for more!\nOur acquisition channels\nHere's how we've been building traffic for our product:\nProduct Hunt launches.\nBuilding in public on Indie Hackers and Twitter.\nSharing on Reddit.\nContent distribution on social media platforms.\nEngaging and plugging our products in Product Hunt discussions, on Indie Hackers, and in other communities.\nOur website has been seeing some great numbers over the past three months!\nUnique visitors: 13K+.\nWebsite sessions: 22K+.\nAverage session time: 1.4 minutes.\nOur revenue\nSo far, we've generated $226 in total revenue.\nAll of our products are free, as we make money from sponsorships. We got our first sponsor in February, and our second in March.\nIn order to set our sponsorship pricing, we checked out other websites. We studied their traffic and sponsorship pricing, and that helped guide our own pricing. In my opinion, if you have 100 unique visitors per day, you're in a good place to start considering sponsorships!\nOur mistakes\nNot diversifying our traffic channels: We were far too dependent on one channel. Most of the traffic in the first two months came solely from Product hunt launches. Once we realized that, we started diversifying our channels.\nMaintaining a tech stack that wasn't scalable: In order to launch faster, we initially used a tech stack that was easy to start. It was a good thing at first, because it helped us launch quickly, but not for when we started growing. We ended up having to spend way too much time on migration later. We should have started out with a tech stack that had room to grow from the beginning.\nNo monetization plan: We thought that we could keep LaunchPedia running with sponsorships and Buy Me a Coffee donations, but that is turning out to be tough. You need to keep getting consistent traffic every day to achieve that. We are still trying to figure this part out!\nOur plans\nSo, how are we planning to improve upon our mistakes?\nIncrease our traffic sources: We are optimizing our website's SEO, and sharing our journey with other founders. We are also looking to build a side project for our target audience, to drive traffic to the LaunchPedia website.\nWork on a paid product: We plan to build a paid product to cross-promote. That way, we can keep LaunchPedia free, while still bringing food to our table.\nPS: If you want to promote your product or startup on LaunchPedia, check out our sponsorship page !\nDiscuss this story.\n🐦 The Tweetmaster's Pick\nby Tweetmaster Flex\nI post the tweets indie hackers share the most. Here's today's pick:\n🏁 Enjoy This Newsletter?\nForward it to a friend, and let them know they can subscribe here .\nAlso, you can submit a section for us to include in a future newsletter.\nSpecial thanks to Jay Avery for editing this issue, to Gabriella Federico for the illustrations, and to Courtland Allen, Darko, Wael, Rob Hope, and Karthik for contributing posts. — Channing\njayavery\non April 6, 2023\n4\nUpvotes\nShare\nSay something nice to jayavery…\nPost Comment\nStay informed as an indie hacker.\nMarket insights that help you start and grow your business.\nSubscribe\nFollow @IndieHackers on X for stories and insights about founders building profitable online businesses, and to connect with others in the Indie Hackers community.\n© Indie Hackers, Inc. &middot; FAQ &middot; Terms &middot; Privacy &middot; Cookie Settings / Policy &middot;\nCommunity\nTop Today Top This Week Top This Month Join\nProducts\nAll Products Highest Revenue Add Yours\nDatabases\nIdeas Products Stories",
+     "policy": {
+      "policyId": "rights.indiehackers.v2",
+      "sourceId": "src.indiehackers",
+      "providerName": "Indie Hackers",
+      "displayTier": "facts_only",
+      "registryHash": "30d893f5b810c363886fbef8bc35e9535700abdcb83e6a517b66018b3993cacc"
+     }
+    },
+    {
+     "sourceId": "s8",
+     "url": "https://www.indiehackers.com/post/courtland-allen-on-ai-spam-bots-and-the-future-of-social-platforms-like-ih-2b979782b0",
+     "publisher": "Indie Hackers掲載のCourtland Allen本人インタビュー",
+     "snapshot": {
+      "url": "https://www.indiehackers.com/post/courtland-allen-on-ai-spam-bots-and-the-future-of-social-platforms-like-ih-2b979782b0",
+      "finalUrl": "https://www.indiehackers.com/post/courtland-allen-on-ai-spam-bots-and-the-future-of-social-platforms-like-ih-2b979782b0",
+      "status": 200,
+      "fetchedAt": "2026-10-07T09:51:32.720Z",
+      "via": "direct",
+      "contentType": "text/html; charset=utf-8",
+      "textHash": "da2090a2210c0da9d6b2af82a9c7bee973baa24a19545315def9d98b93f13149"
+     },
+     "text": "Courtland Allen on AI spam bots and the future of social platforms like IH - Indie Hackers\nThe future of social websites/communities hangs in the balance as their founders try to respond to increasingly advanced AI spam bots. I caught up with...\nThe future of social websites/communities hangs in the balance as their founders try to respond to increasingly advanced AI spam bots. I caught up with...\nCourtland Allen on AI spam bots and the future of social platforms like IH\nCourtland Allen on AI spam bots and the future of social platforms like IH - Indie Hackers Home Starting Up Case Studies DB Products Ideas DB Vibe Coding Tools Subscribe to IH+\nStarting Up Case Studies\nIdeas DB Products DB Sign in Join\n18\nUpvotes\n9 Comments\nCourtland Allen on AI spam bots and the future of social platforms like IH\nby James Fleischmann\nThe future of social websites/communities hangs in the balance as their founders try to respond to increasingly advanced AI spam bots.\nI caught up with Indie Hackers’ founder, Courtland Allen, to better understand the issue and what can be done about it.\nWhat are you seeing in the space that makes you so sure of the problem?\nBot activity has always been a huge problem. That cheap powerful LLMs will exacerbate the problem is more of a prediction than an observation. It’s still early days. The GPT-4 API only just became publicly available this month.\nBut I’m already seeing it on Indie Hackers. The vast majority of spam in the past was of the egregious kind. Links to buy Viagra or hacked bank accounts, that sort of thing. But in just the last few months, that’s all been replaced by what people are calling GPT spam. Soulless, impersonal comments that are written by LLMs, not humans.\nWhy do people do this? What’s in it for them?\nIt’s a lot of work to set up a bot, connect it to a platform’s API, and try to configure it to seem authentic.\nSo most people taking the time to do this are financially motivated. They’re testing out an idea, or trying to grow a following, or promoting a product of theirs. Maybe all three.\nMakes sense. Is this a post-GPT-4 problem?\nIt’s nothing new. There’s been an arms race here for years.\nAmazon and Yelp are flooded with fake reviews. Twitter is flooded with bots. Email is flooded with spam, as are Reddit and most internet forums.\nHow do you feel about humans who use GPT to write responses (as opposed bots)?\nPeople who are smart, clever, and careful about using LLMs to write for them will reap rewards in a variety of domains. People who make lazy and careless use of LLMs will come off as inauthentic and lose trust.\nSadly, I fear more people will do the latter than the former.\nI've seen you mention verification, payments, and invites as solutions. Tell me more about verification.\nIdentity verification is what it sounds like. Users have to prove they’re a real person.\nOf course, this doesn’t prevent them from subsequently using AI to post spam. But it does dramatically cut down on the number of fake accounts that can be created and deployed, which is a huge win because the primary advantages of automated spam are efficiency and scale.\nIt also disincentivizes bad behavior, since having one’s account banned is a much harsher punishment when it’s the only account one can create.\nSure. What about payments?\nFighting spammers is akin to playing whack-a-mole, and the moles become a lot more reluctant to show back up after being whacked if they have to pay for the privilege to do so.\nWe’ve seen Twitter experimenting with this a bit in their efforts to change the meaning of a verified account from “VIP” to “paid to prove they’re real.”\nAnd invites?\nSocial vouching means requiring users to vouch for each other’s reputation via invite codes.\nIt’s simple enough for builders to create a tree showing who was invited by who. It’s likely that the vast majority of the spammers will be invited by a tiny minority of users, so they’re easy to find and root out.\nCool, so why not do them all?\nThe biggest downside to all of these solutions is that they add friction to the signup process and thus slow down growth.\nIn the real world, we don’t mind this. For example, we ID people to make sure they belong in our schools, our nightclubs, etc. We don’t care if this adds entry friction and slows down “growth,” because we have limited physical space and don’t care about unlimited growth.\nOn the internet, however, many companies want their apps to grow to billions of users . So ID’ing people at the door isn’t something they like to do.\nWhat about IH? Do you want billions of users? Is IDing people at the door an option for IH?\nI want IH to grow, but new user signups isn’t our bottleneck right now. Great content is.\nWhat we need more than anything is people who are writing good stuff, and people who are starting inspiring companies. That’s a small enough group of people that we wouldn’t be hindered by adding friction to our signup process.\nIf anything, that would help us.\nWhat about fighting fire (AI) with fire (AI)?\nAll these new advances in AI give builders more power to fight traditional spam than ever before.\nThe reason is that humans are excellent spam detectors. So the closer AI gets to matching human levels of of discernment, the better it will be at detecting spam.\nThe base GPT-4 model is already great at doing this. I’ve been using it on Indie Hackers, and it catches traditional spam almost 100% of the time.\nNice. Problem solved?\nWell, for the same reason AI is great at catching traditional spam, it’s terrible at catching GPT spam. To the extent that LLMs can tell what human writing looks like, they can also emulate human writing.\nSo I think the real long-term solutions for platforms will come in the form of identity verification, payment, or social vouching.\nSo friction is unavoidable. Ok, so which of those three have you tried?\nWe’ve done invite codes in the past with IH. I think we had them for most of 2022. They did an amazing job cutting down on spam. There was pretty much zero spam.\nWe should probably go back to requiring them.\nWhy’d you stop requiring invite codes if they were working so well?\nWe were at Stripe, and our goal was to grow. Now we’re no longer at Stripe, and our goal is to generate enough revenue to keep Indie Hackers alive.\nWhat will happen to platforms that don’t respond?\nAt worst, failing to fight GPT spam will cause platforms to enter a death spiral and collapse.\nPretty doom-and-gloom. Why?\nOn the surface, GPT spam seems better than normal spam, because it often includes helpful content and is rarely offensive. But it’s actually quite dangerous.\nAt least traditional automated spam can easily be differentiated from authentic content. GPT spam is close enough to human that readers find themselves questioning whether it really is human. Which causes them to begin questioning how much other seemingly-legitimate content posted on a platform is human.\nWhen users begin questioning an entire platform, they lose trust and stop participating. Since the value of a social network is proportional to the amount of engagement, this can easily create a death spiral if it’s not addressed.\nMan, I’d be so frustrated by this if I were you.\nNo, I think it’s inevitable that new technological advances will cause problems.\nWhen you invent the ship, you invent the shipwreck. But the world likes ships, and it doesn’t like shipwrecks, so it will adapt in a positive direction over time. And the people fixing the shipwrecks will probably create businesses to do so, and make a lot of money in the process.\nProblems always create opportunities.\nQuite the optimist. So can you actually resolve this or will you just end up making the bots smarter?\nThe bots are going to get smarter whether I do anything or not.\nSubscribe for more founder interviews, roundtables, case studies, and tips from people who are in the thick of it. 🪤\nJames Fleischmann\non July 21, 2023\n18\nUpvotes\nShare\nSay something nice to IndieJames…\nPost Comment\n1\nAs someone navigating indie spaces, the loss of trust in comments hits hard. I'm trying to 'build in public' so every post is proof of a real person's journey. Courtland’s point on 'social vouching' resonates—the best connections here came from genuine handshake-style comments, not bots. Huge respect for tackling this head-on.\nxiaoqiang_API\n&middot;\n5 months ago\n&middot;\nReply\n3\nThe really interesting thing is that the massive social networks like Twitter and Reddit are going to have to adapt in the same ways that smaller communities like Indie Hackers are adapting: they're going to have to get smaller by sacrificing growth for trust.\nIDs, subscriptions, invite-only sign-ups, etc. I don't really see a way around it. And of course Twitter and the other platforms are already rolling these kinds of features out.\nIf these assumptions are correct, it might lead to a slightly more decentralized internet, since platforms like Twitter will be a little less powerful at amplifying people's messages. It's like a second stab at the world promised by the Web 3 enthusiasts.\nchanningallen\n&middot;\n3 years ago\n&middot;\nReply\n2\nThat's a really interesting point. Who would have thought that spam could inadvertently improve the internet?\nThanks for the silver lining :)\nJames Fleischmann\n&middot;\n3 years ago\n&middot;\nReply\n3\nAs someone who just used Chat GPT to generate this comment, Allan Is right but to my knowledge, human spam is worst than bots because it is hard to detect before Search engines do.\nblaqdu\n&middot;\n3 years ago\n&middot;\nReply\n2\nThanks for the interview @IndieJames!\nAs annoying as spam is, it's actually kind of fun to fight against it with code, especially AI, so I'm not too grumpy.\ncsallen\n&middot;\n3 years ago\n&middot;\nReply\n1\nI don't think you can fight Ai with Ai. There is an inherent laziness to it - in the end everyone ends up trying to please bots not people. I've written 2 mid sized articles - 1 about the benefits of creating your own briefing and another sharing some possible insights on text to image opportunity. Neither made it to the front page, even for a moment. I am open to the fact that they're simply not any good!\nHowever - they are written from the perspective of someone who works in the innovation consulting space.\nMy background is product (as in physical product design) but I enjoy the dynamism of Indie mindset and digital product space - hence I found you guys.\nBut as Courtland Allen says - they want good content. I'm not sure how it works in the background - but the 'system' appears to incentivize spamming with volume in order to gain visibility.\nHere are 2 articles I've posted - no sales element to them. Would be keen to understand is they are of interest to the community:\nhttps://www.indiehackers.com/post/why-you-should-write-a-brief-for-yourself-57c8024cd0\nhttps://www.indiehackers.com/post/opportunity-space-in-prompt-to-image-b547e2de4c\nMrTMan\n&middot;\n3 years ago\n&middot;\nReply\n1\nThese are the present challenges, and how big companies respond to them is just as critical.\nPosting content generated by AI, without contribution from the author, is very bad and affects everyone, even the author.\nflorinmtsc\n&middot;\n3 years ago\n&middot;\nReply\n1\nAgreed with all the conclusions here, the next big thing might be creating an API as a service to detect human content vs LLM.\nI would try adding a setting that hide any content that is not from a verified human source. Without forcing anyone to verify their ID, your user base could be building a strong incentive to be verified/endorsed.\nAnother thing I'd explore, the same way you required invite codes, providing post registration endorsement (in limited quantity like invite codes) between users once they had some face time.\nTwoWeeks\n&middot;\n3 years ago\n&middot;\nReply\n1\nSpam is the worst! It's an ongoing annoyance. Let's hope AI and other advancements can help tackle this issue. I always ask myself if I'm reading what a human wrote or not 🤣\nsonibauer\n&middot;\n3 years ago\n&middot;\nReply\n1\nThis comment was deleted 3 years ago\nDeletedUser\n&middot;\n3 years ago\n1\nThis comment was deleted 3 years ago\nDeletedUser\n&middot;\n3 years ago\nStay informed as an indie hacker.\nMarket insights that help you start and grow your business.\nSubscribe\nFollow @IndieHackers on X for stories and insights about founders building profitable online businesses, and to connect with others in the Indie Hackers community.\n© Indie Hackers, Inc. &middot; FAQ &middot; Terms &middot; Privacy &middot; Cookie Settings / Policy &middot;\nCommunity\nTop Today Top This Week Top This Month Join\nProducts\nAll Products Highest Revenue Add Yours\nDatabases\nIdeas Products Stories",
+     "policy": {
+      "policyId": "rights.indiehackers.v2",
+      "sourceId": "src.indiehackers",
+      "providerName": "Indie Hackers",
+      "displayTier": "facts_only",
+      "registryHash": "30d893f5b810c363886fbef8bc35e9535700abdcb83e6a517b66018b3993cacc"
+     }
+    },
+    {
+     "sourceId": "s9",
+     "url": "https://foundersconfidential418.substack.com/p/i-profiled-80-companies-for-indie",
+     "publisher": "Ottoの執筆経験の公開記録",
+     "snapshot": {
+      "url": "https://foundersconfidential418.substack.com/p/i-profiled-80-companies-for-indie",
+      "finalUrl": "https://foundersconfidential418.substack.com/p/i-profiled-80-companies-for-indie",
+      "status": 200,
+      "fetchedAt": "2026-10-07T09:51:32.818Z",
+      "via": "direct",
+      "contentType": "text/html; charset=utf-8",
+      "textHash": "103af9f582c25eab6bfa5306cf15987745aeb83d6e941317c2379a38f4266ca1"
+     },
+     "text": "I profiled 80 companies for Indie Hackers. Here’s what I learned.\nI profiled 80 companies for Indie Hackers. Here’s what I learned.\nThese were the 10 biggest lessons I came away with.\nThese were the 10 biggest lessons I came away with.\nI profiled 80 companies for Indie Hackers. Here’s what I learned.\nFounders Confidential\nSubscribe Sign in\nI profiled 80 companies for Indie Hackers. Here’s what I learned.\nThese were the 10 biggest lessons I came away with.\nOtto\nNov 05, 2024\n4\n1\n1\nShare\ntl;dr\nSolve your own problems.\nFind a niche.\nHarness word-of-mouth growth.\nIf you build it, they will not come.\nThe “Big Launch” is a myth.\nMost startups grow exponentially.\nIt takes years.\nTarget agencies.\nYou don’t have to go full-time right away.\nTalk to customers.\nLike many, I was sad to see that the Indie Hackers podcast was ending. However, it turns out that Courtland and Channing are just shifting focus to written content. As part of that, they hired a team of writers, including me. I worked on the Ideas Reports , which is a big database of profiles of companies, almost all of them bootstrapped. The Ideas Reports are intended to help you get inspiration for your own projects.\nThe Ideas Database inside the new Indie Hackers Plus\nI profiled 80 companies, which not only helped pay the bills as we grow Arno, but also taught me a ton about the strategies and tactics that bootstrapped companies have used to become successful. In this post, I’ll summarize what I learned.\n#1) Solve your own problems.\nThis one was so common that it was a challenge to find new ways to describe it in each report: “scratch your own itch,” “build for yourself,” “fix what you know,” etc.\nOften, the initial solution wasn’t even software and the founder wasn’t even thinking about making a company when they created it. They were just trying to make their lives a little easier. For example, Jen Yip of Lunch Money created a spreadsheet to track her expenses. It wasn’t until her sisters-in-law started using it that she realized she could turn it into a bonafide product.\nA mistake that I’ve made a lot — and I think many other founders have made too — is not focusing enough on the problem. The more deeply you understand the problem you are trying to solve and who is experiencing it, the easier everything becomes because you know how to market the product and what features you need and don’t need. Experiencing the problem yourself is the fastest way to get that deep knowledge.\nHowever, a savvy thing that many founders did was to validate that their problems were shared by others. Perhaps your problem is just a result of your own quirky workflow or preferences unique to you. With Makoto’s and my first startup, we assumed that if we built something our financial analyst co-founders loved, other analysts would love it too. It turns out that our co-founders built financial models in a way unique not just to their company but to their specific office. We had an amazing product, for a market of about 5 people, which meant that the business failed.\n#2) Find a niche.\nHave you ever wondered how there can be so many CRMs or product analytics tools? The answer is that within these categories, there are many niches. For example, Aleem Mawani of Streak built a CRM that is integrated deeply with Gmail, which makes it easy to update data in the CRM as you are doing emails. That one differentiating feature was enough to capture a sliver of the market and now Streak is doing $10m ARR.\nIn fact — and this is a point Courtland always liked to make in the Indie Hackers podcast — the existence of huge companies like Salesforce proves that there is a large market for something like a CRM. In contrast, if you are trying to build something in a new category, there is a lot more uncertainty about whether people even want that kind of product at all.\nMany of the companies I profiled found specific, neglected segments of an existing market. In order to serve a ton of customers, companies like Salesforce have to compromise the user experience for some users for the sake of everyone else. The result is that dominant tools like Salesforce are good enough for a lot of people but perfect for very few. Building the perfect product for a small niche of users is a common way to build a successful indie company.\nThere were also a number of companies that started out broad but then niched down later. Aiming to build a product that serves everyone is a classic startup mistake. On the face of it, it makes sense: The more people that use your product, the more money you can make, right? The big problem is that it becomes really hard to market it. Who do you target? Even if you get customers, you end up with a mixed bag of users, each with different ways of using the product, which complicates product development.\nThis is what happened to Nick Swan at SEOTesting.com . The product was previously called Sanity Check, and it was a platform that helped you analyze your SEO data. After revenue began to stall, Nick decided to take a step back and evaluate the business. He learned that customers put Sanity Check in the same bucket as tools like Ahrefs and Semrush, which shocked him because in his mind, Sanity Check was categorically different. He came to see that his best customers used Sanity Check to analyze their SEO experiments. He rebranded, which required virtually no changes to the product itself, and within a year, growth had picked up again. By niching down, it got a lot easier for Nick to communicate what SEOTesting.com is all about (it was right there in the company name!), which meant it was much easier to acquire users.\nA useful rule of thumb when thinking about marketing is that someone should read your landing page’s H1 and say, “This was built for me.” In the words of April Dunford, your product needs to be “ obviously awesome ” to a specific segment of users. This is especially true the younger your company is. Companies like Notion can afford the luxury of vague marketing copy, because so many people already know who they are. (However, they also have tons of marketing that is still tailored to specific user personas.)\nAs a bootstrapped founder, if you can’t come up with a concise, crisp H1, then this is a sign that you haven’t found your niche.\nEnjoying this post? Please consider subscribing :)\nSubscribe\n#3) Harness word-of-mouth growth.\nEvery single company I researched grew through word-of-mouth. The shrewdest companies understood its importance and harnessed it, which meant providing an incredible experience to their users. They strived to make the product the best it could be, but they also provided great support. I was stunned by how much time founders spent on support, even once the company was generating significant amounts of revenue. Going out of your way to help customers doesn’t scale, but it allows you to learn so much about your users, which is why “doing things that don’t scale” is one of Paul Graham’s most famous pieces of advice .\nMany of the companies I profiled also gave away a lot of value for free. Some companies had a freemium model, but many more intentionally did not, the main reason being that it would result in too much support work so they wouldn’t be able to provide a great experience to those free users. Rather, companies would do things like publish a lot of useful content that ranks well for SEO . Some also created free tools. By providing value for free, this meant that a lot more people could learn about them, trust them, and then tell other people about them.\nHaving a generous free tier has been one of the best decisions we’ve made at Arno . Half of our users come through word-of-mouth, which is especially great because our users speak so many different languages, so it would be very challenging to reach them with other kinds of marketing. Also, it simply feels good to be able to help students who don’t have a lot of money.\n#4) If you build it, they will *not* come.\nAmong the 80 companies I profiled, there was only one that did no marketing in order to reach a decent scale: Going (formerly Scott Cheap’s Flights) . Scott simply started sending out his email newsletter to friends and family and from there it went viral. Every other company had to grind to get their users.\nThis grind can take different forms. For some, like Marie Martens of Tally , it meant spending pretty much all day, every day for months manually reaching out to creators. For others, it means being active on Twitter or creating a bunch of SEO content .\n#5) The “Big Launch” is a myth.\nThere seems to be this belief that if you get Product of the Day on Product Hunt, your company is going to succeed, and many startups put a lot of effort into having a big launch.\nWhat happened with the companies I profiled was that even if they had a successful launch, this was a temporary spike in sign ups and subscribers, but then it subsided within a week or two. At that point, founders had to do the hard work of building out durable acquisition channels and improving the product in order to convert customers and keep them from churning. This is what happened to Michele and Mathias Hansen of Geocodio . Despite being at the top of Hacker News for a whole day, they only made $31 in their first month.\nI’ve learned that a successful launch is good validation of your idea, but it doesn’t mean that you have reached zero gravity and that the momentum from the launch will carry you indefinitely.\n#6) Startups grow exponentially.\nAll the companies I profiled followed exponential growth curves (the green line) as opposed to linear growth curves (the red line).\nThis meant that typically for several years, their growth was slow, perhaps even non-existent some months — look at how long that green line is basically at 0! But they kept plugging away, and eventually growth started to take off. For Lane Wagner of Boot.dev , the growth in the early days was so painfully slow that he even tried to sell the company. It’s now pulling in over $100,000 per month.\nFor some companies, the inflection point is sharp. For others, it’s more gentle. In almost none of them was there a specific factor that caused the big acceleration in growth. Rather, it just seemed to be the steady accumulation of improvements across different areas of the business combined with word-of-mouth which grows at an exponential rate. (However, I plan to write a blog post in which I try to pin down why startups grow exponentially as opposed to linearly. If you have any thoughts, please send me an email: otto.nagengast [at] gmail.com 🙂)\n#7) It takes years.\nSeeing the growth rates and timelines of so many companies really drove the point home to me that building a successful company takes years, not weeks or months. These days, I pretend like I’m getting a PhD. It takes around 5 years to get one, become an expert in a field, and get a job that pays you decent money. That’s the timeline that I assume I’m on as a bootstrapped founder.\nTo underscore some advice I heard so many times on the Indie Hackers podcast: Just don’t quit. If you can stay in the game long enough, and continue improving your company a little bit each day, the experience of the 80 companies I profiled suggests that eventually, growth will accelerate.\n#8) Target agencies.\nUnfortunately, I didn’t find any hacks for building a successful company. But, targeting agencies is perhaps the one exception. Agencies have multiple clients. If you can sell your tool to one agency, they likely will want to use it with each of their clients. This means that just by selling to that one agency, you can end up effectively selling to tons of companies, but with none of the sales work.\nAgencies are also great targets because they are eager to find ways to save time so that they can can take on more clients.\n#9) You don’t have to go full-time right away.\nAround half the companies I profiled were built for many years while their founders held down other work, typically freelance or consulting work but sometimes even full-time jobs. You don’t need to risk all your money and live off ramen to be a successful startup founder. You can grow it slowly as a side project. You can transition to it part-time. Once you’re making enough revenue, then you can go full-time on it.\n#10) Talk to customers.\nThis advice has become so common that it feels almost silly to say once more. Yet, founders of company after company I profiled talked about the importance of speaking with customers and using their feedback to improve the product.\nI’ve realized that the advice “talk to customers” is good but not particularly useful because it doesn’t tell you how to go about doing it. For this, The Mom Test is essential reading.\nWith Arno, we’ve discovered that there’s a big difference between talking to a lot of users one time and talking to the same users many times. When you have a bunch of one-off conversations, you end up covering the same ground over and over. But, if you talk to the same users repeatedly, you will learn a lot more about how they are using the product and what things they’re doing around your product. Plus, you develop a real relationship with them, which motivates me to work harder on Arno so that I can help these people who have become friends.\nSubscribe\n4\n1\n1\nShare\nDiscussion about this post\nComments Restacks\nDhruv Jain\nMar 28\n80 companies is a solid sample size. The lesson nobody wants to hear is that it takes years, not weeks. Hard to accept when Twitter is full of \"$10K MRR in 30 days\" threads that skip the 2 years of failed attempts before that month.\nReply\nShare\nTop Latest Discussions\nNo posts\nReady for more?\nSubscribe\n© 2026 Otto · Privacy ∙ Terms ∙ Collection notice\nStart your Substack Get the app\nSubstack is the home for great culture",
+     "policy": {
+      "policyId": "rights.substack.v1",
+      "sourceId": "src.substack",
+      "providerName": "Substack newsletters",
+      "displayTier": "facts_only",
+      "registryHash": "30d893f5b810c363886fbef8bc35e9535700abdcb83e6a517b66018b3993cacc"
+     }
+    },
+    {
+     "sourceId": "s10",
+     "url": "https://www.indiehackers.com/plus",
+     "publisher": "Indie Hackers Plus公式料金・機能ページ",
+     "snapshot": {
+      "url": "https://www.indiehackers.com/plus",
+      "finalUrl": "https://www.indiehackers.com/plus",
+      "status": 200,
+      "fetchedAt": "2026-10-07T09:51:32.910Z",
+      "via": "direct",
+      "contentType": "text/html; charset=utf-8",
+      "textHash": "b86caf419f6b1ed5da2138732c4c3d9bb5e77f924574e3979a196bae2e725eb2"
+     },
+     "text": "Sign Up for Indie Hackers Plus\nAn exclusive membership program designed from the ground up to give you an unfair advantage.\nAn exclusive membership program designed from the ground up to give you an unfair advantage.\nSign Up for Indie Hackers Plus\nSign Up for Indie Hackers Plus Home Starting Up Case Studies DB Products Ideas DB Vibe Coding Tools Subscribe to IH+\nStarting Up Case Studies\nIdeas DB Products DB Sign in Join\nIndie Hackers\nBuild your own $10K/month business.\nWork for yourself, from wherever you want, whenever you want. There's never been a better time to start.\nStart Building Today\n$900K/mo Wesley Tian Aragon\n$250K/mo Frank Sondors Salesforge\n$12K/mo Pranay Agarwal Mockey\n$110K/mo Roy Lee Interview Coder\n$2.4K/mo Lucie Barratte Logology\n$250K/mo Amar Ghose ZenMaid\n$167K/mo Joel Griffith Browserless\n$4.2MM/mo Rashid Khan Yellow\n$292K/mo Tony Beltramelli Uizard\n$59K/mo Ryan Darani Cuppa\n$40K/mo Marissa Goldberg Remote Work Prep\n$9.8K/mo Chris Poka DesignPulse\n$6.7K/mo Thomas Sanlis Uneed\n$441K/mo Lane Wagner boot.dev\n$9K/mo Jim Harrison Jim Designs\n$28K/mo Sorin Alupoaie Swifteq\n$10K/mo Brad Adkins Designfly\n$25K/mo Charlie Clark Liinks\n$24K/mo Sorin Alupoaie Swifteq\n$167K/mo AJ Carrd\n$20K/mo Jason Chin Easlo\n$15K/mo Lukas Hermann Stagetimer\n$8.5K/mo Dmytro Krasun ScreenshotOne\n$108K/mo Sumit Kumar Parqet\n$30K/mo Berkay Yavuz Adsby\n$10K/mo Jonathan Wilke supastarter\n$1.67MM/mo Sahil Lavingia Gumroad\n$5K/mo Andrew Kamphey Better Sheets\n$15K/mo Wilson Bright BlockSurvey\n$20K/mo Modest Midkus Notion Template Marketplace\n$30K/mo Berkay Yavuz Adsby\n$10K/mo Jonathan Wilke supastarter\n$1.67MM/mo Sahil Lavingia Gumroad\n$5K/mo Andrew Kamphey Better Sheets\n$15K/mo Wilson Bright BlockSurvey\n$20K/mo Modest Midkus Notion Template Marketplace\n$5K/mo Owen Chen ILLA Cloud\n$14K/mo Carwan Rasoal Genvalues\n$12K/mo Dmitry Dragilev TopicRanker\n$11K/mo Andrei Chira Simplenet\n$25K/mo Vedran Rasic LeadDelta\n$8.5K/mo Max Sinclair Ecomtent\n$40K/mo John Doherty EditorNinja\n$25K/mo Robin Waite Fearless Business\n$30K/mo Harsha Abegunasekara Metana.io\n$10K/mo Viktor Hanacek Picjumbo\n$7.8K/mo Luca Restagno Shipped.club\n$3.4K/mo Juanjo Valiño WrapFast\n$20K/mo Oleg Kulyk ScrapingAnt\n$26K/mo Maciej Cupial Calendesk\n$30K/mo Jiayuan Zhang Devv\n$34K/mo Jen Yip Lunch Money\n$20K/mo Maciej Cupial Calendesk\n$5K/mo Karl Weber Capsule\n$134K/mo Masud Hossain Queue\n$2.5K/mo Daniel Pirciu GrowthPulse Studio\n$10K/mo Sergey Kyune Singing Carrots\n$30K/mo Nicholas Robb Design Hero & Life By Design\n$100K/mo Kevin Indig Growth Memo\n$50K/mo Micha Mazaheri Paw\n$2.5K/mo Daniel Pirciu GrowthPulse Studio\n$10K/mo Sergey Kyune Singing Carrots\n$30K/mo Nicholas Robb Design Hero & Life By Design\n$100K/mo Kevin Indig Growth Memo\n$50K/mo Micha Mazaheri Paw\n$11K/mo Caspar Von Wrede Keepthescore.com\n$42K/mo Sébastien Night OneTake AI\n$6.67MM/mo Noah Kagan AppSumo\n$250K/mo Tom Hunt frame.so\n$74K/mo Tim Bennetto Pallyy\n$140K/mo Spencer Patterson Bootstrapped Bites\n$12K/mo Arjun Jain pre.dev\n$850K/mo Kevin McArdle Big Band Software\n$18K/mo Alexander Isora Unicorn Platform\n$40K/mo Andrew Pierno XO Capital\n$62K/mo Stas Kulesh Karma Bot\n$23K/mo Dustin Stout Magai\n$74K/mo Tim Bennetto Pallyy\n$30K/mo Jay Tan Zlappo\n$70K/mo Marie Martens Tally\n$5K/mo Valentin Pichard Naker\n$17K/mo Kyle Nolan ProjectionLab\n$100K/mo Steven Goh Proxycurl\n$4.17MM/mo Tim Schumacher saas.group\n$58K/mo Mac Martine Castanet\n$7K/mo Muhammad Taimoor Vocally\n$3K/mo David Bressler ExcelFormulaBot\n$2.6K/mo Valentin Hinov Thankbox\n$40K/mo Rachit Khator Stackby\n$4K/mo Usama Ejaz SocialBu\n$7K/mo Muhammad Taimoor Vocally\n$3K/mo David Bressler ExcelFormulaBot\n$2.6K/mo Valentin Hinov Thankbox\n$40K/mo Rachit Khator Stackby\n$4K/mo Usama Ejaz SocialBu\n$10K/mo Ben Issenmann Supercreative\n$2.5K/mo Austin Repp Discord Bot Studio\n$7.9K/mo Isaac Saul Tangle\n$12K/mo Phil Strazzulla SelectSoftware Reviews\n$40K/mo Andrian Valeanu Designmodo\n$3K/mo Daniele Pipechat\n$44K/mo Colin Stencil Stop\n$5K/mo Zach Williamson Culture Crave\n$4K/mo Przemek Chojecki Contentyze\n$3.4K/mo Raj Dosanjh Rent Round\n$1.9K/mo Jaime Novoa Dealflow.es\n$10K/mo Marc Bromhall Contentellect\n$2.7K/mo Alex Unicorn Platform\n$3K/mo Will Kwan Will Kwan\n$31K/mo Michael QuotaGuard\n$15K/mo Michael Logo Package Express\n$20K/mo Curtis Boyd Objection Co\n$17K/mo Ben Keene Rebel Book Club\n$9K/mo Frank Rousseau CGWire\n$12K/mo Rodolphe Remotive\n$4.5K/mo Ramy Khuffash Page Flows\n$4K/mo Povilas Korop QuickAdminPanel\n$2.2K/mo Pēteris Caune Healthchecks.io\n$85K/mo Mark Thompson PayKickstart\n$20K/mo SumanJung DesignPac\n$4.5K/mo Ramy Khuffash Page Flows\n$4K/mo Povilas Korop QuickAdminPanel\n$2.2K/mo Pēteris Caune Healthchecks.io\n$85K/mo Mark Thompson PayKickstart\n$20K/mo SumanJung DesignPac\n$6.5K/mo Keith Brink AZLabels\n$625K/mo Timur Valishev JivoChat\n$1.8K/mo Stanislav Dimitrov Night Eye\n$250K/mo Nicolas Vandenberghe Chili Piper\n$50K/mo Renato Marinho GitScrum\n$3.4K/mo François-Guillaume Ribreau Image-Charts\n$5K/mo Lucas Maldonado Convertify\n$15K/mo Alvaro Trigo fullPage.js\n$50K/mo Aurelien Amacker Systeme.io\n$20K/mo Shannon McLaughlin Ubuntu Baba\n$70K/mo Josh Ho Referral Rock\n$2.3K/mo Owen Charged\n$1.8K/mo Will Hankinson IntroCave\n$22K/mo Ben Tossell Makerpad\n$20K/mo Austin Ginder Anchor Hosting\n$15K/mo Nate Ritter PingBid\n$70K/mo Robin E-junkie\n$30K/mo Dmitry Dragilev JustReachOut\n$150K/mo Asad Khan LambdaTest\n$20K/mo Buster Benson 750 Words\n$2.1K/mo Matej Better Web Typography for a Better Web\n$7K/mo Leo Plutio\n$11K/mo Ketan Anjaria HireClub\n$350K/mo Sahil Lavingia Gumroad\n$18K/mo Mitch Colleran Join It\n$2.1K/mo Matej Better Web Typography for a Better Web\n$7K/mo Leo Plutio\n$11K/mo Ketan Anjaria HireClub\n$350K/mo Sahil Lavingia Gumroad\n$18K/mo Mitch Colleran Join It\n$22K/mo Hugo Valente Statful\n$14K/mo Dani Scribly.io\n$4K/mo Preston Lee SolidGigs\n$13K/mo Justin Hunter Graphite\n$2K/mo Baptiste Debever Feedier\n$2K/mo Marvin Russell Checkli\n$115K/mo Ajay Goel GMass\n$9K/mo Andrew Fedoniouk Sciter\n$25K/mo Mohammad CryptoSuite\n$9K/mo Daniel Scocco DailyWritingTips.com\n$5K/mo Théo Booctin\n$26K/mo Lior Ohayon ScopeLeads\n$8K/mo Cam Adair Game Quitters\n$47K/mo Jake Jorgovan Lead Cookie\n$200K/mo Veiko Raime Mobi Lab\n$90K/mo Dom Wells Human Proof Designs\n$10K/mo Andres Aguerrevere Wegacha\n$3.5K/mo Abi Noda Pull Reminders\n$3.8K/mo Ryan Angilly Scrubber\n$50K/mo Jennifer Bailey Ninja Number\n$2K/mo Adam Versioning\n$10K/mo Ervin Ruci geocode.xyz\n$5K/mo Eran Galperin Martial Arts on Rails\n$5.8K/mo William Candillon React Native Starter Kits\n$10K/mo Kyle M. Brown wpSaaS\n$2K/mo Adam Versioning\n$10K/mo Ervin Ruci geocode.xyz\n$5K/mo Eran Galperin Martial Arts on Rails\n$5.8K/mo William Candillon React Native Starter Kits\n$10K/mo Kyle M. Brown wpSaaS\n$50K/mo Robin Vander Heyden ManyPixels\n$45K/mo Jeff Meyerson Software Engineering Daily\n$9K/mo Nicolas Tranchant Vivalatina\n$5.5K/mo Mattijs Naus Pagestead\n$3K/mo Lewis Body Tracker\n$1.6K/mo Nick ShareKit.io\n$100K/mo Kosta Panagoulias Web4Realty\n$191K/mo Pippin Williamson Sandhills Development\n$6K/mo Elvio Vicosa Phoenix for Rails Developers\n$3.5K/mo Hari Krishna ACrypto\n$6K/mo John Shea No Shame Income\n$3K/mo Eddie Writeaday\n$70K/mo Romain Vialard Yet Another Mail Merge\n$170K/mo Vincent Woo CoderPad\n$33K/mo Franck Snipcart\n$2.5K/mo Josh Ge Cogmind\n$6K/mo Filip Society Socks\n$25K/mo Turgay Birand EditionGuard\n$4.2K/mo Jérémy Mouzin Hercules\n$7.2K/mo Tracy WeddingLovely\n$2K/mo Deepak Chhugani The Lobby\n$145K/mo Alex Yumashev Jitbit\n$3K/mo Michal Ptacek Officelovin'\n$7.5K/mo Jesse Martinek Vacayrx\n$5K/mo Hamed Stay22\n$2K/mo Deepak Chhugani The Lobby\n$145K/mo Alex Yumashev Jitbit\n$3K/mo Michal Ptacek Officelovin'\n$7.5K/mo Jesse Martinek Vacayrx\n$5K/mo Hamed Stay22\n$275K/mo Sandra Lewis Worldwide101\n$110K/mo Garth Adams I Want That Flight\n$30K/mo Michael Hebenstreit MH Themes\n$5K/mo Nick Janetakis -1\n$3K/mo Jon Sherman Practical Golf\n$27K/mo Chris Patton Punchpass\n$3K/mo Sacha Greif Sidebar\n$20K/mo Sergey Tsalkov ArkServers.io\n$20K/mo Dmitry Ivanov ClusterEngine\n$170K/mo Mehdi Kajbaf Matboard and More\n$3K/mo Ervin Kalemi Publer\n$125K/mo Kyle Davidson Sourced Adventures\n$120K/mo Ryan Shoppe\n$3K/mo Kevin Ohashi Review Signal\n$44K/mo Steve Benjamins Site Builder Report\n$2K/mo Ted Grajeda Free Vector Maps\n$60K/mo Mohammad Dimas Mailbird\n$83K/mo Josh Pigford Baremetrics\n$50K/mo Ionut Neagu ThemeIsle\n$10K/mo Kai Brach Offscreen Magazine\n$200K/mo Constantine Rozenshtraus SendPulse\n$16K/mo Jon UX Power Tools\n$40K/mo Aaron Davidson Cronometer\n$2.5K/mo Tim Leland Weather Extension\n$4K/mo Dinesh Agarwal RecurPost\n$200K/mo Constantine Rozenshtraus SendPulse\n$16K/mo Jon UX Power Tools\n$40K/mo Aaron Davidson Cronometer\n$2.5K/mo Tim Leland Weather Extension\n$4K/mo Dinesh Agarwal RecurPost\n$10K/mo Trevor McKendrick Salem Software\n$20K/mo Dan Rusu Lighting Shoes\n$26K/mo Christopher Gimmer Snappa\n$3K/mo Pardeep Goyal Cash Overflow\n$12K/mo Robert Williams Workshop\n$4.1K/mo James Kemp Iconic\n$597K/mo Nathan Barry ConvertKit\n$15K/mo Jack Bramhall mugpods\n$3.5K/mo Sebastian Dobrincu Stock Trading Bot\n$45K/mo Simon Arthur Big Blue Saw\n$13K/mo Josh Nielsen Zencastr\n$15K/mo Bemmu Candy Japan\n$6K/mo Patrick Publishing Push\n$6K/mo Kevin Lee Product Manager HQ\n$15K/mo Joel Paleo Meal Plans\n$5K/mo Dave Child Readability-Score.com\n$75K/mo Jan Schulz-Hofen Planio\n$70K/mo Dawson Whitfield Logojoy\n$3.5K/mo Eliot Peper -1\n$15K/mo Vivek Krishna AuGrav\n$2K/mo Louis Nyffenegger PentesterLab\n$2.4K/mo Michael Herrmann Terminerinnerung\n$30K/mo Pushkar Gaikwad AeroLeads\n$3.8K/mo Chris Urlbox\n$10K/mo Ka kei Ho Kapa99.com\n$2K/mo Louis Nyffenegger PentesterLab\n$2.4K/mo Michael Herrmann Terminerinnerung\n$30K/mo Pushkar Gaikwad AeroLeads\n$3.8K/mo Chris Urlbox\n$10K/mo Ka kei Ho Kapa99.com\n$7K/mo Åke Brattberg Statbot\n$2.5K/mo Dallin Credible\n$18K/mo Jonathan Plackett I Think And Do\n$6K/mo Tom Andrew WhatSong\n$80K/mo Rosie Sherry Ministry of Testing\n$2.3K/mo Phil Manavopoulos Doorbell.io\n$4K/mo Adrien updown.io\n$3K/mo Maxime Germain KeplerBot\n$21K/mo Tyler Tringas Storemapper\n$3K/mo Sherry Yang Audio/Video Converter Android\n$12K/mo @patio11 Appointment Reminder\n$4.5K/mo Finbarr Taylor Shogun\n$2K/mo Malcolm Ocean Complice\n$32K/mo Chris Chen Instapainting\n$2K/mo Justin Keller Commando.io\n$16K/mo Nishant Agrawal FormCraft\n$8K/mo Courtland Allen TestingBot\n$150K/mo Oleg Rogynskyy Semantria\n$2K/mo Courtland Allen Taskforce\n$33K/mo Pieter Levels Nomad List\n$900K/mo Wesley Tian Aragon\n$250K/mo Frank Sondors Salesforge\n$12K/mo Pranay Agarwal Mockey\n$110K/mo Roy Lee Interview Coder\n$2.4K/mo Lucie Barratte Logology\nTurn inspiration into execution.\nMake real progress toward your goals, starting today.\nKnow exactly what to work on.\nStop wasting time on bad ideas. Learn what's working today, and find an idea that you're confident in.\nGet your first customers, fast.\nSee the exact steps real founders took to go from $0 to $10k+ MRR, so you can do the same.\nStop lurking. Start building.\nGet motivated and stay that way. Move beyond paralysis and lock in on something you'll stick with.\nDesign the life you actually want.\nWake up excited. Work on your own schedule. Hit $10k/mo and never look back.\nTrusted by thousands of successful founders.\nIndie Hackers is the starting point for building something that works.\n“Indie Hackers was 100% why I started Key Values. I got inspired to create and innovate something of my own after months of lurking.”\nLynne Tye KeyValues.com\n“Indie Hackers is a gold mine for startup founders.”\nDan Kulkov FounderPal.ai\n“The quality of the content is amazing! Without IH I'd still be doing freelance work instead of what I'm doing right now.”\nMáté Kovács Teleprompter.com\n“I wish the @IndieHackers community existed when I was first starting out building businesses on the Internet.”\nHiten Shah KISSmetrics.io\n“Indie Hackers was increeeeeedibly inspiring when I launched Recapped.”\nMark Fershteyn Recapped.io\n“Cloud Campaign spun out of Indie Hackers. I leaned on the community quite a bit. That’s where I got initial feedback.”\nRyan Born CloudCampaign.com\n“Indie Hackers was the inspiration to start my own side project and quit my job to go full-time indie.”\nLukas Hermann StageTimer.io\nGet unlimited access with Indie Hackers Plus.\nA membership designed from the ground up to give you an advantage.\nCase Studies Database\n600+ in-depth interviews with real indie hackers on how they started, grew, and scaled from $0 to $profitable.\nEvery case study doubles as an AMA, where you can ask questions and get answers.\nIdea Reports Database\nWeekly reports on proven ideas from real companies — we go deep with our research so you don't have to.\nEvery idea report comes with a list of profitable customer segments for you to target with a similar idea.\nTrend Analysis\nFounder-first reporting on trends that matter—AI, bootstrapping, creator economy, tools, funding, and more.\nWe cut through the noise to find the signal, keep you up to date, and give you an edge.\nSpecial Tools\nGet a premium Indie Hackers profile, first-class privileges in the IH community, and more.\nWe're constantly building features to help you succeed.\nA membership that pays for itself.\nAnnual Membership\n$ 198 per year\nGet Annual Access\nUnlimited access to all news and trend analysis articles, so you're always in the know.\nUnlimited access to articles in the Case Studies & Idea Reports databases, so you can learn from the best.\nPremium founder profile, so you can show off your projects, content, and milestones.\nFirst-class community privileges, so you can skip the \"wait\" and start posting on day #1.\nAnswers to any questions you might have.\nDo I count as an indie hacker? Who is IH+ for?\nIH+ is for anyone interested in starting or growing a profitable online business.\nIt's the best fit in particular for people who are starting something new, whether you're aspiring to be a first-time founder, or you've been around the block a few times.\nWhat's included in the exclusive databases?\nThe Case Studies Database contains hundreds of detailed case studies on successful indie hackers, the vast majority of which share transparent revenue numbers.\nThe Ideas Database contains extensive idea reports, each of which breaks down a profitable business idea and provides useful information for adapting it to make it your own, including well-researched customer segments and niches to adapt the idea to.\nWe add new case studies and/or idea reports to our databases on a regular basis, usually multiple times per week.\nOnly Indie Hackers Plus members will have full access to every story in the Case Studies DB and every idea report in the Ideas DB.\nAre discounts available for students or nonprofits?\nCurrently, we do not offer specific discounts, but we reevaluate our pricing structure regularly and may offer them in the future.\nWhat if I don't like it? What's your refund policy?\nWe offer a 30-day refund period if you're not satisfied with the membership, during which we'll offer you a pro-rated refund with no questions asked.\nAfter canceling your subscription, your access will continue until the end of the current billing period.\nFollow @IndieHackers on X for stories and insights about founders building profitable online businesses, and to connect with others in the Indie Hackers community.\n© Indie Hackers, Inc. &middot; FAQ &middot; Terms &middot; Privacy &middot; Cookie Settings / Policy &middot;\nCommunity\nTop Today Top This Week Top This Month Join\nProducts\nAll Products Highest Revenue Add Yours\nDatabases\nIdeas Products Stories",
+     "policy": {
+      "policyId": "rights.indiehackers.v2",
+      "sourceId": "src.indiehackers",
+      "providerName": "Indie Hackers",
+      "displayTier": "facts_only",
+      "registryHash": "30d893f5b810c363886fbef8bc35e9535700abdcb83e6a517b66018b3993cacc"
+     }
+    }
+   ],
+   "analysis": [
+    {
+     "id": "a-headline",
+     "item": "HEADLINE",
+     "text": "収益のある個人事業の創業者に1人ずつメールで掲載を頼み、回答にも追加の質問を返し、Hacker Newsの公開投稿で971ポイントを集めて場を立ち上げたCourtland Allen。",
+     "basis": [
+      "f2",
+      "f6",
+      "f7"
+     ],
+     "presentation": "FACT_SUMMARY"
+    },
+    {
+     "id": "a-business_model",
+     "item": "BUSINESS_MODEL",
+     "text": "収益のある事業の創業者が経験を公開し、読者が学び、助言を交換する場を運営している。初期の収益源はスポンサーで、2018年11月の質疑で本人は「この前の4月」の売上を記憶では約6,000ドルと答えた。独立後は有料会員Indie Hackers Plusを年額で売り、600件超の取材を含む事例集、アイデア資料、動向分析、会員用プロフィールの対価として読者から直接受け取っている。",
+     "basis": [
+      "f1",
+      "f12",
+      "f11",
+      "f24",
+      "f25"
+     ],
+     "formula": "数字は出典に載っている値",
+     "presentation": "FACT_SUMMARY"
+    },
+    {
+     "id": "a-customer",
+     "item": "CUSTOMER",
+     "text": "有料会員は、他人の稼いだ事例と事業アイデアの調査資料を買う、これから自分で稼ぐ事業を始めたい・伸ばしたい人。公式ページでは、数か月読み続けたことがKey Valuesを始めた理由だとするLynne Tyeの推薦文を載せている。",
+     "basis": [
+      "f24",
+      "f25",
+      "f27"
+     ],
+     "presentation": "FACT_SUMMARY"
+    },
+    {
+     "id": "a-customer_pain",
+     "item": "CUSTOMER_PAIN",
+     "text": "他の個人がいくら稼いでいるかが分からないこと。公開時、利用者の1人は表紙で具体的な金額がすぐ見えたことで読む価値があると判断した。一方で過去最高値の表示には「誤解を招く」と正直な売上表示を求める声も出た。",
+     "basis": [
+      "f10",
+      "f8"
+     ],
+     "presentation": "FACT_SUMMARY"
+    },
+    {
+     "id": "a-first_customers",
+     "item": "FIRST_CUSTOMERS",
+     "text": "最初の掲載者は、Courtlandが個別メールで1人ずつ誘い、回答後にも追加質問を返して話を具体化させた創業者たち。最初の読者はHacker Newsの公開投稿から流れ込み、投稿は971ポイントと184件のコメントを集めた。",
+     "basis": [
+      "f7",
+      "f6"
+     ],
+     "presentation": "FACT_SUMMARY"
+    },
+    {
+     "id": "a-channels",
+     "item": "CHANNELS",
+     "text": "立ち上げはHacker Newsへの投稿。その後は掲示板、音声番組、公式ニュースレターが読者の入口になった。各経路の比重を示す数字は公表されていない。",
+     "basis": [
+      "f6",
+      "f12",
+      "f19"
+     ],
+     "presentation": "FACT_SUMMARY"
+    },
+    {
+     "id": "a-cost_structure",
+     "item": "COST_STRUCTURE",
+     "text": "サーバーと基盤はRender、Google Cloud、Firebase、Cloudflareで、掲示板は自社開発。迷惑投稿の検出にGPT-4を使っている。文章へ重点を移してからは執筆者を採用しており、人件費がかかる。",
+     "basis": [
+      "f5",
+      "f22",
+      "f23"
+     ],
+     "presentation": "FACT_SUMMARY"
+    },
+    {
+     "id": "a-capital_and_team",
+     "item": "CAPITAL_AND_TEAM",
+     "text": "Courtland Allenが1人で作り、2017年4月のStripe買収時に兄弟のChanningが共同創業者として加わった。2023年3月の独立ではStripeが初期出資者になった。その後、資料づくりのために執筆者を採用している。",
+     "basis": [
+      "f2",
+      "f3",
+      "f4",
+      "f23"
+     ],
+     "presentation": "FACT_SUMMARY"
+    },
+    {
+     "id": "a-dependencies",
+     "item": "DEPENDENCIES",
+     "text": "立ち上げの客はHacker Newsの1投稿に頼った。運営基盤はRender・Google Cloud・Firebase・Cloudflareに乗る。迷惑投稿の検出はGPT-4頼みだが、本人も生成文の迷惑投稿に同じ効果があるとはしていない。投稿の質が落ちれば場の価値が崩れる。",
+     "basis": [
+      "f6",
+      "f5",
+      "f22"
+     ],
+     "presentation": "FACT_SUMMARY"
+    },
+    {
+     "id": "a-lock_in",
+     "item": "LOCK_IN",
+     "text": "弱い。会員用プロフィールはあるが、解約しても支払済み期間の終わりまで使え、30日以内なら比例計算で返金されるため、やめる手間はほぼ無い。",
+     "basis": [
+      "f25",
+      "f26"
+     ],
+     "presentation": "FACT_SUMMARY"
+    },
+    {
+     "id": "a-timeline",
+     "item": "TIMELINE",
+     "text": "2016年8月：Courtland Allenが創業し、2016年8月11日にHacker Newsで公開。2017年4月：Stripeが買収し、Channingが共同創業者に。2022年の大部分：招待コードで迷惑投稿をほぼ無くす。2023年3月：独立企業へ戻り、Stripeは初期出資者に。2023年4月6日：公式ニュースレターが独立を告知。2024年11月：文章重視への転換で採用された執筆者が80社の調査を記録。",
+     "basis": [
+      "f2",
+      "f6",
+      "f3",
+      "f21",
+      "f4",
+      "f19",
+      "f23"
+     ],
+     "presentation": "FACT_SUMMARY"
+    },
+    {
+     "id": "a-why_it_worked",
+     "item": "WHY_IT_WORKED",
+     "text": "表紙に各事業の具体的な月商を並べたことで、読む価値がひと目で伝わった。最高値の表示を批判されると、Courtlandは100ドル単位に丸めていたと説明し、最高値と平均値を両方載せると即答した。掲載者には個別メールで取材のように追加質問を返し、掲載者自身を味方に付けた。",
+     "basis": [
+      "f10",
+      "f8",
+      "f9",
+      "f7"
+     ],
+     "formula": "数字は出典に載っている値",
+     "presentation": "FACT_SUMMARY"
+    },
+    {
+     "id": "a-viability",
+     "item": "VIABILITY",
+     "text": "先行者が強く後発は困難。600件超の取材を積み上げた事例集とアイデア資料を有料で売っており、同じ量の実名・実数字の取材を後から揃えるには年単位の手間がかかる。",
+     "basis": [
+      "f25",
+      "f2"
+     ],
+     "presentation": "FACT_SUMMARY"
+    },
+    {
+     "id": "a-pivots",
+     "item": "PIVOTS",
+     "text": "取材記事の場から始め、取材を効率化した後に掲示板・音声番組・スポンサー収益へ広げた。共同創業者探しなどのハッシュタグで需要を試してから機能を作った。独立時は月次継続売上0ドルからの再出発で、その後は文章へ重点を移し、事例集とアイデア資料を年額の有料会員で売る形に変えた。",
+     "basis": [
+      "f12",
+      "f13",
+      "f20",
+      "f23",
+      "f24"
+     ],
+     "formula": "数字は出典に載っている値",
+     "presentation": "FACT_SUMMARY"
+    },
+    {
+     "id": "a-lesson",
+     "item": "LESSON",
+     "text": "「誰がいくら稼いでいるか」を表紙に数字で出すことが客を呼び、その数字の盛り方を突かれた時に即座に正す姿勢が信頼を保った。",
+     "basis": [
+      "f10",
+      "f8",
+      "f9"
+     ],
+     "presentation": "FACT_SUMMARY"
+    }
+   ],
+   "changedClaims": [
+    "f1",
+    "f2",
+    "f3",
+    "f4",
+    "f5",
+    "f6",
+    "f7",
+    "f8",
+    "f9",
+    "f10",
+    "f11",
+    "f12",
+    "f13",
+    "f19",
+    "f20",
+    "f21",
+    "f22",
+    "f23",
+    "f24",
+    "f25",
+    "f26",
+    "f27"
+   ],
+   "identity": {
+    "id": "ent_indiehackers_6548833164b0",
+    "name": "Indie Hackers",
+    "url": "https://www.indiehackers.com",
+    "publishability": "PARTIAL"
+   },
+   "media": {
+    "assets": [
+     {
+      "assetId": "ma_4b04d1161ff3c83ea63cb5f1",
+      "entityId": "ent_indiehackers_6548833164b0",
+      "kind": "screenshot_home",
+      "sourcePageUrl": "https://www.indiehackers.com/",
+      "assetUrl": null,
+      "retrievedAt": "2026-10-07T10:03:54.860Z",
+      "capturedBy": "media-fetch-20261007",
+      "sha256": "4b04d1161ff3c83ea63cb5f19d5518f75ef8474e1a3ec53d38d2dec009feca97",
+      "bytes": 581311,
+      "contentType": "image/png",
+      "width": 1280,
+      "height": 800,
+      "rights": {
+       "basis": "official_marketing_material",
+       "termsUrl": null,
+       "licence": null,
+       "attribution": "出典: Indie Hackers 公式サイト (https://www.indiehackers.com/)",
+       "decision": "held",
+       "reviewedAt": null,
+       "notes": "ビューポート 1280x800 で当方が描画したスクリーンショット。同意バナーが写り込むことがある。 自動取得 (media-fetch)。権利審査前のため held。許可前に目視で (1) 人物が主題でない (2) 同意バナー・個人情報・ログイン画面が写っていない (3) 識別・説明目的に限る、を確認し、review-assets で判定を追記する（この manifest は書き換えない。自動取得の既定値 subjectIsPerson=true は「未確認」の意味）。"
+      },
+      "storage": {
+       "bucket": "foundation-raw",
+       "key": "media/ent_indiehackers_6548833164b0/4b04d1161ff3c83ea63cb5f19d5518f75ef8474e1a3ec53d38d2dec009feca97.png",
+       "publicKey": null
+      },
+      "subjectIsPerson": true,
+      "review": null
+     },
+     {
+      "assetId": "ma_be0aae3f8fa4c8ebc7277eb7",
+      "entityId": "ent_indiehackers_6548833164b0",
+      "kind": "favicon",
+      "sourcePageUrl": "https://www.indiehackers.com/",
+      "assetUrl": "https://www.indiehackers.com/favicon.ico",
+      "retrievedAt": "2026-10-07T10:03:55.096Z",
+      "capturedBy": "media-fetch-20261007",
+      "sha256": "be0aae3f8fa4c8ebc7277eb7c74f0e95b30d9395f7cd7205ad9c602ea9667693",
+      "bytes": 3592,
+      "contentType": "image/png",
+      "width": 32,
+      "height": 32,
+      "rights": {
+       "basis": "official_marketing_material",
+       "termsUrl": null,
+       "licence": null,
+       "attribution": "出典: Indie Hackers 公式サイト (https://www.indiehackers.com/)",
+       "decision": "allowed",
+       "reviewedAt": "2026-10-07T10:07:19.287Z",
+       "notes": "自動判定 auto-rule-v4: favicon。画像として読める (image/png 32x32)、SHA-256が台帳と一致 (be0aae3f8fa4)、macOS Vision の顔検出 (VNDetectFaceRectanglesRequest) で顔 0 件。公式素材として識別・説明目的の小さな表示に限る。画像の中身の目視確認はしていない。"
+      },
+      "storage": {
+       "bucket": "foundation-raw",
+       "key": "media/ent_indiehackers_6548833164b0/be0aae3f8fa4c8ebc7277eb7c74f0e95b30d9395f7cd7205ad9c602ea9667693.png",
+       "publicKey": "media/ent_indiehackers_6548833164b0/be0aae3f8fa4c8ebc7277eb7c74f0e95b30d9395f7cd7205ad9c602ea9667693.png"
+      },
+      "subjectIsPerson": false,
+      "review": {
+       "assetId": "ma_be0aae3f8fa4c8ebc7277eb7",
+       "decision": "allowed",
+       "subjectIsPerson": false,
+       "reviewer": "auto-rule-v4",
+       "reviewedAt": "2026-10-07T10:07:19.287Z",
+       "note": "自動判定 auto-rule-v4: favicon。画像として読める (image/png 32x32)、SHA-256が台帳と一致 (be0aae3f8fa4)、macOS Vision の顔検出 (VNDetectFaceRectanglesRequest) で顔 0 件。公式素材として識別・説明目的の小さな表示に限る。画像の中身の目視確認はしていない。"
+      }
+     },
+     {
+      "assetId": "ma_665ec4e74f056f1f95a1c713",
+      "entityId": "ent_indiehackers_6548833164b0",
+      "kind": "og_image",
+      "sourcePageUrl": "https://www.indiehackers.com/",
+      "assetUrl": "https://www.indiehackers.com/images/shareables/home.jpg",
+      "retrievedAt": "2026-10-07T10:04:11.364Z",
+      "capturedBy": "media-fetch-20261007",
+      "sha256": "665ec4e74f056f1f95a1c71364fffcb3ccc3870e5bc6df525113cb0bc5d0f2b4",
+      "bytes": 213488,
+      "contentType": "image/jpeg",
+      "width": 1680,
+      "height": 840,
+      "rights": {
+       "basis": "official_marketing_material",
+       "termsUrl": null,
+       "licence": null,
+       "attribution": "出典: Indie Hackers 公式サイト (https://www.indiehackers.com/)",
+       "decision": "blocked",
+       "reviewedAt": "2026-10-07T10:07:19.016Z",
+       "notes": "自動判定 auto-rule-v4: promo_banner_no_product。og:image は宣伝用の紹介画像で、実際に使うときの製品画面ではないため出さない。"
+      },
+      "storage": {
+       "bucket": "foundation-raw",
+       "key": "media/ent_indiehackers_6548833164b0/665ec4e74f056f1f95a1c71364fffcb3ccc3870e5bc6df525113cb0bc5d0f2b4.jpg",
+       "publicKey": null
+      },
+      "subjectIsPerson": true,
+      "review": {
+       "assetId": "ma_665ec4e74f056f1f95a1c713",
+       "decision": "blocked",
+       "subjectIsPerson": true,
+       "reviewer": "auto-rule-v4",
+       "reviewedAt": "2026-10-07T10:07:19.016Z",
+       "note": "自動判定 auto-rule-v4: promo_banner_no_product。og:image は宣伝用の紹介画像で、実際に使うときの製品画面ではないため出さない。"
+      }
+     }
+    ],
+    "displayableIds": [
+     "ma_be0aae3f8fa4c8ebc7277eb7"
+    ],
+    "problems": []
+   },
+   "caseHash": "6f4f0c8b3dd25503f5a98c02074f56d2feb32cb1b33d1c53e3c559e73ff8e2ab",
+   "itemHashes": {
+    "fact:f1": "23678847f7e1d52a5606466eb85a5ba6757ce76eb237478e9e4f680e30045f1b",
+    "fact:f2": "4dc96d10d88c3a26c32a5cb258668bb4ff5c06c49c5b78a59d1a16a36dec3b1b",
+    "fact:f3": "14b81cfda0fdddf20a00e7e6c6e05cc7222b8fcd117723ac72de3e0f59a594f5",
+    "fact:f4": "71e7a963584cb2acc284d4110bcbf0e9377cb9188a15c3134817005a85b132e2",
+    "fact:f5": "cf3122c459f788b3b509379f80fa30c04f8a9850dfd6c0e79debddc967e3ebea",
+    "fact:f6": "46d392404cecb695eb99295536bf6e0e0afc5dd3590c7749a48b37d783869071",
+    "fact:f7": "b96d257eb9925ae4e9d7c66ae6049c1dd293e74a72232997050ef19cbd1e7183",
+    "fact:f8": "1ea049598029d9a008265741243cd159c722da6a289fb18d57c2a1eec5941063",
+    "fact:f9": "d884bb56ac0f94566c04a31ad8461d89441f9d0a7cd937037e393f473424e6b6",
+    "fact:f10": "664e51eccc493f80a1029d203611dc9bf18cee391a06a67888f2cca325683aee",
+    "fact:f11": "ee5c487882e5377de41f625aa4bfed25c0d737cd35bac4b38a1594cdd76f6cd5",
+    "fact:f12": "27ea9c2bfed686b1c3234342fc37dc89fe23c2ef7b4da6c0251717b397b981c1",
+    "fact:f13": "c4944b082b1ffc03d4c57eff51dc6c6db827f4564449771644ef6f6e6b094654",
+    "fact:f19": "fa80606dac26e717d30e7767b563b711a358736d09bbc424f591fec1afef1786",
+    "fact:f20": "f62fc51a530c92c047c6ae6733026060514e3740445669821337c635d14f96fc",
+    "fact:f21": "21e5b37905bb2b5a5286e7c224c367b87dcbb52d0891c33322a3a9a28fd785ce",
+    "fact:f22": "21ab000092313247a78816046cb3e851ada33d4a56386ae61b286966f0a0c985",
+    "fact:f23": "60382a95d16245183ef7ac3cc28ea117eb1c7439087bc312dd3f10a153167cef",
+    "fact:f24": "3f1e01ddeae3aa24324991e11d56b705b34150e25555c0cdd8fe8c700edbcdb8",
+    "fact:f25": "c4d2c149933919a7b5c9af93062734288828cb868be81d5846ddd61ed33870b6",
+    "fact:f26": "50e0ae4ef5cf459d10398c4bec00eafffbf2fed45d161044220b6b844d0cb290",
+    "fact:f27": "ae9b9de62b829816f2328c7dcf08bfaa0060dd27caf330e6418df49e88a49350",
+    "analysis:a-headline": "103619a013b354808062089b9fbeda4d69d8ffed940c944907710c09e2c93e33",
+    "analysis:a-business_model": "323e2c99141922334a2779d64c2f975eac4fd5db44b1a65029f0f23ed2a22421",
+    "analysis:a-customer": "ecf54c70d640c832a24d6a65ef99e3394321a47249ff30722654369accfb2111",
+    "analysis:a-customer_pain": "572f15cfb10acf6ce573c3df7ba53c626cc60af304b552ad29a1374d336fa816",
+    "analysis:a-first_customers": "75e72e4d49837db278e837a4b8119c17da56de4547faad6b233c77d8dcf8d863",
+    "analysis:a-channels": "ae06a8bf5ee3a375c57e40e6ffc1c42ac90ad564b2e19c6425525d3867992e2b",
+    "analysis:a-cost_structure": "46a3f5c1f7b409bb9a944b99776c299da466f29c904849661d00ce75f4a5d166",
+    "analysis:a-capital_and_team": "3a6bb358b39ff825d1e5cae7f0f955f0f8ee54e66c4e7e1e89a1b5f519858bc4",
+    "analysis:a-dependencies": "fc9c2fb356205e838dcf680b2c283c33a6769f483d9c2d0fb3f4ec70688e4ac6",
+    "analysis:a-lock_in": "0981122ea24b3cefd91ec5747d53f16703a76ace29b50c11b9ea5901ffe065a9",
+    "analysis:a-timeline": "8e6e4e825bafd35ddbb6131235007176b8eb89c82d1b72900755c0959b041dcd",
+    "analysis:a-why_it_worked": "ed1d8bfe2fcee417795a6974f806309b4d806d002dfb264f46c9ad63f534f979",
+    "analysis:a-viability": "72436deba243a311bc9018ddd0d550ba06121ece4002abb348e54570933c9626",
+    "analysis:a-pivots": "1dcb1fc87070ca98c262a0600cbaa7e18dfb60ee4a2b6baa1e47e581f0bde08b",
+    "analysis:a-lesson": "8f26b71837ed0f9b53bccf71fec9265a667852a57f0a54d3d61178a28846176c"
+   },
+   "review": [
+    "fact:f1",
+    "fact:f2",
+    "fact:f3",
+    "fact:f4",
+    "fact:f5",
+    "fact:f6",
+    "fact:f7",
+    "fact:f8",
+    "fact:f9",
+    "fact:f10",
+    "fact:f11",
+    "fact:f12",
+    "fact:f13",
+    "fact:f19",
+    "fact:f20",
+    "fact:f21",
+    "fact:f22",
+    "fact:f23",
+    "fact:f24",
+    "fact:f25",
+    "fact:f26",
+    "fact:f27",
+    "analysis:a-headline",
+    "analysis:a-business_model",
+    "analysis:a-customer",
+    "analysis:a-customer_pain",
+    "analysis:a-first_customers",
+    "analysis:a-channels",
+    "analysis:a-cost_structure",
+    "analysis:a-capital_and_team",
+    "analysis:a-dependencies",
+    "analysis:a-lock_in",
+    "analysis:a-timeline",
+    "analysis:a-why_it_worked",
+    "analysis:a-viability",
+    "analysis:a-pivots",
+    "analysis:a-lesson"
+   ],
+   "reader": {
+    "sources": [
+     {
+      "id": "s1",
+      "url": "https://www.indiehackers.com/about",
+      "publisher": "Indie Hackers公式紹介",
+      "checkedAt": "2026-10-07",
+      "kind": "OFFICIAL"
+     },
+     {
+      "id": "s3",
+      "url": "https://news.ycombinator.com/item?id=12269425",
+      "publisher": "Hacker News公開時の投稿と返信",
+      "publishedAt": "2016-08-11",
+      "checkedAt": "2026-10-07",
+      "kind": "SELF_REPORTED"
+     },
+     {
+      "id": "s4",
+      "url": "https://www.indiehackers.com/post/i-created-and-run-indie-hackers-ama-2e6643ba07",
+      "publisher": "Courtland Allenの公開質疑応答",
+      "publishedAt": "2018-11-14",
+      "checkedAt": "2026-10-07",
+      "kind": "OFFICIAL"
+     },
+     {
+      "id": "s7",
+      "url": "https://www.indiehackers.com/post/whats-new-indie-hackers-is-indie-again-1d228c6387",
+      "publisher": "Indie Hackers公式ニュースレターの本人説明再掲",
+      "publishedAt": "2023-04-06",
+      "checkedAt": "2026-10-07",
+      "kind": "OFFICIAL"
+     },
+     {
+      "id": "s8",
+      "url": "https://www.indiehackers.com/post/courtland-allen-on-ai-spam-bots-and-the-future-of-social-platforms-like-ih-2b979782b0",
+      "publisher": "Indie Hackers掲載のCourtland Allen本人インタビュー",
+      "publishedAt": "2023-07-21",
+      "checkedAt": "2026-10-07",
+      "kind": "OFFICIAL"
+     },
+     {
+      "id": "s9",
+      "url": "https://foundersconfidential418.substack.com/p/i-profiled-80-companies-for-indie",
+      "publisher": "Ottoの執筆経験の公開記録",
+      "publishedAt": "2024-11-05",
+      "checkedAt": "2026-10-07",
+      "kind": "ARTICLE"
+     },
+     {
+      "id": "s10",
+      "url": "https://www.indiehackers.com/plus",
+      "publisher": "Indie Hackers Plus公式料金・機能ページ",
+      "checkedAt": "2026-10-07",
+      "kind": "OFFICIAL"
+     }
+    ],
+    "facts": [
+     {
+      "id": "f1",
+      "kind": "DESCRIPTION",
+      "text": "収益のある事業・副業の創業者が経験を公開し、読者が学び、経験や助言を交換する交流の場と公式に説明している。",
+      "sourceId": "s1",
+      "attribution": "OFFICIAL"
+     },
+     {
+      "id": "f2",
+      "kind": "FOUNDING",
+      "text": "Courtland Allenが2016年8月にIndie Hackersを作った。",
+      "sourceId": "s1",
+      "attribution": "OFFICIAL"
+     },
+     {
+      "id": "f3",
+      "kind": "EVENT",
+      "text": "2017年4月にStripeが買収し、Courtlandの兄弟Channingが共同創業者として加わった。",
+      "sourceId": "s1",
+      "attribution": "OFFICIAL"
+     },
+     {
+      "id": "f4",
+      "kind": "EVENT",
+      "text": "公式紹介では2023年3月に独立企業へ戻り、Stripeは初期出資者になったとしている。",
+      "sourceId": "s1",
+      "attribution": "OFFICIAL"
+     },
+     {
+      "id": "f5",
+      "kind": "TOOL",
+      "text": "公式紹介の構成はAstro、Node、Render、Google Cloud、Firebase、Cloudflare。自社開発の掲示板を運営する。",
+      "sourceId": "s1",
+      "attribution": "OFFICIAL"
+     },
+     {
+      "id": "f6",
+      "kind": "CHANNEL",
+      "text": "2016年8月11日にCourtlandのアカウントからHacker Newsへ公開紹介を投稿した。971ポイントと184件のコメントが表示されている。",
+      "sourceId": "s3",
+      "statedAt": "2016-08-11",
+      "attribution": "SELF_REPORTED"
+     },
+     {
+      "id": "f7",
+      "kind": "CHANNEL",
+      "text": "掲載協力者cyberferretは、Courtlandから個別メールで誘われ、回答後にも具体化の追加質問を受けたと投稿している。",
+      "sourceId": "s3",
+      "statedAt": "2016-08-11",
+      "attribution": "SELF_REPORTED"
+     },
+     {
+      "id": "f8",
+      "kind": "OTHER",
+      "text": "利用者radarsat1は、平均ではなく過去最高値を表示するのは誤解を招くとして、表紙でより正直な売上表示を求めた。",
+      "sourceId": "s3",
+      "statedAt": "2016-08-11",
+      "attribution": "SELF_REPORTED"
+     },
+     {
+      "id": "f9",
+      "kind": "OTHER",
+      "text": "Courtlandは最高月商を100ドル単位に丸めて表示していたと説明し、今後は最高値と平均値を両方載せる方針に同意した。",
+      "sourceId": "s3",
+      "statedAt": "2016-08-11",
+      "attribution": "SELF_REPORTED"
+     },
+     {
+      "id": "f10",
+      "kind": "OTHER",
+      "text": "利用者jpalomakiは、表紙で具体的な金額がすぐ見えるため、読みたい情報があると判断できたと投稿している。",
+      "sourceId": "s3",
+      "statedAt": "2016-08-11",
+      "attribution": "SELF_REPORTED"
+     },
+     {
+      "id": "f11",
+      "kind": "OTHER",
+      "text": "2018年11月の質疑応答で、Courtlandは売上が「この前の4月」に記憶では約6,000ドルだったと答えた。本人の回想値であり、現在の売上ではない。",
+      "sourceId": "s4",
+      "statedAt": "2018-11-14",
+      "attribution": "OFFICIAL"
+     },
+     {
+      "id": "f12",
+      "kind": "CHANNEL",
+      "text": "初期にはメール、取材、開発を行い、取材を効率化した後は掲示板、音声番組、スポンサーによる収益化に取り組んだと振り返っている。",
+      "sourceId": "s4",
+      "statedAt": "2018-11-14",
+      "attribution": "OFFICIAL"
+     },
+     {
+      "id": "f13",
+      "kind": "OTHER",
+      "text": "創業者の困りごとに直接応える機能を作る前に、共同創業者探しなどのハッシュタグで需要を試していた。",
+      "sourceId": "s4",
+      "statedAt": "2018-11-14",
+      "attribution": "OFFICIAL"
+     },
+     {
+      "id": "f19",
+      "kind": "EVENT",
+      "text": "2023年4月6日の公式ニュースレターは、創業者が再び所有する独立事業になったというCourtlandの発表を掲載した。",
+      "sourceId": "s7",
+      "statedAt": "2023-04-06",
+      "attribution": "OFFICIAL"
+     },
+     {
+      "id": "f20",
+      "kind": "OTHER",
+      "text": "同ニュースレターに再掲された本人説明では、独立発表時の月次継続売上は0ドルだった。現在値や総収入とは扱わない。",
+      "sourceId": "s7",
+      "statedAt": "2023-04-06",
+      "attribution": "OFFICIAL"
+     },
+     {
+      "id": "f21",
+      "kind": "OTHER",
+      "text": "2023年7月、本人は2022年の大部分で招待コードを使い、迷惑投稿がほぼなくなったと説明した。",
+      "sourceId": "s8",
+      "statedAt": "2023-07-21",
+      "attribution": "OFFICIAL"
+     },
+     {
+      "id": "f22",
+      "kind": "TOOL",
+      "text": "本人はGPT-4を従来型の迷惑投稿の検出に使っていたと説明した。生成文の迷惑投稿にも同じ効果があるとはしていない。",
+      "sourceId": "s8",
+      "statedAt": "2023-07-21",
+      "attribution": "OFFICIAL"
+     },
+     {
+      "id": "f23",
+      "kind": "EVENT",
+      "text": "執筆者Ottoは、Indie Hackersが文章へ重点を移して執筆者を採用し、自身がアイデア資料用に80社を調べたと2024年11月に記録した。",
+      "sourceId": "s9",
+      "statedAt": "2024-11-05",
+      "attribution": "ARTICLE"
+     },
+     {
+      "id": "f24",
+      "kind": "PRICING",
+      "text": "公式ページでは、Indie Hackers Plusの年間会員は年198ドルで販売されている。",
+      "sourceId": "s10",
+      "attribution": "OFFICIAL"
+     },
+     {
+      "id": "f25",
+      "kind": "DESCRIPTION",
+      "text": "有料会員向けに600件超の取材を含む事例集、アイデア資料、動向分析、会員用プロフィールなどを案内している。",
+      "sourceId": "s10",
+      "attribution": "OFFICIAL"
+     },
+     {
+      "id": "f26",
+      "kind": "PRICING",
+      "text": "不満がある場合は30日間の比例計算による返金を案内し、解約後も支払済み期間の終わりまで使えると説明している。",
+      "sourceId": "s10",
+      "attribution": "OFFICIAL"
+     },
+     {
+      "id": "f27",
+      "kind": "OTHER",
+      "text": "公式ページの推薦文でLynne Tyeは、数か月読んでいたことがKey Valuesを始めた理由だと述べている。",
+      "sourceId": "s10",
+      "attribution": "OFFICIAL"
+     }
+    ],
+    "metrics": [],
+    "unknowns": [
+     "REVENUE",
+     "PROFIT",
+     "COST",
+     "TEAM"
+    ],
+    "analysis": [
+     {
+      "id": "a-headline",
+      "item": "HEADLINE",
+      "text": "収益のある個人事業の創業者に1人ずつメールで掲載を頼み、回答にも追加の質問を返し、Hacker Newsの公開投稿で971ポイントを集めて場を立ち上げたCourtland Allen。",
+      "basis": [
+       "f2",
+       "f6",
+       "f7"
+      ],
+      "presentation": "FACT_SUMMARY"
+     },
+     {
+      "id": "a-business_model",
+      "item": "BUSINESS_MODEL",
+      "text": "収益のある事業の創業者が経験を公開し、読者が学び、助言を交換する場を運営している。初期の収益源はスポンサーで、2018年11月の質疑で本人は「この前の4月」の売上を記憶では約6,000ドルと答えた。独立後は有料会員Indie Hackers Plusを年額で売り、600件超の取材を含む事例集、アイデア資料、動向分析、会員用プロフィールの対価として読者から直接受け取っている。",
+      "basis": [
+       "f1",
+       "f12",
+       "f11",
+       "f24",
+       "f25"
+      ],
+      "formula": "数字は出典に載っている値",
+      "presentation": "FACT_SUMMARY"
+     },
+     {
+      "id": "a-customer",
+      "item": "CUSTOMER",
+      "text": "有料会員は、他人の稼いだ事例と事業アイデアの調査資料を買う、これから自分で稼ぐ事業を始めたい・伸ばしたい人。公式ページでは、数か月読み続けたことがKey Valuesを始めた理由だとするLynne Tyeの推薦文を載せている。",
+      "basis": [
+       "f24",
+       "f25",
+       "f27"
+      ],
+      "presentation": "FACT_SUMMARY"
+     },
+     {
+      "id": "a-customer_pain",
+      "item": "CUSTOMER_PAIN",
+      "text": "他の個人がいくら稼いでいるかが分からないこと。公開時、利用者の1人は表紙で具体的な金額がすぐ見えたことで読む価値があると判断した。一方で過去最高値の表示には「誤解を招く」と正直な売上表示を求める声も出た。",
+      "basis": [
+       "f10",
+       "f8"
+      ],
+      "presentation": "FACT_SUMMARY"
+     },
+     {
+      "id": "a-first_customers",
+      "item": "FIRST_CUSTOMERS",
+      "text": "最初の掲載者は、Courtlandが個別メールで1人ずつ誘い、回答後にも追加質問を返して話を具体化させた創業者たち。最初の読者はHacker Newsの公開投稿から流れ込み、投稿は971ポイントと184件のコメントを集めた。",
+      "basis": [
+       "f7",
+       "f6"
+      ],
+      "presentation": "FACT_SUMMARY"
+     },
+     {
+      "id": "a-channels",
+      "item": "CHANNELS",
+      "text": "立ち上げはHacker Newsへの投稿。その後は掲示板、音声番組、公式ニュースレターが読者の入口になった。各経路の比重を示す数字は公表されていない。",
+      "basis": [
+       "f6",
+       "f12",
+       "f19"
+      ],
+      "presentation": "FACT_SUMMARY"
+     },
+     {
+      "id": "a-cost_structure",
+      "item": "COST_STRUCTURE",
+      "text": "サーバーと基盤はRender、Google Cloud、Firebase、Cloudflareで、掲示板は自社開発。迷惑投稿の検出にGPT-4を使っている。文章へ重点を移してからは執筆者を採用しており、人件費がかかる。",
+      "basis": [
+       "f5",
+       "f22",
+       "f23"
+      ],
+      "presentation": "FACT_SUMMARY"
+     },
+     {
+      "id": "a-capital_and_team",
+      "item": "CAPITAL_AND_TEAM",
+      "text": "Courtland Allenが1人で作り、2017年4月のStripe買収時に兄弟のChanningが共同創業者として加わった。2023年3月の独立ではStripeが初期出資者になった。その後、資料づくりのために執筆者を採用している。",
+      "basis": [
+       "f2",
+       "f3",
+       "f4",
+       "f23"
+      ],
+      "presentation": "FACT_SUMMARY"
+     },
+     {
+      "id": "a-dependencies",
+      "item": "DEPENDENCIES",
+      "text": "立ち上げの客はHacker Newsの1投稿に頼った。運営基盤はRender・Google Cloud・Firebase・Cloudflareに乗る。迷惑投稿の検出はGPT-4頼みだが、本人も生成文の迷惑投稿に同じ効果があるとはしていない。投稿の質が落ちれば場の価値が崩れる。",
+      "basis": [
+       "f6",
+       "f5",
+       "f22"
+      ],
+      "presentation": "FACT_SUMMARY"
+     },
+     {
+      "id": "a-lock_in",
+      "item": "LOCK_IN",
+      "text": "弱い。会員用プロフィールはあるが、解約しても支払済み期間の終わりまで使え、30日以内なら比例計算で返金されるため、やめる手間はほぼ無い。",
+      "basis": [
+       "f25",
+       "f26"
+      ],
+      "presentation": "FACT_SUMMARY"
+     },
+     {
+      "id": "a-timeline",
+      "item": "TIMELINE",
+      "text": "2016年8月：Courtland Allenが創業し、2016年8月11日にHacker Newsで公開。2017年4月：Stripeが買収し、Channingが共同創業者に。2022年の大部分：招待コードで迷惑投稿をほぼ無くす。2023年3月：独立企業へ戻り、Stripeは初期出資者に。2023年4月6日：公式ニュースレターが独立を告知。2024年11月：文章重視への転換で採用された執筆者が80社の調査を記録。",
+      "basis": [
+       "f2",
+       "f6",
+       "f3",
+       "f21",
+       "f4",
+       "f19",
+       "f23"
+      ],
+      "presentation": "FACT_SUMMARY"
+     },
+     {
+      "id": "a-why_it_worked",
+      "item": "WHY_IT_WORKED",
+      "text": "表紙に各事業の具体的な月商を並べたことで、読む価値がひと目で伝わった。最高値の表示を批判されると、Courtlandは100ドル単位に丸めていたと説明し、最高値と平均値を両方載せると即答した。掲載者には個別メールで取材のように追加質問を返し、掲載者自身を味方に付けた。",
+      "basis": [
+       "f10",
+       "f8",
+       "f9",
+       "f7"
+      ],
+      "formula": "数字は出典に載っている値",
+      "presentation": "FACT_SUMMARY"
+     },
+     {
+      "id": "a-viability",
+      "item": "VIABILITY",
+      "text": "先行者が強く後発は困難。600件超の取材を積み上げた事例集とアイデア資料を有料で売っており、同じ量の実名・実数字の取材を後から揃えるには年単位の手間がかかる。",
+      "basis": [
+       "f25",
+       "f2"
+      ],
+      "presentation": "FACT_SUMMARY"
+     },
+     {
+      "id": "a-pivots",
+      "item": "PIVOTS",
+      "text": "取材記事の場から始め、取材を効率化した後に掲示板・音声番組・スポンサー収益へ広げた。共同創業者探しなどのハッシュタグで需要を試してから機能を作った。独立時は月次継続売上0ドルからの再出発で、その後は文章へ重点を移し、事例集とアイデア資料を年額の有料会員で売る形に変えた。",
+      "basis": [
+       "f12",
+       "f13",
+       "f20",
+       "f23",
+       "f24"
+      ],
+      "formula": "数字は出典に載っている値",
+      "presentation": "FACT_SUMMARY"
+     },
+     {
+      "id": "a-lesson",
+      "item": "LESSON",
+      "text": "「誰がいくら稼いでいるか」を表紙に数字で出すことが客を呼び、その数字の盛り方を突かれた時に即座に正す姿勢が信頼を保った。",
+      "basis": [
+       "f10",
+       "f8",
+       "f9"
+      ],
+      "presentation": "FACT_SUMMARY"
+     }
+    ],
+    "summaryFactId": "f25"
+   }
+  }
+ ]
+}

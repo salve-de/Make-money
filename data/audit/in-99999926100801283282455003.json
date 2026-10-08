@@ -1,0 +1,546 @@
+{
+ "cases": [
+  {
+   "entityId": "ent_storemapper_a848df77867b",
+   "scope": "full",
+   "facts": [
+    {
+     "id": "f1",
+     "kind": "OTHER",
+     "text": "公式料金ページでは Pro が上段で月49.99ドル・年499ドル、比較表で月39.99ドル・年399ドルと食い違う。",
+     "attribution": "OFFICIAL"
+    },
+    {
+     "id": "f2",
+     "kind": "OTHER",
+     "text": "支援資料の Pro は月39.99ドル・年399ドル。",
+     "attribution": "OFFICIAL"
+    },
+    {
+     "id": "f3",
+     "kind": "OTHER",
+     "text": "利用規約は SureSwift Capital Inc. をサービスの所有・運営者として示す。",
+     "attribution": "OFFICIAL"
+    }
+   ],
+   "metrics": [],
+   "sources": [
+    {
+     "sourceId": "s8",
+     "url": "https://www.storemapper.com/pricing",
+     "publisher": "Storemapper",
+     "snapshot": {
+      "url": "https://www.storemapper.com/pricing",
+      "finalUrl": "https://www.storemapper.com/pricing",
+      "status": 200,
+      "fetchedAt": "2026-10-07T09:51:54.244Z",
+      "via": "direct",
+      "contentType": "text/html; charset=utf-8",
+      "textHash": "e7f9eea4e43da698400e1a5402c9fd0965af442b8cc538d80225e0cad4671e6a"
+     },
+     "text": "Flexible Store Locator Pricing - Choose Your Plan | Storemapper\nExplore Storemapper's flexible Store Locator pricing plans to fit your business needs. Get started today with a plan that scales with you. Try it free!\nFlexible Store Locator Pricing - Choose Your Plan | Storemapper\nExplore Storemapper's flexible Store Locator pricing plans to fit your business needs. Get started today with a plan that scales with you. Try it free!\nFlexible Store Locator Pricing - Choose Your Plan | Storemapper\nFeatures Platforms\nLive Demo\nHealthcare Store Locator Restaurant Store Locator Business Store Locator\nUse Cases\nRetail Business & Industrial Education Health care Finance Restaurants Real State\nPricing\nResources\nBlog Help Center Case Studies Live Demo Partners Affiliate Program Demo on Demand FAQ\nBook a Demo Log in\nLog in\nGet started free\nStore Locator Pricing That Scales With Your Brand\nTakes 2-3 minutes to setup.  Fully customizable.\nYearly\nMonthly\nSave 2 months with yearly billing 🎉\nMost Popular\nMicro\n$24.99 /month\n$299 Before\n$249 /year\nSave up to 17%\nFree for 7 days\nMost Popular\nPro\n$49.99 /month\n$599 Before\n$499 /year\nSave up to 17%\nFree for 7 days\nMost Popular\nPremium\n$69.99 /month\n$839 Before\n$699 /year\nSave up to 17%\nFree for 7 days\nMost Popular\nCorporate\n$199.99 /month\n$2389 Before\n$1999 /year\nSave up to 17%\nFree for 7 days\nGet a powerful  store map with  every plan\nTakes 2-3 minutes to setup.  No coding required.\nYearly\nMonthly\nSave 2 months with yearly billing 🎉\nMost Popular\nBilled annually at $249\nMost Popular\nMicro\n$24.99 /month\n$20.75 /mo\nSave $50 per year\nFree for 7 days\nMost Popular\nBilled annually at $499\nMost Popular\nPro\n$49.99 /month\n$41.58 /mo\nSave $100 per year\nFree for 7 days\nMost Popular\nBilled annually at $699\nMost Popular\nPremium\nPremium\n$69.99 /month\n$58.25 /mo\nSave $140 per year\nFree for 7 days\nMost Popular\nBilled annually at $1,999\nMost Popular\nCorporate\n$199 /month\n$166.58 /mo\nSave $389 per year\nFree for 7 days\nMicro\nPro\nPremium\nCorporate\nPricing\n$24.99/ month\n$39.99/ month\n$69.99/ month\n$199/ month\nPricing\n$249/ year\n$399/ year\n$699/ year\n$1999/ year\nUsers\nNo credit card required\nMultiple users\n-\n-\nUp to 5\nUp to 10\nUnlimited traffic\nLocations\nLocations\n100\n1,000\n10,000\nUnlimited\nBulk uploading & data export\nSync from Google Drive\n-\n-\nAuto-remove duplicates\n-\n-\nLocation Clustering\n-\nCustomize\nCustomize colors & Buttons\nStandard maps\nCustom map themes\n-\nWhite label\n-\n-\nBusiness Hours\n-\n-\nGoogle Reviews\n-\n-\nShoppable Product\n-\n-\n-\nManage\nMulti-Language\n-\n-\nAnalytics suite\n-\n-\nFacebook Pages integration\n-\n-\nLeads\n-\n-\n-\nTailored Plan\nNeed enterprise-level location management?\nFor brands managing thousands of locations, multiple teams, regional maps, custom workflows and advanced integrations. Storemapper can support tailored deployments and enterprise workflows.\nTalk to our team\nFrequently asked questions\nWhat platforms are supported?\nStoremapper can create a store locator for ANY HTML website with copy and paste code. Whether you have 10 stores or 10,000, our online store locator will fit your needs. We also have a native integration with Shopify, Squarespace, BigCommerce, WordPress, 3dcart, Lightspeed, Magento, Wix, WooCommerce, Volusion, Big Cartel, Drupal, Joomla, Opencart, osCommerce, Sitecore, Weebly and X-Cart.\nDo you have a demo?\nTell us what you want to achieve with Storemapper and we’ll show you how. Get your tailored introduction to Storemapper by booking a free personal call .\nYou can also try out our live demo to get a feel of what Storemapper has to offer. You will be able to see the map live, search via location, via filter and see products added to specific stores.\nIf you have any questions or would like to get started - sign up for our free 7 day trial period or please reach out for your free demo. We are happy to answer any questions you may have.\nWill I be able to cancel my plan?\nSure. Any time\nWhat makes Storemapper different from simpler store locator apps?\nStoremapper is built for brands that need more flexibility as they scale, including advanced filtering, bulk location management, analytics, multiple maps, and custom branding.\nHow does the free trial work?\nStoremapper offers a free trial on any plan for 7 days. No credit card to sign up. During the 7 day trial, you’ll have access to all the products & features available at the plan you choose. During the trial, you can change your plan type at any time, including paying for a plan. After the free trial period, simply add your credit card details to continue using Storemapper.\nAre there any additional usage charges?\nStoremapper offers different subscriptions based on different features and how many locations you have. You chose the plan that fits your needs and nothing else will be charged after that.\nCan I fully customize the store locator?\nYes. Storemapper supports custom CSS, flexible layouts, custom fields, branding controls, and multiple map experiences.\nDoes Storemapper support high traffic websites?\nYes. Every plan includes unlimited traffic.\nWhich plan is best for large location networks?\nPremium and Corporate plans are designed for brands managing larger dealer, retailer, and distributor networks.\nYour customers are already searching for nearby stores\nEmail Address Thank you! Your submission has been received!\nOops! Something went wrong while submitting the form.\ncheck\nCancel anytime\ncheck\nNo credit card required\nThousands of businesses rely on Storemapper to\nhelp customers find their products and services.\nIt’s easy to install, customizable, and proven to drive more sales.\nhelp@storemapper.co\n(888) 224-6511\nA 5201 Eden Ave Suite 300Edina, MN 55436\nUse Cases\nRetail\nBusiness & Industrial\nEducation\nHealth care\nFinance\nRestaurants\nReal State\nLinks\nBlog\nHelp\nPricing\nExamples\nPartners Login\nPartners\nPlatforms\nCase Studies\nLive Demo\nAffiliate Program\nDemo on Demand\nStore Locator for Retail\nStore Locator for E-commerce\nStore Locator for Food and Beverage\nElfsight Alternative\nStockist Alternative\nAffiliate Program\nLinks\nAR\nAlmora\nstoremapper-store-locator-second-vesion\nExamples\nPartners Login\nwix campaign\nDemo 2\nstore locator\nbtn component\ndod videos\nsearch\nDemo on Demand\nAffiliate Program\nLinks\nlp-store-locator-wp\ndiggint\nc-s-supply-inc\nExamples\nPartners Login\nezpz\ncobble-hill-puzzle-co\nbeardbrand\nover-under-clothing\nsilver-lining-opticians\nuntuckit\nDemo on Demand\nAffiliate Program\nWant to know more about our app?\nBook a demo with us and we'd be happy to assist you\nBook A Demo\n© 2026 - All rights reserved\nLegal\nCookies Policy\nPrivacy Policy\nTerms of Service\nClose Cookie Popup\nCookie Settings\nBy clicking “Accept All Cookies”, you agree to the storing of cookies on your device to enhance site navigation, analyze site usage and assist in our marketing efforts. More info\nBy clicking “Accept All Cookies”, you agree to the storing of cookies on your device to enhance site navigation, analyze site usage and assist in our marketing efforts. More info\nAccept All Cookies\nCookie Settings\nClose Cookie Preference Manager\nCookie Settings\nBy clicking “Accept All Cookies”, you agree to the storing of cookies on your device to enhance site navigation, analyze site usage and assist in our marketing efforts. More info\nStrictly Necessary (Always Active)\nCookies required to enable basic website functionality.\nMarketing Cookies used to deliver advertising that is more relevant to you and your interests.\nPersonalization\nCookies allowing the website to remember choices you make (such as your user name, language, or the region you are in).\nAnalytics\nCookies helping understand how this website performs, how visitors interact with the site, and whether there may be technical issues.\nAccept All Cookies\nSave Settings\nCookies Preferences",
+     "policy": {
+      "policyId": "rights.official-company-website.v1",
+      "sourceId": "src.official-company-website",
+      "providerName": "Official company or product website (entity-bound)",
+      "displayTier": "automatic",
+      "registryHash": "30d893f5b810c363886fbef8bc35e9535700abdcb83e6a517b66018b3993cacc"
+     }
+    },
+    {
+     "sourceId": "s9",
+     "url": "https://help.storemapper.com/article/4326-pricing-features",
+     "publisher": "Storemapper",
+     "snapshot": {
+      "url": "https://help.storemapper.com/article/4326-pricing-features",
+      "finalUrl": "https://help.storemapper.com/article/4326-pricing-features",
+      "status": 200,
+      "fetchedAt": "2026-10-07T09:51:54.492Z",
+      "via": "direct",
+      "contentType": "text/html; charset=utf-8",
+      "textHash": "e8a890335b02fe52849fe0a2b54cf2bd78e105cee9196e293a0c19310c9ed465"
+     },
+     "text": "Pricing & Features - Storemapper Help & Support\nStoremapper offers different subscriptions based on different features and how many locations you have. Lets take a look at the subscription plans and prices. M\nPricing & Features - Storemapper Help & Support\nToggle Navigation\nHome\nGetting Started With Storemapper\nKnowledge Base\nContact\nContact\nPricing & Features\nStoremapper offers different subscriptions based on different features and how many locations you have.\nLets take a look at the subscription plans and prices.\nMicro Plan – $24.99 per month / $249 yearly\nNo credit card required\nUp to 100 locations\nBulk uploading & data export – manage your uploads via CSV\nUnlimited traffic\nCustomize colors & buttons\nStandard maps\nPro Plan – $39.99 per month / $399 yearly\nNo credit card required\nUp to 1,000 locations\nBulk uploading & data export\nUnlimited traffic\nCustomize colors & buttons\nStandard maps\nCustom map themes\nMulti-Language – Localise your locator for any country. Add as many translations as you need\nLocation Clustering – Groups nearby markers into one which will break out when zoomed in\nPremium plan – $69.99 per month / $699 yearly\nNo credit card required\nUp to 10,000 locations\nBulk uploading & data export\nUnlimited traffic\nCustomize colors & buttons\nStandard maps\nCustom map themes\nMulti-Language\nLocation Clustering –\nWhite label – Removes the Storemapper branding from the map\nAnalytics suite – Track usage of location searches. Includes a heat map and ability to export search records\nSync from Google Drive – Set up Google sheets, add or edit your stores and your changes will be automatically synced. You can share you sheet out with as many users as needed\nFacebook Pages integration – Storemapper is able to create a tab on your Facebook page and pull in all your locations and custom branding available directly to your Facebook followers. Per Facebook requirements your page needs to have at least 2000 fans to use this feature\nAuto-remove duplicates – Will remove duplicates from being uploaded to your account\nCorporate plan – $199.99 per month / $1990 yearly\nNo credit card required\nUnlimited locations\nMultiple Users – Add as many users to your account and set permissions on what they can and can’t see\nBulk uploading & data export\nUnlimited traffic\nCustomize colors & buttons\nStandard maps\nCustom map themes\nMulti-Language –\nLocation Clustering\nWhite label\nAnalytics suite\nSync from Google Drive\nFacebook Pages integration\nAuto-remove duplicates\nWe also offer the option of adding specific features to your plans as “add-ons” should you not wish to upgrade.\nFor more information on the price and what add-ons are available, please reach out to help@storemapper.com\nStill need help?\nContact Us\nContact Us\nLast updated on July 13, 2023\nToggle Search\nCategories\nGetting Started\nAdd / Edit Locations\nStoremapper Features\nAdvanced Settings and Customisation\nTroubleshooting a bouncing blue pin\nBilling\nOther FAQs\nNo results found\n&copy;\nSureSwift Capital\n2026. Powered by Help Scout",
+     "policy": {
+      "policyId": "rights.official-company-website.v1",
+      "sourceId": "src.official-company-website",
+      "providerName": "Official company or product website (entity-bound)",
+      "displayTier": "automatic",
+      "registryHash": "30d893f5b810c363886fbef8bc35e9535700abdcb83e6a517b66018b3993cacc"
+     }
+    },
+    {
+     "sourceId": "s11",
+     "url": "https://www.storemapper.com/terms",
+     "publisher": "Storemapper",
+     "snapshot": {
+      "url": "https://www.storemapper.com/terms",
+      "finalUrl": "https://www.storemapper.com/terms",
+      "status": 200,
+      "fetchedAt": "2026-10-07T09:51:54.748Z",
+      "via": "direct",
+      "contentType": "text/html; charset=utf-8",
+      "textHash": "fe75e6bba4d91f1aa700c82857e35f3da23f5e50e48949ff9ffe4a86d368fa8f"
+     },
+     "text": "Terms of Service | Storemapper\nUnderstand our commitment to you. Read Storemapper's Terms of Service for clear, transparent guidelines. Secure your business with trust. Learn more now!\nTerms of Service | Storemapper\nUnderstand our commitment to you. Read Storemapper's Terms of Service for clear, transparent guidelines. Secure your business with trust. Learn more now!\nTerms of Service | Storemapper\nFeatures Platforms\nLive Demo\nHealthcare Store Locator Restaurant Store Locator Business Store Locator\nUse Cases\nRetail Business & Industrial Education Health care Finance Restaurants Real State\nPricing\nResources\nBlog Help Center Case Studies Live Demo Partners Affiliate Program Demo on Demand FAQ\nBook a Demo Log in\nLog in\nGet started free\nTerms of Use\nLast update: May 18, 2018\nThe following terms and conditions for use (this “Terms of Use”) govern all use of the website (the “Website”) and all content, services, features, activities and products available at or through the Website, including but not limited to the website store locator service (the “Storemapper Solution” and, together with all other content, services, features, activities and products available through the Website, the “Services”). The Services are owned and operated by SureSwift Capital Inc. (hereinafter “we” or “SURESWIFT CAPITAL”), a company incorporated under Canadian laws, corporation number BC1041789.\nBy registering on the Website or using Storemapper Solution, you (with respect to users of the Storemapper Solution, the terms “you” or “yours” include the person or entity that is registered with the Storemapper Solution as well as any third parties authorized to access the Storemapper Solution on that person or entity’s behalf) acknowledge that you have read, understood and agreed to the entirety of these Terms of Service. SURESWIFT CAPITAL strongly advises you to print and/or save a copy of the Terms of Service.\nThese Terms of Service may be amended from time to time. It is the Client’s responsibility to review these Terms of Service frequently and to remain informed of any changes implemented. The Client agrees that the continued use of the Service after such changes to the Terms of Services have been published will constitute the Client’s acceptance of such revised terms.\n1. DEFINITIONS\nIn this Agreement, words or phrases beginning with a capital letter shall have the following meanings:\n“Account” means the account of the Client after entering into the Agreement, which enables the Client to use the Service.\n“Agreement” ​means the agreement constituted by these Terms of Service, the Subscribed Plan, the Privacy policy and any potential subsequent amendments of those as well as any separate agreement entered into between SURESWIFT CAPITAL and the Client for the performance of the Service.\n“Client” ​means the individual or legal entity, professional only, with whom SURESWIFT CAPITAL entered this Agreement and whose name and address appear on the Account. The Client and SURESWIFT CAPITAL are hereinafter collectively referred to as the “Parties” or individually as a “Party”.\n“Storemapper Solution​” means all content, services, features, activities and products available at or through the Website, as well as any related applications, developed and published by SURESWIFT CAPITAL.\n“Personal Data​” means any information relating to a natural person who is or can be identified, directly or indirectly.\n“Content” means any data, whether personal or not, contained in the information provided by the Client to Storemapper Solution and processed through the Storemapper Solution.\n“Documentation” ​means all documents that may be viewed, printed, sent and/or downloaded in electronic form from the website , including the knowledge base , and the blog , describing the functionalities of the Service and the Storemapper Solution.\n“Client Data” means personal data, reports, addresses, and other files, folders or documents in electronic form that a User of the Service stores within the Service to be processed through Storemapper Solution;\n“Service​” ​means the grant of access to the Storemapper Solution by SURESWIFT CAPITAL and the use of the Storemapper Solution in SaaS mode by the Client, whether through the website under the terms and conditions set out in the Agreement.\n“Subscribed Plan​” ​means the fee-­based plan subscribed by the Client for a fixed monthly or an annual period, which appears on the Account (and then possibly modified by the Client). The Service is provided through separate offers, which functionalities are described on the website , or through specific tailored offer (s).\n“External Application Programming Interface​” or “External API​” means an external web service to the Storemapper Solution, being web­apps (API) or the Client’s scripts, to which the Client may send Content.\n2. PURPOSE OF THE AGREEMENT\nThe purpose of this Agreement is to set out the conditions under which SURESWIFT CAPITAL provides the Service to the Client, who accepts it, a non­exclusive and non­transferable right to use the Storemapper Solution. In exchange, the Client agrees to pay the contractual fee and to comply with all requirements set out in the Terms of Service.\n3. SERVICE ­ DESCRIPTION, ACCESS AND AVAILABILITY\n3.1. Description of the Service\nStoremapper Solution is a hosted on-line locator service, that allows visitors of the Client websites find locations of their business within proximity of an address or postal code or within a selected region.\nThe Service does not include any storage service. The Client understands that he/she/it is has the sole responsibility to ensure by all means available that all data contained in Product are saved and registered. SURESWIFT CAPITAL excludes any liability in the event of a loss of User Data.\n3.2 Account Registration and Access\nTo register for the Service and create an account, you must complete the registration process by providing us with the information prompted by the registration form, including e-mail address (username), password, and billing information. You agree to provide us with complete and accurate information when you register for the Service, and to keep such information up to date.\nYou shall protect your username and password and are solely responsible for activities that occur under or through your account, including activities initiated by third parties, whether or not such activities are authorized by you. If you allow a third party to access the Storemapper Solution on your behalf, you shall ensure that such third party is bound by, and abides by, the terms of this Agreement. You agree to notify SURESWIFT CAPITAL immediately of any unauthorized use of your account or any other breach of security relating to your account or your use of the Storemapper Solution. Storemapper employees may access your account, or information associated with your account, to provide support or maintenance, for security-related reasons, or any other business purpose. You acknowledge and consent to such access.\n3.3 Availability and Support\nThe Service is available to the Client 24 hours a day, 7 days a week during the term of the Agreement and within the limits set out in the Agreement. Support for the Services is only available in English, via email ( help@storemapper.co ). Various questions and concerns of the Client may find a quick answer by visiting the help center .\n4. LICENSE TO STOREMAPPER SOLUTION\nSubject to the terms and conditions of this Agreement, SURESWIFT CAPITAL hereby grants you a limited, revocable, non-exclusive, non-transferable and non-assignable license to (i) include the provided JavaScript (together with any fixes, updates and upgrades provided to you, the “Storemapper Script”) in the HTML code for web page(s) that are properly registered for the Storemapper Solution and owned by you, solely for the purposes of rendering a store locator, accessing and providing information to the Storemapper Solution and accessing information available from the Storemapper Solution with respect to such web page(s); and (ii) remotely access the Storemapper Solution to view and download your reports stored on the Website, located at www.storemapper.com .\nExcept as expressly set forth herein, you shall not (A) use, reproduce, modify or create derivative works of the Storemapper Script, or (B) transfer, lease, lend, sublicense, use for timesharing, or service bureau purposes, resell or otherwise distribute or allow third-party access to all or any portion of the Storemapper Script or the Storemapper Solution.\n5. COLLECTED DATA\nWhen registering to and while using the Storemapper Solution​, SURESWIFT CAPITAL collects, on a voluntary basis, from the Client a limited number of data, including Personal Data, which is solely for the performance of the Storemapper Solution​ and used in connection with the Storemapper Solution​. All data provided to the Storemapper Solution​, including Personal Data, Content and Client Data will not be freely given to anyone. We do not, under any circumstances, sell either your Personal Data, Content and Client Data. Only authorized employees of the Storemapper Service have access to view Personal Data, Content and Client Data.\nAll collected data is treated according to our Privacy Policy which which is part of the Agreement (access the Privacy policy here ).\n6. PRICING, INVOICING AND PENALTIES\n6.1 Subscription Terms\nA specific pricing applies to any monthly or annual subscription plan, which are detailed under the pricing page , except for the free Account for a limited period of 7 days. The pricing is exclusively in the expressed currency. All fees are exclusive of all taxes, levies, or duties imposed by taxing authorities, and the Client shall be responsible for payment of all such taxes, levies, or duties in its jurisdiction.\nThe Client may have access to a free Account for a period of 7 calendar days, during which the Client uses the Service free of charge. Each Client may subscribe only once to a free Account and shall not maintain more than one free Account. At any time during the trial period, the Client may opt for a Subscribed Plan, which will be charged automatically. For any upgrade or downgrade of the Subscribed Plan, the new price will apply as of the day following the date of the change in the Subscribed Plan. The billing cycle remains unchanged and the invoicing will include the details as to the pro rata. In the event of an amendment of the Client’s Subscribed Plan or a change from the Subscribed Plan to a free Account, the Client shall not be entitled to a refund. Further details on how changes and cancellations of Subscribed Plans are handled can be found at Stripe's website .\n6.2 Payment and Invoicing\nAll Subscribed Plans must be paid, through SURESWIFT CAPITAL payment service provider Stripe , for in full using a credit card, exclusively with one of the following credit card: Visa, Mastercard, Amex. The Client must enter valid credit card information.\nThe Service is billed in advance on a monthly or annual basis, irrespective of the use of the Service made by the Client. The amount already paid is neither fully or partially refundable, with the exception of the Money Back Trial Period (described below). The lack of use or the temporary discontinuance of the Service during the duration of the Subscribed Plan shall not have the effect of extending the duration of the Agreement or the Service, nor qualify for a refund or any compensation whatsoever. With the exception of the Money Back Trial Period (described below) SURESWIFT CAPITAL will provide no refunds or credits for partial months of service, upgrade/downgrade refunds, or refunds for months unused with an open account.\nSURESWIFT CAPITAL shall automatically send the Client an email receipt for each payment. In addition, the Client may also download a PDF version of the invoice including the Client’s details in his/her/its Account in the Invoices Section .\n6.3 Penalties\nIn the event of lack of payment on the due date, the features of the Product available due to a typical scheduled payment will be temporarily suspended until proper payment is made, at the Service’s discretion.\n6.4 Money Back Trial Period\nFor subscription plans that do not involve a Free Trial Period (as described below), SURESWIFT CAPITAL may offer, during the registration process, a one-time money back period during which the Client can try out Storemapper Solution for a period of 30 days and request a refund during the specified money back period if he/she/it are unsatisfied with the Service for any reason (“Money Back Trial Period”).\nIf the Client participates in a Money Back Trial Period, at the commencement of the Money Back Trial Period his/her/its credit card will be charged the full amount due under Subscription Plan, as described above.\nThe Client may cancel his/her/its Plan at any time during the Money Back Trial Period by following the steps described in Section 3.4 (“Account Cancellation”), upon which the Client will automatically receive a refund of all fees charged to his/her/its credit card. Upon canceling the Plan, the Client will immediately lose all access to the Service and any data or information stored within his/her/its account (see Section “Terms and Termination” ) for additional details).\nIf the Client fails to cancel his/her/its Plan within the Money Back Trial Period, no refund will be available to him/her/it and he/she/it will thereafter be billed on a month-to-month or year-to-year basis (depending on Subscribed Plan) unless and until he/she/it cancels his/her/its Plan or SURESWIFT CAPITAL terminates it (see Section “Account Cancellation” and Section “Terms and Termination” ). The Client will not receive a notice from SURESWIFT CAPITAL that his/her/its Money Back Trial Period is about to end or has ended.\nSURESWIFT CAPITAL reserves the right to modify, cancel and/or limit the Money Back Trial Period offer at any time.\n6.5 Account Cancellation\nThe only valid method for canceling your Plan is to send a cancellation email via the link provided on the Account “Settings” page, accessible after logging in to the Website.\nIf you cancel your Plan before the end of your current pre-paid period, you will not be charged again for your Plan beginning with the next billing cycle. If you cancel your Plan, you will lose all access, upon the expiration of your current pre-paid period, to the Storemapper Solution and any data or information stored in your account (see Section 8 (“ Terms and Termination “) for additional details). If you cancel your Plan during a Free Trial Period or Money Back Trial Period, effective upon such cancellation, you will immediately lose all access to the Storemapper Solution and any data or information stored in your account.\n7. MODIFICATION OF SERVICE AND PRICING\nSURESWIFT CAPITAL reserves the right to modify or discontinue, temporarily or permanently, the Service (or any part thereof) with or without notice at any time. Prices of all Services, for the monthly or annual subscription plan to the Service, are subject to changes at any time. Such notice may be provided at any time by posting the changes on the website www.storemapper.com , the Storemapper application or the Service itself. Such changes shall not apply for the ongoing Subscribed Plans and shall only apply for the Subscribed Plans entered after the modification of pricing.\n8. TERMS AND TERMINATION\nThe Agreement will be effective after the creation of an Account by the Client, including a free Account, and will remain in effect until its termination by either Party. The minimal duration of the Agreement is one (1) month as from the date of the subscription of a monthly Subscribed Plan and one (1) year as from the date of the subscription of an annual Subscribed Plan.\nAll Subscribed Plans will renew for successive periods of the same duration by tacit agreement, unless terminated by either Party by email (for the Client: to the Client’s email address provided in the Account; for SURESWIFT CAPITAL: help@storemapper.co ) at least 7 (seven) working days before the end of the Subscribed Plan. It is the sole responsibility of the Client to anticipate the end of the Subscribed Plan, which consequences will be borne exclusively by the Client. No amount received in advance by SURESWIFT CAPITAL for the Subscribed Plan will be refunded. All Content will be automatically deleted from the Service at the termination date of the Agreement. The Client is aware that the Content cannot be recovered after the termination date of the Agreement.\nTo terminate your use of the Storemapper Solution, please follow the steps described in Section 6.5 (“Account Cancellation”). Requests to cancel by e-mail or phone are not considered, and do not accomplish, cancellation. Upon any termination of the Storemapper Solution (i) SURESWIFT CAPITAL will cease providing the Storemapper Solution; (ii) you will delete all copies of the Storemapper Script from your web page(s); (iii) any outstanding balance payable by you to SURESWIFT CAPITAL will become immediately due and payable and any collection expenses incurred will be included in the amount owed; (iv) you will not be entitled to any refunds of any usage fees or any other fees; and (v) all of your historical report data will no longer be available to you.\nIn addition, upon expiration of any Session with respect to a web page, you shall delete all copies of the Storemapper Script from such web page.\n9. GRANTING AND UNDERTAKING OF SURESWIFT CAPITAL\nSURESWIFT CAPITAL undertakes to use all reasonable and human resources to provide the Service, subject to (i) the full payment by the Client of the contractual fees and (ii) interruptions, suspension or discontinuance of all or any portion of the Service due to maintenance, service disruption or failure external to SURESWIFT CAPITAL. For maintenance operations, SURESWIFT CAPITAL will endeavour to inform the Client in advance by email or via the website or the Storemapper application. The temporary interruptions of the Service, of any kind, will under no circumstances give rise to indemnification of any kind to the Client’s benefit. Any service not expressly provided for in the Agreement, such as training, support, etc., shall be subject to a separate agreement, based on a quotation established according to SURESWIFT CAPITAL’s applicable rates.\n10. GRANTINGS AND UNDERTAKINGS OF THE CLIENT\nThe Client, who enters into the Agreement on behalf of a company or other legal entity, grants that he/she/it has the authority to bind such entity and its affiliates. The Client grants to be a natural or a legal entity, acting as a professional, excluding any robots. Accounts registered by “bots” or other automated methods are not permitted.\nThe Client undertakes to :\nacquire the necessary hardware and software, and to subscribe to telecommunications services (internet access) required to remotely use the Service. The costs for such equipment and for Internet access services are exclusively borne by the Client;\nensure that the Client is trained to use the Service and Internet­based technologies;\nmaintain the security of the Account and the related password; accurately transmit, under his/her/its sole responsibility, all information required for the performance of the Agreement and warrants the accuracy of such information. The Client hence commits to report any change to these information;\npay the contractual fees under the conditions set out in the Agreement;\nrespect SURESWIFT CAPITAL’s intellectual property rights;\nrefrain from using the Service in conditions that may impair the functioning or safety of the Service;\nrefrain from modifying, adapting or hacking the Service or modify another website so as to falsely imply that it is associated with the Service, or with SURESWIFT CAPITAL;\nrefrain from reproducing, duplicating, copying, selling, reselling or exploiting any portion of the Service, use of the Service, or access to the Service without the written permission by SURESWIFT CAPITAL;\nrefrain from using the Services in any manner that is inconsistent with user documentation, if any, supplied to you by SURESWIFT CAPITAL or inconsistent with SURESWIFT CAPITAL standard security procedures, if any, accessible through your user interface;\nrefrain from removing, obscuring or alter any legal notices, including notices of intellectual property rights appearing in or on any materials delivered to you by Storemapper;\nrefrain from using, posting, transmitting or introducing any device, software or routine that interferes or attempts to interfere with the operation of the Services;\nrefrain from using the Services, or any part of Storemapper Solution, for academic research or research unrelated to your Visitors or the web page(s) registered for use with the Services, contemplated litigation, scholarship, or any other unintended purpose;\nrefrain from posting or transmitting any libelous, defamatory, indecent, obscene, abusive or pornographic message, data, image or program;\nrefrain from posting or transmitting any message, data, image or program that would violate any property rights of others;\nrefrain from uploading or downloading files that contain software or other material protected by intellectual property laws, rights of privacy or publicity, or any other applicable law unless you own or control the rights to such files or have received all necessary consents.\n11. LIABILITY\nThe Service is provided on an “as is” basis and “as available” basis. The Service shall not substitute any other function in the Client’s organization. The information given by SURESWIFT CAPITAL is provided solely for the use of the Service but not for the Client’s organization. SURESWIFT CAPITAL has an obligation of means and does not provide any implicit or explicit warranty as to the use of the Service.\nThe use of the Service is provided at the Client’s sole risk. The Client understands that the technical processing and transmission of the Service including all content given by and received by Users may be transferred unencrypted and involve (a) transmissions over various networks; and (b) changes to conform and adapt to technical requirements of connecting networks or devices. SURESWIFT CAPITAL does not warrant that (i) the Service will meet the specific requirements of the Client, (ii) the Service will be uninterrupted, timely, secure, or error­free, (iii) the results that may be obtained from the use of the Service will be accurate or reliable, (iv) the quality of any information, or other material obtained by the Client through the Service will meet the Client’s expectations, and (v) any errors in the Service will be corrected.\nThe Content is kept by SURESWIFT CAPITAL to the extent that it allows performance of the Service, which includes long-term data storage. It is additionally the Client’s responsibility to ensure the storage and registration of all of his/her/its data. SURESWIFT CAPITAL shall not be held responsible for any loss of User Data.\nSURESWIFT CAPITAL excludes any liability for the suspension of the Account. The Client understands that SURESWIFT CAPITAL uses third party vendors and hosting partners to provide the necessary hardware, software, networking, billing, storage, and related technology required to run the Service. The Clients also understands that, while the Storemapper Solution offers tools to easily set up a connection with such systems, External APIs are published and maintained by an independent provider external to SURESWIFT CAPITAL. The Client is therefore solely liable as to the transfer, the download or any use of User Data to or through an External API, excluding any liability of SURESWIFT CAPITAL. The Client is aware that he/she/it may have to enter into a specific and separate agreement as to the use of the External API.\nSURESWIFT CAPITAL excludes any liability in the events of:\na downgrading of the Service;\nloss of User Data, features, or capacity of the Client’s Account;\na modification, price change, suspension or discontinuance of the Service;\na loss or damage from Client’s failure to comply with the Client’s undertakings, including his/her/its security obligation.\nThe Client expressly understands and agrees that SURESWIFT CAPITAL shall not be liable for any direct, indirect, incidental, special, consequential or exemplary damages, including but not limited to, damages for loss of profits, goodwill, use, data or other intangible losses (even if SURESWIFT CAPITAL has been advised of the possibility of such damages), resulting from: (i) the use or the inability to use the Service; (ii) the cost of procurement of substitute services resulting from any services purchased through or from the Service; (iii) unauthorized access to or alteration of the Processed Emails, Content or Parsed Content; (iv) statements or conduct of any third party on the Service; (v) or any other matter relating to the Service.\nIn any case, the overall liability of SURESWIFT CAPITAL is strictly limited to the overall fees paid by the Client for the ongoing Subscribed Plan.\n12. INTELLECTUAL PROPERTY RIGHTS\n12.1. SURESWIFT CAPITAL ownership and undertakings\nAll intellectual property rights on the Storemapper Solution and all content available on the website www.storemapper.com or the Storemapper application remain the sole property of SURESWIFT CAPITAL. SURESWIFT CAPITAL warrants that it has developed the Storemapper Solution and owns the intellectual property rights to the Storemapper Solution and all elements used to provide the Service.\nSURESWIFT CAPITAL undertakes not to claim any ownership on the User Data and Content processed through the Service, which remain the sole property of the Client.\n12.2. The Client’s ownership and undertakings\nThe Client remains the owner of all Data and Content processed under the Agreement.\nThe Clients undertakes to refrain from any act or behavior that may directly or indirectly affect the intellectual property rights owned by SURESWIFT CAPITAL, such as but not limited to, the intellectual property rights owned on the Storemapper Solution, the related trademark and logo used by SURESWIFT CAPITAL. The Client grants SURESWIFT CAPITAL against any claim, demand, suit or proceedings made or brought against SURESWIFT CAPITAL by a third party alleging that the Content, the use of the Service in violation of the Agreement, infringes, misappropriates the intellectual property rights of a third party or violates applicable law and regulation. The Client undertakes to indemnify SURESWIFT CAPITAL for any damages awarded against, and for reasonable legal fees (including attorney’s fees) incurred by SURESWIFT CAPITAL in connection with any such claim, demand, suit or proceedings, provided that SURESWIFT CAPITAL (i) promptly informs the Client in writing of the claim, demand, suit or proceeding, (ii) gives the Client the sole control of the defense and settlement of the claim, demand, suit or proceedings (such settlement may be entered to the extend that said settlement releases unconditionally SURESWIFT CAPITAL of its liability) and (iii) provides the Client with all reasonable assistance. All fees incurred will be borne exclusively by the Client.\n13. PRIVACY\nThe Client is considered the data controller within the meaning of the Act n°78­17 of 6 January 1978 on information technology as well as European Union’s 2018 General Data Protection Regulation, data files and civil liberties, in regards to all User Data provided within the framework of the Agreements. The Client therefore undertakes expressly to comply with all applicable data protection regulations and to carry out any necessary formalities.\nIn compliance with the Act n°78­17 of 6 January 1978 on information technology, data files and civil liberties, the Client has a permanent right to access, amend, modify or delete any information related to him/her/it by sending an email to help@storemapper.co . For more details, SURESWIFT CAPITAL invites the Client to refer to the Privacy policy, which is part of the Agreement (access the Privacy policy ).\n14. GDPR COMPLIANCE\nStoremapper as well as SURESWIFT CAPITAL have taken necessary steps to be within the compliance standards of the European Union’s General Data Protection Regulation. More information regarding the protection of your data can be found in the associated Privacy Policy at this link .\n15. CONFIDENTIALITY\nSURESWIFT CAPITAL and the Client undertake to keep confidential all information and documents concerning each Party, of any nature whatsoever, to which the relevant Party may have referred to, or provided, during the performance of the Agreement. The above shall not prevent SURESWIFT CAPITAL to mention its commercial relationship with the Client, as provided below.\n16. FORCE MAJEURE\nSURESWIFT CAPITAL uses all technical means which may be reasonably used for the performance of the Service. SURESWIFT CAPITAL shall therefore not be held liable in the event that the Service is not available in the case of force majeure, including but not limited to, network failure, strike, natural disaster, earthquake, public telecommunication network failure, failure of Internet connection due to private or public agents to which SURESWIFT CAPITAL relies upon. The Client waives any right to indemnity of any nature whatsoever in the event of force majeure and SURESWIFT CAPITAL shall not be held liable for any cost incurred due to the impossibility to use the Service.\n17. MISCELLANEOUS\nAt any time and at its own discretion, SURESWIFT CAPITAL reserves the right to assign, subcontract, transfer and / or provide all or part of the rights and obligations subject of the Agreement to a third party in any form whatsoever. This Agreement constitutes the entire Agreement between the Parties with respect to the subject matter hereof. It supersedes all prior negotiations, contracts, and undertakings between the Parties with respect to such matter.\nThe fact that one of the Parties did not request the application of any provision of this Agreement shall in no event be deemed or interpreted as a waiver of the right that Party has under this provision.\nThe Client allows SURESWIFT CAPITAL to mention its company name or name and the Service provided for commercial purpose only.\n18. CHOICE OF LAW AND JURISDICTION\nThe Agreement is subject to the laws of Canada. Any dispute, controversy or claim arising under, out of or relating to the validity, interpretation and performance of the Agreement shall be referred to and finally determined by the competent courts of the Province of British Columbia and British Columbia law shall apply.\nEffective Date of this Terms of Use:\nThis Terms of Use is effective as of May 18, 2018.\n‍\nThousands of businesses rely on Storemapper to\nhelp customers find their products and services.\nIt’s easy to install, customizable, and proven to drive more sales.\nhelp@storemapper.co\n(888) 224-6511\nA 5201 Eden Ave Suite 300Edina, MN 55436\nUse Cases\nRetail\nBusiness & Industrial\nEducation\nHealth care\nFinance\nRestaurants\nReal State\nLinks\nBlog\nHelp\nPricing\nExamples\nPartners Login\nPartners\nPlatforms\nCase Studies\nLive Demo\nAffiliate Program\nDemo on Demand\nStore Locator for Retail\nStore Locator for E-commerce\nStore Locator for Food and Beverage\nElfsight Alternative\nStockist Alternative\nAffiliate Program\nLinks\nAR\nAlmora\nstoremapper-store-locator-second-vesion\nExamples\nPartners Login\nwix campaign\nDemo 2\nstore locator\nbtn component\ndod videos\nsearch\nDemo on Demand\nAffiliate Program\nLinks\nlp-store-locator-wp\ndiggint\nc-s-supply-inc\nExamples\nPartners Login\nezpz\ncobble-hill-puzzle-co\nbeardbrand\nover-under-clothing\nsilver-lining-opticians\nuntuckit\nDemo on Demand\nAffiliate Program\nWant to know more about our app?\nBook a demo with us and we'd be happy to assist you\nBook A Demo\n© 2026 - All rights reserved\nLegal\nCookies Policy\nPrivacy Policy\nTerms of Service\nClose Cookie Popup\nCookie Settings\nBy clicking “Accept All Cookies”, you agree to the storing of cookies on your device to enhance site navigation, analyze site usage and assist in our marketing efforts. More info\nBy clicking “Accept All Cookies”, you agree to the storing of cookies on your device to enhance site navigation, analyze site usage and assist in our marketing efforts. More info\nAccept All Cookies\nCookie Settings\nClose Cookie Preference Manager\nCookie Settings\nBy clicking “Accept All Cookies”, you agree to the storing of cookies on your device to enhance site navigation, analyze site usage and assist in our marketing efforts. More info\nStrictly Necessary (Always Active)\nCookies required to enable basic website functionality.\nMarketing Cookies used to deliver advertising that is more relevant to you and your interests.\nPersonalization\nCookies allowing the website to remember choices you make (such as your user name, language, or the region you are in).\nAnalytics\nCookies helping understand how this website performs, how visitors interact with the site, and whether there may be technical issues.\nAccept All Cookies\nSave Settings\nCookies Preferences",
+     "policy": {
+      "policyId": "rights.official-company-website.v1",
+      "sourceId": "src.official-company-website",
+      "providerName": "Official company or product website (entity-bound)",
+      "displayTier": "automatic",
+      "registryHash": "30d893f5b810c363886fbef8bc35e9535700abdcb83e6a517b66018b3993cacc"
+     }
+    }
+   ],
+   "analysis": [
+    {
+     "id": "a-business_model",
+     "item": "BUSINESS_MODEL",
+     "text": "店舗検索の地図（ストアロケーター）を、他社のウェブサイトに貼り込むサービスとして月額または年額で売る。客は自社サイトの訪問者に近くの店舗・取扱店を探させる権利の対価として、運営元の SureSwift Capital Inc. にクレジットカードで払う。決済は Stripe 経由で、Visa・Mastercard・Amex に限られる。プランの差は、登録できる拠点数と機能の数で付けている。",
+     "basis": [
+      "f1",
+      "f3"
+     ],
+     "presentation": "FACT_SUMMARY"
+    },
+    {
+     "id": "a-pricing",
+     "item": "PRICING",
+     "text": "中位のProプランは、支援資料では月39.99ドル・年399ドル。公式料金ページでは上段が月49.99ドル・年499ドル、下の比較表が月39.99ドル・年399ドルで、同じページの中で価格が食い違っている。年払いは月払いより割安に設定されている。",
+     "basis": [
+      "f1",
+      "f2"
+     ],
+     "formula": "数字は出典に載っている値",
+     "presentation": "FACT_SUMMARY"
+    },
+    {
+     "id": "a-upfront_cash",
+     "item": "UPFRONT_CASH",
+     "text": "利用規約によると、料金は利用の有無に関係なく月単位または年単位で前払いになる。返金は返金保証期間を除いて行わず、未使用の月の分も返さない。Proを年払いで契約すると、年399ドル(料金ページ上段の表示では年499ドル)が契約時にまとめて入る。",
+     "basis": [
+      "f1",
+      "f2",
+      "f3"
+     ],
+     "formula": "数字は出典に載っている値",
+     "presentation": "FACT_SUMMARY"
+    },
+    {
+     "id": "a-customer",
+     "item": "CUSTOMER",
+     "text": "利用規約は、契約相手を事業者に限っている。料金ページは、販売店・小売店・代理店の網を持つブランドを上位プランの客に挙げている。小売・飲食・医療・教育・金融などで、自社サイトに「最寄りの取扱店」を出したい会社が払っている。",
+     "basis": [
+      "f3"
+     ],
+     "presentation": "FACT_SUMMARY"
+    },
+    {
+     "id": "a-cost_structure",
+     "item": "COST_STRUCTURE",
+     "text": "決済は Stripe 経由。米国の標準料率で計算すると、Pro の年払い1件あたりの決済手数料は約11.87ドル（年399ドル）〜約14.77ドル（年499ドル）。月払いでは1件あたり約1.46ドル（月39.99ドル）〜約1.75ドル（月49.99ドル）になる。",
+     "basis": [
+      "f1",
+      "f2",
+      "f3"
+     ],
+     "formula": "Stripe 米国標準 2.9%+30¢ を適用: 399×2.9%+0.30≈11.87 / 499×2.9%+0.30≈14.77 / 39.99×2.9%+0.30≈1.46 / 49.99×2.9%+0.30≈1.75（運営元はカナダ法人で、実際に適用される料率は不明）",
+     "presentation": "ESTIMATE"
+    },
+    {
+     "id": "a-lock_in",
+     "item": "LOCK_IN",
+     "text": "利用規約では、契約が終わると登録した拠点データやレポートは自動で消え、取り戻せない。客は自社ページから埋め込みのスクリプトも外さなければならない。解約の方法は管理画面の設定ページから送るメールだけで、電話やメールでの申し出は受け付けない。",
+     "basis": [
+      "f3"
+     ],
+     "presentation": "FACT_SUMMARY"
+    },
+    {
+     "id": "a-dependencies",
+     "item": "DEPENDENCIES",
+     "text": "利用規約によると、決済は Stripe、サーバー・保存・課金の技術は外部の業者に頼っている。設置先として Shopify・Squarespace・BigCommerce・WordPress・Wix・WooCommerce などと連携していて、客のサイトの基盤の仕様が変わると影響を受ける。",
+     "basis": [
+      "f3"
+     ],
+     "presentation": "FACT_SUMMARY"
+    },
+    {
+     "id": "a-competition",
+     "item": "COMPETITION",
+     "text": "公式サイトには「Elfsight Alternative」「Stockist Alternative」という名前のページがあり、この2社の利用者を乗り換えさせる狙いと見られる。差別化として、簡易な店舗検索アプリにはない絞り込み、店舗の一括管理、分析、複数の地図、自社ブランドへの着せ替えを挙げる。",
+     "basis": [
+      "f1"
+     ],
+     "presentation": "FACT_SUMMARY"
+    },
+    {
+     "id": "a-lesson",
+     "item": "LESSON",
+     "text": "同じ料金ページで Pro が月49.99ドルと月39.99ドルに分かれて載っている。値上げの途中で古い表が残ると、客にはどちらが本当の値段か分からない。年額前払い・返金なしで現金を先に取る契約なら、表示する値段の一本化を最優先にする。",
+     "basis": [
+      "f1",
+      "f2"
+     ],
+     "formula": "数字は出典に載っている値",
+     "presentation": "FACT_SUMMARY"
+    },
+    {
+     "id": "a-referral",
+     "item": "REFERRAL",
+     "text": "公式サイトにアフィリエイトプログラムとパートナー向けの入口がある。料率は公開されていない。",
+     "basis": [
+      "f1"
+     ],
+     "presentation": "FACT_SUMMARY"
+    }
+   ],
+   "changedClaims": [
+    "f1",
+    "f2",
+    "f3"
+   ],
+   "identity": {
+    "id": "ent_storemapper_a848df77867b",
+    "name": "Storemapper",
+    "url": "https://www.storemapper.com/",
+    "publishability": "PARTIAL"
+   },
+   "media": {
+    "assets": [
+     {
+      "assetId": "ma_66bffd5f9735f1afc0384fe5",
+      "entityId": "ent_storemapper_a848df77867b",
+      "kind": "screenshot_home",
+      "sourcePageUrl": "https://www.storemapper.com/",
+      "assetUrl": null,
+      "retrievedAt": "2026-10-07T10:05:31.185Z",
+      "capturedBy": "media-fetch-20261007",
+      "sha256": "66bffd5f9735f1afc0384fe5abac56dd918b9e8b508479902666741a7177b634",
+      "bytes": 359125,
+      "contentType": "image/png",
+      "width": 1280,
+      "height": 800,
+      "rights": {
+       "basis": "official_marketing_material",
+       "termsUrl": null,
+       "licence": null,
+       "attribution": "出典: Storemapper 公式サイト (https://www.storemapper.com/)",
+       "decision": "held",
+       "reviewedAt": null,
+       "notes": "ビューポート 1280x800 で当方が描画したスクリーンショット。同意バナーが写り込むことがある。 自動取得 (media-fetch)。権利審査前のため held。許可前に目視で (1) 人物が主題でない (2) 同意バナー・個人情報・ログイン画面が写っていない (3) 識別・説明目的に限る、を確認し、review-assets で判定を追記する（この manifest は書き換えない。自動取得の既定値 subjectIsPerson=true は「未確認」の意味）。"
+      },
+      "storage": {
+       "bucket": "foundation-raw",
+       "key": "media/ent_storemapper_a848df77867b/66bffd5f9735f1afc0384fe5abac56dd918b9e8b508479902666741a7177b634.png",
+       "publicKey": null
+      },
+      "subjectIsPerson": true,
+      "review": null
+     },
+     {
+      "assetId": "ma_35b72e91c9907150f88a9810",
+      "entityId": "ent_storemapper_a848df77867b",
+      "kind": "favicon",
+      "sourcePageUrl": "https://www.storemapper.com/",
+      "assetUrl": "https://cdn.prod.website-files.com/655ab3dc7ccc75e0baaf9b3c/65c2d736878a2e434c012da7_storemapper-favicon.jpg",
+      "retrievedAt": "2026-10-07T10:05:31.240Z",
+      "capturedBy": "media-fetch-20261007",
+      "sha256": "35b72e91c9907150f88a9810a8f9871829317e5f9299af354ef2e2fd8ea309a4",
+      "bytes": 1732,
+      "contentType": "image/jpeg",
+      "width": 32,
+      "height": 32,
+      "rights": {
+       "basis": "official_marketing_material",
+       "termsUrl": null,
+       "licence": null,
+       "attribution": "出典: Storemapper 公式サイト (https://www.storemapper.com/)",
+       "decision": "allowed",
+       "reviewedAt": "2026-10-07T10:07:21.926Z",
+       "notes": "自動判定 auto-rule-v4: favicon。画像として読める (image/jpeg 32x32)、SHA-256が台帳と一致 (35b72e91c990)、macOS Vision の顔検出 (VNDetectFaceRectanglesRequest) で顔 0 件。公式素材として識別・説明目的の小さな表示に限る。画像の中身の目視確認はしていない。"
+      },
+      "storage": {
+       "bucket": "foundation-raw",
+       "key": "media/ent_storemapper_a848df77867b/35b72e91c9907150f88a9810a8f9871829317e5f9299af354ef2e2fd8ea309a4.jpg",
+       "publicKey": "media/ent_storemapper_a848df77867b/35b72e91c9907150f88a9810a8f9871829317e5f9299af354ef2e2fd8ea309a4.jpg"
+      },
+      "subjectIsPerson": false,
+      "review": {
+       "assetId": "ma_35b72e91c9907150f88a9810",
+       "decision": "allowed",
+       "subjectIsPerson": false,
+       "reviewer": "auto-rule-v4",
+       "reviewedAt": "2026-10-07T10:07:21.926Z",
+       "note": "自動判定 auto-rule-v4: favicon。画像として読める (image/jpeg 32x32)、SHA-256が台帳と一致 (35b72e91c990)、macOS Vision の顔検出 (VNDetectFaceRectanglesRequest) で顔 0 件。公式素材として識別・説明目的の小さな表示に限る。画像の中身の目視確認はしていない。"
+      }
+     },
+     {
+      "assetId": "ma_444cccfcda4f3756650e0c70",
+      "entityId": "ent_storemapper_a848df77867b",
+      "kind": "screenshot_pricing",
+      "sourcePageUrl": "https://www.storemapper.com/pricing",
+      "assetUrl": null,
+      "retrievedAt": "2026-10-07T10:05:33.233Z",
+      "capturedBy": "media-fetch-20261007",
+      "sha256": "444cccfcda4f3756650e0c70987b2ff5724936ac1d7ce42bcab2640b7edabc85",
+      "bytes": 93811,
+      "contentType": "image/png",
+      "width": 1280,
+      "height": 800,
+      "rights": {
+       "basis": "official_marketing_material",
+       "termsUrl": null,
+       "licence": null,
+       "attribution": "出典: Storemapper 公式サイト (https://www.storemapper.com/pricing)",
+       "decision": "held",
+       "reviewedAt": null,
+       "notes": "ビューポート 1280x800 で当方が描画したスクリーンショット。同意バナーが写り込むことがある。 自動取得 (media-fetch)。権利審査前のため held。許可前に目視で (1) 人物が主題でない (2) 同意バナー・個人情報・ログイン画面が写っていない (3) 識別・説明目的に限る、を確認し、review-assets で判定を追記する（この manifest は書き換えない。自動取得の既定値 subjectIsPerson=true は「未確認」の意味）。"
+      },
+      "storage": {
+       "bucket": "foundation-raw",
+       "key": "media/ent_storemapper_a848df77867b/444cccfcda4f3756650e0c70987b2ff5724936ac1d7ce42bcab2640b7edabc85.png",
+       "publicKey": null
+      },
+      "subjectIsPerson": true,
+      "review": null
+     },
+     {
+      "assetId": "ma_807b83ca2baf651178c1491f",
+      "entityId": "ent_storemapper_a848df77867b",
+      "kind": "og_image",
+      "sourcePageUrl": "https://www.storemapper.com/",
+      "assetUrl": "https://cdn.prod.website-files.com/655ab3dc7ccc75e0baaf9b3c/661f331f6e3b4d942f9e5298_open-graph-store-mapper-v1.jpg",
+      "retrievedAt": "2026-10-07T10:05:40.542Z",
+      "capturedBy": "media-fetch-20261007",
+      "sha256": "807b83ca2baf651178c1491f5c94ab34ce59cda2c31adc6c4e928c5fd6901bfe",
+      "bytes": 19520,
+      "contentType": "image/jpeg",
+      "width": 1200,
+      "height": 630,
+      "rights": {
+       "basis": "official_marketing_material",
+       "termsUrl": null,
+       "licence": null,
+       "attribution": "出典: Storemapper 公式サイト (https://www.storemapper.com/)",
+       "decision": "blocked",
+       "reviewedAt": "2026-10-07T10:07:21.689Z",
+       "notes": "自動判定 auto-rule-v4: promo_banner_no_product。og:image は宣伝用の紹介画像で、実際に使うときの製品画面ではないため出さない。"
+      },
+      "storage": {
+       "bucket": "foundation-raw",
+       "key": "media/ent_storemapper_a848df77867b/807b83ca2baf651178c1491f5c94ab34ce59cda2c31adc6c4e928c5fd6901bfe.jpg",
+       "publicKey": null
+      },
+      "subjectIsPerson": true,
+      "review": {
+       "assetId": "ma_807b83ca2baf651178c1491f",
+       "decision": "blocked",
+       "subjectIsPerson": true,
+       "reviewer": "auto-rule-v4",
+       "reviewedAt": "2026-10-07T10:07:21.689Z",
+       "note": "自動判定 auto-rule-v4: promo_banner_no_product。og:image は宣伝用の紹介画像で、実際に使うときの製品画面ではないため出さない。"
+      }
+     }
+    ],
+    "displayableIds": [
+     "ma_35b72e91c9907150f88a9810"
+    ],
+    "problems": []
+   },
+   "caseHash": "9b0f2bb1c1564d628225390b966d0015205c929bdc6ccd58ac8d1ae44dae6f99",
+   "itemHashes": {
+    "fact:f1": "b1ae26a34ad4bd867861040d754154e5c0453a095eb2190d5fcba7f47cb4628b",
+    "fact:f2": "fc690c3c882c9ae90d2e3667b35c3498cf30ed472a5dc114ac2cda7e13a81575",
+    "fact:f3": "649e70aa31108c3dc2682eb250102b189e388c0e3d064a138cd9efb35d7846b0",
+    "analysis:a-business_model": "6640dcd3ee40986f922a0ee5f7b3c9caecfe78a032bf1aab9957dc8034bf5828",
+    "analysis:a-pricing": "e526436d4331f796b5dd22a12940dcb1f5bf05b07fb46e597d94421e3fc4f58f",
+    "analysis:a-upfront_cash": "fba69eed1131a145106917d49ef73fe9bd2dcd34e84f33cf54885a727dec8dde",
+    "analysis:a-customer": "ae11d1bf7414c2234460eba973f372b7d5efcc72c769eead1645e7ad4531db65",
+    "analysis:a-cost_structure": "806401583064cc7bcd1592e4b59367bddc0efe5e2aeb665c1b5b96be67a034de",
+    "analysis:a-lock_in": "05352434a1f1ac646bcf7d6fc7fd76322df75fa5dfb170554978b00c493d8438",
+    "analysis:a-dependencies": "b606418368677c6fe34a2b998c735773d723d9a1c5cc06ebadca9085e85cafc7",
+    "analysis:a-competition": "1c740ba040a7502ea9b6ad4e3081bdbd2d0ffe9c177f5459bda285b0232a6e36",
+    "analysis:a-lesson": "c456b457f785c0c3c749760f5f182d1aea1fca500f257cb159941ae4b3f824fe",
+    "analysis:a-referral": "8e9f5168845fff939e466c5883fd95856da9d04630165c06074ae6048880b64a"
+   },
+   "review": [
+    "fact:f1",
+    "fact:f2",
+    "fact:f3",
+    "analysis:a-business_model",
+    "analysis:a-pricing",
+    "analysis:a-upfront_cash",
+    "analysis:a-customer",
+    "analysis:a-cost_structure",
+    "analysis:a-lock_in",
+    "analysis:a-dependencies",
+    "analysis:a-competition",
+    "analysis:a-lesson",
+    "analysis:a-referral"
+   ],
+   "reader": {
+    "sources": [
+     {
+      "id": "s8",
+      "url": "https://www.storemapper.com/pricing",
+      "publisher": "Storemapper",
+      "checkedAt": "2026-10-07",
+      "kind": "OFFICIAL"
+     },
+     {
+      "id": "s9",
+      "url": "https://help.storemapper.com/article/4326-pricing-features",
+      "publisher": "Storemapper",
+      "checkedAt": "2026-10-07",
+      "kind": "OFFICIAL"
+     },
+     {
+      "id": "s11",
+      "url": "https://www.storemapper.com/terms",
+      "publisher": "Storemapper",
+      "checkedAt": "2026-10-07",
+      "kind": "OFFICIAL"
+     }
+    ],
+    "facts": [
+     {
+      "id": "f1",
+      "kind": "OTHER",
+      "text": "公式料金ページでは Pro が上段で月49.99ドル・年499ドル、比較表で月39.99ドル・年399ドルと食い違う。",
+      "sourceId": "s8",
+      "attribution": "OFFICIAL"
+     },
+     {
+      "id": "f2",
+      "kind": "OTHER",
+      "text": "支援資料の Pro は月39.99ドル・年399ドル。",
+      "sourceId": "s9",
+      "attribution": "OFFICIAL"
+     },
+     {
+      "id": "f3",
+      "kind": "OTHER",
+      "text": "利用規約は SureSwift Capital Inc. をサービスの所有・運営者として示す。",
+      "sourceId": "s11",
+      "attribution": "OFFICIAL"
+     }
+    ],
+    "metrics": [],
+    "unknowns": [
+     "REVENUE",
+     "PROFIT",
+     "COST",
+     "TEAM",
+     "CHANNEL",
+     "TOOLS",
+     "PRICING",
+     "FOUNDED"
+    ],
+    "analysis": [
+     {
+      "id": "a-business_model",
+      "item": "BUSINESS_MODEL",
+      "text": "店舗検索の地図（ストアロケーター）を、他社のウェブサイトに貼り込むサービスとして月額または年額で売る。客は自社サイトの訪問者に近くの店舗・取扱店を探させる権利の対価として、運営元の SureSwift Capital Inc. にクレジットカードで払う。決済は Stripe 経由で、Visa・Mastercard・Amex に限られる。プランの差は、登録できる拠点数と機能の数で付けている。",
+      "basis": [
+       "f1",
+       "f3"
+      ],
+      "presentation": "FACT_SUMMARY"
+     },
+     {
+      "id": "a-pricing",
+      "item": "PRICING",
+      "text": "中位のProプランは、支援資料では月39.99ドル・年399ドル。公式料金ページでは上段が月49.99ドル・年499ドル、下の比較表が月39.99ドル・年399ドルで、同じページの中で価格が食い違っている。年払いは月払いより割安に設定されている。",
+      "basis": [
+       "f1",
+       "f2"
+      ],
+      "formula": "数字は出典に載っている値",
+      "presentation": "FACT_SUMMARY"
+     },
+     {
+      "id": "a-upfront_cash",
+      "item": "UPFRONT_CASH",
+      "text": "利用規約によると、料金は利用の有無に関係なく月単位または年単位で前払いになる。返金は返金保証期間を除いて行わず、未使用の月の分も返さない。Proを年払いで契約すると、年399ドル(料金ページ上段の表示では年499ドル)が契約時にまとめて入る。",
+      "basis": [
+       "f1",
+       "f2",
+       "f3"
+      ],
+      "formula": "数字は出典に載っている値",
+      "presentation": "FACT_SUMMARY"
+     },
+     {
+      "id": "a-customer",
+      "item": "CUSTOMER",
+      "text": "利用規約は、契約相手を事業者に限っている。料金ページは、販売店・小売店・代理店の網を持つブランドを上位プランの客に挙げている。小売・飲食・医療・教育・金融などで、自社サイトに「最寄りの取扱店」を出したい会社が払っている。",
+      "basis": [
+       "f3"
+      ],
+      "presentation": "FACT_SUMMARY"
+     },
+     {
+      "id": "a-cost_structure",
+      "item": "COST_STRUCTURE",
+      "text": "決済は Stripe 経由。米国の標準料率で計算すると、Pro の年払い1件あたりの決済手数料は約11.87ドル（年399ドル）〜約14.77ドル（年499ドル）。月払いでは1件あたり約1.46ドル（月39.99ドル）〜約1.75ドル（月49.99ドル）になる。",
+      "basis": [
+       "f1",
+       "f2",
+       "f3"
+      ],
+      "formula": "Stripe 米国標準 2.9%+30¢ を適用: 399×2.9%+0.30≈11.87 / 499×2.9%+0.30≈14.77 / 39.99×2.9%+0.30≈1.46 / 49.99×2.9%+0.30≈1.75（運営元はカナダ法人で、実際に適用される料率は不明）",
+      "presentation": "ESTIMATE"
+     },
+     {
+      "id": "a-lock_in",
+      "item": "LOCK_IN",
+      "text": "利用規約では、契約が終わると登録した拠点データやレポートは自動で消え、取り戻せない。客は自社ページから埋め込みのスクリプトも外さなければならない。解約の方法は管理画面の設定ページから送るメールだけで、電話やメールでの申し出は受け付けない。",
+      "basis": [
+       "f3"
+      ],
+      "presentation": "FACT_SUMMARY"
+     },
+     {
+      "id": "a-dependencies",
+      "item": "DEPENDENCIES",
+      "text": "利用規約によると、決済は Stripe、サーバー・保存・課金の技術は外部の業者に頼っている。設置先として Shopify・Squarespace・BigCommerce・WordPress・Wix・WooCommerce などと連携していて、客のサイトの基盤の仕様が変わると影響を受ける。",
+      "basis": [
+       "f3"
+      ],
+      "presentation": "FACT_SUMMARY"
+     },
+     {
+      "id": "a-competition",
+      "item": "COMPETITION",
+      "text": "公式サイトには「Elfsight Alternative」「Stockist Alternative」という名前のページがあり、この2社の利用者を乗り換えさせる狙いと見られる。差別化として、簡易な店舗検索アプリにはない絞り込み、店舗の一括管理、分析、複数の地図、自社ブランドへの着せ替えを挙げる。",
+      "basis": [
+       "f1"
+      ],
+      "presentation": "FACT_SUMMARY"
+     },
+     {
+      "id": "a-lesson",
+      "item": "LESSON",
+      "text": "同じ料金ページで Pro が月49.99ドルと月39.99ドルに分かれて載っている。値上げの途中で古い表が残ると、客にはどちらが本当の値段か分からない。年額前払い・返金なしで現金を先に取る契約なら、表示する値段の一本化を最優先にする。",
+      "basis": [
+       "f1",
+       "f2"
+      ],
+      "formula": "数字は出典に載っている値",
+      "presentation": "FACT_SUMMARY"
+     },
+     {
+      "id": "a-referral",
+      "item": "REFERRAL",
+      "text": "公式サイトにアフィリエイトプログラムとパートナー向けの入口がある。料率は公開されていない。",
+      "basis": [
+       "f1"
+      ],
+      "presentation": "FACT_SUMMARY"
+     }
+    ]
+   }
+  }
+ ]
+}

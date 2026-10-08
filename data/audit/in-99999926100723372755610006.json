@@ -1,0 +1,1480 @@
+{
+ "cases": [
+  {
+   "entityId": "ent_plain_f8a62d87d9cb",
+   "scope": "full",
+   "facts": [
+    {
+     "id": "f1",
+     "kind": "FOUNDING",
+     "text": "Simon Rohrbach と Matt Vagni は、2020年末に Plain の開発を始めたと説明している。",
+     "attribution": "OFFICIAL"
+    },
+    {
+     "id": "f2",
+     "kind": "OTHER",
+     "text": "さまざまな規模の会社と多くの会話を重ねる中で、自分たちだけの経験だった顧客サービス用ツールの問題が共通のパターンだと分かった。",
+     "attribution": "OFFICIAL"
+    },
+    {
+     "id": "f3",
+     "kind": "DESCRIPTION",
+     "text": "高速で生産性を重視した顧客サービス用ツールと、制限なく使える GraphQL API を組み合わせ、問い合わせの管理から割り当て、報告までを自社で構築できる製品を作っている。",
+     "attribution": "OFFICIAL"
+    },
+    {
+     "id": "f4",
+     "kind": "TOOL",
+     "text": "2021年の発表では、小さなデザイン・開発チームで TypeScript を使い基盤を作っていた。",
+     "attribution": "OFFICIAL"
+    },
+    {
+     "id": "f5",
+     "kind": "PRICING",
+     "text": "2023年6月の料金記事は、2022年11月の公開試用版で最初の料金を公表したと記載している。",
+     "attribution": "OFFICIAL"
+    },
+    {
+     "id": "f6",
+     "kind": "PRICING",
+     "text": "初期は月間対応顧客数に応じて課金し、最小枠を250人にしたが、伸びていた企業向け用途には枠が大きすぎた。",
+     "attribution": "OFFICIAL"
+    },
+    {
+     "id": "f7",
+     "kind": "OTHER",
+     "text": "次にメールやチャット等の送信件数で課金したが、丁寧な対応ほど料金が増える問題が出たため、月間対応顧客数に戻して枠を小さくした。",
+     "attribution": "OFFICIAL"
+    },
+    {
+     "id": "f8",
+     "kind": "PRICING",
+     "text": "料金検討では月額200米ドルと追加顧客1人0.70米ドル、顧客1人1.5米ドル、月額200米ドルと追加100人50米ドルという案を試した。",
+     "attribution": "OFFICIAL"
+    },
+    {
+     "id": "f9",
+     "kind": "PRICING",
+     "text": "2023年6月時点では全機能と一定数の月間対応顧客を含む固定料金に整理した。",
+     "attribution": "OFFICIAL"
+    },
+    {
+     "id": "f10",
+     "kind": "OTHER",
+     "text": "2023年11月8日の公開試用版の発表本文では、約1年半かけて作ってきたと述べている。",
+     "attribution": "OFFICIAL"
+    },
+    {
+     "id": "f11",
+     "kind": "EVENT",
+     "text": "2023年6月21日、要望が多かった複数の問い合わせ先メールアドレスに対応した。従来の1件に加えて別のアドレスを最大5件登録できるようになった。",
+     "attribution": "OFFICIAL"
+    },
+    {
+     "id": "f12",
+     "kind": "OTHER",
+     "text": "2024年6月の記事では、毎週技術職と非技術職の2人を顧客対応に割り当て、顧客の相談を毎日共有し、週末に振り返っていた。",
+     "attribution": "OFFICIAL"
+    },
+    {
+     "id": "f13",
+     "kind": "OTHER",
+     "text": "毎週金曜にチームで小さな改善を拾う時間を設け、顧客対応で見つかった問題を製品修正へつなげていた。",
+     "attribution": "OFFICIAL"
+    },
+    {
+     "id": "f14",
+     "kind": "OTHER",
+     "text": "2024年8月の記事は、全員が自由に顧客対応する状態から、毎週2人が通常業務と兼務する状態を経て、1人が対応を専任しもう1人が補助する状態へ変えたと説明している。",
+     "attribution": "OFFICIAL"
+    },
+    {
+     "id": "f15",
+     "kind": "OTHER",
+     "text": "兼務制では担当者の開発が止まり、担当の所在が曖昧になった。専任制では主担当が解決まで持ち、補助担当が小さな製品修正を行うようにした。",
+     "attribution": "OFFICIAL"
+    },
+    {
+     "id": "f16",
+     "kind": "OTHER",
+     "text": "2026年3月、当初の提案は顧客サポート版の Stripe だったが、コードで拡張できることだけでは費用を正当化する価値が不足していたと創業者が振り返った。",
+     "attribution": "OFFICIAL"
+    },
+    {
+     "id": "f17",
+     "kind": "TOOL",
+     "text": "同じ記事では、画面で行う操作を外部からも実行できる基盤とし、顧客自身の AI や業務手順を接続する構成を説明している。",
+     "attribution": "OFFICIAL"
+    },
+    {
+     "id": "f18",
+     "kind": "OTHER",
+     "text": "顧客一覧は、数百のチームが Plain を利用していると記載している。",
+     "attribution": "OFFICIAL"
+    },
+    {
+     "id": "f19",
+     "kind": "PRICING",
+     "text": "料金ページでは、年払いの Foundation は1人あたり月額45米ドル、Horizon は1人あたり月額99米ドル、Frontier は個別見積もり。",
+     "attribution": "OFFICIAL"
+    },
+    {
+     "id": "f20",
+     "kind": "PRICING",
+     "text": "同ページの比較表では、Foundation の操作席は最大5席、Horizon は最低3席から最大10席で、閲覧席はいずれも無制限。クレジットは Foundation の年払いで月1,000、Horizon で月2,500を含む。",
+     "attribution": "OFFICIAL"
+    },
+    {
+     "id": "f21",
+     "kind": "PRICING",
+     "text": "同ページでは、カード登録不要の7日間の無料試用を提供している。",
+     "attribution": "OFFICIAL"
+    },
+    {
+     "id": "f22",
+     "kind": "PRICING",
+     "text": "2026年4月29日公開・5月12日更新の公式記事には、Foundation は年払いで1席月額35米ドル、Horizon は月額269米ドルと記載されている。",
+     "attribution": "OFFICIAL"
+    },
+    {
+     "id": "f23",
+     "kind": "CHANNEL",
+     "text": "同じ記事では、2025〜2026年の初期企業563件の導入検討を集計し、29%が連絡経路の分散を主な課題として挙げたと述べる。",
+     "attribution": "OFFICIAL"
+    },
+    {
+     "id": "f24",
+     "kind": "OTHER",
+     "text": "Sourcegraph は2025年12月に移行し、26,000件の問い合わせ記録と約100の Slack チャンネルを取り込み、数日でメールと Slack の運用を始めたと説明されている。",
+     "attribution": "OFFICIAL"
+    },
+    {
+     "id": "f25",
+     "kind": "OTHER",
+     "text": "同事例では、まず移行とラベル分類を整え、その後 AI による分類を有効にした。別々だった3種類の道具を Plain にまとめた。",
+     "attribution": "OFFICIAL"
+    },
+    {
+     "id": "f26",
+     "kind": "OTHER",
+     "text": "Sourcegraph の初回応答時間の中央値は2時間から40分へ短くなり、記事は67%改善と表示する。",
+     "attribution": "OFFICIAL"
+    },
+    {
+     "id": "f27",
+     "kind": "OTHER",
+     "text": "Sourcegraph の Enrique Gonzalez は、管理者としてどのスレッドでも開いてチームが問題をどう考えたかを確認でき、以前はその見通しが無かったと評価した。記事は、会話・内部メモ・開発への引き継ぎが1か所にまとまると説明している。",
+     "attribution": "OFFICIAL"
+    },
+    {
+     "id": "f28",
+     "kind": "OTHER",
+     "text": "n8n の事例は、週100件から2,000件へ問い合わせが増える中で、Plain の基盤に自社 AI を組み合わせたと説明する。導入後約1週間半で最初の AI 連携を公開した。",
+     "attribution": "OFFICIAL"
+    },
+    {
+     "id": "f29",
+     "kind": "OTHER",
+     "text": "n8n は AI を問い合わせの60%に使い、問い合わせ20倍に対し対応チームを2倍にしたと説明している。導入前は顧客が応答を2〜3週間待っていたが、現在は企業顧客への応答が平均6〜8時間になったという。",
+     "attribution": "OFFICIAL"
+    },
+    {
+     "id": "f30",
+     "kind": "OTHER",
+     "text": "n8n の Gualter Augusto は、導入検証中に Plain のチームが質問へ対応し、素早い連携開発につながったと評価している。",
+     "attribution": "OFFICIAL"
+    },
+    {
+     "id": "f31",
+     "kind": "OTHER",
+     "text": "Raycast は分散していた問い合わせをまとめ、Slack と Linear による開発への引き継ぎ、顧客情報や Stripe の課金情報の表示を組み合わせた。",
+     "attribution": "OFFICIAL"
+    },
+    {
+     "id": "f32",
+     "kind": "OTHER",
+     "text": "Raycast の Tirta Wulandari は、以前は全件を同じ優先度で扱っていたと述べる。導入後は緊急の問題や阻害的な不具合をワークフロールールで自動的に検出し、Plain AI で自動仕分けしている。",
+     "attribution": "OFFICIAL"
+    }
+   ],
+   "metrics": [],
+   "sources": [
+    {
+     "sourceId": "s1",
+     "url": "https://www.plain.com/blog/a-massive-distraction-or-why-we-are-building-plain",
+     "publisher": "Plain（創業者2人の開始経緯）",
+     "snapshot": {
+      "url": "https://www.plain.com/blog/a-massive-distraction-or-why-we-are-building-plain",
+      "finalUrl": "https://www.plain.com/blog/a-massive-distraction-or-why-we-are-building-plain",
+      "status": 200,
+      "fetchedAt": "2026-10-07T09:51:39.408Z",
+      "via": "direct",
+      "contentType": "text/html",
+      "textHash": "1a98f77052ff04f83084b877f75bf71b2aa107c9c345e517c090a8def974ccc3"
+     },
+     "text": "Plain — A massive distraction (or: why we are building Plain)\nFor our first blog post, we\nPlain — A massive distraction (or: why we are building Plain)\nFor our first blog post, we\nPlain — A massive distraction (or: why we are building Plain)\nTRY ARI\nAutonomous support, where your customers already are\nTRY ARI\nYour new autonomous support agent\nProduct\nSolutions\nResources\nCustomers\nPricing\nSign in\nBook a demo\nBlog\n/\nCompany\nA massive distraction (or: why we are building Plain)\nMatt Vagni\nCo-founder & CTO\nSimon Rohrbach\nCo-founder & CEO\nPublished On\nDec 6, 2021\nCustomer service is undergoing a fundamental change, driven by two shifts.\nCustomer service is moving from the being on the periphery of companies to being central to them. Entire companies are being built around great customer service in industries that have traditionally lacked it - from banking and broadband to ecommerce and last-mile logistics.\nAt the same time, nearly every company in nearly every vertical is becoming more engineering-centric. Things that were not considered traditional engineering problems a few years ago now fill the roadmaps of entire teams over multiple quarters. Foundational concerns such as infrastructure or payments have become an order of magnitude easier to manage, so engineering teams can now focus on things specific to their businesses.\nThese are two circles of a venn diagram converging. The intersection is creating a new market that is both underserved and getting bigger: modern customer service infrastructure for engineering-centric companies.\nWe believe this because we've seen it up close, in one of Europe's fastest-growing and category-defining companies.\nMatt and I had gotten to know each other at Deliveroo. The company had been going through incredible growth, growing to around 2,000 employees in a dozen countries during our time there. That growth came at a cost. Our operational tooling was brittle, with the majority of our attention going towards our customer, restaurant and rider facing apps.\nNearly every process - from checking up on an order to issuing a refund - involved a myriad of spreadsheets and hacks. For every task, advisors were switching between several tools, pasting order IDs between tabs and manually calculating refunds. Processes that could have taken two clicks required twelve, what could have been done in one browser window required six.\nFor an operationally intensive company, our operational tooling was in a dire state. It hadn't been an issue in the very early days, but had become a huge source of inefficiency and cost with hundreds of orders in flight at any moment and countless customer service advisors dotted around the world.\nWe decided to spin up a product team to look at our internal customer service tooling, who quickly came to the conclusion that we needed to build tooling that was specific to us, our use cases and our business.\nBut all of the options to do this in front of us were just as dire as our situation:\nWe could further embrace the ecosystem of our 3rd party customer service platform by building apps and integrations. But this brought a whole host of challenges: We'd have to condense complex workflows into a tiny sidebar rather than being able to make them the central thing. We'd have to simplify and sync customer data every time it changed, creating a separate source of truth that we didn't want. We'd end up maintaining more integrations, not less.\nWe could build everything ourselves - our own ticket management system, assignment and routing logic, reporting, and so forth - but this meant investing quarters into just building the table stakes before we'd get to any of the \"good\" stuff.\nWe went for a middle ground between the two, building our own UI in our own tools for the most part, but interfacing with our 3rd party customer service platform for the things we didn't want to build ourselves, like ticket management.\nWhat it saved us in time to start with, it began costing us soon after. Our third-party platform was quickly becoming an expensive, slow, external database with a data model we didn't want and features we didn't need. For all the improvements we'd made, our maintenance burden remained high, our data messy and incomplete, and our advisor experience somewhat fractured.\nBehind the pain hid an opportunity we didn't recognise until some time after. I had left Deliveroo for the world of venture capital, and Matt to help build Echo, one of the UK's largest digital pharmacies. We both knew we wanted to start something together, but we weren't sure what just yet, and were casually exploring some ideas.\nIn the early days of the Covid-19 pandemic, Echo had gone through the exact same journey with their customer service tooling that Deliveroo had been on. One afternoon, in the middle of a discussion about the size of the payroll software market, Matt bemoaned the state of customer service tooling.\nAnd there it was - contained in a couple of messages, a seed of an idea that stuck.\nOver the course of many conversations with companies big and small, what had been just our experience became a pattern, and what had been a distraction grew into a conviction that something like this needed to exist - a customer service platform that was made to be built with. And that if we didn't build it, someone else would.\nWith Plain, we want to give modern companies an opinionated, modern customer service infrastructure. We are are building a lightning-fast, productivity-focused customer service tool, backed by powerful GraphQL APIs you can use without any restrictions to build your own - giving you everything from issue management to assignment logic and reporting. Our goal is to enable every company to make customer service work for them and their customers — without needing to build everything from scratch themselves, fighting legacy platforms, or writing hacky integrations and apps. Plain is CS without the BS.\nSince starting out in late 2020, we've assembled an incredibly talented and proudly small team of designers and engineers, written a boatload of TypeScript and built the building blocks for everything that is to come.\nWe're at the beginning of an exciting journey to build both a durable product and company. We think that customer service is going to be one of the largest B2B software markets in the world. Every company that has customers, has customer service, and we're building the infrastructure for them.\nWe're building the product we wish we'd had years ago, for the companies of the next decade.\nWritten by\nMatt Vagni\nCo-founder & CTO\nSimon Rohrbach\nCo-founder & CEO\nLinkedIn\nMore from author\nJoin the teams who rely on Plain to provide world-class support\nBOOK A DEMO\nStart for free\nJoin the teams who rely on Plain to provide world-class support\nBOOK A DEMO\nStart for free\n© 2026 Plain\nNot Just Tickets Ltd\nPlain\nProduct\nAri\nSidekick\nBroadcasts\nCustomers\nPricing\nCareers\nSolutions\nOpen Infrastructure\nAI-Native\nHeadless\nMulti-Channel\nStartup Program\nMigrate to Plain\nCompare\nChannels\nSlack\nMicrosoft Teams\nDiscord\nEmail\nHelp Center\nIn-app Forms\nLive Chat\nResources\nCommunity\nBlog\nEvents\nAPI Docs\nSecurity\nTrust Center\nIntegrations\nSupport\nHelp Center\nPrivacy\nTerms\nData Processing\nStatus\n@plainsupport\n© 2026 Plain\nNot Just Tickets Ltd\nPlain\nSolutions\nChannels\nResources\nSupport",
+     "policy": {
+      "policyId": "rights.official-company-website.v1",
+      "sourceId": "src.official-company-website",
+      "providerName": "Official company or product website (entity-bound)",
+      "displayTier": "automatic",
+      "registryHash": "30d893f5b810c363886fbef8bc35e9535700abdcb83e6a517b66018b3993cacc"
+     }
+    },
+    {
+     "sourceId": "s3",
+     "url": "https://www.plain.com/blog/redefining-pricing-for-support",
+     "publisher": "Plain（料金の試行と変更）",
+     "snapshot": {
+      "url": "https://www.plain.com/blog/redefining-pricing-for-support",
+      "finalUrl": "https://www.plain.com/blog/redefining-pricing-for-support",
+      "status": 200,
+      "fetchedAt": "2026-10-07T09:51:40.285Z",
+      "via": "direct",
+      "contentType": "text/html",
+      "textHash": "fbf20d209a775d5e2e6155a06f93862452570e02b6230e575b337f7ba8309851"
+     },
+     "text": "Plain — Redefining Pricing for Support\nWe deeply believe that support is best when it\nPlain — Redefining Pricing for Support\nWe deeply believe that support is best when it\nPlain — Redefining Pricing for Support\nTRY ARI\nAutonomous support, where your customers already are\nTRY ARI\nYour new autonomous support agent\nProduct\nSolutions\nResources\nCustomers\nPricing\nSign in\nBook a demo\nBlog\n/\nProduct\nRedefining Pricing for Support\nYoumna Sirgi\nFounding Ops\nPublished On\nJun 12, 2023\nWe deeply believe that support is best when it's a company-wide effort, not just the job of a single person or team – a belief shared by many of our customers. This philosophy not only permeates all our product decisions, but how we think about pricing too.\nMost support platforms price their tools based on seats. Companies pay a monthly price for every person given access to the support tool and often pay for enterprise tiers to have access to one or two technical features. This model encourages support siloes and forces companies to choose who they assign licenses.\nIn developer-focused products, support and engineering are closely intertwined. If a customer reports a bug, multiple engineers may need to collaborate to resolve the issue. It doesn't make sense for companies to pay high monthly fees per person for their whole engineering team when most of them only use the tool every few days, at most.\nSo they don’t. Instead, companies are forced into recycling licenses, sharing passwords, and trying every trick in the book to avoid cutting off their entire team from support - the direct line to the customer. We want our pricing to make it easy to adopt Plain across the entire company.\nWe knew that a ‘seat-based’ approach wasn’t going to work… but what would?\nTaking advice from Atlassian’s ‘8 principles to guide your SaaS strategy' , we identified the following criteria to help us answer this question. We wanted our pricing to be:\nSimple. Someone should be able to glance at our pricing and move on to explore our product, without any confusion about what metrics we price on and what they might mean.\nPredictable. You shouldn’t be surprised by the bill at the end of the month.\nScalable. What you pay works for you and scales seamlessly, whether you’re a solopreneur, a multi-billion dollar enterprise, or on the journey between the two.\nPricing based on volume made sense. We would give companies an unlimited number of seats with full access to Plain and instead, charge based on the amount of support volume they had. What we quickly discovered is how complex (read: insanely layered, nuanced, and frustrating) usage-based pricing can be.\nOur pricing iteration cycle looked something like this:\nTeam huddle to define how to define and track “usage”.\nTweak lots of numbers on an Excel sheet to make unit economics work.\nHallelujah moment! Feel confident that we’ve finally figured out our pricing structure.\nUpdate pricing page (again).\nReceive honest, real, and obvious feedback about why our pricing doesn’t make sense.\nGo cry in a corner.\nRegroup. Iterate. Repeat.\nWe published the first version of our pricing structure with the open beta in November 2022. Since then, we’ve tried a few different approaches and learned some valuable lessons each time.\nLesson #1: Align your pricing to your target market.\nIn our first iteration, we charged companies based on monthly active customers, defined as customers that were sent an outbound chat or email. While the structure worked on principle, we had set our thresholds too high (starting at 250 monthly customers and increasing from there). The model was great for B2C companies who traditionally had a high distinct customer count, but not for B2B – and that’s exactly where we were getting most traction.\nLesson #2: Don’t tax for good practices.\nIn our next attempt, we changed the definition of usage by counting the number of “events” our customers generated, defining an event as a custom timeline entry, outbound email, or chat. In doing so, we were inadvertently charging customers for good customer service practices: You shouldn’t be charged for sending a “Have a great day!” message at the end of a conversation.\nUltimately, we went back to our original ‘monthly active customer’ approach and lowered the # of customers included in each tier to be more representative of B2B volume. Although it was painful to end up right back where we started, we wouldn’t have confidently returned to this model without the lessons learned along the way.\nLesson #3: Don’t make your customers do math.\nWe tried various pricing structure combinations to 1) make the numbers ‘look good’ (i.e., you don’t pay $2 per customer), and 2) still be financially viable.\nBaseline + per-unit: A monthly fixed fee plus a per-unit cost for every customer ($200 base + $0.70/additional customer).\nPer unit: A per-unit price for every monthly customer ($1.5 per customer)\nPackaged Users: A monthly fixed fee + a package of 100 users ($200 + 100 users for an additional $50).\nSeveral iterations of these structures resulted in a scary-looking Excel sheet that’s still giving us nightmares.\nAt this point, one of our engineers stepped in with a much needed reality check, pointing out that “if we strive for simplicity in our product, our pricing model should reflect that as well.” The version we were working on at the time was anything but simple, so we went back to the drawing board.\nFor now, we’ve landed on a ‘baseline’ fee structure. You pay a fixed fee each month for access to all platform features and an allotted number of monthly customers. The fee is inexpensive at entry and increases as volume increases.\nOne day, we’d love to follow in the footsteps of Seed (a Plain customer) by introducing add-on features, such as SSO, audit logging, advanced permissions, etc. We’ll get there very soon as we continue to build out our product.\nIt’s a work in progress.\nWe still don’t feel like we’ve quite nailed pricing. While I wrote this blog post, 60+ messages had already accumulated in our pricing Slack channel 😅. We’re probably overcharging some prospective customers and undercharging others. We’ve tried to be as transparent about this as possible, especially with our existing customers and those that we’re onboarding in the next few weeks.\nPricing will change a few more times before it feels good… and then it’ll probably change again as we add more features to our product. In the meantime, we’re open to feedback. And learning as we go.\nWritten by\nYoumna Sirgi\nFounding Ops\nLinkedIn\nMore from author\nJoin the teams who rely on Plain to provide world-class support\nBOOK A DEMO\nStart for free\nJoin the teams who rely on Plain to provide world-class support\nBOOK A DEMO\nStart for free\n© 2026 Plain\nNot Just Tickets Ltd\nPlain\nProduct\nAri\nSidekick\nBroadcasts\nCustomers\nPricing\nCareers\nSolutions\nOpen Infrastructure\nAI-Native\nHeadless\nMulti-Channel\nStartup Program\nMigrate to Plain\nCompare\nChannels\nSlack\nMicrosoft Teams\nDiscord\nEmail\nHelp Center\nIn-app Forms\nLive Chat\nResources\nCommunity\nBlog\nEvents\nAPI Docs\nSecurity\nTrust Center\nIntegrations\nSupport\nHelp Center\nPrivacy\nTerms\nData Processing\nStatus\n@plainsupport\n© 2026 Plain\nNot Just Tickets Ltd\nPlain\nSolutions\nChannels\nResources\nSupport",
+     "policy": {
+      "policyId": "rights.official-company-website.v1",
+      "sourceId": "src.official-company-website",
+      "providerName": "Official company or product website (entity-bound)",
+      "displayTier": "automatic",
+      "registryHash": "30d893f5b810c363886fbef8bc35e9535700abdcb83e6a517b66018b3993cacc"
+     }
+    },
+    {
+     "sourceId": "s4",
+     "url": "https://www.plain.com/blog/announcing-our-open-beta-and-usd6m-seed-fundraise",
+     "publisher": "Plain（公開試用版の発表）",
+     "snapshot": {
+      "url": "https://www.plain.com/blog/announcing-our-open-beta-and-usd6m-seed-fundraise",
+      "finalUrl": "https://www.plain.com/blog/announcing-our-open-beta-and-usd6m-seed-fundraise",
+      "status": 200,
+      "fetchedAt": "2026-10-07T09:51:40.609Z",
+      "via": "direct",
+      "contentType": "text/html",
+      "textHash": "8adfe885edd69272a5ba94164c567d44bc2bb5e9a6ed180a00c6b0ca25743ba0"
+     },
+     "text": "Plain — Announcing our open beta and $6m Seed fundraise\nWe’re very excited to announce our $6m Seed fundraise co-led by Index Ventures and Connect Ventures, alongside the launch of our product into open beta.\nPlain — Announcing our open beta and $6m Seed fundraise\nWe’re very excited to announce our $6m Seed fundraise co-led by Index Ventures and Connect Ventures, alongside the launch of our product into open beta.\nPlain — Announcing our open beta and $6m Seed fundraise\nTRY ARI\nAutonomous support, where your customers already are\nTRY ARI\nYour new autonomous support agent\nProduct\nSolutions\nResources\nCustomers\nPricing\nSign in\nBook a demo\nBlog\n/\nCompany\nAnnouncing our open beta and $6m Seed fundraise\nSimon Rohrbach\nCo-founder & CEO\nPublished On\nNov 8, 2023\nWe’re very excited to announce our $6m Seed fundraise co-led by Index Ventures and Connect Ventures , alongside the launch of our product into open beta.\nIn Index and Connect, we're incredibly grateful to have the support of what we believe is one of the most respected, pioneering venture funds in the world, as well as the support of one of the most product-driven, high-integrity funds in the European ecosystem. Having both of these powerhouses behind us will give us both the longevity and support we need to execute our vision.\nOur round was supported by a host of incredible angels from across the US, UK and European startup ecosystems. These include; Soleio, who led early design at Facebook, Messenger and Dropbox and advisor to Figma; former Asana, Intercom, Box and Carta leaders Emily Kramer and Kathleen Estreich through their fund MKT1; Raycast Co-Founder & CEO Thomas Paul Mann; former Gainsight COO Allison Pickens; Stedi Founder & CEO Zack Kanter; former Monzo VP of Customer Operations Rona Ruthen; former Deliveroo CPTO and Monzo CPO Mike Hudack; former Algolia CEO Nicolas Dessaigne; Truelayer Co-Founder & CTO Luca Martinetti; former Contentful CMO Chris Schagen, Nested and GoCardless Co-Founder Matt Robinson; and many more. We have been particularly humbled that some of our earliest customers are also angel investing in this round.\nWe are building the customer support tool for modern toolmakers and their customers. We believe that customer support is one of the biggest, and most exciting software categories in the world today. Every company that has customers, has some form of customer service. In many companies, customer support represents the biggest part of the workforce. Yet, they're almost always the least supported, with the worst tooling, worst equipment, and the least amount of help from the rest of the organisation.\nSpeak to any customer support leader and anyone dealing with customers, and you'll notice two themes: No-one likes the customer support tool they're using – people perceive them as clunky, bloated, slow and complex. And second, everyone, in every company, suffers from a lack of data and context. Who's this customer? What happened before they got in touch? What did they do in the product right before they contacted us?\nBoth of these problems are design and engineering problems rooted in the fact that the tools in this space have not kept up with the increasing sophistication and technical complexity of companies - and we are dedicating Plain to solving both of them. First of all, we want Plain to be extremely opinionated and fast. It should feel like it's there to speed you up, rather than slow you down. In addition, Plain should be a single, live view over the data you already have. You should never have to switch tabs, or hit refresh just to look up a customer's latest transaction. And finally, Plain should be a joy to build with. Every company is unique, and so is how it supports its customers. You should be able to use Plain wherever your customers are, and enable them talk to you in whatever way works for you and them.\nOver the last year and a half, we've been building just that, and today, we're excited to share it with you. Plain gives you one of the most flexible communications offerings out there, a beautiful, fast app to help your customers, and a powerful, mature API that Plain itself is built on top of. And critically, Plain is priced to be open to everyone in the company: You start with a generous free tier, and only pay based on the number of customers you interact with, rather than the number of seats. Head over to Plain.com to sign up now. We want to build Plain openly with your feedback and guidance, and we can't wait to hear what you think.\nWe'll be growing our team over the next few months, though staying small and nimble while we are pre-PMF. We're hiring in engineering, product marketing, and business operations. We're very proud of the team we've already assembled, combining experience from some of Europe's category-defining names such as Deliveroo, Lyst, Babylon, Freetrade, Hopin and Songkick. If the idea of working on a small team tackling a big mission interests you, then please head over to our Jobs page .\nWritten by\nSimon Rohrbach\nCo-founder & CEO\nLinkedIn\nMore from author\nJoin the teams who rely on Plain to provide world-class support\nBOOK A DEMO\nStart for free\nJoin the teams who rely on Plain to provide world-class support\nBOOK A DEMO\nStart for free\n© 2026 Plain\nNot Just Tickets Ltd\nPlain\nProduct\nAri\nSidekick\nBroadcasts\nCustomers\nPricing\nCareers\nSolutions\nOpen Infrastructure\nAI-Native\nHeadless\nMulti-Channel\nStartup Program\nMigrate to Plain\nCompare\nChannels\nSlack\nMicrosoft Teams\nDiscord\nEmail\nHelp Center\nIn-app Forms\nLive Chat\nResources\nCommunity\nBlog\nEvents\nAPI Docs\nSecurity\nTrust Center\nIntegrations\nSupport\nHelp Center\nPrivacy\nTerms\nData Processing\nStatus\n@plainsupport\n© 2026 Plain\nNot Just Tickets Ltd\nPlain\nSolutions\nChannels\nResources\nSupport",
+     "policy": {
+      "policyId": "rights.official-company-website.v1",
+      "sourceId": "src.official-company-website",
+      "providerName": "Official company or product website (entity-bound)",
+      "displayTier": "automatic",
+      "registryHash": "30d893f5b810c363886fbef8bc35e9535700abdcb83e6a517b66018b3993cacc"
+     }
+    },
+    {
+     "sourceId": "s5",
+     "url": "https://www.plain.com/changelog/multiple-emails",
+     "publisher": "Plain（複数メールアドレスの対応）",
+     "snapshot": {
+      "url": "https://www.plain.com/changelog/multiple-emails",
+      "finalUrl": "https://www.plain.com/changelog/multiple-emails",
+      "status": 200,
+      "fetchedAt": "2026-10-07T09:51:40.720Z",
+      "via": "direct",
+      "contentType": "text/html",
+      "textHash": "c38298de92f5db5a7009f5e54d3d8c2324d1bd6b656ef632ff308169a2d59123"
+     },
+     "text": "Multiple emails\nWe’ve just introduced the ability to add multiple support email addresses for a single workspace.\nMultiple emails\nWe’ve just introduced the ability to add multiple support email addresses for a single workspace.\nMultiple emails\nTRY ARI\nAutonomous support, where your customers already are\nTRY ARI\nYour new autonomous support agent\nProduct\nSolutions\nResources\nCustomers\nPricing\nSign in\nBook a demo\nWhat's New\n/\nJun 21, 2023\nMultiple emails\nWe’ve just introduced the ability to add multiple support email addresses for a single workspace. This was a highly requested feature, so we’re excited to share this with you.\nPreviously, when you set up Plain you were able to provide a single support email address (e.g. help@plain.com ) as described here . This was the only email address that customers could email, and the only email address for outgoing emails from Plain.\nFrom today onwards, you can add up to 5 alternate email addresses (e.g. security@plain.com or sales@plain.com ), allowing you to both send and receive emails from all of these.\nWhen typing your reply to an email, Plain defaults to the email address that you received the message from – so if you received an email to the jobs@ inbox, we’ll send the response from there.\nYou can add additional email addresses now in Settings → Emails.\nImprovements\nWhen marking a customer as spam, you now have the option to quickly undo if it was a mistake.\nCustomers previously marked as spam can now be accessed from the customer list.\nWhen searching for a snippet, you can now hit enter to immediately select the first matching item.\nDesigned, built and written by\nAndrew Blaney\nEngineering\nJoin the teams who rely on Plain to provide world-class support\nBOOK A DEMO\nStart for free\nJoin the teams who rely on Plain to provide world-class support\nBOOK A DEMO\nStart for free\n© 2026 Plain\nNot Just Tickets Ltd\nPlain\nProduct\nAri\nSidekick\nBroadcasts\nCustomers\nPricing\nCareers\nSolutions\nOpen Infrastructure\nAI-Native\nHeadless\nMulti-Channel\nStartup Program\nMigrate to Plain\nCompare\nChannels\nSlack\nMicrosoft Teams\nDiscord\nEmail\nHelp Center\nIn-app Forms\nLive Chat\nResources\nCommunity\nBlog\nEvents\nAPI Docs\nSecurity\nTrust Center\nIntegrations\nSupport\nHelp Center\nPrivacy\nTerms\nData Processing\nStatus\n@plainsupport\n© 2026 Plain\nNot Just Tickets Ltd\nPlain\nSolutions\nChannels\nResources\nSupport",
+     "policy": {
+      "policyId": "rights.official-company-website.v1",
+      "sourceId": "src.official-company-website",
+      "providerName": "Official company or product website (entity-bound)",
+      "displayTier": "automatic",
+      "registryHash": "30d893f5b810c363886fbef8bc35e9535700abdcb83e6a517b66018b3993cacc"
+     }
+    },
+    {
+     "sourceId": "s6",
+     "url": "https://www.plain.com/blog/why-whole-company-support-works-at-plain",
+     "publisher": "Plain（全員で顧客対応する仕組み）",
+     "snapshot": {
+      "url": "https://www.plain.com/blog/why-whole-company-support-works-at-plain",
+      "finalUrl": "https://www.plain.com/blog/why-whole-company-support-works-at-plain",
+      "status": 200,
+      "fetchedAt": "2026-10-07T09:51:40.730Z",
+      "via": "direct",
+      "contentType": "text/html",
+      "textHash": "6d0b5f061ceec39708140f0c85b65c62ecb1c9448748a45b02b28f44339d87af"
+     },
+     "text": "Plain — Why whole company-support works at Plain\nSupport Engineering Why whole company-support works at Plain Why whole-company support works at Plain – from the perspective of a new team member.\nPlain — Why whole company-support works at Plain\nSupport Engineering Why whole company-support works at Plain Why whole-company support works at Plain – from the perspective of a new team member.\nPlain — Why whole company-support works at Plain\nTRY ARI\nAutonomous support, where your customers already are\nTRY ARI\nYour new autonomous support agent\nProduct\nSolutions\nResources\nCustomers\nPricing\nSign in\nBook a demo\nBlog\n/\nSupport Engineering\nWhy whole company-support works at Plain\nKate Donnellan\nMarketing\nPublished On\nJun 28, 2024\nThe minute that I joined Plain 3 weeks ago as Founding Marketer, I had one of those serendipitous feelings that I’m exactly where I’m supposed to be. I was welcomed with open arms by our small but mighty team, and thrown into the proverbial deep end of super exciting work.\nPlain is the fastest, most powerful support platform for B2B companies, and we believe that great customer support is just as important as product and marketing. We pride ourselves on providing exceptional customer support – ensuring every interaction we have with each customer is valuable, productive, and fast.\nAt our weekly kickoff meeting every Monday morning, we assign teammates to the support rota for the week. Week 3 marks my first week on our internal support rota, and wow – I don’t think there is a better way to learn the ins and outs of a product than by supporting customers. Every time I respond to a customer, I learn something new. I spot opportunities for how we can speak to our features in a clearer way. And I’m constantly blown away by the stellar product that our team has created.\nWhy do we do whole-company support?\nWhole company support works when a few things collide: it’s easy to do (i.e. doesn’t take people away from their “day jobs”), there are tools in place to make it valuable, and when teammates know the ins and outs of the product.\nThe rationale behind operating whole-company support comes from our founders, Simon and Matt. Their deeply held belief is that support is the key link to our customer base, and the most important job when working at a startup resonates with the whole team at Plain. We are all responsible for our product, messaging, and appeal to customers – the fastest way to know how we’re performing in these areas is by talking to our customers.\nAlso – how can we actually build a great product for support if we don’t do support ourselves?\n“As companies grow, access to customers becomes more restricted. We want to build a company culture that’s fundamentally opposed to that kind of restriction from the very start. Teammates should be demanding to speak to customers all the time” – Simon Rohrbach, Co-Founder at Plain.\nWhere we support our customers\nWe use 3 key channels to support our customers at Plain: Slack, email, and in-app. Being able to consolidate all of our support channels into one platform means it’s so easy to be consistent in our messaging and response times.\nSlack\nThe majority of our customers use Slack internally anyway, so being able to support them directly in the channel they already use is really helpful in providing fast support. By linking Slack to Plain, we can prioritize requests based on the SLAs of our different customers, identify issues across customer types, and create Linear tickets directly from a Slack request.\nEmail\nOur own email inbox ( help@plain.com if you ever need it) is linked to Plain. Some people like to get support the old-fashioned way, and with Plain, we can manage our email support without ever opening our Google Group. Emails are treated the exact same way as Slack and In-App requests, SLAs are attached as normal, and we can be confident that our support is just as good through email as our other channels.\nIn-App\nWe built our in-app form to cover 3 key areas: bugs, feedback, and questions. Splitting our in-app requests into 3 buckets allows us to make sure we triage them appropriately when a customer uses the form. If the customer runs into a bug, they can mark it as “urgent” so we know to action it immediately – allowing us to ensure that our customers aren’t blocked on taking key actions with their own customers in Plain. They’re also auto-tagged with the right labels so we don’t need to spend time actually attributing them in Plain.\nSo, how do we actually do whole-company support at Plain?\nAt Plain, we’re building our support platform to suit our own needs. We think it’s a good proxy for the needs of other technical B2B teams in the SaaS space.\nTechnical and non-technical pairings every week\nEvery Monday, we assign 2 team members to the support rota for the week. We always make sure to pair technical and non-technical folks together on the rota, ensuring we can address all of the queries that we get each week.\nOne of the things I really love about our rota is that we never work in silos. I can start discussions with our team in Slack directly from the customer thread in Plain whenever I need help with a support request.\nRegular discussion of customer feedback\nWhoever is on the rota for the week is responsible for bringing customer issues to the rest of the team in our daily standup – and if it’s a blocking issue or something small we can get out of the way quickly, they’ll either work on a fix themselves or flag it to the team. This enables us to provide incredibly fast resolution times measured in hours – and often even in minutes.\nAt the end of each week, we review important customer interactions and questions. This allows us to fold bigger work into the weeks ahead, identify patterns, bugs, celebrate successes and pinpoint where we can improve.\nGardening\nWe recently introduced a weekly gardening session. Friday mornings, our entire team allocates a few hours to pick up small, quick-fire improvements that we’ve either noticed during the week, or things individual teammates feel would benefit the product. We call it gardening because it’s about tending to the product and doing the things that might not be noticeable from a distance, but are just as important.\nWhy whole-company support works for us\nOur whole-company support works for our team, and our customers, for a few key reasons:\nInclusivity from day one\nEvery new starter at Plain, regardless of their role, participates regularly in the support rota. This ensures that all employees – from the newest to the most seasoned (and yes, this includes the founders) – have direct experience with our customers’ needs and challenges. I truly believe that whole-company support at Plain is what’s allowed us to foster a customer-centric culture from the ground up.\nSharing context\nWe place a strong emphasis on making important company context available to everyone. This includes things like knowing which customers are onboarding,who has particularly sensitive SLAs, and who is trialing out particular features, so we know what and where to prioritize. It helps us speak to customers in a way that is useful to them: we can be more educational with customers who are onboarding, compared to being more detailed with customers who have been using Plain for a while.\nIn Plain, we can also see customer data that will have the most impact on facilitating us to answer questions to the best of our ability. We can see all the customer’s previous conversations with us, the plan they’re on, the role the specific customer has within their organization and more – directly in their thread in Plain.\nContinuous improvement\nOur weekly reviews and gardening sessions are crucial to make sure that we continuously improve our whole-company support. There’s no point in doing whole-company support if it’s not actually impacting your product or creating a feedback loop between support, product, and engineering. Our cycle of feedback and improvement keeps us aligned with our customers’ needs, and maintains our high bar for support.\n“Support is where all the rough edges of your product manifest. Everything that is confusing, missing or broken ends up being a support request. Good products are built by teams that are closer to their users” – Matt Vagni, Co-Founder at Plain. Try Plain today if you’d like to transform your own whole-company support.\nWritten by\nKate Donnellan\nMarketing\nLinkedIn\nMore from author\nJoin the teams who rely on Plain to provide world-class support\nBOOK A DEMO\nStart for free\nJoin the teams who rely on Plain to provide world-class support\nBOOK A DEMO\nStart for free\n© 2026 Plain\nNot Just Tickets Ltd\nPlain\nProduct\nAri\nSidekick\nBroadcasts\nCustomers\nPricing\nCareers\nSolutions\nOpen Infrastructure\nAI-Native\nHeadless\nMulti-Channel\nStartup Program\nMigrate to Plain\nCompare\nChannels\nSlack\nMicrosoft Teams\nDiscord\nEmail\nHelp Center\nIn-app Forms\nLive Chat\nResources\nCommunity\nBlog\nEvents\nAPI Docs\nSecurity\nTrust Center\nIntegrations\nSupport\nHelp Center\nPrivacy\nTerms\nData Processing\nStatus\n@plainsupport\n© 2026 Plain\nNot Just Tickets Ltd\nPlain\nSolutions\nChannels\nResources\nSupport",
+     "policy": {
+      "policyId": "rights.official-company-website.v1",
+      "sourceId": "src.official-company-website",
+      "providerName": "Official company or product website (entity-bound)",
+      "displayTier": "automatic",
+      "registryHash": "30d893f5b810c363886fbef8bc35e9535700abdcb83e6a517b66018b3993cacc"
+     }
+    },
+    {
+     "sourceId": "s7",
+     "url": "https://www.plain.com/blog/how-we-re-building-support-at-plain-a-blueprint-for-controlled-chaos",
+     "publisher": "Plain（顧客対応の改善経緯）",
+     "snapshot": {
+      "url": "https://www.plain.com/blog/how-we-re-building-support-at-plain-a-blueprint-for-controlled-chaos",
+      "finalUrl": "https://www.plain.com/blog/how-we-re-building-support-at-plain-a-blueprint-for-controlled-chaos",
+      "status": 200,
+      "fetchedAt": "2026-10-07T09:51:40.828Z",
+      "via": "direct",
+      "contentType": "text/html",
+      "textHash": "7d6de2c3b539a23d75e78b6cc4d12e2250aec8e540e0a8fc8a95ccfd83158017"
+     },
+     "text": "Plain — How we’re building support at Plain: A blueprint for controlled chaos\nAt Plain, great customer support has, and will continue to be, the cornerstone of our approach to building the best support platform out there. We started the company with the firm belief that our own support had to be amazing.\nPlain — How we’re building support at Plain: A blueprint for controlled chaos\nAt Plain, great customer support has, and will continue to be, the cornerstone of our approach to building the best support platform out there. We started the company with the firm belief that our own support had to be amazing.\nPlain — How we’re building support at Plain: A blueprint for controlled chaos\nTRY ARI\nAutonomous support, where your customers already are\nTRY ARI\nYour new autonomous support agent\nProduct\nSolutions\nResources\nCustomers\nPricing\nSign in\nBook a demo\nBlog\n/\nCompany\nHow we’re building support at Plain: A blueprint for controlled chaos\nKate Donnellan\nMarketing\nPublished On\nAug 19, 2024\nAt Plain, great customer support has, and will continue to be, the cornerstone of our approach to building the best support platform out there. We started the company with the firm belief that our own support had to be amazing.\nAs we’ve grown, we’ve gone through a few iterations of what support looks like at Plain. In this post, we’re going to share our journey of building support at Plain, and some of the things we’ve learned along the way.\nStage 1: Just do it\nWhen we first launched Plain and onboarded our early customers, our support strategy was simple: everyone in the company took ownership of support. This unstructured, whole-company support model allowed us to stay incredibly close to our customers – giving the entire team direct insight into their needs, pain points, and areas for improvement.\nAs we grew beyond having a small number of customers, unstructured support turned into a mess. It wasn’t clear who was looking after what, and took more of the team away from core product work.\nWe still believe in the power of whole-company support. There’s literally no better way for us to learn about our customers and improve our product than by using our product as our customers do – but at this stage, more structure was needed to improve the efficiency of how we did support.\nStage 2: Nominated support rota in addition to day job\nOur first step towards improving how we approach whole-company support was to introduce a support rota. Every Monday at our planning meetings, two team members would volunteer to take on support duties for the week. This ensured that we always had a team in place to handle customer issues, report bugs, and add feature requests to our roadmap.\nWe made a point to always include at least one technical team member on the rota each week to speed up our time to resolution. We also decided that new team members would spend their second week at Plain on the support rota. This has proven to be the best way to get new hires up to speed with our customers, and familiarize them with how our own customers use Plain.\nAs we continued to grow, we realized that even this structured approach wasn’t enough. The demands on our team were increasing, we were taking on more enterprise customers, adding more channels and features, and we had tighter SLAs in place. We held our first ever support retro when it became clear that we needed to make improvements to how we do support at Plain.\nOur first support retro\nEvery month, we hold a team retro to review what’s working and what needs improvement. These retros typically cover everything from how we worked together as a team to ship a new feature, to onboarding new teammates and refining how we work. We knew we needed to change our approach to support when we spent a significant amount of time discussing the impact that our support rota has on how we work in our monthly retro. It became apparent that we needed to dedicate an entire retro to support alone to identify specific areas for improvement.\nGreat support is integral to us at Plain – it’s something that we never intend to let slip. So, we held our first ever support retro, identified the issues with our current set up, and ways we can improve it as a team.\nWhat wasn’t working?\nSupport was turning into a full-time job\nOne of the most significant pieces of feedback from our support retro was that being on the support retro felt more and more like a full-time job. However, we weren’t making any concessions in the expectations for other work from those on the support rota. It increasingly became the case that as an engineer on support you could basically consider any project you were working on as 'paused' for that week.\nSmall paper cuts took longer than they should to fix\nIdeally, the team on support rota should be able to fix small issues for customers immediately. This was really easy when we had a smaller support volume and was a great source of delight for our customers to have feature suggestions shipped on the same day. As our volume has grown, this just wasn’t possible alongside answering all support requests. Other engineers not on rota should also be protected from support requests so just passing that buck on didn’t feel right either.\nLack of ownership\nAs a team of people who work on building our support platform, we actually get… support FOMO, and regularly had people jumping in to help despite not being on support. Although lovely, with multiple people touching the same thread, it wasn’t always clear who was responsible for carrying the request through to resolution. A classic example of this is when someone would ask a follow-up question or suggest something in a customer Slack channel but then was on calls or heads down coding for the rest of the day.\nWe had more enterprise customers and tighter SLAs\nAs we onboarded more enterprise customers, the number of SLAs we introduced naturally increased. This meant we’ve got to get tighter on response times for these groups – often resulting in a backlog each morning that took a significant amount of time to triage.\nWhen new starters join, it was hard for them to be independent on support\nFinally, we noticed that new team members were struggling to be independent on support. Most of the knowledge they needed was locked in the heads of other teammates, making it difficult for them to contribute effectively right away.\nEvery problem we experienced over this period of growth is a great problem to have – we’re growing our customer base and our team. Sound familiar? If your team has felt stretched thin like ours, you know how vital it is to reassess. Here’s what we did next to make sure support scales with us.\nStage 3 – current: One person fully on rota, one person on backup\nThe great thing about the team at Plain is that we’re pretty much always on the same page about how and where we need to improve. The support retro allowed us to find a few key ways to improve how we do support – and make sure it can scale with us as we continue with our unprecedented levels of growth. We decided on:\nMaking support a full-time job (for a week)\nWe’ve introduced a new system where one support lead and one support assistant are responsible for all support duties each week. The support lead owns the queue and drives things through to completion. Inbox zero is their goal. This way, it’s clear who owns each customer request, and the rest of the team can focus on their projects without interruptions. We’re also setting clear expectations internally in planning that other projects may slow down as a result of the team members being on support duty.\nCreating snippets and playbooks\nSupport leads will now take full ownership of creating snippets and playbooks for common support requests. We already have a host of playbooks for operation issues and now we’re adding to those for common support requests and flows. In the long run, this will allow us to speed up our time to resolution, and get more consistent in the responses we send to customers.\nTackling paper cuts faster\nThis new and improved support rota will let us tackle small paper cuts more regularly, with faster time to resolution for our customers. By having a support lead in charge of triaging incoming requests, responding to customers, and adding issues to our Linear projects – the back-up support person can be more focused on smaller improvements and quick wins we can do for our customers in minutes or hours. These small incremental updates make a huge difference in building trust with our customers, and we want to make sure we don’t risk leaving them too long to be impactful.\nUtilize our collaboration with more diligence\nWe’ve got features that are purely aimed at boosting collaboration and improving visibility, but we need to get into the flow of more diligently using each one for them to be most effective. If we need to talk about a customer request with the team – we’ll only use Discussions in a public Slack channel . This should allow the entire team to feel like everyone’s contributing to support while the leads handle the actual customer conversations. We also decided to be more diligent with notes so that if a support request has to be picked up by someone else all the context is there. This will help maintain continuity even if someone needs to step away.\nReview our SLAs and Tier usage\nAs our customer base grows, we’re reviewing our SLAs and Tier usage to better align with our customers’ pricing tiers. This will help us set clearer expectations for response times and ensure that we’re always meeting our customers’ needs, no matter what plan they’re on. Of course, if any issues come up that block our customers from working in Plain, we’ll handle it immediately. No matter what time or day it is.\nIgnore the FOMO\nWe’re all going to work harder to ignore the support FOMO. We need to get comfortable with the fact that less cooks in the support kitchen will actually allow us to support our customers better, and make progress on product updates faster. It also gives the support lead a more realistic sense of what it’s like to do full-time support in Plain. We can all follow along with support threads and be involved in thread discussions – but the responding and resolution must be left to the support lead for the week if we’re to improve how we do support.\nThe support rota is an integral part of how we function as a team at Plain. Given how vital support is to our way of working and product, we still see it as a whole team problem. But one that we're always looking to be better with and faster with. It’s the best way for us to understand the core issues of our customers, and build the best support platform we possibly can.\nStage 4 – our future state: full-time hire, but still a team sport\nWill we be able to manage support at Plain with a support rota forever? Probably not – and we’ve got to start planning for that eventuality. We’ll absolutely hire a support person when the time comes, but we need to do it mindfully.\nWe’ll bring in a support person, but continue making visibility into support issues a priority across product, sales, and marketing. We’re building a system where support will always be integrated into our processes, driving improvements and keeping us close to our customers.\nThe rest is to be continued: we’ll come back to this post in the future when we’re ready for stage 4 (and 5, and 6).\nTo sum it up:\nOur approach to support at Plain has always been – and will continue to be – one of constant iteration. What worked for us as a small team doesn’t scale forever, and that’s okay. We’re committed to revisiting our processes, retro-ing regularly, and making thoughtful changes that reflect our growth.\nIf you’re also trying to scale support while staying connected to your customers, our biggest lesson is this: don’t be afraid to pivot, iterate, and refine as you grow. Your support team – and your customers – will thank you.\nWritten by\nKate Donnellan\nMarketing\nLinkedIn\nMore from author\nJoin the teams who rely on Plain to provide world-class support\nBOOK A DEMO\nStart for free\nJoin the teams who rely on Plain to provide world-class support\nBOOK A DEMO\nStart for free\n© 2026 Plain\nNot Just Tickets Ltd\nPlain\nProduct\nAri\nSidekick\nBroadcasts\nCustomers\nPricing\nCareers\nSolutions\nOpen Infrastructure\nAI-Native\nHeadless\nMulti-Channel\nStartup Program\nMigrate to Plain\nCompare\nChannels\nSlack\nMicrosoft Teams\nDiscord\nEmail\nHelp Center\nIn-app Forms\nLive Chat\nResources\nCommunity\nBlog\nEvents\nAPI Docs\nSecurity\nTrust Center\nIntegrations\nSupport\nHelp Center\nPrivacy\nTerms\nData Processing\nStatus\n@plainsupport\n© 2026 Plain\nNot Just Tickets Ltd\nPlain\nSolutions\nChannels\nResources\nSupport",
+     "policy": {
+      "policyId": "rights.official-company-website.v1",
+      "sourceId": "src.official-company-website",
+      "providerName": "Official company or product website (entity-bound)",
+      "displayTier": "automatic",
+      "registryHash": "30d893f5b810c363886fbef8bc35e9535700abdcb83e6a517b66018b3993cacc"
+     }
+    },
+    {
+     "sourceId": "s8",
+     "url": "https://www.plain.com/open-by-default",
+     "publisher": "Plain（Simon Rohrbach の製品方針）",
+     "snapshot": {
+      "url": "https://www.plain.com/open-by-default",
+      "finalUrl": "https://www.plain.com/open-by-default",
+      "status": 200,
+      "fetchedAt": "2026-10-07T09:51:41.682Z",
+      "via": "direct",
+      "contentType": "text/html",
+      "textHash": "f01d993957e22ec59228e6004d15f0046d4a1dc1b4d93730c50d3f849681f537"
+     },
+     "text": "Plain — Open By Default\nWhy we built Plain to be programmable, and why that bet is paying off\nPlain — Open By Default\nWhy we built Plain to be programmable, and why that bet is paying off\nPlain — Open By Default\nOpen by Default\nWhy we built Plain to be programmable, and why that bet is paying off\nSimon Rohrbach\nCo-Founder & CEO\nMarch 5 2026\nProduct\nSolutions\nResources\nCustomers\nPricing\nSign in\nBook a demo\nW e started Plain 5 years ago on a bet that customer support would eventually need to be something teams could build on, not just configure. We believed support was becoming infrastructure, not a help desk you configure through dropdown menus.\nW e started Plain 5 years ago on a bet that customer support would eventually need to be something teams could build on, not just configure. We believed support was becoming infrastructure, not a help desk you configure through dropdown menus.\nSo we started building Plain API-first. In practice, this meant that anything (and I mean anything) our app could do, you could do programmatically. Most tools in the space treated the API as a feature, gradually enhanced but always behind the core platform.\nOur first pitch deck said \"Stripe for customer support\". That framing sounded great on paper, but didn't make sense in practice. The idea was right, but extending a support system through code didn't create enough value to justify the cost.\nBut now, the cost side of the equation has changed, and it's changed quickly.\nWhat changed\nWhat changed\nEvery support tool out there is built on three assumptions:\n01. AI is bundled into the platform, because that's where the economic value is. 02. An API is a feature prioritised or de-prioritised like any other, not a fundamental design principle. 03. You get new capabilities when the vendor ships them, on their roadmap, on their timeline.\nBut over the past 12 months, we've seen 3 distinct changes taking place:\n01. Building your own AI agents is cheap and practical. It's no longer a niche activity. 02. We're moving towards multi-agent support, not single-agent. In the future, you will have many AI agents with different skill sets involved in your support, mirroring how human teams are already structured. 03. Software is easier to shape and easier to build. Customer expectations are shifting from static UIs to products that adapt to the use case.\nIf you can't build on your support tool, it will hold you back.\nNot eventually, but now. The pace of change has already outrun what most support platforms were designed to handle.\nThe answer isn't another support tool. It's support infrastructure that's open by default.\nWhat we mean by \"open\"\nWhat we mean by \"open\"\nThere's a lot of debate about the death of traditional SaaS: That you can now vibe-code your support tool in an afternoon. That if you're not an agent, you're already dead.\nAll of these assertions are misplaced.\nYou can vibe-code a lot, but you probably don't want to spend time vibe-coding conditional SLA logic.\nRound-robin with capacity planning. Templated text snippets. Multi-language support. Detailed evals. Integrations with your own systems. I could go on.\nAnd you definitely don't want to deploy any of that without guardrails over who can access customer data.\nInstead, I think the world is finally moving towards open infrastructure for specific business functions.\nI don't mean \"open\" like open source. Open as in:\n01. Vibe-coding your own UI and tools on top of proper guardrails, audit logs, and domain logic for customer support. 02. Doing anything programmatically, not just through the UI. Every action, every workflow, every piece of data accessible through the API. Humans and AI agents operate through the same surface. 03. Orchestrating your AI agent work next to your human work, in the same UI.\nBring your own AI agent. Connect your own models. Build your own workflows. No vendor lock-in.\nThe best technical teams we work with already operate this way. They build and rebuild their own tools constantly. They expect their infrastructure to be programmable, because everything else in their stack is.\nA great example of this is n8n . As Gualter Augusto, Head of Support, puts it:\n\"Our users are builders. They choose n8n because they don't want to be locked into someone else's decisions. They expect the same from us. Plain gives us exactly that.\"\nBring your AI Agent to Plain, like Gualter\nBring your AI to Plain, like Gualter\nWhat this enables\nWhat this enables\nWhen infrastructure is open in this way, a few things change.\nPeople in support spend less time handling routine interactions and more time designing how systems behave.\nA new role is emerging out of this shift. Support engineers build and operate the systems that talk to customers. Their output isn't tickets closed. It's systems that scale.\nAs teams build more agents, they need a shared surface for those agents to coordinate through. Without one, specialization leads to fragmented experiences. With one, context flows between agents and the customer doesn't notice the seams.\nAnd as the number of interactions grows, the signal becomes the product.\nProduct sees what customers are struggling with. Engineering knows which releases created friction. This only works when the infrastructure treats conversations as a system of record, not as disposable tickets.\nThis is already happening.\nAt Granola , one of the fastest-growing AI companies in Europe, Vicky Firth, Customer Experience Lead, describes how the openness of Plain's tooling and APIs means they can make changes dynamically as they scale.\nThey build internal tooling both in and outside of Plain, pull data for insights, bring their own agents, and customize workflows in ways that keep pace with their growth.\nbuild support your way, like Vicky\nLooking ahead\nLooking ahead\nI don't know exactly how support will work in three years.\nBut we've spent five years building infrastructure with a specific conviction: that the platforms which survive this transition will be the ones that were open enough to get out of the way.\nOpen to being built on. Open to whatever models, agents, and workflows a team needs next.\nOpen to changing as fast as the people using them.\nJoin the teams who rely on Plain to provide world-class support\nStart for free\nBOOK A DEMO",
+     "policy": {
+      "policyId": "rights.official-company-website.v1",
+      "sourceId": "src.official-company-website",
+      "providerName": "Official company or product website (entity-bound)",
+      "displayTier": "automatic",
+      "registryHash": "30d893f5b810c363886fbef8bc35e9535700abdcb83e6a517b66018b3993cacc"
+     }
+    },
+    {
+     "sourceId": "s9",
+     "url": "https://www.plain.com/customers",
+     "publisher": "Plain（顧客一覧）",
+     "snapshot": {
+      "url": "https://www.plain.com/customers",
+      "finalUrl": "https://www.plain.com/customers",
+      "status": 200,
+      "fetchedAt": "2026-10-07T09:51:42.243Z",
+      "via": "direct",
+      "contentType": "text/html",
+      "textHash": "9b3ff62d89ef30cd732ca17e7e51b227b7d17b6e4aa119618bdae0b8058550b7"
+     },
+     "text": "Plain Customers — How B2B Teams Like Vercel, Cursor, and n8n Build Support Their Way\nSee how leading B2B companies use Plain to consolidate Slack, Teams, and Discord support into one platform — cutting response times, scaling with AI, and building custom workflows with Plain\nPlain Customers — How B2B Teams Like Vercel, Cursor, and n8n Build Support Their Way\nSee how leading B2B companies use Plain to consolidate Slack, Teams, and Discord support into one platform — cutting response times, scaling with AI, and building custom workflows with Plain\nPlain Customers — How B2B Teams Like Vercel, Cursor, and n8n Build Support Their Way\nTRY ARI\nAutonomous support, where your customers already are\nTRY ARI\nYour new autonomous support agent\nProduct\nSolutions\nResources\nCustomers\nPricing\nSign in\nBook a demo\nPlain is trusted by the world's best support teams\nHundreds of teams use Plain to provide world-class support for their customers.\nBOOK A DEMO\nHow n8n built AI-first support that handles 60% of tickets automatically\nCase study\nHow Resend automated their way out of 100,000 tickets\nCase study\nHow Granola’s support team learned to ship product, with Plain as the data layer\nCase study\nHow Raycast replaced 5 disconnected support channels with one platform using Plain\nCase study\nCustomer\nEnterprise AI platform designed to create and deploy custom AI agents\nCustomer\nAI-assisted integrated development environment\nCustomer\nThe frontend cloud platform for building, deploying, and scaling modern web applications.\nCustomer\nModern, no-code web design and development platform to create responsive websites\nCASE\nSTUDY\nDeveloper Tools\nHow Sourcegraph replaced 3 tools with Plain and cut first response time by 67%\nCustomer\nAI-powered personal executive assistant that organizes inboxes, auto-drafts replies, and automatically joins meetings\nCASE\nSTUDY\nSaaS\nHow Sanity saw 120% increase in team satisfaction after switching from Zendesk to Plain\nCustomer\nNo-code workflow automation platform that automates repetitive tasks, orchestrates complex processes, and connects their entire technology stack\nCustomer\nFull-stack PHP ecosystem designed to ship robust subscription-based applications faster\nCASE\nSTUDY\nDeveloper Tools\nHow Buildkite achieves sub-5-minute SLAs across follow-the-sun support with Plain\nCustomer\nAI-native documentation platform designed for developers and product teams to create, maintain, and scale technical documentation\nCASE\nSTUDY\nDeveloper Tools\nHow Tinybird cut Enterprise first response time from 1 hour to 12 minutes with Plain\nCASE\nSTUDY\nDeveloper Tools\nHow Clerk built custom prioritization workflows across 4 pricing tiers with Plain's API\nCASE\nSTUDY\nDeveloper Tools\nHow Stytch replaced Zendesk and Channeled with one platform using Plain\nCASE\nSTUDY\nDeveloper Tools\nHow Northflank improved response times by 50% and scaled enterprise Slack support with Plain\nCASE\nSTUDY\nDeveloper Tools\nHow Prisma migrated from Zendesk to Plain and built a support stack that matches their developer experience\nCustomer\nOpen-source link management platform for creating branded short links, tracking real-time analytics, and managing affiliate programs\nCustomer\nCustomer identity and access management (CIAM) that can be deployed anywhere\nCustomer\nPlatform for creators, educators, and businesses to build, market, and sell online courses, communities, and digital products\nCustomer\nAI-powered \"interview intelligence\" platform that helps recruiting teams capture, summarize, and analyze candidate conversations\nCustomer\nAPI-first developer platform that enables teams to build, test, and deploy fast, conversational AI voice agents\nCASE\nSTUDY\nDeveloper Tools\nHow Depot manages hundreds of Slack Connect channels without a dedicated support team using Plain\nCASE\nSTUDY\nDeveloper Tools\nHow Fly.io saves 200+ hours of engineering time per year with Plain\nCASE\nSTUDY\nAI infrastructure\nWhy Voltage Park switched from Freshdesk to Plain to consolidate their support stack\nCustomer\nStarter kit for rapidly building and deploying TypeScript-based SaaS applications\nCustomer\nInfrastructure to handle concurrent edits on shared data, so people and AI agents can collaborate\nCustomer\nIntegration platform designed for developers to build, manage, and scale third-party API integrations\nCustomer\nServerless, cloud-based data warehouse designed to make analytics fast, efficient, and user-friendly\nCustomer\nGlobal energy transition collective\nCustomer\nRevenue management platform that manages complex billing, including usage-based pricing, subscriptions, quotes, and payments\nCustomer\nOpen-source, secure environment with real-world tools for enterprise-grade agents.\nCustomer\nan OpenTelemetry-native observability platform designed for fast troubleshooting, log analysis, and application performance monitoring\nWHere next?\nChoose your own adventure\nPricing\nProduct\nChangelog\nJoin the teams who rely on Plain to provide world-class support\nBOOK A DEMO\nStart for free\nJoin the teams who rely on Plain to provide world-class support\nBOOK A DEMO\nStart for free\n© 2026 Plain\nNot Just Tickets Ltd\nPlain\nProduct\nAri\nSidekick\nBroadcasts\nCustomers\nPricing\nCareers\nSolutions\nOpen Infrastructure\nAI-Native\nHeadless\nMulti-Channel\nStartup Program\nMigrate to Plain\nCompare\nChannels\nSlack\nMicrosoft Teams\nDiscord\nEmail\nHelp Center\nIn-app Forms\nLive Chat\nResources\nCommunity\nBlog\nEvents\nAPI Docs\nSecurity\nTrust Center\nIntegrations\nSupport\nHelp Center\nPrivacy\nTerms\nData Processing\nStatus\n@plainsupport\n© 2026 Plain\nNot Just Tickets Ltd\nPlain\nSolutions\nChannels\nResources\nSupport",
+     "policy": {
+      "policyId": "rights.official-company-website.v1",
+      "sourceId": "src.official-company-website",
+      "providerName": "Official company or product website (entity-bound)",
+      "displayTier": "automatic",
+      "registryHash": "30d893f5b810c363886fbef8bc35e9535700abdcb83e6a517b66018b3993cacc"
+     }
+    },
+    {
+     "sourceId": "s10",
+     "url": "https://www.plain.com/pricing",
+     "publisher": "Plain（料金）",
+     "snapshot": {
+      "url": "https://www.plain.com/pricing",
+      "finalUrl": "https://www.plain.com/pricing",
+      "status": 200,
+      "fetchedAt": "2026-10-07T09:51:42.691Z",
+      "via": "direct",
+      "contentType": "text/html",
+      "textHash": "3e886f621f53a83bb742bbc6b2546db14cdab7d6c7e5eca8459c2f50c66c6213"
+     },
+     "text": "Plain Pricing — Plans from $45/user/month | 7-Day Free Trial\nFoundation is $45/user/month, Horizon is $99/user/month, and Frontier is custom. Horizon includes 2,500 credits/month. Start with a 7-day free trial, no credit card required.\nPlain Pricing — Plans from $45/user/month | 7-Day Free Trial\nFoundation is $45/user/month, Horizon is $99/user/month, and Frontier is custom. Horizon includes 2,500 credits/month. Start with a 7-day free trial, no credit card required.\nPlain Pricing — Plans from $45/user/month | 7-Day Free Trial\nTRY ARI\nAutonomous support, where your customers already are\nTRY ARI\nYour new autonomous support agent\nProduct\nSolutions\nResources\nCustomers\nPricing\nSign in\nBook a demo\nPricing\nSupport for teams that ship. Start today, no credit card required\nFoundation\n$\n55\n45\nSave 20%\nper user per month\nBilled annually\nstart Free Trial\nGreat for small teams getting started with support\n1,000 credits / month\nSidekick (internal AI agent)\nAri (customer AI agent)\nAI workflows\nSlack, email, in-app channels\nLinear, Jira integrations\nHelp Center, Knowledge Base\nHorizon\n$99\nper user per month\nBilled annually\nBook a Demo\nPerfect for growing teams with more complex workflows\n2,500 credits / month\nMicrosoft Teams\nSLAs and Business hours\nEscalation paths\nCRM integrations\nReporting themes\nAI suggested responses\nFrontier\nCustom\nFlexible pricing, suited to you\nBilled annually\nBook a Demo\nFor larger organizations who require advanced governance and control\nCustom credits\nExternal AI Agents\nCustom workspaces\nCustom contracting\nAdvanced security\nSSO and SCIM\nWhite glove onboarding\nDedicated customer success manager\nFoundation\n$\n55\n45\nSave 20%\nper user per month\nBilled annually\nstart Free Trial\nGreat for small teams getting started with support\n1,000 credits / month\nSidekick (internal AI agent)\nAri (customer AI agent)\nAI workflows\nSlack, email, in-app channels\nLinear, Jira integrations\nHelp Center, Knowledge Base\nHorizon\n$99\nper user per month\nBilled annually\nBook a Demo\nPerfect for growing teams with more complex workflows\n2,500 credits / month\nMicrosoft Teams\nSLAs and Business hours\nEscalation paths\nCRM integrations\nReporting themes\nAI suggested responses\nFrontier\nCustom\nFlexible pricing, suited to you\nBilled annually\nBook a Demo\nFor larger organizations who require advanced governance and control\nCustom credits\nExternal AI Agents\nCustom workspaces\nCustom contracting\nAdvanced security\nSSO and SCIM\nWhite glove onboarding\nDedicated customer success manager\n7 day free trial\n·\nNo credit card required\n·\nStellar support\n·\nCheck out our startup program for 50% off\nFoundation\n$45/user/month billed annually\nHorizon\n$99/user/month billed annually\nFrontier\nCustom\nSeats\nUser seats\nUp to 5\nMinimum 3, up to 10\nCustom\nViewer seats\nUnlimited\nUnlimited\nUnlimited\nCredits\nCredits included\n1,000/month on annual; 500/month on monthly\n2,500/month\nCustom\nAI agents\nAri Customer-facing AI agent\n100 credits/resolution\n100 credits/resolution\n100 credits/resolution\nSidekick Internal AI agent\n15-300+ credits, depending on effort\n15-300+ credits, depending on effort\n15-300+ credits, depending on effort\nExternal AI agent (Bring your own)\n15 credits/assignment + 15 credits/discussion\nAutomation\nWorkflows\nUp to 5\nUnlimited\nUnlimited\nAuto-labelling\nUrgency detection\nThread summaries\nSuggested responses\nChannels & self-service\nSlack\n25 channels\nUnlimited\nUnlimited\nEmail\n2 addresses\n10 addresses\n25 addresses\nIn-app forms\nLive chat\nKnowledge Base\n1\nUnlimited\nUnlimited\nCustomer inbox\n1\nUnlimited\nUnlimited\nMicrosoft Teams\nHeadless portal\nDiscourse\nDiscord\nSupport operations\nTiers\nLabels and sub-labels\nTeams\nSaved views\nAccount owners\nAutoresponders\nCSAT\nBusiness hours\nSLAs\nEscalation paths\nSlack operations\nSlack Broadcasts\nSlack Discussions\nSlack Digests\nSlack Enterprise Grid\nCustomer context & insights\nCustomer cards\nUnlimited\nUnlimited\nUnlimited\nCustomer card data freshness\n12h cache\n15s\n15s\nThread fields\nTenants\nReporting history\n7 days\nAll time\nAll time\nTeam reporting\nReporting themes\nIntegrations\nLinear\nShortcut\nJira\nGitHub\nincident.io\nRootly\nHubSpot sync\nAttio sync\nSalesforce sync\nCursor\nImporters\nIntercom importer\nFreshdesk importer\nZendesk importer\nHelp Scout\nDeveloper platform\nAPI\nWebhooks\nEvents\nMCP\nCustom channels\nSecurity & Governance\nSOC2 Type II Report\nCustom roles\nSSO and SCIM\nCustom workspaces\nCustom contracting\nAdvanced Security Review\nSupport SLAs\nUptime SLAs\n7 Day Free Trial\nBook a Demo\nBook a Demo\nFoundation\n$45/user/month billed annually\nHorizon\n$99/user/month billed annually\nFrontier\nCustom\nSeats\nUser seats\nUp to 5\nViewer seats\nUnlimited\nCredits\nCredits included\n1,000/month on annual; 500/month on monthly\nAI agents\nAri Customer-facing AI agent\n100 credits/resolution\nSidekick Internal AI agent\n15-300+ credits, depending on effort\nExternal AI agent (Bring your own)\nAutomation\nWorkflows\nUp to 5\nAuto-labelling\nUrgency detection\nThread summaries\nSuggested responses\nChannels & self-service\nSlack\n25 channels\nEmail\n2 addresses\nIn-app forms\nLive chat\nKnowledge Base\n1\nCustomer inbox\n1\nMicrosoft Teams\nHeadless portal\nDiscourse\nDiscord\nSupport operations\nTiers\nLabels and sub-labels\nTeams\nSaved views\nAccount owners\nAutoresponders\nCSAT\nBusiness hours\nSLAs\nEscalation paths\nSlack operations\nSlack Broadcasts\nSlack Discussions\nSlack Digests\nSlack Enterprise Grid\nCustomer context & insights\nCustomer cards\nUnlimited\nCustomer card data freshness\n12h cache\nThread fields\nTenants\nReporting history\n7 days\nTeam reporting\nReporting themes\nIntegrations\nLinear\nShortcut\nJira\nGitHub\nincident.io\nRootly\nHubSpot sync\nAttio sync\nSalesforce sync\nCursor\nImporters\nIntercom importer\nFreshdesk importer\nZendesk importer\nHelp Scout\nDeveloper platform\nAPI\nWebhooks\nEvents\nMCP\nCustom channels\nSecurity & Governance\nSOC2 Type II Report\nCustom roles\nSSO and SCIM\nCustom workspaces\nCustom contracting\nAdvanced Security Review\nSupport SLAs\nUptime SLAs\n7 Day Free Trial\nFast growing companies love plain\nTake their word for it\nWe see Plain as a tool very similar to Raycast. Focused on a great user experience, intelligent workflows, and truly empowering the teams that use it.\nDaniel Sequeira\nHead of Business Operations\nCase study\nFrequently Asked Questions\nFrequently Asked Questions\nCan I try Plain before paying?\nWhat am I paying for?\nWhat’s the difference between a member seat and a viewer seat?\nWhich plan should I choose?\nWhat are credits?\nWhat uses credits?\nHow do I know how many credits an AI task will use?\nDo unused credits roll over?\nWhat happens if I run out of credits?\nDo you offer discounts for startups?\nFast growing companies love plain\nTake their word for it\nCase study\nWe see Plain as a tool very similar to Raycast. Focused on a great user experience, intelligent workflows, and truly empowering the teams that use it.\nDaniel Sequeira\nHead of Business Operations\nWHere next?\nChoose your own adventure\nProduct\nCustomers\nChangelog\nWHere next?\nChoose your own adventure\nProduct\nCustomers\nChangelog\nJoin the teams who rely on Plain to provide world-class support\nBOOK A DEMO\nStart for free\nJoin the teams who rely on Plain to provide world-class support\nBOOK A DEMO\nStart for free\n© 2026 Plain\nNot Just Tickets Ltd\nPlain\nProduct\nAri\nSidekick\nBroadcasts\nCustomers\nPricing\nCareers\nSolutions\nOpen Infrastructure\nAI-Native\nHeadless\nMulti-Channel\nStartup Program\nMigrate to Plain\nCompare\nChannels\nSlack\nMicrosoft Teams\nDiscord\nEmail\nHelp Center\nIn-app Forms\nLive Chat\nResources\nCommunity\nBlog\nEvents\nAPI Docs\nSecurity\nTrust Center\nIntegrations\nSupport\nHelp Center\nPrivacy\nTerms\nData Processing\nStatus\n@plainsupport\n© 2026 Plain\nNot Just Tickets Ltd\nPlain\nSolutions\nChannels\nResources\nSupport",
+     "policy": {
+      "policyId": "rights.official-company-website.v1",
+      "sourceId": "src.official-company-website",
+      "providerName": "Official company or product website (entity-bound)",
+      "displayTier": "automatic",
+      "registryHash": "30d893f5b810c363886fbef8bc35e9535700abdcb83e6a517b66018b3993cacc"
+     }
+    },
+    {
+     "sourceId": "s11",
+     "url": "https://www.plain.com/blog/ai-support-strategy-early-stage-saas-2026",
+     "publisher": "Plain（顧客の導入検討の集計と過去料金の記載）",
+     "snapshot": {
+      "url": "https://www.plain.com/blog/ai-support-strategy-early-stage-saas-2026",
+      "finalUrl": "https://www.plain.com/blog/ai-support-strategy-early-stage-saas-2026",
+      "status": 200,
+      "fetchedAt": "2026-10-07T09:51:43.352Z",
+      "via": "direct",
+      "contentType": "text/html",
+      "textHash": "5f95baf2e67426f09039777ccff43884d8a45597813b8901d1ca1f5b848d9542"
+     },
+     "text": "Plain — How to Build an AI-First Support System at an Early-Stage SaaS Company (2026)\nIn 563 early-stage B2B SaaS evaluations, 29% named channel fragmentation their #1 pain. Here\nPlain — How to Build an AI-First Support System at an Early-Stage SaaS Company (2026)\nIn 563 early-stage B2B SaaS evaluations, 29% named channel fragmentation their #1 pain. Here\nPlain — How to Build an AI-First Support System at an Early-Stage SaaS Company (2026)\nTRY ARI\nAutonomous support, where your customers already are\nTRY ARI\nYour new autonomous support agent\nProduct\nSolutions\nResources\nCustomers\nPricing\nSign in\nBook a demo\nBlog\n/\nSupport Strategy\nHow to Build an AI-First Support System at an Early-Stage SaaS Company (2026)\nCole D'Ambra\nHead of Growth & Demand Generation\nLast Updated\nMay 12, 2026\nPublished On\nApr 29, 2026\nTL;DR: Start here\nYour situation\nWhat to do first\nSupport lives in Slack DMs and shared inboxes\nConsolidate into a single queue before adding any AI — see \"How does support actually break at an early-stage company?\"\nYou have 200+ tickets but no taxonomy\nRun the three-tier classification first — see \"What does a working AI support operation look like in the first 90 days?\"\nYou're evaluating AI support tools right now\nSee \"Tool evaluation criteria for early-stage teams\"\nAgents are using AI but suggestion quality is inconsistent\nSee the shadow mode section under \"What does a working AI support operation look like in the first 90 days?\"\nYou're hitting signals the current setup won't scale\nSee \"How do you know when your support architecture is starting to fail?\"\nIn analysis of 563 early-stage B2B SaaS evaluations in 2025–2026, the single most common trigger for seeking a formal support platform was the same: customer messages falling through the cracks. Not ticket volume or CSAT scores: messages lost in Slack threads, unanswered requests in Discord, engineering context trapped in GitHub issues with no ownership and no tracking. At early stage, that problem has a specific shape and a specific fix.\nPre-Seed companies convert to a formal support infrastructure at a 39.1% rate , one of the highest conversion rates of any funding stage in this analysis. 59% of B2B support teams report high-severity pain with their current tools. 29% specifically named channel fragmentation as their primary pain point: support scattered across Slack, email, GitHub, and Discord with no single view of what is open or who owns it. In roughly 40% of early-stage won deals, the trigger was the same: things falling through the cracks in Slack. The underlying cause was ownership gaps, not complexity or volume. Teams that adopt a formal support infrastructure at this stage rarely migrate away from it. The tooling grows with them. Plain, the API-first customer infrastructure platform for B2B SaaS , is built specifically for this motion.\nThis guide is for support functions of one to five people at pre-PMF and early-growth B2B SaaS companies: the founder answering tickets between calls, the first support hire inheriting a shared inbox, the technical co-founder who owns customer relationships and product simultaneously. It covers what to build, in what order, and why the sequencing matters. This analysis draws on Plain's internal evaluation data from 563 sales conversations conducted in 2025–2026, supplemented by published research from McKinsey, Salesforce, and Gartner.\nGranola used Plain as their first formal support system during a period of 100x user growth. Depot's CTO described the company's shared Slack channels as unmanageable before consolidating them into Plain.\nHow does support actually break at an early-stage company?\nMost support breakdowns at early stage are context and ownership problems, not volume problems. In analysis of 563 early-stage B2B SaaS sales conversations in 2025–2026, 29% of teams named channel fragmentation as their primary pain point : support scattered across Slack Connect channels, email, GitHub issues, and Discord with no single view of what is open, who owns it, or what has already been said. For most teams, the fix is infrastructure that routes and tracks ownership before any AI is added on top.\nA customer messages on Slack Connect. A different teammate replies by email. A third person creates a GitHub issue for the same problem. No one has the full thread. The customer gets a different answer from each person they reach, or no answer at all.\nContext loss at handoff is the second pattern. When a ticket escalates from a support IC to an engineer or founder, reconstructing that context requires checking five tools. A founder at a developer tools company described it this way: \"Every request that fell through pulled an engineer away from building. We didn't have a support problem. We had a context assembly problem.\" A support manager at a B2B SaaS company put it differently: \"We'd spend 20 minutes assembling context before we could even start thinking about the answer. The problem wasn't that tickets were hard. It was that everything we needed was somewhere else.\" Of the 563 early-stage conversations analyzed, 29 involved engineering teams being pulled into support as a primary escalation path , a signal that the cost is being paid in engineering time, not support headcount.\nDocumentation decay is the third pattern. In a product that ships fast, the help center falls behind. When AI support tools get configured against stale documentation, they surface wrong answers confidently. The confidence is the problem. Customers trust the answer, act on it, and escalate when it fails.\nAsking \"how many tickets are we getting?\" is the wrong diagnostic. Measure instead: how long from ticket open to first meaningful response? What percentage of tickets require checking two or more systems before anyone can respond? How many escalations happened because context was hard to find, rather than because the issue was genuinely complex?\nFor most early-stage teams, those answers surface a context-hunting problem that creates more friction than any volume issue. The fix is infrastructure that routes, tracks, and surfaces context automatically, before adding any automation on top.\nHow we built this framework\nThis guide draws on analysis of 563 early-stage B2B SaaS support evaluations from 2025–2026. Teams were classified as early-stage based on employee count (50 or fewer), funding stage (Pre-Seed through Series A), or founder-led seniority. Four criteria were measured: primary pain trigger, incumbent tool, deal outcome, and evaluation pattern. Every claim in this guide aggregates a minimum of five conversations.\nWhy is augmentation-first the right strategy for teams under 50 seats?\nAugmentation-first means deploying AI to help agents work faster — drafting responses, assembling context, flagging patterns — before exposing AI to customers directly. At early stage, the conditions for automation-first are usually wrong: documentation is incomplete, the product is changing fast, and you lack the stable ticket history automation requires. Augmentation delivers measurable capacity gains first, at lower risk than going customer-facing immediately.\nAutomation-first is a tempting frame when vendors lead with deflection rates and cost-per-contact reductions. Deploying a bot, deflecting tickets, reducing cost-per-contact: those metrics are real in the right conditions. At early stage, the conditions are usually wrong: documentation is incomplete, the product is changing fast, and automation requires stable ticket history that most teams do not yet have.\nIn McKinsey's analysis of generative AI in customer care , a deployment across 5,000 customer service agents improved issue resolution by 14% per hour and reduced time spent handling issues by 9%, gains concentrated almost entirely in agent-assist workflows, not customer-facing automation. Salesforce's 2025 State of Service report , surveying 6,500 service professionals, found that service reps using AI spend 20% less time on routine cases , freeing an estimated four hours per week for higher-complexity work. Both datasets point to the same conclusion: augmentation delivers measurable capacity gains before any customer-facing automation is required.\nThree capabilities deliver the most immediate value for a small team:\nDraft generation. AI reads the incoming ticket, checks the knowledge base, and writes a response draft for agent review. The agent edits and sends. This compresses response time without removing human judgment. The agent stays accountable; the AI handles the first-pass assembly.\nContext assembly. AI surfaces related prior tickets, the customer's account history, and any relevant internal documentation before the agent opens the thread. At early stage, this addresses the core bottleneck: the time spent hunting for context before anyone can respond. Plain's Customer Cards do this natively , pulling CRM data, account history, and prior tickets into a configurable panel before the agent types a single character.\nKnowledge base maintenance. AI identifies weak answers, flags stale documentation, and drafts help articles from resolved tickets. Every bad AI suggestion is a documentation gap. That feedback loop improves both the human team and the AI over time.\nWhat augmentation-first does not mean: avoiding self-service permanently. Once you have identified which Tier 1 issues are truly stable (same answer every time, documented, low risk), narrow self-service can work. The rule is: if a human agent would confidently send the answer without reviewing it, self-service may be ready. If they would want to check something first, it is not.\nWhen does automation-first actually make sense?\nThere are conditions where going directly to customer-facing automation is defensible.\nMature documentation inherited from a previous product. If you are launching a new product with an existing help center from a predecessor — or acquired a customer base that came with documented ticket patterns — you may already have the knowledge base most early-stage teams spend months building. Shadow mode can be abbreviated.\nA PLG motion with stable, high-volume Tier 1 patterns. Product-led growth companies with a free tier often accumulate thousands of low-complexity activation tickets before the team has bandwidth to handle them: how to connect an integration, what a specific error code means, how to upgrade. If these tickets have stable one-sentence answers and arrive at volume, narrow automation from day one is defensible.\nA second or third AI deployment. Teams that have already built a knowledge base through a prior product or prior support tool can skip the observation phase. The bottleneck has already been cleared.\nAll three cases share the same prerequisite: existing documentation. Augmentation-first is not the conservative-by-default choice. It is the sequenced-correctly choice for teams that do not yet have that foundation. The question to ask before skipping it: \"Do we actually have documented, stable answers for our top 20 recurring issues?\" If the honest answer is no, augmentation-first is the right path.\nHow should you divide work between AI and humans at an early-stage company?\nAI owns context assembly and first-draft generation; humans own judgment, relationships, and escalations. That boundary shifts as the knowledge base matures and the product stabilizes. In practice: AI handles the first pass on every ticket — summarizing context, drafting a response, surfacing related cases — while humans control the final send decision until a specific category has proven reliable enough for narrow automation.\nHuman-AI division of labor\nInteraction type\nAI role\nHuman role\nRepeatable questions with documented answers\nDraft response or resolve via self-service\nReview early on; reduce oversight over time as confidence grows\nMulti-step troubleshooting with known patterns\nSummarize context, surface related cases, suggest steps\nReview, lead resolution, own customer communication\nAccount-specific or multi-system issues\nAssemble context, draft escalation summary\nOwn investigation and customer communication\nEscalations and sensitive issues\nPrepare the handoff, organize prior context\nLead entirely. AI is a silent prep tool\nFounder or relationship-sensitive conversations\nSurface support history, flag risk signals\nFounder or account owner leads\nNovel or ambiguous issues\nFlag for human review; do not attempt to resolve\nHuman leads from the first message\nWorth calling out specifically: the AI role for escalations is to prepare, not resolve. At early stage, escalations often go to a founder or senior engineer who has 90 seconds to get context before joining a customer call. An AI that assembles a clean escalation brief (what the customer asked, what was tried, what the account history shows) creates real leverage without any customer-facing risk.\nCapacity reallocation is the real ROI. The wrong question is how many tickets got deflected. The right question is how many hours of founder or senior engineer time got freed for the work that drives retention: faster troubleshooting, better product feedback loops, proactive outreach before customers escalate. In analysis of early-stage B2B SaaS teams in 2025–2026, channel fragmentation alone accounted for measurable response delay in over 161 of 563 evaluated teams. Fixing the context problem creates more capacity than deflection will at this stage.\nWhat does a working AI support operation look like in the first 90 days?\nA working AI support operation at 90 days runs augmentation-first: AI drafts responses and assembles context while humans review and send. The first 30 days are observation-only — classify tickets into three tiers, measure baseline metrics, deploy nothing. Days 31–60 introduce shadow mode for your highest-volume categories. By day 90, AI assistance runs daily with an agent acceptance rate above 50% and no customer-facing automation deployed before that bar is met.\nDays 1–30: Understand before you build\nPull your last 200–500 tickets and classify them into three tiers:\nTier 1: Repeatable. Password resets, basic how-to questions, known issues with standard workarounds. Candidates for eventual self-service.\nTier 2: Multi-step. Problems that need context assembly before responding: checking account history, prior tickets, or internal docs.\nTier 3: Novel or high-risk. Outages, key customers, problems no one has seen before. Human-led from the first message.\nDo not deploy any tools in month one. The ticket taxonomy tells you what to automate, and what not to. Teams that skip this step automate the wrong tier and create noise.\nDocument baseline metrics:\nFirst response time\nResolution time\nAverage number of systems checked per ticket\nEscalation rate and trigger type (information gap vs. authority gap vs. genuinely novel)\nDo not track ticket deflection rate yet. During augmentation mode, a low deflection rate is expected and correct. Deflection measures the wrong thing at this stage.\nDays 31–60: Launch augmentation in shadow mode\nConfigure AI assistance for your highest-volume Tier 1 and Tier 2 categories. Run shadow mode for at least 30 days before any customer-facing automation goes live.\nIn shadow mode:\nAI drafts responses; humans send them\nAI suggests articles; humans decide whether they fit\nAI summarizes cases; agents edit before using in handoffs\nAI flags patterns; the team validates before acting\nShadow mode surfaces two things early: where AI suggestions are wrong (usually documentation gaps), and where they are strong enough to extend to more categories. Track AI draft acceptance rate weekly. When agents are editing and sending (not discarding and rewriting), the knowledge base is ready for more.\nAri, Plain's AI agent , runs in this augmentation layer. Ari handles customer conversations end-to-end for Tier 1 requests — resolving questions automatically against your knowledge base and handing off to a human when it can't help further. For agent-side drafting and context assembly, Plain's Sidekick AI assistant surfaces suggested replies and thread summaries directly in the composer. Ari's behavior can be configured via workflow rules without ops headcount.\nThe bar to advance to month three: agents use AI assistance daily, acceptance rate is above 50%, and no customer has received a materially wrong answer.\nDays 61–90: Expand and add retention signals\nExtend AI assistance to more Tier 1 and Tier 2 categories. For the best-performing category, consider narrow customer-facing self-service if documentation is strong.\nBegin routing simple support-risk signals to whoever owns the customer relationship. A weekly summary listing accounts showing these patterns is enough for a five-person team:\nRepeated tickets about the same workflow from one account\nRising urgency or severity from a single customer over time\nRepeated negative sentiment in ticket language\nUnresolved issues within 30 days of a renewal or expansion conversation\nCustomers who stop using key features after opening support tickets\nNo health scoring required at this stage. Just consistent signal routing.\nWhich systems should you connect first, and in what order?\nConnect your knowledge base first, then your ticketing platform, then your CRM. Documentation is the foundation AI retrieves from — a clean knowledge base improves both human agents and AI simultaneously. Everything else (product analytics, engineering trackers, communication channels like Slack Connect) layers on top. One well-connected system delivering real value beats six shallow integrations running in parallel. At early stage, the documentation gap creates more daily friction than any missing CRM metadata.\nPriority\nSystem\nWhy it comes first\n1\nKnowledge base\nThe foundation AI retrieves from. A clean KB improves both human agents and AI simultaneously\n2\nSupport platform / ticketing\nCentral queue for tracking, ownership, and categorization\n3\nCustomer records or CRM\nAccount context, tier, ownership, and relationship history\n4\nProduct analytics or logs\nWhat the customer actually experienced before opening a ticket\n5\nEngineering tracker (Linear, GitHub)\nConnects bugs and incidents to support threads\n6\nCommunication channels (Slack Connect, Teams, Discord)\nWhere your customers are. Route into the central queue\nThe order matters. Most enterprise advice puts CRM first because enterprise teams have a populated CRM. At early stage, the knowledge base is usually emptier than any other system, and documentation gaps drive more daily friction than missing account metadata.\nOne well-connected system is worth more than six shallow ones. A Slack Connect integration that routes conversations directly into the ticketing queue (so agents do not have to check Slack separately) creates more operational value than a CRM integration that only surfaces the customer's name.\nPlain's native Slack Connect integration and GraphQL API make this wiring straightforward. For teams that prefer to build custom routing logic, SLA configuration, or AI behavior, the API provides direct control without requiring a dedicated ops hire. For more on the technical architecture behind this, see API-first support platforms for B2B SaaS .\nPlain's Foundation plan starts at $35/seat/month (billed annually) and covers one seat with full Ari access and no per-resolution fees. The Horizon plan is $269/month for teams needing up to 10 seats with deeper workflow automation and SLA management. Ari is included on all plans. There is no annual contract requirement for teams evaluating the platform in their first 90 days.\nWhat are the most common early-stage AI support mistakes?\nThe most common mistake is deploying automation before classifying ticket types. Without a three-tier taxonomy, teams risk automating Tier 2 or Tier 3 issues where a confident wrong answer damages a key customer relationship. The second most common mistake is measuring AI deflection rate during the augmentation phase — when the correct metric is capacity freed for the humans doing retention-driving work, not tickets removed from the queue.\nAutomating before classifying the work. Without a ticket taxonomy, you do not know which issues are Tier 1. Automating a Tier 2 or Tier 3 issue creates a bad customer experience. At early stage, a bad experience with a key account is a company problem, not a ticket deflection metric.\nTreating all escalations as one bucket. In analysis of early-stage sales conversations in 2025–2026, the majority of escalations were information-gap escalations: the agent could not find context fast enough, not because the issue was complex. Classify escalations by type. Most information-gap escalations are AI-solvable. Authority-gap escalations are not.\nLaunching customer-facing automation before shadow mode has run. One confident wrong answer to a key customer at a critical moment can undo months of relationship work. Shadow mode is the checkpoint.\nLetting documentation fall behind. AI will confidently cite stale articles. The top 10 recurring issues need accurate documentation before any AI references them. The habit that prevents this: when a new issue gets solved twice, create or improve an article immediately.\nMeasuring deflection instead of capacity. A low deflection rate during augmentation mode is expected and correct. The metric that matters is how much team capacity was freed for the work that drives retention.\nChasing enterprise tooling. Many AI support platforms are designed for teams of 20+ with dedicated ops headcount. They require significant configuration before delivering value. Time-to-first-value is a primary evaluation criterion for early-stage teams: can you get useful suggestions in under two weeks, without a full implementation?\nHow do you know when your support architecture is starting to fail?\nThis framework is built for teams of one to five at early-growth companies. The architecture starts to fail when two signals appear simultaneously: your first enterprise prospect arrives with procurement requirements your informal workflow cannot meet, and a second or third support hire is giving different answers than the first. Either signal alone is manageable. Both together mean the operating model needs to evolve, and the practices in this guide remain relevant as foundation.\nFirst enterprise prospect with procurement requirements. A security questionnaire or contractual data-handling provision signals that informal practices are no longer sufficient. Documented data governance, formal knowledge management, and AI tooling that can pass vendor due diligence become necessary. This signal is arriving sooner now: in a Gartner survey of 321 customer service leaders conducted in late 2025 , 91% reported executive pressure to implement AI in 2026 , meaning the customers you're selling to are themselves under AI scrutiny, and they will ask about your support stack.\nSecond or third support hire creating knowledge inconsistency. When new agents give different answers than existing agents (not because the product changed, but because knowledge is tribal), the documentation habit has hit its limit.\nFirst SLA breach that matters. When a customer holds you to a response-time commitment your informal workflow could not meet, formal SLA management and escalation protocols become necessary.\nTicket volume consistently exceeding bandwidth for 30+ days. When augmentation alone is not keeping up, evaluate fuller automation, team expansion, or infrastructure that can scale without architectural changes.\nWhen any two of these appear together, the operating model needs to evolve. The practices in this guide remain relevant as foundation.\nWhat changed about AI support in the last 12 months?\nThree shifts since early 2025 change the calculus for early-stage teams building now. AI agents moved from drafting suggestions to closing Tier 1 tickets end-to-end. Enterprise procurement questions about AI data handling started arriving at Series A companies rather than post-IPO. And falling inference costs changed the economics of automation for teams that have already built documentation discipline. All three compress the timeline from augmentation to narrow automation.\nThe move from suggestion to resolution. Through most of 2024, AI for support meant draft generation: AI writes the response, human reviews and sends. By late 2025, AI agents were reliably closing Tier 1 tickets end-to-end without human review — not for all tickets, but for a stable, documented subset. The augmentation-first framework is still correct as a sequence. What changed is how long the augmentation phase lasts. For a team that runs a tight shadow mode and builds documentation discipline in months one and two, the threshold for narrow Tier 1 automation may arrive at month four rather than month twelve. Design your documentation habits with that transition in mind.\nThe architectural implication is significant for teams choosing a platform now. Once AI agents are reliably resolving tickets, the question is whose agent and at what cost. Most support platforms bill AI resolution at per-conversation rates ($0.99–1.50 per resolution is common), and the model is opaque — you use what the vendor provides, on their pricing schedule. The alternative, increasingly relevant in 2026, is Bring Your Own Agent (BYOA): connecting your own AI model or agent pipeline into the support infrastructure, so the resolution layer is under your control. Teams that have already invested in AI infrastructure — a fine-tuned model, an internal agent, an LLM integration they run elsewhere in the product — can route support through the same stack rather than paying a second vendor for a parallel AI layer.\nProcurement pressure arriving earlier. The Gartner data on executive AI pressure runs in both directions. By late 2025, early-stage SaaS companies started receiving AI-specific questions from their own enterprise prospects: data retention policies on AI-processed support tickets, human-in-the-loop guarantees, model provenance. This used to be a Series B problem. It is now arriving at Series A, and occasionally earlier for companies selling into regulated industries. The practical implication: choose a support platform whose AI architecture and data handling you can document and explain, not just one that works.\nInference cost economics. The argument for augmentation-first was always: automation requires stable ticket patterns and documentation that most early-stage teams do not yet have. Falling inference costs do not change that prerequisite — they change the economics once you have met it. The investment in documentation discipline is worth more now than it was 18 months ago, because the automation payoff arrives faster and at a lower per-ticket cost once you reach it. Teams building now should not treat the augmentation phase as a tax. It is the asset that makes everything that follows cheaper.\nWhat makes Plain the right infrastructure for an early-stage B2B SaaS team?\nPlain is composable customer infrastructure, built so a technical founder or small support team can get a working system running in a day and extend it as the product grows — without migrating to a different platform or hiring a dedicated ops admin. The full stack covers unified queue, native Slack Connect, GraphQL API, Plain's AI agent Ari, and Bring Your Own Agent support from day one.\nFive capabilities matter most for early-stage teams:\nUnified queue across channels. Slack Connect, email, and in-app threads route into a single inbox on all plans. Discord is available on the Frontier plan; Microsoft Teams on Horizon and above. No separate tools to check, no ownership gaps across channels. See how Slack support tools for B2B compare for teams with Slack-native customer relationships.\nNative Slack Connect support. For B2B developer tools companies where customers live in Slack, Plain treats Slack as a first-class support channel. Not an integration bolted onto a web-first workflow. It provides full routing, SLAs, and tracking within Slack itself.\nGraphQL API with high rate limits. For teams building custom automations, wiring support data into their product, or integrating with Linear and GitHub, the API is the foundation. Plain's GraphQL API allows up to 450 requests per minute on the Foundation plan, scaling to 600 on Horizon and 1,000 on Frontier.\nAri, Plain's AI agent. Ari handles customer conversations end-to-end: resolving Tier 1 questions automatically from your knowledge base, handing off to a human when it can't help, and leaving notes on documentation gaps. Sidekick, Plain's agent-side AI assistant, surfaces suggested replies, thread summaries, and similar cases directly in the composer for the human agent to review and send.\nBring Your Own Agent (BYOA). For teams that already run their own AI models — an LLM integrated elsewhere in the product, a custom agent pipeline, or an internal model fine-tuned on their data — Plain's API lets you connect that agent directly into the support workflow alongside or instead of Ari. Your agent handles the ticket categories it knows best; Ari handles the rest. No per-resolution fees on your own agent, no lock-in to a single model as capabilities evolve. For technical founders who have already built AI infrastructure, this means support becomes one more surface the existing stack serves rather than a separate AI budget line.\nCustomer Cards for context assembly. Configurable context panels pull account history, CRM data, product metadata, and prior tickets into a single view before the agent opens a conversation. This directly addresses the core early-stage bottleneck: time spent assembling context before any resolution work can begin.\nFrom the teams using it:\nGranola, a B2B AI SaaS, used Plain as their first formal support platform during a 100x user growth period. Northflank, a developer infrastructure company, reduced response times by 50% after switching to Plain. Voltage Park, an AI infrastructure company, cut first response time from over an hour to 3 minutes — a 95% reduction — after consolidating fragmented Slack and email support into Plain. Spencer Mellon, Technical Support Manager: \"Plain's API-first nature meant we could adapt the tool to our needs, not change our workflows to suit the tool.\" Raycast cites Plain's intelligent workflows as central to their support operation.\nn8n scaled from 100 to 2,000+ tickets per week — a 20x increase in volume handled with only 2x team growth. AI now handles 60% of incoming tickets, with a goal of 80% by end of 2026. Enterprise response time dropped from 2–3 weeks to 6–8 hours; complex tickets resolve in 1–2 days. Agents shifted from volume triage to improving AI quality and handling high-value escalations.\nPre-Seed companies convert to Plain at a 39.1% rate, one of the highest conversion rates of any funding stage in analysis of 2025–2026 sales conversations. The signal is consistent: earliest-stage teams that adopt Plain early do not outgrow it. They grow into it.\nFor teams reviewing B2B customer support software broadly, or evaluating AI customer support platforms across the market, Plain's infrastructure-first design sits in a distinct category from tooling built for enterprise buyers or consumer-facing support volumes.\nTool evaluation criteria for early-stage teams\nWhen evaluating AI support tools, apply different criteria than enterprise. The wrong tool for a five-person team is one that requires extensive configuration or dedicated ops headcount before delivering any value.\nDimension\nWhat to look for\nRed flags\nTime to first value\nUseful suggestions within two weeks, without a full rollout\nRequires weeks of implementation before any suggestion is usable\nShadow mode support\nRun AI internally with human review before any customer sees it\nPushes toward customer-facing automation immediately\nAgent usefulness\nHelps agents answer and investigate faster; simple agent interface\nDesigned primarily as a customer-facing chatbot with little agent-side value\nKnowledge base support\nDrafts, improves, and references internal docs; feedback on content gaps\nWeak retrieval, generic answers, no signal on documentation quality\nContext assembly\nSurfaces related tickets, account history, and product context natively\nForces agents to keep searching multiple tools manually\nEscalation support\nSummarizes cases and prepares handoffs without losing context\nNo internal workflow support; only handles customer-facing interactions\nStartup fit\nA small team can run it without dedicated AI ops headcount\nHeavy implementation burden, enterprise pricing, or requires a dedicated admin\nAPI access\nDirect control over routing, SLA logic, and AI behavior via API\nLocked-down platform with no programmatic access\nAI model flexibility\nConnect your own agent or LLM alongside the built-in AI; no per-resolution fees on your own model\nAI is opaque, per-resolution billed, or cannot be replaced with your own model\nNarrow rollout\nStart with one workflow or one ticket category and expand\nRequires broad configuration to get started\nWhat does this cost for a 3-person team? On Plain's Foundation plan at $35/seat/month, a 3-person team pays $105/month ($1,260/year) with full Ari access and no per-resolution fees. The Horizon plan at $269/month covers up to 10 seats — $89/seat effective at full capacity. Comparable enterprise platforms typically run $85–130/seat/month for a team of three, putting the annual cost at $3,060–4,680 before AI add-ons, which are usually billed separately. The gap widens further once per-resolution AI fees (common at $0.99–1.50/resolution) are included for teams handling 1,000+ tickets per month.\nOn contracts. Do not sign annual contracts for AI support tooling in the first 90 days. Monthly billing with a clear cancellation path is worth a premium at this stage. You will learn more about what you actually need in the first two months than any vendor can tell you in a demo.\nWe update this guide quarterly as platform capabilities and evaluation patterns change. If you are evaluating options across the market, AI support tools for B2B SaaS is a useful frame for teams that want to understand where AI-native infrastructure is heading.\nFAQ\nWhat's a realistic budget for AI support tooling at pre-Series A?\nFor a team of one to three people, $100–400/month covers most purpose-built support platforms with full AI features. The more important constraint is implementation time: platforms that require more than two weeks of setup before delivering value cost more in engineering hours than in subscription fees. Default to monthly billing, avoid annual contracts in the first 90 days, and treat anything requiring a dedicated ops hire as enterprise pricing regardless of the nominal seat cost.\nWhen should you hire your second support person?\nTwo signals reliably indicate the right timing: the founder or first support hire is spending more than 30% of their week on support, and response times are degrading despite AI assistance running at capacity. Hiring before AI assistance has been configured and running for at least 30 days means hiring into an unoptimized workflow. The second hire typically arrives around 50–150 tickets per week, but the real trigger is sustained degradation in response quality, not raw volume.\nHow do you hand off support from founder to a first dedicated hire without losing context?\nThe critical asset to transfer is the ticket taxonomy and knowledge base, not the queue. A new hire who has access to classified, documented patterns for the top 20 recurring issues can reach full productivity within two weeks. A new hire reconstructing tribal knowledge from closed tickets takes two to three months. Before the handoff, spend one week documenting: the Tier 1/2/3 classification for current ticket types, the standard response for each Tier 1 issue, and the escalation path for Tier 3. That document is the real onboarding asset.\nHow should early-stage companies handle Slack-based support at scale?\nShared Slack channels become unmanageable when support volume and team size grow simultaneously. The right move is to route Slack Connect conversations into a single queue with ownership, SLAs, and tracking, while keeping the customer in their Slack channel. Plain's native Slack Connect integration does this without requiring customers to change how they communicate.\nDoes the augmentation-first framework still hold as AI agents get more capable at resolving tickets?\nThe framework holds as a sequence, not as a permanent state. Augmentation-first means building documentation and classification before deploying customer-facing automation — not staying in augmentation forever. As AI agents become more reliably capable at Tier 1 resolution, the length of the augmentation phase shortens for teams with strong documentation. The prerequisite does not change; the time between meeting it and moving to narrow automation is compressing. Teams building now should design their documentation habits with the expectation that the automation transition will arrive earlier than it would have 18 months ago.\nWhen should an early-stage team start looking at infrastructure rather than a tool?\nWhen you find yourself building workarounds inside a tool that will not scale with your product. If a second support hire's answers differ from the first person's, if customers communicate across channels you are trying to unify, or if you are building custom API integrations because the platform will not do what you need, those are signals to evaluate infrastructure instead of adding another integration.\nThis guide covers early-stage support teams of 1–5 at pre-PMF and early-growth B2B SaaS companies. For growth-stage teams with formal CX functions, SLAs, and multi-tier support structures, see the Framework 2 guide.\nWritten by\nCole D'Ambra\nHead of Growth & Demand Generation\n10+ years in B2B go-to-market, writing about how technical companies buy and adopt customer support.\nLinkedIn\nMore from author\nJoin the teams who rely on Plain to provide world-class support\nBOOK A DEMO\nStart for free\nJoin the teams who rely on Plain to provide world-class support\nBOOK A DEMO\nStart for free\n© 2026 Plain\nNot Just Tickets Ltd\nPlain\nProduct\nAri\nSidekick\nBroadcasts\nCustomers\nPricing\nCareers\nSolutions\nOpen Infrastructure\nAI-Native\nHeadless\nMulti-Channel\nStartup Program\nMigrate to Plain\nCompare\nChannels\nSlack\nMicrosoft Teams\nDiscord\nEmail\nHelp Center\nIn-app Forms\nLive Chat\nResources\nCommunity\nBlog\nEvents\nAPI Docs\nSecurity\nTrust Center\nIntegrations\nSupport\nHelp Center\nPrivacy\nTerms\nData Processing\nStatus\n@plainsupport\n© 2026 Plain\nNot Just Tickets Ltd\nPlain\nSolutions\nChannels\nResources\nSupport",
+     "policy": {
+      "policyId": "rights.official-company-website.v1",
+      "sourceId": "src.official-company-website",
+      "providerName": "Official company or product website (entity-bound)",
+      "displayTier": "automatic",
+      "registryHash": "30d893f5b810c363886fbef8bc35e9535700abdcb83e6a517b66018b3993cacc"
+     }
+    },
+    {
+     "sourceId": "s12",
+     "url": "https://www.plain.com/customers/sourcegraph",
+     "publisher": "Plain（Sourcegraph の顧客事例）",
+     "snapshot": {
+      "url": "https://www.plain.com/customers/sourcegraph",
+      "finalUrl": "https://www.plain.com/customers/sourcegraph",
+      "status": 200,
+      "fetchedAt": "2026-10-07T09:51:43.637Z",
+      "via": "direct",
+      "contentType": "text/html",
+      "textHash": "f771aa77a4b8d1de9cdd37a7a416011bc1b69abe5d32f9a65695637cbbd16e4d"
+     },
+     "text": "Plain — How Sourcegraph replaced 3 tools with Plain and cut first response time by 67%\nSourcegraph replaced 3 tools with Plain and cut first response time by 67%. How the code intelligence team consolidated their B2B support stack.\nPlain — How Sourcegraph replaced 3 tools with Plain and cut first response time by 67%\nSourcegraph replaced 3 tools with Plain and cut first response time by 67%. How the code intelligence team consolidated their B2B support stack.\nPlain — How Sourcegraph replaced 3 tools with Plain and cut first response time by 67%\nProduct\nSolutions\nResources\nCustomers\nPricing\nSign in\nBook a demo\nHow Sourcegraph replaced 3 tools with Plain and cut first response time by 67%\nHow Sourcegraph replaced 3 tools with Plain and cut first response time by 67%\n67%\n67%\nFaster first response\n3\n3\nTools replaced by Plain\n26,000\n26,000\nTickets migrated\n“For the first time, I have a platform that's actually keeping up with what we want to build. Plain gave us the foundation to run support the way we wanted, with clean data and custom implementations. Everything is in one place.”\nEnrique Gonzalez\nHead of Support Engineering at Sourcegraph\nSourcegraph\nAI-powered code intelligence platform helping developers search, understand, and automate across large codebases.\nIndustry\nDeveloper Tools\nSupport team\n10\nMonthly Volume\n300\nwebsite\nwww.sourcegraph.com\nEngineering teams working across codebases with billions of lines of code use Sourcegraph to search, write, and understand what's there. When their Head of Support needed to unify roughly 100 Slack channels, replace a three-tool support stack, and bring AI into the workflow, he migrated 26,000 tickets to Plain and built the integration with his support team. No dedicated engineering resources required.\nThree Tools, No Source of Truth\nEnrique was running support across three disconnected systems: one for ticketing, another as the bridge to Slack, and a third for AI categorization. None of them talked to each other cleanly.\nEnterprise customers could post in Slack and wait hours before a ticket was created. Someone had to spot the message, click an emoji reaction or fill out a form, and wait for the automation to catch up. When agents did reply from the ticketing tool, responses rendered poorly back in Slack, so engineers gave up on the official flow and started replying directly in threads, getting pinged on personal aliases all day.\nReporting was no better. Years of freeform tagging had made data unreliable, and the team had fallen back to quarterly spreadsheets maintained by hand. Enrique had an AI strategy for categorization, routing, and assisted responses, but every new capability required another tool, another integration, another person holding it together:\nHe needed one system, and he had one more requirement: make it accessible enough that new engineers could come in, read a thread, and respond without having to ramp up on the tool.\n\"I already had two tools to manage, and I needed to then add a third AI tool. Now I need to make all three tools work with each other. How do I do that all at the same time?\"\nEnrique Gonzalez\nHead of Support Engineering at Sourcegraph\nOne Platform, Built on Sourcegraph's Terms\nSourcegraph switched to Plain in December 2025. The team migrated 26,000 tickets from their ticketing tool, brought roughly 100 Slack channels into Plain, and had email and Slack running within days.\nEvery Slack message, automatically a thread\nSourcegraph wanted to get closer to the customer and, with Plain, every Slack message became a thread automatically. That shift brought risk with it: higher volume, more noise, more false positives. But five months in, customers are telling Enrique their issues were getting answered faster, and messages that started as FYIs were turned into support requests before they fell through.\nSupport Engineers no longer jump between systems to piece a conversation together. Handling a thread means getting the full conversation in one place: customer messages, agent responses, internal notes, and engineering escalations, with a customer card attached showing account data like subscription status and product tier.\n\"As a manager, I can open any thread and see exactly how my team was thinking through a problem. When did they go to engineering? Should they have gone earlier? That visibility just didn't exist before.\"\nEnrique Gonzalez\nHead of Support Engineering at Sourcegraph\nFor managers, it's a window into how their team thinks through problems. For anyone coming into a ticket late, the full story is already there.\nClean data from day one\nEnrique rolled out AI in two phases:\nMigrate and Stabilize — Ensure each enterprise customer channel could be connected for support with Plain and build a clean label taxonomy by product area and issue type.\nAutomate — Turn on AI labeling once the data underneath it was solid.\nPlain's AI labeling replaced the external categorization tool Sourcegraph had been paying for, bringing three systems down to one.\nBecause the labels were clean from the start, reporting worked too. The quarterly spreadsheets maintained by hand were replaced by labels that fed directly into Plain's reporting, giving Sourcegraph ticket trends, workload distribution, and resolution data without exporting anything.\nAn integration layer without a dedicated engineering team\nEnrique and his support team built their own integrations using Plain's API. One example: a bot that queries Sourcegraph's own codebase using Sourcegraph’s Deep Search product to help troubleshoot customer issues. The bot takes the full Plain thread as input and searches Sourcegraph's codebase, log activity, and database for what might be causing the problem.\n\"I don't need to hook up Deep Search to our coding agent or to Slack. I can connect it to Plain and it grabs everything I need.\"\nEnrique Gonzalez\nHead of Support Engineering at Sourcegraph\nThis pattern is something many Plain customers build toward, and Plain's Bring Your Own Agent feature is what makes it possible:\nOne integration point. Because Plain holds the entire conversation in a single thread, you only need to connect your tooling once.\nTechnical depth without engineering overhead. Agents can surface context from your own systems without pulling in an engineer for every question.\nSupport as a product feedback channel. Sourcegraph has used bot results to bring threads to engineering leads and make the case for product changes.\nPlain's API gives teams room to keep building without waiting on a vendor to ship what they need.\nResults: Four Months In\n67% improvement in median first response time\nResponse time dropped from 2 hours to 40 minutes driven by Plain's AI tooling, the switch to automatic thread creation, and not having to jump between three systems to handle a single conversation.\n3 tools replaced by 1\n3 separate tools were replaced by Plain, saving thousands of dollars a year in licensing alone.\nAI participation rate: 50% to 62%, targeting 75%\nEnrique reports this number to leadership weekly. AI is now involved in a growing share of threads through labeling, suggested responses, and the Deep Search bot. He's pushing toward 75% by the end of the quarter.\nLess engineering time spent on support context\nEngineers read the full thread in Plain instead of piecing together Slack and ticket thread histories. Even a minimal reduction in time spent per escalation adds up fast at an average engineering salary.\nWhere Sourcegraph goes from here\nFor Sourcegraph, the next phase is solidifying Plain as the system of record for customer context. If the right data lives in the thread before a customer writes in, support stops being reactive by default.\nThey are building thread events into Plain so agents can see that a customer hit an error or requested elevated access minutes before they wrote in. With the right context, agents arrive at a conversation knowing what happened and what the customer is likely writing about. The conversation starts informed rather than cold.\nWhat Sourcegraph is building toward is where support is heading. The teams getting there are the ones who stopped treating their platform as a place to close tickets and started treating it as infrastructure. Sourcegraph is four months in.\nNext Up\nHow n8n built AI-first support that handles 60% of tickets automatically\nRead More\n20x\nVolume increase supported\n98%\nReduction in response time\nHow Resend automated their way out of 100,000 tickets\nRead More\n33%\nAutomated resolution rate\n50\nHours saved per week\nJoin the teams who rely on Plain to provide world-class support\nBOOK A DEMO\nStart for free\nJoin the teams who rely on Plain to provide world-class support\nBOOK A DEMO\nStart for free\n© 2026 Plain\nNot Just Tickets Ltd\nPlain\nProduct\nAri\nSidekick\nBroadcasts\nCustomers\nPricing\nCareers\nSolutions\nOpen Infrastructure\nAI-Native\nHeadless\nMulti-Channel\nStartup Program\nMigrate to Plain\nCompare\nChannels\nSlack\nMicrosoft Teams\nDiscord\nEmail\nHelp Center\nIn-app Forms\nLive Chat\nResources\nCommunity\nBlog\nEvents\nAPI Docs\nSecurity\nTrust Center\nIntegrations\nSupport\nHelp Center\nPrivacy\nTerms\nData Processing\nStatus\n@plainsupport",
+     "policy": {
+      "policyId": "rights.official-company-website.v1",
+      "sourceId": "src.official-company-website",
+      "providerName": "Official company or product website (entity-bound)",
+      "displayTier": "automatic",
+      "registryHash": "30d893f5b810c363886fbef8bc35e9535700abdcb83e6a517b66018b3993cacc"
+     }
+    },
+    {
+     "sourceId": "s13",
+     "url": "https://www.plain.com/customers/n8n",
+     "publisher": "Plain（n8n の顧客事例）",
+     "snapshot": {
+      "url": "https://www.plain.com/customers/n8n",
+      "finalUrl": "https://www.plain.com/customers/n8n",
+      "status": 200,
+      "fetchedAt": "2026-10-07T23:30:48.079Z",
+      "via": "direct",
+      "contentType": "text/html",
+      "textHash": "e5e96268626165828ea178880e72d35bc72d9272103c5a9b4d691ad7ad3adfb3"
+     },
+     "text": "Plain — How n8n built AI-first support that handles 60% of tickets automatically\nn8n\nPlain — How n8n built AI-first support that handles 60% of tickets automatically\nn8n\nPlain — How n8n built AI-first support that handles 60% of tickets automatically\nProduct\nSolutions\nResources\nCustomers\nPricing\nSign in\nBook a demo\nHow n8n built AI-first support that handles 60% of tickets automatically\nHow n8n built AI-first support that handles 60% of tickets automatically\n20x\n20x\nVolume increase supported\n98%\n98%\nReduction in response time\n\"This was one of the best POC stages I've done. The Plain team was available, approachable, and genuinely invested in our success.\"\nGualter Augusto\nHead of Support Engineering\nn8n\nOpen-source workflow automation tool with visual editor and custom code support for developers\nIndustry\nDeveloper Tools\nSupport team\n16\nMonthly Volume\n2000\nwebsite\nwww.n8n.io\nn8n scaled from 100 to 2,000 tickets per week while only doubling their team. With Plain's API, they built their own AI agent that now handles 60% of tickets — doing the work of 10 people.\nThe challenge\nBy summer 2025, ticket volume had exploded from 100 to over 2,000 per week. The support team, just 8 people, couldn't keep up.\n\"Response times stretched to 2 or 3 weeks. Customers were complaining a lot, and they were right, it wasn't the level of support we wanted to provide. There was so much noise coming in that we couldn't get to the real issues fast enough.\"\nGualter Augusto\nHead of Support Engineering\nTheir existing tool, which had worked in the beginning, couldn’t keep pace. The UI felt dated. Integrations were complex to build and maintain.\nAnd for a company whose entire product is about connecting anything to everything, the irony wasn't lost on them: their support tool was the one thing they couldn't easily extend.\nWith the support team set to double again, Gualter needed to choose: go with a market leader like Zendesk, or bet on something built for how modern technical teams work.\n\"We were looking for a modern tool with a better experience for agents. But at the same time, we needed a powerful API that I could extend with n8n. We use our own product for everything. Support tooling had to be no different.\"\nGualter Augusto\nHead of Support Engineering\nWhy Plain?\nWhen evaluating platforms, Plain stood out for several key reasons:\nAPI-first architecture that matched how n8n builds software\nA modern, intuitive UI that agents actually liked\nTransparent, predictable pricing with no surprises as they continued to scale\nA team that felt like partners, not a vendor\nThe implementation was remarkably fast. Despite never having used GraphQL before, Gualter learned it during onboarding and shipped their first AI integration just a week and a half after going live.\n\"If I had to pick what made the difference, it was two things: the API is incredibly powerful, and the people. This was one of the best POC stages I've done. The Plain team was available, approachable, and genuinely invested in our success. If you look at our Slack channel from the beginning, there were probably 50 threads from me asking questions. Matt [Plain’s CTO] and everyone on the team were incredibly available. That's how I was able to move so fast.\"\nGualter Augusto\nHead of Support Engineering\nThe impact\nPlain unified n8n’s support operations with the AI-native support system that their scale demanded.\nUnified multi-channel support. All requests from email, Slack, and their support portal flow into one inbox. Enterprise customers get dedicated Slack channels; everyone else uses their preferred contact method.\nIntelligent AI labeling and auto-assignment. Tickets are labeled and routed automatically based on region, priority, and severity. Agents only see their own queue; no manual triaging required.\nCustom reporting and intelligence. Webhook events pipe into Metabase for custom reporting, providing full visibility into support performance.\nBring-your-own-AI architecture. Plain's API passes LLM-ready conversation history, so n8n could build their own AI agent without maintaining a separate context database.\nn8n's custom architecture with Plain's API\nSince switching to Plain, n8n has transformed its support operation:\nResponse times dropped from weeks to hours\nBefore Plain, customers waited 2-3 weeks for responses. Now, enterprise customers get responses in 6-8 hours on average, with complex tickets fully resolved in 1-2 days.\nAI now handles 60% of tickets\nn8n built their own AI agent with clear human escalation paths. As Gualter shares, \"We have AI in front of 60% of our tickets today. It's the only way we can sustain our growth without hiring linearly. When I look at the reports, the AI agent is doing the work of 10 people and costs a fraction of what one agent would.\"\nSupport scaled sustainably\nTicket volume increased 20x, but the team only doubled in size.\nExpanded beyond support\nPlain's flexibility has led to adoption across the company, with legal, security, and other internal teams now using Plain for their own workflows.\nHigher quality per interaction\nWith AI filtering routine queries, agents spend their time on tickets that actually need a human.\n\"Because Plain's tooling and APIs are so open, we can dynamically make changes to our tooling and get the insights we're trying to gather as we grow really quickly.\"\nCharles Charalambous\nJunior Support Engineer at n8n\nWhat's next\nn8n has an ambitious goal: reach 80% AI ticket resolution by the end of 2026. With Plain's API-first approach and their own automation expertise, they’re confident they’ll get there.\nNext Up\nHow Resend automated their way out of 100,000 tickets\nRead More\n33%\nAutomated resolution rate\n50\nHours saved per week\nHow Granola’s support team learned to ship product, with Plain as the data layer\nRead More\n31%\nIncrease in automated actions in just 30 days (from 57% to 88%)\n100x\nUser growth handled on Plain\nJoin the teams who rely on Plain to provide world-class support\nBOOK A DEMO\nStart for free\nJoin the teams who rely on Plain to provide world-class support\nBOOK A DEMO\nStart for free\n© 2026 Plain\nNot Just Tickets Ltd\nPlain\nProduct\nAri\nSidekick\nBroadcasts\nCustomers\nPricing\nCareers\nSolutions\nOpen Infrastructure\nAI-Native\nHeadless\nMulti-Channel\nStartup Program\nMigrate to Plain\nCompare\nChannels\nSlack\nMicrosoft Teams\nDiscord\nEmail\nHelp Center\nIn-app Forms\nLive Chat\nResources\nCommunity\nBlog\nEvents\nAPI Docs\nSecurity\nTrust Center\nIntegrations\nSupport\nHelp Center\nPrivacy\nTerms\nData Processing\nStatus\n@plainsupport",
+     "policy": {
+      "policyId": "rights.official-company-website.v1",
+      "sourceId": "src.official-company-website",
+      "providerName": "Official company or product website (entity-bound)",
+      "displayTier": "automatic",
+      "registryHash": "30d893f5b810c363886fbef8bc35e9535700abdcb83e6a517b66018b3993cacc"
+     }
+    },
+    {
+     "sourceId": "s14",
+     "url": "https://www.plain.com/customers/raycast",
+     "publisher": "Plain（Raycast の顧客事例）",
+     "snapshot": {
+      "url": "https://www.plain.com/customers/raycast",
+      "finalUrl": "https://www.plain.com/customers/raycast",
+      "status": 200,
+      "fetchedAt": "2026-10-07T09:51:44.635Z",
+      "via": "direct",
+      "contentType": "text/html",
+      "textHash": "786e995a4834451225e0bd18db180184471d581780785ac0404d6e3e87432050"
+     },
+     "text": "Plain — How Raycast replaced 5 disconnected support channels with one platform using Plain\nRaycast replaced 5 disconnected support channels with one queue on Plain. How a 30-person engineer-heavy team unified B2B customer support.\nPlain — How Raycast replaced 5 disconnected support channels with one platform using Plain\nRaycast replaced 5 disconnected support channels with one queue on Plain. How a 30-person engineer-heavy team unified B2B customer support.\nPlain — How Raycast replaced 5 disconnected support channels with one platform using Plain\nProduct\nSolutions\nResources\nCustomers\nPricing\nSign in\nBook a demo\nHow Raycast replaced 5 disconnected support channels with one platform using Plain\nHow Raycast replaced 5 disconnected support channels with one platform using Plain\n\"We see Plain as a tool very similar to Raycast. Focused on a great user experience, intelligent workflows — and truly empowering the teams that use it.\"\nDaniel Sequeira\nHead of Business Operations\nRaycast\nKeyboard-driven productivity tool and command launcher designed to replace Spotlight on macOS.\nIndustry\nDeveloper Tools\nSupport team\n3\nMonthly Volume\n1000\nwebsite\nwww.raycast.com\nRaycast consolidated Slack, email, Reddit, Twitter, and in-app support into Plain — automating prioritization, streamlining engineering collaboration, and resolving critical issues faster.\nThe challenge\nAs Raycast grew, managing support requests across multiple channels – Slack, email, Reddit, Twitter, and in-app forms – became harder to keep track of. The team struggled with prioritizing requests and integrating support with their engineering workflows.\nA lack of threading and prioritization made it hard for their team to manage feature requests and bug reports, and resolve issues in the right order. Tirta Wulandari from their support team noted,\n\"We realized we were treating every issue with the same priority, which wasn't efficient or scalable.\nTirta Wulandari\nSupport Lead\nWhy Plain?\nWhen evaluating platforms to migrate from email-based support, Raycast considered a few different options. Plain stood out for a few key reasons:\nDeveloper-first approach\nModern UI and UX\nDeep integrations with Slack and Linear\nStreamlined handling of multi-channel support requests\nDaniel, who oversees Raycast’s support and community, shared:\n“Plain is solving a very real problem with a modern, developer-first solution. It’s been a game-changer for us”.\nDaniel Sequeira\nHead of Business Operations\nThe solution\nRaycast adopted Plain to take control of their support operations, and consolidate their support channels. Here’s how they use Plain to speed up and improve their workflows:\nUnified support across channels: All support requests, whether from Slack, email, or in-app forms, are routed to Plain. This ensures that nothing slips through the cracks and means the team can manage requests efficiently from one place.\nEasy prioritization: Urgent issues and blocking bugs are flagged automatically using keywords with workflow rules, and auto-triaged with Plain AI. This ensures the team can focus on high-impact problems without wasting time on manual sorting.\nStronger collaboration: With Discussions, engineers can collaborate directly on support tickets in Slack. Bugs are validated and escalated to Linear with just a few keyboard strokes, creating a smooth flow from issue discovery to resolution.\nCustomizable workflows: The team leveraged Plain’s API to surface customer data like user details and Stripe billing information directly into support tickets, eliminating repetitive back-and-forth with a customer to dig into an issue.\nImproved insight into feedback: Feature requests and bug reports are logged more effectively, giving the whole product team visibility into what matters most to their customers.\nThe Impact\nSince adopting Plain, Raycast has transformed the way it handles support, and empowered their support team, with:\nSimplified queue management: One centralized platform for every support conversation has replaced the need for multiple tools, reducing the amount of context switching the team needs to do to help a customer. Their support team no longer needs to juggle Slack, email, and form fills independently.\nFaster response times: With automated prioritization workflows, the most critical issues are resolved faster. The ability to triage and escalate high-priority issues quickly means paying customers and urgent bugs are addressed as fast as humanly possible.\nStronger internal collaboration: Engineers and support teams now collaborate faster. Raycast’s streamlined workflow reduces context-switching and ensures clear communication between different teams, leading to quicker resolutions and happier customers.\nActionable insights from reporting: Plain’s reporting enables the team to track support trends and identify repetitive issues. This helps them allocate resources more efficiently, and drives improvements in their documentation and product education.\nCustomer satisfaction: The ability to close the loop on Linear issues directly in Slack or Plain has improved communication with customers, earning positive feedback from the Raycast community.\nAs Raycast continues to grow, expanding its platform to Windows and iOS, the team plans to increase its support operations. They are also exploring how to better separate community management from support roles, given the overlap in responsibilities. Plain's flexibility and developer-first design make it the right tool to support the evolving needs of their team.\nNext Up\nHow n8n built AI-first support that handles 60% of tickets automatically\nRead More\n20x\nVolume increase supported\n98%\nReduction in response time\nHow Resend automated their way out of 100,000 tickets\nRead More\n33%\nAutomated resolution rate\n50\nHours saved per week\nJoin the teams who rely on Plain to provide world-class support\nBOOK A DEMO\nStart for free\nJoin the teams who rely on Plain to provide world-class support\nBOOK A DEMO\nStart for free\n© 2026 Plain\nNot Just Tickets Ltd\nPlain\nProduct\nAri\nSidekick\nBroadcasts\nCustomers\nPricing\nCareers\nSolutions\nOpen Infrastructure\nAI-Native\nHeadless\nMulti-Channel\nStartup Program\nMigrate to Plain\nCompare\nChannels\nSlack\nMicrosoft Teams\nDiscord\nEmail\nHelp Center\nIn-app Forms\nLive Chat\nResources\nCommunity\nBlog\nEvents\nAPI Docs\nSecurity\nTrust Center\nIntegrations\nSupport\nHelp Center\nPrivacy\nTerms\nData Processing\nStatus\n@plainsupport",
+     "policy": {
+      "policyId": "rights.official-company-website.v1",
+      "sourceId": "src.official-company-website",
+      "providerName": "Official company or product website (entity-bound)",
+      "displayTier": "automatic",
+      "registryHash": "30d893f5b810c363886fbef8bc35e9535700abdcb83e6a517b66018b3993cacc"
+     }
+    }
+   ],
+   "analysis": [
+    {
+     "id": "a-headline",
+     "item": "HEADLINE",
+     "text": "自分たちだけの悩みだと思っていた顧客対応ツールの不満が、多くの会社との会話で共通の問題だと分かり、2人の創業者は2020年末に Plain を作り始めた。料金の数え方を何度も作り直した末、n8n が問い合わせ20倍を対応チーム2倍で回す土台になった。",
+     "basis": [
+      "f1",
+      "f2",
+      "f6",
+      "f7",
+      "f29"
+     ],
+     "presentation": "FACT_SUMMARY"
+    },
+    {
+     "id": "a-story",
+     "item": "STORY",
+     "text": "Simon Rohrbach と Matt Vagni は2020年末に開発を始めた。2022年11月の公開試用版で最初の料金を出した。月間対応顧客数で課金し、最小枠を250人にしたが、伸びていた企業向けの客には枠が大きすぎた。次にメールやチャットの送信件数で課金すると、丁寧に対応する客ほど料金が上がってしまった。そこで顧客数課金に戻して枠を小さくし、2023年6月には全機能込みの固定料金にまとめた。2024年には毎週2人が通常業務と兼務で顧客対応をしていたが、開発が止まり担当もあいまいになった。そのため、1人が専任で解決まで持ち、もう1人が小さな修正を受け持つ形に変えた。2026年3月、創業者は当初の売り文句「顧客サポート版の Stripe」について、コードで拡張できるだけでは費用に見合う価値が足りなかったと振り返った。",
+     "basis": [
+      "f1",
+      "f5",
+      "f6",
+      "f7",
+      "f9",
+      "f12",
+      "f14",
+      "f15",
+      "f16"
+     ],
+     "presentation": "FACT_SUMMARY"
+    },
+    {
+     "id": "a-business_model",
+     "item": "BUSINESS_MODEL",
+     "text": "顧客対応の画面と、制限なく使える GraphQL API を一緒に売る。客は問い合わせの管理・割り当て・報告を自社の都合に合わせて組める。画面でできる操作は外部からも実行でき、客は自社の AI や業務手順をつなげる。いまの課金は操作する人の席数に応じた年払いで、AI 機能に使うクレジットが月ごとの枠として料金に含まれる。",
+     "basis": [
+      "f3",
+      "f17",
+      "f19",
+      "f20"
+     ],
+     "presentation": "FACT_SUMMARY"
+    },
+    {
+     "id": "a-customer",
+     "item": "CUSTOMER",
+     "text": "公式の顧客一覧によると、数百のチームが使っている。公開事例に出てくる客は Sourcegraph、n8n、Raycast。Sourcegraph は26,000件の問い合わせ記録と約100の Slack チャンネルを抱えていた。n8n は問い合わせが週100件から2,000件へ増えた。Raycast は顧客情報と Stripe の課金情報を問い合わせ画面に出して使っている。",
+     "basis": [
+      "f18",
+      "f24",
+      "f28",
+      "f31"
+     ],
+     "presentation": "FACT_SUMMARY"
+    },
+    {
+     "id": "a-customer_pain",
+     "item": "CUSTOMER_PAIN",
+     "text": "問い合わせがあちこちの経路に散らばり、誰も全体を見られない痛み。2025〜2026年に集計した初期企業563件の導入検討では、29%が連絡経路の分散を一番の課題に挙げた。n8n では導入前、客が返事を2〜3週間待っていた。Raycast は全件を同じ優先度で扱っていた。Sourcegraph は3種類の道具を別々に動かしていた。",
+     "basis": [
+      "f23",
+      "f29",
+      "f32",
+      "f25"
+     ],
+     "formula": "数字は出典に載っている値",
+     "presentation": "FACT_SUMMARY"
+    },
+    {
+     "id": "a-upfront_cash",
+     "item": "UPFRONT_CASH",
+     "text": "料金ページの Foundation と Horizon は年払いで、1年分の利用料を先に受け取る形になっている。Horizon を最低席数の3席で契約した客1社からは、年約3,564米ドルが先に入る。",
+     "basis": [
+      "f19",
+      "f20"
+     ],
+     "formula": "Horizon 1人月額99米ドル（年払い, f19）× 最低3席（f20）× 12か月 = 3,564米ドル/年。公式記事の Horizon 月額269米ドル（f22）は料金ページと異なるため使っていない",
+     "presentation": "ESTIMATE"
+    },
+    {
+     "id": "a-capital_and_team",
+     "item": "CAPITAL_AND_TEAM",
+     "text": "2021年の時点では、小さなデザイン・開発チームで基盤を作っていた。専任の顧客対応係は置かず、2024年には毎週技術職と非技術職の2人を顧客対応に回していた。客の相談は毎日共有し、週末に振り返った。さらに毎週金曜はチーム全員で小さな改善を拾う時間に充てていた。",
+     "basis": [
+      "f4",
+      "f12",
+      "f13"
+     ],
+     "presentation": "FACT_SUMMARY"
+    },
+    {
+     "id": "a-dependencies",
+     "item": "DEPENDENCIES",
+     "text": "客の問い合わせの入口として Slack に大きく頼っている。Sourcegraph は約100の Slack チャンネルを Plain に取り込み、Raycast は Slack と Linear を使って開発へ引き継いでいる。Slack 側の仕様や接続条件が変わると、中核の使い道が直接影響を受ける。",
+     "basis": [
+      "f24",
+      "f31"
+     ],
+     "presentation": "FACT_SUMMARY"
+    },
+    {
+     "id": "a-lock_in",
+     "item": "LOCK_IN",
+     "text": "会話・内部メモ・開発への引き継ぎが1か所に積み上がる。Sourcegraph は26,000件の記録を移し、3つの道具を Plain にまとめた。n8n は Plain の土台の上に自社 AI を組み込み、問い合わせの60%に使っている。記録と自作の連携が Plain に乗るほど、ほかの道具への乗り換えは重い作業になる。",
+     "basis": [
+      "f24",
+      "f25",
+      "f27",
+      "f28",
+      "f29"
+     ],
+     "formula": "数字は出典に載っている値",
+     "presentation": "FACT_SUMMARY"
+    },
+    {
+     "id": "a-pivots",
+     "item": "PIVOTS",
+     "text": "最初の売り文句は「顧客サポート版の Stripe」だったが、コードで拡張できるだけでは費用に見合う価値が足りなかったと、創業者が2026年3月に振り返っている。その後は、画面の操作を外部から実行できる基盤として打ち出し、客が自社の AI をつなぐ使い方を前に出した。料金の数え方も、月間対応顧客数、送信件数、再び顧客数と移り、最後は固定料金に落ち着いた。",
+     "basis": [
+      "f16",
+      "f17",
+      "f6",
+      "f7",
+      "f9"
+     ],
+     "presentation": "FACT_SUMMARY"
+    },
+    {
+     "id": "a-timeline",
+     "item": "TIMELINE",
+     "text": "2020年末に開発開始。2022年11月の公開試用版で最初の料金を公表。2023年6月、料金を固定料金に整理。2023年6月21日、問い合わせ先メールアドレスを最大5件まで追加できるようにした。2023年11月8日、公開試用版を発表し、約1年半かけて作ってきたと述べた。2025年12月、Sourcegraph が移行した。2026年3月、創業者が当初の売り文句を振り返った。",
+     "basis": [
+      "f1",
+      "f5",
+      "f9",
+      "f11",
+      "f10",
+      "f24",
+      "f16"
+     ],
+     "presentation": "FACT_SUMMARY"
+    },
+    {
+     "id": "a-why_it_worked",
+     "item": "WHY_IT_WORKED",
+     "text": "客が自社で AI を組むようになり、その AI をつなげる土台として価値が出た。n8n は導入から約1週間半で最初の AI 連携を公開し、問い合わせの60%に AI を使っている。問い合わせが20倍になっても、対応チームは2倍で済んだ。「コードで拡張できる」だけでは足りなかった売り物に、自社 AI を接続するという使い道が加わった。",
+     "basis": [
+      "f16",
+      "f17",
+      "f28",
+      "f29"
+     ],
+     "formula": "数字は出典に載っている値",
+     "presentation": "FACT_SUMMARY"
+    },
+    {
+     "id": "a-viability",
+     "item": "VIABILITY",
+     "text": "伸びている最中。客が自社の AI を顧客対応に組み込む動きがある。n8n は AI を問い合わせの60%に使い、企業顧客への応答を平均6〜8時間に縮めた。外から全操作を実行できる土台への需要は、この動きと一緒に広がっている。",
+     "basis": [
+      "f17",
+      "f28",
+      "f29"
+     ],
+     "formula": "数字は出典に載っている値",
+     "presentation": "FACT_SUMMARY"
+    },
+    {
+     "id": "a-lesson",
+     "item": "LESSON",
+     "text": "何を数えて課金するかで、客のふるまいが変わる。送信件数で課金したら、丁寧に返事をする客ほど料金が上がった。客にしてほしい行動に罰金をかける課金単位は、早めに捨てたほうがよい。",
+     "basis": [
+      "f7"
+     ],
+     "presentation": "FACT_SUMMARY"
+    }
+   ],
+   "changedClaims": [
+    "f1",
+    "f2",
+    "f3",
+    "f4",
+    "f5",
+    "f6",
+    "f7",
+    "f8",
+    "f9",
+    "f10",
+    "f11",
+    "f12",
+    "f13",
+    "f14",
+    "f15",
+    "f16",
+    "f17",
+    "f18",
+    "f19",
+    "f20",
+    "f21",
+    "f22",
+    "f23",
+    "f24",
+    "f25",
+    "f26",
+    "f27",
+    "f28",
+    "f29",
+    "f30",
+    "f31",
+    "f32"
+   ],
+   "identity": {
+    "id": "ent_plain_f8a62d87d9cb",
+    "name": "Plain",
+    "url": "https://plain.com",
+    "publishability": "PARTIAL"
+   },
+   "media": {
+    "assets": [
+     {
+      "assetId": "ma_a90c8be7707b5f614b3efe8b",
+      "entityId": "ent_plain_f8a62d87d9cb",
+      "kind": "screenshot_home",
+      "sourcePageUrl": "https://www.plain.com/",
+      "assetUrl": null,
+      "retrievedAt": "2026-10-07T10:04:46.293Z",
+      "capturedBy": "media-fetch-20261007",
+      "sha256": "a90c8be7707b5f614b3efe8bd9f6dced1a6f94660e5c1121f52dbdaa1218575b",
+      "bytes": 96145,
+      "contentType": "image/png",
+      "width": 1280,
+      "height": 800,
+      "rights": {
+       "basis": "official_marketing_material",
+       "termsUrl": null,
+       "licence": null,
+       "attribution": "出典: Plain 公式サイト (https://www.plain.com/)",
+       "decision": "held",
+       "reviewedAt": null,
+       "notes": "ビューポート 1280x800 で当方が描画したスクリーンショット。同意バナーが写り込むことがある。 自動取得 (media-fetch)。権利審査前のため held。許可前に目視で (1) 人物が主題でない (2) 同意バナー・個人情報・ログイン画面が写っていない (3) 識別・説明目的に限る、を確認し、review-assets で判定を追記する（この manifest は書き換えない。自動取得の既定値 subjectIsPerson=true は「未確認」の意味）。"
+      },
+      "storage": {
+       "bucket": "foundation-raw",
+       "key": "media/ent_plain_f8a62d87d9cb/a90c8be7707b5f614b3efe8bd9f6dced1a6f94660e5c1121f52dbdaa1218575b.png",
+       "publicKey": null
+      },
+      "subjectIsPerson": true,
+      "review": null
+     },
+     {
+      "assetId": "ma_7fb0e67c9c3ae839622c4386",
+      "entityId": "ent_plain_f8a62d87d9cb",
+      "kind": "favicon",
+      "sourcePageUrl": "https://www.plain.com/",
+      "assetUrl": "https://framerusercontent.com/images/BXA24c7albrT0OqBIAA9KPt1pg.png",
+      "retrievedAt": "2026-10-07T10:04:46.474Z",
+      "capturedBy": "media-fetch-20261007",
+      "sha256": "7fb0e67c9c3ae839622c4386b31a3f5944f2a797e4b52d74cd94686e08baed6e",
+      "bytes": 427,
+      "contentType": "image/png",
+      "width": 64,
+      "height": 64,
+      "rights": {
+       "basis": "official_marketing_material",
+       "termsUrl": null,
+       "licence": null,
+       "attribution": "出典: Plain 公式サイト (https://www.plain.com/)",
+       "decision": "allowed",
+       "reviewedAt": "2026-10-07T10:07:20.627Z",
+       "notes": "自動判定 auto-rule-v4: favicon。画像として読める (image/png 64x64)、SHA-256が台帳と一致 (7fb0e67c9c3a)、macOS Vision の顔検出 (VNDetectFaceRectanglesRequest) で顔 0 件。公式素材として識別・説明目的の小さな表示に限る。画像の中身の目視確認はしていない。"
+      },
+      "storage": {
+       "bucket": "foundation-raw",
+       "key": "media/ent_plain_f8a62d87d9cb/7fb0e67c9c3ae839622c4386b31a3f5944f2a797e4b52d74cd94686e08baed6e.png",
+       "publicKey": "media/ent_plain_f8a62d87d9cb/7fb0e67c9c3ae839622c4386b31a3f5944f2a797e4b52d74cd94686e08baed6e.png"
+      },
+      "subjectIsPerson": false,
+      "review": {
+       "assetId": "ma_7fb0e67c9c3ae839622c4386",
+       "decision": "allowed",
+       "subjectIsPerson": false,
+       "reviewer": "auto-rule-v4",
+       "reviewedAt": "2026-10-07T10:07:20.627Z",
+       "note": "自動判定 auto-rule-v4: favicon。画像として読める (image/png 64x64)、SHA-256が台帳と一致 (7fb0e67c9c3a)、macOS Vision の顔検出 (VNDetectFaceRectanglesRequest) で顔 0 件。公式素材として識別・説明目的の小さな表示に限る。画像の中身の目視確認はしていない。"
+      }
+     },
+     {
+      "assetId": "ma_ea12e7eeae718ee6ed34738b",
+      "entityId": "ent_plain_f8a62d87d9cb",
+      "kind": "screenshot_pricing",
+      "sourcePageUrl": "https://www.plain.com/pricing",
+      "assetUrl": null,
+      "retrievedAt": "2026-10-07T10:04:49.417Z",
+      "capturedBy": "media-fetch-20261007",
+      "sha256": "ea12e7eeae718ee6ed34738bf6bd6e10cbc886f6a8a63f5c8b0731947aae7b0f",
+      "bytes": 94507,
+      "contentType": "image/png",
+      "width": 1280,
+      "height": 800,
+      "rights": {
+       "basis": "official_marketing_material",
+       "termsUrl": null,
+       "licence": null,
+       "attribution": "出典: Plain 公式サイト (https://www.plain.com/pricing)",
+       "decision": "held",
+       "reviewedAt": null,
+       "notes": "ビューポート 1280x800 で当方が描画したスクリーンショット。同意バナーが写り込むことがある。 自動取得 (media-fetch)。権利審査前のため held。許可前に目視で (1) 人物が主題でない (2) 同意バナー・個人情報・ログイン画面が写っていない (3) 識別・説明目的に限る、を確認し、review-assets で判定を追記する（この manifest は書き換えない。自動取得の既定値 subjectIsPerson=true は「未確認」の意味）。"
+      },
+      "storage": {
+       "bucket": "foundation-raw",
+       "key": "media/ent_plain_f8a62d87d9cb/ea12e7eeae718ee6ed34738bf6bd6e10cbc886f6a8a63f5c8b0731947aae7b0f.png",
+       "publicKey": null
+      },
+      "subjectIsPerson": true,
+      "review": null
+     },
+     {
+      "assetId": "ma_d7f3ee453d79f53e2ab39027",
+      "entityId": "ent_plain_f8a62d87d9cb",
+      "kind": "og_image",
+      "sourcePageUrl": "https://www.plain.com/",
+      "assetUrl": "https://framerusercontent.com/assets/anweobYrbODqDEgwpyFHKwo4o.jpg",
+      "retrievedAt": "2026-10-07T10:05:17.513Z",
+      "capturedBy": "media-fetch-20261007",
+      "sha256": "d7f3ee453d79f53e2ab39027a9974a7e1bf085c5a6b1149d7f5fc6bf8b7c15a3",
+      "bytes": 1035211,
+      "contentType": "image/jpeg",
+      "width": 2400,
+      "height": 1260,
+      "rights": {
+       "basis": "official_marketing_material",
+       "termsUrl": null,
+       "licence": null,
+       "attribution": "出典: Plain 公式サイト (https://www.plain.com/)",
+       "decision": "blocked",
+       "reviewedAt": "2026-10-07T10:07:20.382Z",
+       "notes": "自動判定 auto-rule-v4: promo_banner_no_product。og:image は宣伝用の紹介画像で、実際に使うときの製品画面ではないため出さない。"
+      },
+      "storage": {
+       "bucket": "foundation-raw",
+       "key": "media/ent_plain_f8a62d87d9cb/d7f3ee453d79f53e2ab39027a9974a7e1bf085c5a6b1149d7f5fc6bf8b7c15a3.jpg",
+       "publicKey": null
+      },
+      "subjectIsPerson": true,
+      "review": {
+       "assetId": "ma_d7f3ee453d79f53e2ab39027",
+       "decision": "blocked",
+       "subjectIsPerson": true,
+       "reviewer": "auto-rule-v4",
+       "reviewedAt": "2026-10-07T10:07:20.382Z",
+       "note": "自動判定 auto-rule-v4: promo_banner_no_product。og:image は宣伝用の紹介画像で、実際に使うときの製品画面ではないため出さない。"
+      }
+     }
+    ],
+    "displayableIds": [
+     "ma_7fb0e67c9c3ae839622c4386"
+    ],
+    "problems": []
+   },
+   "caseHash": "05b7a26ae69bb3aaed630bfa5e197bd2fbb6ccf28909cbd7b14f71971e32863c",
+   "itemHashes": {
+    "fact:f1": "82d21667b110b7c6ee06c7428c57b02bd984b93281b3a3f79d7fb79b6c1d8f62",
+    "fact:f2": "ab43e1218df8a507b48297517f7d6ff181b0fe7d5694886683b9cd5cddf55f08",
+    "fact:f3": "135036ceb6bfb82d56c4821a3fb8703ee61dba4e81689360ed11aeaa4a5a048d",
+    "fact:f4": "23cf096f2fd3e23d84b1cda0976ea61590e3bd7ba4b5a63d7cc8ea2164a147fe",
+    "fact:f5": "1e2d0afbd0a1ed2d2cac89da71984c71fc155b533e6a268068bac8b8b027542e",
+    "fact:f6": "b41a229384f12484e7d9161a2c6834b9de43edd028faa411192bc3e538599b02",
+    "fact:f7": "2ca44ee08b0e92c5f0ee0e453655d4e64caefa55cb8c519a56e8fad420dd18ac",
+    "fact:f8": "8ee38a2a6e75433546e3f15dd45a3f96f79c5413210ff85f6108e54c7b534354",
+    "fact:f9": "b3c677f000d932e0ce176fc57b1a56fd78f28070eca84ea6d59bd6aae00a0ef9",
+    "fact:f10": "22ff63e669fd5d29ce31c8460119d979439d15d240f5537c04c7548b4a9a5e15",
+    "fact:f11": "f64071a3329211ac0e58c4d82c218b2a606be8330692d874c96d8d158d2e0c8e",
+    "fact:f12": "e689d222923d5193fef69da3c8b086193d1ecb7cc55884f9995e0007198d4eea",
+    "fact:f13": "1c4c3620cfabe4ea42813ddbf2e54902018442745321a0e7684b4c539bf909cd",
+    "fact:f14": "4963a7bea5daa5e33fb360c79b583ae2a8fab8fb58616ae490af6a297f340b25",
+    "fact:f15": "8eaca52cdb022c2728472fb1be44e7718791f4176e8e533bccef3f9ea82dfb45",
+    "fact:f16": "77674045a972e0c1b3ddc66299aadc79794cbc84739fd748ffa1a914cc076ec2",
+    "fact:f17": "ac572047522e0124b2c7998f4a1a08bb229d058bbd53ee82dd0fa3ac9ad4a18c",
+    "fact:f18": "dd8de339ce6e4a9bd930748c57921de05c58d6382b7ae3fa4e5220cd3b4be002",
+    "fact:f19": "e074f7576ebd389e002b37c9f9cd5cb95b38b5e24be4a7aa189b227f07c06847",
+    "fact:f20": "9807af8a975b7c962bba28f127913af0bd5b7cdf187e7d411d65656ca993db3a",
+    "fact:f21": "6b14f86efc640b5066b2441f2e2886821399f1e0dd96bc983906dbdf61a90b80",
+    "fact:f22": "480fb50798974e8ba7798c5681e33dd4a15cf756b549b75051726e3910853e2f",
+    "fact:f23": "89a28a86321ebcec0860f7410d4e61f6350b8f7111f65d92b23907467e3dff5e",
+    "fact:f24": "dfe50d3dd1e064d5735bc3378afa2612f4f35065333be6a8e915b8ef1f665b7f",
+    "fact:f25": "3275b3708be6ee43667ecb5f87ed52b8c04d3a591f54b9c23056501adfc19973",
+    "fact:f26": "605b73adfcab2f81a40c92eab4735efdbbd62a3b14a6e75de507da8f6b0c4dde",
+    "fact:f27": "3b6c276e7c62cade08e379b9fc99b33862861d9e62cae25ceb4671132442af56",
+    "fact:f28": "1f255c3517fb4f3093d45bcba223de07ec4428ea18c0ec0644bb23fec4531efe",
+    "fact:f29": "4998f382154c6cb0e3d04fdf0d276a5cb4d6c2bf18a49a1c536b01316b618584",
+    "fact:f30": "5f11d45533d2ecb0ffe342a156c32098b31dbc2256ced5701088d0d226c032ad",
+    "fact:f31": "39a147a5d8d43eabb85b6423ce1b1bf9f4d292dd6a77a0a31bc8e8830a358abc",
+    "fact:f32": "8a2fd469b8fe1e54a2c5195f3edd23ded2b06a8841e7869044c5c6f75d04c59a",
+    "analysis:a-headline": "7be54d0a0faed08c61bbebb4980940a61ad2d400da25b5ee60f2edacf0e6186f",
+    "analysis:a-story": "f1451833f57f65c09a7690029cf6eb66a26263bc33686e4277e5b88385d51938",
+    "analysis:a-business_model": "7525df6d4e64463fbbeb056bf3b3ad9d6e85a676dd0879acac8c802736749d5d",
+    "analysis:a-customer": "c3ef864970da9bec7eb61b9e6d5467c36da5f2e7379a509b724c5a355b20a101",
+    "analysis:a-customer_pain": "210af54fe2b99a074fecbaabc432be051f42149aa5938a3e4852639c47807e86",
+    "analysis:a-upfront_cash": "0d64402500070c2de7a71bf264f683c7b7e9cf8855491db9bea6a68920955ef4",
+    "analysis:a-capital_and_team": "19823a7ef83932b50ca30df2a8de9faaeba154afb945b3e10ae562867307d250",
+    "analysis:a-dependencies": "991ceb4aa1fb8b099f1b5e8f267d1183e1a1f637a35c18808631762f19f8346f",
+    "analysis:a-lock_in": "4f6ba11e7441f6db91738e151c52cf34390231727f5ff4097aa4460b823e25a3",
+    "analysis:a-pivots": "1d5674b55079794b5ac8f0f40884de5408cfd312c0ef821a85a7ad1e2d12f3e8",
+    "analysis:a-timeline": "ddf8871443c0f65b0bc3dcede4bd1a8b8f166462bb191fe8a037b4f9ae7eef5e",
+    "analysis:a-why_it_worked": "4afecb4e061e21837c459c42b22b223edf787eb1ccff6b22204645e407def693",
+    "analysis:a-viability": "4f9ee3cf2169ada4fbbb99d1a5fcfe410dbeed05f30f1fedde78d68ddfd80b68",
+    "analysis:a-lesson": "079c5084ff187456998d4f1c79d72a0db228a43582aa5889d572d8b47128d86e"
+   },
+   "review": [
+    "fact:f1",
+    "fact:f2",
+    "fact:f3",
+    "fact:f4",
+    "fact:f5",
+    "fact:f6",
+    "fact:f7",
+    "fact:f8",
+    "fact:f9",
+    "fact:f10",
+    "fact:f11",
+    "fact:f12",
+    "fact:f13",
+    "fact:f14",
+    "fact:f15",
+    "fact:f16",
+    "fact:f17",
+    "fact:f18",
+    "fact:f19",
+    "fact:f20",
+    "fact:f21",
+    "fact:f22",
+    "fact:f23",
+    "fact:f24",
+    "fact:f25",
+    "fact:f26",
+    "fact:f27",
+    "fact:f28",
+    "fact:f29",
+    "fact:f30",
+    "fact:f31",
+    "fact:f32",
+    "analysis:a-headline",
+    "analysis:a-story",
+    "analysis:a-business_model",
+    "analysis:a-customer",
+    "analysis:a-customer_pain",
+    "analysis:a-upfront_cash",
+    "analysis:a-capital_and_team",
+    "analysis:a-dependencies",
+    "analysis:a-lock_in",
+    "analysis:a-pivots",
+    "analysis:a-timeline",
+    "analysis:a-why_it_worked",
+    "analysis:a-viability",
+    "analysis:a-lesson"
+   ],
+   "reader": {
+    "sources": [
+     {
+      "id": "s1",
+      "url": "https://www.plain.com/blog/a-massive-distraction-or-why-we-are-building-plain",
+      "publisher": "Plain（創業者2人の開始経緯）",
+      "publishedAt": "2021-12-06",
+      "checkedAt": "2026-10-07",
+      "kind": "OFFICIAL"
+     },
+     {
+      "id": "s3",
+      "url": "https://www.plain.com/blog/redefining-pricing-for-support",
+      "publisher": "Plain（料金の試行と変更）",
+      "publishedAt": "2023-06-12",
+      "checkedAt": "2026-10-07",
+      "kind": "OFFICIAL"
+     },
+     {
+      "id": "s4",
+      "url": "https://www.plain.com/blog/announcing-our-open-beta-and-usd6m-seed-fundraise",
+      "publisher": "Plain（公開試用版の発表）",
+      "publishedAt": "2023-11-08",
+      "checkedAt": "2026-10-07",
+      "kind": "OFFICIAL"
+     },
+     {
+      "id": "s5",
+      "url": "https://www.plain.com/changelog/multiple-emails",
+      "publisher": "Plain（複数メールアドレスの対応）",
+      "publishedAt": "2023-06-21",
+      "checkedAt": "2026-10-07",
+      "kind": "OFFICIAL"
+     },
+     {
+      "id": "s6",
+      "url": "https://www.plain.com/blog/why-whole-company-support-works-at-plain",
+      "publisher": "Plain（全員で顧客対応する仕組み）",
+      "publishedAt": "2024-06-28",
+      "checkedAt": "2026-10-07",
+      "kind": "OFFICIAL"
+     },
+     {
+      "id": "s7",
+      "url": "https://www.plain.com/blog/how-we-re-building-support-at-plain-a-blueprint-for-controlled-chaos",
+      "publisher": "Plain（顧客対応の改善経緯）",
+      "publishedAt": "2024-08-19",
+      "checkedAt": "2026-10-07",
+      "kind": "OFFICIAL"
+     },
+     {
+      "id": "s8",
+      "url": "https://www.plain.com/open-by-default",
+      "publisher": "Plain（Simon Rohrbach の製品方針）",
+      "publishedAt": "2026-03-05",
+      "checkedAt": "2026-10-07",
+      "kind": "OFFICIAL"
+     },
+     {
+      "id": "s9",
+      "url": "https://www.plain.com/customers",
+      "publisher": "Plain（顧客一覧）",
+      "checkedAt": "2026-10-07",
+      "kind": "OFFICIAL"
+     },
+     {
+      "id": "s10",
+      "url": "https://www.plain.com/pricing",
+      "publisher": "Plain（料金）",
+      "checkedAt": "2026-10-07",
+      "kind": "OFFICIAL"
+     },
+     {
+      "id": "s11",
+      "url": "https://www.plain.com/blog/ai-support-strategy-early-stage-saas-2026",
+      "publisher": "Plain（顧客の導入検討の集計と過去料金の記載）",
+      "publishedAt": "2026-04-29",
+      "checkedAt": "2026-10-07",
+      "kind": "OFFICIAL"
+     },
+     {
+      "id": "s12",
+      "url": "https://www.plain.com/customers/sourcegraph",
+      "publisher": "Plain（Sourcegraph の顧客事例）",
+      "checkedAt": "2026-10-07",
+      "kind": "OFFICIAL"
+     },
+     {
+      "id": "s13",
+      "url": "https://www.plain.com/customers/n8n",
+      "publisher": "Plain（n8n の顧客事例）",
+      "checkedAt": "2026-10-07",
+      "kind": "OFFICIAL"
+     },
+     {
+      "id": "s14",
+      "url": "https://www.plain.com/customers/raycast",
+      "publisher": "Plain（Raycast の顧客事例）",
+      "checkedAt": "2026-10-07",
+      "kind": "OFFICIAL"
+     }
+    ],
+    "facts": [
+     {
+      "id": "f1",
+      "kind": "FOUNDING",
+      "text": "Simon Rohrbach と Matt Vagni は、2020年末に Plain の開発を始めたと説明している。",
+      "sourceId": "s1",
+      "statedAt": "2021-12-06",
+      "attribution": "OFFICIAL"
+     },
+     {
+      "id": "f2",
+      "kind": "OTHER",
+      "text": "さまざまな規模の会社と多くの会話を重ねる中で、自分たちだけの経験だった顧客サービス用ツールの問題が共通のパターンだと分かった。",
+      "sourceId": "s1",
+      "statedAt": "2021-12-06",
+      "attribution": "OFFICIAL"
+     },
+     {
+      "id": "f3",
+      "kind": "DESCRIPTION",
+      "text": "高速で生産性を重視した顧客サービス用ツールと、制限なく使える GraphQL API を組み合わせ、問い合わせの管理から割り当て、報告までを自社で構築できる製品を作っている。",
+      "sourceId": "s1",
+      "statedAt": "2021-12-06",
+      "attribution": "OFFICIAL"
+     },
+     {
+      "id": "f4",
+      "kind": "TOOL",
+      "text": "2021年の発表では、小さなデザイン・開発チームで TypeScript を使い基盤を作っていた。",
+      "sourceId": "s1",
+      "statedAt": "2021-12-06",
+      "attribution": "OFFICIAL"
+     },
+     {
+      "id": "f5",
+      "kind": "PRICING",
+      "text": "2023年6月の料金記事は、2022年11月の公開試用版で最初の料金を公表したと記載している。",
+      "sourceId": "s3",
+      "statedAt": "2023-06-12",
+      "attribution": "OFFICIAL"
+     },
+     {
+      "id": "f6",
+      "kind": "PRICING",
+      "text": "初期は月間対応顧客数に応じて課金し、最小枠を250人にしたが、伸びていた企業向け用途には枠が大きすぎた。",
+      "sourceId": "s3",
+      "statedAt": "2023-06-12",
+      "attribution": "OFFICIAL"
+     },
+     {
+      "id": "f7",
+      "kind": "OTHER",
+      "text": "次にメールやチャット等の送信件数で課金したが、丁寧な対応ほど料金が増える問題が出たため、月間対応顧客数に戻して枠を小さくした。",
+      "sourceId": "s3",
+      "statedAt": "2023-06-12",
+      "attribution": "OFFICIAL"
+     },
+     {
+      "id": "f8",
+      "kind": "PRICING",
+      "text": "料金検討では月額200米ドルと追加顧客1人0.70米ドル、顧客1人1.5米ドル、月額200米ドルと追加100人50米ドルという案を試した。",
+      "sourceId": "s3",
+      "statedAt": "2023-06-12",
+      "attribution": "OFFICIAL"
+     },
+     {
+      "id": "f9",
+      "kind": "PRICING",
+      "text": "2023年6月時点では全機能と一定数の月間対応顧客を含む固定料金に整理した。",
+      "sourceId": "s3",
+      "statedAt": "2023-06-12",
+      "attribution": "OFFICIAL"
+     },
+     {
+      "id": "f10",
+      "kind": "OTHER",
+      "text": "2023年11月8日の公開試用版の発表本文では、約1年半かけて作ってきたと述べている。",
+      "sourceId": "s4",
+      "statedAt": "2023-11-08",
+      "attribution": "OFFICIAL"
+     },
+     {
+      "id": "f11",
+      "kind": "EVENT",
+      "text": "2023年6月21日、要望が多かった複数の問い合わせ先メールアドレスに対応した。従来の1件に加えて別のアドレスを最大5件登録できるようになった。",
+      "sourceId": "s5",
+      "statedAt": "2023-06-21",
+      "attribution": "OFFICIAL"
+     },
+     {
+      "id": "f12",
+      "kind": "OTHER",
+      "text": "2024年6月の記事では、毎週技術職と非技術職の2人を顧客対応に割り当て、顧客の相談を毎日共有し、週末に振り返っていた。",
+      "sourceId": "s6",
+      "statedAt": "2024-06-28",
+      "attribution": "OFFICIAL"
+     },
+     {
+      "id": "f13",
+      "kind": "OTHER",
+      "text": "毎週金曜にチームで小さな改善を拾う時間を設け、顧客対応で見つかった問題を製品修正へつなげていた。",
+      "sourceId": "s6",
+      "statedAt": "2024-06-28",
+      "attribution": "OFFICIAL"
+     },
+     {
+      "id": "f14",
+      "kind": "OTHER",
+      "text": "2024年8月の記事は、全員が自由に顧客対応する状態から、毎週2人が通常業務と兼務する状態を経て、1人が対応を専任しもう1人が補助する状態へ変えたと説明している。",
+      "sourceId": "s7",
+      "statedAt": "2024-08-19",
+      "attribution": "OFFICIAL"
+     },
+     {
+      "id": "f15",
+      "kind": "OTHER",
+      "text": "兼務制では担当者の開発が止まり、担当の所在が曖昧になった。専任制では主担当が解決まで持ち、補助担当が小さな製品修正を行うようにした。",
+      "sourceId": "s7",
+      "statedAt": "2024-08-19",
+      "attribution": "OFFICIAL"
+     },
+     {
+      "id": "f16",
+      "kind": "OTHER",
+      "text": "2026年3月、当初の提案は顧客サポート版の Stripe だったが、コードで拡張できることだけでは費用を正当化する価値が不足していたと創業者が振り返った。",
+      "sourceId": "s8",
+      "statedAt": "2026-03-05",
+      "attribution": "OFFICIAL"
+     },
+     {
+      "id": "f17",
+      "kind": "TOOL",
+      "text": "同じ記事では、画面で行う操作を外部からも実行できる基盤とし、顧客自身の AI や業務手順を接続する構成を説明している。",
+      "sourceId": "s8",
+      "statedAt": "2026-03-05",
+      "attribution": "OFFICIAL"
+     },
+     {
+      "id": "f18",
+      "kind": "OTHER",
+      "text": "顧客一覧は、数百のチームが Plain を利用していると記載している。",
+      "sourceId": "s9",
+      "attribution": "OFFICIAL"
+     },
+     {
+      "id": "f19",
+      "kind": "PRICING",
+      "text": "料金ページでは、年払いの Foundation は1人あたり月額45米ドル、Horizon は1人あたり月額99米ドル、Frontier は個別見積もり。",
+      "sourceId": "s10",
+      "attribution": "OFFICIAL"
+     },
+     {
+      "id": "f20",
+      "kind": "PRICING",
+      "text": "同ページの比較表では、Foundation の操作席は最大5席、Horizon は最低3席から最大10席で、閲覧席はいずれも無制限。クレジットは Foundation の年払いで月1,000、Horizon で月2,500を含む。",
+      "sourceId": "s10",
+      "attribution": "OFFICIAL"
+     },
+     {
+      "id": "f21",
+      "kind": "PRICING",
+      "text": "同ページでは、カード登録不要の7日間の無料試用を提供している。",
+      "sourceId": "s10",
+      "attribution": "OFFICIAL"
+     },
+     {
+      "id": "f22",
+      "kind": "PRICING",
+      "text": "2026年4月29日公開・5月12日更新の公式記事には、Foundation は年払いで1席月額35米ドル、Horizon は月額269米ドルと記載されている。",
+      "sourceId": "s11",
+      "statedAt": "2026-05-12",
+      "attribution": "OFFICIAL"
+     },
+     {
+      "id": "f23",
+      "kind": "CHANNEL",
+      "text": "同じ記事では、2025〜2026年の初期企業563件の導入検討を集計し、29%が連絡経路の分散を主な課題として挙げたと述べる。",
+      "sourceId": "s11",
+      "statedAt": "2026-05-12",
+      "attribution": "OFFICIAL"
+     },
+     {
+      "id": "f24",
+      "kind": "OTHER",
+      "text": "Sourcegraph は2025年12月に移行し、26,000件の問い合わせ記録と約100の Slack チャンネルを取り込み、数日でメールと Slack の運用を始めたと説明されている。",
+      "sourceId": "s12",
+      "attribution": "OFFICIAL"
+     },
+     {
+      "id": "f25",
+      "kind": "OTHER",
+      "text": "同事例では、まず移行とラベル分類を整え、その後 AI による分類を有効にした。別々だった3種類の道具を Plain にまとめた。",
+      "sourceId": "s12",
+      "attribution": "OFFICIAL"
+     },
+     {
+      "id": "f26",
+      "kind": "OTHER",
+      "text": "Sourcegraph の初回応答時間の中央値は2時間から40分へ短くなり、記事は67%改善と表示する。",
+      "sourceId": "s12",
+      "attribution": "OFFICIAL"
+     },
+     {
+      "id": "f27",
+      "kind": "OTHER",
+      "text": "Sourcegraph の Enrique Gonzalez は、管理者としてどのスレッドでも開いてチームが問題をどう考えたかを確認でき、以前はその見通しが無かったと評価した。記事は、会話・内部メモ・開発への引き継ぎが1か所にまとまると説明している。",
+      "sourceId": "s12",
+      "attribution": "OFFICIAL"
+     },
+     {
+      "id": "f28",
+      "kind": "OTHER",
+      "text": "n8n の事例は、週100件から2,000件へ問い合わせが増える中で、Plain の基盤に自社 AI を組み合わせたと説明する。導入後約1週間半で最初の AI 連携を公開した。",
+      "sourceId": "s13",
+      "attribution": "OFFICIAL"
+     },
+     {
+      "id": "f29",
+      "kind": "OTHER",
+      "text": "n8n は AI を問い合わせの60%に使い、問い合わせ20倍に対し対応チームを2倍にしたと説明している。導入前は顧客が応答を2〜3週間待っていたが、現在は企業顧客への応答が平均6〜8時間になったという。",
+      "sourceId": "s13",
+      "attribution": "OFFICIAL"
+     },
+     {
+      "id": "f30",
+      "kind": "OTHER",
+      "text": "n8n の Gualter Augusto は、導入検証中に Plain のチームが質問へ対応し、素早い連携開発につながったと評価している。",
+      "sourceId": "s13",
+      "attribution": "OFFICIAL"
+     },
+     {
+      "id": "f31",
+      "kind": "OTHER",
+      "text": "Raycast は分散していた問い合わせをまとめ、Slack と Linear による開発への引き継ぎ、顧客情報や Stripe の課金情報の表示を組み合わせた。",
+      "sourceId": "s14",
+      "attribution": "OFFICIAL"
+     },
+     {
+      "id": "f32",
+      "kind": "OTHER",
+      "text": "Raycast の Tirta Wulandari は、以前は全件を同じ優先度で扱っていたと述べる。導入後は緊急の問題や阻害的な不具合をワークフロールールで自動的に検出し、Plain AI で自動仕分けしている。",
+      "sourceId": "s14",
+      "attribution": "OFFICIAL"
+     }
+    ],
+    "metrics": [],
+    "unknowns": [
+     "REVENUE",
+     "PROFIT",
+     "COST",
+     "TEAM"
+    ],
+    "analysis": [
+     {
+      "id": "a-headline",
+      "item": "HEADLINE",
+      "text": "自分たちだけの悩みだと思っていた顧客対応ツールの不満が、多くの会社との会話で共通の問題だと分かり、2人の創業者は2020年末に Plain を作り始めた。料金の数え方を何度も作り直した末、n8n が問い合わせ20倍を対応チーム2倍で回す土台になった。",
+      "basis": [
+       "f1",
+       "f2",
+       "f6",
+       "f7",
+       "f29"
+      ],
+      "presentation": "FACT_SUMMARY"
+     },
+     {
+      "id": "a-story",
+      "item": "STORY",
+      "text": "Simon Rohrbach と Matt Vagni は2020年末に開発を始めた。2022年11月の公開試用版で最初の料金を出した。月間対応顧客数で課金し、最小枠を250人にしたが、伸びていた企業向けの客には枠が大きすぎた。次にメールやチャットの送信件数で課金すると、丁寧に対応する客ほど料金が上がってしまった。そこで顧客数課金に戻して枠を小さくし、2023年6月には全機能込みの固定料金にまとめた。2024年には毎週2人が通常業務と兼務で顧客対応をしていたが、開発が止まり担当もあいまいになった。そのため、1人が専任で解決まで持ち、もう1人が小さな修正を受け持つ形に変えた。2026年3月、創業者は当初の売り文句「顧客サポート版の Stripe」について、コードで拡張できるだけでは費用に見合う価値が足りなかったと振り返った。",
+      "basis": [
+       "f1",
+       "f5",
+       "f6",
+       "f7",
+       "f9",
+       "f12",
+       "f14",
+       "f15",
+       "f16"
+      ],
+      "presentation": "FACT_SUMMARY"
+     },
+     {
+      "id": "a-business_model",
+      "item": "BUSINESS_MODEL",
+      "text": "顧客対応の画面と、制限なく使える GraphQL API を一緒に売る。客は問い合わせの管理・割り当て・報告を自社の都合に合わせて組める。画面でできる操作は外部からも実行でき、客は自社の AI や業務手順をつなげる。いまの課金は操作する人の席数に応じた年払いで、AI 機能に使うクレジットが月ごとの枠として料金に含まれる。",
+      "basis": [
+       "f3",
+       "f17",
+       "f19",
+       "f20"
+      ],
+      "presentation": "FACT_SUMMARY"
+     },
+     {
+      "id": "a-customer",
+      "item": "CUSTOMER",
+      "text": "公式の顧客一覧によると、数百のチームが使っている。公開事例に出てくる客は Sourcegraph、n8n、Raycast。Sourcegraph は26,000件の問い合わせ記録と約100の Slack チャンネルを抱えていた。n8n は問い合わせが週100件から2,000件へ増えた。Raycast は顧客情報と Stripe の課金情報を問い合わせ画面に出して使っている。",
+      "basis": [
+       "f18",
+       "f24",
+       "f28",
+       "f31"
+      ],
+      "presentation": "FACT_SUMMARY"
+     },
+     {
+      "id": "a-customer_pain",
+      "item": "CUSTOMER_PAIN",
+      "text": "問い合わせがあちこちの経路に散らばり、誰も全体を見られない痛み。2025〜2026年に集計した初期企業563件の導入検討では、29%が連絡経路の分散を一番の課題に挙げた。n8n では導入前、客が返事を2〜3週間待っていた。Raycast は全件を同じ優先度で扱っていた。Sourcegraph は3種類の道具を別々に動かしていた。",
+      "basis": [
+       "f23",
+       "f29",
+       "f32",
+       "f25"
+      ],
+      "formula": "数字は出典に載っている値",
+      "presentation": "FACT_SUMMARY"
+     },
+     {
+      "id": "a-upfront_cash",
+      "item": "UPFRONT_CASH",
+      "text": "料金ページの Foundation と Horizon は年払いで、1年分の利用料を先に受け取る形になっている。Horizon を最低席数の3席で契約した客1社からは、年約3,564米ドルが先に入る。",
+      "basis": [
+       "f19",
+       "f20"
+      ],
+      "formula": "Horizon 1人月額99米ドル（年払い, f19）× 最低3席（f20）× 12か月 = 3,564米ドル/年。公式記事の Horizon 月額269米ドル（f22）は料金ページと異なるため使っていない",
+      "presentation": "ESTIMATE"
+     },
+     {
+      "id": "a-capital_and_team",
+      "item": "CAPITAL_AND_TEAM",
+      "text": "2021年の時点では、小さなデザイン・開発チームで基盤を作っていた。専任の顧客対応係は置かず、2024年には毎週技術職と非技術職の2人を顧客対応に回していた。客の相談は毎日共有し、週末に振り返った。さらに毎週金曜はチーム全員で小さな改善を拾う時間に充てていた。",
+      "basis": [
+       "f4",
+       "f12",
+       "f13"
+      ],
+      "presentation": "FACT_SUMMARY"
+     },
+     {
+      "id": "a-dependencies",
+      "item": "DEPENDENCIES",
+      "text": "客の問い合わせの入口として Slack に大きく頼っている。Sourcegraph は約100の Slack チャンネルを Plain に取り込み、Raycast は Slack と Linear を使って開発へ引き継いでいる。Slack 側の仕様や接続条件が変わると、中核の使い道が直接影響を受ける。",
+      "basis": [
+       "f24",
+       "f31"
+      ],
+      "presentation": "FACT_SUMMARY"
+     },
+     {
+      "id": "a-lock_in",
+      "item": "LOCK_IN",
+      "text": "会話・内部メモ・開発への引き継ぎが1か所に積み上がる。Sourcegraph は26,000件の記録を移し、3つの道具を Plain にまとめた。n8n は Plain の土台の上に自社 AI を組み込み、問い合わせの60%に使っている。記録と自作の連携が Plain に乗るほど、ほかの道具への乗り換えは重い作業になる。",
+      "basis": [
+       "f24",
+       "f25",
+       "f27",
+       "f28",
+       "f29"
+      ],
+      "formula": "数字は出典に載っている値",
+      "presentation": "FACT_SUMMARY"
+     },
+     {
+      "id": "a-pivots",
+      "item": "PIVOTS",
+      "text": "最初の売り文句は「顧客サポート版の Stripe」だったが、コードで拡張できるだけでは費用に見合う価値が足りなかったと、創業者が2026年3月に振り返っている。その後は、画面の操作を外部から実行できる基盤として打ち出し、客が自社の AI をつなぐ使い方を前に出した。料金の数え方も、月間対応顧客数、送信件数、再び顧客数と移り、最後は固定料金に落ち着いた。",
+      "basis": [
+       "f16",
+       "f17",
+       "f6",
+       "f7",
+       "f9"
+      ],
+      "presentation": "FACT_SUMMARY"
+     },
+     {
+      "id": "a-timeline",
+      "item": "TIMELINE",
+      "text": "2020年末に開発開始。2022年11月の公開試用版で最初の料金を公表。2023年6月、料金を固定料金に整理。2023年6月21日、問い合わせ先メールアドレスを最大5件まで追加できるようにした。2023年11月8日、公開試用版を発表し、約1年半かけて作ってきたと述べた。2025年12月、Sourcegraph が移行した。2026年3月、創業者が当初の売り文句を振り返った。",
+      "basis": [
+       "f1",
+       "f5",
+       "f9",
+       "f11",
+       "f10",
+       "f24",
+       "f16"
+      ],
+      "presentation": "FACT_SUMMARY"
+     },
+     {
+      "id": "a-why_it_worked",
+      "item": "WHY_IT_WORKED",
+      "text": "客が自社で AI を組むようになり、その AI をつなげる土台として価値が出た。n8n は導入から約1週間半で最初の AI 連携を公開し、問い合わせの60%に AI を使っている。問い合わせが20倍になっても、対応チームは2倍で済んだ。「コードで拡張できる」だけでは足りなかった売り物に、自社 AI を接続するという使い道が加わった。",
+      "basis": [
+       "f16",
+       "f17",
+       "f28",
+       "f29"
+      ],
+      "formula": "数字は出典に載っている値",
+      "presentation": "FACT_SUMMARY"
+     },
+     {
+      "id": "a-viability",
+      "item": "VIABILITY",
+      "text": "伸びている最中。客が自社の AI を顧客対応に組み込む動きがある。n8n は AI を問い合わせの60%に使い、企業顧客への応答を平均6〜8時間に縮めた。外から全操作を実行できる土台への需要は、この動きと一緒に広がっている。",
+      "basis": [
+       "f17",
+       "f28",
+       "f29"
+      ],
+      "formula": "数字は出典に載っている値",
+      "presentation": "FACT_SUMMARY"
+     },
+     {
+      "id": "a-lesson",
+      "item": "LESSON",
+      "text": "何を数えて課金するかで、客のふるまいが変わる。送信件数で課金したら、丁寧に返事をする客ほど料金が上がった。客にしてほしい行動に罰金をかける課金単位は、早めに捨てたほうがよい。",
+      "basis": [
+       "f7"
+      ],
+      "presentation": "FACT_SUMMARY"
+     }
+    ],
+    "summaryFactId": "f3"
+   }
+  }
+ ]
+}

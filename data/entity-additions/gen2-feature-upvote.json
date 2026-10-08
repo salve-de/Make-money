@@ -1,0 +1,875 @@
+{
+ "version": 1,
+ "source": {
+  "manifest": "/private/tmp/claude-501/-Users-satoushinya-project-Make-Money/2be145c1-d0c7-4f02-9457-3c8f190a0980/scratchpad/gen2/auto/feature-upvote-record.json",
+  "manifestSha256": "45f750ce42d3b4671082d175f135f2e12ab2e497b6c0009f89afa69f92b44761",
+  "artifactsDir": "",
+  "collectedAt": "2026-10-07T10:48:25.056Z"
+ },
+ "records": [
+  {
+   "id": "ent_feature_upvote_3d6a00d965f0",
+   "provenance": {
+    "detailsHash": "d07fa4988d05df913520c1e082441c176897f6d78b082d2cd41db8af504edb62",
+    "artifactSha256": "45f750ce42d3b4671082d175f135f2e12ab2e497b6c0009f89afa69f92b44761"
+   },
+   "workNotes": [
+    "本記録は指定された一時保存先での調査成果。中央台帳への登録・R2保存・本番表示は実施していない。"
+   ],
+   "record": {
+    "id": "ent_feature_upvote_3d6a00d965f0",
+    "ticker": "FUPVOTE",
+    "name": "Feature Upvote",
+    "legalEntity": "Barbary Software SL",
+    "tagline": "散らばる要望を投票に集約し、意思決定の手間に月額課金",
+    "description": "小規模チームが作った要望管理サービス。公式が自己資金・黒字運営を表明し、創業者の初期顧客獲得と現在までの用途変化を追える。売上金額は未確認。",
+    "sector": "NICHE_SAAS",
+    "scale": "SMALL_TEAM",
+    "founder": "Steve McLeod",
+    "country": "スペイン",
+    "url": "https://featureupvote.com/",
+    "officialUrl": "https://featureupvote.com/",
+    "verifiedBadge": false,
+    "growthRateYoY": 0,
+    "architecturePattern": "用途を限定した月額サービス。運営の自動化範囲は出典ごとに区別。",
+    "pipelineStack": "Stripe（公式料金）、Algolia（過去の導入）、Cloudinary（過去の導入）、Postmark（過去の導入）、Sentry（過去の導入）",
+    "targetPainWallet": "メールやチャットに分散する要望をまとめ、優先順位を決める負担。",
+    "tags": [
+     "個人開発から事業化",
+     "小規模運営",
+     "継続課金",
+     "一次情報あり",
+     "収集事例"
+    ],
+    "pnl": {
+     "monthlyRevenue": 0,
+     "cogs": 0,
+     "grossProfit": 0,
+     "grossMargin": 0,
+     "operatingExpenses": {
+      "serverAndApi": 0,
+      "advertising": 0,
+      "subcontracting": 0,
+      "toolsAndSaaS": 0,
+      "other": 0
+     },
+     "operatingProfit": 0,
+     "operatingMargin": 0,
+     "estimatedAnnualNetProfit": 0,
+     "isRevenueUnconfirmed": true,
+     "isOperatingProfitUnconfirmed": true,
+     "isMarginUnconfirmed": true,
+     "isGrossProfitUnconfirmed": true,
+     "isGrossMarginUnconfirmed": true,
+     "isCogsUnconfirmed": true,
+     "isCostsUnconfirmed": true,
+     "isNetProfitUnconfirmed": true,
+     "financialStatus": "UNAVAILABLE",
+     "dataSnapshotPeriod": "2017年の初動／2018年の運営／2024〜2026年の用途と連携",
+     "revenueLabel": "過去の開示値は事実欄に原通貨と期間付きで保存。現在の同一期間の損益一式は未確認。",
+     "sourceDoc": "https://featureupvote.com/aboutus/",
+     "sourceClass": "PRIMARY"
+    },
+    "facts": [
+     {
+      "id": "ent_feature_upvote_3d6a00d965f0_fact_1",
+      "kind": "FACT",
+      "text": "2017年に開始。運営はスペインの Barbary Software。公式は自己資金で黒字の持続的事業と説明する。",
+      "sourceUrl": "https://featureupvote.com/aboutus/",
+      "sourceId": "ent_feature_upvote_3d6a00d965f0_source_1",
+      "attribution": "事業者・創業者の申告",
+      "statedAt": null
+     },
+     {
+      "id": "ent_feature_upvote_3d6a00d965f0_fact_2",
+      "kind": "FACT",
+      "text": "料金ページの取得本文には、掲示板ごとの月額相当で49ドルと99ドルが表示され、年払い20%割引もある。選択中の支払い周期とドルの種類は確定できない。",
+      "sourceUrl": "https://featureupvote.com/pricing/",
+      "sourceId": "ent_feature_upvote_3d6a00d965f0_source_2",
+      "attribution": "事業者・創業者の申告",
+      "statedAt": null
+     },
+     {
+      "id": "ent_feature_upvote_3d6a00d965f0_fact_3",
+      "kind": "FACT",
+      "text": "30日試用はカード不要。投票者と投稿数は無制限。支払いは Stripe、一定額以上の年払いは銀行振込に対応する。",
+      "sourceUrl": "https://featureupvote.com/pricing/",
+      "sourceId": "ent_feature_upvote_3d6a00d965f0_source_2",
+      "attribution": "事業者・創業者の申告",
+      "statedAt": null
+     },
+     {
+      "id": "ent_feature_upvote_3d6a00d965f0_fact_4",
+      "kind": "FACT",
+      "text": "創業者は2017年の初回決済と翌月の更新を報告。顧客名・決済額・発生日は示していない。",
+      "sourceUrl": "https://medium.com/@steve.mcleod_3723/what-i-learnt-in-2017-while-running-feature-upvote-6793169cd828",
+      "sourceId": "ent_feature_upvote_3d6a00d965f0_source_3",
+      "attribution": "事業者・創業者の申告",
+      "statedAt": "2018-01-07"
+     },
+     {
+      "id": "ent_feature_upvote_3d6a00d965f0_fact_5",
+      "kind": "FACT",
+      "text": "最初の10顧客の大半は、Quora にあった UserVoice の代替を探す2質問への回答から来たと報告する。",
+      "sourceUrl": "https://medium.com/@steve.mcleod_3723/what-i-learnt-in-2017-while-running-feature-upvote-6793169cd828",
+      "sourceId": "ent_feature_upvote_3d6a00d965f0_source_3",
+      "attribution": "事業者・創業者の申告",
+      "statedAt": "2018-01-07"
+     },
+     {
+      "id": "ent_feature_upvote_3d6a00d965f0_fact_6",
+      "kind": "FACT",
+      "text": "想定した小規模ソフトウェア会社以外の大きな組織も購入。後に新規客の主な流入元は Quora から Google へ移ったと述べる。",
+      "sourceUrl": "https://medium.com/@steve.mcleod_3723/what-i-learnt-in-2017-while-running-feature-upvote-6793169cd828",
+      "sourceId": "ent_feature_upvote_3d6a00d965f0_source_3",
+      "attribution": "事業者・創業者の申告",
+      "statedAt": "2018-01-07"
+     },
+     {
+      "id": "ent_feature_upvote_3d6a00d965f0_fact_7",
+      "kind": "FACT",
+      "text": "インタビュー時点では従業員3人と外注2人が全員部分勤務。創業者が開発を担い、運用・デザイン・検査・支援などを分担する。現在の人数ではない。",
+      "sourceUrl": "https://garrettdimon.com/starting-and-sustaining/interviews/steve-mcleod",
+      "sourceId": "ent_feature_upvote_3d6a00d965f0_source_4",
+      "attribution": "第三者資料内の発言・記述",
+      "statedAt": null
+     },
+     {
+      "id": "ent_feature_upvote_3d6a00d965f0_fact_8",
+      "kind": "FACT",
+      "text": "運用担当への時間払いで別時間帯の障害対応を委託。月初にバックアップを復元できるか確認するという。",
+      "sourceUrl": "https://garrettdimon.com/starting-and-sustaining/interviews/steve-mcleod",
+      "sourceId": "ent_feature_upvote_3d6a00d965f0_source_4",
+      "attribution": "第三者資料内の発言・記述",
+      "statedAt": null
+     },
+     {
+      "id": "ent_feature_upvote_3d6a00d965f0_fact_9",
+      "kind": "FACT",
+      "text": "知人経由の初期客は早期に離れたとの発言もある。初期獲得と長期継続を同一視できない。",
+      "sourceUrl": "https://garrettdimon.com/starting-and-sustaining/interviews/steve-mcleod",
+      "sourceId": "ent_feature_upvote_3d6a00d965f0_source_4",
+      "attribution": "第三者資料内の発言・記述",
+      "statedAt": null
+     },
+     {
+      "id": "ent_feature_upvote_3d6a00d965f0_fact_10",
+      "kind": "FACT",
+      "text": "2018年の振り返りでは、社内の提案や少数の法人顧客向けの非公開掲示板にも使われ、失敗しやすい新興企業とは異なる継続用途を見つけたと述べる。",
+      "sourceUrl": "https://featureupvote.com/blog/what-i-learnt-in-2018-while-running-feature-upvote/",
+      "sourceId": "ent_feature_upvote_3d6a00d965f0_source_5",
+      "attribution": "事業者・創業者の申告",
+      "statedAt": null
+     },
+     {
+      "id": "ent_feature_upvote_3d6a00d965f0_fact_11",
+      "kind": "FACT",
+      "text": "購入して自作を避けた機能として Algolia、Cloudinary、Postmark、Sentry を紹介する。現在も同じ構成かは未確認。",
+      "sourceUrl": "https://featureupvote.com/blog/buying_not_building_concentrate_on_our_core_saas_product/",
+      "sourceId": "ent_feature_upvote_3d6a00d965f0_source_6",
+      "attribution": "事業者・創業者の申告",
+      "statedAt": null
+     },
+     {
+      "id": "ent_feature_upvote_3d6a00d965f0_fact_12",
+      "kind": "FACT",
+      "text": "2024年9月からゲーム向けに訴求を絞ったが、製品は同じでソフトウェア会社向けも継続すると説明する。",
+      "sourceUrl": "https://featureupvote.com/blog/yes-feature-upvote-is-still-for-saas-and-software/",
+      "sourceId": "ent_feature_upvote_3d6a00d965f0_source_7",
+      "attribution": "事業者・創業者の申告",
+      "statedAt": "2025-07-11"
+     },
+     {
+      "id": "ent_feature_upvote_3d6a00d965f0_fact_13",
+      "kind": "FACT",
+      "text": "2026年5月の Microsoft による Connectors 廃止で Teams 連携が停止。Workflows に置き換え、顧客側の設定変更も必要になった。",
+      "sourceUrl": "https://featureupvote.com/blog/our-microsoft-teams-integration-stopped-working-and-we-fixed-it/",
+      "sourceId": "ent_feature_upvote_3d6a00d965f0_source_8",
+      "attribution": "事業者・創業者の申告",
+      "statedAt": "2026-09-09"
+     },
+     {
+      "id": "ent_feature_upvote_3d6a00d965f0_fact_14",
+      "kind": "FACT",
+      "text": "提案・コメント・投票を含む表計算形式への書き出しを提供する。",
+      "sourceUrl": "https://featureupvote.com/blog/a-new-way-to-export-your-feature-upvote-data/",
+      "sourceId": "ent_feature_upvote_3d6a00d965f0_source_9",
+      "attribution": "事業者・創業者の申告",
+      "statedAt": "2023-07-06"
+     },
+     {
+      "id": "ent_feature_upvote_3d6a00d965f0_fact_15",
+      "kind": "FACT",
+      "text": "利用者は管理画面等から解約でき、支払い済み期間後は掲示板を非表示にする。3か月は書き出し可能で、その後にデータを削除する。",
+      "sourceUrl": "https://help.featureupvote.com/article/25-cancelling-your-subscription",
+      "sourceId": "ent_feature_upvote_3d6a00d965f0_source_10",
+      "attribution": "事業者・創業者の申告",
+      "statedAt": "2025-11-21"
+     },
+     {
+      "id": "ent_feature_upvote_3d6a00d965f0_fact_16",
+      "kind": "FACT",
+      "text": "投票・要望管理に加え、非公開掲示板、独自ドメイン、表示調整を案内する。公開ページに製品画面の所在がある。",
+      "sourceUrl": "https://featureupvote.com/product-feedback-tool/",
+      "sourceId": "ent_feature_upvote_3d6a00d965f0_source_11",
+      "attribution": "事業者・創業者の申告",
+      "statedAt": null
+     },
+     {
+      "id": "ent_feature_upvote_3d6a00d965f0_fact_17",
+      "kind": "FACT",
+      "text": "自社の要望受付画面を公開している。記載によると2026年4月に初期化し、社内と最近の要望を再投入した。",
+      "sourceUrl": "https://dogfooding.featureupvote.com/",
+      "sourceId": "ent_feature_upvote_3d6a00d965f0_source_12",
+      "attribution": "事業者・創業者の申告",
+      "statedAt": null
+     },
+     {
+      "id": "ent_feature_upvote_3d6a00d965f0_fact_18",
+      "kind": "FACT",
+      "text": "外部掲載には設定の簡単さ等を評価する古い少数の投稿がある。投稿者と事業者の関係は未確認。",
+      "sourceUrl": "https://alternativeto.net/software/feature-upvote/about/",
+      "sourceId": "ent_feature_upvote_3d6a00d965f0_source_13",
+      "attribution": "第三者資料内の発言・記述",
+      "statedAt": null
+     },
+     {
+      "id": "ent_feature_upvote_3d6a00d965f0_fact_19",
+      "kind": "FACT",
+      "text": "受託デザイナーは管理画面の幅や絞り込み等の使い勝手を改善対象に挙げる。独立した購入者の批評とは異なる。",
+      "sourceUrl": "https://beyondthepixel.studio/featureupvote-ux-casestudy/",
+      "sourceId": "ent_feature_upvote_3d6a00d965f0_source_14",
+      "attribution": "第三者資料内の発言・記述",
+      "statedAt": null
+     }
+    ],
+    "reaudit": {
+     "status": "PARTIAL",
+     "auditDate": "2026-10-07",
+     "timezone": "Asia/Tokyo",
+     "auditOwner": "codex-three-success-20261007",
+     "method": "MANUAL_REAUDIT",
+     "family": "new-collection",
+     "sources": [
+      {
+       "url": "https://featureupvote.com/aboutus/",
+       "publisher": "Feature Upvote",
+       "title": "運営主体・事業継続",
+       "sourceType": "official_website",
+       "publicationDate": null,
+       "checkedAt": "2026-10-07",
+       "rightsTier": "TIER1_OFFICIAL",
+       "sourceClass": "PRIMARY",
+       "rightsNote": "出典区分は転載許諾を意味しない。独自の日本語要約と所在のみ記録し、原文・画像の公開許諾は未確認。",
+       "id": "ent_feature_upvote_3d6a00d965f0_source_1"
+      },
+      {
+       "url": "https://featureupvote.com/pricing/",
+       "publisher": "Feature Upvote",
+       "title": "現在の料金と購入条件",
+       "sourceType": "official_pricing",
+       "publicationDate": null,
+       "checkedAt": "2026-10-07",
+       "rightsTier": "TIER1_OFFICIAL",
+       "sourceClass": "PRIMARY",
+       "rightsNote": "出典区分は転載許諾を意味しない。独自の日本語要約と所在のみ記録し、原文・画像の公開許諾は未確認。",
+       "id": "ent_feature_upvote_3d6a00d965f0_source_2"
+      },
+      {
+       "url": "https://medium.com/@steve.mcleod_3723/what-i-learnt-in-2017-while-running-feature-upvote-6793169cd828",
+       "publisher": "Steve McLeod",
+       "title": "2017年の初動と顧客像",
+       "sourceType": "founder_post",
+       "publicationDate": "2018-01-07",
+       "checkedAt": "2026-10-07",
+       "rightsTier": "TIER1_OFFICIAL",
+       "sourceClass": "PRIMARY",
+       "rightsNote": "出典区分は転載許諾を意味しない。独自の日本語要約と所在のみ記録し、原文・画像の公開許諾は未確認。",
+       "id": "ent_feature_upvote_3d6a00d965f0_source_3"
+      },
+      {
+       "url": "https://garrettdimon.com/starting-and-sustaining/interviews/steve-mcleod",
+       "publisher": "Garrett Dimon／Steve McLeod",
+       "title": "小規模チームと運営委託",
+       "sourceType": "interview",
+       "publicationDate": null,
+       "checkedAt": "2026-10-07",
+       "rightsTier": "TIER2_FACTS_ONLY",
+       "sourceClass": "INDEPENDENT_SECONDARY",
+       "rightsNote": "出典区分は転載許諾を意味しない。独自の日本語要約と所在のみ記録し、原文・画像の公開許諾は未確認。",
+       "id": "ent_feature_upvote_3d6a00d965f0_source_4"
+      },
+      {
+       "url": "https://featureupvote.com/blog/what-i-learnt-in-2018-while-running-feature-upvote/",
+       "publisher": "Steve McLeod",
+       "title": "2018年の用途の広がり",
+       "sourceType": "official_blog",
+       "publicationDate": null,
+       "checkedAt": "2026-10-07",
+       "rightsTier": "TIER1_OFFICIAL",
+       "sourceClass": "PRIMARY",
+       "rightsNote": "出典区分は転載許諾を意味しない。独自の日本語要約と所在のみ記録し、原文・画像の公開許諾は未確認。",
+       "id": "ent_feature_upvote_3d6a00d965f0_source_5"
+      },
+      {
+       "url": "https://featureupvote.com/blog/buying_not_building_concentrate_on_our_core_saas_product/",
+       "publisher": "Feature Upvote",
+       "title": "外部サービスに任せた機能",
+       "sourceType": "official_blog",
+       "publicationDate": null,
+       "checkedAt": "2026-10-07",
+       "rightsTier": "TIER1_OFFICIAL",
+       "sourceClass": "PRIMARY",
+       "rightsNote": "出典区分は転載許諾を意味しない。独自の日本語要約と所在のみ記録し、原文・画像の公開許諾は未確認。",
+       "id": "ent_feature_upvote_3d6a00d965f0_source_6"
+      },
+      {
+       "url": "https://featureupvote.com/blog/yes-feature-upvote-is-still-for-saas-and-software/",
+       "publisher": "Feature Upvote",
+       "title": "ゲーム分野への訴求変更",
+       "sourceType": "official_blog",
+       "publicationDate": "2025-07-11",
+       "checkedAt": "2026-10-07",
+       "rightsTier": "TIER1_OFFICIAL",
+       "sourceClass": "PRIMARY",
+       "rightsNote": "出典区分は転載許諾を意味しない。独自の日本語要約と所在のみ記録し、原文・画像の公開許諾は未確認。",
+       "id": "ent_feature_upvote_3d6a00d965f0_source_7"
+      },
+      {
+       "url": "https://featureupvote.com/blog/our-microsoft-teams-integration-stopped-working-and-we-fixed-it/",
+       "publisher": "Feature Upvote",
+       "title": "外部連携の仕様変更",
+       "sourceType": "official_blog",
+       "publicationDate": "2026-09-09",
+       "checkedAt": "2026-10-07",
+       "rightsTier": "TIER1_OFFICIAL",
+       "sourceClass": "PRIMARY",
+       "rightsNote": "出典区分は転載許諾を意味しない。独自の日本語要約と所在のみ記録し、原文・画像の公開許諾は未確認。",
+       "id": "ent_feature_upvote_3d6a00d965f0_source_8"
+      },
+      {
+       "url": "https://featureupvote.com/blog/a-new-way-to-export-your-feature-upvote-data/",
+       "publisher": "Feature Upvote",
+       "title": "データの書き出し",
+       "sourceType": "official_blog",
+       "publicationDate": "2023-07-06",
+       "checkedAt": "2026-10-07",
+       "rightsTier": "TIER1_OFFICIAL",
+       "sourceClass": "PRIMARY",
+       "rightsNote": "出典区分は転載許諾を意味しない。独自の日本語要約と所在のみ記録し、原文・画像の公開許諾は未確認。",
+       "id": "ent_feature_upvote_3d6a00d965f0_source_9"
+      },
+      {
+       "url": "https://help.featureupvote.com/article/25-cancelling-your-subscription",
+       "publisher": "Feature Upvote",
+       "title": "解約とデータ削除",
+       "sourceType": "official_help",
+       "publicationDate": "2025-11-21",
+       "checkedAt": "2026-10-07",
+       "rightsTier": "TIER1_OFFICIAL",
+       "sourceClass": "PRIMARY",
+       "rightsNote": "出典区分は転載許諾を意味しない。独自の日本語要約と所在のみ記録し、原文・画像の公開許諾は未確認。",
+       "id": "ent_feature_upvote_3d6a00d965f0_source_10"
+      },
+      {
+       "url": "https://featureupvote.com/product-feedback-tool/",
+       "publisher": "Feature Upvote",
+       "title": "製品機能・製品画面の所在",
+       "sourceType": "official_website",
+       "publicationDate": null,
+       "checkedAt": "2026-10-07",
+       "rightsTier": "TIER1_OFFICIAL",
+       "sourceClass": "PRIMARY",
+       "rightsNote": "出典区分は転載許諾を意味しない。独自の日本語要約と所在のみ記録し、原文・画像の公開許諾は未確認。",
+       "id": "ent_feature_upvote_3d6a00d965f0_source_11"
+      },
+      {
+       "url": "https://dogfooding.featureupvote.com/",
+       "publisher": "Feature Upvote",
+       "title": "公開の要望受付画面",
+       "sourceType": "official_demo",
+       "publicationDate": null,
+       "checkedAt": "2026-10-07",
+       "rightsTier": "TIER1_OFFICIAL",
+       "sourceClass": "PRIMARY",
+       "rightsNote": "出典区分は転載許諾を意味しない。独自の日本語要約と所在のみ記録し、原文・画像の公開許諾は未確認。",
+       "id": "ent_feature_upvote_3d6a00d965f0_source_12"
+      },
+      {
+       "url": "https://alternativeto.net/software/feature-upvote/about/",
+       "publisher": "AlternativeTo",
+       "title": "外部掲載の利用者評",
+       "sourceType": "user_review",
+       "publicationDate": null,
+       "checkedAt": "2026-10-07",
+       "rightsTier": "TIER2_FACTS_ONLY",
+       "sourceClass": "INDEPENDENT_SECONDARY",
+       "rightsNote": "出典区分は転載許諾を意味しない。独自の日本語要約と所在のみ記録し、原文・画像の公開許諾は未確認。",
+       "id": "ent_feature_upvote_3d6a00d965f0_source_13"
+      },
+      {
+       "url": "https://beyondthepixel.studio/featureupvote-ux-casestudy/",
+       "publisher": "Beyond The Pixel",
+       "title": "デザイン受託者の改善事例",
+       "sourceType": "vendor_case_study",
+       "publicationDate": null,
+       "checkedAt": "2026-10-07",
+       "rightsTier": "TIER2_FACTS_ONLY",
+       "sourceClass": "INDEPENDENT_SECONDARY",
+       "rightsNote": "出典区分は転載許諾を意味しない。独自の日本語要約と所在のみ記録し、原文・画像の公開許諾は未確認。",
+       "id": "ent_feature_upvote_3d6a00d965f0_source_14"
+      }
+     ],
+     "supported": [
+      "ent_feature_upvote_3d6a00d965f0_fact_1",
+      "ent_feature_upvote_3d6a00d965f0_fact_2",
+      "ent_feature_upvote_3d6a00d965f0_fact_3",
+      "ent_feature_upvote_3d6a00d965f0_fact_4",
+      "ent_feature_upvote_3d6a00d965f0_fact_5",
+      "ent_feature_upvote_3d6a00d965f0_fact_6",
+      "ent_feature_upvote_3d6a00d965f0_fact_7",
+      "ent_feature_upvote_3d6a00d965f0_fact_8",
+      "ent_feature_upvote_3d6a00d965f0_fact_9",
+      "ent_feature_upvote_3d6a00d965f0_fact_10",
+      "ent_feature_upvote_3d6a00d965f0_fact_11",
+      "ent_feature_upvote_3d6a00d965f0_fact_12",
+      "ent_feature_upvote_3d6a00d965f0_fact_13",
+      "ent_feature_upvote_3d6a00d965f0_fact_14",
+      "ent_feature_upvote_3d6a00d965f0_fact_15",
+      "ent_feature_upvote_3d6a00d965f0_fact_16",
+      "ent_feature_upvote_3d6a00d965f0_fact_17",
+      "ent_feature_upvote_3d6a00d965f0_fact_18",
+      "ent_feature_upvote_3d6a00d965f0_fact_19"
+     ],
+     "unknown": [
+      "現在と過去の売上実額、売上原価、営業利益、税引後の創業者受取。",
+      "現在のチーム人数、週の作業時間、創業資金、外注単価。",
+      "最初の購入者の氏名・支払額・購入日。",
+      "料金の支払い周期を操作した結果とドルの種類、決済画面での最終料金。",
+      "現在の紹介報酬率、顧客別継続率、獲得費。",
+      "初期の Wayback Machine 魚拓本文と画像の転載許諾。"
+     ],
+     "conflicts": [
+      "創業者記事は2017年初めの開始、インタビューは2017年5月の公開と述べる。開始と一般公開の区別が不明なため月を確定しない。",
+      "料金ページの本文だけでは年払い・月払いの切替状態を確定できない。比較サイトの別料金は補助情報にとどめ、月額契約の確定値に採用しない。",
+      "Starter Story の月商推計は原開示の期間と算出根拠を確認できず、不採用。"
+     ]
+    },
+    "observationsStream": [
+     {
+      "id": "ent_feature_upvote_3d6a00d965f0_application",
+      "evidenceIds": [
+       "ent_feature_upvote_3d6a00d965f0_source_3",
+       "ent_feature_upvote_3d6a00d965f0_source_4"
+      ],
+      "category": "MARKET_DISTORTION",
+      "categoryLabel": "根拠付きの転用仮説",
+      "text": "推論: 比較先をすでに探している担当者の質問を拾い、同じ言葉で用途を説明する。購入しない一般読者の数より、実際の課題と継続利用を先に確かめる。",
+      "originType": "inferred",
+      "verificationStatus": "UNVERIFIED",
+      "observedAt": "2026-10-07",
+      "observationType": "application_hypothesis",
+      "publicPayload": {
+       "basisFactIds": [
+        "ent_feature_upvote_3d6a00d965f0_fact_4",
+        "ent_feature_upvote_3d6a00d965f0_fact_5",
+        "ent_feature_upvote_3d6a00d965f0_fact_6",
+        "ent_feature_upvote_3d6a00d965f0_fact_7",
+        "ent_feature_upvote_3d6a00d965f0_fact_8",
+        "ent_feature_upvote_3d6a00d965f0_fact_9"
+       ],
+       "limitation": "同じ結果が得られるとは確認していない。小さな有料検証を先に行う。"
+      }
+     },
+     {
+      "id": "ent_feature_upvote_3d6a00d965f0_media",
+      "category": "RESEARCH_LIMIT",
+      "categoryLabel": "公開画面素材の所在",
+      "text": "公式の製品画面・紹介画像の掲載ページを確認。画像ファイルは取得しておらず、転載許諾と利用者情報の除去は未審査。",
+      "originType": "observed",
+      "verificationStatus": "SUPPORTED",
+      "observedAt": "2026-10-07",
+      "observationType": "media_location",
+      "publicPayload": {
+       "locationUrls": [
+        "https://featureupvote.com/product-feedback-tool/",
+        "https://dogfooding.featureupvote.com/"
+       ],
+       "downloaded": false,
+       "publicationPermissionVerified": false
+      }
+     }
+    ],
+    "observations": [
+     "公式資料同士でも同一組織内の記述であり、独立した監査証拠ではない。"
+    ],
+    "temporal": {
+     "foundedYear": 2017,
+     "initialTractionPeriod": "2017年の初動",
+     "dataSnapshotPeriod": "2017年の初動／2018年の運営／2024〜2026年の用途と連携",
+     "viabilityStatus": "UNKNOWN",
+     "eraContext": "創業期の集客経路と現在の購入経路を別に扱う。創業当時の競争環境が現在も同じとは認定しない。",
+     "currentViabilityAnalysis": "外部連携の廃止で保守が発生する。データは書き出せるため「解約不能」という説明は不適切。現在の競合・転換率・採算を確認するまで同じ初動の再現性は未確定。",
+     "viabilityLabel": "現在の新規参入者の採算・再現性は未確認"
+    },
+    "operations": {
+     "teamSize": 0,
+     "weeklyHours": 0,
+     "initialCapitalRequired": 0,
+     "automationLevel": 0,
+     "primaryChannels": [
+      "2017年: Quora の比較質問",
+      "2017年後半: Google 検索",
+      "2024年以降: ゲーム向け訴求"
+     ],
+     "toolStack": [
+      {
+       "name": "Stripe",
+       "category": "UNKNOWN",
+       "monthlyCost": 0,
+       "isCostUnconfirmed": true,
+       "purpose": "公式料金"
+      },
+      {
+       "name": "Algolia",
+       "category": "UNKNOWN",
+       "monthlyCost": 0,
+       "isCostUnconfirmed": true,
+       "purpose": "過去の導入"
+      },
+      {
+       "name": "Cloudinary",
+       "category": "UNKNOWN",
+       "monthlyCost": 0,
+       "isCostUnconfirmed": true,
+       "purpose": "過去の導入"
+      },
+      {
+       "name": "Postmark",
+       "category": "UNKNOWN",
+       "monthlyCost": 0,
+       "isCostUnconfirmed": true,
+       "purpose": "過去の導入"
+      },
+      {
+       "name": "Sentry",
+       "category": "UNKNOWN",
+       "monthlyCost": 0,
+       "isCostUnconfirmed": true,
+       "purpose": "過去の導入"
+      }
+     ],
+     "isTeamSizeUnconfirmed": true,
+     "isWeeklyHoursUnconfirmed": true,
+     "isCapitalUnconfirmed": true,
+     "isAutomationUnconfirmed": true
+    },
+    "strategy": {
+     "moatType": "UNKNOWN",
+     "blindspot": "比較先をすでに探している担当者の質問を拾い、同じ言葉で用途を説明する。購入しない一般読者の数より、実際の課題と継続利用を先に確かめる。",
+     "moatDescription": "外部連携の廃止で保守が発生する。データは書き出せるため「解約不能」という説明は不適切。現在の競合・転換率・採算を確認するまで同じ初動の再現性は未確定。",
+     "secretInsight": "推論: 比較先をすでに探している担当者の質問を拾い、同じ言葉で用途を説明する。購入しない一般読者の数より、実際の課題と継続利用を先に確かめる。",
+     "initialTraction": [
+      "ent_feature_upvote_3d6a00d965f0_fact_4 の事実を参照。",
+      "ent_feature_upvote_3d6a00d965f0_fact_5 の事実を参照。",
+      "ent_feature_upvote_3d6a00d965f0_fact_8 の事実を参照。",
+      "ent_feature_upvote_3d6a00d965f0_fact_9 の事実を参照。"
+     ],
+     "actionPlaybook": [
+      "推論: 比較先をすでに探している担当者の質問を拾い、同じ言葉で用途を説明する。購入しない一般読者の数より、実際の課題と継続利用を先に確かめる。",
+      "未確認の採算や継続率は、実際の有料顧客と運営費の観測で確かめる。"
+     ],
+     "coldOutreachTemplate": "",
+     "incumbentDilemma": "大手の既存売上を守るための参入不能を裏付ける資料は未確認。"
+    },
+    "essence": {
+     "whatItDoes": "要望を投稿・投票・整理できる掲示板を提供する。",
+     "targetCustomer": "製品担当者、ゲーム運営者、組織内の意見を整理する担当者。",
+     "painRelief": "メールやチャットに分散する要望をまとめ、優先順位を決める負担。"
+    },
+    "evidenceCards": [
+     {
+      "id": "ent_feature_upvote_3d6a00d965f0_source_1",
+      "type": "UNKNOWN_AUDIT",
+      "title": "出典: 運営主体・事業継続",
+      "badge": "出典",
+      "evidenceStatus": "REPORTED",
+      "punchline": "出典の所在・確認日・発言主体を記録。照合対象は事実欄の出典識別子で対応。",
+      "details": [
+       "URL: https://featureupvote.com/aboutus/",
+       "確認日: 2026-10-07",
+       "公開日: 未確認",
+       "発言主体: Feature Upvote"
+      ],
+      "url": "https://featureupvote.com/aboutus/",
+      "sourceNote": "日本語で独自要約。元資料に記載があることの確認と、数値の独立監査・転載許諾は別。",
+      "sourceClass": "PRIMARY"
+     },
+     {
+      "id": "ent_feature_upvote_3d6a00d965f0_source_2",
+      "type": "UNKNOWN_AUDIT",
+      "title": "出典: 現在の料金と購入条件",
+      "badge": "出典",
+      "evidenceStatus": "REPORTED",
+      "punchline": "出典の所在・確認日・発言主体を記録。照合対象は事実欄の出典識別子で対応。",
+      "details": [
+       "URL: https://featureupvote.com/pricing/",
+       "確認日: 2026-10-07",
+       "公開日: 未確認",
+       "発言主体: Feature Upvote"
+      ],
+      "url": "https://featureupvote.com/pricing/",
+      "sourceNote": "日本語で独自要約。元資料に記載があることの確認と、数値の独立監査・転載許諾は別。",
+      "sourceClass": "PRIMARY"
+     },
+     {
+      "id": "ent_feature_upvote_3d6a00d965f0_source_3",
+      "type": "UNKNOWN_AUDIT",
+      "title": "出典: 2017年の初動と顧客像",
+      "badge": "出典",
+      "evidenceStatus": "REPORTED",
+      "punchline": "出典の所在・確認日・発言主体を記録。照合対象は事実欄の出典識別子で対応。",
+      "details": [
+       "URL: https://medium.com/@steve.mcleod_3723/what-i-learnt-in-2017-while-running-feature-upvote-6793169cd828",
+       "確認日: 2026-10-07",
+       "公開日: 2018-01-07",
+       "発言主体: Steve McLeod"
+      ],
+      "url": "https://medium.com/@steve.mcleod_3723/what-i-learnt-in-2017-while-running-feature-upvote-6793169cd828",
+      "sourceNote": "日本語で独自要約。元資料に記載があることの確認と、数値の独立監査・転載許諾は別。",
+      "sourceClass": "PRIMARY"
+     },
+     {
+      "id": "ent_feature_upvote_3d6a00d965f0_source_4",
+      "type": "UNKNOWN_AUDIT",
+      "title": "出典: 小規模チームと運営委託",
+      "badge": "出典",
+      "evidenceStatus": "REPORTED",
+      "punchline": "出典の所在・確認日・発言主体を記録。照合対象は事実欄の出典識別子で対応。",
+      "details": [
+       "URL: https://garrettdimon.com/starting-and-sustaining/interviews/steve-mcleod",
+       "確認日: 2026-10-07",
+       "公開日: 未確認",
+       "発言主体: Garrett Dimon／Steve McLeod"
+      ],
+      "url": "https://garrettdimon.com/starting-and-sustaining/interviews/steve-mcleod",
+      "sourceNote": "日本語で独自要約。元資料に記載があることの確認と、数値の独立監査・転載許諾は別。",
+      "sourceClass": "INDEPENDENT_SECONDARY"
+     },
+     {
+      "id": "ent_feature_upvote_3d6a00d965f0_source_5",
+      "type": "UNKNOWN_AUDIT",
+      "title": "出典: 2018年の用途の広がり",
+      "badge": "出典",
+      "evidenceStatus": "REPORTED",
+      "punchline": "出典の所在・確認日・発言主体を記録。照合対象は事実欄の出典識別子で対応。",
+      "details": [
+       "URL: https://featureupvote.com/blog/what-i-learnt-in-2018-while-running-feature-upvote/",
+       "確認日: 2026-10-07",
+       "公開日: 未確認",
+       "発言主体: Steve McLeod"
+      ],
+      "url": "https://featureupvote.com/blog/what-i-learnt-in-2018-while-running-feature-upvote/",
+      "sourceNote": "日本語で独自要約。元資料に記載があることの確認と、数値の独立監査・転載許諾は別。",
+      "sourceClass": "PRIMARY"
+     },
+     {
+      "id": "ent_feature_upvote_3d6a00d965f0_source_6",
+      "type": "UNKNOWN_AUDIT",
+      "title": "出典: 外部サービスに任せた機能",
+      "badge": "出典",
+      "evidenceStatus": "REPORTED",
+      "punchline": "出典の所在・確認日・発言主体を記録。照合対象は事実欄の出典識別子で対応。",
+      "details": [
+       "URL: https://featureupvote.com/blog/buying_not_building_concentrate_on_our_core_saas_product/",
+       "確認日: 2026-10-07",
+       "公開日: 未確認",
+       "発言主体: Feature Upvote"
+      ],
+      "url": "https://featureupvote.com/blog/buying_not_building_concentrate_on_our_core_saas_product/",
+      "sourceNote": "日本語で独自要約。元資料に記載があることの確認と、数値の独立監査・転載許諾は別。",
+      "sourceClass": "PRIMARY"
+     },
+     {
+      "id": "ent_feature_upvote_3d6a00d965f0_source_7",
+      "type": "UNKNOWN_AUDIT",
+      "title": "出典: ゲーム分野への訴求変更",
+      "badge": "出典",
+      "evidenceStatus": "REPORTED",
+      "punchline": "出典の所在・確認日・発言主体を記録。照合対象は事実欄の出典識別子で対応。",
+      "details": [
+       "URL: https://featureupvote.com/blog/yes-feature-upvote-is-still-for-saas-and-software/",
+       "確認日: 2026-10-07",
+       "公開日: 2025-07-11",
+       "発言主体: Feature Upvote"
+      ],
+      "url": "https://featureupvote.com/blog/yes-feature-upvote-is-still-for-saas-and-software/",
+      "sourceNote": "日本語で独自要約。元資料に記載があることの確認と、数値の独立監査・転載許諾は別。",
+      "sourceClass": "PRIMARY"
+     },
+     {
+      "id": "ent_feature_upvote_3d6a00d965f0_source_8",
+      "type": "UNKNOWN_AUDIT",
+      "title": "出典: 外部連携の仕様変更",
+      "badge": "出典",
+      "evidenceStatus": "REPORTED",
+      "punchline": "出典の所在・確認日・発言主体を記録。照合対象は事実欄の出典識別子で対応。",
+      "details": [
+       "URL: https://featureupvote.com/blog/our-microsoft-teams-integration-stopped-working-and-we-fixed-it/",
+       "確認日: 2026-10-07",
+       "公開日: 2026-09-09",
+       "発言主体: Feature Upvote"
+      ],
+      "url": "https://featureupvote.com/blog/our-microsoft-teams-integration-stopped-working-and-we-fixed-it/",
+      "sourceNote": "日本語で独自要約。元資料に記載があることの確認と、数値の独立監査・転載許諾は別。",
+      "sourceClass": "PRIMARY"
+     },
+     {
+      "id": "ent_feature_upvote_3d6a00d965f0_source_9",
+      "type": "UNKNOWN_AUDIT",
+      "title": "出典: データの書き出し",
+      "badge": "出典",
+      "evidenceStatus": "REPORTED",
+      "punchline": "出典の所在・確認日・発言主体を記録。照合対象は事実欄の出典識別子で対応。",
+      "details": [
+       "URL: https://featureupvote.com/blog/a-new-way-to-export-your-feature-upvote-data/",
+       "確認日: 2026-10-07",
+       "公開日: 2023-07-06",
+       "発言主体: Feature Upvote"
+      ],
+      "url": "https://featureupvote.com/blog/a-new-way-to-export-your-feature-upvote-data/",
+      "sourceNote": "日本語で独自要約。元資料に記載があることの確認と、数値の独立監査・転載許諾は別。",
+      "sourceClass": "PRIMARY"
+     },
+     {
+      "id": "ent_feature_upvote_3d6a00d965f0_source_10",
+      "type": "UNKNOWN_AUDIT",
+      "title": "出典: 解約とデータ削除",
+      "badge": "出典",
+      "evidenceStatus": "REPORTED",
+      "punchline": "出典の所在・確認日・発言主体を記録。照合対象は事実欄の出典識別子で対応。",
+      "details": [
+       "URL: https://help.featureupvote.com/article/25-cancelling-your-subscription",
+       "確認日: 2026-10-07",
+       "公開日: 2025-11-21",
+       "発言主体: Feature Upvote"
+      ],
+      "url": "https://help.featureupvote.com/article/25-cancelling-your-subscription",
+      "sourceNote": "日本語で独自要約。元資料に記載があることの確認と、数値の独立監査・転載許諾は別。",
+      "sourceClass": "PRIMARY"
+     },
+     {
+      "id": "ent_feature_upvote_3d6a00d965f0_source_11",
+      "type": "UNKNOWN_AUDIT",
+      "title": "出典: 製品機能・製品画面の所在",
+      "badge": "出典",
+      "evidenceStatus": "REPORTED",
+      "punchline": "出典の所在・確認日・発言主体を記録。照合対象は事実欄の出典識別子で対応。",
+      "details": [
+       "URL: https://featureupvote.com/product-feedback-tool/",
+       "確認日: 2026-10-07",
+       "公開日: 未確認",
+       "発言主体: Feature Upvote"
+      ],
+      "url": "https://featureupvote.com/product-feedback-tool/",
+      "sourceNote": "日本語で独自要約。元資料に記載があることの確認と、数値の独立監査・転載許諾は別。",
+      "sourceClass": "PRIMARY"
+     },
+     {
+      "id": "ent_feature_upvote_3d6a00d965f0_source_12",
+      "type": "UNKNOWN_AUDIT",
+      "title": "出典: 公開の要望受付画面",
+      "badge": "出典",
+      "evidenceStatus": "REPORTED",
+      "punchline": "出典の所在・確認日・発言主体を記録。照合対象は事実欄の出典識別子で対応。",
+      "details": [
+       "URL: https://dogfooding.featureupvote.com/",
+       "確認日: 2026-10-07",
+       "公開日: 未確認",
+       "発言主体: Feature Upvote"
+      ],
+      "url": "https://dogfooding.featureupvote.com/",
+      "sourceNote": "日本語で独自要約。元資料に記載があることの確認と、数値の独立監査・転載許諾は別。",
+      "sourceClass": "PRIMARY"
+     },
+     {
+      "id": "ent_feature_upvote_3d6a00d965f0_source_13",
+      "type": "UNKNOWN_AUDIT",
+      "title": "出典: 外部掲載の利用者評",
+      "badge": "出典",
+      "evidenceStatus": "REPORTED",
+      "punchline": "出典の所在・確認日・発言主体を記録。照合対象は事実欄の出典識別子で対応。",
+      "details": [
+       "URL: https://alternativeto.net/software/feature-upvote/about/",
+       "確認日: 2026-10-07",
+       "公開日: 未確認",
+       "発言主体: AlternativeTo"
+      ],
+      "url": "https://alternativeto.net/software/feature-upvote/about/",
+      "sourceNote": "日本語で独自要約。元資料に記載があることの確認と、数値の独立監査・転載許諾は別。",
+      "sourceClass": "INDEPENDENT_SECONDARY"
+     },
+     {
+      "id": "ent_feature_upvote_3d6a00d965f0_source_14",
+      "type": "UNKNOWN_AUDIT",
+      "title": "出典: デザイン受託者の改善事例",
+      "badge": "出典",
+      "evidenceStatus": "REPORTED",
+      "punchline": "出典の所在・確認日・発言主体を記録。照合対象は事実欄の出典識別子で対応。",
+      "details": [
+       "URL: https://beyondthepixel.studio/featureupvote-ux-casestudy/",
+       "確認日: 2026-10-07",
+       "公開日: 未確認",
+       "発言主体: Beyond The Pixel"
+      ],
+      "url": "https://beyondthepixel.studio/featureupvote-ux-casestudy/",
+      "sourceNote": "日本語で独自要約。元資料に記載があることの確認と、数値の独立監査・転載許諾は別。",
+      "sourceClass": "INDEPENDENT_SECONDARY"
+     }
+    ],
+    "claimBindings": [],
+    "publishability": "PARTIAL",
+    "batchId": "codex_three_success_20261007",
+    "financialStatus": "UNAVAILABLE",
+    "incumbentDilemma": "大手の既存売上を守るための参入不能を裏付ける資料は未確認。",
+    "blindspot": "比較先をすでに探している担当者の質問を拾い、同じ言葉で用途を説明する。購入しない一般読者の数より、実際の課題と継続利用を先に確かめる。",
+    "moatDescription": "外部連携の廃止で保守が発生する。データは書き出せるため「解約不能」という説明は不適切。現在の競合・転換率・採算を確認するまで同じ初動の再現性は未確定。",
+    "unknownsNotes": [
+     "現在と過去の売上実額、売上原価、営業利益、税引後の創業者受取。",
+     "現在のチーム人数、週の作業時間、創業資金、外注単価。",
+     "最初の購入者の氏名・支払額・購入日。",
+     "料金の支払い周期を操作した結果とドルの種類、決済画面での最終料金。",
+     "現在の紹介報酬率、顧客別継続率、獲得費。",
+     "初期の Wayback Machine 魚拓本文と画像の転載許諾。",
+     "同一期間の売上・費用・税・創業者受取を一続きに検算できる原資料は未取得。"
+    ],
+    "isGrowthUnconfirmed": true,
+    "normalizedFromResearch": [
+     "growthRateYoY: 空→0",
+     "unknownsNotes: 文字列→配列",
+     "pnl.monthlyRevenue: 空→0",
+     "pnl.cogs: 空→0",
+     "pnl.grossProfit: 空→0",
+     "pnl.grossMargin: 空→0",
+     "pnl.operatingProfit: 空→0",
+     "pnl.operatingMargin: 空→0",
+     "pnl.estimatedAnnualNetProfit: 空→0",
+     "pnl.operatingExpenses.serverAndApi: 空→0",
+     "pnl.operatingExpenses.advertising: 空→0",
+     "pnl.operatingExpenses.subcontracting: 空→0",
+     "pnl.operatingExpenses.toolsAndSaaS: 空→0",
+     "pnl.operatingExpenses.other: 空→0",
+     "operations.teamSize: 空→0",
+     "operations.weeklyHours: 空→0",
+     "operations.initialCapitalRequired: 空→0",
+     "operations.automationLevel: 空→0",
+     "operations.initialTeamSize: 空→欄を外す",
+     "operations.currentTeamSize: 空→欄を外す",
+     "operations.toolStack: 文字列→名前と用途",
+     "observations: 未取得の断り→unknownsNotes",
+     "observations: 作業メモ→workNotes"
+    ]
+   }
+  }
+ ]
+}

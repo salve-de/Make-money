@@ -96,7 +96,6 @@ export async function runCases(opt: CaseRunOptions, deps: CaseRunDeps): Promise<
   const stages: StageRecord[] = [];
   const idsFile = (tag: string, ids: Iterable<string>): string => { const f = join(work, `ids.${tag}.txt`); writeFileSync(f, `${[...ids].join('\n')}\n`); return f; };
   const fail = (id: string, stage: string, reason: string): void => { if (alive.delete(id)) failures.push({ id, stage, reason }); };
-  const softFail = (id: string, stage: string, reason: string): void => { failures.push({ id, stage, reason, soft: true }); blocked.add(id); };
   const failAll = (stage: string, reason: string): void => { for (const id of [...alive]) fail(id, stage, reason); };
 
   /** 段を流して所要時間を記録する */
@@ -157,7 +156,13 @@ export async function runCases(opt: CaseRunOptions, deps: CaseRunDeps): Promise<
       const m = line.match(/^不合格 ([^|\s]+)\|.*?: (.*)$/);
       if (m && alive.has(m[1])) bad.set(m[1], [...(bad.get(m[1]) ?? []), m[2].slice(0, 120)]);
     }
-    for (const [id, rs] of bad) softFail(id, 'source-check', `原文照合で ${rs.length} 項目が不合格（例: ${rs[0]}）。pnpm exec node --import tsx scripts/reader-case/source-check.ts --ids <一覧> --apply で再収集へ`);
+    // 2026-10-08 指揮の決定: 不合格の事実は、その事実だけを保留にして外し、事例は先へ進める（分析・監査は外した後の入力で作る）。
+    // 再収集の指示書は出さない（--max-attempts 1 で直ちに保留）。保留の一覧は data/source-check/held.json
+    if (bad.size) {
+      const h = await deps.exec('source-check-hold', node('scripts/reader-case/source-check.ts', '--ids', idsFile('source-check', alive), '--apply', '--max-attempts', '1'));
+      log(`原文照合で不合格の ${[...bad.values()].reduce((n, x) => n + x.length, 0)} 項目を保留にして外した（${[...bad.keys()].length} 件の事例。終了コード ${h.code}）`);
+      for (const [id, rs] of bad) log(`  保留 ${id}: ${rs.length} 件（例: ${rs[0].slice(0, 80)}）`);
+    }
     if (r.code !== 0 && !bad.size) throw new Error(`原文照合が失敗（終了コード ${r.code}）: ${(r.stderr || r.stdout).trim().split('\n').slice(-2).join(' / ').slice(0, 200)}`);
     return { failedCases: bad.size };
   });

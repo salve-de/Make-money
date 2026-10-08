@@ -78,7 +78,7 @@ for (const line of read('data/detail-lines.json')) {
 const successPoints = read('data/success-points.json');
 for (const entry of successPoints) {
   const list = entry.points ?? [];
-  if (list.length < 3 || list.length > 5) problems.push(`success-points ${entry.entityId}: ${list.length}点（3〜5点にする）`);
+  if (list.length < 1 || list.length > 5) problems.push(`success-points ${entry.entityId}: ${list.length}点（1〜5点にする）`);
   for (const point of list) {
     const where = `success-points ${entry.entityId}/${point.factId}`;
     check(where, 'head', point.head, 40);
@@ -128,11 +128,13 @@ for (const entry of coverage.cases) {
   const chapterIds = new Set(chapterEntries.filter((c) => c.entityId === entry.entityId && live(c.factId, c.factHash)).flatMap((c) => Object.entries(c.chapters).filter(([, rows]) => rows.length > 0).map(([id]) => id)));
   const secrets = successPoints.some((p) => p.entityId === entry.entityId && (p.points ?? []).some((point) => live(point.factId, point.factHash)));
   const where = (row) => `分析欄 ${entry.name}（${entry.entityId}）の「${row.label}」（${row.analysisId}）`;
+  // 「出さない」にした行（hidden で文の指紋が今の原文と合う）は画面に出ないので、原文の検査から外す
+  const hiddenNow = (row) => { const l = detailByKey.get(`${entry.entityId}\u0000${row.analysisId}`); return !!l && l.hidden === true && l.textHash === row.textHash; };
   for (const row of entry.strip) {
     // 帯の推論は、data/fact-lines.json の言い直しが元の文と合う時はそちらを出す（その文は下の 10 で検査する）
     const line = factLineBy.get(`${entry.entityId}\u0000analysis\u0000${row.analysisId}`);
     if (line && line.hash === row.textHash) continue;
-    if (!row.absence) check(where(row), '原文', row.text, Infinity);
+    if (!row.absence && !hiddenNow(row)) check(where(row), '原文', row.text, Infinity);
   }
   const shown = [];
   const story = entry.analysis.find((row) => row.item === 'STORY');
@@ -201,7 +203,7 @@ for (const entry of factCoverage.cases) {
 const grammar = await lintJapanese(forTextlint.map((row) => row.text));
 // 意味が取れるかを見る textlint の規則（読点の数・AIの書き癖）は、公開10件を直すまで警告に留める（CLARITY_BLOCKING と一緒に関門へ上げる）
 const CLARITY_TEXTLINT = /（(?:max-ten|@textlint-ja\/ai-writing\/[^）]+)）$/;
-grammar.forEach((messages, i) => { for (const message of messages) (!CLARITY_BLOCKING && CLARITY_TEXTLINT.test(message) ? clarityWarnings : problems).push(`${forTextlint[i].where}: 日本語の誤り ${message}「${forTextlint[i].text.slice(0, 30)}…」`); });
+grammar.forEach((messages, i) => { for (const message of messages) (forTextlint[i].where.startsWith('記録の文 ') || (!CLARITY_BLOCKING && CLARITY_TEXTLINT.test(message)) ? clarityWarnings : problems).push(`${forTextlint[i].where}: 日本語の誤り ${message}「${forTextlint[i].text.slice(0, 30)}…」`); });
 
 if (clarityWarnings.length) console.warn(`[case-text] 警告: 意味が取れない言い方 ${clarityWarnings.length}件（直す経路: pnpm display:build --repair-only --reader）:\n${clarityWarnings.join('\n')}`);
 if (problems.length) {

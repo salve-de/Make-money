@@ -1,0 +1,1155 @@
+{
+ "cases": [
+  {
+   "entityId": "ent_wip_5eef8a985270",
+   "scope": "full",
+   "facts": [
+    {
+     "id": "f1",
+     "kind": "DESCRIPTION",
+     "text": "一緒に出荷する製作者の集まりで、互いに説明責任を持ち、目標の達成を助け合うと公式に説明している。",
+     "attribution": "OFFICIAL"
+    },
+    {
+     "id": "f2",
+     "kind": "DESCRIPTION",
+     "text": "トップページは3,823人の製作者に参加を呼びかけていた。",
+     "attribution": "OFFICIAL"
+    },
+    {
+     "id": "f3",
+     "kind": "OTHER",
+     "text": "2022年9月6日、月20ドルの料金が入会の障壁になっているとして、無料、招待制、任意の有料機能を組み合わせる案を公開した。",
+     "attribution": "OFFICIAL"
+    },
+    {
+     "id": "f4",
+     "kind": "OTHER",
+     "text": "Martijn Verboveは月20ドルを払う価値を感じ、交流会が増えるならさらに払ってもよいと投稿した。",
+     "attribution": "OFFICIAL"
+    },
+    {
+     "id": "f5",
+     "kind": "OTHER",
+     "text": "Philip Thomasはコミュニティに払うことには納得するが、Telegramが好みでなく、参加を妨げているため、同時に接続しなくても参加できる形を望んだ。",
+     "attribution": "OFFICIAL"
+    },
+    {
+     "id": "f6",
+     "kind": "PRICING",
+     "text": "2022年9月の本人回想では、支援（Patronage）は150ドルの支払いで1年間の追加特典が付くもので、その後、年150ドル（または月20ドル）の支払いが新規入会者に必須となった。",
+     "attribution": "OFFICIAL"
+    },
+    {
+     "id": "f7",
+     "kind": "OTHER",
+     "text": "2022年9月22日の本人説明では、前月の新規登録は3人だけだった。",
+     "attribution": "OFFICIAL"
+    },
+    {
+     "id": "f8",
+     "kind": "OTHER",
+     "text": "2022年9月の本人説明では、平均の月次継続売上は2,000ドルだった。",
+     "attribution": "OFFICIAL"
+    },
+    {
+     "id": "f9",
+     "kind": "EVENT",
+     "text": "2022年9月22日、有料の壁をなくして招待制の無料枠を設け、有料会員の機能や特典は継続すると発表した。本人はこれを実験と位置づけた。",
+     "attribution": "OFFICIAL"
+    },
+    {
+     "id": "f10",
+     "kind": "OTHER",
+     "text": "2022年12月5日、Marcは連続記録が途切れると意欲を失う人がいるとして、記録が全消去されない別の計算方式を提案した。実装完了の発表ではない。",
+     "attribution": "OFFICIAL"
+    },
+    {
+     "id": "f11",
+     "kind": "OTHER",
+     "text": "Nilsは1,373日続いた記録を入力忘れで失い、再開への意欲が落ちた一方、毎日続ける厳しい挑戦の価値も残したいと投稿した。",
+     "attribution": "OFFICIAL"
+    },
+    {
+     "id": "f12",
+     "kind": "OTHER",
+     "text": "Rodは厳しい連続記録が意欲を保つ助けになっていると投稿した。",
+     "attribution": "OFFICIAL"
+    },
+    {
+     "id": "f13",
+     "kind": "EVENT",
+     "text": "2024年1月25日、費用削減と速度改善のためRenderからDigitalOceanへKamalで移そうとして、停止が発生したと説明した。",
+     "attribution": "OFFICIAL"
+    },
+    {
+     "id": "f14",
+     "kind": "OTHER",
+     "text": "停止で連続記録が途切れた会員に、完了した作業のリンクと時刻を送れば日付を直すと案内した。移行の継続かRenderへの復帰かは当時未決定だった。",
+     "attribution": "OFFICIAL"
+    },
+    {
+     "id": "f15",
+     "kind": "OTHER",
+     "text": "2024年8月29日の本人説明では、月次継続売上は約1,000ドルだった。",
+     "attribution": "OFFICIAL"
+    },
+    {
+     "id": "f16",
+     "kind": "PRICING",
+     "text": "2024年8月29日、新規会員を月29ドルまたは年199ドルにし、1か月の無料試用を案内した。既存の無料会員と有料会員の条件は維持した。",
+     "attribution": "OFFICIAL"
+    },
+    {
+     "id": "f17",
+     "kind": "OTHER",
+     "text": "料金変更後も招待制を維持する方針を示した。",
+     "attribution": "OFFICIAL"
+    },
+    {
+     "id": "f18",
+     "kind": "CHANNEL",
+     "text": "Jill Binderは友人に合うコミュニティだとして、招待の入手方法を質問した。",
+     "attribution": "OFFICIAL"
+    },
+    {
+     "id": "f19",
+     "kind": "CHANNEL",
+     "text": "Marcは、招待枠はサイトの利用に応じて自動配布され、連続記録の節目は方法の1つだが必須ではないと返答した。",
+     "attribution": "OFFICIAL"
+    },
+    {
+     "id": "f20",
+     "kind": "PRICING",
+     "text": "入会ページでは、月29ドルまたは年199ドルと表示している。",
+     "attribution": "OFFICIAL"
+    },
+    {
+     "id": "f21",
+     "kind": "PRICING",
+     "text": "現行の入会ページは買い切り会員を提供せず、世界共通の価格で、クレジットカードに対応すると説明している。",
+     "attribution": "OFFICIAL"
+    },
+    {
+     "id": "f22",
+     "kind": "DESCRIPTION",
+     "text": "有料機能には連続記録の保護、製品の登録数制限の解除、利用状況の詳細、広告非表示、非公開の製品、外部連携などがある。",
+     "attribution": "OFFICIAL"
+    }
+   ],
+   "metrics": [],
+   "sources": [
+    {
+     "sourceId": "s1",
+     "url": "https://wip.co/",
+     "publisher": "WIP公式トップページ",
+     "snapshot": {
+      "url": "https://wip.co/",
+      "finalUrl": "https://wip.co/",
+      "status": 200,
+      "fetchedAt": "2026-10-07T09:52:09.445Z",
+      "via": "direct",
+      "contentType": "text/html; charset=utf-8",
+      "textHash": "8f5c3822d6dcf44fee5e5166dbe48f65c63c2ad0620febd1be4c87dc179c9060"
+     },
+     "text": "WIP\nWe are a community of makers who help each other ship projects.\nWIP\nWe are a community of makers who help each other ship project.\nWIP\nWIP\nHome\nNotifications\nDMs\nDiscussions\nPro\nHangout\nSearch\nMore\nJoin\nSign in\nNew to WIP?\nWe're a group of makers shipping together. We help each other stay accountable and reach our goals.\nJoin now\n💬 Recent questions\nFake AI customer on Stripe?\n3 answers\nOpen options\nJason Leow\n@jasonleow\nReceived donation of 1 coffee (US$5)! ☕️ Looks like the haze is bringing my web app psi.sg some renewed attention! #psisg #socialimpactpatronage\nReply\n2026-10-07 09:46:16 UTC\nShow replies\nPost\nOpen options\nWes Oudshoorn\nPRO\n@wes\nfixing some model parameter deprecation errors\nReply\n2026-10-07 09:35:23 UTC\nShow replies\nPost\n@daviii\njust joined WIP\nOpen options\nCarl Poppa\nPRO\n@poppacalypse\nmerchant settlements #maynuu\nReply\n2026-10-07 09:01:12 UTC\nShow replies\nPost\nOpen options\nCagri Sarigoz\nPRO\n@cagri\nVisit the doctor and some more hospital stuff #life\n1\nReply\n2026-10-07 08:35:03 UTC\nShow replies\nPost\nOpen options\nJulien Le Coupanec\nPRO\n@LeCoupa\nmorning routine #nnjlife\nReply\n2026-10-07 07:53:47 UTC\nShow replies\nPost\nOpen options\nHwee-Boon Yar\nPRO\n@hboon\nTweaking homepage etc to improve funnel #linkbunny\nReply\n2026-10-07 07:48:49 UTC\nShow replies\nPost\nOpen options\nMichael Sumner\n@mb_sumner\nbreakfast with family #life\nReply\n2026-10-07 07:01:29 UTC\nShow replies\nPost\nOpen options\nShashank\nPRO\n@shashank\nbuild referral incentives to get student usage to convert to teachers\n1\nReply\n2026-10-07 06:35:38 UTC\nShow replies\nPost\nOpen options\nDaniel Hemmati\n@danielhemmati\nsee first viral post in linkedin which pass 100 likes #showyourwork\nsame post won't work on X, for X i am working on tiny-inference\n3\nReply\n2026-10-07 06:22:28 UTC\nShow replies\nPost\nOpen options\nMaulik Dhameliya\n@mjdhameliya\nadmin work for launchigniter.com #projects\nReply\n2026-10-07 06:21:27 UTC\nShow replies\nPost\nOpen options\nDaniel Hemmati\n@danielhemmati\nwake up 6:22\nReply\n2026-10-07 06:20:52 UTC\nShow replies\nPost\nOpen options\nMaulik Dhameliya\n@mjdhameliya\nfix wrong country analytics & test using vpn for different countries apppage.co #projects\nReply\n2026-10-07 06:15:25 UTC\nShow replies\nPost\nOpen options\nPaulina Sáez\n@Paulina\nClient work: project management #upgroves\n1\nReply\n2026-10-07 06:10:00 UTC\nShow replies\nPost\nOpen options\nIvan Morgillo\nPRO\n@ivanmorgillo\n📋 Daily Standup — 2026-10-07\n#apppromoreel\n• Document feed safe zones and test all browser and rendering paths\n#bedtimestories\n• Fix paywall caching, reminders, reader sync, and Firebase config\n• Add trial reminder check and RevenueCat Firebase tagging\n#blackjacktrainer\n• Ship iOS 35 and Android 34; fix app open ads and cold-start behavior\n• Add strategy guide and fix remote config issues\n• Complete 4 review rounds\n#kindlegratis\n• Test and fix stored sites, localization, top100 parsing, and external offers\n• Translate home and update screens\n#lucagodot\n• Add Snake mini-game to Officina\n#ludusmagnus\n• Implement Electric + Volt theme with condensed titles and bundled fonts\n#mygoo\n• Fix recurring schedules to Europe/Rome timezone and add per-campaign CTAs\n#smartpantry\n• Add OCR, onboarding, item save, and expiry event logging\n• Test label-photo feature in Maestro flows\n#streakup\n• Fix paywall state across saves, sign-in changes, and store calls\n• Add push-ups daily guide; complete 2 review rounds\n#showmethemoney\n• Rewrite slides with dated metrics, before-and-after format, new typography, and canvas layout\n#3thingsaday\n• Ship iOS 53 and Android 136; add ADHD guide and update store listings in 12 locales\n11 projects shipped yesterday.\n1\nReply\n2026-10-07 06:04:04 UTC\nShow replies\nPost\nOpen options\nMaulik Dhameliya\n@mjdhameliya\ncreate alt pages for apppage.co #projects\nReply\n2026-10-07 05:12:07 UTC\nShow replies\nPost\nOpen options\nSwizec Teller\nPRO\n@swizec\nweek review and plan; feeling very uninspired lately\nReply\n2026-10-07 05:02:18 UTC\nShow replies\nPost\nOpen options\nCarl Fyffe\nPRO\n@sixty4bit\nHopefully no headaches tonight\nReply\n2026-10-07 04:53:51 UTC\nShow replies\nPost\nOpen options\nSean Nam\nPRO\n@seannam\nCreate promo trailer for Farm Blast Match 3 and submit v1.9.0 #iosapps\nReply\n2026-10-07 04:16:34 UTC\nShow replies\nPost\nOpen options\nSean Nam\nPRO\n@seannam\nUse ai to create promo trailers for #snakedefense and #themandate\nReply\n2026-10-07 03:48:44 UTC\nShow replies\nPost\nHome\nSearch\nMessages\nNotifications\nMore\nconfirm-dialog#closeOnBackdropClick\"\nclass=\"m-auto w-[calc(100%-2rem)] max-w-sm p-0 rounded-2xl bg-white dark:bg-gray-800 shadow-xl dark:outline dark:outline-1 dark:outline-white/20 backdrop:bg-black/50\">\nAre you sure?\nCancel\nConfirm\nmodal#open click->modal#closeIfClickedBlocker keydown@window->modal#closeIfEscape\">\nKeyboard Shortcuts\nGo to Homepage\ng\nh\nGo to Done Todos\ng\nd\nCompose a New Todo\nn\nGo to Search\n/\nShow this dialog\n?\ntransitioned-modal#hide keyup.esc@window->expiring-dismissal#dismiss transitioned-modal:click:outside->transitioned-modal#hide expiring-dismissal:click:outside->expiring-dismissal#dismiss\"\ndata-transitioned-modal-target=\"backdrop\"\ndata-transition-enter=\"transition ease-in-out duration-100\"\ndata-transition-enter-start=\"opacity-0\"\ndata-transition-enter-end=\"opacity-100\"\ndata-transition-leave=\"transition ease-in-out duration-800\"\ndata-transition-leave-start=\"opacity-100\"\ndata-transition-leave-end=\"opacity-0\"\ndata-expiring-dismissal-identifier-value=\"welcome_modal\"\n>\nWIP\nJoin the maker community\nSurround yourself with other successful indie makers sharing the same goals\nJoin now\nLog in\nJoin 3,823 makers\n✅\nShip every day\nBuild a habit of shipping by sharing your daily, incremental progress\n👀\nLearn from others\nSee how other makers are growing their business\n🎟️\nCurated community\nMembers are invited by existing members\n💬\nGet feedback\nReceive outside perspective when you need it\n👋\nWeekly hangouts\nConnect with others through weekly video hangouts\n🤑\nExclusive discounts\nGet access to our members-only perks and discounts",
+     "policy": {
+      "policyId": "rights.official-company-website.v1",
+      "sourceId": "src.official-company-website",
+      "providerName": "Official company or product website (entity-bound)",
+      "displayTier": "automatic",
+      "registryHash": "30d893f5b810c363886fbef8bc35e9535700abdcb83e6a517b66018b3993cacc"
+     }
+    },
+    {
+     "sourceId": "s4",
+     "url": "https://wip.co/posts/proposal-make-wip-free-and-invite-only-q27re4",
+     "publisher": "Marc Köhlbruggeの無料化・招待制の提案",
+     "snapshot": {
+      "url": "https://wip.co/posts/proposal-make-wip-free-and-invite-only-q27re4",
+      "finalUrl": "https://wip.co/posts/proposal-make-wip-free-and-invite-only-q27re4",
+      "status": 200,
+      "fetchedAt": "2026-10-07T09:52:10.393Z",
+      "via": "direct",
+      "contentType": "text/html; charset=utf-8",
+      "textHash": "8d6c809fee9c17afc5f6543ff8ef95592acc0e58cd717cbebcd5744bf40881f9"
+     },
+     "text": "Proposal: Make WIP free and invite-only? / WIP\nMarc Köhlbrugge asks: Proposal: Make WIP free and invite-only?\nProposal: Make WIP free and invite-only? / WIP\nMarc Köhlbrugge asks: Proposal: Make WIP free and invite-only?\nProposal: Make WIP free and invite-only? / WIP\nWIP\nHome\nNotifications\nDMs\nDiscussions\nPro\nHangout\nSearch\nMore\nJoin\nSign in\nNew to WIP?\nWe're a group of makers shipping together. We help each other stay accountable and reach our goals.\nJoin now\nWIP\nA community of makers shipping together\nTopics\n💲\nPricing\nOther posts\nFake AI customer on Stripe?\n3 answers\nRSS.app alternatives\n3 answers\nPrefilled or manual code discount?\n6 answers\nStartup Name Generator is live in the ChatGPT plugin directory 🦄\n2 answers\nBack\nPost\nPosted\n2022-09-06 12:53:49 UTC\nProposal: Make WIP free and invite-only?\nI've been toying with three related ideas for WIP to grow the community and get more (relevant) people onboard:\nIdea 1: Free\nCurrently, anyone considering to join WIP will need to commit to paying $20 per month. This is great in the sense that we don't get any spam, and the majority of new members are commited to get the best out of their membership.\nHowever, I'm sure there are also many makers who would be a value-add to the community, but who either can't afford the current membership fee, or are unwilling to risk paying for something they aren't sure is worth it.\nAdditionally, requiring payment means it's a lot harder for us to invite our members or other cool makers we find online.\nIf we make WIP free of charge, I think we could welcome a ton of cool people to the community and improve the overall value of the community. More answers to your questions. We could build out a big member directory allowing to find and meet other makers near you, or those with expertise you're after, etc.\nIdea 2: Invite-only\nOne of the main upsides of being a paid community, is that there's a built-in relevancy filter. It's not perfect (not everbody who pays is necessarily a good fit, and not everbody who's unwilling or unable to pay would be a bad fit), but overall we've been able to attract mostly relevant members.\nI believe this \"relevancy filter\" sets us apart from some of the free alternatives, so it's not something we want to throw away by making WIP a free-for-all and letting anyone in.\nSo I'm proposing we make the whole community invite-only. We would rely on existing members, you, to invite and vouch for new members.\nDepending on to-be-determined criteria you'd receive invites to share with friend, collagues, etc. When inviting someone you would be \"vouching\" for that person to be a upstanding community member.\nPeople inviting active and helpful makers would be rewarded with more invites, and people who tend to invite members who are a bad fit, would no longer have the ability to invite new people.\nWe could also replace our traditional sign up page with an \"apply to join\"-form where people can tell a bit about themselves and why they'd like to join WIP. Then, when you have an invite to share but you aren't sure who to give it to, you could browse these applicants and award one of them your invite instead.\nWIP would remain a curated community.\nIdea 3: Optional paid membership\nThe final piece of the puzzle is to have some form of monetization. After all, if I'm going to keep improving the platform I need both the financial incentive and resources to do so 😄\nSo while the main membership would become free, we could have an optional paid membership. With additional features.\nWe might increase the number of projects you could have, allow you to choose a a vanity URL for your projects, get access to a patrons-only chat, etc.\nIt would take some figuring out how to provide enough value to people for them wanting to pay a monthly fee when the main part is free, but I believe we can work that out. I'm willing to take that gamble.\n---\nWhat do you all think?\nMarc Köhlbrugge\nPRO\n@marc\n8\nturbo-frame>turbo-frame:not(:first-child)>.comment]:mt-4\">\n👋 Join WIP to participate\nEdit\nDelete\nShare\nReport\nEbrahim-Khalil Hassen\n@EbrahimKhalilHassen\nOpen options\nI bought WIP early on as lifetime offer. I doubt I would buy it for a monthly fee. Maybe just me. I like both Idea 2 and Idea 3. Maybe a premium option could include voice chats?\n3\nReply\n4y\nPost\nEdit\nDelete\nShare\nReport\nMarc Köhlbrugge\nPRO\n@marc\nOpen options\nWe don't have (or had) any lifetime plan, but I think you joined early on before we introduced the paywall? All those early accounts kept the free plan.\nPremium feature could definitely include voice chats. Or maybe you'd get priority for speaking, or proposing topics, etc. Lots of things we can do here.\n3\nReply\n4y\nPost\nEdit\nDelete\nShare\nReport\nEbrahim-Khalil Hassen\n@EbrahimKhalilHassen\nOpen options\nGood ideas and good to get more engagements. I remember paying a once off fee.\n1\nReply\n4y\nPost\nEdit\nDelete\nShare\nReport\nMarc Köhlbrugge\nPRO\n@marc\nOpen options\nI looked into it, and you were one of the first to become a paying patron so thank you for that!\nIt was a $100/year payment that didn't automatically renew and I never reached out to ask people to renew because it didn't feel right to ask for more money.\nSo you had the \"patron\" status for that one year. But because you initially joined WIP before we made a paid membership required, you were also grandfathered into a lifelong free membership.\n1\nReply\n4y\nPost\nEdit\nDelete\nShare\nReport\nEbrahim-Khalil Hassen\n@EbrahimKhalilHassen\nOpen options\nThe best $100 I have spent\n3\nReply\n4y\nPost\nEdit\nDelete\nShare\nReport\nRik Schennink\nPRO\n@rikschennink\nOpen options\n2 and 3 are excellent ideas. I think influx of more members is nice. I do wonder how that would work with telegram, it seems slack / discord are just more suitable for larger numbers of people but that might just be me.\n4\nReply\n4y\nPost\nEdit\nDelete\nShare\nReport\nRik Schennink\nPRO\n@rikschennink\nOpen options\nAbout paying/free. Maybe you can look into a pay-once for lifetime access model.\nIt has the added advantage that it might keep members around after they \"figured things out\", as-in WIP for me is still a valuable community but it was a lot more valuable when I just joined and had not yet quit my fulltime job.\n2\nReply\n4y\nPost\nEdit\nDelete\nShare\nReport\nMarc Köhlbrugge\nPRO\n@marc\nOpen options\nA lifetime offer is something I've been considering lately. I'm generally not a fan, as I wouldn't be as aligned with the customer (lifetime-plan products often end up over-optimizing for new sales rather than providing long-term value to customers). But to your point, it would help grow a larger community overall which has its own benefits.\n1\nReply\n4y\nPost\nEdit\nDelete\nShare\nReport\nMarc Köhlbrugge\nPRO\n@marc\nOpen options\nYeah agree with you on Telegram. If it becomes a problem we'd either need to push the other groups we have a bit more (maybe create cohort-specific groups in addition to the topic-based groups we already have).\nI'm also considering Slack, Discord, or even creating something custom that's better optimized for WIP.\nHaving too many members for the chat would be a nice problem to have tho :)\n1\nReply\n4y\nPost\nEdit\nDelete\nShare\nReport\nEbrahim-Khalil Hassen\n@EbrahimKhalilHassen\nOpen options\nMaybe a monthly challenge. Ship in six days or something like that may work.\n2\nReply\n4y\nPost\nEdit\nDelete\nShare\nReport\nMarc Köhlbrugge\nPRO\n@marc\nOpen options\nAh yes! Want to do these for sure. Like diferent themes. Marketing week where we all do marketing for one week. Hackathons where we all try and ship something by a certain date. Etc.\n4\nReply\n4y\nPost\nEdit\nDelete\nShare\nReport\nMaria Zentsova\n@mariazent\nOpen options\nYes, this would be so perfect! Love hackathons)\n1\nReply\n4y\nPost\nEdit\nDelete\nShare\nReport\nMartijn Verbove\n@marver777\nOpen options\nHey @marc ,\nMost of all, I feel that you and WIP deserve to be paid for all the work you do\\have done — my personal experience is that I'm happy to pay $20/m.\nI'd be happy to pay even more if there were online events/round-tables to meet more fellow makers.\nIn relation to your proposed idea this is what comes to mind:\nMaybe a hybrid solution would work: you could allow paid members to invite who-ever they like, and those that are invited receive access for free.\nHope this is useful,\n4\nReply\n4y\nPost\nEdit\nDelete\nShare\nReport\nMarc Köhlbrugge\nPRO\n@marc\nOpen options\nThanks! Yes my hope is that WIP is well worth the $20/mo fee and fortunately that seems to be the case for many members.\nHowever, it's still a big barrier for new people and makes it hard to get new people in. Hence the proposal of first getting (relevant) members through the door with a free plan, and once they are convinced of the value offer additional functionality and access with a paid membership.\n1\nReply\n4y\nPost\nEdit\nDelete\nShare\nReport\nMartijn Verbove\n@marver777\nOpen options\nWhat about only allowing paid members to give free invites?\nIf people really like the community, they'll want to invite their friends - and they'll need to upgrade.\nIn addition, you can also have several paid features, such as creating discussions, roasts, etc.\nMore or less, only private tasks and chat would be free; ex. they wouldn't be able to. post /done to the main wipchat but only to their account - they can, on the other hand, engage in chat/discussions/roasts.\n2\nReply\n4y\nPost\nEdit\nDelete\nShare\nReport\nMarc Köhlbrugge\nPRO\n@marc\nOpen options\nNice, yes these are some great suggestions for pro-only features 👍\nThe only thing I want to be careful with is making \"invites\" a perk of being a paying member. As then people might feel entitled to get them, whereas I'd like to keep the option to be selective about who get to invited other members.\nBut it's definitely something we can experiment with\n3\nReply\n4y\nPost\nEdit\nDelete\nShare\nReport\nMaria Zentsova\n@mariazent\nOpen options\n@marc I would definitely pay for online events and round-tables for the opportunity to ask questions and pick the brain of people who are successful in their niche, in my view it's very motivating. I also love how you share actionable tips like where to host website and which libraries you use, this saves a lot of time and eliminates decision fatigue))\nAs for payment I am happy to pay, it is totally worth it and more! But for a person coming from a third world country it might be a bit expensive, especially for people who have potential, but are just starting their career? So, I think inviting people for free based on merit and their fit to the community would be great.\n1\nReply\n4y\nPost\nEdit\nDelete\nShare\nReport\nMarc Köhlbrugge\nPRO\n@marc\nOpen options\nThanks, yes we're currently excluding a lot of people from different parts of the world.\nPart of my response has been that with remote work and the online gig economy, it's becoming a lot easier for any entrepreneurial person to earn some money to afford a $20/mo subscription (e.g. spending 1-2 hours a month on doing gigs on Upwork should cover it), but perhaps that's an overly optimistic view?\nEither way, I think having a free-tier would definitely open up to a wider audience. And as long as we make sure we still curate for pasionate, positive and entrepeneurial people, then they should be a value-add to the community regardless of their current discretionary budget.\nWith regards to the online events, I'll be looking into hopin.com which @marver777 recommended to me a while ago.\n2\nReply\n4y\nPost\nEdit\nDelete\nShare\nReport\nJeff Triplett ✨\nPRO\n@jefftriplett\nOpen options\nAll three are kind of meh to me. I'd recommend #3 + #2 and skipping #1. I like #3 so that there is money coming into to help grow/build the website. I don't think you need to do free if you go that route, #2 makes a lot of sense.\nIf people are not seeing the value, maybe change up the pricing to $89 or $99 for the first year and re-evaluate your pricing for the next year if renewals don't pick up.\n2\nReply\n4y\nPost\nEdit\nDelete\nShare\nReport\nMarc Köhlbrugge\nPRO\n@marc\nOpen options\nHow would #3 work without #1?\nReply\n4y\nPost\nEdit\nDelete\nShare\nReport\nMarc Köhlbrugge\nPRO\n@marc\nOpen options\nOr are you saying just keep charging the $20/mo like we do now? But make it invite-only?\nThe \"problem\" I'm trying to solve is there's relatively few new members joining each month. So if we were to restrict it further (making it invite-only), that just makes matter worse.\nReply\n4y\nPost\nEdit\nDelete\nShare\nReport\nJeff Triplett ✨\nPRO\n@jefftriplett\nOpen options\nOr are you saying just keep charging the $20/mo like we do now?\nI'm +1 keeping a paid plan. I'd experiment with pricing to see if that's a barrier. May factor in purchasing power parity (big mac index) since ~$200 does not scale outside of US/UK/Europe very well.\nBut make it invite-only?\nHow would #3 work without #1?\nI think invite-only free accounts are a decent model to avoid SPAM. I have invited several but I think that leap from free for a month to mentally ~$20/year or $150/yr might have scared a few off.\nIf you have a distinct line between paid and unpaid features, then that gives people an incentive to want to pay you. I'm that way with Twitter too. I would love to pay them but not for what Twitter Blue gives me when I'd pay to never see an ad.\n2\nReply\n4y\nPost\nEdit\nDelete\nShare\nReport\nMarc Köhlbrugge\nPRO\n@marc\nOpen options\nOh nice. You just gave me a crazy idea.\nWhat if we showed ads to free members. But instead of regular ads, they would be ads for the products of the paying members!\n4\nReply\n4y\nPost\nEdit\nDelete\nShare\nReport\nPhilip Thomas\n@philipithomas\nOpen options\nI think paying for access to the community makes sense. I just honestly don't like Telegram - it's a blocker to me engaging more with the community. I prefer something more asynchronous.\n4\nReply\n4y\nPost\nEdit\nDelete\nShare\nReport\nMarc Köhlbrugge\nPRO\n@marc\nOpen options\nYeah people seem quite divided over Telegram. Some people like myself use it all the time with friends etc so it makes sense to also have WIP accessible there.\nBut if you don't use Telegram already, I can how it's not ideal having to use that for WIP.\nWould you mind elaborating on a more asynchronous solution you'd prefer? Is it something where the website could play a role?\nReply\n4y\nPost\nEdit\nDelete\nShare\nReport\nPhilip Thomas\n@philipithomas\nOpen options\n@marc I want one good email summary per day of what's being discussed. That way, info gets pushed to me - but in a calm way, where I don't have to remember to check all the time. I miss web forums, which are close to this. But, they are all so clunky.\nThe best asynchronous, modern forum I've used is YC bookface. I've been working on a project called #booklet , which is inspired by YC Bookface. If you're interested in testing it out - I'd love to keep developing it for a community like WIP. It's made to be high-polish and realtime, but able to be used over just email with one good summary per day.\nThe closest I've seen to what I want today is groups.io/ - but it's still pretty clunky.\n1\nReply\n4y\nPost\nEdit\nDelete\nShare\nReport\nMarc Köhlbrugge\nPRO\n@marc\nOpen options\nDo you subscribe to the current daily WIP email?\nIt only shows todo activity of the people you follow, but there's a lot more we can like you suggest. Include new discussions, recently added projects, etc.\nWhat would you like to see in such a daily email?\nI've been building out our own forum software which we're having this conversation in right now. Are you saying you want more of an email interface for this, including the ability to reply to comments, etc?\nReply\n4y\nPost\nEdit\nDelete\nShare\nReport\nPhilip Thomas\n@philipithomas\nOpen options\nNo, I do the weekly email - I'll switch to daily.\nThe main point of a forum for me is non-realtime discussions. Replying via email is secondary for me.\n1\nReply\n4y\nPost\nEdit\nDelete\nShare\nReport\nJelmer de Boer\nPRO\n@jelmerdeboer\nOpen options\nI LIKE THINGS AS THEY ARE\n2\nReply\n4y\nPost\nEdit\nDelete\nShare\nReport\nJelmer de Boer\nPRO\n@jelmerdeboer\nOpen options\n(angry face)\n1\nReply\n4y\nPost\nEdit\nDelete\nShare\nReport\nJesse\n@jesse\nOpen options\nI think having a paywall guarantees no spammers, giving invites to everyone might lead to ppl handing them out via Twitter etc., so not sure about that.\nI like the mentioned idea of having invites for ppl paying, free members have restricted access or sth like reddit karma that gives you points for adding value (good comments etc) and then opens up some restrictions for free users\n2\nReply\n4y\nPost\nEdit\nDelete\nShare\nReport\nMarc Köhlbrugge\nPRO\n@marc\nOpen options\nYeah I definitely don't want to give invites to everyone. That would defeat the purpose of having invites.\nWe'd need to find the right mechanism for deciding who gets to invite new members, but I think we can figure that out.\nI like the suggestion of a Reddit-like karma system. I also thought about Reddit Gold. So maybe paying members can gift (a month of) \"pro\"-access to \"free\"-members if they want to get the involved in the paid-only sections of the community.\n1\nReply\n4y\nPost\nEdit\nDelete\nShare\nReport\namir\n@amirmxt\nOpen options\nLike things they way they are :)\nI personally dislike paying monthly so I resort to annual or lifetime - so try experimenting with that or testing the pricing.\n1\nReply\n4y\nPost\nEdit\nDelete\nShare\nReport\nMarc Köhlbrugge\nPRO\n@marc\nOpen options\nI think the main issue with upfront payment (regardless of the exact price) is that people aren't sure what to expect of WIP. It's not like a SaaS that solves a specific problem. For many people sharing their todos publicly already feels like an alien concept, so why would they start paying to do that?\nI tried to combat that by providing existing members with invites to share that give 30-day access free-of-charge, but it hasn't been that effective at driving up memberships.\nMy current thesis is that part of the reason for that is it doesn't feel great giving away what's basically a free trial. But when it's actually giving someone access to something that's otherwise inaccessible, then I think it will hold a lot more value. So people would be more inclined to use invite someone, and those who get invited would value that invite more.\n3\nReply\n4y\nPost\nEdit\nDelete\nShare\nReport\nMartin Donadieu\nPRO\n@martindonadieu\nOpen options\nTo me, don't change the price. :)\nallow us to do affiliate with discount.\nLike 25% discount + 25% shared revenue for the person who invited.\nhaving the right of 4 invitations total\neach time invite is granted and person start to pay a 25% is deduce from your own subscription.\nand you get back your invit slot\nafter 4 paying you don't pay anymore.\nbut you can continue to invite people with discount 25 or 50( you choose)\neach time one person we invited cancel sub we loose one invit slot and have to pay again.\nthe paying filter is important, please keep it.\nit's good for both side.\nthat motivated me to commit more into making\n1\nReply\n4y\nPost\nEdit\nDelete\nShare\nReport\nMarc Köhlbrugge\nPRO\n@marc\nOpen options\nI like the idea of rewarding members for bringing in more people, but I'm not sure the economics of a $20/mo subscription will allow us to offer an incentive significant enough to get people to actively start inviting more members.\nI think the key incentive for people to invite cool makers is that it helps improve their own experience of WIP. However, right now that's complicated by the fact that those cool makers need to get over that $20/mo hurdle first.\nHence the idea to offer a free (but invite-only!) membership.\nIf there was a stripped-down free version, in addition to the current paid membership, would you downgrade? If not, do you think it would negatively effect that motiviation you mention?\n2\nReply\n4y\nPost\nEdit\nDelete\nShare\nReport\nMartin Donadieu\nPRO\n@martindonadieu\nOpen options\ni agree totally my proposal was to complex after read it again.\nyour approach seems more doable, and inspired by a model who already work Dribbble\n1\nReply\n3y\nPost\nEdit\nDelete\nShare\nReport\nFredrik\n@fredrik\nOpen options\nDribbble follows an invite only model for posts to be distributed, and then a paid Pro option.\n1\nReply\n4y\nPost\nEdit\nDelete\nShare\nReport\nMarc Köhlbrugge\nPRO\n@marc\nOpen options\nYeah, Dribbble's approach is a big inspiration for this. I think they are in a similar position where having a larger community increases the value of their platform, but only if the quality of the content and the members remain high enough.\nThe Pro subscription along with some of their other revenue models seem to work well enough to offset the free memberships.\n1\nReply\n4y\nPost\nHome\nSearch\nMessages\nNotifications\nMore\nconfirm-dialog#closeOnBackdropClick\"\nclass=\"m-auto w-[calc(100%-2rem)] max-w-sm p-0 rounded-2xl bg-white dark:bg-gray-800 shadow-xl dark:outline dark:outline-1 dark:outline-white/20 backdrop:bg-black/50\">\nAre you sure?\nCancel\nConfirm\nmodal#open click->modal#closeIfClickedBlocker keydown@window->modal#closeIfEscape\">\nKeyboard Shortcuts\nGo to Homepage\ng\nh\nGo to Done Todos\ng\nd\nCompose a New Todo\nn\nGo to Search\n/\nShow this dialog\n?\ntransitioned-modal#hide keyup.esc@window->expiring-dismissal#dismiss transitioned-modal:click:outside->transitioned-modal#hide expiring-dismissal:click:outside->expiring-dismissal#dismiss\"\ndata-transitioned-modal-target=\"backdrop\"\ndata-transition-enter=\"transition ease-in-out duration-100\"\ndata-transition-enter-start=\"opacity-0\"\ndata-transition-enter-end=\"opacity-100\"\ndata-transition-leave=\"transition ease-in-out duration-800\"\ndata-transition-leave-start=\"opacity-100\"\ndata-transition-leave-end=\"opacity-0\"\ndata-expiring-dismissal-identifier-value=\"welcome_modal\"\n>\nWIP\nJoin the maker community\nSurround yourself with other successful indie makers sharing the same goals\nJoin now\nLog in\nJoin 3,823 makers\n✅\nShip every day\nBuild a habit of shipping by sharing your daily, incremental progress\n👀\nLearn from others\nSee how other makers are growing their business\n🎟️\nCurated community\nMembers are invited by existing members\n💬\nGet feedback\nReceive outside perspective when you need it\n👋\nWeekly hangouts\nConnect with others through weekly video hangouts\n🤑\nExclusive discounts\nGet access to our members-only perks and discounts",
+     "policy": {
+      "policyId": "rights.official-company-website.v1",
+      "sourceId": "src.official-company-website",
+      "providerName": "Official company or product website (entity-bound)",
+      "displayTier": "automatic",
+      "registryHash": "30d893f5b810c363886fbef8bc35e9535700abdcb83e6a517b66018b3993cacc"
+     }
+    },
+    {
+     "sourceId": "s5",
+     "url": "https://wip.co/posts/wip-is-now-invite-only-and-free-c9wkua",
+     "publisher": "Marc Köhlbruggeの料金・招待制変更発表",
+     "snapshot": {
+      "url": "https://wip.co/posts/wip-is-now-invite-only-and-free-c9wkua",
+      "finalUrl": "https://wip.co/posts/wip-is-now-invite-only-and-free-c9wkua",
+      "status": 200,
+      "fetchedAt": "2026-10-07T09:52:11.116Z",
+      "via": "direct",
+      "contentType": "text/html; charset=utf-8",
+      "textHash": "2669dfecd4e05ddacf12e385914f88aa999b2beebf0fa2fd285e10a3f066c383"
+     },
+     "text": "WIP is now invite-only (and free*) / WIP\nMarc Köhlbrugge asks: WIP is now invite-only (and free*)\nWIP is now invite-only (and free*) / WIP\nMarc Köhlbrugge asks: WIP is now invite-only (and free*)\nWIP is now invite-only (and free*) / WIP\nWIP\nHome\nNotifications\nDMs\nDiscussions\nPro\nHangout\nSearch\nMore\nJoin\nSign in\nNew to WIP?\nWe're a group of makers shipping together. We help each other stay accountable and reach our goals.\nJoin now\nWIP\nA community of makers shipping together\nTopics\n🌐\nCommunities\n💲\nPricing\n🚧\nWIP\nOther posts\nlaunched!!!!\n1 reply\na 3D DICOM volume engine built to learn GPGPU and Rust.\nBe the first to reply\nPublished Startup Name Generator as a public API on RapidAPI\nBe the first to reply\nShipped an affiliate program for LogoRay: 30% of every sale, free to join\nBe the first to reply\nBack\nPost\nPosted\n2022-09-22 18:10:03 UTC\nWIP is now invite-only (and free*)\nWhen I first started WIP about four years ago I never thought it would turn into what it is today. It was a just a Telegram chatgroup, free for anyone to join.\nPretty soon though, some very kind people (many still active members today!) asked if they could donate some $$$ to WIP in the hope to increase its viability. I formalized this under the \"Patronage\" model where a $150 payment would give you one year of additional perks like darkmode and a special badge on your profile.\nWIP grew in popularity. Quickly so much so that the large influx of new people, primarily into the chat, would disrupt our nice calm community. That's when I decided to make this $150/year (or $20/mo) payment mandatory for all future signups*. The goal being to reduce the number of new members coming in, while also providing cash flow to support on-going development of the platform. (*any existing members retained their free access)\nFast forward a couple years later to 2022 and we still got this same membership model. Until today…\nThe paid membership model has served WIP well in the sense that we've attracted and continue to attract very talented, helpful, and interesting makers. I don't know any other community where the signal-to-noise ratio is this high. A lot of the people I now call friends I met through WIP. And I know this is true for many of you as well. Especially those who've been with WIP for a while.\nHaving said that, the quantity of new members coming is quite low and I think doesn't live up to WIP's potential. For reference we received only 3 signups last month.\nWith the recent developments of the website I think our community can host a lot more members and activity. Which ultimately would increase the value we'd all get from WIP. As long as we ensure we attract the right people, adding more members will increase the chance someone knows the answer to your question, the amount of feedback on your products, and the chance you'll meet a fellow maker at a local WIP meetup.\nThen there's the revenue. Besides a community, WIP is also a business. There are on-going operational costs and I invest a significant amount of my time in WIP. But with an average MRR of $2,000 it sometimes feels more like a non-profit. It's still one of my favorite products to work on, because I love talking to members and helping you become more productive in any way possible. But at this revenue level, there's only so much time and resources I can afford to put in.\nOkay, so why this post?\nWell, I think it's time to try a new model.\nI want to make clear that I 100% want to protect what we currently have. I don't want to open the floodgates. I don't want to let everybody in for the sake of growth.\nBut what I do want to do is to see if we can lower the barrier for new, talented and positive makers to join our community. By removing the paywall, and using an invite-only approach to ensure the community remains up to our standards.\nWe will continue to offer a paid membership as well with all the functionality and perks you're used to (and in the future hopefully more!). While the new free tier will have some restrictions to the number of projects you can have, etc.\nFinding the right balance between the free and pro plans will take some time. But my hope is that the free plan will get people in the door, and the pro plan is what many ultimately graduate to in order to get the most out of WIP.\nHaving said all that, I consider this an experiment. It's impossible to predict if it will work and I might change everything back to how it was before. But we won't know unless we try it.\nI want to thank everyone for sharing their feedback and I hope to continue to receive your feedback and suggestions as we move forward.\nMarc Köhlbrugge\nPRO\n@marc\n19\nturbo-frame>turbo-frame:not(:first-child)>.comment]:mt-4\">\n👋 Join WIP to participate\nEdit\nDelete\nShare\nReport\nRussell Smith\nPRO\n@russ\nOpen options\nCongrats @marc !\n1\nReply\n4y\nPost\nEdit\nDelete\nShare\nReport\nMarc Köhlbrugge\nPRO\n@marc\nOpen options\n🙌\n1\nReply\n4y\nPost\nHome\nSearch\nMessages\nNotifications\nMore\nconfirm-dialog#closeOnBackdropClick\"\nclass=\"m-auto w-[calc(100%-2rem)] max-w-sm p-0 rounded-2xl bg-white dark:bg-gray-800 shadow-xl dark:outline dark:outline-1 dark:outline-white/20 backdrop:bg-black/50\">\nAre you sure?\nCancel\nConfirm\nmodal#open click->modal#closeIfClickedBlocker keydown@window->modal#closeIfEscape\">\nKeyboard Shortcuts\nGo to Homepage\ng\nh\nGo to Done Todos\ng\nd\nCompose a New Todo\nn\nGo to Search\n/\nShow this dialog\n?\ntransitioned-modal#hide keyup.esc@window->expiring-dismissal#dismiss transitioned-modal:click:outside->transitioned-modal#hide expiring-dismissal:click:outside->expiring-dismissal#dismiss\"\ndata-transitioned-modal-target=\"backdrop\"\ndata-transition-enter=\"transition ease-in-out duration-100\"\ndata-transition-enter-start=\"opacity-0\"\ndata-transition-enter-end=\"opacity-100\"\ndata-transition-leave=\"transition ease-in-out duration-800\"\ndata-transition-leave-start=\"opacity-100\"\ndata-transition-leave-end=\"opacity-0\"\ndata-expiring-dismissal-identifier-value=\"welcome_modal\"\n>\nWIP\nJoin the maker community\nSurround yourself with other successful indie makers sharing the same goals\nJoin now\nLog in\nJoin 3,823 makers\n✅\nShip every day\nBuild a habit of shipping by sharing your daily, incremental progress\n👀\nLearn from others\nSee how other makers are growing their business\n🎟️\nCurated community\nMembers are invited by existing members\n💬\nGet feedback\nReceive outside perspective when you need it\n👋\nWeekly hangouts\nConnect with others through weekly video hangouts\n🤑\nExclusive discounts\nGet access to our members-only perks and discounts",
+     "policy": {
+      "policyId": "rights.official-company-website.v1",
+      "sourceId": "src.official-company-website",
+      "providerName": "Official company or product website (entity-bound)",
+      "displayTier": "automatic",
+      "registryHash": "30d893f5b810c363886fbef8bc35e9535700abdcb83e6a517b66018b3993cacc"
+     }
+    },
+    {
+     "sourceId": "s6",
+     "url": "https://wip.co/posts/proposal-for-alternative-streak-model-that-doesn-t-reset-ybma5z",
+     "publisher": "WIPの連続記録についての提案と利用者の声",
+     "snapshot": {
+      "url": "https://wip.co/posts/proposal-for-alternative-streak-model-that-doesn-t-reset-ybma5z",
+      "finalUrl": "https://wip.co/posts/proposal-for-alternative-streak-model-that-doesn-t-reset-ybma5z",
+      "status": 200,
+      "fetchedAt": "2026-10-07T09:52:11.226Z",
+      "via": "direct",
+      "contentType": "text/html; charset=utf-8",
+      "textHash": "68c4fb5b8479350571d7667e9b0d9c29cbec72fcc5f2b9384f6c9bf0431ef46e"
+     },
+     "text": "Proposal for alternative streak model that doesn't reset / WIP\nMarc Köhlbrugge asks: Proposal for alternative streak model that doesn't reset\nProposal for alternative streak model that doesn't reset / WIP\nMarc Köhlbrugge asks: Proposal for alternative streak model that doesn't reset\nProposal for alternative streak model that doesn't reset / WIP\nWIP\nHome\nNotifications\nDMs\nDiscussions\nPro\nHangout\nSearch\nMore\nJoin\nSign in\nNew to WIP?\nWe're a group of makers shipping together. We help each other stay accountable and reach our goals.\nJoin now\nWIP\nA community of makers shipping together\nTopics\n🚧\nWIP\nOther posts\nFake AI customer on Stripe?\n3 answers\nRSS.app alternatives\n3 answers\nPrefilled or manual code discount?\n6 answers\nStartup Name Generator is live in the ChatGPT plugin directory 🦄\n2 answers\nBack\nPost\nPosted\n2022-12-05 12:12:06 UTC\nProposal for alternative streak model that doesn't reset\nWIP's streaks are always a decisive topic. Some people claim it's what finally made them a productive maker while others dislike the unhealthy incentive to work every single day.\nFor the people that do like streaks, it can be very demotivating when they eventually lose them and have to start from scratch again.\nWe've had many discussions about streaks and how to improve upon them. From adding \"rest days\" to changing it to \"ship once a week instead of daily\".\nThe problem with all of these however is they were still very much subjective (e.g. how many rest days are you allowed to have?) or they become complex to explain and understand.\nThe beautify of the current model is how simple it is. But it still has its flaws.\nSo I'm wondering, what if change the streaks to the following:\nEvery day you complete at least one todo, your streak increases by one.\nWhen you miss a day, your streak decreases by one.\nYour streak can never go below.\nHere's how your streak might evolve:\nCleanShot 2022-12-05 at [email protected]\n163 KB\nSome interesting observations:\nSee that straight line in the beginning? That was this user keeping a streak as we know today.\nThe ragged line right after their original streak reset zero they had off and on days.\nThen around January 1st 2019 after a few weeks of not completing any todos, they started a streak again.\nGoing great for a while, but eventually missed a day and it went downhill from there.\nEtc.\nNote that long upwards trend that started around the start of 2021? That's a great indicator this person started reliably shipping (assuming a decent amount of work-related todos) but since the chart is not completely linear like in the beginning, it also means the maker didn't earn a streak from this (as there's at least a few missed days).\nHowever with this new type of streak calculation, they would have a decent score which would accurately reflect their consistency. Better than the hardcore approach of our current streak calculations.\nBut what about people who like this hardcore daily shipping?\nThe great thing is that they can still do that and earn the associated credit with doing so. As shipping every single day without missing a beat remains the only way to reach the highest streak possible.\nAnd they'd get a nice straight line like this 😄\nCleanShot 2022-12-05 at [email protected]\n120 KB\nBut does it make the streak less effective if you know you can skip a day without issue?\nPossibly. I think this is my main concern with the proposed alternative. But I still think you'll build up number you can be proud off and you don't want to completely lose. So while you might decide to skip a day, you probably wouldn't want to let it all go to waste.\nBut this assumes you have a decent streak to begin with. I'm not sure how this alternative approach would affect new users building up a streak for the first time.\nI'm curious what everyone thinks.\nMarc Köhlbrugge\nPRO\n@marc\n16\nturbo-frame>turbo-frame:not(:first-child)>.comment]:mt-4\">\n👋 Join WIP to participate\nEdit\nDelete\nShare\nReport\nRaoul Agin Gfart\n@ragingfart\nOpen options\nTough one! Maybe we should keep tabs of two types of streaks?\nSo we could have a \"hardcore streak\" and a \"mere mortal consistency streak\".\nThe #life tag that many of us use is generally a \"quality of life\" kind of todo, not strictly a \"shipping\" todo. Still, I enjoy following other people's life events and it's an important part of the WIP experience.\nMaybe a #life type of projects could be a special type of project that does not go into the hardcore streak?\nWhen I'm sick, I feel like adding \"Sick on day 7 #life\" todo does not feel genuine, so I don't do it and lose my streak. But if it's considered a special type of todo, I would not feel this.\nWe can then post to #life every day we are sick or are having a vacation/enjoying life, and it still maintain a genuine type of consistency streak.\n6\nReply\n3y\nPost\nEdit\nDelete\nShare\nReport\nRaoul Agin Gfart\n@ragingfart\nOpen options\nAlso, maybe one could get a chance to add todos to the day before?\nSome days I just work so much I forget to post, and that's the most disheartening type of streak breakage 😅\nOtherwise, I support you trying out your current idea :)\n3\nReply\n3y\nPost\nEdit\nDelete\nShare\nReport\nHugo Oliveira\n@hpennaoliveira\nOpen options\nI'm new here and I like the hardcore approach, it's like trying to go to workout every day and counting your best streaks trying to get a better one in the next attempt.\nOne thing about the alternative, is the streaks rank would become waaay more difficult for beginners as old members won't reset when failed.\nMaybe you can reset streak after 2 days without todos completed or also have a shipping consistency metric.\n2\nReply\n3y\nPost\nEdit\nDelete\nShare\nReport\nPieter\n@piet\nOpen options\nI like the streak how it is currently. It's brutal but fair. There's no gray area or rules. You do something each day or you lose it. It's that simple.\nDiverging from that makes it less 'hardcore' and a less valuable metric.\nIf you want to change the metric from consistency to total amount of 'work' than the new proposal looks good.\nCurious to know what other people think about it\n5\nReply\n3y\nPost\nEdit\nDelete\nShare\nReport\nAlejandro Vivanco\nPRO\n@alvivanco\nOpen options\nPart 1:\nI like the \"hardcore\" aspect of the current streak system because it has allowed me to create that pressure for me to ship.\nWhen I first came on to the platform, I did worry about the streak and pressure of keeping up; but the #life tag helped me bring this equilibrium. I implemented the #life tag after seeing @levelsio do it. However, as others have mentioned, it can feel weird when you use it, but I think in general it helps with balance and people in general don't abuse it.\nI think he #life tag could be set as default for every new profile to encourage its use, the user can delete it if they don't wish to use it.\nPart 2:\nHowever, I can see how losing your streak can impact your motivation to execute, and most importantly be active on the platform (this is where the value is). Many times I have thought about this. What will I do if I go to the forest and there is no signal? 😂. Or I'm completely sick. Etc. Etc.\nMainly, if you do decide to go on a trip after 12376 days of shipping, \"punishment\" for taking a break (which we all need at some point) may be harsh.\nHaving said this, I would welcome a streak model that integrates a \"buffer\" as proposed, but with a few modifications to keep the \"hardcore\"/\"pressure\" aspect that many people on the platform like:\nEvery day you complete a to-do: +1 streak\nEvery 5 days of completed to-do's: +1 \"streak credit\"\nEvery day of inactivity: -1 streak (as long as the user has a \"streak credit\" balance\"\nOnce the user runs out of \"streak credits\" and experiences another day of inactivity, streak resets to 0.\nThis prioritizes execution, as the current model does, while also accounting for the fact that you will eventually need a break. Similar to a traditional job where you \"earn\" vacation 😂.\nThe part that I am not sure of is -- how many \"streak credits\" is one allowed to accumulate? It would be ridiculous if you would be able to keep a \"streak credit\" balance equivalent to a year for example (i think). So maybe there would be a maximum of 15-30 days of \"streak credits\" ?\nPart 3:\nAnother great addition to the platform would be a \"Leaderboard\" page. The current streak model, assuming daily execution from everyone, is skewed towards highlighting the oldest users of the platform at all times. As a new person, it will pretty much be impossible to beat.\nA Leaderboard page would enable to highlight and \"reward\" different users on the platform, irrespective of when they joined, or irrespective of their streaks (some ppl may not care about the streak at all)\nThings I would include on this leaderboard page are:\nStreak leaderboard (Full table with all users; and at the top of bottom of the page, each user can see their rank)\nMost active projects (per week / month / year / all time) based on # of completed todo's\nMost active users (per week / month / year / all time) based on # of completed todo's\nMost liked to-do's (per week / month / year / all time)\nMost helpful users (per week / month / year / all time) [basically what is already available on the \"Questions\" tab, but have the full table\"\n9\nReply\n3y\nPost\nEdit\nDelete\nShare\nReport\nMarc Köhlbrugge\nPRO\n@marc\nOpen options\nAdding a default #life project is a good idea. I'll add it as part of a new onboarding flow I want to do anyway 👍\nYes \"streak credits\", \"streak freezes\", or \"cheat days\" come up quite a lot. But like you point out it's tricky to determine the specific implementation. How many you can use them, etc.\nLove the idea of having multiple leaderboards and highlight different types of community activity. Will make this! ❤️\n3\nReply\n3y\nPost\nEdit\nDelete\nShare\nReport\nShashank\nPRO\n@shashank\nOpen options\nI like the hardcore aspect of the current streak system and find it extremely motivating. That said, I do worry about exceptional situations such as if I'm extremely ill or unable to find internet while travelling through developing countries.\nI would find it disheartening if I lost a streak due to these circumstances. Perhaps there is a middle ground, where the punishment for missing a day is more extreme than losing a day but less extreme than losing the whole streak. Say losing half your streak or losing a month, or anything that feels quite harsh without disrupting massive streaks due to unfortunate situations.\n5\nReply\n3y\nPost\nEdit\nDelete\nShare\nReport\nMarc Köhlbrugge\nPRO\n@marc\nOpen options\nYeah this is the crux of the \"problem\" with the hardcore streak. There might be very valid reasons you skip a day or two. But it's hard to define what exactly that middleground is.\nReply\n3y\nPost\nEdit\nDelete\nShare\nReport\nNils 🧮\n@nilsw\nOpen options\nAfter 1373 days of streak (and nearly 4 years of travel), I got high with my friends at Bamboo Hut and forgot to log the day's events.\nI actually did fixes on #kornwolf that day and took photos of a plant I bought for #nils , but forgot to /done that night and only realized the next morning, when I saw @levelsio 's update. It affected me more than I thought it would (and should?). Non-attachment, yada yada.\nIt's definitely discouraging me from starting another 4 year streak, but I agree that there is value in a hardcore contiguous challenge. Don't take it away! 🔥\nI also agree with others that it could be fun to introduce a secondary system, just like Tweakers.net has karma points and 'Tweakotine': tweakers.net/plan/3058/het-tw…\nWIP could have different ways to gain (and lose) karma by using the website. Not just score and leaderboard, but also 'ranks' and badges based on your actions: lurking, todos, commenting and receiving likes, answering questions, creating new projects, launching, keeping your backlog clean (or not!)... everything could have an impact. Lot of possibilities for gamification. 🧬\n11\nReply\n3y\nPost\nEdit\nDelete\nShare\nReport\nRaoul Agin Gfart\n@ragingfart\nOpen options\nThank you for reminding me of this amazing song from the year 2000 😄 www.youtube.com/watch?v=WeYsT…\nThat said, you have my full sympathy!\n2\nReply\n3y\nPost\nEdit\nDelete\nShare\nReport\nPieter\n@piet\nOpen options\nHahaa can imagine. Lost a 100 day streak after getting drunk and checking my phone at 00:06... nasty hangover...\nI felt invested in your streak, it was very impressive and fun to follow along. I felt a bit bummed out once you lost it even though I've never met you. I think that's the power of the 'hardcore' streak. It says something about a person. If there are all these exceptions and soft streaks it loses it's meaning.\nSomething like Tweakers karma could be a good addition if the community grows more. But there's about 100 (?) active members, so you already get a vibe of the activity of people.\n1\nReply\n3y\nPost\nEdit\nDelete\nShare\nReport\nMarc Köhlbrugge\nPRO\n@marc\nOpen options\nThanks for sharing 🙌\nOne the one hand the streak is just a number in a database, but on the other hand it also represents all the hard you put in over the years and the consistency with which you did so.\nSo I think it makes a lot of sense that you grow an attachment to that number and so it hurts when you lose it.\nI think those are the two sides to the metaphorical streak coin. It motivates you to keep going and the longer you keep going, the more invested you get, and so the power powerful that sense of commitment becomes.\nBut when you do eventually lose it, it has the opposite effect. It's really discouraging and based on anecdotal observations it seems like many members kinda start to tune out of WIP after that. It just seems like an insurmountable mountain to get back to that number.\nThat's why I'm considering alternatives to the current streak system. Not necessarily to replace it, but something to augment that hardcore easy-to-loose streak with something more forgiving.\nA karma system is an interesting idea, but implementations always seem rather arbitrary to me. If completing a todo gives you +10 points, how much would a comment be? Etc.\nBut perhaps I'm overthinking it, and it's not about getting it exactly right. Just reward people for doing cool stuff in the community.\nI'll give it some thought the coming weeks. I do like the idea of badges for concrete achievements. Getting the top streak. Losing your first streak. Adding your 5th project. Etc.\nReply\n3y\nPost\nEdit\nDelete\nShare\nReport\nSpencer Walden\n@swalden\nOpen options\nI was always wondering what happened to your streak haha. I was surprised I felt loss when I lost my 200 day streak as well.\nReply\n3y\nPost\nEdit\nDelete\nShare\nReport\nEric Turner ⛩️\n@etdev\nOpen options\nStart w/ 0 streak and 1 free \"cheat day\".\nGet 1 extra \"cheat day\" at streak milestones:\n• 10-day streak? +1 cheat day\n• 100-day streak? +1 cheat day\nSo it's still hardcore mode but literally one or two missed days won't sink you.\n9\nReply\n3y\nPost\nEdit\nDelete\nShare\nReport\nMarc Köhlbrugge\nPRO\n@marc\nOpen options\nI considered cheat days (duolingo calls them \"streak freezes\") but they raise a bunch of additional questions like how do you earn them, how often can you use them, are they enabled by default or not, etc.\nNot necessarily unanswerable questions for any individual, but I think hard to find something that works well for a majority of the group.\nFor example many members have a regular work/life balance, might not work on weekends so they'd need to be able to skip at least 2 days a week. And then they still don't have any flexibility to miss a work day.\nWhereas for other people skipping 2 days in a week might be considered an unproductive week.\nSo while I like the idea of having a cheatdays (as it seems like many other members do based on the number of likes your comments got), I do wonder when it comes down to actual implementation if there's enough overlap between how people would want to see it specifically implemented. Maybe I'll run a poll to find out.\n1\nReply\n3y\nPost\nEdit\nDelete\nShare\nReport\nTom Connole\n@tomcnle\nOpen options\nI like the hardcore streak, even being a patchy streaky myself.\n1\nReply\n3y\nPost\nEdit\nDelete\nShare\nReport\nRod\n@rrmdp\nOpen options\nI like the hardcore steak, it helps me being motivated. If is ok to post IRL stuff when on a break then is fine.\nI like what @etdev proposed too\n2\nReply\n3y\nPost\nEdit\nDelete\nShare\nReport\nMarc Köhlbrugge\nPRO\n@marc\nOpen options\nI love a good steak too! 🥩\n2\nReply\n3y\nPost\nEdit\nDelete\nShare\nReport\nRod\n@rrmdp\nOpen options\nHahaha middle raw for me please 😄\n1\nReply\n3y\nPost\nEdit\nDelete\nShare\nReport\nMarc Köhlbrugge\nPRO\n@marc\nOpen options\nMake that two!\n1\nReply\n3y\nPost\nEdit\nDelete\nShare\nReport\nGraeme\n@graeme_fulton\nOpen options\nsince I started using this again, I don't think I built a streak more than 2 or 3 days. Always had a day where I didn't log something somewhere in the middle, even if I had done stuff. But I just carry on and the streak was like a bonus nice thing when one happens\n2\nReply\n3y\nPost\nEdit\nDelete\nShare\nReport\nMartin Donadieu\nPRO\n@martindonadieu\nOpen options\nI like the current hardcore streak. I did try many time to learn consistency and WIP helped a lot. But I agree hardcore is hardcore, and force us to have #life tag for exemple.\nI think it should be like video games you can configure in your settings what kind of game you want and have the choice between (hardcore/normal/soft streaks.\nHardcore : same as today\nNormal: win streak credit every 5 days, consume streak credit when no log, max 30 credit stored, if no credit loose all\nSoft: win 1 each day you log, loose 1 each day you forgot\nThen we have a badge near us if we are hardcore , normal or soft. And our account show us the streak of everyone according to our setting.\nA bit of more work for you @marc but I truly believe in using the video game paradigm\n2\nReply\n3y\nPost\nEdit\nDelete\nShare\nReport\nMarc Köhlbrugge\nPRO\n@marc\nOpen options\nYes, has having a user-defined difficulty level might be the way to go.\nThe main drawback is that it introduces conceptual complexity. It makes it harder for new members to understand what a streak is, how to get one, etc.\nThe credits where you can miss a day (or \"streak freezes\" as Duolingo calls them) raise some additional questions like how many do you get, how often can you use them, etc.\nI might settle on having two streak systems. The current hardcore one (lose a day and it resets), and the more forgiving one (skip a day and it decreases by 1).\n2\nReply\n3y\nPost\nEdit\nDelete\nShare\nReport\nJason Leow\n@jasonleow\nOpen options\nI run a streak-based community too (but for daily writing), so just to share my experience:\nI'm aware of the pitfalls of the conventional, consecutive day streak, so for Lifelog I created different types of streaks each with their own leaderboards ( golifelog.com/community ) so that everyone can grow in one metric of their liking.\nTop streak (consecutive day streaks)\nBest streak (longest streak ever)\nMost streaks (the number of times someone broke their streak but bounced back)\nMost posts (most prolific writers with most number of posts)\nMost comments (Those who chat a lot to make everyone feel at home)\nMost goals (on Lifelog they set goals to write to)\nMaybe for WIP, could consider Most streaks model alongside top streak model? That way even if one breaks the streak, there's a number that still grows.\n2\nReply\n3y\nPost\nEdit\nDelete\nShare\nReport\nJankees van Woezik\nPRO\n@Jankeesvw\nOpen options\nMy two cents. This new proposed system would allow for a more accurate reflection of a person's consistency and productivity, as it would take into account the fact that people have off days and may not be able to work every single day. This could be a more fair and inclusive way of measuring progress, and it may also provide more motivation for people to work on a regular basis.\nAdditionally, this new system could be less intimidating for those who have not started a streak in the past because they were afraid of losing it. That's what I have.\n4\nReply\n3y\nPost\nEdit\nDelete\nShare\nReport\nGeorgy Alaverdyan\n@georgy\nOpen options\nI just created an account today, and I hope I’ll be a productive monster like all of you because of the hardcore streak system, lol.\nHowever, as many others like @nilsw and @shashank pointed out — there might be days/situations when we cannot add a to-do due to legit circumstances: no internet while travelling or living in a developing country, sickness that impacts one’s health and mental state (no time to worry about streaks), and so on.\nPersonally, I want to be way more productive than I am right now, but at the same time, I want to live a life and enjoy it — keeping the hardcore streak is a tough one since it means that I need to check in every day. Literally every day. Or like @ragingfart said: “‘Sick on day 7 #life’ to-do does not feel genuine”.\nSo my two cents suggestion-wise:\nKeep the current system, but add a way to “live a life”, e.g., skip/rest days — not sure what’s the “way” can be, though.\nAdd another streak system, maybe call it “Lifetime Streaks” (and the existing one will be “Hardcore Streaks”, dunno). This new streak system will account all streaks since an account was created. People will be less annoyed when their streak was broken like @nilsw (can relate) since their streaks were added to the overall counter. Doesn’t solve an issue, though.\n2\nReply\n3y\nPost\nEdit\nDelete\nShare\nReport\nJaime Gómez-Obregón\n@JaimeObregon\nOpen options\n@marc : I have been thinking about this and both models look valid to me. The gotcha, as I see it, is how easy it is now to hack the streak score and involuntarily deceive oneself —and others— by committing to a faux #life or #chores \"project\".\nMany of us enjoy to log life events such as a daytrip or a swim at the lake, and that's great! Those make the WIP experience more authentic and human, specially when they come along with a picture.\nBut in purity, these todos are not cumulative change towards a goal . In strict sense, a project here in WIP has to have a website, optional Product Hunt link and is most often aimed as a personal business. But none of this apply to the \"life\" projects many of us also enjoy to log todos to.\nWouldn't it make sense to use plain ordinary hashtags unrelated to any project to group todos by any topic, and been able to bind some of these hashtags to projects —as they are currently modelled—, and have streaks count only against these?\n2\nReply\n3y\nPost\nEdit\nDelete\nShare\nReport\nMarc Köhlbrugge\nPRO\n@marc\nOpen options\nInteresting idea. I see where you’re coming from.\nIt would require quite a lot of work to many parts of the site to make hashtags as powerful as projects. For example, people might want to be able to use the API to fetch all their #life todos. Right now that’s easy, as it’s just a project which you can filter on.\nIf it has to be done through hashtags, it would require a different way to filter.\nSimilarly, if you want stats on your #life todos, right now that’s built-in to projects. If you want to have it for hashtags, I’d need to build that separately.\nIn the end I might end up having to build and maintain two very similar models.\n1\nReply\n3y\nPost\nEdit\nDelete\nShare\nReport\nJaime Gómez-Obregón\n@JaimeObregon\nOpen options\nThank you, @marc . I see… Back to the origin, I think both the streak models proposed are helpful to building a habit of daily task logging, but not a realistic measure of continuous advancement towards a business goal (ship) if used along these personal #life projects many of us enjoy to have. 🙂\n1\nReply\n3y\nPost\nEdit\nDelete\nShare\nReport\nPraneeth Pike\n@praneethpike\nOpen options\nI think it's a great model to decrease streak by 1 every day we missed something. Personally, I struggle to always post before midnight and I lost my streak many times, leading to a point of apathy towards streaks.\nOn top of it, I've also seen many people just hacking the streaks by just posting random updates like \"Have breakfast,\" which I don't think is truthful towards posting an actual \"Work In Progress\" update. This caused further apathy.\nSide note: Maybe you can use AI to detect if the post is actually about a Project or some random update.\nLast point, as humans we are motivated by hope; when I see some streaks like that of @levelsio I lose all hope because I'll never be able to get the top position. Even if I get to 1000 days, Peter will be at 2000 days LOL\n1\nReply\n2y\nPost\nHome\nSearch\nMessages\nNotifications\nMore\nconfirm-dialog#closeOnBackdropClick\"\nclass=\"m-auto w-[calc(100%-2rem)] max-w-sm p-0 rounded-2xl bg-white dark:bg-gray-800 shadow-xl dark:outline dark:outline-1 dark:outline-white/20 backdrop:bg-black/50\">\nAre you sure?\nCancel\nConfirm\nmodal#open click->modal#closeIfClickedBlocker keydown@window->modal#closeIfEscape\">\nKeyboard Shortcuts\nGo to Homepage\ng\nh\nGo to Done Todos\ng\nd\nCompose a New Todo\nn\nGo to Search\n/\nShow this dialog\n?\ntransitioned-modal#hide keyup.esc@window->expiring-dismissal#dismiss transitioned-modal:click:outside->transitioned-modal#hide expiring-dismissal:click:outside->expiring-dismissal#dismiss\"\ndata-transitioned-modal-target=\"backdrop\"\ndata-transition-enter=\"transition ease-in-out duration-100\"\ndata-transition-enter-start=\"opacity-0\"\ndata-transition-enter-end=\"opacity-100\"\ndata-transition-leave=\"transition ease-in-out duration-800\"\ndata-transition-leave-start=\"opacity-100\"\ndata-transition-leave-end=\"opacity-0\"\ndata-expiring-dismissal-identifier-value=\"welcome_modal\"\n>\nWIP\nJoin the maker community\nSurround yourself with other successful indie makers sharing the same goals\nJoin now\nLog in\nJoin 3,823 makers\n✅\nShip every day\nBuild a habit of shipping by sharing your daily, incremental progress\n👀\nLearn from others\nSee how other makers are growing their business\n🎟️\nCurated community\nMembers are invited by existing members\n💬\nGet feedback\nReceive outside perspective when you need it\n👋\nWeekly hangouts\nConnect with others through weekly video hangouts\n🤑\nExclusive discounts\nGet access to our members-only perks and discounts",
+     "policy": {
+      "policyId": "rights.official-company-website.v1",
+      "sourceId": "src.official-company-website",
+      "providerName": "Official company or product website (entity-bound)",
+      "displayTier": "automatic",
+      "registryHash": "30d893f5b810c363886fbef8bc35e9535700abdcb83e6a517b66018b3993cacc"
+     }
+    },
+    {
+     "sourceId": "s7",
+     "url": "https://wip.co/posts/about-wip-s-recent-downtime-6r6qas",
+     "publisher": "Marc Köhlbruggeの障害説明",
+     "snapshot": {
+      "url": "https://wip.co/posts/about-wip-s-recent-downtime-6r6qas",
+      "finalUrl": "https://wip.co/posts/about-wip-s-recent-downtime-6r6qas",
+      "status": 200,
+      "fetchedAt": "2026-10-07T09:52:11.325Z",
+      "via": "direct",
+      "contentType": "text/html; charset=utf-8",
+      "textHash": "29e06934da53bbf40bdf79c1a4644a96264a20dca3a877fbc6d6f169827f335e"
+     },
+     "text": "About WIP's recent downtime / WIP\nMarc Köhlbrugge asks: About WIP's recent downtime\nAbout WIP's recent downtime / WIP\nMarc Köhlbrugge asks: About WIP's recent downtime\nAbout WIP's recent downtime / WIP\nWIP\nHome\nNotifications\nDMs\nDiscussions\nPro\nHangout\nSearch\nMore\nJoin\nSign in\nNew to WIP?\nWe're a group of makers shipping together. We help each other stay accountable and reach our goals.\nJoin now\nWIP\nA community of makers shipping together\nOther posts\nlaunched!!!!\n1 reply\na 3D DICOM volume engine built to learn GPGPU and Rust.\nBe the first to reply\nPublished Startup Name Generator as a public API on RapidAPI\nBe the first to reply\nShipped an affiliate program for LogoRay: 30% of every sale, free to join\nBe the first to reply\nBack\nPost\nPosted\n2024-01-25 11:35:12 UTC\nAbout WIP's recent downtime\nJust wanted to give you all a quick explanation on WIP being down today and earlier this week.\nI've been in process of switching many of my smaller apps from Render to Digital Ocean, deployed through Kamal . While I'm still a big fan of Render and I think it's great for hosting profitable sites, its pricing structure can become problematic when you have many smaller apps each with multiple services. All those small monthly costs start to add up.\nMigrating these apps to Kamal went well. It definitely took some effort getting acquainted with Docker, etc, but I was learning fast and getting a better grasp at what it takes to run your own apps rather than relying on the abstractions of platforms like Render and Heroku. Valuable experience to have as a developer.\nI've been running these apps on Kamal for a little while and all seemed okay.\nThat's why I decided to try and migrate WIP as well. It would allow me to reduce costs and increase CPU/memory resources making the site faster.\nUnfortunately, migrating WIP, a more complex app than the others I migrated so far, is proving to be more difficult.\nThe promise of Kamal is that it lets you deploy apps easily without much devops experience, but it's still early software and I'm starting to run into the rough edges.\nThere is a nice community forming around it, but it's still young, so a lot of stuff you still need to figure out yourself.\nAnyway, long story short, sorry for the downtime. I realize how frustrating it must be, especially considering our streak feature.\nIf you lost your streak because of the downtime, please add your todos now, and email me a link to them with the rough time you completed them and I'll backdate them for you fixing your streak.\nI haven't decided yet whether to continue running WIP on Digital Ocean through Kamal or revert back to Render. I think I'll give it a few days and if things stabilize, we keep it hosted as is. But if things keep going down, I'll bring it back to Render.\nThanks for your patience during all of this!\nMarc Köhlbrugge\nPRO\n@marc\n13\nturbo-frame>turbo-frame:not(:first-child)>.comment]:mt-4\">\n👋 Join WIP to participate\nEdit\nDelete\nShare\nReport\nShashank\nPRO\n@shashank\nOpen options\nAppreciate the transparency :)\n1\nReply\n2y\nPost\nEdit\nDelete\nShare\nReport\nMarc Köhlbrugge\nPRO\n@marc\nOpen options\nBuilding (and failing) in public :D\n5\nReply\n2y\nPost\nEdit\nDelete\nShare\nReport\nSzymon Rączka\n@screenfluent\nOpen options\nThanks for the update! Since we can post updates via Telegram and streaks are secured then in my opinion keep working on the new setup to make it stable. I have no problem with some downtimes if there is a chance that the speed is better while your costs are cut down.\n2\nReply\n2y\nPost\nEdit\nDelete\nShare\nReport\nMarc Köhlbrugge\nPRO\n@marc\nOpen options\nAppreciate that! Yes, the Telegram bot is a nice backup option for those that use it.\n2\nReply\n2y\nPost\nEdit\nDelete\nShare\nReport\nGeorgy Alaverdyan\n@georgy\nOpen options\nThanks for letting us now! And I really appreciate that you support Telegram, unlike Makerlog which will deprecate the bot :(\n1\nReply\n2y\nPost\nEdit\nDelete\nShare\nReport\nMarc Köhlbrugge\nPRO\n@marc\nOpen options\nOh, that's surprising. I wonder why?\n1\nReply\n2y\nPost\nEdit\nDelete\nShare\nReport\nGeorgy Alaverdyan\n@georgy\nOpen options\nThe (new) founder, John, said that the user base isn’t as active as on Slack (though I doubt it is that much higher), and he is rebuilding the project. As far as I understood, the community can make their own bots, but no official ones in Telegram.\nI mean it’s his own project, all and all, so I hope someone will make a TG bot at some point.\nAgain, gladly, WIP has an official bot hehe!\nReply\n2y\nPost\nEdit\nDelete\nShare\nReport\nJason Leow\n@jasonleow\nOpen options\nLoved that you wrote this down to share what happened. Appreciate it Marc 🤝\n1\nReply\n2y\nPost\nEdit\nDelete\nShare\nReport\nMarc Köhlbrugge\nPRO\n@marc\nOpen options\nSharing boths up and downs 🎢\n3\nReply\n2y\nPost\nEdit\nDelete\nShare\nReport\nJeff Triplett ✨\nPRO\n@jefftriplett\nOpen options\nThanks for the update. I haven't looked at Kamal in much detail, but it looks like a wrapper around Docker.\nI use Docker and Compose a lot, and assuming Kamal allows you to pass through extra options, you should be able to throttle the CPU/memory to keep a process from running away with your droplet. That might be worth in case you keep seeing spikes. It won't limit the appearance of downtime for that service, but it'll keep the box and other containers running.\nAlso, if you aren't running DO's managed databases, please save yourself some grief and do that vs. trying to run it in Docker.\n1\nReply\n2y\nPost\nEdit\nDelete\nShare\nReport\nMarc Köhlbrugge\nPRO\n@marc\nOpen options\n100% using managed databases. Don't trust myself to run those myself haha. At least with the web server, I know I can just nuke it and reset it with a few commands without any data loss.\nAnd yes, Kamal lets you configure resources limits using Docker's config. I think it's called cap ? I haven't looked into it yet, but it seems like a good idea. So maybe set each container to use a maximum of 80% CPU usage, just so it never takes down the full machine? (assuming the other containers don't use up the remaining 20% at the same time)\n2\nReply\n2y\nPost\nEdit\nDelete\nShare\nReport\nJeff Triplett ✨\nPRO\n@jefftriplett\nOpen options\nI have never used cap but I have used resources with limits + reservations via compose which should just be passing those through as cli options: docs.docker.com/compose/compo… - I would ChatGPT this to see what args are 🤣\n80% of 90% should be good enough to keep control of the box. I'm lazy and I have two or three dozen containers running without issues on a 4 GB droplet. Worse case, you can narrow it down to the service.\n2\nReply\n2y\nPost\nEdit\nDelete\nShare\nReport\nJoao Aguiam\n@joao\nOpen options\nThanks a lot for sharing, a great opportunity for all of us to learn from your experience.\nAnd you can count on us to support and be patient too.\n2\nReply\n2y\nPost\nEdit\nDelete\nShare\nReport\nMarc Köhlbrugge\nPRO\n@marc\nOpen options\n❤️\nReply\n2y\nPost\nEdit\nDelete\nShare\nReport\nJoda Stößer\n@SimJoSt\nOpen options\nSounds like a fun, challenging and worth it. It's one of my favourite past times to tinker with configuration and DevOps. In the past I went more bare metal with LUKS encryption, ZFS pools to be able to take snapshots, backup everything to an off-site and do all the updates myself.\nIn some cases it can provide advantages given the requirement, running up hours spend on maintenance 😊\nManaged VPS is a concept that can proved the sweet spot between cost and effort. It's why Laravel Vapor has been amazing in the past with it's amazing scaling.\nEven when starting out with a staging environment, a lot of experience will only present it self with real usage and customers.\nGood luck, have fun and don't hesitate to ask, you have a community full of people with knowledge and willing to help 😅\n1\nReply\n2y\nPost\nEdit\nDelete\nShare\nReport\nMarc Köhlbrugge\nPRO\n@marc\nOpen options\nThank you! Appreciate it. And yes, production always ends up presenting new challenges somehow haha\n1\nReply\n2y\nPost\nEdit\nDelete\nShare\nReport\nPhilipp Keller\n@philkellr\nOpen options\nbest downtown message I've ever read. Marc is showing the way how to be transparent\n4\nReply\n2y\nPost\nEdit\nDelete\nShare\nReport\nSebastian\n@sjm\nOpen options\nThanks for sharing @marc appreciate the transparency!\n1\nReply\n2y\nPost\nHome\nSearch\nMessages\nNotifications\nMore\nconfirm-dialog#closeOnBackdropClick\"\nclass=\"m-auto w-[calc(100%-2rem)] max-w-sm p-0 rounded-2xl bg-white dark:bg-gray-800 shadow-xl dark:outline dark:outline-1 dark:outline-white/20 backdrop:bg-black/50\">\nAre you sure?\nCancel\nConfirm\nmodal#open click->modal#closeIfClickedBlocker keydown@window->modal#closeIfEscape\">\nKeyboard Shortcuts\nGo to Homepage\ng\nh\nGo to Done Todos\ng\nd\nCompose a New Todo\nn\nGo to Search\n/\nShow this dialog\n?\ntransitioned-modal#hide keyup.esc@window->expiring-dismissal#dismiss transitioned-modal:click:outside->transitioned-modal#hide expiring-dismissal:click:outside->expiring-dismissal#dismiss\"\ndata-transitioned-modal-target=\"backdrop\"\ndata-transition-enter=\"transition ease-in-out duration-100\"\ndata-transition-enter-start=\"opacity-0\"\ndata-transition-enter-end=\"opacity-100\"\ndata-transition-leave=\"transition ease-in-out duration-800\"\ndata-transition-leave-start=\"opacity-100\"\ndata-transition-leave-end=\"opacity-0\"\ndata-expiring-dismissal-identifier-value=\"welcome_modal\"\n>\nWIP\nJoin the maker community\nSurround yourself with other successful indie makers sharing the same goals\nJoin now\nLog in\nJoin 3,823 makers\n✅\nShip every day\nBuild a habit of shipping by sharing your daily, incremental progress\n👀\nLearn from others\nSee how other makers are growing their business\n🎟️\nCurated community\nMembers are invited by existing members\n💬\nGet feedback\nReceive outside perspective when you need it\n👋\nWeekly hangouts\nConnect with others through weekly video hangouts\n🤑\nExclusive discounts\nGet access to our members-only perks and discounts",
+     "policy": {
+      "policyId": "rights.official-company-website.v1",
+      "sourceId": "src.official-company-website",
+      "providerName": "Official company or product website (entity-bound)",
+      "displayTier": "automatic",
+      "registryHash": "30d893f5b810c363886fbef8bc35e9535700abdcb83e6a517b66018b3993cacc"
+     }
+    },
+    {
+     "sourceId": "s8",
+     "url": "https://wip.co/posts/discontinuing-free-plans-for-new-wip-members-tbahrf",
+     "publisher": "Marc Köhlbruggeの新規会員向け料金変更発表",
+     "snapshot": {
+      "url": "https://wip.co/posts/discontinuing-free-plans-for-new-wip-members-tbahrf",
+      "finalUrl": "https://wip.co/posts/discontinuing-free-plans-for-new-wip-members-tbahrf",
+      "status": 200,
+      "fetchedAt": "2026-10-07T09:52:11.704Z",
+      "via": "direct",
+      "contentType": "text/html; charset=utf-8",
+      "textHash": "dd3a751c69fcd5e6755ff4cd6d859634afb7256e4c04e787603cd9461d7c16a1"
+     },
+     "text": "Discontinuing free plans for new WIP members / WIP\nMarc Köhlbrugge asks: Discontinuing free plans for new WIP members\nDiscontinuing free plans for new WIP members / WIP\nMarc Köhlbrugge asks: Discontinuing free plans for new WIP members\nDiscontinuing free plans for new WIP members / WIP\nWIP\nHome\nNotifications\nDMs\nDiscussions\nPro\nHangout\nSearch\nMore\nJoin\nSign in\nNew to WIP?\nWe're a group of makers shipping together. We help each other stay accountable and reach our goals.\nJoin now\nWIP\nA community of makers shipping together\nTopics\n💲\nPricing\nOther posts\nlaunched!!!!\n1 reply\na 3D DICOM volume engine built to learn GPGPU and Rust.\nBe the first to reply\nPublished Startup Name Generator as a public API on RapidAPI\nBe the first to reply\nShipped an affiliate program for LogoRay: 30% of every sale, free to join\nBe the first to reply\nBack\nPost\nPosted\n2024-08-29 10:57:16 UTC\nDiscontinuing free plans for new WIP members\nI wanted to let you know about some changes to WIP membership that will help us maintain the quality of our community and ensure the long-term sustainability of our platform.\nStarting today, we will be moving to a paid membership model for all new members. Existing members will be grandfathered into their current plans.\nHere are the key details:\nWhen you invite someone new to join WIP, they will be asked to subscribe to one of our paid plans: either $29/month or $199/year (which offers a significant discount for annual commitment).\nAll new members will receive a free 1-month trial to experience the value of WIP firsthand before their paid subscription begins.\nThere will be no changes for existing members. If you're a free member now, you'll remain a free member. If you're a paid member now, your price will not change.\nWIP will remain invite-only to maintain the high-quality, curated community we've built together.\nWIP currently brings in about $1,000 MRR. It covers the basics, but to keep improving WIP, we need to increase that. Introducing paid plans for new members will help us do that while still focusing on growing a top-notch community.\nMy hope is that this shift to a paid model for new members will help us grow MRR a bit and curate an engaged community of invested indie makers. It also allows us to align our revenue with the value we provide and set an example of building sustainable businesses.\nI'm grateful for each of you and the community we've built together. Thank you for your understanding and continued support 🙌\nAs always, please let me know if you have any questions or feedback\nMarc Köhlbrugge\nPRO\n@marc\n16\nturbo-frame>turbo-frame:not(:first-child)>.comment]:mt-4\">\n👋 Join WIP to participate\nEdit\nDelete\nShare\nReport\nNaveen MC\n@mcnaveen\nOpen options\nAny plans for One time PPP Pricing?\nNot sure One time pricing is okayish\n1\nReply\n2y\nPost\nEdit\nDelete\nShare\nReport\nMarc Köhlbrugge\nPRO\n@marc\nOpen options\nFrom the new onboarding flow:\nDo you offer a lifetime membership?\nNope, we don't do lifetime deals. Here's why: we want to stay motivated to keep making WIP awesome for you. With a recurring fee, we're always on our toes, working to deliver value. It's our way of making sure we grow together!\nDo you offer pricing power parity?\nWe've got one price for everyone, worldwide. Our community is mainly for folks earning their living online, where economic opportunities tend to level out globally. We get that this might not work for everyone, and that's okay! If our price doesn't fit your budget, there are other great communities out there that might be a better match for your situation.\nCurious to hear what you think\nReply\n2y\nPost\nEdit\nDelete\nShare\nReport\nAlex Styl\n@alexstyl\nOpen options\nnice. like seeing wip evolve 👍\n1\nReply\n2y\nPost\nEdit\nDelete\nShare\nReport\nRemco\n@Remco\nOpen options\nMaybe 1 free month for invited, and non-invited can join immediately but have to pay right away?\n1\nReply\n2y\nPost\nEdit\nDelete\nShare\nReport\nMarc Köhlbrugge\nPRO\n@marc\nOpen options\nYes, interesting idea. I want to be careful letting random people in (even if they pay), but I can run it as an experiment\nReply\n2y\nPost\nEdit\nDelete\nShare\nReport\nAlex Styl\n@alexstyl\nOpen options\nYou could gift a month free for both invited and invitee if the invited reaches a specific streak.\nNot sure about how the community grows rn and if that is a problem, but that would be a nice way to incentivize both to be active on wip\n1\nReply\n2y\nPost\nEdit\nDelete\nShare\nReport\nMarc Köhlbrugge\nPRO\n@marc\nOpen options\nNice yes I want to give some incentive to inviters as well. Giving free membership is a fun idea.\nI also thought about money (e.g. 30% commission on all revenue from anyone you invite), swag (t-shirts, stickers, etc) or some website unlocks (streak fixes, etc)\nReply\n2y\nPost\nEdit\nDelete\nShare\nReport\nAlex Styl\n@alexstyl\nOpen options\nhow would that 30% commision on all revenue work? i don't get it\nReply\n2y\nPost\nEdit\nDelete\nShare\nReport\nMarc Köhlbrugge\nPRO\n@marc\nOpen options\nLet's say you invite someone that subscribes to the $199/year plan. Then you'd earn 30% commission on that $199 = $59.70/year for as long as they stay subscribed.\nI'm not sure this is something I want to do as it cuts down into my profit margins a lot, but I do like the idea of having some incentive/reward for referring new members.\nReply\n2y\nPost\nEdit\nDelete\nShare\nReport\nAlex Styl\n@alexstyl\nOpen options\nah like an affiliate program. at first i thought the inviter gets the revenue off the invitee's products haha\n1\nReply\n2y\nPost\nEdit\nDelete\nShare\nReport\nMarc Köhlbrugge\nPRO\n@marc\nOpen options\nHaha, that WOULD be a good incentive wouldn't it\nReply\n2y\nPost\nEdit\nDelete\nShare\nReport\nAlex Styl\n@alexstyl\nOpen options\nthe indie hackers version of a pyramid scheme\n2\nReply\n2y\nPost\nEdit\nDelete\nShare\nReport\nVishnu KS\n@hackerkid\nOpen options\n@marc I got an invite for wip.co a few months back. But for random reasons I only finished the account setup yesterday.\nExciting news, you are invited by {username_retracted} to join the WIP maker community! It's free of charge.\nBut I was only able to finish account creation after entering card details. I know this is an edge case. But is it possible to migrate my account to the free plan. Thanks!\n1\nReply\n2y\nPost\nEdit\nDelete\nShare\nReport\nMarc Köhlbrugge\nPRO\n@marc\nOpen options\nSorry, but I have to be firm on the paid requirement. Otherwise I'd have to extend this free plan to everyone who's ever received an invite but didn't redeem it.\n1\nReply\n2y\nPost\nEdit\nDelete\nShare\nReport\nVishnu KS\n@hackerkid\nOpen options\nThat's reasonable. Thanks!\n1\nReply\n2y\nPost\nHome\nSearch\nMessages\nNotifications\nMore\nconfirm-dialog#closeOnBackdropClick\"\nclass=\"m-auto w-[calc(100%-2rem)] max-w-sm p-0 rounded-2xl bg-white dark:bg-gray-800 shadow-xl dark:outline dark:outline-1 dark:outline-white/20 backdrop:bg-black/50\">\nAre you sure?\nCancel\nConfirm\nmodal#open click->modal#closeIfClickedBlocker keydown@window->modal#closeIfEscape\">\nKeyboard Shortcuts\nGo to Homepage\ng\nh\nGo to Done Todos\ng\nd\nCompose a New Todo\nn\nGo to Search\n/\nShow this dialog\n?\ntransitioned-modal#hide keyup.esc@window->expiring-dismissal#dismiss transitioned-modal:click:outside->transitioned-modal#hide expiring-dismissal:click:outside->expiring-dismissal#dismiss\"\ndata-transitioned-modal-target=\"backdrop\"\ndata-transition-enter=\"transition ease-in-out duration-100\"\ndata-transition-enter-start=\"opacity-0\"\ndata-transition-enter-end=\"opacity-100\"\ndata-transition-leave=\"transition ease-in-out duration-800\"\ndata-transition-leave-start=\"opacity-100\"\ndata-transition-leave-end=\"opacity-0\"\ndata-expiring-dismissal-identifier-value=\"welcome_modal\"\n>\nWIP\nJoin the maker community\nSurround yourself with other successful indie makers sharing the same goals\nJoin now\nLog in\nJoin 3,823 makers\n✅\nShip every day\nBuild a habit of shipping by sharing your daily, incremental progress\n👀\nLearn from others\nSee how other makers are growing their business\n🎟️\nCurated community\nMembers are invited by existing members\n💬\nGet feedback\nReceive outside perspective when you need it\n👋\nWeekly hangouts\nConnect with others through weekly video hangouts\n🤑\nExclusive discounts\nGet access to our members-only perks and discounts",
+     "policy": {
+      "policyId": "rights.official-company-website.v1",
+      "sourceId": "src.official-company-website",
+      "providerName": "Official company or product website (entity-bound)",
+      "displayTier": "automatic",
+      "registryHash": "30d893f5b810c363886fbef8bc35e9535700abdcb83e6a517b66018b3993cacc"
+     }
+    },
+    {
+     "sourceId": "s9",
+     "url": "https://wip.co/posts/getting-invites-t8wnyy",
+     "publisher": "WIP利用者の招待相談とMarcの返答",
+     "snapshot": {
+      "url": "https://wip.co/posts/getting-invites-t8wnyy",
+      "finalUrl": "https://wip.co/posts/getting-invites-t8wnyy",
+      "status": 200,
+      "fetchedAt": "2026-10-07T09:52:11.797Z",
+      "via": "direct",
+      "contentType": "text/html; charset=utf-8",
+      "textHash": "33f39fa2fcc5117a10c56e62c646ffccbcb85b9498ab9a74d0b163efd010e8bc"
+     },
+     "text": "Getting invites / WIP\nJill Binder asks: Getting invites\nGetting invites / WIP\nJill Binder asks: Getting invites\nGetting invites / WIP\nWIP\nHome\nNotifications\nDMs\nDiscussions\nPro\nHangout\nSearch\nMore\nJoin\nSign in\nNew to WIP?\nWe're a group of makers shipping together. We help each other stay accountable and reach our goals.\nJoin now\nTopics\n🚧\nWIP\nOther posts\nFake AI customer on Stripe?\n3 answers\nRSS.app alternatives\n3 answers\nPrefilled or manual code discount?\n6 answers\nStartup Name Generator is live in the ChatGPT plugin directory 🦄\n2 answers\nBack\nPost\nPosted\n2024-09-10 17:37:58 UTC\nGetting invites\nHi there! I was telling a friend about wip.co because it's exactly what he's looking for. <3 He'll be a great fit!\nI have no invites. How do I get an invite to give to him?\ncc ☒\nJill Binder\n@jillbinder\n2\nturbo-frame>turbo-frame:not(:first-child)>.comment]:mt-4\">\n👋 Join WIP to participate\nEdit\nDelete\nShare\nReport\nDmitrii Pashutskii\n@dpashutskii\nOpen options\nI think you need a streak. I think first invites you got on 10th day.\n2\nReply\n2y\nPost\nEdit\nDelete\nShare\nReport\nYuko F.\n@Yuko\nOpen options\nOh I didn’t know! 😃\nlet's keep shippin'💪\n2\nReply\n2y\nPost\nEdit\nDelete\nShare\nReport\nBen Katz\n@ben\nOpen options\nYou send me your friend's application ID (tell him to apply first) and I'll invite him if the application looks good because I have spare invites\n4\nReply\n2y\nPost\nEdit\nDelete\nShare\nReport\nJill Binder\n@jillbinder\nOpen options\nThank you kindly!\nReply\n2y\nPost\nEdit\nDelete\nShare\nReport\nMarc Köhlbrugge\nPRO\n@marc\nOpen options\nAs others have mentioned, invites are distributed automatically based on your activity on WIP.\nReaching certain streak milestones are one way, but it's not required. Just using the site will eventually lead to receiving invites.\nThank you for spreading the word by the way 🙌\n3\nReply\n2y\nPost\nHome\nSearch\nMessages\nNotifications\nMore\nconfirm-dialog#closeOnBackdropClick\"\nclass=\"m-auto w-[calc(100%-2rem)] max-w-sm p-0 rounded-2xl bg-white dark:bg-gray-800 shadow-xl dark:outline dark:outline-1 dark:outline-white/20 backdrop:bg-black/50\">\nAre you sure?\nCancel\nConfirm\nmodal#open click->modal#closeIfClickedBlocker keydown@window->modal#closeIfEscape\">\nKeyboard Shortcuts\nGo to Homepage\ng\nh\nGo to Done Todos\ng\nd\nCompose a New Todo\nn\nGo to Search\n/\nShow this dialog\n?\ntransitioned-modal#hide keyup.esc@window->expiring-dismissal#dismiss transitioned-modal:click:outside->transitioned-modal#hide expiring-dismissal:click:outside->expiring-dismissal#dismiss\"\ndata-transitioned-modal-target=\"backdrop\"\ndata-transition-enter=\"transition ease-in-out duration-100\"\ndata-transition-enter-start=\"opacity-0\"\ndata-transition-enter-end=\"opacity-100\"\ndata-transition-leave=\"transition ease-in-out duration-800\"\ndata-transition-leave-start=\"opacity-100\"\ndata-transition-leave-end=\"opacity-0\"\ndata-expiring-dismissal-identifier-value=\"welcome_modal\"\n>\nWIP\nJoin the maker community\nSurround yourself with other successful indie makers sharing the same goals\nJoin now\nLog in\nJoin 3,823 makers\n✅\nShip every day\nBuild a habit of shipping by sharing your daily, incremental progress\n👀\nLearn from others\nSee how other makers are growing their business\n🎟️\nCurated community\nMembers are invited by existing members\n💬\nGet feedback\nReceive outside perspective when you need it\n👋\nWeekly hangouts\nConnect with others through weekly video hangouts\n🤑\nExclusive discounts\nGet access to our members-only perks and discounts",
+     "policy": {
+      "policyId": "rights.official-company-website.v1",
+      "sourceId": "src.official-company-website",
+      "providerName": "Official company or product website (entity-bound)",
+      "displayTier": "automatic",
+      "registryHash": "30d893f5b810c363886fbef8bc35e9535700abdcb83e6a517b66018b3993cacc"
+     }
+    },
+    {
+     "sourceId": "s10",
+     "url": "https://wip.co/join",
+     "publisher": "WIP公式入会・料金ページ",
+     "snapshot": {
+      "url": "https://wip.co/join",
+      "finalUrl": "https://wip.co/join",
+      "status": 200,
+      "fetchedAt": "2026-10-07T09:52:12.480Z",
+      "via": "direct",
+      "contentType": "text/html; charset=utf-8",
+      "textHash": "b2073ee12b213e5dce8e6a62e237c3823a9f5f6026de76e478c361fcdbd21d41"
+     },
+     "text": "WIP\nWe are a community of makers who help each other ship projects.\nWIP\nWe are a community of makers who help each other ship projects.\nWIP\njoin-onboarding#unlockSubmit\">\nSkip to plans\n✍️\nShip something every day.\nWIP is the accountability network for people building in public. One place to post what\nyou're working on, and actually finish it.\n🔥\nKeep a streak going.\nPost one todo a day and the streak grows. It's the simplest way to turn \"someday\" into shipped.\n🔥\n🔥\n🔥\n🔥\n🔥\n+\n👀\nReal makers, real feedback.\nShare your work with people who've actually shipped, not lurkers. Reactions, answers, honest input.\n📈\nProof of work that compounds.\nEvery todo builds a public track record that attracts followers, customers, and opportunities\nwhile you sleep.\n🤝\nYou're not doing this alone.\nJoin 3,823 makers\nbuilding in public. Founders and indie hackers pushing each other to ship.\n🚀\nStart shipping today.\nEvery PRO feature, cancel anytime.\n$199 /year\nGet 5 months free\n$29 /month\nCancel anytime\nWhy does WIP charge a fee?\n+\nCharging a fee keeps the lights on without selling your data, and it attracts committed makers who are serious about their craft.\nDo you offer a lifetime membership?\n+\nNo. A recurring fee keeps us motivated to keep making WIP better for you, so we grow together.\nDo you offer purchasing power parity?\n+\nOne price for everyone, worldwide. Our community is mainly for folks earning their living online. If it doesn't fit your budget right now, that's okay.\nWhat payment methods do you accept?\n+\nCredit cards for now. It keeps our books tidy and our focus on making WIP great.\n👤\nCreate your account.\nCheckout is next. You can flesh out your profile after.\nEmail\nUsername\nwip.co/@\nPassword\nContinue\nContinue to checkout\nAlready a member? Sign in",
+     "policy": {
+      "policyId": "rights.official-company-website.v1",
+      "sourceId": "src.official-company-website",
+      "providerName": "Official company or product website (entity-bound)",
+      "displayTier": "automatic",
+      "registryHash": "30d893f5b810c363886fbef8bc35e9535700abdcb83e6a517b66018b3993cacc"
+     }
+    },
+    {
+     "sourceId": "s11",
+     "url": "https://wip.co/pro",
+     "publisher": "WIP公式有料機能ページ",
+     "snapshot": {
+      "url": "https://wip.co/pro",
+      "finalUrl": "https://wip.co/pro",
+      "status": 200,
+      "fetchedAt": "2026-10-07T09:52:12.991Z",
+      "via": "direct",
+      "contentType": "text/html; charset=utf-8",
+      "textHash": "a4260a7f34aee747c518d28f68b57fab694f91dedebad69198766d92f617a63f"
+     },
+     "text": "WIP\nWe are a community of makers who help each other ship projects.\nWIP\nWe are a community of makers who help each other ship projects.\nWIP\nWIP\nHome\nNotifications\nDMs\nDiscussions\nPro\nHangout\nSearch\nMore\nJoin\nSign in\nUpgrade to PRO\n🧊 Streak Freezes\nProtect your streak when you miss a day\n🚧 Support WIP\nFund on-going development of the WIP platform\n🎁 Deals\nGet huge discounts on many apps and services\n🛠️ Unlimited Projects\nAdd as many projects as you want\n💎 Pro Badge\nShow off your support with the Pro badge\n📊 Shipping Stats\nGet detailed stats on your productivity\n💰 Commit\nMake a financial commitment to achieve your goals\n⛔️ Hide Ads\nDisable all ads on the website\n🔒 Private Projects\nHide your projects from the public\n🔇 Mute Users\nMute users from your feed\n🔌 API & MCP\nConnect WIP to your own tools and AI agents\n❤️ PRO Members\nHome\nSearch\nMessages\nNotifications\nMore\nconfirm-dialog#closeOnBackdropClick\"\nclass=\"m-auto w-[calc(100%-2rem)] max-w-sm p-0 rounded-2xl bg-white dark:bg-gray-800 shadow-xl dark:outline dark:outline-1 dark:outline-white/20 backdrop:bg-black/50\">\nAre you sure?\nCancel\nConfirm\nmodal#open click->modal#closeIfClickedBlocker keydown@window->modal#closeIfEscape\">\nKeyboard Shortcuts\nGo to Homepage\ng\nh\nGo to Done Todos\ng\nd\nCompose a New Todo\nn\nGo to Search\n/\nShow this dialog\n?",
+     "policy": {
+      "policyId": "rights.official-company-website.v1",
+      "sourceId": "src.official-company-website",
+      "providerName": "Official company or product website (entity-bound)",
+      "displayTier": "automatic",
+      "registryHash": "30d893f5b810c363886fbef8bc35e9535700abdcb83e6a517b66018b3993cacc"
+     }
+    }
+   ],
+   "analysis": [
+    {
+     "id": "a-headline",
+     "item": "HEADLINE",
+     "text": "前月の新規登録がわずか3人、月次継続売上の平均が2,000ドルという状況で、製作者コミュニティWIPの運営者は2022年9月22日に有料の壁を外し、招待制の無料枠を始めた。2024年8月29日には月次継続売上が約1,000ドルになっており、新規会員を月29ドルか年199ドルの有料制に戻した。",
+     "basis": [
+      "f7",
+      "f8",
+      "f9",
+      "f15",
+      "f16"
+     ],
+     "formula": "数字は出典に載っている値",
+     "presentation": "FACT_SUMMARY"
+    },
+    {
+     "id": "a-story",
+     "item": "STORY",
+     "text": "当初は支援（Patronage）という任意の制度で、150ドル払うと1年間の追加特典が付いた。その後、年150ドルか月20ドルの支払いが新規入会者に必須になった。2022年9月6日、運営者は月20ドルが入会の障壁になっているとして、無料・招待制・任意の有料機能を組み合わせる案を公開した。本人説明では、前月の新規登録は3人、平均の月次継続売上は2,000ドルだった。同月22日に有料の壁を外して招待制の無料枠を設け、有料会員の特典は残した。本人はこれを実験と位置づけた。2024年1月25日には、費用削減と速度改善のためにRenderからDigitalOceanへ移そうとして停止が起きた。2024年8月29日時点で月次継続売上は約1,000ドルとなり、新規会員を月29ドルまたは年199ドルにして、1か月の無料試用を付けた。招待制は維持した。",
+     "basis": [
+      "f6",
+      "f3",
+      "f7",
+      "f8",
+      "f9",
+      "f13",
+      "f15",
+      "f16",
+      "f17"
+     ],
+     "formula": "数字は出典に載っている値",
+     "presentation": "FACT_SUMMARY"
+    },
+    {
+     "id": "a-business_model",
+     "item": "BUSINESS_MODEL",
+     "text": "毎日の作業を公開し、互いに進捗の説明責任を持つ製作者の集まりへの入会権を、会費として売っている。招待制なので、既存会員の招待が入口になる。新規会員は月額または年額の会費をクレジットカードで払う。有料会員には、連続記録の保護、製品の登録数制限の解除、利用状況の詳細、広告非表示、非公開の製品、外部連携が付く。2024年8月29日より前に入った無料会員は無料のまま残している。",
+     "basis": [
+      "f1",
+      "f16",
+      "f17",
+      "f21",
+      "f22"
+     ],
+     "presentation": "FACT_SUMMARY"
+    },
+    {
+     "id": "a-customer",
+     "item": "CUSTOMER",
+     "text": "払っているのは、自分の製品を作って出荷する個人の製作者だ。トップページは3,823人の製作者に参加を呼びかけている。会員のMartijn Verboveは月20ドルを払う価値を感じており、交流会が増えるならさらに払ってもよいと投稿した。",
+     "basis": [
+      "f1",
+      "f2",
+      "f4"
+     ],
+     "formula": "数字は出典に載っている値",
+     "presentation": "FACT_SUMMARY"
+    },
+    {
+     "id": "a-customer_pain",
+     "item": "CUSTOMER_PAIN",
+     "text": "毎日の作業記録が途切れることへの恐怖と、途切れた後の脱力感が、会費を払う動機になっている。Nilsは1,373日続いた記録を入力忘れで失い、再開する意欲が落ちたと投稿した。Rodは、厳しい連続記録が意欲を保つ助けになっていると書いた。有料機能には、この連続記録を守る保護機能が入っている。",
+     "basis": [
+      "f11",
+      "f12",
+      "f22"
+     ],
+     "presentation": "FACT_SUMMARY"
+    },
+    {
+     "id": "a-channels",
+     "item": "CHANNELS",
+     "text": "新しい客は、既存会員の招待からしか入ってこない。招待枠はサイトの利用に応じて自動で配られる。連続記録の節目は配られる条件の1つだが、必須ではない。会員のJill Binderは、友人に合うコミュニティだと考えて招待の入手方法を尋ねた。このように、会員が友人に勧める口コミが経路になっている。",
+     "basis": [
+      "f17",
+      "f18",
+      "f19"
+     ],
+     "presentation": "FACT_SUMMARY"
+    },
+    {
+     "id": "a-cost_structure",
+     "item": "COST_STRUCTURE",
+     "text": "事実として出ている費用はサーバー代だ。2024年1月25日、運営者は費用を減らして速度を上げるため、ホスティングをRenderからDigitalOceanへ移そうとした。",
+     "basis": [
+      "f13"
+     ],
+     "presentation": "FACT_SUMMARY"
+    },
+    {
+     "id": "a-tools",
+     "item": "TOOLS",
+     "text": "サイトはRenderで運用していた。2024年1月25日、Kamalを使ってDigitalOceanへ移そうとした。",
+     "basis": [
+      "f13"
+     ],
+     "presentation": "FACT_SUMMARY"
+    },
+    {
+     "id": "a-dependencies",
+     "item": "DEPENDENCIES",
+     "text": "ホスティング先の乗り換えがそのまま停止を生み、会員の連続記録を途切れさせた。運営者は、完了した作業のリンクと時刻を送れば日付を手作業で直すと案内した。会話の場にはTelegramを使っており、Philip Thomasは、Telegramが好みでないことが参加の妨げになっていると投稿した。",
+     "basis": [
+      "f13",
+      "f14",
+      "f5"
+     ],
+     "presentation": "FACT_SUMMARY"
+    },
+    {
+     "id": "a-lock_in",
+     "item": "LOCK_IN",
+     "text": "毎日積み上げる連続記録そのものが、やめにくさになっている。Nilsの記録は1,373日に達していた。記録を失うと意欲が落ちるほどの重みがあるので、有料機能でその記録を守らせている。",
+     "basis": [
+      "f11",
+      "f22"
+     ],
+     "presentation": "FACT_SUMMARY"
+    },
+    {
+     "id": "a-upfront_cash",
+     "item": "UPFRONT_CASH",
+     "text": "新規会員は年199ドルの年払いを選べる。選んだ会員からは、1年分の会費が先に入る。",
+     "basis": [
+      "f16",
+      "f20"
+     ],
+     "formula": "数字は出典に載っている値",
+     "presentation": "FACT_SUMMARY"
+    },
+    {
+     "id": "a-timeline",
+     "item": "TIMELINE",
+     "text": "2022年9月6日、無料・招待制・任意の有料機能を組み合わせる案を公開した。2022年9月22日、有料の壁を外して招待制の無料枠を始めた。2022年12月5日、記録が全部は消えない連続記録の計算方式を提案した。2024年1月25日、ホスティングの移行中に停止が発生した。2024年8月29日、新規会員を月29ドルか年199ドルの有料制に戻した。",
+     "basis": [
+      "f3",
+      "f9",
+      "f10",
+      "f13",
+      "f16"
+     ],
+     "formula": "数字は出典に載っている値",
+     "presentation": "FACT_SUMMARY"
+    },
+    {
+     "id": "a-pivots",
+     "item": "PIVOTS",
+     "text": "料金は、任意の支援制度から始まった。その後、年150ドルか月20ドルの必須会費になり、2022年9月22日に招待制の無料枠へ切り替えた。2024年8月29日には、新規会員だけを月29ドルか年199ドルの有料制に戻した。途中で変えなかったのは、招待制で入会者を絞ることだ。",
+     "basis": [
+      "f6",
+      "f9",
+      "f16",
+      "f17"
+     ],
+     "formula": "数字は出典に載っている値",
+     "presentation": "FACT_SUMMARY"
+    },
+    {
+     "id": "a-viability",
+     "item": "VIABILITY",
+     "text": "特化しないと困難。月次継続売上は、2022年9月の平均2,000ドルから、2024年8月29日には約1,000ドルに下がった。招待制で入会者を絞る形は、そのまま規模の上限にもなっている。",
+     "basis": [
+      "f8",
+      "f15",
+      "f17"
+     ],
+     "formula": "数字は出典に載っている値",
+     "presentation": "FACT_SUMMARY"
+    }
+   ],
+   "changedClaims": [
+    "f1",
+    "f2",
+    "f3",
+    "f4",
+    "f5",
+    "f6",
+    "f7",
+    "f8",
+    "f9",
+    "f10",
+    "f11",
+    "f12",
+    "f13",
+    "f14",
+    "f15",
+    "f16",
+    "f17",
+    "f18",
+    "f19",
+    "f20",
+    "f21",
+    "f22"
+   ],
+   "identity": {
+    "id": "ent_wip_5eef8a985270",
+    "name": "WIP",
+    "url": "https://wip.co",
+    "publishability": "PARTIAL"
+   },
+   "media": {
+    "assets": [
+     {
+      "assetId": "ma_40e1b3adc38573480e764644",
+      "entityId": "ent_wip_5eef8a985270",
+      "kind": "screenshot_home",
+      "sourcePageUrl": "https://wip.co/",
+      "assetUrl": null,
+      "retrievedAt": "2026-10-07T10:07:06.511Z",
+      "capturedBy": "media-fetch-20261007",
+      "sha256": "40e1b3adc38573480e764644916cbbe1d6d7c045fcecfd9913230d744695ea22",
+      "bytes": 176925,
+      "contentType": "image/png",
+      "width": 1280,
+      "height": 800,
+      "rights": {
+       "basis": "official_marketing_material",
+       "termsUrl": null,
+       "licence": null,
+       "attribution": "出典: WIP 公式サイト (https://wip.co/)",
+       "decision": "held",
+       "reviewedAt": null,
+       "notes": "ビューポート 1280x800 で当方が描画したスクリーンショット。同意バナーが写り込むことがある。 自動取得 (media-fetch)。権利審査前のため held。許可前に目視で (1) 人物が主題でない (2) 同意バナー・個人情報・ログイン画面が写っていない (3) 識別・説明目的に限る、を確認し、review-assets で判定を追記する（この manifest は書き換えない。自動取得の既定値 subjectIsPerson=true は「未確認」の意味）。"
+      },
+      "storage": {
+       "bucket": "foundation-raw",
+       "key": "media/ent_wip_5eef8a985270/40e1b3adc38573480e764644916cbbe1d6d7c045fcecfd9913230d744695ea22.png",
+       "publicKey": null
+      },
+      "subjectIsPerson": true,
+      "review": null
+     },
+     {
+      "assetId": "ma_c694cf9f6b0438998325d31a",
+      "entityId": "ent_wip_5eef8a985270",
+      "kind": "favicon",
+      "sourcePageUrl": "https://wip.co/",
+      "assetUrl": "https://wip.co/assets/favicon-b7e69518.png",
+      "retrievedAt": "2026-10-07T10:07:06.538Z",
+      "capturedBy": "media-fetch-20261007",
+      "sha256": "c694cf9f6b0438998325d31a16817fe5b7f36c879bcdd56a42be1be565bd6f5e",
+      "bytes": 1702,
+      "contentType": "image/png",
+      "width": 512,
+      "height": 512,
+      "rights": {
+       "basis": "official_marketing_material",
+       "termsUrl": null,
+       "licence": null,
+       "attribution": "出典: WIP 公式サイト (https://wip.co/)",
+       "decision": "allowed",
+       "reviewedAt": "2026-10-07T10:07:24.145Z",
+       "notes": "自動判定 auto-rule-v4: favicon。画像として読める (image/png 512x512)、SHA-256が台帳と一致 (c694cf9f6b04)、macOS Vision の顔検出 (VNDetectFaceRectanglesRequest) で顔 0 件。公式素材として識別・説明目的の小さな表示に限る。画像の中身の目視確認はしていない。"
+      },
+      "storage": {
+       "bucket": "foundation-raw",
+       "key": "media/ent_wip_5eef8a985270/c694cf9f6b0438998325d31a16817fe5b7f36c879bcdd56a42be1be565bd6f5e.png",
+       "publicKey": "media/ent_wip_5eef8a985270/c694cf9f6b0438998325d31a16817fe5b7f36c879bcdd56a42be1be565bd6f5e.png"
+      },
+      "subjectIsPerson": false,
+      "review": {
+       "assetId": "ma_c694cf9f6b0438998325d31a",
+       "decision": "allowed",
+       "subjectIsPerson": false,
+       "reviewer": "auto-rule-v4",
+       "reviewedAt": "2026-10-07T10:07:24.145Z",
+       "note": "自動判定 auto-rule-v4: favicon。画像として読める (image/png 512x512)、SHA-256が台帳と一致 (c694cf9f6b04)、macOS Vision の顔検出 (VNDetectFaceRectanglesRequest) で顔 0 件。公式素材として識別・説明目的の小さな表示に限る。画像の中身の目視確認はしていない。"
+      }
+     },
+     {
+      "assetId": "ma_dbc3b8639f47774a90b7ee51",
+      "entityId": "ent_wip_5eef8a985270",
+      "kind": "og_image",
+      "sourcePageUrl": "https://wip.co/",
+      "assetUrl": "https://wip.co/assets/og-0f283c38.jpg",
+      "retrievedAt": "2026-10-07T10:07:08.800Z",
+      "capturedBy": "media-fetch-20261007",
+      "sha256": "dbc3b8639f47774a90b7ee51d5ae0ace916f525a62837999f4d5196cf349f6fa",
+      "bytes": 72553,
+      "contentType": "image/jpeg",
+      "width": 1000,
+      "height": 500,
+      "rights": {
+       "basis": "official_marketing_material",
+       "termsUrl": null,
+       "licence": null,
+       "attribution": "出典: WIP 公式サイト (https://wip.co/)",
+       "decision": "blocked",
+       "reviewedAt": "2026-10-07T10:07:23.896Z",
+       "notes": "自動判定 auto-rule-v4: promo_banner_no_product。og:image は宣伝用の紹介画像で、実際に使うときの製品画面ではないため出さない。"
+      },
+      "storage": {
+       "bucket": "foundation-raw",
+       "key": "media/ent_wip_5eef8a985270/dbc3b8639f47774a90b7ee51d5ae0ace916f525a62837999f4d5196cf349f6fa.jpg",
+       "publicKey": null
+      },
+      "subjectIsPerson": true,
+      "review": {
+       "assetId": "ma_dbc3b8639f47774a90b7ee51",
+       "decision": "blocked",
+       "subjectIsPerson": true,
+       "reviewer": "auto-rule-v4",
+       "reviewedAt": "2026-10-07T10:07:23.896Z",
+       "note": "自動判定 auto-rule-v4: promo_banner_no_product。og:image は宣伝用の紹介画像で、実際に使うときの製品画面ではないため出さない。"
+      }
+     }
+    ],
+    "displayableIds": [
+     "ma_c694cf9f6b0438998325d31a"
+    ],
+    "problems": []
+   },
+   "caseHash": "b3065d8db137101f2b88af585211008e91d75a14531552dd67c7e4bf244c8e3e",
+   "itemHashes": {
+    "fact:f1": "166d1a6b2c616cd40871cf42c713c3913fd9c33cf962a831421cfeff784f2446",
+    "fact:f2": "5b6aba73246e46078d510876f799da033f22686497b31fee4e9807a682b8ee20",
+    "fact:f3": "8dca4e0f2bda8526543d6762f38736ae1ddbfa6abf1a0eddb6463152108a1562",
+    "fact:f4": "e50b3255fedad46ad5d3d2db7b80c01f67a2eb0d6b3021c7fac342f2d1335565",
+    "fact:f5": "948ed9835c95a932cf3a47450e0867c1e50dd8a4b7ef38d48a7cf974a5c6fef5",
+    "fact:f6": "c11165ae78cb598822e7837bbb936bf7c0e8064e48a1224ca5832dbba623f52f",
+    "fact:f7": "86a224e32537fb6ce2ec0d7d4c72e53d87ca9e0a0fcb0632faf1f2fed46ba577",
+    "fact:f8": "ff0311c60458871536a891a4a83ae2bc637e88d7318f116c139dad0b87148da9",
+    "fact:f9": "da37fcde880a76a5fb080f698c1fda077d24849472527562833bd762e253381c",
+    "fact:f10": "3c962bb23d0d7eb8255206671b5c1c32091a9c75b6ee6121d80978dd909e144a",
+    "fact:f11": "9f44858dd13a437a9977c691c44b46b8e697fe080d126bf1c2a86f19f8ce5bb1",
+    "fact:f12": "8aac912463f21e54782d38ebfe4cc1733b29865c960eb6bd23ff1b298873f74f",
+    "fact:f13": "5d0dae7c3b0abf4e90a137e74dde55cb7a872661be3da6e0402003624ff03762",
+    "fact:f14": "cd8301417f6de216b5ee39080ad3747f586910556dc49543e5557c353cf5a240",
+    "fact:f15": "578f900b9874a24e9c1accd4b05d91bf11f6a9b81d03433cc7536b13fe380bbc",
+    "fact:f16": "1422beff60d8444145f1592e2bb56051d679c80d02b26810420e729d1972d477",
+    "fact:f17": "6da12486bebbcdbc9c856624ba7f1bb4c38b6cbd2f05c0fa4d82bdefba579359",
+    "fact:f18": "d3e747b76ce448e624f298824c8765e8ae03c5fccd5ea1dcc01a7934d558bac9",
+    "fact:f19": "0b42418110ce08a4f9818dd6a64ef3256fa8b326d9a317ff0f9bd3b94cca5147",
+    "fact:f20": "28d7d544c92e74cc21b8f47d0bf700be1252fc477f1eea921ebfa5680ced576b",
+    "fact:f21": "34a72bf8ac43946c5f7500e2b7278cca30b4d3d23a5912b02e3f2e2e36e0ea29",
+    "fact:f22": "44c9ffbf2ba9ac658504a223bcb2a5c827644e279fb4bc0076cd23d6a6e01957",
+    "analysis:a-headline": "50d262d24a5af602da9592ca3d4137c4c956827bcbaa06498a0dd1e5bb4586f4",
+    "analysis:a-story": "9e12c3b58c801b57700f5c10f75504d07f6faa4fbaff3a548338e09c63fb1920",
+    "analysis:a-business_model": "fb65e7576bdd0b65c9f71320589dbe7df8a1b500b9277e930e7734e6456ab7f6",
+    "analysis:a-customer": "cf7f8fd60c027fa6755569c3c9b23d67c579f8caa00dc27ee4e2037286ca9ae1",
+    "analysis:a-customer_pain": "f40a046bc7ed405fa19ca42525884bc126b247559a3c9438cad1802c802dee2e",
+    "analysis:a-channels": "2ef2b21f5d53ae61c714f2014da7c21a4a255a174fd6048478d794e9d1d2b061",
+    "analysis:a-cost_structure": "961ad630195147e91127473c0a770ea5163748ce76614b99f0d784053611cc9b",
+    "analysis:a-tools": "6666d4b9954c8b8108b017f03979e8336f367633ac9724a9aac8c650c7072962",
+    "analysis:a-dependencies": "cb8b90477f45de58a44c046d26730d4e69e6b4f080431df82679510bbc989c69",
+    "analysis:a-lock_in": "fc017d395acca19b50d07b2ef9d65a563a44111e1c7fafdf562617a0d9f60f3d",
+    "analysis:a-upfront_cash": "d8d8beae21e9667e4025d1f50c1dbfbe32a216790cae9054ee0a5aa2b426143e",
+    "analysis:a-timeline": "6f137ca29e3aba99ed8d7ff0069ccffb2c46ea17a8fb7daf07512e0f9db31282",
+    "analysis:a-pivots": "8d0701cc39162da1450652e38c0dcff07ec5243757c9902161db7019de92fc1b",
+    "analysis:a-viability": "7d7b28cd034171eaf6cf292646103ea4fdb3db5dc82f2c2bb9b02b8e6d54b4fa"
+   },
+   "review": [
+    "fact:f1",
+    "fact:f2",
+    "fact:f3",
+    "fact:f4",
+    "fact:f5",
+    "fact:f6",
+    "fact:f7",
+    "fact:f8",
+    "fact:f9",
+    "fact:f10",
+    "fact:f11",
+    "fact:f12",
+    "fact:f13",
+    "fact:f14",
+    "fact:f15",
+    "fact:f16",
+    "fact:f17",
+    "fact:f18",
+    "fact:f19",
+    "fact:f20",
+    "fact:f21",
+    "fact:f22",
+    "analysis:a-headline",
+    "analysis:a-story",
+    "analysis:a-business_model",
+    "analysis:a-customer",
+    "analysis:a-customer_pain",
+    "analysis:a-channels",
+    "analysis:a-cost_structure",
+    "analysis:a-tools",
+    "analysis:a-dependencies",
+    "analysis:a-lock_in",
+    "analysis:a-upfront_cash",
+    "analysis:a-timeline",
+    "analysis:a-pivots",
+    "analysis:a-viability"
+   ],
+   "reader": {
+    "sources": [
+     {
+      "id": "s1",
+      "url": "https://wip.co/",
+      "publisher": "WIP公式トップページ",
+      "checkedAt": "2026-10-07",
+      "kind": "OFFICIAL"
+     },
+     {
+      "id": "s4",
+      "url": "https://wip.co/posts/proposal-make-wip-free-and-invite-only-q27re4",
+      "publisher": "Marc Köhlbruggeの無料化・招待制の提案",
+      "publishedAt": "2022-09-06",
+      "checkedAt": "2026-10-07",
+      "kind": "OFFICIAL"
+     },
+     {
+      "id": "s5",
+      "url": "https://wip.co/posts/wip-is-now-invite-only-and-free-c9wkua",
+      "publisher": "Marc Köhlbruggeの料金・招待制変更発表",
+      "publishedAt": "2022-09-22",
+      "checkedAt": "2026-10-07",
+      "kind": "OFFICIAL"
+     },
+     {
+      "id": "s6",
+      "url": "https://wip.co/posts/proposal-for-alternative-streak-model-that-doesn-t-reset-ybma5z",
+      "publisher": "WIPの連続記録についての提案と利用者の声",
+      "publishedAt": "2022-12-05",
+      "checkedAt": "2026-10-07",
+      "kind": "OFFICIAL"
+     },
+     {
+      "id": "s7",
+      "url": "https://wip.co/posts/about-wip-s-recent-downtime-6r6qas",
+      "publisher": "Marc Köhlbruggeの障害説明",
+      "publishedAt": "2024-01-25",
+      "checkedAt": "2026-10-07",
+      "kind": "OFFICIAL"
+     },
+     {
+      "id": "s8",
+      "url": "https://wip.co/posts/discontinuing-free-plans-for-new-wip-members-tbahrf",
+      "publisher": "Marc Köhlbruggeの新規会員向け料金変更発表",
+      "publishedAt": "2024-08-29",
+      "checkedAt": "2026-10-07",
+      "kind": "OFFICIAL"
+     },
+     {
+      "id": "s9",
+      "url": "https://wip.co/posts/getting-invites-t8wnyy",
+      "publisher": "WIP利用者の招待相談とMarcの返答",
+      "publishedAt": "2024-09-10",
+      "checkedAt": "2026-10-07",
+      "kind": "OFFICIAL"
+     },
+     {
+      "id": "s10",
+      "url": "https://wip.co/join",
+      "publisher": "WIP公式入会・料金ページ",
+      "checkedAt": "2026-10-07",
+      "kind": "OFFICIAL"
+     },
+     {
+      "id": "s11",
+      "url": "https://wip.co/pro",
+      "publisher": "WIP公式有料機能ページ",
+      "checkedAt": "2026-10-07",
+      "kind": "OFFICIAL"
+     }
+    ],
+    "facts": [
+     {
+      "id": "f1",
+      "kind": "DESCRIPTION",
+      "text": "一緒に出荷する製作者の集まりで、互いに説明責任を持ち、目標の達成を助け合うと公式に説明している。",
+      "sourceId": "s1",
+      "attribution": "OFFICIAL"
+     },
+     {
+      "id": "f2",
+      "kind": "DESCRIPTION",
+      "text": "トップページは3,823人の製作者に参加を呼びかけていた。",
+      "sourceId": "s1",
+      "attribution": "OFFICIAL"
+     },
+     {
+      "id": "f3",
+      "kind": "OTHER",
+      "text": "2022年9月6日、月20ドルの料金が入会の障壁になっているとして、無料、招待制、任意の有料機能を組み合わせる案を公開した。",
+      "sourceId": "s4",
+      "statedAt": "2022-09-06",
+      "attribution": "OFFICIAL"
+     },
+     {
+      "id": "f4",
+      "kind": "OTHER",
+      "text": "Martijn Verboveは月20ドルを払う価値を感じ、交流会が増えるならさらに払ってもよいと投稿した。",
+      "sourceId": "s4",
+      "attribution": "OFFICIAL"
+     },
+     {
+      "id": "f5",
+      "kind": "OTHER",
+      "text": "Philip Thomasはコミュニティに払うことには納得するが、Telegramが好みでなく、参加を妨げているため、同時に接続しなくても参加できる形を望んだ。",
+      "sourceId": "s4",
+      "attribution": "OFFICIAL"
+     },
+     {
+      "id": "f6",
+      "kind": "PRICING",
+      "text": "2022年9月の本人回想では、支援（Patronage）は150ドルの支払いで1年間の追加特典が付くもので、その後、年150ドル（または月20ドル）の支払いが新規入会者に必須となった。",
+      "sourceId": "s5",
+      "statedAt": "2022-09-22",
+      "attribution": "OFFICIAL"
+     },
+     {
+      "id": "f7",
+      "kind": "OTHER",
+      "text": "2022年9月22日の本人説明では、前月の新規登録は3人だけだった。",
+      "sourceId": "s5",
+      "statedAt": "2022-09-22",
+      "attribution": "OFFICIAL"
+     },
+     {
+      "id": "f8",
+      "kind": "OTHER",
+      "text": "2022年9月の本人説明では、平均の月次継続売上は2,000ドルだった。",
+      "sourceId": "s5",
+      "statedAt": "2022-09-22",
+      "attribution": "OFFICIAL"
+     },
+     {
+      "id": "f9",
+      "kind": "EVENT",
+      "text": "2022年9月22日、有料の壁をなくして招待制の無料枠を設け、有料会員の機能や特典は継続すると発表した。本人はこれを実験と位置づけた。",
+      "sourceId": "s5",
+      "statedAt": "2022-09-22",
+      "attribution": "OFFICIAL"
+     },
+     {
+      "id": "f10",
+      "kind": "OTHER",
+      "text": "2022年12月5日、Marcは連続記録が途切れると意欲を失う人がいるとして、記録が全消去されない別の計算方式を提案した。実装完了の発表ではない。",
+      "sourceId": "s6",
+      "statedAt": "2022-12-05",
+      "attribution": "OFFICIAL"
+     },
+     {
+      "id": "f11",
+      "kind": "OTHER",
+      "text": "Nilsは1,373日続いた記録を入力忘れで失い、再開への意欲が落ちた一方、毎日続ける厳しい挑戦の価値も残したいと投稿した。",
+      "sourceId": "s6",
+      "statedAt": "2022-12-06",
+      "attribution": "OFFICIAL"
+     },
+     {
+      "id": "f12",
+      "kind": "OTHER",
+      "text": "Rodは厳しい連続記録が意欲を保つ助けになっていると投稿した。",
+      "sourceId": "s6",
+      "statedAt": "2022-12-06",
+      "attribution": "OFFICIAL"
+     },
+     {
+      "id": "f13",
+      "kind": "EVENT",
+      "text": "2024年1月25日、費用削減と速度改善のためRenderからDigitalOceanへKamalで移そうとして、停止が発生したと説明した。",
+      "sourceId": "s7",
+      "statedAt": "2024-01-25",
+      "attribution": "OFFICIAL"
+     },
+     {
+      "id": "f14",
+      "kind": "OTHER",
+      "text": "停止で連続記録が途切れた会員に、完了した作業のリンクと時刻を送れば日付を直すと案内した。移行の継続かRenderへの復帰かは当時未決定だった。",
+      "sourceId": "s7",
+      "statedAt": "2024-01-25",
+      "attribution": "OFFICIAL"
+     },
+     {
+      "id": "f15",
+      "kind": "OTHER",
+      "text": "2024年8月29日の本人説明では、月次継続売上は約1,000ドルだった。",
+      "sourceId": "s8",
+      "statedAt": "2024-08-29",
+      "attribution": "OFFICIAL"
+     },
+     {
+      "id": "f16",
+      "kind": "PRICING",
+      "text": "2024年8月29日、新規会員を月29ドルまたは年199ドルにし、1か月の無料試用を案内した。既存の無料会員と有料会員の条件は維持した。",
+      "sourceId": "s8",
+      "statedAt": "2024-08-29",
+      "attribution": "OFFICIAL"
+     },
+     {
+      "id": "f17",
+      "kind": "OTHER",
+      "text": "料金変更後も招待制を維持する方針を示した。",
+      "sourceId": "s8",
+      "statedAt": "2024-08-29",
+      "attribution": "OFFICIAL"
+     },
+     {
+      "id": "f18",
+      "kind": "CHANNEL",
+      "text": "Jill Binderは友人に合うコミュニティだとして、招待の入手方法を質問した。",
+      "sourceId": "s9",
+      "statedAt": "2024-09-10",
+      "attribution": "OFFICIAL"
+     },
+     {
+      "id": "f19",
+      "kind": "CHANNEL",
+      "text": "Marcは、招待枠はサイトの利用に応じて自動配布され、連続記録の節目は方法の1つだが必須ではないと返答した。",
+      "sourceId": "s9",
+      "attribution": "OFFICIAL"
+     },
+     {
+      "id": "f20",
+      "kind": "PRICING",
+      "text": "入会ページでは、月29ドルまたは年199ドルと表示している。",
+      "sourceId": "s10",
+      "attribution": "OFFICIAL"
+     },
+     {
+      "id": "f21",
+      "kind": "PRICING",
+      "text": "現行の入会ページは買い切り会員を提供せず、世界共通の価格で、クレジットカードに対応すると説明している。",
+      "sourceId": "s10",
+      "attribution": "OFFICIAL"
+     },
+     {
+      "id": "f22",
+      "kind": "DESCRIPTION",
+      "text": "有料機能には連続記録の保護、製品の登録数制限の解除、利用状況の詳細、広告非表示、非公開の製品、外部連携などがある。",
+      "sourceId": "s11",
+      "attribution": "OFFICIAL"
+     }
+    ],
+    "metrics": [],
+    "unknowns": [
+     "REVENUE",
+     "PROFIT",
+     "COST",
+     "TEAM",
+     "TOOLS",
+     "FOUNDED"
+    ],
+    "analysis": [
+     {
+      "id": "a-headline",
+      "item": "HEADLINE",
+      "text": "前月の新規登録がわずか3人、月次継続売上の平均が2,000ドルという状況で、製作者コミュニティWIPの運営者は2022年9月22日に有料の壁を外し、招待制の無料枠を始めた。2024年8月29日には月次継続売上が約1,000ドルになっており、新規会員を月29ドルか年199ドルの有料制に戻した。",
+      "basis": [
+       "f7",
+       "f8",
+       "f9",
+       "f15",
+       "f16"
+      ],
+      "formula": "数字は出典に載っている値",
+      "presentation": "FACT_SUMMARY"
+     },
+     {
+      "id": "a-story",
+      "item": "STORY",
+      "text": "当初は支援（Patronage）という任意の制度で、150ドル払うと1年間の追加特典が付いた。その後、年150ドルか月20ドルの支払いが新規入会者に必須になった。2022年9月6日、運営者は月20ドルが入会の障壁になっているとして、無料・招待制・任意の有料機能を組み合わせる案を公開した。本人説明では、前月の新規登録は3人、平均の月次継続売上は2,000ドルだった。同月22日に有料の壁を外して招待制の無料枠を設け、有料会員の特典は残した。本人はこれを実験と位置づけた。2024年1月25日には、費用削減と速度改善のためにRenderからDigitalOceanへ移そうとして停止が起きた。2024年8月29日時点で月次継続売上は約1,000ドルとなり、新規会員を月29ドルまたは年199ドルにして、1か月の無料試用を付けた。招待制は維持した。",
+      "basis": [
+       "f6",
+       "f3",
+       "f7",
+       "f8",
+       "f9",
+       "f13",
+       "f15",
+       "f16",
+       "f17"
+      ],
+      "formula": "数字は出典に載っている値",
+      "presentation": "FACT_SUMMARY"
+     },
+     {
+      "id": "a-business_model",
+      "item": "BUSINESS_MODEL",
+      "text": "毎日の作業を公開し、互いに進捗の説明責任を持つ製作者の集まりへの入会権を、会費として売っている。招待制なので、既存会員の招待が入口になる。新規会員は月額または年額の会費をクレジットカードで払う。有料会員には、連続記録の保護、製品の登録数制限の解除、利用状況の詳細、広告非表示、非公開の製品、外部連携が付く。2024年8月29日より前に入った無料会員は無料のまま残している。",
+      "basis": [
+       "f1",
+       "f16",
+       "f17",
+       "f21",
+       "f22"
+      ],
+      "presentation": "FACT_SUMMARY"
+     },
+     {
+      "id": "a-customer",
+      "item": "CUSTOMER",
+      "text": "払っているのは、自分の製品を作って出荷する個人の製作者だ。トップページは3,823人の製作者に参加を呼びかけている。会員のMartijn Verboveは月20ドルを払う価値を感じており、交流会が増えるならさらに払ってもよいと投稿した。",
+      "basis": [
+       "f1",
+       "f2",
+       "f4"
+      ],
+      "formula": "数字は出典に載っている値",
+      "presentation": "FACT_SUMMARY"
+     },
+     {
+      "id": "a-customer_pain",
+      "item": "CUSTOMER_PAIN",
+      "text": "毎日の作業記録が途切れることへの恐怖と、途切れた後の脱力感が、会費を払う動機になっている。Nilsは1,373日続いた記録を入力忘れで失い、再開する意欲が落ちたと投稿した。Rodは、厳しい連続記録が意欲を保つ助けになっていると書いた。有料機能には、この連続記録を守る保護機能が入っている。",
+      "basis": [
+       "f11",
+       "f12",
+       "f22"
+      ],
+      "presentation": "FACT_SUMMARY"
+     },
+     {
+      "id": "a-channels",
+      "item": "CHANNELS",
+      "text": "新しい客は、既存会員の招待からしか入ってこない。招待枠はサイトの利用に応じて自動で配られる。連続記録の節目は配られる条件の1つだが、必須ではない。会員のJill Binderは、友人に合うコミュニティだと考えて招待の入手方法を尋ねた。このように、会員が友人に勧める口コミが経路になっている。",
+      "basis": [
+       "f17",
+       "f18",
+       "f19"
+      ],
+      "presentation": "FACT_SUMMARY"
+     },
+     {
+      "id": "a-cost_structure",
+      "item": "COST_STRUCTURE",
+      "text": "事実として出ている費用はサーバー代だ。2024年1月25日、運営者は費用を減らして速度を上げるため、ホスティングをRenderからDigitalOceanへ移そうとした。",
+      "basis": [
+       "f13"
+      ],
+      "presentation": "FACT_SUMMARY"
+     },
+     {
+      "id": "a-tools",
+      "item": "TOOLS",
+      "text": "サイトはRenderで運用していた。2024年1月25日、Kamalを使ってDigitalOceanへ移そうとした。",
+      "basis": [
+       "f13"
+      ],
+      "presentation": "FACT_SUMMARY"
+     },
+     {
+      "id": "a-dependencies",
+      "item": "DEPENDENCIES",
+      "text": "ホスティング先の乗り換えがそのまま停止を生み、会員の連続記録を途切れさせた。運営者は、完了した作業のリンクと時刻を送れば日付を手作業で直すと案内した。会話の場にはTelegramを使っており、Philip Thomasは、Telegramが好みでないことが参加の妨げになっていると投稿した。",
+      "basis": [
+       "f13",
+       "f14",
+       "f5"
+      ],
+      "presentation": "FACT_SUMMARY"
+     },
+     {
+      "id": "a-lock_in",
+      "item": "LOCK_IN",
+      "text": "毎日積み上げる連続記録そのものが、やめにくさになっている。Nilsの記録は1,373日に達していた。記録を失うと意欲が落ちるほどの重みがあるので、有料機能でその記録を守らせている。",
+      "basis": [
+       "f11",
+       "f22"
+      ],
+      "presentation": "FACT_SUMMARY"
+     },
+     {
+      "id": "a-upfront_cash",
+      "item": "UPFRONT_CASH",
+      "text": "新規会員は年199ドルの年払いを選べる。選んだ会員からは、1年分の会費が先に入る。",
+      "basis": [
+       "f16",
+       "f20"
+      ],
+      "formula": "数字は出典に載っている値",
+      "presentation": "FACT_SUMMARY"
+     },
+     {
+      "id": "a-timeline",
+      "item": "TIMELINE",
+      "text": "2022年9月6日、無料・招待制・任意の有料機能を組み合わせる案を公開した。2022年9月22日、有料の壁を外して招待制の無料枠を始めた。2022年12月5日、記録が全部は消えない連続記録の計算方式を提案した。2024年1月25日、ホスティングの移行中に停止が発生した。2024年8月29日、新規会員を月29ドルか年199ドルの有料制に戻した。",
+      "basis": [
+       "f3",
+       "f9",
+       "f10",
+       "f13",
+       "f16"
+      ],
+      "formula": "数字は出典に載っている値",
+      "presentation": "FACT_SUMMARY"
+     },
+     {
+      "id": "a-pivots",
+      "item": "PIVOTS",
+      "text": "料金は、任意の支援制度から始まった。その後、年150ドルか月20ドルの必須会費になり、2022年9月22日に招待制の無料枠へ切り替えた。2024年8月29日には、新規会員だけを月29ドルか年199ドルの有料制に戻した。途中で変えなかったのは、招待制で入会者を絞ることだ。",
+      "basis": [
+       "f6",
+       "f9",
+       "f16",
+       "f17"
+      ],
+      "formula": "数字は出典に載っている値",
+      "presentation": "FACT_SUMMARY"
+     },
+     {
+      "id": "a-viability",
+      "item": "VIABILITY",
+      "text": "特化しないと困難。月次継続売上は、2022年9月の平均2,000ドルから、2024年8月29日には約1,000ドルに下がった。招待制で入会者を絞る形は、そのまま規模の上限にもなっている。",
+      "basis": [
+       "f8",
+       "f15",
+       "f17"
+      ],
+      "formula": "数字は出典に載っている値",
+      "presentation": "FACT_SUMMARY"
+     }
+    ],
+    "summaryFactId": "f2"
+   }
+  }
+ ]
+}

@@ -52,6 +52,10 @@ export function sourceNumbers(text: string): number[] {
   const out = new Set<number>();
   // 「5 to 10 million」「$5-10M」の前の数にも単位を掛ける
   for (const m of t.matchAll(RANGE)) { const k = MULT[m[3].toLowerCase()] ?? MULT[m[3]] ?? 1; out.add(Number(m[1]) * k); out.add(Number(m[2]) * k); }
+  // 「464 464」「1 575」のように空白で桁を区切る書き方（フランス語圏など）も1つの数にまとめる
+  for (const m of t.matchAll(/(?<![\d,.])(\d{1,3}(?:[ \u00a0]\d{3})+)(?![\d,])/g)) out.add(Number(m[1].replace(/[ \u00a0]/g, '')));
+  // 「$0.10 per million queries」「a million users」のように数字を付けず単位だけで言う書き方は、1単位として読む
+  for (const m of t.matchAll(/\b(?:per|a|one|every|each)\s+(thousand|million|billion)\b/gi)) out.add(MULT[m[1].toLowerCase()]);
   for (const m of t.matchAll(SOURCE_NUMBER)) {
     const base = Number(m[1].replace(/,/g, ''));
     if (!Number.isFinite(base)) continue;
@@ -73,12 +77,12 @@ export function claimNumbers(text: string): { numbers: number[]; years: string[]
   const t = joinJa(clean(text).replace(/約?[\d,.]+(?:千|万|億)?(?:\s*[〜~／/・、]\s*約?[\d,.]+(?:千|万|億)?)*円/g, ' '));
   const years = [...new Set([...t.matchAll(YEAR)].map((m) => m[1]))];
   const numbers: number[] = [];
-  for (const m of t.matchAll(/(?<![A-Za-z\d])(\d+(?:,\d{3})*(?:\.\d+)?)\s*(千|万|億)?\s*(円|年|月|日|か月|ヶ月)?(?![A-Za-z])/g)) {
+  for (const m of t.matchAll(/(?<![A-Za-z\d])(\d+(?:,\d{3})*(?:\.\d+)?)(?!\d)\s*(千|万|億|[kKmM](?![A-Za-z]))?\s*(円|年|月|日|か月|ヶ月)?(?![A-Za-z])/g)) {
     const raw = Number(m[1].replace(/,/g, ''));
     if (!Number.isFinite(raw)) continue;
     if (m[3] === '年' || (m[3] === '月' && raw <= 12) || (m[3] === '日' && raw <= 31)) continue; // 日付の部品
     if (m[3] && YEN.test(m[3])) continue; // 円換算は原文に無い（画面の層が足した概算）
-    const value = raw * (m[2] ? MULT[m[2]] : 1);
+    const value = raw * (m[2] ? (MULT[m[2]] ?? MULT[m[2].toLowerCase()] ?? 1) : 1);
     // 12以下の小さい数は読み流す。ただし料金（$9、月9ドル）は誤りが致命的なので照らす
     const money = /^\s*(?:ドル|ユーロ|ポンド)/.test(t.slice((m.index ?? 0) + m[0].length)) || t[(m.index ?? 0) - 1] === '$' || /[$€£]/.test(t.slice(Math.max(0, (m.index ?? 0) - 2), m.index ?? 0));
     if ((value <= 12 && !money) || /^(19|20)\d{2}$/.test(m[1])) continue;
