@@ -214,6 +214,8 @@ for (const id of ids) {
   const allowed = allowedUiTexts(entity.name);
   // 事例が持つ札（一覧の行と詳細の見出しに出る。caseLabels）は事例のデータから来る文字
   for (const tag of entity.tags ?? []) allowed.add(tag);
+  // 事業の札が足りない事例に補う札（data/fact-lines.json の labels。reader.display.labels）も同じく事例のデータから来る
+  for (const label of entity.reader?.display?.labels?.labels ?? []) allowed.add(label);
   const isAllowed = (t: string) => allowed.has(t) || isUnknownsLine(t) || isGenerationHeading(t);
   const factIds = new Set((entity.reader?.facts ?? []).map((f) => f.id));
   for (const [screen, html] of screens) {
