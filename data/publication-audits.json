@@ -18,13 +18,204 @@
   "outputFileHash": "85c04246d11099ecb2ef38cd2895d902c1547e6ca29f8f3bf9703f7da91d5761"
  },
  "ent_teamcamp_ae0c21986c4d": {
-  "version": 1,
-  "inputHash": "f4e4c019e621b0df9b87d36553d38a512f7c330ffae87b28e3181b760aa4fb5d",
-  "approvedHash": "565c05e568b8efc254d5adc16cfe88d7c9c313236e5a5294ef624f7b02595b5e",
-  "inputFile": "data/audit/in-99999926100723204200175001.json",
-  "outputFile": "data/audit/out-99999926100723204200175001.json",
-  "inputFileHash": "4867f99939a32ec766eb1067f786e01d900579f3d309e97722bf498d39539828",
-  "outputFileHash": "cdd4e705cfd6267eb0a74c5a1b2f308cbd06031588047e02b386dd4b8c2cda5b"
+  "version": 2,
+  "caseHash": "692901739b416a6f3c5a51afc984b8bbfa9e1fb8eeca68797bee19203c110a89",
+  "items": {
+   "fact:f1": {
+    "hash": "120f51602dda46cd47c2cdc27ed486f5b542201033be63ad890c0559d609e40c",
+    "by": "data/audit/in-99999926100723204200175001.json"
+   },
+   "fact:f2": {
+    "hash": "2277e3ddd7989458cf81d076e7960b0f7edc9d4cf8a3ca7cb5a9cb8bc8bb0056",
+    "by": "data/audit/in-99999926100723204200175001.json"
+   },
+   "fact:f3": {
+    "hash": "ca5c22eda34c482b00f97b1b0f1f11f5eaf35b045f5f96e5f7d127be948654ff",
+    "by": "data/audit/in-99999926100723204200175001.json"
+   },
+   "fact:f4": {
+    "hash": "09f2e8182af9169a8b64d5d9017d5ce0f6ceaf344b2d1521cdaf4a92531dafa0",
+    "by": "data/audit/in-99999926100723204200175001.json"
+   },
+   "fact:f5": {
+    "hash": "27246f025cb9b0e21148b7462370b3783a50bb6a580356acd9b214bdc4510e0f",
+    "by": "data/audit/in-99999926100723204200175001.json"
+   },
+   "fact:f6": {
+    "hash": "e892adc53901d374c2df8b0228cef1f6019c64314c375214c8d78d055a783bdd",
+    "by": "data/audit/in-99999926100723204200175001.json"
+   },
+   "fact:f7": {
+    "hash": "505020606a2db43e7e5046f1ce860fa5999117fecc4fa963ce20629d14f6c85c",
+    "by": "data/audit/in-99999926100723204200175001.json"
+   },
+   "fact:f8": {
+    "hash": "cf522ba65f307cfe59b1c3536d58356f0a91d5159f896ba168f1bf57158f3aaf",
+    "by": "data/audit/in-99999926100723204200175001.json"
+   },
+   "analysis:a-headline": {
+    "hash": "3dfc287dc104dad75566f39e3a19661821cd0953ee3fd74edcb85d6853def5a0",
+    "by": "data/audit/in-99999926100723204200175001.json",
+    "body": {
+     "text": "複数の顧客案件を抱えるSEO担当のPratham Naikは、複雑な管理ツールにうんざりしてTeamcampを作り始めた。",
+     "formula": "数字は出典に載っている値"
+    }
+   },
+   "analysis:a-story": {
+    "hash": "d9d911df9ad4bc4e31b44775f351d11a6b603d80b3ff0b2f610d9ed688a67836",
+    "by": "data/audit/in-99999926100723204200175001.json",
+    "body": {
+     "text": "創業者は、SEO担当として複数の顧客案件を回す中で、複雑な管理ツールにうんざりして自作した。本人の別の投稿では、インディー開発者の仲間の要望（ダークモード、API、Notion風ブロック）で6か月作ったが、Product Huntは23票、初月の売上は227ドルだった。初めて話した代理店の経営者に顧客用ポータルと白ラベルを聞かれ、見た目より客とのやり取りの機能が要ると気づき、事業主との直接の会話に切り替えたという。この投稿は製品名を出しておらず、同じ創業者の他の投稿とは時期も数字も合わない。",
+     "formula": "数字は出典に載っている値"
+    }
+   },
+   "analysis:a-business_model": {
+    "hash": "c29e853842f7fa3ab7edfa161a96627f39e54ebdd346360ffb6e0cfe5853a0f2",
+    "by": "data/audit/in-99999926100723204200175001.json",
+    "body": {
+     "text": "代理店が、プロジェクト管理、時間記録、請求書、顧客に見せる画面を1つで使う代わりに、ユーザー数に応じた月額（または無制限プラン）を払う。工数の記録からそのまま請求書を作れる。",
+     "formula": "数字は出典に載っている値"
+    }
+   },
+   "analysis:a-customer": {
+    "hash": "42772f3a7a5b0aa279b809dc5eb5a84c705d7952b6f26020216424926c744405",
+    "by": "data/audit/in-99999926100723204200175001.json",
+    "body": {
+     "text": "開発会社、デザイン会社、マーケティング代理店、フリーランス。顧客に進捗や請求書を見せる必要のある小さな制作会社。",
+     "formula": "数字は出典に載っている値"
+    }
+   },
+   "analysis:a-customer_pain": {
+    "hash": "2ee192f03f97d41e17a016c82c8aeec21cc3c52ca6c77374592b91b9ff595675",
+    "by": "data/audit/in-99999926100723204200175001.json",
+    "body": {
+     "text": "創業者が挙げる客の困りごとは、複雑すぎるツールの管理に時間を取られること。代理店の経営者が最初に求めたのは、顧客に見せる画面と白ラベルだった。",
+     "formula": "数字は出典に載っている値"
+    }
+   },
+   "analysis:a-first_customers": {
+    "hash": "b5857a68ab04a43081823d70a2bea6413903c1e0aa0a769cf2536c5e90095555",
+    "by": "data/audit/in-99999926100723204200175001.json",
+    "body": {
+     "text": "最初の手応えは、インディー開発者の仲間ではなく、初めて話した代理店の経営者から出た。別の投稿では、作る前に99ドルを先払いしてもよいという12人を見つけてから作り始めたと書く。",
+     "formula": "数字は出典に載っている値"
+    }
+   },
+   "analysis:a-channels": {
+    "hash": "780fb8f4257229e915ba69fa2b13322d8841ebc99486ba60acd3dc567e281faf",
+    "by": "data/audit/in-99999926100723204200175001.json",
+    "body": {
+     "text": "新規登録の約4割は口コミ・紹介と本人が書く。公式は、生涯続くコミッションの紹介プログラムで、ブロガーや比較サイト、インフルエンサーに紹介を促す。",
+     "formula": "数字は出典に載っている値"
+    }
+   },
+   "analysis:a-upfront_cash": {
+    "hash": "1a3cb3312a05b99ee2bec2590e61a131ce9227fd8ba8b2d0e00bc5b8fbc2adb6",
+    "by": "data/audit/in-99999926100723204200175001.json",
+    "body": {
+     "text": "作る前に99ドルを先払いしてもよいという12人を見つけてから作り始めたと書く。2025年10月の投稿では、買い切り999ドルを月額と並べて4か月試し、売上の約4割が買い切りだったと書く。現在の公式の料金表に買い切りは無い。",
+     "formula": "数字は出典に載っている値"
+    }
+   },
+   "analysis:a-referral": {
+    "hash": "5526f5438c8608a011d7dff75e5001c64af526a667406e3071899b9cc23ad0da",
+    "by": "data/audit/in-99999926100723204200175001.json",
+    "body": {
+     "text": "紹介した客ごとの生涯コミッション。本人は、買い切りの客は月額の客の3.2倍を紹介すると書く。",
+     "formula": "数字は出典に載っている値"
+    }
+   },
+   "analysis:a-failure_cause": {
+    "hash": "47036d66e74a98bb2bd70d1a76d25bf19834193aa437ed4c4d51fd4b99355493",
+    "by": "data/audit/in-99999926100723204200175001.json",
+    "body": {
+     "text": "半年間、インディー開発者仲間の称賛を頼りに機能を足したが、有料の客につながらなかったと本人が書く。仲間は払う客の代表ではなかったと振り返っている。",
+     "formula": "数字は出典に載っている値"
+    }
+   },
+   "analysis:a-cost_structure": {
+    "hash": "69cac9beb069b03f5184d5cc92d4c51b526db7bcd0f8b9e4f84871da28fbdaf5",
+    "by": "data/audit/in-99999926100723204200175001.json",
+    "body": {
+     "text": "サーバー費は利用量に比例して増える。買い切り999ドルの客が50人規模のチームを入れると利益が崩れると、創業者自身が懸念を書いている。紹介した客には生涯続く継続コミッションを払う。",
+     "formula": "数字は出典に載っている値"
+    }
+   },
+   "analysis:a-tools": {
+    "hash": "ea881fa3f2adaf50d5ffa14565b7eadcff5d8b573c9fff5525662e18ffb2932e",
+    "by": "data/audit/in-99999926100723204200175001.json",
+    "body": {
+     "text": "GitHub・GitLabと連携し、コードのPRが開くとタスクが「レビュー」へ、マージされると「完了」へ動き、請求用に時刻を記録する。Asana・ClickUp・Linearのデータを取り込める。",
+     "formula": "数字は出典に載っている値"
+    }
+   },
+   "analysis:a-dependencies": {
+    "hash": "e215c13955cacf561568d647a45630a537af3954f2140e22bdc961f21a299293",
+    "by": "data/audit/in-99999926100723204200175001.json",
+    "body": {
+     "text": "開発案件では、タスクの状態と請求用の時刻記録がGitHub・GitLabのPR・マージの動きに連動して動く。",
+     "formula": "数字は出典に載っている値"
+    }
+   },
+   "analysis:a-lock_in": {
+    "hash": "79b966e9e5f8ce0847d34e9800a97757b97383ad08259e6d3e4aff70dd1f3e6e",
+    "by": "data/audit/in-99999926100723204200175001.json",
+    "body": {
+     "text": "時間記録、請求書、顧客に見せる専用画面、案件のやり取りを1つに集めており、代理店の顧客は専用画面で状況を見る。買い切りの客の解約はゼロだったと創業者は書く。",
+     "formula": "数字は出典に載っている値"
+    }
+   },
+   "analysis:a-competition": {
+    "hash": "6e3bf49f3033847ff0a72c764de7a41de0dacba0c5e41de2e637843518902ccb",
+    "by": "data/audit/in-99999926100723204200175001.json",
+    "body": {
+     "text": "競合はAsana、Monday、Trello。Asanaは操作が重く、Mondayは使わない機能にも払い、Trelloは単純すぎるという不満を出発点にした。Asana・ClickUp・Linearから乗り換える客のデータを取り込める。",
+     "formula": "数字は出典に載っている値"
+    }
+   },
+   "analysis:a-why_it_worked": {
+    "hash": "515f8e271fa2e60f3eb99be3dbaf9d7fbc59105448ba677ddf7f5c3a2a858fb1",
+    "by": "data/audit/in-99999926100723204200175001.json",
+    "body": {
+     "text": "創業者は、見た目と実際に使える無料枠が効き、顧客用の画面が最大の差になったと書く。別の投稿では、代理店の経営者に「顧客用ポータルは？白ラベルにできる？」と聞かれて事業主との直接の会話に切り替え、2か月で継続率が12%から41%に上がったと書くが、この投稿は製品名を出しておらず、同じ創業者の他の投稿とは時期も数字も合わない。",
+     "formula": "数字は出典に載っている値"
+    }
+   },
+   "analysis:a-viability": {
+    "hash": "8ac799cdb623a39f700ec8d426535d0de2a56f6a7b1819404da373825daeeb12",
+    "by": "data/audit/in-99999926100723204200175001.json",
+    "body": {
+     "text": "今も有効。公式サイトは料金表、紹介プログラム、顧客用ポータルを現在も掲げて営業している。創業者は、すでに不完全な解決策に払っている客を探し、先払いを確かめてから作る形を勧めている。",
+     "formula": "数字は出典に載っている値"
+    }
+   },
+   "analysis:a-pivots": {
+    "hash": "38356580e1700bfc645df94c98e4877c726d0c3e67b09f6a34c25c98ab196fc1",
+    "by": "data/audit/in-99999926100723204200175001.json",
+    "body": {
+     "text": "インディー開発者仲間の要望（ダークモード、API、Notion風ブロック）で6か月作った製品は、Product Huntで23票、初月売上227ドルだった。初めて話した代理店の経営者に顧客用ポータルを求められ、見た目より顧客とのやり取りの機能が要ると分かり、事業主との直接の会話に切り替えた。別の投稿では、6か月の毎日の公開開発の後にサインアップ43件・有料2件だったことから、99ドルの先払いを確かめてから作る方式に変えている。",
+     "formula": "数字は出典に載っている値"
+    }
+   },
+   "analysis:a-lesson": {
+    "hash": "fd7b1d46db53c06abe63ff3e189239885128fb92617e9a96df0a727666686bf2",
+    "by": "data/audit/in-99999926100723204200175001.json",
+    "body": {
+     "text": "売る相手に直接聞き、払う意思を先に確かめてから作る順番が、作り込みより効いたと創業者は振り返る。根拠に挙げる数字（初月227ドル、継続率12%から41%など）は本人の投稿どうしで時期と規模が合わず、どこまでがTeamcampの数字かは投稿からは決められない。",
+     "formula": "数字は出典に載っている値"
+    }
+   }
+  },
+  "audits": [
+   {
+    "inputFile": "data/audit/in-99999926100723204200175001.json",
+    "outputFile": "data/audit/out-99999926100723204200175001.json",
+    "inputFileHash": "4867f99939a32ec766eb1067f786e01d900579f3d309e97722bf498d39539828",
+    "outputFileHash": "cdd4e705cfd6267eb0a74c5a1b2f308cbd06031588047e02b386dd4b8c2cda5b"
+   }
+  ],
+  "lastAudit": "data/audit/in-99999926100723204200175001.json",
+  "baseAnalysisHash": "ad8ddc717b98291f6fbcfe9a7fe8fe36560e6bd9fca3470137035d1475b3efb7"
  },
  "ent_referralrock_8c13d5ee4cfc": {
   "version": 1,

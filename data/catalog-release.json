@@ -4,17 +4,17 @@
   "sourceCount": 3354,
   "publishedCount": 10,
   "summaries": {
-    "hash": "f196574f0f039cb64dcd64845f583847a4310064a8a508dd7512b525773673a0",
-    "key": "views/make-money/catalog-v1/objects/f196574f0f039cb64dcd64845f583847a4310064a8a508dd7512b525773673a0.json.gz"
+    "hash": "d02691d1907e0180cd29eda2285ae43d8ba2b635810279337c66b99d4acbabb0",
+    "key": "views/make-money/catalog-v1/objects/d02691d1907e0180cd29eda2285ae43d8ba2b635810279337c66b99d4acbabb0.json.gz"
   },
   "discovery": {
-    "hash": "12e8c8a75fbb0d804be9e44bf09d01507a72765a7551efd1da6005d887f6527d",
-    "key": "views/make-money/catalog-v1/objects/12e8c8a75fbb0d804be9e44bf09d01507a72765a7551efd1da6005d887f6527d.json.gz"
+    "hash": "32f06ec48f526b6f693cc85166b43cb5cadecb53e8d0e21da82c032e74b1e8d0",
+    "key": "views/make-money/catalog-v1/objects/32f06ec48f526b6f693cc85166b43cb5cadecb53e8d0e21da82c032e74b1e8d0.json.gz"
   },
   "details": {
     "ent_myoperator_49c393230a2d": "fa477f7f3c7efa68678664101b3aeeabced3b93da4f501f454b1b59fc3861a59",
     "ent_codementor_ba692caa3db3": "cff93879790cff02347407a47f6ad0adcca2d7f679f30f16319eebb0bd9c7171",
-    "ent_teamcamp_ae0c21986c4d": "bacf0cad595f1890e9064fb6d21f16041541b230295223322e87b615897c49bd",
+    "ent_teamcamp_ae0c21986c4d": "8d986383676fcd8738e0007a7229c07d30be6d1b047888255c5bcc8f06816c9e",
     "ent_referralrock_8c13d5ee4cfc": "259baac9739606acc6f1ca6ea57f5c5ac9f72c859e3626e762a86379642f0f48",
     "ent_ejunkie_7e9e46bd9643": "85c7dc592df4caad453b568a54a1d63abb83aa65dad653a63eb6bafe1ab80eca",
     "ent_gorails_640d8f688451": "a9d93f652baf42bc740531b100294f3297f66ce1513ad64af06bf62087434b12",
@@ -26,7 +26,7 @@
   "coreDetails": {
     "ent_myoperator_49c393230a2d": "d358715c82e64e52fe6334755f5f114610c21f0ba2f185bcf338e3120390b388",
     "ent_codementor_ba692caa3db3": "9e2421c9a33dcc80223947e1098c1da5092aa1a478f30494b518478177df7052",
-    "ent_teamcamp_ae0c21986c4d": "89ba6acdce17fcb059e349b8ff0e4a97534674d6adc5bb4147e2fed47fb63349",
+    "ent_teamcamp_ae0c21986c4d": "df23d81787dcbee2974e6e0984dbce1ee74e0bfee6f00969a69c5cb4a74aa1b3",
     "ent_referralrock_8c13d5ee4cfc": "e79d5c413ef0c09169a9bd60ccd838a95c34afa71a0ed85cb0319d5bcb8af895",
     "ent_ejunkie_7e9e46bd9643": "4d4915c52a51b8fc9f2e9eda221d06103279770976e93d635c0217f5d4e75835",
     "ent_gorails_640d8f688451": "3a1c650ab78e88019da4626407dd25e4a3625435d631db82665a6d7259ce8fa4",
