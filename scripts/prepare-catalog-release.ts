@@ -20,6 +20,7 @@ import { loadPublicationInput, readPublicationAudits } from './reader-case/publi
 import { checkWithdrawals, planRelease } from './reader-case/release-plan';
 import { readReflectState, reflectHoldReasons, reflectedReader, withReflectedAnalysis } from './reader-case/case-reflect';
 import { rightsOptions } from './reader-case/load-readers';
+import { withoutSuspendedSources } from './reader-case/source-policy';
 import { displayForEntity, DISPLAY_SOURCE_FILE_NAMES, type DisplaySourceFiles } from '../src/shared/reader-display';
 import { buildCasePageReader } from './case-pages/reader';
 import { manifestObjectKey, type ReleasePointer } from '../src/shared/catalog-manifest';
@@ -124,7 +125,7 @@ for (const entity of publishable) {
   const reflectHold = reflectHoldReasons(reflectState, entity.id);
   if (reflectHold?.length && !casePageIds.has(entity.id)) { withheld.imported++; stamp(entity.id, 'HOLD_IMPORT', reflectHold.join(' / ')); continue; }
   const projected = projectReaderCase(rawRecord, rightsOptions(rawRecord as Record<string, unknown>));
-  const result = { ...projected, reader: reflectedReader(reflectState, entity.id) ?? projected.reader };
+  const result = { ...projected, reader: ((r) => (r ? withoutSuspendedSources(r) : projected.reader))(reflectedReader(reflectState, entity.id)) };
   totals.processDropped += result.stats.processDropped;
   totals.unbound += result.unbound.length;
   if (result.unbound.length) unboundAll.push({ id: entity.id, lines: result.unbound });
