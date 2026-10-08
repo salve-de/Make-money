@@ -652,24 +652,22 @@
     "https://www.codementor.io/": {
      "url": "https://www.codementor.io/",
      "status": 200,
-     "fetchedAt": "2026-09-30T04:39:00.221Z",
+     "fetchedAt": "2026-10-07T12:39:49.786Z",
      "via": "direct",
-     "finalUrl": "https://www.codementor.io/",
-     "contentType": "text/html; charset=utf-8",
      "textHash": "53cfbdc1dc4d8cd067cdb6309ced03522b69b2970f189224720ec79eab4051b6",
      "textLength": 5732,
      "quotes": [
       "33690b2de45df19c2d8c9b5cf57692df2f68f000c673671bc5afbef74d2290e1"
      ],
-     "quotesAbsent": []
+     "quotesAbsent": [],
+     "finalUrl": "https://www.codementor.io/",
+     "contentType": "text/html; charset=utf-8"
     },
     "https://mixergy.com/interviews/codementor-with-weiting-liu/": {
      "url": "https://mixergy.com/interviews/codementor-with-weiting-liu/",
      "status": 200,
-     "fetchedAt": "2026-10-08T00:04:49.530Z",
+     "fetchedAt": "2026-10-07T12:55:57.918Z",
      "via": "direct",
-     "finalUrl": "https://mixergy.com/interviews/codementor-with-weiting-liu/",
-     "contentType": "text/html; charset=UTF-8",
      "textHash": "c86e32038c4652d9dc29484bf66f13da64cd0fb70e2675efe18ca9af3a52e844",
      "textLength": 68297,
      "quotes": [
@@ -681,15 +679,15 @@
       "be163487a45db87f792f1ac6c910f77bd30030fa3a5981421a7980b530f26533",
       "f5e9f7a3132e157f779636b097924e6155215b969fae5abf12818315ef8c6967"
      ],
-     "quotesAbsent": []
+     "quotesAbsent": [],
+     "finalUrl": "https://mixergy.com/interviews/codementor-with-weiting-liu/",
+     "contentType": "text/html; charset=UTF-8"
     },
     "https://techcrunch.com/2016/12/14/codementor-raises-1-6-million-to-become-elite-marketplace-for-freelance-developers": {
      "url": "https://techcrunch.com/2016/12/14/codementor-raises-1-6-million-to-become-elite-marketplace-for-freelance-developers",
      "status": 200,
-     "fetchedAt": "2026-10-07T23:34:20.976Z",
+     "fetchedAt": "2026-10-07T12:43:18.651Z",
      "via": "direct",
-     "finalUrl": "https://techcrunch.com/2016/12/14/codementor-raises-1-6-million-to-become-elite-marketplace-for-freelance-developers/",
-     "contentType": "text/html; charset=UTF-8",
      "textHash": "ede5e4c87673a92a6fa16f871ad91d82bc3ea2d6bccd50a6a1dce87ab4b40512",
      "textLength": 5527,
      "quotes": [
@@ -700,21 +698,23 @@
       "bc9ba70f4624f83aa533dfa28e324e0fc03356a991f3d775b1269f8060859935",
       "ee9645c43e2ac763e6364e8199f84376149ac2767f550b1d520ed0e4d13c5c10"
      ],
-     "quotesAbsent": []
+     "quotesAbsent": [],
+     "finalUrl": "https://techcrunch.com/2016/12/14/codementor-raises-1-6-million-to-become-elite-marketplace-for-freelance-developers/",
+     "contentType": "text/html; charset=UTF-8"
     },
     "https://support.codementor.io/en/articles/4221825": {
      "url": "https://support.codementor.io/en/articles/4221825",
      "status": 200,
-     "fetchedAt": "2026-09-30T04:39:02.112Z",
+     "fetchedAt": "2026-10-07T12:55:59.258Z",
      "via": "direct",
-     "finalUrl": "https://support.codementor.io/en/articles/4221825",
-     "contentType": "text/html",
      "textHash": "52e208e662896781559bf7f9c18401ae53ca03d434de4244139b7b462d105c0c",
      "textLength": 1858,
      "quotes": [
       "f910c0fcbb88bd49087f1785961bd538f74f550648e6a2c4f1073806968a1b2e"
      ],
-     "quotesAbsent": []
+     "quotesAbsent": [],
+     "finalUrl": "https://support.codementor.io/en/articles/4221825",
+     "contentType": "text/html"
     }
    },
    "media": {
@@ -1210,117 +1210,117 @@
     "https://www.indiehackers.com/interview/overcoming-technical-roadblocks-to-achieve-1-million-arr-3df1ac487f": {
      "url": "https://www.indiehackers.com/interview/overcoming-technical-roadblocks-to-achieve-1-million-arr-3df1ac487f",
      "status": 200,
-     "fetchedAt": "2026-10-08T00:04:56.207Z",
+     "fetchedAt": "2026-10-06T09:31:35.990Z",
      "via": "wayback",
-     "finalUrl": "https://web.archive.org/web/20221205114704/https://www.indiehackers.com/interview/overcoming-technical-roadblocks-to-achieve-1-million-arr-3df1ac487f",
-     "contentType": "text/html; charset=utf-8",
      "textHash": "8b5164bc6c08a41ddbda0d4e64f04836e04f9236fb9f97b37ecbb0a93bf6001f",
      "textLength": 17888,
      "quotes": [
       "8d0d1f7e6f7443600268a9c3dca6fc33c3d5de537f4a07804f86ee0626853c9e",
       "d55cb443151f06fa23006679663b4bdc38449c6ae3a85883474e411c7d239723"
      ],
-     "quotesAbsent": []
+     "quotesAbsent": [],
+     "finalUrl": "https://web.archive.org/web/20221205114704/https://www.indiehackers.com/interview/overcoming-technical-roadblocks-to-achieve-1-million-arr-3df1ac487f",
+     "contentType": "text/html; charset=utf-8"
     },
     "https://www.e-junkie.com/": {
      "url": "https://www.e-junkie.com/",
      "status": 200,
-     "fetchedAt": "2026-09-30T04:39:55.813Z",
+     "fetchedAt": "2026-10-07T12:39:46.572Z",
      "via": "direct",
-     "finalUrl": "https://www.e-junkie.com/",
-     "contentType": "text/html;charset=UTF-8",
      "textHash": "be424f07cda6c4365fdbbbfdbbb9f83c9bc510a6afd3d6fe5f5026b5a0d600ad",
      "textLength": 2882,
      "quotes": [
       "b310b51a2b5601c9cb1cc9e967d9f18ed903e011706f83fc4f602f26cb92c546"
      ],
-     "quotesAbsent": []
+     "quotesAbsent": [],
+     "finalUrl": "https://www.e-junkie.com/",
+     "contentType": "text/html;charset=UTF-8"
     },
     "https://www.indiehackers.com/product/e-junkie": {
      "url": "https://www.indiehackers.com/product/e-junkie",
      "status": 200,
-     "fetchedAt": "2026-09-30T04:39:55.961Z",
+     "fetchedAt": "2026-10-07T12:39:46.836Z",
      "via": "direct",
-     "finalUrl": "https://www.indiehackers.com/product/e-junkie",
-     "contentType": "text/html; charset=utf-8",
-     "textHash": "1939b8c86637ecc71ec3ff95e141ad39f622cd6eecaade6f8c20247377f5e7a4",
-     "textLength": 3648,
+     "textHash": "57f9bf2b05a8f50774a6178db9da9da2316d71b0c93d449af2e37ee1a9b3a57f",
+     "textLength": 3654,
      "quotes": [
-      "1d19197a45d1c88efc7bb4370a0a30f6d5f6d9a1b1fa525819434b5345c9f033",
-      "24f7cfacf59db06fc6af1463e6bf921c20b65fcbd9c0b92be71288bada436147",
-      "a0375ab732c8da822856a8868397e26407476d19ce57e1a4e0e3f1d9a78718fd"
+      "9b8b1d863f7160db691334b9946ee8bd1514f721d79428a1a60e900d3e17321c",
+      "b4644d0d7e865ce65bceac91272036d3154fc485a764efa0bcdfe4f0fafc30a9",
+      "bf72cddb4cd587bea95c08084ccb9b7a2570cefe08493e8e995d2b5fb1becc3f"
      ],
-     "quotesAbsent": []
+     "quotesAbsent": [],
+     "finalUrl": "https://www.indiehackers.com/product/e-junkie",
+     "contentType": "text/html; charset=utf-8"
     },
     "https://www.e-junkie.com/wiki/about": {
      "url": "https://www.e-junkie.com/wiki/about",
      "status": 200,
-     "fetchedAt": "2026-09-30T04:39:56.699Z",
+     "fetchedAt": "2026-10-07T12:39:47.455Z",
      "via": "direct",
-     "finalUrl": "https://www.e-junkie.com/wiki/about",
-     "contentType": "text/html;charset=UTF-8",
      "textHash": "a59beaee8b61c67d7b75f278b99882b5fe929319facf80d01e2b8d98ef544e14",
      "textLength": 4323,
      "quotes": [
       "0aaa97a7b467697d067b1468a3ef5296876f7a92e62fcf2de7b839fe70c9c964"
      ],
-     "quotesAbsent": []
+     "quotesAbsent": [],
+     "finalUrl": "https://www.e-junkie.com/wiki/about",
+     "contentType": "text/html;charset=UTF-8"
     },
     "https://www.e-junkie.com/wiki/help-transaction-log": {
      "url": "https://www.e-junkie.com/wiki/help-transaction-log",
      "status": 200,
-     "fetchedAt": "2026-09-30T04:39:57.128Z",
+     "fetchedAt": "2026-10-07T12:39:47.616Z",
      "via": "direct",
-     "finalUrl": "https://www.e-junkie.com/wiki/help-transaction-log",
-     "contentType": "text/html;charset=UTF-8",
      "textHash": "6bf08e7ff1d6c355f6ece434018e28a2844e58919fd7e5b6342e1af50a0ce80f",
      "textLength": 7170,
      "quotes": [
       "3fffb2741b9c0452014af152dac9a831e02057ed0e2eb1bfd1e8a4163d8f96bf"
      ],
-     "quotesAbsent": []
+     "quotesAbsent": [],
+     "finalUrl": "https://www.e-junkie.com/wiki/help-transaction-log",
+     "contentType": "text/html;charset=UTF-8"
     },
     "https://www.e-junkie.com/wiki/affiliates": {
      "url": "https://www.e-junkie.com/wiki/affiliates",
      "status": 200,
-     "fetchedAt": "2026-09-30T04:39:57.136Z",
+     "fetchedAt": "2026-10-07T12:39:47.756Z",
      "via": "direct",
-     "finalUrl": "https://www.e-junkie.com/wiki/affiliates",
-     "contentType": "text/html;charset=UTF-8",
      "textHash": "867c12cd0e5cd0b74645cdf43efea49ecb11f7c5796e46c0c37f0e57f6ed0f8d",
      "textLength": 3199,
      "quotes": [
       "0771cac4b4a4cd9b1108d903ad2c7c98a47805b08e2cd90d811aca6b1a795765"
      ],
-     "quotesAbsent": []
+     "quotesAbsent": [],
+     "finalUrl": "https://www.e-junkie.com/wiki/affiliates",
+     "contentType": "text/html;charset=UTF-8"
     },
     "https://gumroad.com/pricing": {
      "url": "https://gumroad.com/pricing",
      "status": 200,
-     "fetchedAt": "2026-09-30T04:39:57.274Z",
+     "fetchedAt": "2026-10-07T12:39:47.770Z",
      "via": "direct",
-     "finalUrl": "https://gumroad.com/pricing",
-     "contentType": "text/html; charset=utf-8",
      "textHash": "7a490fad4f6922c5ca4b3cc681de6a69286bac3dec0771503830c096f5163903",
      "textLength": 4552,
      "quotes": [
       "c013c3cfb36992433ae12594358650fd5c38b3af7b0aaa8316da4304fc05b394"
      ],
-     "quotesAbsent": []
+     "quotesAbsent": [],
+     "finalUrl": "https://gumroad.com/pricing",
+     "contentType": "text/html; charset=utf-8"
     },
     "https://www.e-junkie.com/wiki/pricing": {
      "url": "https://www.e-junkie.com/wiki/pricing",
      "status": 200,
-     "fetchedAt": "2026-09-30T04:40:09.202Z",
+     "fetchedAt": "2026-10-07T12:39:47.885Z",
      "via": "direct",
-     "finalUrl": "https://www.e-junkie.com/wiki/pricing",
-     "contentType": "text/html;charset=UTF-8",
      "textHash": "c3ed1cf9f67962aaf645c4a6f5aec37b0fc3687f578e25f198b611db2c735c03",
      "textLength": 1756,
      "quotes": [
       "967ac9d43c6f6aa86042b95f9f693f3e99bb28b9133735270e5d2d276ce853bc"
      ],
-     "quotesAbsent": []
+     "quotesAbsent": [],
+     "finalUrl": "https://www.e-junkie.com/wiki/pricing",
+     "contentType": "text/html;charset=UTF-8"
     }
    },
    "media": {
@@ -1518,10 +1518,8 @@
     "https://www.failory.com/interview/gorails": {
      "url": "https://www.failory.com/interview/gorails",
      "status": 200,
-     "fetchedAt": "2026-09-30T04:40:57.946Z",
+     "fetchedAt": "2026-10-07T12:39:50.247Z",
      "via": "direct",
-     "finalUrl": "https://www.failory.com/interview/gorails",
-     "contentType": "text/html; charset=utf-8",
      "textHash": "44c6fa922908a3dd01ac5bee6450f47f1ace783c94f909b06646e00cde56b76d",
      "textLength": 9823,
      "quotes": [
@@ -1535,50 +1533,52 @@
       "f106691fcc62d1c6b100cda2398293aa0c52b2b775eaaaff65c4c6f3050e2790",
       "faca14a06dc28dda9eed319453f74a09c544100364066e6d253847e7bb3a5fd8"
      ],
-     "quotesAbsent": []
+     "quotesAbsent": [],
+     "finalUrl": "https://www.failory.com/interview/gorails",
+     "contentType": "text/html; charset=utf-8"
     },
     "https://www.indiehackers.com/product/gorails/1m-in-revenue--MF6J-IzP0vWNyo5MGm9": {
      "url": "https://www.indiehackers.com/product/gorails/1m-in-revenue--MF6J-IzP0vWNyo5MGm9",
      "status": 200,
-     "fetchedAt": "2026-10-07T23:35:09.500Z",
+     "fetchedAt": "2026-10-07T12:39:50.560Z",
      "via": "direct",
-     "finalUrl": "https://www.indiehackers.com/product/gorails",
-     "contentType": "text/html; charset=utf-8",
      "textHash": "3f4800e72480c8fbc22237399f48aaaf59436c37b42623f77e1743ec32bbb753",
      "textLength": 12907,
      "quotes": [
       "36d3859f04dca46dd87a6f7297cf362100aaec2d1c505885e64a6a07f5f37248",
       "e2ae42a884f1b23077c96b07769792132cc8f00d75e33684bf1a3619d2756c47"
      ],
-     "quotesAbsent": []
+     "quotesAbsent": [],
+     "finalUrl": "https://www.indiehackers.com/product/gorails",
+     "contentType": "text/html; charset=utf-8"
     },
     "https://gorails.com": {
      "url": "https://gorails.com",
      "status": 200,
-     "fetchedAt": "2026-10-08T00:04:58.122Z",
+     "fetchedAt": "2026-10-06T09:31:39.220Z",
      "via": "direct",
-     "finalUrl": "https://gorails.com/",
-     "contentType": "text/html; charset=utf-8",
-     "textHash": "b53f1e20b37606d606a40d034b4307c02872bdb55f723216856386d51b13ef41",
-     "textLength": 5631,
+     "textHash": "8b49e72ec2d3b6490b20c8a8bfeca23efa3d7da028c7c629e165c386538a87d1",
+     "textLength": 5699,
      "quotes": [
-      "348ce96659372de963effb36a10f6008f3dd143ae2aa61372f30c2e4a3aa664b"
+      "c3bff65897afeb39d2d089891f5d3f93dff7815749bbce6a190255021f7ab414"
      ],
-     "quotesAbsent": []
+     "quotesAbsent": [],
+     "finalUrl": "https://gorails.com/",
+     "contentType": "text/html; charset=utf-8"
     },
     "https://gorails.com/pricing": {
      "url": "https://gorails.com/pricing",
      "status": 200,
-     "fetchedAt": "2026-10-07T23:35:08.609Z",
+     "fetchedAt": "2026-10-07T12:39:50.760Z",
      "via": "direct",
-     "finalUrl": "https://gorails.com/pricing",
-     "contentType": "text/html; charset=utf-8",
-     "textHash": "6c194eae678a42d4d73be87ad734a222fe47eac58da1fb8f730a882f4781ad73",
-     "textLength": 4842,
+     "textHash": "0264a907370b58e64b6dd5769052065ceb037efd85719f22c33ca8f23f4674c7",
+     "textLength": 5007,
      "quotes": [
-      "bdb82a2161007613bd4dfc67ab03a6f53d559a26d9cb7bc0d88cfa44219f1416"
+      "9859795db3ff2871534d4037138bf0cd9fe507d3ddaf3682d43ca6d01c74287f"
      ],
-     "quotesAbsent": []
+     "quotesAbsent": [],
+     "finalUrl": "https://gorails.com/pricing",
+     "contentType": "text/html; charset=utf-8"
     }
    },
    "media": {
@@ -1592,43 +1592,41 @@
     "https://www.heygen.com/blog/heygen-surpasses-200m-arr": {
      "url": "https://www.heygen.com/blog/heygen-surpasses-200m-arr",
      "status": 200,
-     "fetchedAt": "2026-09-30T05:24:34.813Z",
+     "fetchedAt": "2026-10-07T12:44:24.198Z",
      "via": "direct",
-     "finalUrl": "https://www.heygen.com/blog/heygen-surpasses-200m-arr",
-     "contentType": "text/html; charset=utf-8",
-     "textHash": "523f010897d59837f7c9ed4793a93b2938c0a07abfa76364cfa4d09218bacdaf",
-     "textLength": 8157,
+     "textHash": "7c5216ee0fade5b774deff9397d3e5e0dd22b0509aafcd50189c92d195a5d972",
+     "textLength": 8251,
      "quotes": [
-      "10158c120af5cf09096d82db6a5de71b3ae9be6da16f83818e1554038b1269b7",
-      "766a9f549db5db12c0c46ec3c69994d9ebda898a934b36efc2bc4dd42204e6a1",
-      "c2fc5959552df003ec6608df1bc0b1c03ba847cb19fa95ace2b6717a1f321bcb",
-      "ca14bc1155662abeb2b6a846393fa8aec8ee6b2344b3ff56f891fb1eb434dbd5",
-      "d1d9c45286d78dce429d7b9619a13e2476494de683a9b8d043dabb8353d0e7c3",
-      "ecc0ae4b0a21a177f2de18b6dadd5c136bd0fb911f660424b72082a8f2c70f6a"
+      "4104f5ffd0a60837872380139a0389128319f4115448e81e3d3b03e578f1538a",
+      "4222b5dfc83f9d1776aaa6443e87a4eafdfd2d374bdea45862e5f7e34187c787",
+      "4b85a8336632cb1216da4fc9d2b2d05cd2ed72f5c93f302e837afb975f6ad64a",
+      "77a26758d854ba14c1d286776c74a236b00e8c38d4caeb18ceddf2c44e57206f",
+      "cdb889973d805ae4d0a34ff7ffb51ba951026a69fb50866e36565c4433dae55d",
+      "cf812fc511096f8315b2af1ece9bf9a2bd6e8466d43228c8e9d72fbf502b2373"
      ],
-     "quotesAbsent": []
+     "quotesAbsent": [],
+     "finalUrl": "https://www.heygen.com/blog/heygen-surpasses-200m-arr",
+     "contentType": "text/html; charset=utf-8"
     },
     "https://www.heygen.com/": {
      "url": "https://www.heygen.com/",
      "status": 200,
-     "fetchedAt": "2026-10-07T23:35:42.112Z",
+     "fetchedAt": "2026-10-07T12:39:53.534Z",
      "via": "direct",
-     "finalUrl": "https://www.heygen.com/",
-     "contentType": "text/html; charset=utf-8",
      "textHash": "dd6fa97ab413dd3bf6cc609a66fa7a682d096e45d8b6659bee7130e86732603c",
      "textLength": 14092,
      "quotes": [
       "0c8dc25bd466e4837c90822d292d95f7cf63d5d7280a05bf8d820946522ffbb0"
      ],
-     "quotesAbsent": []
+     "quotesAbsent": [],
+     "finalUrl": "https://www.heygen.com/",
+     "contentType": "text/html; charset=utf-8"
     },
     "https://www.heygen.com/about": {
      "url": "https://www.heygen.com/about",
      "status": 200,
-     "fetchedAt": "2026-10-07T23:35:42.247Z",
+     "fetchedAt": "2026-10-07T12:39:53.763Z",
      "via": "direct",
-     "finalUrl": "https://www.heygen.com/about",
-     "contentType": "text/html; charset=utf-8",
      "textHash": "fd95dbb73dcc9554dd396a262c9280c3d29c2c30405a48ba571450c483ee4366",
      "textLength": 7502,
      "quotes": [
@@ -1636,49 +1634,51 @@
       "e75d017aff47c46b3391a60fca33b54d8059871ee604e6888ff1c8d04294e5b7",
       "e9bd8832803b239bd9662726041ff75e43fb958fa262cc3b7de730c0471e06f4"
      ],
-     "quotesAbsent": []
+     "quotesAbsent": [],
+     "finalUrl": "https://www.heygen.com/about",
+     "contentType": "text/html; charset=utf-8"
     },
     "https://www.heygen.com/careers": {
      "url": "https://www.heygen.com/careers",
      "status": 200,
-     "fetchedAt": "2026-09-30T05:24:35.318Z",
+     "fetchedAt": "2026-10-07T12:39:53.776Z",
      "via": "direct",
-     "finalUrl": "https://www.heygen.com/careers",
-     "contentType": "text/html; charset=utf-8",
-     "textHash": "3c6ceffe409d0c8692229b95a2e5023503cca2bc10fdf7b71cc73f81943db536",
-     "textLength": 2605,
+     "textHash": "ea252094985936777bbb7a3dd76777c06ee8c1999b00a85685a2e96ddc474c5c",
+     "textLength": 2699,
      "quotes": [
-      "64342231b5331c9b479c7f5cadce44a4190399d86225a5f6e3f9293550ea7000"
+      "effd8a969dac63b0d2272f17068f47d5ef81af89e0a25c77515321c55a329592"
      ],
-     "quotesAbsent": []
+     "quotesAbsent": [],
+     "finalUrl": "https://www.heygen.com/careers",
+     "contentType": "text/html; charset=utf-8"
     },
     "https://www.heygen.com/pricing": {
      "url": "https://www.heygen.com/pricing",
      "status": 200,
-     "fetchedAt": "2026-09-30T05:24:35.573Z",
+     "fetchedAt": "2026-10-07T12:39:53.957Z",
      "via": "direct",
-     "finalUrl": "https://www.heygen.com/pricing",
-     "contentType": "text/html; charset=utf-8",
-     "textHash": "989d61d9a915b6f7ee73e57467411076a17bb5aa740b61814d34f887ec876eda",
-     "textLength": 14139,
+     "textHash": "64cd5472f1f78712b1ec45e4e9bd05429c3c1c2af1fbae5645a3b52e23400e7e",
+     "textLength": 14233,
      "quotes": [
-      "90ac4c5d1f3771cd47580c55c434352c31a4bfac02619d82cde230b602f23c8e"
+      "dd83577cfdf215a93d67276ac23ea3486cf622d51e1c6e7edc2ad7fd06fc6589"
      ],
-     "quotesAbsent": []
+     "quotesAbsent": [],
+     "finalUrl": "https://www.heygen.com/pricing",
+     "contentType": "text/html; charset=utf-8"
     },
     "https://en.wikipedia.org/wiki/HeyGen": {
      "url": "https://en.wikipedia.org/wiki/HeyGen",
      "status": 200,
-     "fetchedAt": "2026-09-30T05:24:35.988Z",
+     "fetchedAt": "2026-10-07T12:39:54.012Z",
      "via": "direct",
-     "finalUrl": "https://en.wikipedia.org/wiki/HeyGen",
-     "contentType": "text/html; charset=UTF-8",
      "textHash": "4a82c0f776a72e63ac8e005be463efab0e83a506e3c2102f22daab920748129a",
      "textLength": 10178,
      "quotes": [
       "92b5330804357026ed2080e6a4737e3aa066cd39b05590e707c0db7a7c2b498c"
      ],
-     "quotesAbsent": []
+     "quotesAbsent": [],
+     "finalUrl": "https://en.wikipedia.org/wiki/HeyGen",
+     "contentType": "text/html; charset=UTF-8"
     }
    },
    "media": {
@@ -2341,10 +2341,8 @@
     "https://myoperator.com/blog/cloud-telephony-platform-thriving-without-single-penny-investors": {
      "url": "https://myoperator.com/blog/cloud-telephony-platform-thriving-without-single-penny-investors",
      "status": 200,
-     "fetchedAt": "2026-10-08T00:35:57.121Z",
+     "fetchedAt": "2026-10-07T12:56:18.300Z",
      "via": "direct",
-     "finalUrl": "https://myoperator.com/blog/cloud-telephony-platform-thriving-without-single-penny-investors",
-     "contentType": "text/html; charset=utf-8",
      "textHash": "1317f48214f1f7c5101a4c4646d1df2ac23c8e62882456d3156b5fc710c7f2c0",
      "textLength": 12920,
      "quotes": [
@@ -2359,49 +2357,51 @@
       "ec9c3af4cabf10da0cb89cfe3f2e3ea125d098869c67cda317529ef296e61a87",
       "ef2ca6abdd40f91cd02c5579c4292bbb986a7a8cddee45b3b6060635e733a193"
      ],
-     "quotesAbsent": []
+     "quotesAbsent": [],
+     "finalUrl": "https://myoperator.com/blog/cloud-telephony-platform-thriving-without-single-penny-investors",
+     "contentType": "text/html; charset=utf-8"
     },
     "https://myoperator.com": {
      "url": "https://myoperator.com",
      "status": 200,
-     "fetchedAt": "2026-09-30T04:38:53.228Z",
+     "fetchedAt": "2026-10-07T12:39:51.867Z",
      "via": "direct",
-     "finalUrl": "https://myoperator.com/",
-     "contentType": "text/html; charset=utf-8",
      "textHash": "e2685492584025876517220c545959d782adef0b2d658d62abd0b0f102f12fdd",
      "textLength": 11578,
      "quotes": [
       "65515fc8c2e88ca77fe48dc97b5fce8b2bcabe4a69411015bdd31d28f9b41c74"
      ],
-     "quotesAbsent": []
+     "quotesAbsent": [],
+     "finalUrl": "https://myoperator.com/",
+     "contentType": "text/html; charset=utf-8"
     },
     "https://myoperator.com/pricing": {
      "url": "https://myoperator.com/pricing",
      "status": 200,
-     "fetchedAt": "2026-09-30T04:38:54.249Z",
+     "fetchedAt": "2026-10-07T12:39:52.246Z",
      "via": "direct",
-     "finalUrl": "https://myoperator.com/pricing",
-     "contentType": "text/html; charset=utf-8",
-     "textHash": "e787a0fb33754a6eb2c3854611e9039b3d9528904270b31460ea9976122a4ec3",
-     "textLength": 13911,
+     "textHash": "a7b0694a0d5ebe94c3e390ddfff64d3202a827ab8b1ef02fafcb048850ad41df",
+     "textLength": 14030,
      "quotes": [
-      "8e9c147dcbe9f9803f7aa16411c8a9c32cb7d0d46714b0b6ccf342eb24d6aa4d"
+      "f2377f628f5a0cd023d24a1a3330bf6875c729e72664c739affa265d265239a7"
      ],
-     "quotesAbsent": []
+     "quotesAbsent": [],
+     "finalUrl": "https://myoperator.com/pricing",
+     "contentType": "text/html; charset=utf-8"
     },
     "https://myoperator.com/partnership-program": {
      "url": "https://myoperator.com/partnership-program",
      "status": 200,
-     "fetchedAt": "2026-09-30T04:38:53.976Z",
+     "fetchedAt": "2026-10-07T12:39:52.276Z",
      "via": "direct",
-     "finalUrl": "https://myoperator.com/partnership-program",
-     "contentType": "text/html; charset=utf-8",
      "textHash": "d807fc7126d32e4bd247aa8f4e5bb4744928e5a5f3b2875ea49d247491ebd255",
      "textLength": 11234,
      "quotes": [
       "1e4f78a57b71d26d6fac965b9fa35eb2a48bd1988ef07af91229935be5966267"
      ],
-     "quotesAbsent": []
+     "quotesAbsent": [],
+     "finalUrl": "https://myoperator.com/partnership-program",
+     "contentType": "text/html; charset=utf-8"
     }
    },
    "media": {
@@ -2623,10 +2623,8 @@
     "https://practicaltypography.com/economics-year-one.html": {
      "url": "https://practicaltypography.com/economics-year-one.html",
      "status": 200,
-     "fetchedAt": "2026-10-08T00:05:06.556Z",
+     "fetchedAt": "2026-10-07T12:55:46.469Z",
      "via": "direct",
-     "finalUrl": "https://practicaltypography.com/economics-year-one.html",
-     "contentType": "text/html",
      "textHash": "8e420f3480a653d3257049b431ff29c1a0394a22cc32f3d4ac6aa63978594ca1",
      "textLength": 12049,
      "quotes": [
@@ -2639,15 +2637,15 @@
       "d1abfd8ea7e1d19e1d329fd173366d7ba1eb4bf710962062f455be85dd7d761a",
       "ef043547238e1427f4175f92a905eb4839f08af672240057f184a970321f5bee"
      ],
-     "quotesAbsent": []
+     "quotesAbsent": [],
+     "finalUrl": "https://practicaltypography.com/economics-year-one.html",
+     "contentType": "text/html"
     },
     "https://practicaltypography.com/effluents-influence-affluence.html": {
      "url": "https://practicaltypography.com/effluents-influence-affluence.html",
      "status": 200,
-     "fetchedAt": "2026-10-08T00:05:06.948Z",
+     "fetchedAt": "2026-10-07T12:55:47.466Z",
      "via": "direct",
-     "finalUrl": "https://practicaltypography.com/effluents-influence-affluence.html",
-     "contentType": "text/html",
      "textHash": "0ddc8020146b51376e33fb79ff0cea00fc255b3410489bf076e740154b9232c8",
      "textLength": 16099,
      "quotes": [
@@ -2656,15 +2654,15 @@
       "755cc1548994061d25697a62814e00893746cd9ed8ad5c9716040fe2892ec0d0",
       "a799d7750327faed8a5fff10f1ebdedfa88f9cdfaec7c228767a745c54132c46"
      ],
-     "quotesAbsent": []
+     "quotesAbsent": [],
+     "finalUrl": "https://practicaltypography.com/effluents-influence-affluence.html",
+     "contentType": "text/html"
     },
     "https://practicaltypography.com/to-pay-or-not-to-pay.html": {
      "url": "https://practicaltypography.com/to-pay-or-not-to-pay.html",
      "status": 200,
-     "fetchedAt": "2026-10-08T00:05:08.087Z",
+     "fetchedAt": "2026-10-07T12:55:48.502Z",
      "via": "direct",
-     "finalUrl": "https://practicaltypography.com/to-pay-or-not-to-pay.html",
-     "contentType": "text/html",
      "textHash": "e44e9e7312c2d9c591172959fc30a63705a5b8772038b793fae1041e56853279",
      "textLength": 8780,
      "quotes": [
@@ -2673,50 +2671,52 @@
       "a1828029f642a5e16f0abd9ddeb2b8e2a58b276e0798b7fd117220a957f47faa",
       "f1f52b29298b49cf13fead5163c31ce5ca8b4ce2e144463701ea8a35a7d201f9"
      ],
-     "quotesAbsent": []
+     "quotesAbsent": [],
+     "finalUrl": "https://practicaltypography.com/to-pay-or-not-to-pay.html",
+     "contentType": "text/html"
     },
     "https://practicaltypography.com/how-to-pay-for-this-book.html": {
      "url": "https://practicaltypography.com/how-to-pay-for-this-book.html",
      "status": 200,
-     "fetchedAt": "2026-10-07T23:35:54.655Z",
+     "fetchedAt": "2026-10-07T12:39:45.638Z",
      "via": "direct",
-     "finalUrl": "https://practicaltypography.com/how-to-pay-for-this-book.html",
-     "contentType": "text/html",
      "textHash": "543b8a502f33cac062d2ed2da191f7a57fc63e3b2d382c25989550fca1592d11",
      "textLength": 2066,
      "quotes": [
       "ad532e5e037a905661b4c6c39cf644c293dfa79b234d9dd56cea785764428e51",
       "f38b51a2500dda8973c484f2148f7e5ab0470722653e575d41ef9b8e52d5fdb7"
      ],
-     "quotesAbsent": []
+     "quotesAbsent": [],
+     "finalUrl": "https://practicaltypography.com/how-to-pay-for-this-book.html",
+     "contentType": "text/html"
     },
     "https://practicaltypography.com/why-you-should-pay.html": {
      "url": "https://practicaltypography.com/why-you-should-pay.html",
      "status": 200,
-     "fetchedAt": "2026-10-07T23:35:55.329Z",
+     "fetchedAt": "2026-10-07T12:39:45.638Z",
      "via": "direct",
-     "finalUrl": "https://practicaltypography.com/why-you-should-pay.html",
-     "contentType": "text/html",
      "textHash": "768feade9db65aca1fe3a6a6e3efd9c31362b01c73940a3c2687a17a3835cde1",
      "textLength": 3059,
      "quotes": [
       "081fc2e3588f4d6aa51f3a6bcc58883820bbcb2293ed304c7cbb4d59d716582a"
      ],
-     "quotesAbsent": []
+     "quotesAbsent": [],
+     "finalUrl": "https://practicaltypography.com/why-you-should-pay.html",
+     "contentType": "text/html"
     },
     "https://practicaltypography.com/legal.html": {
      "url": "https://practicaltypography.com/legal.html",
      "status": 200,
-     "fetchedAt": "2026-10-07T23:35:58.816Z",
+     "fetchedAt": "2026-10-07T12:39:45.638Z",
      "via": "direct",
-     "finalUrl": "https://practicaltypography.com/legal.html",
-     "contentType": "text/html",
      "textHash": "08dbdc22d86df23e3377c7375844c9fc09650a65aa883bb9f62f303daec03071",
      "textLength": 2317,
      "quotes": [
       "4cdad88b9239ed8b56ab4e49d67e63c7d8069a9e2cb207b3fb15a0b40ebe09d7"
      ],
-     "quotesAbsent": []
+     "quotesAbsent": [],
+     "finalUrl": "https://practicaltypography.com/legal.html",
+     "contentType": "text/html"
     }
    },
    "media": {
@@ -2889,80 +2889,80 @@
     "https://referralrock.com/blog/full-referral-rock-story/": {
      "url": "https://referralrock.com/blog/full-referral-rock-story/",
      "status": 200,
-     "fetchedAt": "2026-09-30T04:39:55.238Z",
+     "fetchedAt": "2026-10-07T12:43:03.295Z",
      "via": "direct",
-     "finalUrl": "https://referralrock.com/blog/full-referral-rock-story/",
-     "contentType": "text/html; charset=UTF-8",
-     "textHash": "5ddd12688f0f4b94472ceb8210c485aabccf15234fb8dca12d69f5daa303dd9b",
-     "textLength": 18446,
+     "textHash": "7e6fdb6da5e773d85ff9db69fcf78de3327d13d319466ab67d99bf49ad17bba2",
+     "textLength": 19020,
      "quotes": [
-      "11f2b275451ea4520a5e7a6eba47f4e2a1f040c6b9ddfe23eccadbec7c8da173",
-      "1c81bd9cb271f8692a5f5be9a62e8e4c516e669dc9cda1ed58798b2347ee5398",
-      "7b9a4a0f4f3c25bc00bdc06632c36d26b322d8b3f481cea7a18594df66a2a705",
-      "92d47f9f9394a0e5b4b1a3fb4ba4dbf7d7272e99079e22156331683d5ad4a7ad",
-      "bb306766c6b6442144a4c54cbfb4895cb2c1206a692361b21c8b80eec2b0bea4",
-      "d9292650f6485a4024c9fbcd77be2b836e1e1185bea66b5dee6ddc2db13b0aa1",
-      "f89d8f3eb5a21531d9e4e9cb432bca42be4e3970a17865e8f06445852c142aac"
+      "3a2adc0cd88628fff9e04c8517c0c051250deae4c8fa6a646a7cdb29256640d4",
+      "3a69f3d734383e7a152f94be8b5c2a8beb80c4d3b651182965741ff00dadf591",
+      "575017181e157d22fb91a84deb48d95a0883cb5a10f74b963ce0b92cac7a3391",
+      "5fd35bb5198b11d544e377f88317cdc590060f2a073bb7f650c44c07817a3d14",
+      "75c2cdcbcd710a401c9bbbb3c9da123610c94d4449c4281c6d23db9fa809b5ef",
+      "e906f0b0b45b0ab6cd02b90c5e552a290e5ef8a6ce3be3efe02a9209491ef9e3",
+      "efbe36766add34a34adfc3f43660a50fa14d21e6e9fc571ccea7d97f2546316b"
      ],
-     "quotesAbsent": []
+     "quotesAbsent": [],
+     "finalUrl": "https://referralrock.com/blog/full-referral-rock-story/",
+     "contentType": "text/html"
     },
     "https://www.indiehackers.com/product/referral-rock": {
      "url": "https://www.indiehackers.com/product/referral-rock",
      "status": 200,
-     "fetchedAt": "2026-09-30T04:39:55.227Z",
+     "fetchedAt": "2026-10-07T12:39:48.771Z",
      "via": "direct",
-     "finalUrl": "https://www.indiehackers.com/product/referral-rock",
-     "contentType": "text/html; charset=utf-8",
-     "textHash": "b6afd5269afa4f60b6b7821a3055fe9aac2a57f3bdd6775516c22bfaecebfba2",
-     "textLength": 9505,
+     "textHash": "4391794c81734d5b04a326ea1e1505e894896bd2ea42a1bbf501de98e6520402",
+     "textLength": 9725,
      "quotes": [
-      "3567c5fb1be12e86ef2974c594178ee20a55daf1826e9a2969332a8ffdec2f9f",
-      "b748c5ef5c28ee83fa146a9de9db3b94ba25eea489d1f0e6455ce4ce0275b5b2",
-      "dde8b155779ed9d281450e30078436a591da26677589474b58e93e1fab66b323"
+      "4402ce0a74c2df0309df986397cf28f1766353d962ae5c45873dc131a23742ff",
+      "59c740929043dc8ca863cf2796d1f4a267115cfd2ec4e09a00886882f3a221af",
+      "fb5a903acbba3ea3223d22cc389990eedc7d488ac328c2bde049060167fff06d"
      ],
-     "quotesAbsent": []
+     "quotesAbsent": [],
+     "finalUrl": "https://www.indiehackers.com/product/referral-rock",
+     "contentType": "text/html; charset=utf-8"
     },
     "https://referralrock.com": {
      "url": "https://referralrock.com",
      "status": 200,
-     "fetchedAt": "2026-09-30T04:39:55.233Z",
+     "fetchedAt": "2026-10-06T09:31:37.042Z",
      "via": "direct",
-     "finalUrl": "https://referralrock.com/",
-     "contentType": "text/html",
-     "textHash": "c704fb3754a54113f144ed3eb601a4a88d36084b41decf66dce54abd08a408da",
-     "textLength": 18215,
+     "textHash": "fbf2b2ee805206c6de3abcadb1ff162780a145361b67489a649536a886e4ba24",
+     "textLength": 18231,
      "quotes": [
-      "db0b90d4d578ad06b66cfc597dd4ba3310818baacb3e8f8e7fbfebaf3f2a755c"
+      "b90e23f590f8cfef2aaeada52ce1a24fd5819e8f07fd09c658e8298164cd2964"
      ],
-     "quotesAbsent": []
+     "quotesAbsent": [],
+     "finalUrl": "https://referralrock.com/",
+     "contentType": "text/html"
     },
     "https://referralrock.com/pricing/": {
      "url": "https://referralrock.com/pricing/",
      "status": 200,
-     "fetchedAt": "2026-09-30T04:39:55.288Z",
+     "fetchedAt": "2026-10-07T12:39:49.180Z",
      "via": "direct",
-     "finalUrl": "https://referralrock.com/pricing/",
-     "contentType": "text/html",
-     "textHash": "21ec12473d65b5490d780b233ad622fc2b2bbd1a173789b43ce087cb87c29101",
-     "textLength": 7045,
+     "textHash": "afb9c45e67fcca623376d7e43d762a8cb3c5eb1f44af401a43ff8feceb7d48af",
+     "textLength": 7590,
      "quotes": [
-      "2355faa5782122e94e16094a14a3c1a3d474512806946803596206caf21ff4ea"
+      "05ff90bb1f3c3150dd46bf3d331919ff38773ec5932bd50be74aeff28e2afc0c"
      ],
-     "quotesAbsent": []
+     "quotesAbsent": [],
+     "finalUrl": "https://referralrock.com/pricing/",
+     "contentType": "text/html"
     },
     "https://product.referralrock.com/p/october-2025-exports": {
      "url": "https://product.referralrock.com/p/october-2025-exports",
      "status": 200,
-     "fetchedAt": "2026-09-30T04:39:55.241Z",
+     "fetchedAt": "2026-10-07T12:39:49.570Z",
      "via": "direct",
-     "finalUrl": "https://product.referralrock.com/p/october-2025-exports",
-     "contentType": "text/html; charset=utf-8",
      "textHash": "7954cd893cca9596182722ade8b74d368477a37b864db6cce70e933b45527853",
      "textLength": 4201,
      "quotes": [
       "01d95328f5fb058413ab8449ff90402c89da958448a661817dcea2192d626a54"
      ],
-     "quotesAbsent": []
+     "quotesAbsent": [],
+     "finalUrl": "https://product.referralrock.com/p/october-2025-exports",
+     "contentType": "text/html; charset=utf-8"
     }
    },
    "media": {
@@ -2978,24 +2978,22 @@
     "https://requestly.com/products/": {
      "url": "https://requestly.com/products/",
      "status": 200,
-     "fetchedAt": "2026-09-30T05:32:29.740Z",
+     "fetchedAt": "2026-10-07T12:39:50.815Z",
      "via": "direct",
-     "finalUrl": "https://requestly.com/products/",
-     "contentType": "text/html; charset=utf-8",
      "textHash": "0f2394e0c80741f4599969d33662a1ebf33543c5b93507b9de2703fc271d2b62",
      "textLength": 6372,
      "quotes": [
       "6adcbc0433f8563096f66cb3660270e4d024e7ae4c33a4dd8a4a017702ee5ced"
      ],
-     "quotesAbsent": []
+     "quotesAbsent": [],
+     "finalUrl": "https://requestly.com/products/",
+     "contentType": "text/html; charset=utf-8"
     },
     "https://www.browserstack.com/press/browserstack-acquires-requestly-a-ycombinator-startup-for-http-interception-mocking-debugging-network-requests": {
      "url": "https://www.browserstack.com/press/browserstack-acquires-requestly-a-ycombinator-startup-for-http-interception-mocking-debugging-network-requests",
      "status": 200,
-     "fetchedAt": "2026-10-07T23:35:50.699Z",
+     "fetchedAt": "2026-10-08T03:05:29.165Z",
      "via": "direct",
-     "finalUrl": "https://www.browserstack.com/press/browserstack-acquires-requestly-a-ycombinator-startup-for-http-interception-mocking-debugging-network-requests",
-     "contentType": "text/html; charset=UTF-8",
      "textHash": "e13cbdc935f7ec20406ba7285d0a1690e846f77dcbe89d408c77724cdeaa9bda",
      "textLength": 13431,
      "quotes": [
@@ -3007,15 +3005,15 @@
       "daacf225a12057bb650248f97ba15e07647d75a1b6ae9b4b98ac266a21799072",
       "f837620ca88a72bb8a3ff25909d8e5a479539ba3a3f7b86e23e122246c8b4c0a"
      ],
-     "quotesAbsent": []
+     "quotesAbsent": [],
+     "finalUrl": "https://www.browserstack.com/press/browserstack-acquires-requestly-a-ycombinator-startup-for-http-interception-mocking-debugging-network-requests",
+     "contentType": "text/html; charset=UTF-8"
     },
     "https://baremetrics.com/founder-chats/sachin-jain": {
      "url": "https://baremetrics.com/founder-chats/sachin-jain",
      "status": 200,
-     "fetchedAt": "2026-10-07T23:35:50.913Z",
+     "fetchedAt": "2026-10-07T12:39:51.085Z",
      "via": "direct",
-     "finalUrl": "https://baremetrics.com/founder-chats/sachin-jain",
-     "contentType": "text/html; charset=UTF-8",
      "textHash": "1f0dc780d61633d2029130c443c6408161168b3e13a1c27e60db5f9380485041",
      "textLength": 8145,
      "quotes": [
@@ -3026,21 +3024,23 @@
       "4a52dad83b4426d88dcf2305f38edd31822bb6d58f1c3727f7b11337a7e7eebe",
       "7b245128be2cbef49489f4e65f282411c0d63ac2c07b1f80d2a26e03f0757e06"
      ],
-     "quotesAbsent": []
+     "quotesAbsent": [],
+     "finalUrl": "https://baremetrics.com/founder-chats/sachin-jain",
+     "contentType": "text/html; charset=UTF-8"
     },
     "https://requestly.com/pricing/": {
      "url": "https://requestly.com/pricing/",
      "status": 200,
-     "fetchedAt": "2026-09-30T05:32:30.510Z",
+     "fetchedAt": "2026-10-07T12:39:51.089Z",
      "via": "direct",
-     "finalUrl": "https://requestly.com/pricing/",
-     "contentType": "text/html; charset=utf-8",
      "textHash": "9f4f9c51036c558524dd1020626d28c416ae2753325a5d9c91569d4c311c1894",
      "textLength": 12966,
      "quotes": [
       "549a989dcc65d7e4ae6bc419cc9cf8c32d2603af7ac244526dd5ec858ef2755d"
      ],
-     "quotesAbsent": []
+     "quotesAbsent": [],
+     "finalUrl": "https://requestly.com/pricing/",
+     "contentType": "text/html; charset=utf-8"
     }
    },
    "media": {
@@ -3054,10 +3054,8 @@
     "https://refactoringui.com/": {
      "url": "https://refactoringui.com/",
      "status": 200,
-     "fetchedAt": "2026-10-07T23:35:26.524Z",
+     "fetchedAt": "2026-10-07T12:39:54.588Z",
      "via": "direct",
-     "finalUrl": "https://refactoringui.com/",
-     "contentType": "text/html; charset=utf-8",
      "textHash": "09ff6fa2d8501ea8d7b15c767bf3c24d458e173e49d8161abb7af493f16a55a0",
      "textLength": 14777,
      "quotes": [
@@ -3068,40 +3066,42 @@
       "d37b4328ee3c8fdf7e888e2bfa6782fd06abdbaf85447588bd8d0d3ecf01b0dc",
       "f9b14b202b58a7a4d0ff34453e2817033a7a63b6ba0e765436f29481283dbced"
      ],
-     "quotesAbsent": []
+     "quotesAbsent": [],
+     "finalUrl": "https://refactoringui.com/",
+     "contentType": "text/html; charset=utf-8"
     },
     "https://www.indiehackers.com/post/im-adam-wathan-i-created-tailwind-css-and-built-a-multi-million-dollar-business-around-it-ama-3c0732f724": {
      "url": "https://www.indiehackers.com/post/im-adam-wathan-i-created-tailwind-css-and-built-a-multi-million-dollar-business-around-it-ama-3c0732f724",
      "status": 200,
-     "fetchedAt": "2026-09-30T05:23:44.905Z",
+     "fetchedAt": "2026-10-07T12:39:54.900Z",
      "via": "direct",
-     "finalUrl": "https://www.indiehackers.com/post/im-adam-wathan-i-created-tailwind-css-and-built-a-multi-million-dollar-business-around-it-ama-3c0732f724",
-     "contentType": "text/html; charset=utf-8",
-     "textHash": "9dd12286632e89e148e0830ee6864f3d2d903ef481971dddbb87ce68a9e9c1fb",
-     "textLength": 47805,
+     "textHash": "6256283bce58a62ccbf70a3f18e757a98b0bf8f85432bab47d0b88152bef7ac5",
+     "textLength": 47815,
      "quotes": [
-      "90f4860890ffd8ecde1d8a35e755b603da3a2cdc162ba61ca40f5d900d2cfd1a",
-      "a82c59ef0307c8dec27d350f8c34b5f724a09660dc7cf1e85374de271bd6d9dd",
-      "c9310d7f66b252d439f0e8244a82a7ab891cd73b9e22e39f9fbb50fd9d8b9090",
-      "ec04eb422faaab49c0e18e990405af4fddd301670be31999b158c9e839877de7",
-      "fbba109ec60b01e93a4e7302817beabace9100909d24fe49d5e3c6e8832b47ec"
+      "219be71a5266f0e7008054e09c13683c0ea07db10962b36d06da81b1ff292dad",
+      "28f92663b049023dc69a2cefcdd7ba79df8299debc4c6e16b825f98df1bae3f6",
+      "9b0b201787c3f9fde9f75760b6e34a5e894bff939b169a0a07d166903d488fd0",
+      "9e9b2e3501b2abd68f9171b5a5039ad03cb3d202133dfab07e87c3a32ce27fec",
+      "d20d099ee4a53386ef1f3a22c318e9dbe61dd27f5fb961011d69fb4a524a5463"
      ],
-     "quotesAbsent": []
+     "quotesAbsent": [],
+     "finalUrl": "https://www.indiehackers.com/post/im-adam-wathan-i-created-tailwind-css-and-built-a-multi-million-dollar-business-around-it-ama-3c0732f724",
+     "contentType": "text/html; charset=utf-8"
     },
     "https://marketingexamples.com/landing-page/pricing": {
      "url": "https://marketingexamples.com/landing-page/pricing",
      "status": 200,
-     "fetchedAt": "2026-10-07T23:35:27.665Z",
+     "fetchedAt": "2026-10-07T12:56:29.914Z",
      "via": "direct",
-     "finalUrl": "https://marketingexamples.com/landing-page/pricing",
-     "contentType": "text/html; charset=utf-8",
      "textHash": "18c233af655d1f880384786bf8725da7a590ea75ffbff591d4a32c89f0b91104",
      "textLength": 11767,
      "quotes": [
       "0614d0a8831774b1151fe93815f5e32046d5dc1402395f2c66a445c39b7d2e37",
       "91631e25ce5efd3f38b4fa78ec0c041ccabebdb05f774ed124ca25e476aa4e78"
      ],
-     "quotesAbsent": []
+     "quotesAbsent": [],
+     "finalUrl": "https://marketingexamples.com/landing-page/pricing",
+     "contentType": "text/html; charset=utf-8"
     }
    },
    "media": {
@@ -3436,73 +3436,73 @@
     "https://www.indiehackers.com/post/from-frustration-to-4-2k-mrr-the-teamcamp-project-management-story-378accee68": {
      "url": "https://www.indiehackers.com/post/from-frustration-to-4-2k-mrr-the-teamcamp-project-management-story-378accee68",
      "status": 200,
-     "fetchedAt": "2026-09-30T04:39:48.541Z",
+     "fetchedAt": "2026-10-07T12:39:51.155Z",
      "via": "direct",
-     "finalUrl": "https://www.indiehackers.com/post/from-frustration-to-4-2k-mrr-the-teamcamp-project-management-story-378accee68",
-     "contentType": "text/html; charset=utf-8",
-     "textHash": "a1b12d014b84b78cd3743a79bd2f7d5272a56a0a649751e2e38cd6d37c2afce1",
-     "textLength": 3139,
+     "textHash": "86a5dd026ebb863b459a86073577e96900bdbca761c8b6a591799d0931ac0cd1",
+     "textLength": 3148,
      "quotes": [
-      "6698bdf85b77584e1e4eedd4b16a021a4025cec05a387af0f403ff72f70678c5",
-      "e91b1a6e0081e8469f06123152ecd01894663b5852f4c47f2b1ee161a4b4b080"
+      "1cee626b653e8dec217e4547fd30823b18ce34a2192543936b4f621ce581733e",
+      "5dbab40ca74a0ff0c415309f85dc7a2fcc3eac8fea4fb33dda239e87f1548940"
      ],
-     "quotesAbsent": []
+     "quotesAbsent": [],
+     "finalUrl": "https://www.indiehackers.com/post/from-frustration-to-4-2k-mrr-the-teamcamp-project-management-story-378accee68",
+     "contentType": "text/html; charset=utf-8"
     },
     "https://www.teamcamp.app/": {
      "url": "https://www.teamcamp.app/",
      "status": 200,
-     "fetchedAt": "2026-09-30T04:39:49.041Z",
+     "fetchedAt": "2026-10-07T12:39:51.206Z",
      "via": "direct",
-     "finalUrl": "https://www.teamcamp.app/",
-     "contentType": "text/html",
      "textHash": "594209a2bfcdc7ed26d5335dc1850b823c01bead9e333f288e5852a769cdd167",
      "textLength": 7278,
      "quotes": [
       "6c87d098be9d3b2524e282ac5be40cef8f357822ac34be47e9611ef6437442d4"
      ],
-     "quotesAbsent": []
+     "quotesAbsent": [],
+     "finalUrl": "https://www.teamcamp.app/",
+     "contentType": "text/html"
     },
     "https://www.teamcamp.app/affiliate": {
      "url": "https://www.teamcamp.app/affiliate",
      "status": 200,
-     "fetchedAt": "2026-09-30T04:39:49.306Z",
+     "fetchedAt": "2026-10-07T12:39:51.385Z",
      "via": "direct",
-     "finalUrl": "https://www.teamcamp.app/affiliate",
-     "contentType": "text/html",
      "textHash": "c62013a10f0ed41407d38e7e7bc60aa544fe7487ade93083654f5978cc277cac",
      "textLength": 9323,
      "quotes": [
       "d13a3df7ef95f287e2b6cec9e21681dbc2db5c84ec6458c53eac682b7150ce12"
      ],
-     "quotesAbsent": []
+     "quotesAbsent": [],
+     "finalUrl": "https://www.teamcamp.app/affiliate",
+     "contentType": "text/html"
     },
     "https://www.teamcamp.app/pricing": {
      "url": "https://www.teamcamp.app/pricing",
      "status": 200,
-     "fetchedAt": "2026-10-08T00:04:51.779Z",
+     "fetchedAt": "2026-10-07T12:56:13.451Z",
      "via": "direct",
-     "finalUrl": "https://www.teamcamp.app/pricing",
-     "contentType": "text/html",
      "textHash": "3b7d42f3eb47ee5c0c6c1498699d44dbe7d1e509758fbde3a61f6526ea76f1f4",
      "textLength": 7600,
      "quotes": [
       "c42a633ed275ce8b511adf468f627e5b9924480fea3ef46aa2765c43c737064e"
      ],
-     "quotesAbsent": []
+     "quotesAbsent": [],
+     "finalUrl": "https://www.teamcamp.app/pricing",
+     "contentType": "text/html"
     },
     "https://www.indiehackers.com/post/validating-a-lifetime-deal-model-for-project-management-software-am-i-crazy-37ad2b08ab": {
      "url": "https://www.indiehackers.com/post/validating-a-lifetime-deal-model-for-project-management-software-am-i-crazy-37ad2b08ab",
      "status": 200,
-     "fetchedAt": "2026-10-07T23:34:32.937Z",
+     "fetchedAt": "2026-10-07T12:39:51.844Z",
      "via": "direct",
-     "finalUrl": "https://www.indiehackers.com/post/validating-a-lifetime-deal-model-for-project-management-software-am-i-crazy-37ad2b08ab",
-     "contentType": "text/html; charset=utf-8",
      "textHash": "7eefedb899b7320753a48a493f2880ea07a430214ec9942a94294f6ead2d7f61",
      "textLength": 2848,
      "quotes": [
       "7cd6453f9cca691ffd326febf57dc1fad30cb6b9d5cd19e9dbba02fda2c46e68"
      ],
-     "quotesAbsent": []
+     "quotesAbsent": [],
+     "finalUrl": "https://www.indiehackers.com/post/validating-a-lifetime-deal-model-for-project-management-software-am-i-crazy-37ad2b08ab",
+     "contentType": "text/html; charset=utf-8"
     }
    },
    "media": {
@@ -3718,21 +3718,23 @@
      "status": 200,
      "fetchedAt": "2026-10-07T23:30:49.292Z",
      "via": "direct",
+     "finalUrl": "https://typedream.com/",
+     "contentType": "text/html; charset=utf-8",
      "textHash": "3e88817ff8fd2aaca34c48632c87b098bf783b721515dd53f80471d244bc202e",
      "textLength": 4709,
      "quotes": [
       "0e50b95f8ab60799cff370921d6312ff242693c79df992327a1d3ff8f830ad0f",
       "81bb3436a34867b6589d081a62c8759fc5d24adc395b420c577da1057f2aa8d5"
      ],
-     "quotesAbsent": [],
-     "finalUrl": "https://typedream.com/",
-     "contentType": "text/html; charset=utf-8"
+     "quotesAbsent": []
     },
     "https://typedream.com/pricing": {
      "url": "https://typedream.com/pricing",
      "status": 200,
      "fetchedAt": "2026-10-07T09:51:59.998Z",
      "via": "direct",
+     "finalUrl": "https://typedream.com/pricing",
+     "contentType": "text/html; charset=utf-8",
      "textHash": "3f1b793a84b7d488e87f9bca43470ad9c41b4f241781ee43970a5cb48d166921",
      "textLength": 3687,
      "quotes": [
@@ -3740,30 +3742,30 @@
       "4078c7844432623e292badb1c3a3963519f8d4a3e45ece5cd04c2ab472e03240",
       "b7f50866452350d0331c49b9d56d721de3395abc991d9273872ba1ff611c1838"
      ],
-     "quotesAbsent": [],
-     "finalUrl": "https://typedream.com/pricing",
-     "contentType": "text/html; charset=utf-8"
+     "quotesAbsent": []
     },
     "https://typedream.com/blogs/typedream-joins-beehiiv-june-2024": {
      "url": "https://typedream.com/blogs/typedream-joins-beehiiv-june-2024",
      "status": 200,
      "fetchedAt": "2026-10-07T09:52:00.112Z",
      "via": "direct",
+     "finalUrl": "https://typedream.com/blogs/typedream-joins-beehiiv-june-2024",
+     "contentType": "text/html; charset=utf-8",
      "textHash": "75981592fcec1c352c3d44706850d385deb671b500c67d8279f7dece7a0e2d82",
      "textLength": 2473,
      "quotes": [
       "47684020054e7eb1f9053601bd0a579d0f0ecefc10f6870a2cc0b037782a47ed",
       "5aa5204f5b0a480807a31d2e73014e5049629b6f611add3811f0b4223e6abf95"
      ],
-     "quotesAbsent": [],
-     "finalUrl": "https://typedream.com/blogs/typedream-joins-beehiiv-june-2024",
-     "contentType": "text/html; charset=utf-8"
+     "quotesAbsent": []
     },
     "https://www.beehiiv.com/blog/beehiiv-acquires-ai-based-website-builder-typedream": {
      "url": "https://www.beehiiv.com/blog/beehiiv-acquires-ai-based-website-builder-typedream",
      "status": 200,
      "fetchedAt": "2026-10-07T09:52:01.101Z",
      "via": "direct",
+     "finalUrl": "https://www.beehiiv.com/blog/beehiiv-acquires-ai-based-website-builder-typedream",
+     "contentType": "text/html; charset=utf-8",
      "textHash": "45f3fb31eec1c09dc921d728b28d07a0236c6c285332c460a241082b30d0e4d7",
      "textLength": 5685,
      "quotes": [
@@ -3771,15 +3773,15 @@
       "3e13b8e5c9af785a2e53cc966b09a9be831d1815de25d7ba718793f66ec121dc",
       "a0965eba49e27c620c60c80ffad6629ccc059772a101bed77ead1ce8cc5b87fb"
      ],
-     "quotesAbsent": [],
-     "finalUrl": "https://www.beehiiv.com/blog/beehiiv-acquires-ai-based-website-builder-typedream",
-     "contentType": "text/html; charset=utf-8"
+     "quotesAbsent": []
     },
     "https://news.ycombinator.com/item?id=29084309": {
      "url": "https://news.ycombinator.com/item?id=29084309",
      "status": 200,
      "fetchedAt": "2026-10-07T09:52:01.256Z",
      "via": "direct",
+     "finalUrl": "https://news.ycombinator.com/item?id=29084309",
+     "contentType": "text/html; charset=utf-8",
      "textHash": "7363dcf977f8a26f1614565c10d5a7e9cff790721a5b55436d82b62e138e7294",
      "textLength": 34127,
      "quotes": [
@@ -3789,15 +3791,15 @@
       "ccf3a847f798c6abb4fdbb5b659f196833c679b35cd012bd6169dc5e956401ca",
       "d70dfddb837085d56683f911861e5b95a647a000fd24783520ec1916e0a1474d"
      ],
-     "quotesAbsent": [],
-     "finalUrl": "https://news.ycombinator.com/item?id=29084309",
-     "contentType": "text/html; charset=utf-8"
+     "quotesAbsent": []
     },
     "https://typedream.com/old-pricing": {
      "url": "https://typedream.com/old-pricing",
      "status": 200,
      "fetchedAt": "2026-10-07T09:52:01.562Z",
      "via": "direct",
+     "finalUrl": "https://typedream.com/old-pricing",
+     "contentType": "text/html; charset=utf-8",
      "textHash": "a8fb3abe17aa08631aa9c6d80f546c280d82af4813f0a51c586a5a7d93c0108e",
      "textLength": 4369,
      "quotes": [
@@ -3805,15 +3807,15 @@
       "3ec536fafe4916fa65b6a0ca7d1ea2c9168e698df5064b622b4118e8f481c2bf",
       "5af7bfc3f71179b122e1205cf8499140f3a09ecabae30f99a19590ab323331c9"
      ],
-     "quotesAbsent": [],
-     "finalUrl": "https://typedream.com/old-pricing",
-     "contentType": "text/html; charset=utf-8"
+     "quotesAbsent": []
     },
     "https://typedream.com/blog/kyleigh-smith": {
      "url": "https://typedream.com/blog/kyleigh-smith",
      "status": 200,
      "fetchedAt": "2026-10-07T09:52:01.709Z",
      "via": "direct",
+     "finalUrl": "https://typedream.com/blog/kyleigh-smith",
+     "contentType": "text/html; charset=utf-8",
      "textHash": "7ea9d5b0aadbbbf9d0f32a789fdedef20bfa622a97f1118779d9e678cb200677",
      "textLength": 14845,
      "quotes": [
@@ -3822,53 +3824,51 @@
       "bef6410363b8d55e2834a0c0b1e3d72ff2ebd7400b427d8426ca7d3287c9b0a4",
       "d0461f3ea27ffe9ce540cf2e1f2a5dbf23a35c838c22029e44ffee5230838207"
      ],
-     "quotesAbsent": [],
-     "finalUrl": "https://typedream.com/blog/kyleigh-smith",
-     "contentType": "text/html; charset=utf-8"
+     "quotesAbsent": []
     },
     "https://typedream.com/affiliate": {
      "url": "https://typedream.com/affiliate",
      "status": 200,
      "fetchedAt": "2026-10-07T09:52:01.982Z",
      "via": "direct",
+     "finalUrl": "https://typedream.com/affiliate",
+     "contentType": "text/html; charset=utf-8",
      "textHash": "4102aa9673dfee78ec8dd7f7a3ab39b80ae2cd0663f11a8c3a2767d87984123d",
      "textLength": 3412,
      "quotes": [
       "4e76f713be4cc9e6fb26bbdd3b175008d5bb21b2f18bddaca3bfbefb07ccff4b",
       "6e9373357e4fa11a98f9cd6e158a5edf2ea45f006c06616e9e64a197cd0d75c4"
      ],
-     "quotesAbsent": [],
-     "finalUrl": "https://typedream.com/affiliate",
-     "contentType": "text/html; charset=utf-8"
+     "quotesAbsent": []
     },
     "https://typedream.com/refund-policy": {
      "url": "https://typedream.com/refund-policy",
      "status": 200,
      "fetchedAt": "2026-10-07T09:52:02.230Z",
      "via": "direct",
+     "finalUrl": "https://typedream.com/refund-policy",
+     "contentType": "text/html; charset=utf-8",
      "textHash": "607c173619795fa83a334bd031b65ebd11466fbcdb9e7d70670c931b47914bf3",
      "textLength": 3652,
      "quotes": [
       "eacbd3c8eec49f65a71294dec7719a6306053415e1aad0de719c7cf5b118541c"
      ],
-     "quotesAbsent": [],
-     "finalUrl": "https://typedream.com/refund-policy",
-     "contentType": "text/html; charset=utf-8"
+     "quotesAbsent": []
     },
     "https://typedream.com/blog": {
      "url": "https://typedream.com/blog",
      "status": 200,
      "fetchedAt": "2026-10-07T09:52:02.725Z",
      "via": "direct",
+     "finalUrl": "https://typedream.com/blog",
+     "contentType": "text/html; charset=utf-8",
      "textHash": "90c0a11cad2ff27173bc53df1516f3fb755d511eca9b896070d05a532b1a2cbd",
      "textLength": 12120,
      "quotes": [
       "333f947ef3339eb2e2bc83e4e4224f5350e958ed31307d3c462ed1e566247f61",
       "3b3b3fd07e3d824bc2b6efd3277664e656087e0d775ec8e0bc4aa5541f52c7c9"
      ],
-     "quotesAbsent": [],
-     "finalUrl": "https://typedream.com/blog",
-     "contentType": "text/html; charset=utf-8"
+     "quotesAbsent": []
     }
    },
    "media": {
