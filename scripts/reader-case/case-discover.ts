@@ -87,7 +87,7 @@ export async function runDiscover(opt: DiscoverOptions, deps: DiscoverDeps): Pro
   while (added.length < opt.count && rounds < opt.rounds) {
     rounds++;
     const need = opt.count - added.length;
-    const calls = Math.min(opt.concurrency, Math.max(1, Math.ceil(need / 3)));
+    const calls = Math.min(opt.concurrency, Math.max(1, need));
     const ask = Math.min(12, Math.ceil((need * 2) / calls) + 1);
     const angles = Array.from({ length: calls }, (_, i) => ANGLES[(rounds * 2 + i) % ANGLES.length]!);
     log(`第${rounds}回: あと${need}件。AI ${calls}本で各${ask}件まで探す（${angles.map((a) => a.id).join('・')}）`);
@@ -176,4 +176,4 @@ async function main(): Promise<void> {
   if (!s.added.length) process.exitCode = 3; // 1件も足せなかった（呼び側が気づけるように）。一部だけ足りない時は0で終える
 }
 
-if (process.argv[1] && import.meta.url === new URL(`file://${process.argv[1]}`).href) void main();
+if (process.argv[1] && resolve(process.argv[1]) === fileURLToPath(import.meta.url)) void main();
