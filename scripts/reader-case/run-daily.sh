@@ -75,6 +75,8 @@ LOG="$LOGDIR/$(date +%Y%m%d-%H%M%S)-$$.log"
 find "$LOGDIR" -name '*.log' -mtime +60 -delete 2>/dev/null || true   # ログは60日分だけ残す
 say "定期実行を開始（実行ID $RUN_ID、ログ $LOG）"
 node --import tsx scripts/reader-case/chapter-gaps.ts 2>&1 | head -20 || true   # 束がない日も毎回出す。章がまだ無い仕上げ済み事例（次に章を作る対象。手順は docs/CASE_CHAPTER_PROCESS.md）
+# 出典の権利の見直し（判断から180日・規約ページの指紋の変化・個別審査の期限）。一覧を出すだけで公開は止めない・失敗しても定期実行は止めない（docs/architecture/RIGHTS_LEDGER.md）
+node --import tsx scripts/rights/review.ts --fetch 2>&1 | tee -a "$LOG" | head -30 || true
 # 画面の層（一覧・概要・分析欄・成功の秘訣・章）が足りない仕上げ済み事例を、AIで最大3件作り、専用ブランチ auto/display-build にコミットする（push はしない）。
 # AIの利用が発生するので既定では動かさない。DISPLAY_BUILD=1 の時だけ。失敗しても定期実行は止めない（理由は data/pipeline/display-build-failures.jsonl）
 if [ "${DISPLAY_BUILD:-0}" = 1 ]; then node --import tsx scripts/reader-case/build-display.ts --max 3 --commit 2>&1 | tee -a "$LOG" | grep '^\[display:build\]' | head -20 || true; fi

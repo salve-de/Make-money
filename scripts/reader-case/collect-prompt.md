@@ -33,6 +33,14 @@
 ## 突き合わせ
 同じ事例の同じ種類の数字（調達額・月商・客の数など）は、書き終えたら並べて見比べる。同じ時点で金額が違えば出典を見直し、別の数字なら `basis` に何の分か（例「App Store 分だけ」）を書く。食い違いと採った方は `reaudit.conflicts` に書く。
 
+## 出典ごとの権利の記録（必ず書く）
+`sources` の各出典に `rights` を付ける。サイトごとに、次の3つを実際にページと規約を見て判断する。
+- `loginFree`: ログインなしで本文が読めたか（`yes` / `no` / `unconfirmed`）。
+- `noPaywall`: 有料の壁が無いか（同上）。
+- `quoteTerms`: 規約が引用や転載を禁じているか。`permits`（許している）/ `prohibits`（禁じている）/ `silent`（規約に書いていない）/ `unconfirmed`。
+- `termsUrl`: 見た規約ページの URL（無ければ null）。`note`: 判断の根拠を1〜2文。
+判断できない所は `unconfirmed` と書く（公開は止めない）。3つのどれかが `no` / `prohibits` のサイトの事実は画面に出ない（記録には残る）ので、そのサイトだけに頼る事実は、別の出典を探す。台帳は `data/source-rights-ledger.json`、見方は `docs/architecture/RIGHTS_LEDGER.md`。公式サイトの事実は標準の規則があるので `rights` は省略してよい。
+
 ## 読めない出典
 403・ログインの壁・後から描くページで本文が読めない出典は、引用を取れたことにしない。
 1. Web アーカイブ（`https://web.archive.org/web/2024*/<URL>` など）の保存版を開き、取れたら保存版の URL を `sourceUrl` にする。

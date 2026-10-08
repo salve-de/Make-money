@@ -240,6 +240,13 @@ export async function runDaily(o: Options, d: Deps): Promise<DayRecord> {
     // 調べた件数は、この命令が返したIDだけ(候補探しが同じファイルに書いた分は数えない)
     rec.counts.researched = parseIds(r.stdout).length || fileIds().filter((id) => !beforeFile.has(id)).length; return { status: 'ok' };
   });
+  // 出典の権利の見直し(判断から180日・規約ページの指紋の変化・個別審査の期限)。一覧を出すだけで、公開は止めない・失敗にもしない(docs/architecture/RIGHTS_LEDGER.md)
+  await stage('rights-review', async () => {
+    if (!d.hasScript('rights:review')) return { status: 'skipped', note: 'rights:review がまだ無い' };
+    const r = await d.exec(['pnpm', 'rights:review', '--fetch']);
+    const head = r.stdout.split('\n').find((l) => l.startsWith('[rights:review]')) ?? '';
+    return { status: 'ok', note: r.code === 0 ? head.replace('[rights:review] ', '').slice(0, 200) : `実行に失敗(続行): ${tail(r)}` };
+  });
   rec.ids = uniq([...o.ids, ...rec.ids]);
 
     let passed: string[] = [];

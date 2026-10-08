@@ -4,6 +4,9 @@ import { z } from 'zod';
 import { resolveCatalogSourcePolicy } from '../../src/lib/foundation/publication-rights';
 import rightsSnapshot from '../../data/foundation-public-rights-snapshot.json';
 import { contentHash } from './publication-evaluation';
+import { withoutItems } from './case-reflect';
+import type { ReaderCase } from '../../src/shared/reader-case';
+import { entryFor, hostOf, readLedgerCached, suspendedEntryFor } from '../rights/ledger-lib';
 
 export const SOURCE_RIGHTS_FILE = 'data/catalog-source-rights.json';
 const reviewSchema = z.object({
@@ -13,6 +16,22 @@ const reviewSchema = z.object({
   recheckAfter: z.iso.datetime({ offset: true }).optional(),
 });
 export function sourcePolicy(url: string, officialUrl?: string | null): unknown | null {
+  // 権利台帳（data/source-rights-ledger.json）で使用停止にしたドメインは、個別審査・標準の規則より先に不許可にする（pnpm rights:suspend）
+  if (suspendedEntryFor(readLedgerCached(), url)) return null;
+  return sourcePolicyIgnoringLedger(url, officialUrl);
+}
+
+/** 権利台帳で使用停止のドメインの出典か */
+export const isSuspendedSource = (url: string): boolean => !!suspendedEntryFor(readLedgerCached(), url);
+
+/** 反映済みの読み手（case-reflect）は出典の権利判定の外で作られるので、使用停止のドメインの出典と、それに頼る事実・数字・分析だけをここで外す */
+export function withoutSuspendedSources(reader: ReaderCase): ReaderCase {
+  const ids = reader.sources.filter((s) => isSuspendedSource(s.url)).map((s) => s.id);
+  return ids.length ? withoutItems(reader, { sources: ids }).reader : reader;
+}
+
+/** 台帳の使用停止を見ない判定（rights:where などが「停止前に許可されていたか」を知るため） */
+export function sourcePolicyIgnoringLedger(url: string, officialUrl?: string | null): unknown | null {
   // Individual revocations take priority over an otherwise allowing registry entry.
   if (existsSync(SOURCE_RIGHTS_FILE)) {
     const reviews = JSON.parse(readFileSync(SOURCE_RIGHTS_FILE, 'utf8')) as Record<string, unknown>;
@@ -24,5 +43,20 @@ export function sourcePolicy(url: string, officialUrl?: string | null): unknown 
     }
   }
   const policy = resolveCatalogSourcePolicy(url, officialUrl);
-  return policy ? { ...policy, registryHash: contentHash(rightsSnapshot) } : null;
+  if (policy) return { ...policy, registryHash: contentHash(rightsSnapshot) };
+  return ledgerJudgmentPolicy(url);
+}
+
+/**
+ * 標準の規則にも個別審査にも無いサイトでも、集める段のAIが3基準（ログイン不要・有料の壁なし・引用を禁じていない）を満たすと
+ * 権利台帳に記録した使用中のドメインなら許可する（facts_only: 事実を自分の言葉で、リンク付き）。未確認が1つでもあれば許可しない。
+ */
+function ledgerJudgmentPolicy(url: string): unknown | null {
+  const host = hostOf(url);
+  if (!host) return null;
+  const found = entryFor(readLedgerCached(), host);
+  if (!found || found.entry.status !== 'active' || found.entry.decision.basis !== 'ai_judgment') return null;
+  const c = found.entry.decision.checks;
+  if (c.loginFree !== 'yes' || c.noPaywall !== 'yes' || !['permits', 'silent'].includes(c.quoteTerms)) return null;
+  return { policyId: 'ledger.ai-judgment', sourceId: `ledger.${found.domain}`, providerName: found.entry.siteName, displayTier: 'facts_only' };
 }
