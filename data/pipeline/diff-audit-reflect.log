@@ -6,6 +6,6 @@
 {"id":"ent_gorails_640d8f688451","result":"UNCHANGED","state":"SHOW","reasons":[]}
 {"id":"ent_rfrcui_64e924ac","result":"UNCHANGED","state":"SHOW","reasons":[]}
 {"id":"ent_heygen_8f11a1","result":"UNCHANGED","state":"SHOW","reasons":[]}
-{"id":"ent_requestly_28e9f2","result":"REPLACED","state":"SHOW","reasons":[]}
+{"id":"ent_requestly_28e9f2","result":"UNCHANGED","state":"SHOW","reasons":[]}
 {"id":"ent_practicaltypographycom_e9aa6bc94ccf","result":"UNCHANGED","state":"SHOW","reasons":[]}
-{"changed":true,"show":10,"hold":0,"withdrawals":[]}
+{"changed":false,"show":10,"hold":0,"withdrawals":[]}
