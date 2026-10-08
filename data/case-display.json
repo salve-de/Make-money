@@ -6228,8 +6228,8 @@
   "reason": "順番待ち。全項目の推論と抜き取り監査が済んだら出す（data/catalog-finished-ids.txt に載せる）"
  },
  "ent_feature_upvote_3d6a00d965f0": {
-  "display": "SHOW",
-  "reason": "出典と照合した事実がある"
+  "display": "HOLD_QUEUE",
+  "reason": "順番待ち。全項目の推論と抜き取り監査が済んだら出す（data/catalog-finished-ids.txt に載せる）"
  },
  "ent_featurebase_e78725": {
   "display": "HOLD_QUEUE",

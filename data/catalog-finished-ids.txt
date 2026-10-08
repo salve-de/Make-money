@@ -6,7 +6,6 @@ ent_codementor_ba692caa3db3
 ent_data_fetcher_8e6a5e22ce2a
 ent_dnsimple_c8560498b136
 ent_ejunkie_7e9e46bd9643
-ent_feature_upvote_3d6a00d965f0
 ent_geocodio_c64c0721d500
 ent_gorails_640d8f688451
 ent_heygen_8f11a1

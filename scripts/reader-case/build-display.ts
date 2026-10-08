@@ -499,7 +499,10 @@ function main() {
   }
   if (has('--repair-only')) return repairFailed ? 1 : 0;
   // 2. 足りない層を作る
-  const gaps = DEDUPE ? dedupeGaps(ids, files, readers) : displayGaps(ids, files, readers);
+  // --redo-list: 指定の事例の「一覧の1行」と「概要」だけを作り直す（稼ぎ方が分かる形・数字や人名だけの概算にしない、の基準を後から当てる時）
+  const gaps = has('--redo-list')
+    ? ids.filter((id) => readers.has(id)).map((entityId) => ({ entityId, need: { list: true, summary: true, success: false, chapters: false, detail: [] as string[] } }))
+    : DEDUPE ? dedupeGaps(ids, files, readers) : displayGaps(ids, files, readers);
   if (has('--list')) {
     for (const id of ids) { const rows = readers.has(id) ? repairRows(id, files, unnatural) : []; if (rows.length) say(`${id}: 言い回しの直し ${rows.map((r) => r.id).join(', ')}`); }
     for (const g of gaps) say(`${g.entityId}: ${JSON.stringify(g.need)}`); say(`対象 ${gaps.length} 件`); return 0;
