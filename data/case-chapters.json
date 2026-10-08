@@ -18,7 +18,7 @@
           "source": "https://www.indiehackers.com/post/i-made-1-75m-bootstrapping-products-for-developers-ama-e053f2c163"
         },
         {
-          "text": "隔週の無料動画を、掲示板サイトRedditと開発者向けの投稿サイトRubyflowで紹介した。登録者にもメールで知らせた（本人）",
+          "text": "無料動画を、掲示板サイトRedditと開発者向けの投稿サイトRubyflowで紹介した。登録者にもメールで知らせた（本人）",
           "source": "https://www.indiehackers.com/interview/rails-and-revenue-how-to-build-a-screencast-business-8999c7ac7f"
         },
         {
@@ -50,7 +50,7 @@
           "source": "https://www.indiehackers.com/interview/rails-and-revenue-how-to-build-a-screencast-business-8999c7ac7f"
         },
         {
-          "text": "2020年8月: 決済サービスStripeでの累計売上が100万ドル（約1.5億円）を超えた。開始から約6年半（本人）",
+          "text": "2020年8月: 3製品の累計売上が100万ドル（約1.5億円）を超えた。開始から約6年半（本人）",
           "source": "https://www.indiehackers.com/post/my-first-1m-as-an-indie-dev-2b1afcf11f"
         }
       ],
@@ -514,11 +514,11 @@
           "source": "https://inc42.com/flash-feed/myoperator-mannkibaat-cloudtelephony"
         },
         {
-          "text": "2015年9月: 本人によると、前年度の売上は約6,125万円（3,500万ルピー）だった（第三者記事）",
+          "text": "2015年9月: 本人によると、直近の会計年度の売上は約6,125万円（3,500万ルピー）だった（第三者記事）",
           "source": "https://inc42.com/flash-feed/myoperator-mannkibaat-cloudtelephony"
         },
         {
-          "text": "2016年: 前年度の売上は約3億円（200万ドル）。有料の利用企業は2,000社超、従業員は125人だった（本人）",
+          "text": "2016年: 直近の会計年度の売上は約3億円（200万ドル）。翌年度は倍にする目標だった。有料の利用企業は2,000社超、従業員は125人だった（本人）",
           "source": "https://myoperator.com/blog/cloud-telephony-platform-thriving-without-single-penny-investors"
         },
         {
@@ -651,7 +651,7 @@
       ],
       "start": [
         {
-          "text": "公開時に販売していたのは、自作フォント90ドル〜（約1.35万円）、紙の本約25ドル（約3,750円）、Kindle版10ドル（約1,500円）（2013年7月の保存ページ）",
+          "text": "公開時の販売品は、自作フォント90ドル〜（約1.35万円）。別の著書の紙の本約25ドル（約3,750円）、Kindle版10ドル（約1,500円）（2013年7月の保存ページ）",
           "source": "https://web.archive.org/web/20130727060806/http://practicaltypography.com/how-to-pay-for-this-book.html"
         },
         {
@@ -942,10 +942,6 @@
     "chapters": {
       "practice": [
         {
-          "text": "最初のツイートへの反応は40いいねだった。内容を改善すると、最大1万3千いいね・3千リツイートに達した（本人）",
-          "source": "https://laravelpodcast.com/episodes/89e3758b/transcript"
-        },
-        {
           "text": "実在するサイトを作り直す無料動画を5本公開した（本人）",
           "source": "https://x.com/steveschoger/status/1116062198974042113"
         },
@@ -996,10 +992,6 @@
         {
           "text": "2019年1月10日: 購入は6,765件で、うち約78%が上位版だった（第三者）",
           "source": "https://marketingexamples.com/landing-page/pricing"
-        },
-        {
-          "text": "2020年8月1日: 累計売上は230万ドル（約3.5億円）だった（本人）",
-          "source": "https://x.com/adamwathan/status/1289702466754211842"
         },
         {
           "text": "2020年8月20日: 発売後の最初の1か月の売上は約100万ドル（約1.5億円）だった（本人）",

@@ -24,7 +24,7 @@
     "entityId": "ent_codementor_ba692caa3db3",
     "analysisId": "a-channels",
     "textHash": "6a1bab0b",
-    "answer": "最初の集客は投稿サイトHacker News。トップに載り、数千人が順番待ちに登録（本人の話、2013年5月31日）"
+    "answer": "最初の集客は投稿サイトHacker News。トップに載り、数千人が順番待ちに登録（本人の話、2013年6月1日）"
   },
   {
     "entityId": "ent_codementor_ba692caa3db3",
@@ -144,7 +144,7 @@
     "entityId": "ent_gorails_640d8f688451",
     "analysisId": "a-channels",
     "textHash": "ba575442",
-    "answer": "Railsのメモと隔週の無料動画を載せたサイトGoRails.comが開発者の投稿サイトHacker Newsに載った。",
+    "answer": "Railsのメモと無料動画を載せたサイトGoRails.comが開発者の投稿サイトHacker Newsに載った。",
     "note": "Hacker News掲載の1日にメール登録が600件超。その登録者へのメルマガが事業の重要な柱になった（記事、2021年11月）。"
   },
   {
@@ -158,7 +158,7 @@
     "entityId": "ent_gorails_640d8f688451",
     "analysisId": "a-why_it_worked",
     "textHash": "76bcdae4",
-    "answer": "隔週に1本、無料動画を公開し続けた。Hacker Newsに載った日に、メール登録が600件超集まった",
+    "answer": "無料動画を公開し続けた。Hacker Newsに載った日に、メール登録が600件超集まった",
     "note": "登録者に送るメールマガジンが、事業の重要な柱になった（記事、2021年11月）。"
   },
   {
@@ -185,7 +185,7 @@
     "analysisId": "a-first_customers",
     "textHash": "047e1859",
     "answer": "最初の客は、以前からメモを読みにサイトへ来ていたRails開発者",
-    "note": "最初の2コースは、作者が知られていなかったため売れなかった。毎週の無料動画で集めたメールの読者が、後に客になった。"
+    "note": "最初の2コースは、作者が知られていなかったため売れなかった。無料動画で集めたメールの読者が、後に客になった。"
   },
   {
     "entityId": "ent_gorails_640d8f688451",
