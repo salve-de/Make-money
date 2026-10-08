@@ -1,92 +1,1718 @@
 {
  "ent_myoperator_49c393230a2d": {
-  "version": 1,
-  "inputHash": "813f1b2e50cc50e4ae8fd6c4e51ab0a1ba087329aecbc65e44a4cf2c2b1d9df3",
-  "approvedHash": "a2e7afda57c5fc61bc0a31548aea73017ea0ace4fb125268c17186d6b2fbaf6d",
-  "inputFile": "data/audit/in-99999926100722513500175001.json",
-  "outputFile": "data/audit/out-99999926100722513500175001.json",
-  "inputFileHash": "199c04c23102e526ab95b2576542ff16f4ae7d6aafef7c9898d23634b307f100",
-  "outputFileHash": "85c04246d11099ecb2ef38cd2895d902c1547e6ca29f8f3bf9703f7da91d5761"
+  "version": 2,
+  "caseHash": "a9bb45a6c85e68d93c164a19990a7db9079e595add20f0b350812c6f549d3a5b",
+  "items": {
+   "fact:f1": {
+    "hash": "699e84c370f741df3a9eaca496974b1c3a734b59e8c4904c0d914f35eb51a913",
+    "by": "data/audit/in-99999926100722513500175001.json"
+   },
+   "fact:f2": {
+    "hash": "dbb713bae91e5b86a110dca014139044eb40c292fe488e11440db91820a69787",
+    "by": "data/audit/in-99999926100722513500175001.json"
+   },
+   "fact:f3": {
+    "hash": "43db816c90aafc3c792a8b8f26fdf108cd35ad54d7a22a4f623ef5dcff099498",
+    "by": "data/audit/in-99999926100722513500175001.json"
+   },
+   "fact:f4": {
+    "hash": "14bd7228801199ccb02ab6eb90647eb4a840a5f6f995ff98abe09d2eea9f8f7e",
+    "by": "data/audit/in-99999926100722513500175001.json"
+   },
+   "fact:f5": {
+    "hash": "253d9e29cb850ba52a8289302215a7b0690f7543a873abf79b98aee21e8c1703",
+    "by": "data/audit/in-99999926100722513500175001.json"
+   },
+   "fact:f6": {
+    "hash": "bde85bb1db19d1581b3e284a982f65b60b082790a194e580b91cc3ef528a7c32",
+    "by": "data/audit/in-99999926100722513500175001.json"
+   },
+   "fact:f7": {
+    "hash": "4e317a740e7b0171521c5dd4cec2937f37d329d899e53cf02ef6a5f7c426f9a7",
+    "by": "data/audit/in-99999926100722513500175001.json"
+   },
+   "fact:f8": {
+    "hash": "44a47ca357358f0c5aa255123d63131ee74c3b640c61d3e89b293d31336ae4d0",
+    "by": "data/audit/in-99999926100722513500175001.json"
+   },
+   "fact:f9": {
+    "hash": "36d857a156c33bee9cf4389d417765fca4e5f202de21dfc11a29cba193126c8e",
+    "by": "data/audit/in-999999261008102636001.json"
+   },
+   "fact:f10": {
+    "hash": "f689b12801f983e041a761bb65a4f8ddd016855279addbe382e79a9bad71961a",
+    "by": "data/audit/in-99999926100722513500175001.json"
+   },
+   "metric:m1": {
+    "hash": "964cfb1c4d1f0694adb1487aea1705c36e19a0d905e014ee3e7d242bac690471",
+    "by": "data/audit/in-999999261008102636001.json"
+   },
+   "metric:m2": {
+    "hash": "0cb6e30352e81bf0eb80002e7f7f3f25f57f678c18abd890904449075b82635a",
+    "by": "data/audit/in-99999926100722513500175001.json"
+   },
+   "metric:m3": {
+    "hash": "b45f6a9e5d475680661760adfc7ad0071160be32dfcfb82ce4fe21ae550a6127",
+    "by": "data/audit/in-999999261008102636001.json"
+   },
+   "metric:m4": {
+    "hash": "d93364466463447231ba53a8391830426d1ef303be887aff13c5b9fb85b1104c",
+    "by": "data/audit/in-999999261008102636001.json"
+   },
+   "analysis:a-headline": {
+    "hash": "5cdd5868b62a0bf7a021c8ce29959229b044ff2a87537c941e29829862b70351",
+    "by": "data/audit/in-99999926100722513500175001.json",
+    "body": {
+     "text": "5人・自己資金12ラック・ルピーで始め、半年で有料200社、3年目の年度に売上2百万ドルへ伸ばしたインドのクラウド電話屋",
+     "formula": "数字は出典に載っている値"
+    }
+   },
+   "analysis:a-business_model": {
+    "hash": "c4075ed44bfc971c2c6693339116e5aaa9a511242a08fa0819307b80ade16e80",
+    "by": "data/audit/in-99999926100722513500175001.json",
+    "body": {
+     "text": "中小企業にクラウド電話（IVR、番号、通話記録、振り分け）を年払いで売る。いまはWhatsAppとAIの応対ボットまで広げ、代理店経由の販売も用意している。",
+     "formula": "数字は出典に載っている値"
+    }
+   },
+   "analysis:a-customer_pain": {
+    "hash": "7b4d0f7da390b5eaab587eaa570bc5e6543e33a5d4e6601fc7c3df166fc1efc3",
+    "by": "data/audit/in-99999926100722513500175001.json",
+    "body": {
+     "text": "創業者の見方では、インドの中小企業はメール以上の技術を使い慣れておらず、クラウド電話の存在自体が知られていなかった。そのため3年間は、売る前に説明して回る作業が重かった。",
+     "formula": "数字は出典に載っている値"
+    }
+   },
+   "analysis:a-referral": {
+    "hash": "d18569030b59aa7b7b76005f54464dd5ebc9d928e7436d33e4acbaa0754cc504",
+    "by": "data/audit/in-99999926100722513500175001.json",
+    "body": {
+     "text": "代理店が顧客への運用サービスの値段を自分で決め、MyOperatorは代理店に基盤料金を請求する。固定の紹介料率は公開されていない。",
+     "formula": "数字は出典に載っている値"
+    }
+   },
+   "analysis:a-competition": {
+    "hash": "ef6e82ad7d947768f3edc20a26cacdcc3c2610765de78aa1b9fa6eac14cc195d",
+    "by": "data/audit/in-99999926100722513500175001.json",
+    "body": {
+     "text": "競合のExotelとKnowlarityは資金調達や買収で規模を広げていた。MyOperatorは「設定なしで1分で立ち上がる」を違いに掲げた。",
+     "formula": "数字は出典に載っている値"
+    }
+   },
+   "analysis:a-capital_and_team": {
+    "hash": "bd015188c98e1a6ba57463154f2c6211a1d950c7c47ef40a8a46cbf6057dd28a",
+    "by": "data/audit/in-99999926100722513500175001.json",
+    "body": {
+     "text": "元手は12ラック・ルピーで、主な使い道は技術開発とチーム。5人から125人まで増え、ESOPで従業員に報いている。",
+     "formula": "元手12ラック・ルピー、人数5人→125人は、いずれも本人の説明（YourStory 2016年記事の再掲）をそのまま載せた。"
+    }
+   },
+   "analysis:a-story": {
+    "hash": "f4e458c8c1294adb67346d01662eb010ed5bf298d0af4ecb545f4a9a3b564077",
+    "by": "data/audit/in-99999926100722513500175001.json",
+    "body": {
+     "text": "CEOのAnkit Jainは2010年に最初の音声サービスVoice Jadooを始めていた。2013年3月、当時30歳のAnkitと27歳で公認会計士の弟Prateekが、自己資金12ラック・ルピーでMyOperatorを開始した。開始から6か月で登録利用者は600人超、有料は200社になり、この間に損益が釣り合った。開始からの3年間は、市場への啓発と販売に力を割いた。2016年時点で登録利用者は25,000人超、有料顧客は2,000社超、従業員は5人から125人に増えた。2016年時点で外部資金はなく、従業員にはストックオプションで報いた。",
+     "formula": "数字は出典に載っている値"
+    }
+   },
+   "analysis:a-customer": {
+    "hash": "f8c7e21839e2f4d32dd3309bbe826ace6befe77b91f79e4d3689f8010cf3cfb6",
+    "by": "data/audit/in-99999926100722513500175001.json",
+    "body": {
+     "text": "小売・医療・教育・不動産・金融などの企業の営業・マーケ・サポート部門。開始から6か月の有料客にはLenskart、Snapdeal、Shop.IRCTCなど、2016年にはCanon、Fabindia、Cashkaro、DHLが加わった。",
+     "formula": "数字は出典に載っている値"
+    }
+   },
+   "analysis:a-first_customers": {
+    "hash": "5dbab03c09438812f4432dba4c783233a0808b1d30c8c7449c6baed372dfc032",
+    "by": "data/audit/in-99999926100722513500175001.json",
+    "body": {
+     "text": "開始から6か月で登録利用者600人超、うち有料200社を得た。客にはアーム・アードミ党、Lenskart、Snapdeal、Shop.IRCTCなどがいた。",
+     "formula": "数字は出典に載っている値"
+    }
+   },
+   "analysis:a-channels": {
+    "hash": "4bf4cb7644adba82be2448fc7c4b439989101ffbb1b6aa48b65ea45e29bcdc02",
+    "by": "data/audit/in-99999926100722513500175001.json",
+    "body": {
+     "text": "開始からの3年間は、市場への啓発と販売に力を割いたと創業者は語る。現在は代理店を通すパートナー制度があり、代理店が顧客向けの運用サービスの価格を決める。",
+     "formula": "数字は出典に載っている値"
+    }
+   },
+   "analysis:a-cost_structure": {
+    "hash": "bc74ce8df7e032f933509dbbc6a8fdd0a29133b4345e3096c6f816597b571914",
+    "by": "data/audit/in-99999926100722513500175001.json",
+    "body": {
+     "text": "始めの12ラック・ルピーは主に技術とチームづくりに使った。従業員にはストックオプションで報いた。2016年時点の従業員は125人で、4割は直近6か月で採用した。",
+     "formula": "数字は出典に載っている値"
+    }
+   },
+   "analysis:a-dependencies": {
+    "hash": "4bac2ad8ce1e9c0cc98ead8224a108627ab1d37d3f1be583237f33e936c712a7",
+    "by": "data/audit/in-999999261008102636001.json",
+    "body": {
+     "text": "WhatsApp向けの料金には、MyOperatorの利用料とは別にMetaの料金が乗る。",
+     "formula": "数字は出典に載っている値"
+    }
+   },
+   "analysis:a-upfront_cash": {
+    "hash": "0306501a8cbd3cbdb733439a20f28cfe1e75cb4bd9a598b8d95a783c19b06a8b",
+    "by": "data/audit/in-999999261008102721001.json",
+    "body": {
+     "text": "SaaSの利用料金は年払いで、現行の料金表も全プラン年払いとしている。",
+     "formula": "数字は出典に載っている値"
+    }
+   },
+   "analysis:a-timeline": {
+    "hash": "061bd1466258412e77a4793f77e25f837cb2db399fc80ab29931986f0fa122c3",
+    "by": "data/audit/in-999999261008102636001.json",
+    "body": {
+     "text": "2010年: Ankit Jainが最初の音声サービスVoice Jadooを開始。2013年3月: MyOperatorを開始。開始から6か月: 登録利用者600人超、有料200社、損益が釣り合う。2016年: 登録利用者25,000人超、有料2,000社超、従業員125人。2015-16年度: 売上200万ドル（本人公表）。現在: 公式サイトが運営法人Voicetree Technologiesの名で営業を続け、現行の料金表を掲げている。",
+     "formula": "数字は出典に載っている値"
+    }
+   },
+   "analysis:a-viability": {
+    "hash": "2c1a100d8de46a8f30061e0e62621a96c65d8f4b2d14c73ce0b916fee826ba8f",
+    "by": "data/audit/in-999999261008102636001.json",
+    "body": {
+     "text": "先行者が強く後発は困難。同じ分野には、2012年にシリーズAを調達したExotel、2014年7月に1,600万ドルを調達したKnowlarityなど、資金を入れた先行者が複数いる。MyOperatorは2013年の開始から営業を続け、現行の料金表とパートナー制度を掲げ、サービスをWhatsAppとAIボットへ広げている。",
+     "formula": "数字は出典に載っている値"
+    }
+   },
+   "analysis:a-lesson": {
+    "hash": "857e1e5e716f6166746e3ccbda53d163997fb26aff67de52aa0a89f087a26c0e",
+    "by": "data/audit/in-99999926100722513500175001.json",
+    "body": {
+     "text": "市場にこの技術があまり知られていない中で、3年間は啓発と販売に力を割いた。外部資金なしで始め、開始から6か月で損益が釣り合った。",
+     "formula": "数字は出典に載っている値"
+    }
+   }
+  },
+  "audits": [
+   {
+    "inputFile": "data/audit/in-99999926100722513500175001.json",
+    "outputFile": "data/audit/out-99999926100722513500175001.json",
+    "inputFileHash": "199c04c23102e526ab95b2576542ff16f4ae7d6aafef7c9898d23634b307f100",
+    "outputFileHash": "85c04246d11099ecb2ef38cd2895d902c1547e6ca29f8f3bf9703f7da91d5761"
+   },
+   {
+    "inputFile": "data/audit/in-999999261008102636001.json",
+    "outputFile": "data/audit/out-999999261008102636001.json",
+    "inputFileHash": "5c9174ce5cd2b68f91032738fac8294b348e1b8f4be0ae46b75397647f2b9880",
+    "outputFileHash": "2d2dbb7ee96dcbb30079ec099048df25f6106ba154ff3640797d114f821b538e"
+   },
+   {
+    "inputFile": "data/audit/in-999999261008102721001.json",
+    "outputFile": "data/audit/out-999999261008102721001.json",
+    "inputFileHash": "94f9df743f641a59792a91596b4f86ede13d4c5a055d2951221813edf44f662c",
+    "outputFileHash": "433d94cd93f30c6b3179326751d47cfd18c844bb22b0609748ed0b7f4bfce207"
+   }
+  ],
+  "lastAudit": "data/audit/in-999999261008102721001.json",
+  "baseAnalysisHash": "c5d1493d4b96f43ae0d59fa67df4f38ca6a9d0e87004f4cbca58330ccbaf0ff6"
  },
  "ent_codementor_ba692caa3db3": {
-  "version": 1,
-  "inputHash": "f89188dac7664dc2450861e928ba50e559ff56f1cc86cafc0f141cd2b106d4c2",
-  "approvedHash": "f89188dac7664dc2450861e928ba50e559ff56f1cc86cafc0f141cd2b106d4c2",
-  "inputFile": "data/audit/in-99999926100722513500175001.json",
-  "outputFile": "data/audit/out-99999926100722513500175001.json",
-  "inputFileHash": "199c04c23102e526ab95b2576542ff16f4ae7d6aafef7c9898d23634b307f100",
-  "outputFileHash": "85c04246d11099ecb2ef38cd2895d902c1547e6ca29f8f3bf9703f7da91d5761"
+  "version": 2,
+  "caseHash": "014307766e1be092535be8d2310aed3c8c2f0e120904ee8a447c588bc5c78147",
+  "items": {
+   "fact:f1": {
+    "hash": "63ac94286ed5f7be0d0d7f7cdb1f153cc3e9abd2d8a058af762d65145af68746",
+    "by": "data/audit/in-99999926100722513500175001.json"
+   },
+   "fact:f2": {
+    "hash": "8eb304c09d8eab6e13f816e1cb70e05fd7653b9c610873500151ab6a0c45ca2b",
+    "by": "data/audit/in-99999926100722513500175001.json"
+   },
+   "fact:f3": {
+    "hash": "cf5d5b3046a0b97390eac9cfd9bab271efc74f1172f9e7ac3559477def138b2a",
+    "by": "data/audit/in-99999926100722513500175001.json"
+   },
+   "fact:f4": {
+    "hash": "bbd9bc2ae8fac4a3d7a426d000e1d7a66a86ff113f7a43095fc5d1a2967895f2",
+    "by": "data/audit/in-99999926100722513500175001.json"
+   },
+   "fact:f5": {
+    "hash": "e5bb1b2e5b22af08dd4e156f13dac4f5fe3a5c8d51366a43babd30768753236f",
+    "by": "data/audit/in-99999926100722513500175001.json"
+   },
+   "fact:f6": {
+    "hash": "60c058a8feeafc7da52bcb52c66cedc4ff7e23fddbba2f9f71774ac092bf97c3",
+    "by": "data/audit/in-99999926100722513500175001.json"
+   },
+   "fact:f7": {
+    "hash": "3ea59b0cd3f3e8eb6479ed8cd2191cd97a7716f83d3327b1630d6999be39cacc",
+    "by": "data/audit/in-99999926100722513500175001.json"
+   },
+   "fact:f8": {
+    "hash": "a5774e79dc033d2ab65be0db659de9e59562a05c7fa239377b702f1cdfeab8e9",
+    "by": "data/audit/in-99999926100722513500175001.json"
+   },
+   "fact:f9": {
+    "hash": "882dbfe8803e3d263be27fe7bd3fb80c87df5dbe2f30bc17e244db0adcaead74",
+    "by": "data/audit/in-999999261008104918001.json"
+   },
+   "fact:f10": {
+    "hash": "d8f3872d32687a21f1c042141a12bbbd659adb7277ae2bce72234bc2209db272",
+    "by": "data/audit/in-99999926100722513500175001.json"
+   },
+   "fact:f11": {
+    "hash": "ade819d87e7f9a792c59db261b98aea80cbc1c11f0b73b84b3ff02091aab94f7",
+    "by": "data/audit/in-99999926100722513500175001.json"
+   },
+   "metric:m1": {
+    "hash": "273d5c700154e052ff6f886b5630781fd48e6c343fe8d6a5bebd0112efb73c55",
+    "by": "data/audit/in-99999926100722513500175001.json"
+   },
+   "metric:m2": {
+    "hash": "bd44523653f3a241240ff4f9ad3b79ef765c6177cc0fb0861c4958553388f27c",
+    "by": "data/audit/in-99999926100722513500175001.json"
+   },
+   "metric:m3": {
+    "hash": "77d02ee68c98f4852e7365a4fbbd2ada5055401386e29a4867a748cde731ce66",
+    "by": "data/audit/in-99999926100722513500175001.json"
+   },
+   "metric:m4": {
+    "hash": "1b8e1769f73eb490c2da4b7e4ba078f391ed2f6e65e60185c8ec5b8a13e97012",
+    "by": "data/audit/in-99999926100722513500175001.json"
+   },
+   "analysis:a-headline": {
+    "hash": "e09beea12493ae65e7733db7430d499da7c3dc334811f3f114a309a0e8041da6",
+    "by": "data/audit/in-99999926100722513500175001.json",
+    "body": {
+     "text": "登録フォームだけのページをHacker Newsに載せて数千人の待機客を集め、最初の相談は創業者が無料でメンター役を務めて始めた開発者向けの1対1相談所",
+     "formula": "数字は出典に載っている値"
+    }
+   },
+   "analysis:a-story": {
+    "hash": "daf427946c4c25a110410ae080c4bc432b014faaee759764c0b6b3457a536500",
+    "by": "data/audit/in-99999926100722513500175001.json",
+    "body": {
+     "text": "着想は、若手ばかりの自社エンジニアが設定の問題で2日止まったこと。2013年6月1日に登録フォームだけのページをHacker Newsに載せると数千人が待機リストに並んだが、製品は動いておらず、裏で作った。正式公開は約9か月後で、最初の実相談は創業者本人がメンター役を無料で務めた30分だった。",
+     "formula": "数字は出典に載っている値"
+    }
+   },
+   "analysis:a-customer_pain": {
+    "hash": "7f498480e9885a436a779800545a0dd7f2ba4d43450c1d1958cfad72ff669c40",
+    "by": "data/audit/in-99999926100722513500175001.json",
+    "body": {
+     "text": "開発者が設定やコードで詰まった時に、すぐ呼べる経験者がいない。創業者はその場で数千ドル払ってもいいと感じた。",
+     "formula": "数字は出典に載っている値"
+    }
+   },
+   "analysis:a-first_customers": {
+    "hash": "88b4aa1d75e124217ae3306b2722a21b74e7e82182b373fed0143bfaa4c51669",
+    "by": "data/audit/in-99999926100722513500175001.json",
+    "body": {
+     "text": "最初の相手は、Magento開発者でRuby on Railsを学びたい米国人。創業者が自分でメンター役をして無料で相談に乗った。以後は、少数の熱心なメンターを先に確保し、客には無料クレジットを配って使わせた。",
+     "formula": "数字は出典に載っている値"
+    }
+   },
+   "analysis:a-channels": {
+    "hash": "8cbf49a725df4257657883f5da5e91214aa2987d8167970980e3e3df90bf229c",
+    "by": "data/audit/in-99999926100722513500175001.json",
+    "body": {
+     "text": "Hacker Newsの投稿が最初の集客。トップページに出て待機リストに数千人が登録し、コメントの助言（Clarity.fm方式の日程調整）も取り入れた。",
+     "formula": "数字は出典に載っている値"
+    }
+   },
+   "analysis:a-business_model": {
+    "hash": "8c2d78b53ea54b3647abce8d33fffe04bd37121c69cf14963c3f351d091abfb4",
+    "by": "data/audit/in-99999926100722513500175001.json",
+    "body": {
+     "text": "客が前払いクレジットで有料セッションを買い、メンターの料金に別途サービス手数料を上乗せする。のちに、上位のメンターをフリーランス案件に紹介する市場を足した。",
+     "formula": "数字は出典に載っている値"
+    }
+   },
+   "analysis:a-pivots": {
+    "hash": "6c8e7515c1484158d787a98ca774c5d80bf71f9bbd885a85be3d6a11729a041e",
+    "by": "data/audit/in-99999926100722513500175001.json",
+    "body": {
+     "text": "創業者は、当初は学習者向けの指導に近かったが、他の学習手段の隣に置く「必要な時に呼べる指導の層」と考え直したと語る。2016年には、フリーランス開発者を紹介する市場へ広げる方針を出した。",
+     "formula": "数字は出典に載っている値"
+    }
+   },
+   "analysis:a-failure_cause": {
+    "hash": "09fc75dd4422beec808532442e86f6d15c2345543b0fbed6ad5b97d01938f579",
+    "by": "data/audit/in-99999926100722513500175001.json",
+    "body": {
+     "text": "創業者が挙げる反省は2点。WebRTCの不具合で開発時間を食ったこと、公開が約3か月遅れたこと。供給側が足りず、客を待たせると体験が悪くなる点も難所だった。",
+     "formula": "数字は出典に載っている値"
+    }
+   },
+   "analysis:a-capital_and_team": {
+    "hash": "9d9a9a3bf638284864c7f07d2ea4eacc8b2d62bef4f4aac5c0f263c0f15da17e",
+    "by": "data/audit/in-99999926100722513500175001.json",
+    "body": {
+     "text": "元手は創業者の自己資金で始め、最初のシードは台湾の投資家。2016年12月までに早期資金120万ドル、シード160万ドルを調達した。",
+     "formula": "調達額は、TechCrunchの記事にある120万ドルと160万ドルをそのまま載せた。"
+    }
+   },
+   "analysis:a-competition": {
+    "hash": "9f9ad3702b652b93be46324515970a032f6d7b41ca9e77db0e04436732c1be04",
+    "by": "data/audit/in-99999926100722513500175001.json",
+    "body": {
+     "text": "競合はFreelancer.com、Upwork、Toptalなどのフリーランス市場。創業者は、指導と選抜型の紹介市場の掛け合わせで違いを出すと語った。",
+     "formula": "数字は出典に載っている値"
+    }
+   },
+   "analysis:a-timeline": {
+    "hash": "9a69e9040bf425f37a0e37268f52d56e5dc711ee4898acc10e47f08f9076d513",
+    "by": "data/audit/in-999999261008104918001.json",
+    "body": {
+     "text": "2013年6月 Hacker Newsに登録ページを投稿。約9か月後に正式公開。2016年12月 シード160万ドル。2018年6月 直近12か月の売上は「5〜10 million」の区分と回答（本人申告・通貨不明）。",
+     "formula": "数字は出典に載っている値"
+    }
+   }
+  },
+  "audits": [
+   {
+    "inputFile": "data/audit/in-99999926100722513500175001.json",
+    "outputFile": "data/audit/out-99999926100722513500175001.json",
+    "inputFileHash": "199c04c23102e526ab95b2576542ff16f4ae7d6aafef7c9898d23634b307f100",
+    "outputFileHash": "85c04246d11099ecb2ef38cd2895d902c1547e6ca29f8f3bf9703f7da91d5761"
+   },
+   {
+    "inputFile": "data/audit/in-999999261008104918001.json",
+    "outputFile": "data/audit/out-999999261008104918001.json",
+    "inputFileHash": "8ca5766f35b293c826d2757af9bf57ec2cbb1c77d344be7dd624318b8a6e9fc1",
+    "outputFileHash": "269a6874a868a835ad7f4c40e20eb60227f0a1ee6e46869d29595da2008cc9d2"
+   }
+  ],
+  "lastAudit": "data/audit/in-999999261008104918001.json",
+  "baseAnalysisHash": "6c32d400aecf96b15a8ca14bb68dbd5c5e00cfd9fe2a0479909ed96878d46162"
  },
  "ent_teamcamp_ae0c21986c4d": {
-  "version": 1,
-  "inputHash": "f4e4c019e621b0df9b87d36553d38a512f7c330ffae87b28e3181b760aa4fb5d",
-  "approvedHash": "565c05e568b8efc254d5adc16cfe88d7c9c313236e5a5294ef624f7b02595b5e",
-  "inputFile": "data/audit/in-99999926100723204200175001.json",
-  "outputFile": "data/audit/out-99999926100723204200175001.json",
-  "inputFileHash": "4867f99939a32ec766eb1067f786e01d900579f3d309e97722bf498d39539828",
-  "outputFileHash": "cdd4e705cfd6267eb0a74c5a1b2f308cbd06031588047e02b386dd4b8c2cda5b"
+  "version": 2,
+  "caseHash": "692901739b416a6f3c5a51afc984b8bbfa9e1fb8eeca68797bee19203c110a89",
+  "items": {
+   "fact:f1": {
+    "hash": "120f51602dda46cd47c2cdc27ed486f5b542201033be63ad890c0559d609e40c",
+    "by": "data/audit/in-99999926100723204200175001.json"
+   },
+   "fact:f2": {
+    "hash": "a29a9943fd5c01eac5c1cd8e0ffed61b6f6101c364749549a10d0b18629f576b",
+    "by": "data/audit/in-999999261008095734002.json"
+   },
+   "fact:f3": {
+    "hash": "ca5c22eda34c482b00f97b1b0f1f11f5eaf35b045f5f96e5f7d127be948654ff",
+    "by": "data/audit/in-99999926100723204200175001.json"
+   },
+   "fact:f4": {
+    "hash": "2214d37a648bcfc18e1bf4f1ecdd30a4eb1cef6dac50a1b735ba9269df611f7b",
+    "by": "data/audit/in-999999261008095734002.json"
+   },
+   "fact:f5": {
+    "hash": "55cb7f39dc09c41b9a68ebfd7ba0f1facf9ed2247a5269d85ecff4faa3159742",
+    "by": "data/audit/in-999999261008095734002.json"
+   },
+   "fact:f6": {
+    "hash": "b37869ddd5ee3b16ab3b85d6f063f1585d40916c27cdac98c2563ca8ce1cbbd5",
+    "by": "data/audit/in-999999261008095734002.json"
+   },
+   "fact:f7": {
+    "hash": "505020606a2db43e7e5046f1ce860fa5999117fecc4fa963ce20629d14f6c85c",
+    "by": "data/audit/in-99999926100723204200175001.json"
+   },
+   "fact:f8": {
+    "hash": "cf522ba65f307cfe59b1c3536d58356f0a91d5159f896ba168f1bf57158f3aaf",
+    "by": "data/audit/in-99999926100723204200175001.json"
+   },
+   "analysis:a-business_model": {
+    "hash": "763ca228ef09a2825b688f24565cd3f0c1baa604f89430263eb0556a0e878db3",
+    "by": "data/audit/in-999999261008095734002.json",
+    "body": {
+     "text": "代理店が、プロジェクト管理、時間記録、請求書、顧客に見せる画面を1つで使う代わりに、ユーザー数に応じた月額（または無制限プラン）を払う。工数の記録からそのまま請求書を作れる。",
+     "formula": "数字は出典に載っている値"
+    }
+   },
+   "analysis:a-customer": {
+    "hash": "42772f3a7a5b0aa279b809dc5eb5a84c705d7952b6f26020216424926c744405",
+    "by": "data/audit/in-99999926100723204200175001.json",
+    "body": {
+     "text": "開発会社、デザイン会社、マーケティング代理店、フリーランス。顧客に進捗や請求書を見せる必要のある小さな制作会社。",
+     "formula": "数字は出典に載っている値"
+    }
+   },
+   "analysis:a-first_customers": {
+    "hash": "b5857a68ab04a43081823d70a2bea6413903c1e0aa0a769cf2536c5e90095555",
+    "by": "data/audit/in-99999926100723204200175001.json",
+    "body": {
+     "text": "最初の手応えは、インディー開発者の仲間ではなく、初めて話した代理店の経営者から出た。別の投稿では、作る前に99ドルを先払いしてもよいという12人を見つけてから作り始めたと書く。",
+     "formula": "数字は出典に載っている値"
+    }
+   },
+   "analysis:a-channels": {
+    "hash": "25c51d96c6385fde693548c49d088949a6c7858a26536db8d19046a2bece5da8",
+    "by": "data/audit/in-999999261008095734002.json",
+    "body": {
+     "text": "新規登録の約4割は口コミ・紹介と本人が書く。公式は、生涯続くコミッションの紹介プログラムで、ブロガーや比較サイト、インフルエンサーに紹介を促す。",
+     "formula": "数字は出典に載っている値"
+    }
+   },
+   "analysis:a-upfront_cash": {
+    "hash": "1a3cb3312a05b99ee2bec2590e61a131ce9227fd8ba8b2d0e00bc5b8fbc2adb6",
+    "by": "data/audit/in-99999926100723204200175001.json",
+    "body": {
+     "text": "作る前に99ドルを先払いしてもよいという12人を見つけてから作り始めたと書く。2025年10月の投稿では、買い切り999ドルを月額と並べて4か月試し、売上の約4割が買い切りだったと書く。現在の公式の料金表に買い切りは無い。",
+     "formula": "数字は出典に載っている値"
+    }
+   },
+   "analysis:a-referral": {
+    "hash": "5526f5438c8608a011d7dff75e5001c64af526a667406e3071899b9cc23ad0da",
+    "by": "data/audit/in-99999926100723204200175001.json",
+    "body": {
+     "text": "紹介した客ごとの生涯コミッション。本人は、買い切りの客は月額の客の3.2倍を紹介すると書く。",
+     "formula": "数字は出典に載っている値"
+    }
+   },
+   "analysis:a-failure_cause": {
+    "hash": "47036d66e74a98bb2bd70d1a76d25bf19834193aa437ed4c4d51fd4b99355493",
+    "by": "data/audit/in-99999926100723204200175001.json",
+    "body": {
+     "text": "半年間、インディー開発者仲間の称賛を頼りに機能を足したが、有料の客につながらなかったと本人が書く。仲間は払う客の代表ではなかったと振り返っている。",
+     "formula": "数字は出典に載っている値"
+    }
+   },
+   "analysis:a-cost_structure": {
+    "hash": "69cac9beb069b03f5184d5cc92d4c51b526db7bcd0f8b9e4f84871da28fbdaf5",
+    "by": "data/audit/in-99999926100723204200175001.json",
+    "body": {
+     "text": "サーバー費は利用量に比例して増える。買い切り999ドルの客が50人規模のチームを入れると利益が崩れると、創業者自身が懸念を書いている。紹介した客には生涯続く継続コミッションを払う。",
+     "formula": "数字は出典に載っている値"
+    }
+   },
+   "analysis:a-tools": {
+    "hash": "ea881fa3f2adaf50d5ffa14565b7eadcff5d8b573c9fff5525662e18ffb2932e",
+    "by": "data/audit/in-99999926100723204200175001.json",
+    "body": {
+     "text": "GitHub・GitLabと連携し、コードのPRが開くとタスクが「レビュー」へ、マージされると「完了」へ動き、請求用に時刻を記録する。Asana・ClickUp・Linearのデータを取り込める。",
+     "formula": "数字は出典に載っている値"
+    }
+   },
+   "analysis:a-dependencies": {
+    "hash": "e215c13955cacf561568d647a45630a537af3954f2140e22bdc961f21a299293",
+    "by": "data/audit/in-99999926100723204200175001.json",
+    "body": {
+     "text": "開発案件では、タスクの状態と請求用の時刻記録がGitHub・GitLabのPR・マージの動きに連動して動く。",
+     "formula": "数字は出典に載っている値"
+    }
+   },
+   "analysis:a-lock_in": {
+    "hash": "79b966e9e5f8ce0847d34e9800a97757b97383ad08259e6d3e4aff70dd1f3e6e",
+    "by": "data/audit/in-99999926100723204200175001.json",
+    "body": {
+     "text": "時間記録、請求書、顧客に見せる専用画面、案件のやり取りを1つに集めており、代理店の顧客は専用画面で状況を見る。買い切りの客の解約はゼロだったと創業者は書く。",
+     "formula": "数字は出典に載っている値"
+    }
+   },
+   "analysis:a-competition": {
+    "hash": "4439f50139f4ec609f40f579751445614f98b843a57d2afea90bf53ade94627d",
+    "by": "data/audit/in-999999261008095734002.json",
+    "body": {
+     "text": "競合はAsana、Monday、Trello。Asanaは操作が重く、Mondayは使わない機能にも払い、Trelloは単純すぎるという不満を出発点にした。Asana・ClickUp・Linearから乗り換える客のデータを取り込める。",
+     "formula": "数字は出典に載っている値"
+    }
+   },
+   "analysis:a-viability": {
+    "hash": "8ac799cdb623a39f700ec8d426535d0de2a56f6a7b1819404da373825daeeb12",
+    "by": "data/audit/in-99999926100723204200175001.json",
+    "body": {
+     "text": "今も有効。公式サイトは料金表、紹介プログラム、顧客用ポータルを現在も掲げて営業している。創業者は、すでに不完全な解決策に払っている客を探し、先払いを確かめてから作る形を勧めている。",
+     "formula": "数字は出典に載っている値"
+    }
+   },
+   "analysis:a-pivots": {
+    "hash": "38356580e1700bfc645df94c98e4877c726d0c3e67b09f6a34c25c98ab196fc1",
+    "by": "data/audit/in-99999926100723204200175001.json",
+    "body": {
+     "text": "インディー開発者仲間の要望（ダークモード、API、Notion風ブロック）で6か月作った製品は、Product Huntで23票、初月売上227ドルだった。初めて話した代理店の経営者に顧客用ポータルを求められ、見た目より顧客とのやり取りの機能が要ると分かり、事業主との直接の会話に切り替えた。別の投稿では、6か月の毎日の公開開発の後にサインアップ43件・有料2件だったことから、99ドルの先払いを確かめてから作る方式に変えている。",
+     "formula": "数字は出典に載っている値"
+    }
+   },
+   "analysis:a-lesson": {
+    "hash": "fd7b1d46db53c06abe63ff3e189239885128fb92617e9a96df0a727666686bf2",
+    "by": "data/audit/in-99999926100723204200175001.json",
+    "body": {
+     "text": "売る相手に直接聞き、払う意思を先に確かめてから作る順番が、作り込みより効いたと創業者は振り返る。根拠に挙げる数字（初月227ドル、継続率12%から41%など）は本人の投稿どうしで時期と規模が合わず、どこまでがTeamcampの数字かは投稿からは決められない。",
+     "formula": "数字は出典に載っている値"
+    }
+   },
+   "analysis:a-headline": {
+    "hash": "919868c814c44029d932ba48bc072cbf04be24e26f58ca21edca9ed9f4d263c6",
+    "by": "data/audit/in-999999261008100903002.json",
+    "body": {
+     "text": "複数の顧客案件を抱えるSEO担当のPratham Naikは、複雑な管理ツールにうんざりしてTeamcampを作り始めた。",
+     "formula": "数字は出典に載っている値"
+    }
+   },
+   "analysis:a-story": {
+    "hash": "d8a1377547c1ec12d2899b32292a2beb402db96f0b24d7b967f741b4b827e7eb",
+    "by": "data/audit/in-999999261008100903002.json",
+    "body": {
+     "text": "創業者のPratham Naikは、SEO担当として複数の顧客案件を管理する中で、複雑な管理ツールにうんざりしてTeamcampを作り始めたと書く。Asanaは簡単なタスク作成にも操作が複雑で、Mondayは使わない機能にも料金を払い、Trelloは必要な用途には単純すぎたという。",
+     "formula": "数字は出典に載っている値"
+    }
+   },
+   "analysis:a-why_it_worked": {
+    "hash": "02afaf2146473f51930123992f2fb58b91059d9d2a6afa3ac262882c3caf7522",
+    "by": "data/audit/in-999999261008100903002.json",
+    "body": {
+     "text": "創業者は、見た目と実際に使える無料枠が効き、顧客用の画面が最大の差になったと書く。",
+     "formula": "数字は出典に載っている値"
+    }
+   }
+  },
+  "audits": [
+   {
+    "inputFile": "data/audit/in-99999926100723204200175001.json",
+    "outputFile": "data/audit/out-99999926100723204200175001.json",
+    "inputFileHash": "4867f99939a32ec766eb1067f786e01d900579f3d309e97722bf498d39539828",
+    "outputFileHash": "cdd4e705cfd6267eb0a74c5a1b2f308cbd06031588047e02b386dd4b8c2cda5b"
+   },
+   {
+    "inputFile": "data/audit/in-999999261008095734002.json",
+    "outputFile": "data/audit/out-999999261008095734002.json",
+    "inputFileHash": "04904a8751be9397bfa7695238156d564d57c551e6df759b0fdfe21cd5349182",
+    "outputFileHash": "4fe1ebad991ba17d2aa67960757f8eaf9d9c9efa1309a48d1f775692779e4292"
+   },
+   {
+    "inputFile": "data/audit/in-999999261008100903002.json",
+    "outputFile": "data/audit/out-999999261008100903002.json",
+    "inputFileHash": "f15fb17d99acaacb917f3d360e19f7d99a802a81da8b578cf8efc743dd59b55d",
+    "outputFileHash": "a9ca070bf9593e4e3e1903a5f67678ccfb18cfe2077c2369fe8d77d0741d26fc"
+   }
+  ],
+  "lastAudit": "data/audit/in-999999261008100903002.json",
+  "baseAnalysisHash": "ad8ddc717b98291f6fbcfe9a7fe8fe36560e6bd9fca3470137035d1475b3efb7"
  },
  "ent_referralrock_8c13d5ee4cfc": {
-  "version": 1,
-  "inputHash": "3cd9fbc4aa4b32bbe75f647282945f2f2b2ff426b2a6ea55be3531ce3e781b81",
-  "approvedHash": "5f261e6c62677a7222ed9b3005d884d85fbcf8a7c11920ee68dfc3df1ed89e74",
-  "inputFile": "data/audit/in-99999926100722513500175001.json",
-  "outputFile": "data/audit/out-99999926100722513500175001.json",
-  "inputFileHash": "199c04c23102e526ab95b2576542ff16f4ae7d6aafef7c9898d23634b307f100",
-  "outputFileHash": "85c04246d11099ecb2ef38cd2895d902c1547e6ca29f8f3bf9703f7da91d5761"
+  "version": 2,
+  "caseHash": "308deeba09b24e07d633da54b2a7e8c4fa2cc4e7b924a8a5f1c589302e3d195b",
+  "items": {
+   "fact:f1": {
+    "hash": "cc83f4a713455934e1f37dc96b7fafc697c3086840dd288f38f1a784c06eeed9",
+    "by": "data/audit/in-999999261008100740002.json"
+   },
+   "fact:f2": {
+    "hash": "0dff70c3122222156832d84424a22340e4fd1b22792ca88e80dee17c2e9ff457",
+    "by": "data/audit/in-999999261008100740002.json"
+   },
+   "fact:f3": {
+    "hash": "f001c88ae12dd16992ded4dad2e78fc9f698ff23109a624067662a03b9125bdc",
+    "by": "data/audit/in-999999261008100740002.json"
+   },
+   "fact:f4": {
+    "hash": "280a3a523f1b0f6985164ccaa3de3b79033682bd23119a3ee173caa692a5350d",
+    "by": "data/audit/in-999999261008100740002.json"
+   },
+   "fact:f5": {
+    "hash": "8a9f6f7480af808cedb66c08dc3dbc67339e3f38e73a67e2ad47726846cb19de",
+    "by": "data/audit/in-999999261008100740002.json"
+   },
+   "fact:f6": {
+    "hash": "a610cf57f9fe8454703ee5127ca8ab5803c1d168dc51f86e0160cc83f9ae2614",
+    "by": "data/audit/in-999999261008100740002.json"
+   },
+   "fact:f7": {
+    "hash": "a0a68b26fde80bb78e54471034e74df7f20c9ae906a50a51b1da08bf2075c7fd",
+    "by": "data/audit/in-999999261008100740002.json"
+   },
+   "fact:f8": {
+    "hash": "2391f112e7e258bb41b66fb06627d75135a773702d59c6d2a0d3c40672e4e3aa",
+    "by": "data/audit/in-999999261008100740002.json"
+   },
+   "fact:f10": {
+    "hash": "fa03b7820370c533cd2802bde217c82bbedc9e2c626d450db812349fc7639d18",
+    "by": "data/audit/in-999999261008100740002.json"
+   },
+   "fact:f11": {
+    "hash": "cd6a0024602d0e43661674522b1ba10264a4d8c93d7359db821252039f5fb533",
+    "by": "data/audit/in-99999926100722513500175001.json"
+   },
+   "metric:m2": {
+    "hash": "c45cbbe4a9ed13dafc8002401551da5ff48fc85b8d1c1cd9a89a7a02c5b2f800",
+    "by": "data/audit/in-999999261008100740002.json"
+   },
+   "metric:m3": {
+    "hash": "f1c9d56c8b15b8ad3962dda27da3e21c9bfb97db43505c1641d2adb8f68de515",
+    "by": "data/audit/in-999999261008100740002.json"
+   },
+   "analysis:a-headline": {
+    "hash": "58d4aea2e3b6f59c62c6638c95bc59c1dd7cda73b6a85582bb28de34a62b0281",
+    "by": "data/audit/in-999999261008100740002.json",
+    "body": {
+     "text": "月59ドルの有料版に2日で最初の客が付き、外部資金なしで営業を雇い直して、2016年末に顧客170社まで伸ばした技術者の創業者",
+     "formula": "数字は出典に載っている値"
+    }
+   },
+   "analysis:a-story": {
+    "hash": "a579f184cda3b707cfb4e8db476babc904841bd0c4d54602139433f07623c1e3",
+    "by": "data/audit/in-999999261008100740002.json",
+    "body": {
+     "text": "2013年12月にドメインを取り、受託で食べながら2014年に無料のベータを回した。最初の管理画面はSurvey Monkeyの回答フォーム。2015年6月に月59ドルで有料化すると2日で最初の客が付き、数か月で月約2,000ドルになって専業に移った。2016年2月に月250ドル・6か月契約を出して1社から1,500ドルが一度に入り、営業を雇い始めた。1人目は失敗、2人目で2016年末にMRR約15,000ドルへ。",
+     "formula": "数字は出典に載っている値"
+    }
+   },
+   "analysis:a-business_model": {
+    "hash": "4c5aa75efcfaaa0b9129941bd956523f30b614d561c09fb61c1a67a7195a23fb",
+    "by": "data/audit/in-999999261008100740002.json",
+    "body": {
+     "text": "事業者が月額を払い、紹介リンク・追跡・報酬の払い出しをソフトで回す。専任アドバイザーが制度の設定を手伝う。",
+     "formula": "数字は出典に載っている値"
+    }
+   },
+   "analysis:a-customer": {
+    "hash": "a532440115abfcd3a28237560b8497b7da38d1a3e1ff4feae520c4fdb9d33b37",
+    "by": "data/audit/in-999999261008100740002.json",
+    "body": {
+     "text": "紹介で客を増やしたい事業者。住宅・専門サービス、医療、金融、フランチャイズ、複数店舗、SaaS、EC。",
+     "formula": "数字は出典に載っている値"
+    }
+   },
+   "analysis:a-first_customers": {
+    "hash": "f187b7171f59b275843ded218cd50e68588e37645361415a3353d1f7fccf4a98",
+    "by": "data/audit/in-999999261008100740002.json",
+    "body": {
+     "text": "旧製品UberNoteの利用者リスト、Betalist、知人に告知して、2014年前半に200超の接点、最初の1年半で500社超がベータに登録した。有料化から2日以内に最初の有料客が登録し、月末に4社になった。",
+     "formula": "数字は出典に載っている値"
+    }
+   },
+   "analysis:a-channels": {
+    "hash": "7601751ee3f6616e83dfc2c609bc35789ec05528c9a95954cac4a76c29e35b8d",
+    "by": "data/audit/in-999999261008100740002.json",
+    "body": {
+     "text": "2019年5月に月売上が70,000ドルに達した要因は、2人目の営業の採用だったと本人は書く。営業の増員後は、サイトの文面・LP・申込ボタンを直してリードを増やした。",
+     "formula": "数字は出典に載っている値"
+    }
+   },
+   "analysis:a-capital_and_team": {
+    "hash": "abefaf8a37d3fc5ce338ef4c8850d1f0ca97fa4490eae2220998adc2570a202b",
+    "by": "data/audit/in-999999261008100740002.json",
+    "body": {
+     "text": "外部資金なし。2016年末は常勤換算で3.5人分の体制、2019年は営業2人体制。創業者は製品開発と営業・サポートも兼ねた。",
+     "formula": "本人の記述を要約した。計算はない。"
+    }
+   },
+   "analysis:a-failure_cause": {
+    "hash": "04832776558bfdc0d0b617484e5ef816174db41f6005067db7d0a32ce7f391a6",
+    "by": "data/audit/in-999999261008100740002.json",
+    "body": {
+     "text": "2016年7月に雇った最初の営業は、研修と顧客理解が足りずにうまくいかず、2か月分の売上を失った。10月に2人目の営業を雇って再挑戦し、そこから営業が回り出した。",
+     "formula": "数字は出典に載っている値"
+    }
+   },
+   "analysis:a-lock_in": {
+    "hash": "f03b42ebcb668c59ea763adf9ca3b1244bec05d0a188ab02b7fc63b778dbaf22",
+    "by": "data/audit/in-999999261008100740002.json",
+    "body": {
+     "text": "導入時の立ち上げ会議と客ごとの専任担当を付けて、解約を半分にした。",
+     "formula": "数字は出典に載っている値"
+    }
+   },
+   "analysis:a-why_it_worked": {
+    "hash": "39b720e50325fdaad0eedabaf036d5b2d3a816d8f83fbadd6dfae9d6e496564b",
+    "by": "data/audit/in-999999261008100740002.json",
+    "body": {
+     "text": "2019年5月の月売上70,000ドルは、本人が2人目の営業の採用が要因と書く。リードが足りるか迷って先延ばしにしたが、採用が先になったことでサイト改善に動いたと振り返る。",
+     "formula": "数字は出典に載っている値"
+    }
+   },
+   "analysis:a-viability": {
+    "hash": "d74215f427982b656a220d4d2a428a87f88fe5fb56d1e1120d7858dcdbead5c4",
+    "by": "data/audit/in-99999926100722513500175001.json",
+    "body": {
+     "text": "公式は1,000社超が使うと掲げ、2025年10月も製品更新が続く。現在の売上や顧客数の内訳は公開されていない。",
+     "formula": "数字は出典に載っている値"
+    }
+   },
+   "metric:m1": {
+    "hash": "5e5cc8d73b4dafe0bc87712e5144d6cf604e02e4d38d39cbd3a36b0371b9a9c4",
+    "by": "data/audit/in-999999261008100740002.json"
+   }
+  },
+  "audits": [
+   {
+    "inputFile": "data/audit/in-99999926100722513500175001.json",
+    "outputFile": "data/audit/out-99999926100722513500175001.json",
+    "inputFileHash": "199c04c23102e526ab95b2576542ff16f4ae7d6aafef7c9898d23634b307f100",
+    "outputFileHash": "85c04246d11099ecb2ef38cd2895d902c1547e6ca29f8f3bf9703f7da91d5761"
+   },
+   {
+    "inputFile": "data/audit/in-999999261008100740002.json",
+    "outputFile": "data/audit/out-999999261008100740002.json",
+    "inputFileHash": "f07da51da489cf5fbf35a6000718df07fa703bf835ed1c8c1a2641fb12c3568e",
+    "outputFileHash": "1f44ffff946ea58b97b0d5dabb8c55cd0254d439b7110004e7c0570c19947037"
+   }
+  ],
+  "lastAudit": "data/audit/in-999999261008100740002.json",
+  "baseAnalysisHash": "7294e939860f3c915454806de93d6b01ae84d040d703a274e07bc34bc0813698"
  },
  "ent_ejunkie_7e9e46bd9643": {
-  "version": 1,
-  "inputHash": "eaad25aa0a3d1b2b925d0f031cf9e60919e41bc0a1428c2fe7e28c88cd32219f",
-  "approvedHash": "a4ec3a1b16a9c9ef24480ed44628ef851a0ac6a043bc04b6b3d207391d3db064",
-  "inputFile": "data/audit/in-99999926100722513500175001.json",
-  "outputFile": "data/audit/out-99999926100722513500175001.json",
-  "inputFileHash": "199c04c23102e526ab95b2576542ff16f4ae7d6aafef7c9898d23634b307f100",
-  "outputFileHash": "85c04246d11099ecb2ef38cd2895d902c1547e6ca29f8f3bf9703f7da91d5761"
+  "version": 2,
+  "caseHash": "26abc818a248f4fb534a4fdb1bd49091fe1e0f04ae07081d46aaddd06dfb76fc",
+  "items": {
+   "fact:f1": {
+    "hash": "c492a3010120277718a88789517cb5c04bd5a5485b3ca1a89580863999171181",
+    "by": "data/audit/in-99999926100722513500175001.json"
+   },
+   "fact:f2": {
+    "hash": "cd3d4d943c6703c9ac55000ffdb72eea9341329ace47828914b9a188bc788a8f",
+    "by": "data/audit/in-99999926100722513500175001.json"
+   },
+   "fact:f3": {
+    "hash": "a7fcc4346160ba358d5022f35464fcdaea2cc18a532ea25e23ea1dd44390172a",
+    "by": "data/audit/in-999999261008091237003.json"
+   },
+   "fact:f4": {
+    "hash": "1392a7c0da7ee451fdd4928d39f3629716062f1a898a7c5597bc9e81f150eec3",
+    "by": "data/audit/in-999999261008091237003.json"
+   },
+   "fact:f5": {
+    "hash": "ed557e80b72edeb134982e2303d71469c45d2769af6c0e15a69caee95b56c2c5",
+    "by": "data/audit/in-999999261008091237003.json"
+   },
+   "fact:f6": {
+    "hash": "f56368b5817e0d75982850a3c2480164c5d94a7a1758821a39744ec7605708ba",
+    "by": "data/audit/in-99999926100722513500175001.json"
+   },
+   "fact:f7": {
+    "hash": "225f293fd12cff732d100f9db1628b9eb6c256b801fff0cf4cc022ea065e5c08",
+    "by": "data/audit/in-99999926100722513500175001.json"
+   },
+   "fact:f8": {
+    "hash": "399857c05c75464922673cca1f111217da95911e1b0d899fcc4b7675136c50c8",
+    "by": "data/audit/in-99999926100722513500175001.json"
+   },
+   "fact:f9": {
+    "hash": "5e729971ef53b4554f5d23ec2e89ccee7e732ecd02d6626f188b038c10aaeb8e",
+    "by": "data/audit/in-99999926100722513500175001.json"
+   },
+   "fact:f10": {
+    "hash": "86c7aaec24541d8bf3726bf2b790bc2f555579f4ec5dbe3ac408dfd4f5279ff6",
+    "by": "data/audit/in-99999926100722513500175001.json"
+   },
+   "metric:m1": {
+    "hash": "6b2342db03d6b81bf584c44b62df67ad5a31cbfcb9fb77035a2e71a0a5e6ed1e",
+    "by": "data/audit/in-999999261008091237003.json"
+   },
+   "analysis:a-headline": {
+    "hash": "fedd4decd7d2fbfaed9270c8e2caf1daa34093f5b4b591d4e5d2609511ec793e",
+    "by": "data/audit/in-999999261008091237003.json",
+    "body": {
+     "text": "支払いから3時間以内の手渡しに疲れて配信を自動化し、著者へのメールと職人市で一軒ずつ売り先を増やして、年約100万ドルの販売カートに育てた創業者Robin Singh",
+     "formula": "数字は出典に載っている値"
+    }
+   },
+   "analysis:a-story": {
+    "hash": "70c4a63a8db22fea84ee53cbb5a05b00fb8194237bb98175d494b1aa3f15a3dd",
+    "by": "data/audit/in-999999261008091237003.json",
+    "body": {
+     "text": "勤め先の収入を補うために自作のソフトを売っていた創業者は、3時間以内の納品を約束し、支払い通知のたびにメールで届けていた。本人によると、これに疲れて2003年末に配信を自動化し、作家と音楽家の友人に頼まれて、2004年半ばに誰でも使えるサービスにした。著者への個別メールや、職人市への訪問とオンラインショップの設定も行った。2011年に持分を手放し、2017年12月に経営へ戻っている。",
+     "formula": "数字は出典に載っている値"
+    }
+   },
+   "analysis:a-business_model": {
+    "hash": "a926c6f3f4a4153a04868709065d796b2bdbd95cd0a1437f78e58ec400481cad",
+    "by": "data/audit/in-99999926100722513500175001.json",
+    "body": {
+     "text": "売り手が月額固定で、ダウンロード配信・ボタンの発行・簡易ショップ・紹介制度を使う。決済は売り手が自分の決済会社でつなぎ、E-junkieは取引ごとの手数料を取らない。",
+     "formula": "数字は出典に載っている値"
+    }
+   },
+   "analysis:a-customer": {
+    "hash": "0c233a36d3e872337d75a34f0380298df55a84b1065756dbb04dc9fd2e694ef0",
+    "by": "data/audit/in-99999926100722513500175001.json",
+    "body": {
+     "text": "アート、電子書籍、コミック、音楽、ソフト、ゲームのコード、チケット、グッズを売る創作者と小さな販売者。",
+     "formula": "数字は出典に載っている値"
+    }
+   },
+   "analysis:a-first_customers": {
+    "hash": "504a03b1ea3154f7492e440f22825007df17fe4ec398e0f8c9a823e9eaa0df28",
+    "by": "data/audit/in-999999261008091237003.json",
+    "body": {
+     "text": "最初は作家と音楽家の友人が、自分の電子書籍やMP3の配信に使ってくれた。その後、自費出版の著者を1人ずつ探して設定ごと引き受けた。",
+     "formula": "数字は出典に載っている値"
+    }
+   },
+   "analysis:a-channels": {
+    "hash": "4bdd763230e80d5c1deef47b7bf6accd9a0aa533e3419f6013e3ad681bcb20aa",
+    "by": "data/audit/in-999999261008091237003.json",
+    "body": {
+     "text": "営業は個別のメールと職人市への訪問。売り手が自分の商品に付けられる紹介制度の網もある。",
+     "formula": "数字は出典に載っている値"
+    }
+   },
+   "analysis:a-dependencies": {
+    "hash": "240fc8d795fc1b6e3a22e8df0cd6e14e83136d0911eaf1d11f72d3a10b6b4ed5",
+    "by": "data/audit/in-99999926100722513500175001.json",
+    "body": {
+     "text": "売り手の決済は、PayPalやStripeなど外部の決済会社に依存する。取引ログは決済会社が報告した内容の写しで、お金の確認は決済会社の記録で行う。",
+     "formula": "数字は出典に載っている値"
+    }
+   },
+   "analysis:a-competition": {
+    "hash": "0780709585a6ba17ecd077fb5b78a1b541924de0dd5c56b3b91bc03f9eec1428",
+    "by": "data/audit/in-99999926100722513500175001.json",
+    "body": {
+     "text": "売り手が月に10ドルの商品を100件売ると、Gumroadの直販手数料は1,000ドル×10%＋0.50ドル×100件＝150ドル。E-junkieは月8〜40ドルの固定（決済会社の手数料は別）。",
+     "formula": "Gumroad：10ドル×100件＝売上1,000ドル、1,000×0.10＝100ドル、0.50×100＝50ドル、合計150ドル（Gumroadの料金ページの率。決済手数料を別に取るかは同ページに書かれていない）。E-junkie：公式料金の月8〜40ドル（決済会社の手数料は売り手の負担で別）。件数は例で、実際の客の売上ではない。"
+    }
+   },
+   "analysis:a-capital_and_team": {
+    "hash": "8251d802507195bbeac59de3f07da8f0b205432355da07151ca73fba94f54696",
+    "by": "data/audit/in-999999261008091237003.json",
+    "body": {
+     "text": "本人は2019年のインタビューで、E-junkieを所有する家族経営の非公開会社の持分を売り、後に買い戻したと述べている。公式サイトによると、小さな開発チームがAWS上でサービスを運営する。本人の投稿では、2011年に事業から退き、2017年12月に経営へ戻ったとしている。",
+     "formula": "公式の沿革と本人の投稿を要約した。計算はない。"
+    }
+   },
+   "analysis:a-why_it_worked": {
+    "hash": "2cbcfff11c5cc9b89788da2fed13a8d453378e9eb48a45daf23ad13681a244d6",
+    "by": "data/audit/in-999999261008091237003.json",
+    "body": {
+     "text": "E-junkieの利用料は月額固定で、同社の取引手数料はない。この料金体系は、売上に比例する利用料を避けたい売り手に選ばれる理由になったと考えられる。著者への個別メールやオンラインショップの設定代行も、売り手が販売を始める負担を減らしたと考えられる。",
+     "formula": "数字は出典に載っている値"
+    }
+   },
+   "analysis:a-viability": {
+    "hash": "b82ccacb401db7971ddb2e67c1e4080cf1fbeaca6d622cb8999cb307dd2927b1",
+    "by": "data/audit/in-99999926100722513500175001.json",
+    "body": {
+     "text": "競合は売上税の代行まで含めた課金へ進んでいる（Gumroadは2025年1月から）。E-junkieの現在の売上と利用者数は公開されていない。",
+     "formula": "数字は出典に載っている値"
+    }
+   },
+   "analysis:a-timeline": {
+    "hash": "b3c71053ab000e547e7959ff80926603b6ac90bf9c913889bb9a678c7beb2607",
+    "by": "data/audit/in-999999261008091237003.json",
+    "body": {
+     "text": "2003年末に配信の自動化。2004年半ばにサービス化。2011年に持分を手放す。2017年12月に創業者が経営へ復帰。2019年のインタビューで、ほぼ10年にわたり年平均100万ドルの売上と語る。",
+     "formula": "数字は出典に載っている値"
+    }
+   }
+  },
+  "audits": [
+   {
+    "inputFile": "data/audit/in-99999926100722513500175001.json",
+    "outputFile": "data/audit/out-99999926100722513500175001.json",
+    "inputFileHash": "199c04c23102e526ab95b2576542ff16f4ae7d6aafef7c9898d23634b307f100",
+    "outputFileHash": "85c04246d11099ecb2ef38cd2895d902c1547e6ca29f8f3bf9703f7da91d5761"
+   },
+   {
+    "inputFile": "data/audit/in-999999261008091237003.json",
+    "outputFile": "data/audit/out-999999261008091237003.json",
+    "inputFileHash": "caa53f609029ce458776729f2a42dcd8f5b64c6dac8d0951e4d9cf68b694a41c",
+    "outputFileHash": "93d7424c2acb619eb853b430698ffc424c2ef53d7a23fcee428ac794a6dc62a2"
+   }
+  ],
+  "lastAudit": "data/audit/in-999999261008091237003.json",
+  "baseAnalysisHash": "a590b72df38a84db4a58eb5b8d6160e1c39bc9a863dd80edfa4e79f63c41e99b"
  },
  "ent_gorails_640d8f688451": {
-  "version": 1,
-  "inputHash": "bf1fe4144048678b128d1dc3ca19f85a8711e8f8be50fafb2842a8815d5f06a2",
-  "approvedHash": "1afc85061ec70fa974ee7b088dc840404957bcf803826bd848ae769213af4a40",
-  "inputFile": "data/audit/in-99999926100722513500175001.json",
-  "outputFile": "data/audit/out-99999926100722513500175001.json",
-  "inputFileHash": "199c04c23102e526ab95b2576542ff16f4ae7d6aafef7c9898d23634b307f100",
-  "outputFileHash": "85c04246d11099ecb2ef38cd2895d902c1547e6ca29f8f3bf9703f7da91d5761"
+  "version": 2,
+  "caseHash": "92f639eb48bb71d235543ff923eb018865d422ccc3e742bdeac32e3cf9c8df5b",
+  "items": {
+   "fact:f1": {
+    "hash": "aca681de854d0b7ffc106a1b4d0523169caaa6f765f009c42c6c11ca74c40103",
+    "by": "data/audit/in-999999261008091237005.json"
+   },
+   "fact:f2": {
+    "hash": "2452b51fcdd352dfb067747e3d79f292266fd2e2888c3899aaec1c5c5725c3d5",
+    "by": "data/audit/in-999999261008091237005.json"
+   },
+   "fact:f3": {
+    "hash": "91b234c4536454613cd41264c2dc4ab0dae66dc3d80deba5e1b094cb6025aa2d",
+    "by": "data/audit/in-99999926100722513500175001.json"
+   },
+   "fact:f4": {
+    "hash": "7c35c804ee15c8d9507c4be015d8acdbf96486011edf134d93ea3d316a185a8c",
+    "by": "data/audit/in-99999926100722513500175001.json"
+   },
+   "fact:f5": {
+    "hash": "0996f9aec79cc2f917a92f5790ef99bef61d7c23d7c7cb9a31f8825ef07a5cd4",
+    "by": "data/audit/in-99999926100722513500175001.json"
+   },
+   "fact:f6": {
+    "hash": "d6b37eec6f25807e41494759022e602bd8060216aae73425c5359b0c34f8c476",
+    "by": "data/audit/in-99999926100722513500175001.json"
+   },
+   "fact:f7": {
+    "hash": "02905d96dbb92d7205a77a32e50214232ed2e8a3e59a72a568461b24915a3c51",
+    "by": "data/audit/in-99999926100722513500175001.json"
+   },
+   "fact:f8": {
+    "hash": "0f8148828cc629eaac142cc062318f81870bf4b39df500d9662ca70e0b485ec0",
+    "by": "data/audit/in-99999926100722513500175001.json"
+   },
+   "fact:f9": {
+    "hash": "3f1264603435b4189ca0efcdcdb4178acddfe81a9779c3d2151ffd71d66cf46c",
+    "by": "data/audit/in-99999926100722513500175001.json"
+   },
+   "fact:f10": {
+    "hash": "254ccf2a2613b985b438fc7aaa44df4ec6193675c761e7d6d4fd3a20b4c916ba",
+    "by": "data/audit/in-99999926100722513500175001.json"
+   },
+   "fact:f11": {
+    "hash": "cfde91ce09ebb5e0eee1e05b3f7c1ab4ccb2ff1d99197e148e3b5ba73160eaf5",
+    "by": "data/audit/in-99999926100722513500175001.json"
+   },
+   "metric:m1": {
+    "hash": "7ac509fbdadd76c315406dfbac45baacee2e5a8ed631d8a815accfaa39a49771",
+    "by": "data/audit/in-99999926100722513500175001.json"
+   },
+   "metric:m2": {
+    "hash": "f7962f20272ba60934648db70e84acba503fa6ab81732371b25e286dc74cc277",
+    "by": "data/audit/in-99999926100722513500175001.json"
+   },
+   "metric:m3": {
+    "hash": "8ff5f900b69f198b7c1f26ed4ab05ebe621ea8422b16df9001088e7d5be0dcc3",
+    "by": "data/audit/in-99999926100722513500175001.json"
+   },
+   "analysis:a-headline": {
+    "hash": "daac13935b8193f98884c2e266f6b832304d83381a6db4a74098e7ab1e6c4114",
+    "by": "data/audit/in-99999926100722513500175001.json",
+    "body": {
+     "text": "自分用のRailsのメモを公開したサイトに集まった開発者へ動画を売り、毎週の無料動画で信頼を貯めて、1人のまま月約6万ドルに育てた元受託開発者",
+     "formula": "数字は出典に載っている値"
+    }
+   },
+   "analysis:a-story": {
+    "hash": "4bbe988afcf01832fa80edbd171b9b6fb1cd0c7ca4099f54b237e69fd519c6bc",
+    "by": "data/audit/in-99999926100722513500175001.json",
+    "body": {
+     "text": "受託で作った物が使われない虚しさから、2014年1月に仕事をやめた。最初の2コースは無名で売れず、資金が尽きかけた頃、毎週の無料動画がHacker Newsに載り、1日でメール600件超が集まった。そのメールに新作を知らせる形で有料の講座が回り始め、のちにホスティングとテンプレートへ広げた。",
+     "formula": "数字は出典に載っている値"
+    }
+   },
+   "analysis:a-business_model": {
+    "hash": "6752ef1cf856d714bb290393b122f3b1ee622aa5ea4b5b626098d1e4e2c98838",
+    "by": "data/audit/in-999999261008091237005.json",
+    "body": {
+     "text": "無料動画で名前を知ってもらい、メールの一覧に有料の講座を売る。同じ開発者層に、ホスティングとテンプレートという別の商品を重ねて売る。",
+     "formula": "数字は出典に載っている値"
+    }
+   },
+   "analysis:a-customer": {
+    "hash": "20ae61981d9248e80a286b791019c09677c1e1da6155445ef6a130913a919cf6",
+    "by": "data/audit/in-999999261008091237005.json",
+    "body": {
+     "text": "Railsを学ぶ初心者から、最新の書き方を追いたい経験者までの開発者。本人は、自分が毎日でも話したい相手に売れる点を強みに挙げている。",
+     "formula": "数字は出典に載っている値"
+    }
+   },
+   "analysis:a-first_customers": {
+    "hash": "97d29cb91dbc685ed41b81aea84380fe149dbcf50c0f6326ba5f82a05c4d3964",
+    "by": "data/audit/in-99999926100722513500175001.json",
+    "body": {
+     "text": "最初の客は、メモ目的のサイトに既に来ていたRails開発者だった。有料コースだけでは売れず、無料動画を毎週出してメールを貯めた層が後の客になった。",
+     "formula": "数字は出典に載っている値"
+    }
+   },
+   "analysis:a-channels": {
+    "hash": "b749dfc8ed2a56a1d56ffc2fc0a1cd125fafbdeb98174019eb4d53aea9bdb967",
+    "by": "data/audit/in-99999926100722513500175001.json",
+    "body": {
+     "text": "毎週の無料動画、ニュースレター、Hacker Newsの掲載、オープンソースのライブラリ、YouTubeとTwitterでの発信。",
+     "formula": "数字は出典に載っている値"
+    }
+   },
+   "analysis:a-capital_and_team": {
+    "hash": "d3f3ca5f674f978fc8c60323a6779804c744ebf1fc39c12f6377247f4eae9b70",
+    "by": "data/audit/in-99999926100722513500175001.json",
+    "body": {
+     "text": "自己資金で始め、2014年1月の独立時は約9か月分の蓄えで、最初の2年は無給。2021年11月でも1人運営で、これから開発者とサポート担当を雇う段階だった。",
+     "formula": "本人の説明（約9か月分の蓄え、2年間無給、2021年11月に1人運営）をそのまま記載"
+    }
+   },
+   "analysis:a-why_it_worked": {
+    "hash": "f5eb39c9dd5a1fb9a7d79cea33acf8c0c934878c933bfe7f422a9737e6c43232",
+    "by": "data/audit/in-99999926100722513500175001.json",
+    "body": {
+     "text": "先にアクセスのあるサイトを持ち、そこへ売ったことが、以前の「作ったが客がいない」失敗との違いだった。無料動画を毎週出して信頼を貯めた点も、本人が理由に挙げる。",
+     "formula": "数字は出典に載っている値"
+    }
+   },
+   "analysis:a-failure_cause": {
+    "hash": "8a2f751a178dd9e80f8a5306c164fe9015553b34fd9bd0d04fc048663c40480e",
+    "by": "data/audit/in-99999926100722513500175001.json",
+    "body": {
+     "text": "最初の2コース（無料と有料）は、本人が無名で、受託の経験を商品に直しただけだったため売れなかったと本人は話す。",
+     "formula": "数字は出典に載っている値"
+    }
+   },
+   "analysis:a-lesson": {
+    "hash": "6e2ae36f700128b61f50c31011af4b8b40c98ad9b614152fcafbb0273678dcd8",
+    "by": "data/audit/in-99999926100722513500175001.json",
+    "body": {
+     "text": "同じ層の人に次々と別の商品を売る。本人は、定期購入の歯ブラシ屋が歯磨き粉やカミソリを足していくのと同じだと説明する。",
+     "formula": "数字は出典に載っている値"
+    }
+   },
+   "analysis:a-timeline": {
+    "hash": "c96b7322b3cea54d501d3b3e8dc142af6eb8cbbf19c756d27e986c1ea50eafa6",
+    "by": "data/audit/in-99999926100722513500175001.json",
+    "body": {
+     "text": "2014年1月に独立。その後、動画を毎週無料で公開し、Hacker Newsに載った日にメール600件超。2020年8月に3製品で累計100万ドル、2021年11月にMRR約6万ドル。",
+     "formula": "数字は出典に載っている値"
+    }
+   }
+  },
+  "audits": [
+   {
+    "inputFile": "data/audit/in-99999926100722513500175001.json",
+    "outputFile": "data/audit/out-99999926100722513500175001.json",
+    "inputFileHash": "199c04c23102e526ab95b2576542ff16f4ae7d6aafef7c9898d23634b307f100",
+    "outputFileHash": "85c04246d11099ecb2ef38cd2895d902c1547e6ca29f8f3bf9703f7da91d5761"
+   },
+   {
+    "inputFile": "data/audit/in-999999261008091237005.json",
+    "outputFile": "data/audit/out-999999261008091237005.json",
+    "inputFileHash": "c2e01d4e7f9524147cd420a1bd0ec961c3016c5c9256283d47645d75a4f70af5",
+    "outputFileHash": "e859de808e44bc3437e787c290cc119c97564dd1d84cf2b4d78f5eb38a0d05fd"
+   }
+  ],
+  "lastAudit": "data/audit/in-999999261008091237005.json",
+  "baseAnalysisHash": "9e641147fa1cb1877e1536a91c8627f4f2b7ca114a6641b94bd2be9e5905ec3e"
  },
  "ent_rfrcui_64e924ac": {
-  "version": 1,
-  "inputHash": "823ddab4ee899f3714a8afefe04b47d4a355433623c7497baaac2b02babff05d",
-  "approvedHash": "85ec8d081fc3b7339d40d129d3643f591f088914b819129eccbd0d09bb92f1d8",
-  "inputFile": "data/audit/in-99999926100722513500175001.json",
-  "outputFile": "data/audit/out-99999926100722513500175001.json",
-  "inputFileHash": "199c04c23102e526ab95b2576542ff16f4ae7d6aafef7c9898d23634b307f100",
-  "outputFileHash": "85c04246d11099ecb2ef38cd2895d902c1547e6ca29f8f3bf9703f7da91d5761"
+  "version": 2,
+  "caseHash": "d4aac7a3b3c004752d4ec9158acf76243ebf69ec7ab3daf5f1cc8ee357689302",
+  "items": {
+   "fact:f1": {
+    "hash": "742f55a4cd6e861c69911f35a5f1a57c190fde62663adc9d327cfaece048e9e4",
+    "by": "data/audit/in-99999926100722513500175001.json"
+   },
+   "fact:f2": {
+    "hash": "611d3a2efe245759cdf7c4cd7c35d648cfe87584cd29aff6f98bf76f7aaa463d",
+    "by": "data/audit/in-99999926100722513500175001.json"
+   },
+   "fact:f3": {
+    "hash": "f022f2e76eda203f7382fb902bafe509e601f2319ad70e768558dacabfa3d367",
+    "by": "data/audit/in-99999926100722513500175001.json"
+   },
+   "fact:f4": {
+    "hash": "99d546c11adb8d52ca0714bc34784052b739dc06be18b5dbf447a95df0296c21",
+    "by": "data/audit/in-99999926100722513500175001.json"
+   },
+   "fact:f5": {
+    "hash": "926e0ae819b8da65c5854a71e21eb60c5f3ce50d8c2de2988febce60a4ab558a",
+    "by": "data/audit/in-99999926100722513500175001.json"
+   },
+   "fact:f6": {
+    "hash": "890ab3ee67df905cc013476dcce77989482c99a679a87286fa2506b4c7326dd3",
+    "by": "data/audit/in-999999261008093740004.json"
+   },
+   "fact:f7": {
+    "hash": "761aebb32f98dd4c8335aa1df8ed7f12adc6a0746ee46eb52d3599929024c6f3",
+    "by": "data/audit/in-999999261008093740004.json"
+   },
+   "fact:f8": {
+    "hash": "88601398241472d6c75f9c5604d0e6239ead6ee42dcc839f003b5d9d542215c7",
+    "by": "data/audit/in-999999261008093740004.json"
+   },
+   "fact:f9": {
+    "hash": "5b3a3e943a0a521e95a56a160a0744ead9edbe5fd02ba4c9abfba3498b1eb6f2",
+    "by": "data/audit/in-999999261008093740004.json"
+   },
+   "fact:f10": {
+    "hash": "47e56b26f1c0ea42257746a0e9fc50cd18cf0c1d67cb851c597f3dead9f3a5b5",
+    "by": "data/audit/in-99999926100722513500175001.json"
+   },
+   "fact:f11": {
+    "hash": "6135b6415903609a6b17fb71355fda26c6e8d0dfdaae8e5e0996120f1416dcb1",
+    "by": "data/audit/in-99999926100722513500175001.json"
+   },
+   "fact:f13": {
+    "hash": "ae4c404eabc1a0c988948fbaa5f2f234ed187cd11b6e694c45ded95174a68498",
+    "by": "data/audit/in-99999926100722513500175001.json"
+   },
+   "metric:m1": {
+    "hash": "44652c11fa8e5c342659753c77e5d0a94d81eb62b1ed25a5a8c9762e289b45ef",
+    "by": "data/audit/in-999999261008093740004.json"
+   },
+   "analysis:a-headline": {
+    "hash": "50511be63a6fe0af0f207dccc5d382a647e19c4af979512b7250197e6d628ee3",
+    "by": "data/audit/in-999999261008093740004.json",
+    "body": {
+     "text": "発売前のほぼ2年、凝った無料ツイートで開発者の読者を育ててからデザイン教材を出し、2022年9月時点で累計250万ドル超を売り上げた2人組",
+     "formula": "数字は出典に載っている値"
+    }
+   },
+   "analysis:a-business_model": {
+    "hash": "34a1f20a22445246653cb5e3778513e723a36daad048bf28c16be10f03655881",
+    "by": "data/audit/in-99999926100722513500175001.json",
+    "body": {
+     "text": "開発者に、デザインを才能ではなく手順として教える教材を、PDF・動画・素材をまとめた一式で売る。本と動画だけの安い版と、素材まで入った上位版の2段で、チームには人数別の割引もある。",
+     "formula": "数字は出典に載っている値"
+    }
+   },
+   "analysis:a-customer": {
+    "hash": "8969f2efd659eacee715dfe6e720dfd983387d166bb16046d4580955811fc248",
+    "by": "data/audit/in-99999926100722513500175001.json",
+    "body": {
+     "text": "デザイナーに頼らず自分で画面まで作る開発者や、小さなチーム。公式サイトは「デザイナーに頼らずに」「開発者の視点で」と呼びかけ、推薦文も開発者の創業者が寄せている。",
+     "formula": "数字は出典に載っている値"
+    }
+   },
+   "analysis:a-customer_pain": {
+    "hash": "3801db81406530b31d46b7ace14f9a2698f5cb04b04d191332bd44f3aeac1d69",
+    "by": "data/audit/in-99999926100722513500175001.json",
+    "body": {
+     "text": "動くものは作れるのに、できあがった画面がなぜか素人くさく見える。公式サイトの冒頭は、その原因が分からず、デザインに挑んでは挫折してきた開発者の悩みから始まる。",
+     "formula": "数字は出典に載っている値"
+    }
+   },
+   "analysis:a-first_customers": {
+    "hash": "4486d04cca01373ff7b4db3d0de7fdb82783f2abc320f89e7891b0cd0dfe9f3d",
+    "by": "data/audit/in-999999261008093740004.json",
+    "body": {
+     "text": "最初の買い手は、発売前の約2年のツイートや記事で2人を知っていた読者と見られる。Adamは2016年の最初の本で、発売初週に約6万ドルを売り上げたと本人が書いている。",
+     "formula": "数字は出典に載っている値"
+    }
+   },
+   "analysis:a-channels": {
+    "hash": "1a11454fece052c654acc4a190a4d43c0b80d148b2c7f33c443de1fbe916eddc",
+    "by": "data/audit/in-999999261008093740004.json",
+    "body": {
+     "text": "発売前の約2年、デザインの小技を紹介するツイートや記事を無料で配り、読者を育てた。1本に2週間近くかけたツイートもあり、記事「7 Practical Tips for Cheating at Design」は長い間Mediumで歴代1位だったと本人が書いている。",
+     "formula": "数字は出典に載っている値"
+    }
+   },
+   "analysis:a-capital_and_team": {
+    "hash": "d27db678f0887d28caef33fd0909e3ace69844d6e2a880573864696b062d366b",
+    "by": "data/audit/in-99999926100722513500175001.json",
+    "body": {
+     "text": "著者は2人で、以前から副業で組んでいた（Steveが画面設計、Adamが開発）。",
+     "formula": "公式サイトの著者紹介による。計算はない。"
+    }
+   },
+   "analysis:a-dependencies": {
+    "hash": "a574771a006df067c66a9c643aab1a3715e68be2eeb62d4229d4880dd84fd1d1",
+    "by": "data/audit/in-999999261008093740004.json",
+    "body": {
+     "text": "売れ行きは、2人が発売前の約2年かけて育てたTwitterなどの読者に強く支えられている、と第三者の記事は分析する。",
+     "formula": "数字は出典に載っている値"
+    }
+   },
+   "analysis:a-competition": {
+    "hash": "edc97a0c657e4c8fb08673f60189de7b8f9db69dd8c17fe946163ccd71f4ff69",
+    "by": "data/audit/in-99999926100722513500175001.json",
+    "body": {
+     "text": "公式サイトは、既存のデザイン講座が色彩理論などの原則に偏ると位置づけ、すぐ使える具体策を売りにして差をつけている。",
+     "formula": "数字は出典に載っている値"
+    }
+   },
+   "analysis:a-pivots": {
+    "hash": "61ea2dcecfde2d4a9aab04173805e25adcf2be0f595878435758e603fcef1946",
+    "by": "data/audit/in-999999261008093740004.json",
+    "body": {
+     "text": "Adamは教材の前に、Nitpick CIを実際に出して失敗している。他にも履歴書アプリなど3つの案を、完成させずにやめた。",
+     "formula": "数字は出典に載っている値"
+    }
+   }
+  },
+  "audits": [
+   {
+    "inputFile": "data/audit/in-99999926100722513500175001.json",
+    "outputFile": "data/audit/out-99999926100722513500175001.json",
+    "inputFileHash": "199c04c23102e526ab95b2576542ff16f4ae7d6aafef7c9898d23634b307f100",
+    "outputFileHash": "85c04246d11099ecb2ef38cd2895d902c1547e6ca29f8f3bf9703f7da91d5761"
+   },
+   {
+    "inputFile": "data/audit/in-999999261008093740004.json",
+    "outputFile": "data/audit/out-999999261008093740004.json",
+    "inputFileHash": "e16b8429b5ff35ed8ca9cfac95e5b72e5f585318d1f036830a3bcf37320bcd3a",
+    "outputFileHash": "0e9f920e3d50944a3258d21e98bc137a9bb03b002ac524b7a324cfee35207b7d"
+   }
+  ],
+  "lastAudit": "data/audit/in-999999261008093740004.json",
+  "baseAnalysisHash": "86761cb0166f9b41d5e95d4ad6351846eecdac724bfffe6cdce56f3d9a36872b"
  },
  "ent_heygen_8f11a1": {
-  "version": 1,
-  "inputHash": "9e2277aa59ec458ebc19001fbbfeb404d0c2855b2ff579a92c968df70178db3e",
-  "approvedHash": "abd81d370c4791d56688ebfa8cf8da7b1b2b63b3cd5252edabb5b8c8b235e2b5",
-  "inputFile": "data/audit/in-99999926100722513500175001.json",
-  "outputFile": "data/audit/out-99999926100722513500175001.json",
-  "inputFileHash": "199c04c23102e526ab95b2576542ff16f4ae7d6aafef7c9898d23634b307f100",
-  "outputFileHash": "85c04246d11099ecb2ef38cd2895d902c1547e6ca29f8f3bf9703f7da91d5761"
+  "version": 2,
+  "caseHash": "d3b473ab51e7273e4950916e4864dd3eedc6d05942b184a9a4127ea3b7961cc4",
+  "items": {
+   "fact:f1": {
+    "hash": "7f9fa526b5b81b03531c93ef6e2b30dbc2e75b0f14df24f719b508efca6f3a31",
+    "by": "data/audit/in-99999926100722513500175001.json"
+   },
+   "fact:f2": {
+    "hash": "256e99c0ea2cba5ac1ea63adcc4dd2767b402d1f8c91f02de2fab9306a6ca3b6",
+    "by": "data/audit/in-99999926100722513500175001.json"
+   },
+   "fact:f3": {
+    "hash": "b1121f8bd80a4e58f3f25874650d0782fa3a279795915da0ae5235d1f4c9f691",
+    "by": "data/audit/in-99999926100722513500175001.json"
+   },
+   "fact:f4": {
+    "hash": "1995590c441dd0940e5d5d25faca7c378df641644c886e4b1241a416332df938",
+    "by": "data/audit/in-99999926100722513500175001.json"
+   },
+   "fact:f5": {
+    "hash": "93371122fd3d70cf59dd64916a6f6ce9f2dc1b90d13627d34ec1039769eebf99",
+    "by": "data/audit/in-999999261008093740005.json"
+   },
+   "fact:f6": {
+    "hash": "56b5348cbf7dd137219c51b4593becb9e221f6b428b536e5f592a85b683cb36c",
+    "by": "data/audit/in-999999261008093740005.json"
+   },
+   "fact:f7": {
+    "hash": "43caf8f7ac351f4625d913c68d8f52a102510cc6472d4fd7090891204e26b893",
+    "by": "data/audit/in-999999261008093740005.json"
+   },
+   "fact:f8": {
+    "hash": "6d800d8441a7b8ce3e036f0793de60f9ba9c0a2ee005018c1b5f0002e6378efa",
+    "by": "data/audit/in-999999261008093740005.json"
+   },
+   "fact:f9": {
+    "hash": "61ce3b4be2f91ae493f8fc5e4a0cb3756d37aea73aa37666981caab755d37ea6",
+    "by": "data/audit/in-999999261008093740005.json"
+   },
+   "fact:f10": {
+    "hash": "a32c93a6d9081ed3ceb61fa3e98c3bacf8e0647d632ef41f45b03d8073ef19dd",
+    "by": "data/audit/in-999999261008093740005.json"
+   },
+   "fact:f11": {
+    "hash": "3922e5dfa7be0654c7699eca3511b72fec1f561f97bb986e6dac0db87f1bdb13",
+    "by": "data/audit/in-99999926100722513500175001.json"
+   },
+   "metric:m1": {
+    "hash": "515ac9024dfef2f217903fa7eb7d283e831885c6a4bd8b6741ba2415db6e8d1a",
+    "by": "data/audit/in-999999261008093740005.json"
+   },
+   "metric:m2": {
+    "hash": "e035049faee26e71ff6f416430a3fc8b1fd5b80b8c45c6e76653a9e65f7a13ec",
+    "by": "data/audit/in-999999261008093740005.json"
+   },
+   "analysis:a-headline": {
+    "hash": "b06c3d4a779ff2502c50a29c19d817c2ed34f1c75e569b099c3ade072672b3fe",
+    "by": "data/audit/in-999999261008093740005.json",
+    "body": {
+     "text": "Snapで広告とAIカメラを作っていた技術者が、人はカメラの前に立ちたがらないと気づいて起こし、調達した株式資本1ドルあたりARR約2.7ドルで、8か月でARRを2億ドル超へ倍増させた動画アバター屋",
+     "formula": "数字は出典に載っている値"
+    }
+   },
+   "analysis:a-story": {
+    "hash": "41ca95aaf6e787618d33be37b2040774cd80d54b3cee124419784b777fb78aa1",
+    "by": "data/audit/in-999999261008093740005.json",
+    "body": {
+     "text": "Snap時代の気づき（人は動画が好きだがカメラの前には立ちたがらない）から、台本だけで本人そっくりの人物が話す動画を作る商品を始めた。2020年創業で、2026年6月25日に公式がARR2億ドル超を発表し、直前の8か月で倍増したと述べた。",
+     "formula": "数字は出典に載っている値"
+    }
+   },
+   "analysis:a-business_model": {
+    "hash": "b8ee7ec3c28fcd360e47bc79ebadfb183f0540da08168a885d2ba1df243f1944",
+    "by": "data/audit/in-999999261008093740005.json",
+    "body": {
+     "text": "無料枠で作らせ、月29ドルのCreator、上位のPro、法人向けEnterpriseへ段階的に課金する。別にAPI（動画生成・翻訳・リップシンク）を開発者に売る。",
+     "formula": "数字は出典に載っている値"
+    }
+   },
+   "analysis:a-customer": {
+    "hash": "dc8c0b41c909ce615fa98205b3c6f7dc91b103058f7ed2d17ffb902e7c1b05dd",
+    "by": "data/audit/in-999999261008093740005.json",
+    "body": {
+     "text": "個人の発信者・講師・不動産業者から、教育・営業・多言語化にこの動画を使う大企業まで。公式はフォーチュン100社の85%が使うと述べる。",
+     "formula": "数字は出典に載っている値"
+    }
+   },
+   "analysis:a-customer_pain": {
+    "hash": "db6e6f8fc46ce6466f9329ff4e9d99da15cbd5bd2bc65514511c6d064ab7f2bd",
+    "by": "data/audit/in-99999926100722513500175001.json",
+    "body": {
+     "text": "カメラの前に立ちたくない人と、撮影・編集・撮り直しに時間と金がかかる企業。公式は完成動画の制作費が1分あたり最低1,000ドルになりうると指摘し、その費用を台本だけで置き換える。",
+     "formula": "数字は出典に載っている値"
+    }
+   },
+   "analysis:a-channels": {
+    "hash": "63f01cbb53b3cc5420264a2b67f7298b4616662f2a5862de2574bce1cb8ffe40",
+    "by": "data/audit/in-999999261008093740005.json",
+    "body": {
+     "text": "公式は商品が口コミ中心で伸びていると述べる。",
+     "formula": "数字は出典に載っている値"
+    }
+   },
+   "analysis:a-capital_and_team": {
+    "hash": "051920bd7a570d8a5382e3df49deeeb164ee7117a17a9288cab30d7e3b0a3da0",
+    "by": "data/audit/in-999999261008093740005.json",
+    "body": {
+     "text": "従業員は150人超（採用ページの表示、日付なし）。調達した株式資本1ドルあたりARRは約2.70ドルと公式が主張する。仮にARRを2億ドル、比率を2.70とすると、株式資本は約7,407万ドルに相当するが、実際の調達総額は不明。",
+     "formula": "参考計算：ARRを200,000,000ドル、ARR÷調達した株式資本の比率を2.70と仮定すると、株式資本＝200,000,000÷2.70≒74,074,074ドル＝約7,407万ドル。公式発表はARRが2億ドル超、比率が約2.70であり、実際の調達総額はこの計算から特定できない。"
+    }
+   },
+   "analysis:a-why_it_worked": {
+    "hash": "bdad6468285e3663fe090c6195c851938895201e5acad29f06114c0629bc1e98",
+    "by": "data/audit/in-999999261008093740005.json",
+    "body": {
+     "text": "公式は、動画のモデルから推論、開発者ツールまで自社で作る構えにより、汎用の動画モデルよりも低い費用で、リアルさと長い動画の一貫性を出せると説明する。",
+     "formula": "数字は出典に載っている値"
+    }
+   },
+   "analysis:a-timeline": {
+    "hash": "509089d5382a15c8578534fd1ef9477ea480ed36ffa4d05093b9b530ba7e701e",
+    "by": "data/audit/in-999999261008093740005.json",
+    "body": {
+     "text": "2020年に創業。2024年6月に6,000万ドルを調達し、評価額は5億ドルと報じられた。2026年6月25日にARR2億ドル超を発表。",
+     "formula": "数字は出典に載っている値"
+    }
+   }
+  },
+  "audits": [
+   {
+    "inputFile": "data/audit/in-99999926100722513500175001.json",
+    "outputFile": "data/audit/out-99999926100722513500175001.json",
+    "inputFileHash": "199c04c23102e526ab95b2576542ff16f4ae7d6aafef7c9898d23634b307f100",
+    "outputFileHash": "85c04246d11099ecb2ef38cd2895d902c1547e6ca29f8f3bf9703f7da91d5761"
+   },
+   {
+    "inputFile": "data/audit/in-999999261008093740005.json",
+    "outputFile": "data/audit/out-999999261008093740005.json",
+    "inputFileHash": "37630e27bdc1d8d2d431d7906a5504a2951b01645f8cf26e250d2b23e7f4832c",
+    "outputFileHash": "93f930d11f4d3d7f0d74d8c6dec5cbd7b5c93142c4530c0afe573ea4bc111396"
+   }
+  ],
+  "lastAudit": "data/audit/in-999999261008093740005.json",
+  "baseAnalysisHash": "cb4771c17f0da46a62b45416484682f25bc30700e671857b80d315ec595b5aab"
  },
  "ent_requestly_28e9f2": {
-  "version": 1,
-  "inputHash": "9e9de7e293b94c4da77c8fe51d2f56647c2278278d4623b8929e9427dc68dccf",
-  "approvedHash": "68f007f73f67dacde635daa308f17fa80c4cb00b46cabdfe44bc3334ae899ed4",
-  "inputFile": "data/audit/in-99999926100722513500175001.json",
-  "outputFile": "data/audit/out-99999926100722513500175001.json",
-  "inputFileHash": "199c04c23102e526ab95b2576542ff16f4ae7d6aafef7c9898d23634b307f100",
-  "outputFileHash": "85c04246d11099ecb2ef38cd2895d902c1547e6ca29f8f3bf9703f7da91d5761"
+  "version": 2,
+  "caseHash": "00924fe88963be26cc1a7a39113197dae6b823fc34527acdab1ba61630f29e15",
+  "items": {
+   "fact:f1": {
+    "hash": "963c102d94b60605ba4097f9b8d9378c5eb1d1ceec921c93e8fd8bac0afd2fc8",
+    "by": "data/audit/in-99999926100722513500175001.json"
+   },
+   "fact:f2": {
+    "hash": "4da9f5549d6ed081fd71bccb5cc0f45044c9516094c5b29a9ced0f56de41a782",
+    "by": "data/audit/in-99999926100722513500175001.json"
+   },
+   "fact:f3": {
+    "hash": "cdaa04c868c7c8d07e97325064065ffb3e33db3570acb1ac92b5335ca052273b",
+    "by": "data/audit/in-99999926100722513500175001.json"
+   },
+   "fact:f4": {
+    "hash": "b7b998d0b2c46b9705193493cee67a455a9ee868cbe31bec9a7611c302147cb4",
+    "by": "data/audit/in-99999926100722513500175001.json"
+   },
+   "fact:f5": {
+    "hash": "260b7c30434a5176ec026a5efa625ac38bd9ef496a9b2e25c77d16346196f382",
+    "by": "data/audit/in-99999926100722513500175001.json"
+   },
+   "fact:f6": {
+    "hash": "baa5a2456dc06b45658c4cbb7500c8836ffb7a5979bac056e4d04e83657b4dd2",
+    "by": "data/audit/in-99999926100722513500175001.json"
+   },
+   "fact:f7": {
+    "hash": "54bfd0ce8f029437918bafe6c6e48ee6723c2c64d8031cd806e32e2cdb833c88",
+    "by": "data/audit/in-99999926100722513500175001.json"
+   },
+   "fact:f8": {
+    "hash": "67770581b446f74e1fd885430da518685be9729f8d22b487055b393c97c7d2a0",
+    "by": "data/audit/in-99999926100722513500175001.json"
+   },
+   "fact:f9": {
+    "hash": "4a52d07e39db7e892c0ce3e22bc3854faf9a26fa5c8013839e250b8c32f3f705",
+    "by": "data/audit/in-99999926100722513500175001.json"
+   },
+   "fact:f10": {
+    "hash": "d1bddde188eb384c735545a400b91b6b782ff3ffc7a6df9378614a43e15d2995",
+    "by": "data/audit/in-99999926100722513500175001.json"
+   },
+   "fact:f11": {
+    "hash": "e0e5ebb9474d75a916c9531079216287487a8e21ae1e0b0cd15d660f552ad609",
+    "by": "data/audit/in-99999926100722513500175001.json"
+   },
+   "fact:f12": {
+    "hash": "bdae23cd4355d744d2b2e89a15065f659d6520adb22d587fc569fbddd83bbebc",
+    "by": "data/audit/in-99999926100722513500175001.json"
+   },
+   "fact:f13": {
+    "hash": "4c9edb8278136e4eabe05f9607f006f8c07b1c522f8d98bc5c66eec56fdc55a0",
+    "by": "data/audit/in-99999926100722513500175001.json"
+   },
+   "fact:f15": {
+    "hash": "5a5efc9e5cefebd4d5198bf49b2e714e9bb073435022220a5c114ec62df72dee",
+    "by": "data/audit/in-99999926100722513500175001.json"
+   },
+   "metric:m2": {
+    "hash": "19d017a87c6549af7b209f7a5e6cab0f72b4eff0f9a4639059a52bebe6b07389",
+    "by": "data/audit/in-99999926100722513500175001.json"
+   },
+   "analysis:a-headline": {
+    "hash": "c77cbcbba2b91245b8ff6bce25809d63b9ef34775730d6579c9dd9c77f6227ed",
+    "by": "data/audit/in-99999926100722513500175001.json",
+    "body": {
+     "text": "30分で作ったChrome拡張を、広告もランディングページも使わず開発者20万人超に広め、2025年にBrowserStackの一員になった創業者",
+     "formula": "数字は出典に載っている値"
+    }
+   },
+   "analysis:a-story": {
+    "hash": "7e968b4c37fec558540cedb0aa56f1464e856362118d9d00d63d34ebe0b8670b",
+    "by": "data/audit/in-99999926100722513500175001.json",
+    "body": {
+     "text": "最初は、本番環境の圧縮されたJavaScriptを調べる苛立ちから、創業者が約30分で作ったChrome拡張だった。2018年に、JavaScriptの差し替えだけの道具として出発し、ヘッダーの書き換え、通信の傍受、チームでの共有へ広げた。広告やランディングページには頼らず、Stack OverflowとGitHubで開発者の間に広まった。Y Combinatorに採択され、API応答のモックに軸足を絞って企業向けの認証も足し、2025年5月にBrowserStackへ加わった。",
+     "formula": "数字は出典に載っている値"
+    }
+   },
+   "analysis:a-business_model": {
+    "hash": "bc450aa0f3a877ca1f0e57c423cc7a29e1ad9417f2b719912b5a1cbd996d31ad",
+    "by": "data/audit/in-99999926100722513500175001.json",
+    "body": {
+     "text": "基本機能はオープンソースで公開して開発者に広め、チームと企業向けの有料プランで稼ぐ。純粋な収益化よりオープンコアの形を選んだと、対談の紹介文は説明する。",
+     "formula": "数字は出典に載っている値"
+    }
+   },
+   "analysis:a-customer_pain": {
+    "hash": "8b463bd81a388669dbada0caf6c05189af7760c6e0af485bc286121213f1e55b",
+    "by": "data/audit/in-99999926100722513500175001.json",
+    "body": {
+     "text": "画面側の開発者は、バックエンド担当のAPI完成待ちと、不安定なバックエンドに作業を止められる。偽の応答を返せれば、待たずに画面側を進められる。",
+     "formula": "数字は出典に載っている値"
+    }
+   },
+   "analysis:a-channels": {
+    "hash": "23686cd939bf27687b07e7d3294027d7b0a76e6d1844e6e4f27a0b4c22ecdc31",
+    "by": "data/audit/in-99999926100722513500175001.json",
+    "body": {
+     "text": "広告やランディングページに頼らず、Stack OverflowとGitHubが販売経路のすべてだった、とBaremetricsの紹介文は説明する。",
+     "formula": "数字は出典に載っている値"
+    }
+   },
+   "analysis:a-competition": {
+    "hash": "40943b18a5846ea7d58294506a45eee0fe09de16f0681d07c5bc5b7bdc816647",
+    "by": "data/audit/in-99999926100722513500175001.json",
+    "body": {
+     "text": "デスクトップ型の傍受ツールと違い、ブラウザの機能で通信を傍受するため、プロキシ設定や証明書の導入が要らず、会社のVPNでも動く、と発表は説明する。",
+     "formula": "数字は出典に載っている値"
+    }
+   },
+   "analysis:a-pivots": {
+    "hash": "61c48d4469a48094e231de1c3385c5b71a0b710778fe95891ec6ef6f015b86bc",
+    "by": "data/audit/in-99999926100722513500175001.json",
+    "body": {
+     "text": "JavaScriptの差し替えから始まり、HTTPヘッダーの書き換え、チームでの共有、API応答のモックへと広げた。モックが最も製品に合うと判断し、API未完成のまま進めたい画面側の開発者向けに重心を移した。",
+     "formula": "数字は出典に載っている値"
+    }
+   },
+   "analysis:a-viability": {
+    "hash": "1ec8cd837525203fe0441bcb89b31c91912b50dd13b2d242c6bfb7241e55117f",
+    "by": "data/audit/in-99999926100722513500175001.json",
+    "body": {
+     "text": "BrowserStackは、独立したオープンソースの道具として続ける方針を示し、公式サイトは30万人超の開発者に使われているとうたう。",
+     "formula": "数字は出典に載っている値"
+    }
+   }
+  },
+  "audits": [
+   {
+    "inputFile": "data/audit/in-99999926100722513500175001.json",
+    "outputFile": "data/audit/out-99999926100722513500175001.json",
+    "inputFileHash": "199c04c23102e526ab95b2576542ff16f4ae7d6aafef7c9898d23634b307f100",
+    "outputFileHash": "85c04246d11099ecb2ef38cd2895d902c1547e6ca29f8f3bf9703f7da91d5761"
+   }
+  ],
+  "lastAudit": "data/audit/in-99999926100722513500175001.json",
+  "baseAnalysisHash": "9f485670e7964a5368cdd0183c527b2c14368b657a29fa97f60ffe8352abb15a"
  },
  "ent_practicaltypographycom_e9aa6bc94ccf": {
-  "version": 1,
-  "inputHash": "4821f3ac116a6ae1a01e77a6cb8df77603c45cd23b8173ac26b9bbf9e6a4808f",
-  "approvedHash": "8ef8f392253b7be764c24f22e5e3836021790f60fa63420e6ff985172335589a",
-  "inputFile": "data/audit/in-99999926100722513500175001.json",
-  "outputFile": "data/audit/out-99999926100722513500175001.json",
-  "inputFileHash": "199c04c23102e526ab95b2576542ff16f4ae7d6aafef7c9898d23634b307f100",
-  "outputFileHash": "85c04246d11099ecb2ef38cd2895d902c1547e6ca29f8f3bf9703f7da91d5761"
+  "version": 2,
+  "caseHash": "f6f9409fba26b976d1300b2a5383f3f589ac72c2e03f9959c7a0de477b20a823",
+  "items": {
+   "fact:f1": {
+    "hash": "fc863f8b7ed2c258b27d41abd290ff8ba9866ca368c407543ff9c934ae21ac33",
+    "by": "data/audit/in-99999926100722513500175001.json"
+   },
+   "fact:f2": {
+    "hash": "853df883a45ed0a2a65c3fd61878fd270761b62383de27f8f5bb125fad6b257e",
+    "by": "data/audit/in-99999926100722513500175001.json"
+   },
+   "fact:f3": {
+    "hash": "4a857111be47c19fb17e0bdbe39f6e91ff753caf187c6161cfade1939aa3fbd4",
+    "by": "data/audit/in-99999926100722513500175001.json"
+   },
+   "fact:f4": {
+    "hash": "cdf98ff4165cdc0ead0ef36d251e020434a17ebedeaf98770e91600f24df3789",
+    "by": "data/audit/in-99999926100722513500175001.json"
+   },
+   "fact:f5": {
+    "hash": "0342c3c4a7b60ce6d6c15ef4501a62efe3f00e8804d99c5046ecea16272cb61e",
+    "by": "data/audit/in-99999926100722513500175001.json"
+   },
+   "fact:f6": {
+    "hash": "b39c97b0bff4201ceab4737f93b13c3eb8220a907cf8e106954cc69f7854e4ef",
+    "by": "data/audit/in-99999926100722513500175001.json"
+   },
+   "fact:f7": {
+    "hash": "7d96442fbebe81f65982b09b4a53f9e8c54f6ab8f238c07efa96fe9b8c1949ea",
+    "by": "data/audit/in-99999926100722513500175001.json"
+   },
+   "fact:f8": {
+    "hash": "b0f8433643e09ba2f597a556d3bfd82b07216c0ee04019a72710a35b4d45093e",
+    "by": "data/audit/in-99999926100722513500175001.json"
+   },
+   "fact:f9": {
+    "hash": "f06e23ff20e278c9ff9524826ea4712ac87b7706a6aab97624e56a8d5300509e",
+    "by": "data/audit/in-99999926100722513500175001.json"
+   },
+   "fact:f10": {
+    "hash": "2fc9297a5d29b27e90b3c1dcef697ec7b40420e3ff3f060979bdec3180ee305e",
+    "by": "data/audit/in-999999261008100740003.json"
+   },
+   "fact:f11": {
+    "hash": "2373934af10c1737e32e8c55c544d15b96c9963d40a74d117d6f9f991eb69dfc",
+    "by": "data/audit/in-99999926100722513500175001.json"
+   },
+   "fact:f12": {
+    "hash": "348f52763c1c860013c5d8b6efb112b1c582c12caaf2b331ad4ab8afd2eda15a",
+    "by": "data/audit/in-99999926100722513500175001.json"
+   },
+   "fact:f13": {
+    "hash": "1453d6bf13798acae02ed2737b2286e69b0a13f2ea32e2db9bf26590a0b42e53",
+    "by": "data/audit/in-99999926100722513500175001.json"
+   },
+   "fact:f14": {
+    "hash": "758f91cb937376ba761bb75c3d5eeda728abe7177568b03c5a083d9f836d178d",
+    "by": "data/audit/in-99999926100722513500175001.json"
+   },
+   "fact:f15": {
+    "hash": "9ef1200dad9fd84dbe0693e0a1d2e3cc2fa55d6a7993f035bb2259c1125716e3",
+    "by": "data/audit/in-99999926100722513500175001.json"
+   },
+   "metric:m1": {
+    "hash": "de5d0e9d183ea3423360b3c0d0455c43016cb9fe403811c58b9c3085e77eda37",
+    "by": "data/audit/in-999999261008091237006.json"
+   },
+   "metric:m2": {
+    "hash": "10e5c8c146b9d3291974f760e271287744b204eb38c85a8d3fcf98037e4863cd",
+    "by": "data/audit/in-999999261008091237006.json"
+   },
+   "metric:m3": {
+    "hash": "dc523f8e77975c12e4ba383c5c66f9b6098a3a0c07c709517bbe84aa461c316c",
+    "by": "data/audit/in-999999261008091237006.json"
+   },
+   "metric:m4": {
+    "hash": "c8096535c2a3407d1b85637aa39407f70f88d7d651fd8f38db5eefce49a0b440",
+    "by": "data/audit/in-999999261008091237006.json"
+   },
+   "metric:m5": {
+    "hash": "dfd9cc4bd84de23806adcbb30f1d2e45bd7cf65424afb60101f4b48fe384fa6a",
+    "by": "data/audit/in-99999926100722513500175001.json"
+   },
+   "metric:m6": {
+    "hash": "b6b3226b018b37096eee549af3aca432e9ea2c728b34c67b7d146a5b486fc4f2",
+    "by": "data/audit/in-999999261008091237006.json"
+   },
+   "analysis:a-headline": {
+    "hash": "06ce8ceef245be56cbe47757590446ae229f12e6cf64d9c4d60aa93f604ae1e0",
+    "by": "data/audit/in-99999926100722513500175001.json",
+    "body": {
+     "text": "広告も有料の壁も置かず、1年目に約65万人が読んだ組版の本を、自作フォントの売上で支えた書き手兼書体デザイナー",
+     "formula": "数字は出典に載っている値"
+    }
+   },
+   "analysis:a-story": {
+    "hash": "c8e044a78224b528876007b0c50ae2b37213e0b0a2c83b89b2dae72d44b946d4",
+    "by": "data/audit/in-99999926100722513500175001.json",
+    "body": {
+     "text": "名の通った出版社から紙の本の話が来たが、デザインを任せてもらえないと分かって断り、Webで自分で出した。読む前の支払いは求めず、役立ったなら払うか、自作フォントを買うかを選んでもらう形にした。1年目は65万人が読み、約650人に1人が払った。2年目は読者が増えたのに払う割合が下がり、3年目は無料の流入が集中する15〜20のサイトの読者にだけ、支払いのお願いを出して件数を2倍にした。",
+     "formula": "数字は出典に載っている値"
+    }
+   },
+   "analysis:a-business_model": {
+    "hash": "e76865c4ca11edfab36c099578ea5ff0dbcd4fe69e60958ed40111090f33815c",
+    "by": "data/audit/in-99999926100722513500175001.json",
+    "body": {
+     "text": "本は無料で読ませ、読者が自分の制作で使いたくなる自作フォントと、直接の支払い、紙の本へつなぐ。稼ぎ頭はフォントで、直接の支払いだけでは続かなかったと本人が書く。",
+     "formula": "数字は出典に載っている値"
+    }
+   },
+   "analysis:a-customer": {
+    "hash": "ba14fdbff0eb607ae7bb1ffddc7460050e1af0cd77b9c204c992c8e1538d0fe6",
+    "by": "data/audit/in-99999926100722513500175001.json",
+    "body": {
+     "text": "文書を美しく作りたい書き手、デザイナー、弁護士や開発者など幅広い読者。最も読まれたのは短くまとめた入門ページで、読者の大半は無料のまま読んで去る。",
+     "formula": "数字は出典に載っている値"
+    }
+   },
+   "analysis:a-cost_structure": {
+    "hash": "35a4834e6dbc98affa3be6492e9e3dcb5ccb427df07ec0a656a16de22e2416f1",
+    "by": "data/audit/in-99999926100722513500175001.json",
+    "body": {
+     "text": "本人が費用として挙げるのは、執筆、フォント設計、図版、出版ソフトPollenの開発、サーバー代。広告・PR費はかけていない。金額は公開されていない。",
+     "formula": "数字は出典に載っている値"
+    }
+   },
+   "analysis:a-channels": {
+    "hash": "4903557b70f06be711aed4e242719c53d1a591afead1324fcf59a6f1d9b98ce2",
+    "by": "data/audit/in-99999926100722513500175001.json",
+    "body": {
+     "text": "広告費をかけず、口コミが中心。2年目に多かった流入元はHacker News、Creative Bloq、Twitter、BuzzFeedのまとめ記事、Reddit。流入が多い元ほど払う人は少なく、Cool ToolsやDaring Fireballのような小さい流入元のほうが払う人の割合は高かった。",
+     "formula": "数字は出典に載っている値"
+    }
+   },
+   "analysis:a-capital_and_team": {
+    "hash": "4a0a290c96b938656d4c131973c3a92008d66c56caffc87037613a1b68da1a53",
+    "by": "data/audit/in-99999926100722513500175001.json",
+    "body": {
+     "text": "文章、フォント、図版、出版ソフトまで、本人がすべて作った。",
+     "formula": "数字は出典に載っている値"
+    }
+   },
+   "analysis:a-dependencies": {
+    "hash": "d35335e997a2498b4970097e91357c9c68378b0c469755bacf4a6e59f6d3e46f",
+    "by": "data/audit/in-99999926100722513500175001.json",
+    "body": {
+     "text": "無料の読者は少数のサイトからの流入に偏り、収入はフォント販売に強く寄っている。直接の支払いだけでは続かないと本人が書いている。",
+     "formula": "数字は出典に載っている値"
+    }
+   },
+   "analysis:a-competition": {
+    "hash": "494935dddb4e1ec84547e6609db32b42d12d272c48e16b991610aa2f7e4befe5",
+    "by": "data/audit/in-99999926100722513500175001.json",
+    "body": {
+     "text": "本人は比較の相手を紙の本に置き、平均的な教養書の生涯の取り分は合計5,000〜8,000ドル程度、1年目の直接の支払いは紙の1,200〜1,800部に当たると見ている。",
+     "formula": "数字は出典に載っている値"
+    }
+   },
+   "analysis:a-why_it_worked": {
+    "hash": "e03be9920a207a1dff027ac0c1805935416c55d5406c73b97fa5cc9add33a2ea",
+    "by": "data/audit/in-99999926100722513500175001.json",
+    "body": {
+     "text": "5〜20ドルの直接の支払いより、自分の制作に使える59〜299ドルのフォントに払う意欲のある読者のほうが約35%多く、その差は2年続いたと本人は書く。本が無料で試せる入口になった形だ。",
+     "formula": "数字は出典に載っている値"
+    }
+   },
+   "analysis:a-timeline": {
+    "hash": "80144dce0ff166efb8e9b04acd968e3e1e0520ea8d3dc9c40fa457a205ba16da",
+    "by": "data/audit/in-999999261008100740003.json",
+    "body": {
+     "text": "2014年7月末に公開から1年、同年8月に初の年次報告。2年目の報告、2016年8月に3年目の報告（支払いのお願いページを出した年）。",
+     "formula": "数字は出典に載っている値"
+    }
+   }
+  },
+  "audits": [
+   {
+    "inputFile": "data/audit/in-99999926100722513500175001.json",
+    "outputFile": "data/audit/out-99999926100722513500175001.json",
+    "inputFileHash": "199c04c23102e526ab95b2576542ff16f4ae7d6aafef7c9898d23634b307f100",
+    "outputFileHash": "85c04246d11099ecb2ef38cd2895d902c1547e6ca29f8f3bf9703f7da91d5761"
+   },
+   {
+    "inputFile": "data/audit/in-999999261008091237006.json",
+    "outputFile": "data/audit/out-999999261008091237006.json",
+    "inputFileHash": "0884fa047451d45cdeb9c493d38d902b9c35eb7e78fb57c83a91f2e78ab2293d",
+    "outputFileHash": "262e1d5c5ba00e8739fcd84ce4571d77be1eeb16fd314e9f4be5449e024aa656"
+   },
+   {
+    "inputFile": "data/audit/in-999999261008100740003.json",
+    "outputFile": "data/audit/out-999999261008100740003.json",
+    "inputFileHash": "3902afa452974c4a83e4209e0b7069959586077e862dc48b2a61213d98a99618",
+    "outputFileHash": "262e1d5c5ba00e8739fcd84ce4571d77be1eeb16fd314e9f4be5449e024aa656"
+   }
+  ],
+  "lastAudit": "data/audit/in-999999261008100740003.json",
+  "baseAnalysisHash": "119476d7bb322a65c3b689009d95c55b5702e5b2a3289c4f5ed5efa172a1eb09"
  }
 }

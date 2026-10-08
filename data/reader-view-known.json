@@ -42,20 +42,6 @@
   "reason": "事例の文の担当が、略語を言い換えるか説明を添える"
  },
  {
-  "id": "ent_codementor_ba692caa3db3",
-  "where": "section-facts-other",
-  "rule": "a.出どころの印",
-  "text": "（取材前アンケートの回答）",
-  "reason": "事例の文の担当が、中身のある括弧（点数・件数・但し書き）は括弧を外して文に言い換え、出どころの呼び名だけ消す"
- },
- {
-  "id": "ent_teamcamp_ae0c21986c4d",
-  "where": "数字の帯「料金」",
-  "rule": "c.料金が長い",
-  "text": "無料プランは10ユーザーまで・プロジェクト無制限・250タスク・保存1GB。Plusは1ユーザー月6ドル（約900円、年払い、月払いは8ドル（約1,200円））。Pro Unlimitedはユーザー無制限で月99ドル（約1万4,850円、年払い、月払いは129ドル（約1万9,350円））、保存500GB。",
-  "reason": "事例の文の担当が、料金を「プラン名＋月額＋上限」だけに短くする"
- },
- {
   "id": "ent_referralrock_8c13d5ee4cfc",
   "where": "数字の帯「料金」",
   "rule": "c.料金が長い",
@@ -119,13 +105,6 @@
   "reason": "事例の文の担当が、同じ数字を1か所だけにする"
  },
  {
-  "id": "ent_heygen_8f11a1",
-  "where": "section-reasoning",
-  "rule": "a.出どころの印",
-  "text": "（ARRは2026-06-25時点、2.70は公式の「約」）",
-  "reason": "事例の文の担当が、中身のある括弧（点数・件数・但し書き）は括弧を外して文に言い換え、出どころの呼び名だけ消す"
- },
- {
   "id": "ent_practicaltypographycom_e9aa6bc94ccf",
   "where": "section-chapter-voices",
   "rule": "a.出どころの印",
@@ -173,5 +152,61 @@
   "rule": "e.同じ話が2か所以上",
   "text": "「DaringFireball」",
   "reason": "事例の文の担当が、同じ話を1か所だけにする"
+ },
+ {
+  "id": "ent_teamcamp_ae0c21986c4d",
+  "where": "数字の帯「料金」",
+  "rule": "c.料金が長い",
+  "text": "無料プランは10ユーザーまで・プロジェクト無制限・250タスク・保存1GB。Plusは1ユーザー月6ドル（約900円、年払い、月払いは8ドル（約1,200円））。Pro Unlimitedはユーザー無制限で月99ドル（約1万4,850円、年払い、月払いは129ドル（約1万9,350円））。",
+  "reason": "事例の文の担当が、第2回の画面直しの続きで直す（#203の事実訂正で文が入れ替わった分）"
+ },
+ {
+  "id": "ent_referralrock_8c13d5ee4cfc",
+  "where": "section-group-secret / section-group-first",
+  "rule": "e.同じ数字が2か所以上",
+  "text": "59ドル（2か所）",
+  "reason": "事例の文の担当が、第2回の画面直しの続きで直す（#203の事実訂正で文が入れ替わった分）"
+ },
+ {
+  "id": "ent_ejunkie_7e9e46bd9643",
+  "where": "section-group-secret / section-story",
+  "rule": "e.同じ話が2か所以上",
+  "text": "「2004年半ばに誰でも使える」",
+  "reason": "事例の文の担当が、第2回の画面直しの続きで直す（#203の事実訂正で文が入れ替わった分）"
+ },
+ {
+  "id": "ent_gorails_640d8f688451",
+  "where": "section-group-secret / section-group-first",
+  "rule": "e.同じ数字が2か所以上",
+  "text": "600件（2か所）",
+  "reason": "事例の文の担当が、第2回の画面直しの続きで直す（#203の事実訂正で文が入れ替わった分）"
+ },
+ {
+  "id": "ent_gorails_640d8f688451",
+  "where": "section-group-secret / section-group-first",
+  "rule": "e.同じ話が2か所以上",
+  "text": "「の投稿サイトHackerNe」",
+  "reason": "事例の文の担当が、第2回の画面直しの続きで直す（#203の事実訂正で文が入れ替わった分）"
+ },
+ {
+  "id": "ent_gorails_640d8f688451",
+  "where": "section-group-first / section-group-now",
+  "rule": "e.同じ話が2か所以上",
+  "text": "「作者が知られていなかったため」",
+  "reason": "事例の文の担当が、第2回の画面直しの続きで直す（#203の事実訂正で文が入れ替わった分）"
+ },
+ {
+  "id": "ent_rfrcui_64e924ac",
+  "where": "section-group-secret / section-group-first",
+  "rule": "e.同じ話が2か所以上",
+  "text": "「に2週間近くかけたツイートも」",
+  "reason": "事例の文の担当が、第2回の画面直しの続きで直す（#203の事実訂正で文が入れ替わった分）"
+ },
+ {
+  "id": "ent_rfrcui_64e924ac",
+  "where": "section-group-first",
+  "rule": "g.外貨に円換算が無い",
+  "text": "Adamは2016年の最初の本で、発売初週に約6万ドルを売り上げたと本人が書いている。",
+  "reason": "事例の文の担当が、第2回の画面直しの続きで直す（#203の事実訂正で文が入れ替わった分）"
  }
 ]

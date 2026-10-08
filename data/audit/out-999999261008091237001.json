@@ -1,0 +1,1 @@
+{"cases":[{"entityId":"ent_codementor_ba692caa3db3","items":[{"analysisId":"a-timeline","kind":"FACT_DISGUISED","severity":"FIX","why":"f9とs2では売上の通貨が明示されておらず、「500万〜1,000万ドル」と断定する根拠がない。","fix":"2013年6月 Hacker Newsに登録ページを投稿。約9か月後に正式公開。2016年12月 シード160万ドル。2018年6月 直近12か月の売上は「5〜10 million」の区分と回答（本人申告・通貨不明）。","fixFormula":""}]}]}

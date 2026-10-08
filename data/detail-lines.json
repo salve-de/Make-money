@@ -24,8 +24,7 @@
     "entityId": "ent_codementor_ba692caa3db3",
     "analysisId": "a-channels",
     "textHash": "6a1bab0b",
-    "answer": "-",
-    "hidden": true
+    "answer": "最初の集客は投稿サイトHacker News。トップに載り、数千人が順番待ちに登録（本人の話、2013年6月1日）"
   },
   {
     "entityId": "ent_codementor_ba692caa3db3",
@@ -136,6 +135,27 @@
     "note": "2017年12月: 経営に戻った（本人申告）。"
   },
   {
+    "entityId": "ent_ejunkie_7e9e46bd9643",
+    "analysisId": "a-story",
+    "textHash": "48163e4c",
+    "answer": "支払いのたびに、手作業でソフトを届ける作業に疲れたことがきっかけ（本人申告）",
+    "note": "創業者は勤め先の収入を補うために、自作のソフトを売っていた。支払いから3時間以内に届けると約束していたため、外食中でも寝床からでも、支払いの知らせが来るたびにメールで送っていた。"
+  },
+  {
+    "entityId": "ent_ejunkie_7e9e46bd9643",
+    "analysisId": "a-capital_and_team",
+    "textHash": "94205b9e",
+    "answer": "家族経営の非公開会社が持ち、小さな開発チームが運営する",
+    "hidden": true
+  },
+  {
+    "entityId": "ent_ejunkie_7e9e46bd9643",
+    "analysisId": "a-why_it_worked",
+    "textHash": "f6add7e8",
+    "answer": "売上が増えても利用料が変わらない料金と、販売設定の代行で、売り手が始めやすくなった（推測）",
+    "note": "売上に応じて利用料が増えるのを避けたい売り手に選ばれた。設定を引き受けたことで、販売を始める手間も減った（推測）。"
+  },
+  {
     "entityId": "ent_gorails_640d8f688451",
     "analysisId": "a-customer",
     "textHash": "55dfb291",
@@ -144,9 +164,9 @@
   {
     "entityId": "ent_gorails_640d8f688451",
     "analysisId": "a-channels",
-    "textHash": "ba575442",
-    "answer": "-",
-    "hidden": true
+    "textHash": "abee0741",
+    "answer": "Railsのメモと無料動画を載せたサイトGoRails.comが開発者の投稿サイトHacker Newsに載った。",
+    "note": "Hacker News掲載の1日にメール登録が600件超。その登録者へのメルマガが事業の重要な柱になった（記事、2021年11月）。"
   },
   {
     "entityId": "ent_gorails_640d8f688451",
@@ -158,8 +178,8 @@
     "entityId": "ent_gorails_640d8f688451",
     "analysisId": "a-why_it_worked",
     "textHash": "76bcdae4",
-    "answer": "-",
-    "hidden": true
+    "answer": "無料動画を公開し続けた。Hacker Newsに載った日に、メール登録が600件超集まった",
+    "note": "登録者に送るメールマガジンが、事業の重要な柱になった（記事、2021年11月）。"
   },
   {
     "entityId": "ent_gorails_640d8f688451",
@@ -177,16 +197,16 @@
   {
     "entityId": "ent_gorails_640d8f688451",
     "analysisId": "a-story",
-    "textHash": "06c82327",
+    "textHash": "2f867aa2",
     "answer": "依頼主のために数か月かけて作ったソフトが使われず、燃え尽きた。",
     "note": "2014年1月1日に、依頼を受けてソフトを作る仕事をやめた。自分のRailsのメモを公開するため、サイトの住所GoRails.comを取得した。サイトを訪れる人に何かを売ろうと考えた。"
   },
   {
     "entityId": "ent_gorails_640d8f688451",
     "analysisId": "a-first_customers",
-    "textHash": "047e1859",
+    "textHash": "4d80294c",
     "answer": "最初の客は、以前からメモを読みにサイトへ来ていたRails開発者",
-    "note": "毎週の無料動画で集めたメールの読者が、後に客になった。"
+    "note": "最初の2コースは、作者が知られていなかったため売れなかった。無料動画で集めたメールの読者が、後に客になった。"
   },
   {
     "entityId": "ent_gorails_640d8f688451",
@@ -205,7 +225,7 @@
   {
     "entityId": "ent_heygen_8f11a1",
     "analysisId": "a-story",
-    "textHash": "eaf67816",
+    "textHash": "ec8a4d88",
     "answer": "創業者は内向的で、撮影を避けたい人のために発信の道具を作ろうとした。"
   },
   {
@@ -436,9 +456,9 @@
   {
     "entityId": "ent_referralrock_8c13d5ee4cfc",
     "analysisId": "a-first_customers",
-    "textHash": "bfd139e0",
-    "answer": "創業者の旧製品UberNoteの利用者や知人に試験版を知らせた（本人申告）",
-    "note": "新サービス紹介サイトBetalistでも知らせた。試験版には500社超が登録した（本人申告）。"
+    "textHash": "701de695",
+    "answer": "旧製品の利用者・新サービス紹介サイトBetalist・知人に伝え、有料化から2日以内に初の有料客を得た（本人申告）",
+    "note": "最初の1年半で500社超が試験版に登録した。2015年6月に月59ドル（約8,900円）で有料化し、月末には4社が利用していた。"
   },
   {
     "entityId": "ent_referralrock_8c13d5ee4cfc",
@@ -451,7 +471,7 @@
     "entityId": "ent_referralrock_8c13d5ee4cfc",
     "analysisId": "a-capital_and_team",
     "textHash": "010553eb",
-    "answer": "外部から資金は受けていない。人員は2016年末に3.5人、2019年7月に14人だった（本人申告）"
+    "answer": "外部から資金は受けていない。人員は2016年末に常勤換算で3.5人分だった（本人申告）"
   },
   {
     "entityId": "ent_referralrock_8c13d5ee4cfc",
@@ -471,8 +491,7 @@
     "entityId": "ent_referralrock_8c13d5ee4cfc",
     "analysisId": "a-failure_cause",
     "textHash": "bfb6ebfc",
-    "answer": "-",
-    "hidden": true
+    "answer": "2016年7月に雇った最初の営業担当は、研修と客への理解が足りず、採用に失敗した（本人申告）"
   },
   {
     "entityId": "ent_requestly_28e9f2",
@@ -573,6 +592,19 @@
     "answer": "売れ行きは、発売前に集めたTwitterなどの読者に頼る（第三者の分析）"
   },
   {
+    "entityId": "ent_rfrcui_64e924ac",
+    "analysisId": "a-first_customers",
+    "textHash": "8e0bc523",
+    "answer": "最初の買い手は、発売前の約2年間のツイートや記事で2人を知った読者（推測）"
+  },
+  {
+    "entityId": "ent_rfrcui_64e924ac",
+    "analysisId": "a-channels",
+    "textHash": "d8245307",
+    "answer": "発売前の約2年間、Twitterへの投稿や記事でデザインの小技を無料で紹介し、読者を集めた",
+    "note": "デザインの小技を7つ紹介した記事は、文章投稿サイトMediumで長い間、歴代1位だった（本人申告）。"
+  },
+  {
     "entityId": "ent_teamcamp_ae0c21986c4d",
     "analysisId": "a-customer",
     "textHash": "2cb0ee68",
@@ -647,29 +679,15 @@
   },
   {
     "entityId": "ent_teamcamp_ae0c21986c4d",
-    "analysisId": "a-story",
-    "textHash": "c003a41c",
-    "answer": "検索結果に出やすくする仕事で複数の案件を抱え、管理ツールにうんざりして作り始めた（本人申告）",
-    "note": "作業管理ツールAsanaは操作が複雑だと感じていた。同じ種類のMondayでは使わない機能にも料金がかかり、Trelloは単純すぎると感じていた。"
-  },
-  {
-    "entityId": "ent_teamcamp_ae0c21986c4d",
     "analysisId": "a-first_customers",
     "textHash": "890ade68",
-    "answer": "-",
+    "answer": "99ドル（約1.5万円）を先払いしてもよいと答えた12人を見つけてから作り始めた（本人申告）",
     "hidden": true
   },
   {
     "entityId": "ent_teamcamp_ae0c21986c4d",
     "analysisId": "a-upfront_cash",
     "textHash": "98b61909",
-    "answer": "-",
-    "hidden": true
-  },
-  {
-    "entityId": "ent_teamcamp_ae0c21986c4d",
-    "analysisId": "a-why_it_worked",
-    "textHash": "7ae85bc9",
     "answer": "-",
     "hidden": true
   },
@@ -684,7 +702,19 @@
     "entityId": "ent_teamcamp_ae0c21986c4d",
     "analysisId": "a-lesson",
     "textHash": "cb251cf0",
-    "answer": "-",
-    "hidden": true
+    "answer": "売る相手に直接聞き、払う意思を先に確かめてから作る方が、作り込むことより効果があった（本人申告）"
+  },
+  {
+    "entityId": "ent_teamcamp_ae0c21986c4d",
+    "analysisId": "a-story",
+    "textHash": "3b4c1667",
+    "answer": "創業者は複数の顧客の検索対策を担当するうちに、複雑な管理ツールにうんざりして自分で作り始めた（本人申告）",
+    "note": "既存の管理ツールについて、Asanaは作業を1つ作るだけでも操作が複雑だったという。Mondayは使わない機能にも料金がかかり、Trelloは単純すぎた。"
+  },
+  {
+    "entityId": "ent_teamcamp_ae0c21986c4d",
+    "analysisId": "a-why_it_worked",
+    "textHash": "7ae85bc9",
+    "answer": "顧客に見せる専用画面が、他の管理ツールとの一番の違いになった（本人申告）"
   }
 ]

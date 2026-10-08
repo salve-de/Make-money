@@ -71574,32 +71574,52 @@
    "claimText": "パートナー制度では、代理店が顧客向けの運用サービスの価格を決め、MyOperatorは代理店へ基盤料金を請求する形を示している。"
   },
   "m1": {
-   "verdict": "SUPPORTED",
+   "verdict": "PARTIAL",
    "quote": "MyOperator clocked a revenue of $2 million in the last financial year.",
    "sourceUrl": "https://myoperator.com/blog/cloud-telephony-platform-thriving-without-single-penny-investors",
-   "checkedAt": "2026-10-06",
-   "claimText": "項目=REVENUE / 期間=2015-16年度(FISCAL_YEAR) / 金額=2000000 USD / 由来=SELF_REPORTED"
+   "checkedAt": "2026-10-08",
+   "claimText": "項目=REVENUE / 期間=2015-16年度(FISCAL_YEAR) / 金額=2000000 USD / 由来=SELF_REPORTED",
+   "fix": {
+    "metric": {
+     "period": "2015〜2016年度"
+    }
+   }
   },
   "m2": {
-   "verdict": "SUPPORTED",
+   "verdict": "HELD",
    "quote": "Ankit and Prateek bootstrapped the platform with an initial investment of Rs 12 lakh, which was primarily spent on building the technology and team.",
    "sourceUrl": "https://myoperator.com/blog/cloud-telephony-platform-thriving-without-single-penny-investors",
-   "checkedAt": "2026-10-06",
-   "claimText": "項目=FUNDING / 期間=2013年3月の開始時（創業者の自己資金）(POINT) / 金額=1200000 INR / 由来=SELF_REPORTED"
+   "checkedAt": "2026-10-08",
+   "claimText": "項目=FUNDING / 期間=2013年3月の開始時（創業者の自己資金）(POINT) / 金額=1200000 INR / 由来=SELF_REPORTED",
+   "reason": "開始資金12ラーク（120万ルピー）が2013年3月の出来事だと、引用の近くの原文で確かめられない"
   },
   "m3": {
-   "verdict": "SUPPORTED",
-   "quote": "Today, the platform claims to have over 25,000 registered users, with more than 2,000 paying clients.",
+   "verdict": "PARTIAL",
+   "quote": "Today, the platform claims to have over 25,000 registered users, with more than 2,000 paying clients.The new clients include the likes of Canon, Fabindia, Cashkaro and DHL.The team at the company has grown alongside the business. The platform, which started out with a five-member team, has grown to 125 people.“This growth largely happened in the last six months. Of 125 people, 40 percent were hired in that time,” says Ankit.On revenue growth, he says that MyOperator clocked a revenue of $2 million in the last financial year. He aims to double that in the financial year 2016-2017.",
    "sourceUrl": "https://myoperator.com/blog/cloud-telephony-platform-thriving-without-single-penny-investors",
-   "checkedAt": "2026-10-06",
-   "claimText": "項目=USERS / 期間=2016年の登録利用者(POINT) / 金額=25000 人 / 由来=SELF_REPORTED"
+   "checkedAt": "2026-10-08",
+   "claimText": "項目=USERS / 期間=2016年の登録利用者(POINT) / 金額=25000 人 / 由来=SELF_REPORTED",
+   "fix": {
+    "metric": {
+     "amount": 25000,
+     "label": "登録利用者（25,000人以上）",
+     "basis": "出典は「25,000人超」と書く。確定値でなく下限"
+    }
+   }
   },
   "m4": {
-   "verdict": "SUPPORTED",
-   "quote": "Today, the platform claims to have over 25,000 registered users, with more than 2,000 paying clients.",
+   "verdict": "PARTIAL",
+   "quote": "Today, the platform claims to have over 25,000 registered users, with more than 2,000 paying clients.The new clients include the likes of Canon, Fabindia, Cashkaro and DHL.The team at the company has grown alongside the business. The platform, which started out with a five-member team, has grown to 125 people.“This growth largely happened in the last six months. Of 125 people, 40 percent were hired in that time,” says Ankit.On revenue growth, he says that MyOperator clocked a revenue of $2 million in the last financial year. He aims to double that in the financial year 2016-2017.",
    "sourceUrl": "https://myoperator.com/blog/cloud-telephony-platform-thriving-without-single-penny-investors",
-   "checkedAt": "2026-10-06",
-   "claimText": "項目=USERS / 期間=2016年の有料顧客(POINT) / 金額=2000 社 / 由来=SELF_REPORTED"
+   "checkedAt": "2026-10-08",
+   "claimText": "項目=USERS / 期間=2016年の有料顧客(POINT) / 金額=2000 社 / 由来=SELF_REPORTED",
+   "fix": {
+    "metric": {
+     "amount": 2000,
+     "label": "有料顧客（2,000社以上）",
+     "basis": "出典は「2,000社超」と書く。確定値でなく下限"
+    }
+   }
   }
  },
  "ent_ncacheinmemorydistributedcache_7a2cf8d54c52": {
@@ -71903,10 +71923,10 @@
    "verdict": "PARTIAL",
    "quote": "they tier that I put down with between five to 10 million.",
    "fix": {
-    "text": "2018年6月の取材で、直近12か月の売上は「500万〜1,000万」の区分（取材前アンケートの回答）、黒字ではなく人員を増やしている、と答えた。"
+    "text": "2018年6月の取材前アンケートで、直近12か月の売上は「5〜10 million」の区分と答えた。通貨は発言に出てこない。黒字ではなく人員を増やしている、とも答えた。"
    },
    "sourceUrl": "https://mixergy.com/interviews/codementor-with-weiting-liu/",
-   "checkedAt": "2026-10-06",
+   "checkedAt": "2026-10-08",
    "claimText": "2018年6月の取材で、直近12か月の売上は「500万〜1,000万ドル」の区分（取材前アンケートの回答）、黒字ではなく人員を増やしている、と答えた。"
   },
   "f10": {
@@ -75492,11 +75512,14 @@
    "claimText": "開発会社、デザイン会社、マーケティング代理店、フリーランス向けのプロジェクト管理ツール。タスク管理、時間記録、請求書、顧客に見せる専用画面、GitHub・GitLab連携をまとめている。コードのPRが開くとタスクが「レビュー」へ、マージされると「完了」へ動き、請求用に時刻を記録する。Asana・ClickUp・Linearからデータを取り込める。"
   },
   "f2": {
-   "verdict": "SUPPORTED",
+   "verdict": "PARTIAL",
    "quote": "per month, unlimited user, billed annually",
    "sourceUrl": "https://www.teamcamp.app/pricing",
-   "checkedAt": "2026-10-06",
-   "claimText": "無料プランは10ユーザーまで・プロジェクト無制限・250タスク・保存1GB。Plusは1ユーザー月6ドル（年払い、月払いは8ドル）。Pro Unlimitedはユーザー無制限で月99ドル（年払い、月払いは129ドル）、保存500GB。"
+   "checkedAt": "2026-10-08",
+   "claimText": "無料プランは10ユーザーまで・プロジェクト無制限・250タスク・保存1GB。Plusは1ユーザー月6ドル（年払い、月払いは8ドル）。Pro Unlimitedはユーザー無制限で月99ドル（年払い、月払いは129ドル）、保存500GB。",
+   "fix": {
+    "text": "無料プランは10ユーザーまで・プロジェクト無制限・250タスク・保存1GB。Plusは1ユーザー月6ドル（年払い、月払いは8ドル）。Pro Unlimitedはユーザー無制限で月99ドル（年払い、月払いは129ドル）。"
+   }
   },
   "f3": {
    "verdict": "PARTIAL",
@@ -75523,21 +75546,20 @@
    "claimText": "2025年8月19日の本人投稿は、開始から6か月で稼働847チーム、MRR 4,200ドル（年末に10,000ドルが目標）、月の解約率8%、NPS 67と申告。新規登録の約4割は口コミ・紹介で、見た目と実際に使える無料枠が効き、顧客用の画面が最大の差になったと書く。"
   },
   "f6": {
-   "verdict": "SUPPORTED",
+   "verdict": "HELD",
    "quote": "Real retention jumped from 12% to 41% in two months. MRR went from $347 to $2,100.",
    "sourceUrl": "https://www.indiehackers.com/post/i-spent-6-months-building-for-indie-hackers-my-first-real-customer-taught-me-i-was-wrong-c4c6ac27fc",
-   "checkedAt": "2026-10-06",
-   "claimText": "2025年11月3日の本人投稿は、インディー開発者仲間の要望（ダークモード、API、Notion風ブロック）で6か月作ったが、Product Huntは23票、初月売上は227ドルだったと書く。初めて話した代理店の経営者（インディー界隈の外の最初の客）に「顧客用ポータルは？白ラベルにできる？」と聞かれ、見た目より顧客とのやり取りの機能が要ると分かった。以後は事業主との直接の会話に切り替え、2か月で継続率が12%から41%、MRRが347ドルから2,100ドルになったという。"
+   "checkedAt": "2026-10-08",
+   "claimText": "2025年11月3日の本人投稿は、インディー開発者仲間の要望（ダークモード、API、Notion風ブロック）で6か月作ったが、Product Huntは23票、初月売上は227ドルだったと書く。初めて話した代理店の経営者（インディー界隈の外の最初の客）に「顧客用ポータルは？白ラベルにできる？」と聞かれ、見た目より顧客とのやり取りの機能が要ると分かった。以後は事業主との直接の会話に切り替え、2か月で継続率が12%から41%、MRRが347ドルから2,100ドルになったという。",
+   "reason": "継続率12%→41%の投稿は同じ創業者Pratham Naikの名義だが、本人の返信では「Bearconnect」という別の製品の話として書かれていて、Teamcampの数字と確かめられない"
   },
   "f7": {
-   "verdict": "PARTIAL",
+   "verdict": "HELD",
    "quote": "6 months later: 43 total signups, 2 paying customers, $18 MRR.",
-   "fix": {
-    "text": "2025年9月30日の本人投稿は、3週間の聞き取りで「使いたい」という回答が200件超あり、6か月の毎日の公開開発を経ても、サインアップ43件・有料2件・MRR 18ドルだったと書く。以後は、不完全な解決策にすでに払っている人を探し、作る前に99ドルを先払いしてもよいという12人を見つけてから作り始めた。"
-   },
    "sourceUrl": "https://www.indiehackers.com/post/i-validated-my-idea-with-almost-80-people-built-in-public-for-6-months-and-still-failed-spectacularly-6382ec2034",
-   "checkedAt": "2026-10-06",
-   "claimText": "日付不明の本人投稿は、200人超の関心を集め、3週間の聞き取りと6か月の毎日の公開開発を経ても、サインアップ43件・有料2件・MRR 18ドルだったと書く。以後は、競合にすでに払っている人を探し、作る前に12人へ99ドルで先売りする検証に変えた。"
+   "checkedAt": "2026-10-08",
+   "claimText": "日付不明の本人投稿は、200人超の関心を集め、3週間の聞き取りと6か月の毎日の公開開発を経ても、サインアップ43件・有料2件・MRR 18ドルだったと書く。以後は、競合にすでに払っている人を探し、作る前に12人へ99ドルで先売りする検証に変えた。",
+   "reason": "投稿日は2025-09-30だが、8月の847チーム・MRR 4,200ドルと食い違い、同じ事業の同じ時期の数字と確かめられない"
   },
   "f8": {
    "verdict": "SUPPORTED",
@@ -75791,18 +75813,22 @@
    "verdict": "PARTIAL",
    "quote": "The year ended with a total of 170 customers, 3.5 FTE, and $15k MRR.",
    "fix": {
-    "text": "2016年7月に最初の営業を雇ったが、研修と顧客理解の不足で失敗し、2か月分の売上を失った。10月に2人目の営業を雇い、2016年末は顧客170社、3.5人、MRR約15,000ドル。外部資金は受けていない。"
+    "text": "2016年7月に最初の営業を雇ったが、研修と顧客理解の不足で失敗し、2か月分の売上を失った。10月に2人目の営業を雇い、2016年末は顧客170社、常勤換算で3.5人分の体制、MRR約15,000ドル。外部資金は受けていない。"
    },
    "sourceUrl": "https://referralrock.com/blog/full-referral-rock-story/",
-   "checkedAt": "2026-10-06",
+   "checkedAt": "2026-10-08",
    "claimText": "2016年7月に最初の営業を雇ったが、研修と顧客理解の不足で2か月で終わった。10月に2人目の営業を雇い、2016年末は顧客170社、3.5人、MRR約15,000ドル。外部資金は受けていない。"
   },
   "f7": {
-   "verdict": "SUPPORTED",
-   "quote": "The source of this uptick was for us to hire a second sale-person.",
+   "verdict": "PARTIAL",
+   "quote": "May 1, 2019 70K a month in revenue Lesson for me: Being a bit more aggressive vs what I am comfortable with. Be willing to double down on what is working even if you don't feel ready. The source of this uptick was for us to hire a second sale-person.",
    "sourceUrl": "https://www.indiehackers.com/product/referral-rock",
-   "checkedAt": "2026-10-06",
-   "claimText": "2019年5月の本人の投稿は、月の売上が70,000ドルに達したと書き、要因は2人目の営業の採用だったとする。リードが足りるか心配で数か月迷ったが、採用後はサイトの文面・LP・申込ボタンを直してリードを増やした。"
+   "checkedAt": "2026-10-08",
+   "claimText": "2019年5月の本人の投稿は、月の売上が70,000ドルに達したと書き、要因は2人目の営業の採用だったとする。リードが足りるか心配で数か月迷ったが、採用後はサイトの文面・LP・申込ボタンを直してリードを増やした。",
+   "reason": "2019年5月に月売上70,000ドルという時点・金額は、出典の原文で確かめられない（引用は2人目の営業の採用だけ）",
+   "fix": {
+    "text": "2019年5月の本人の投稿は、月の売上が70,000ドルに達したと書き、要因は2人目の営業の採用だったとする。リードが足りるか心配で数か月迷ったが、採用後はサイトの文面・LP・申込ボタンを直してリードを増やした。"
+   }
   },
   "f8": {
    "verdict": "SUPPORTED",
@@ -75829,12 +75855,17 @@
    "claimText": "公式は1,000社超が使うと掲げる。2025年10月23日の更新で、紹介先訪問・会員訪問・紹介担当者データの書き出しを追加した（上限は標準50,000行）。"
   },
   "m1": {
-   "verdict": "HELD",
-   "quote": "70K a month in revenue",
+   "verdict": "PARTIAL",
+   "quote": "May 1, 2019 70K a month in revenue",
    "sourceUrl": "https://www.indiehackers.com/product/referral-rock",
-   "checkedAt": "2026-10-07",
+   "checkedAt": "2026-10-08",
    "claimText": "項目=REVENUE / 期間=2019-05（本人の投稿「月の売上70K」）(MONTH) / 金額=70000 USD / 由来=SELF_REPORTED",
-   "reason": "出典が403で読めず、時点（2019年5月）を確かめられない。2019年7月の対談では月70,000ドル"
+   "reason": "出典が403で読めず、時点（2019年5月）を確かめられない。2019年7月の対談では月70,000ドル",
+   "fix": {
+    "metric": {
+     "period": "2019年5月1日の投稿（月の売上70K）"
+    }
+   }
   },
   "m2": {
    "verdict": "SUPPORTED",
@@ -75945,12 +75976,12 @@
    "quote": "For almost a decade now we have averaged $1MM a year in revenue.",
    "fix": {
     "metric": {
-     "period": "過去ほぼ10年の年平均（インタビュー）",
+     "period": "過去ほぼ10年の年平均（2019年5月のインタビュー）",
      "periodKind": "YEAR"
     }
    },
    "sourceUrl": "https://www.indiehackers.com/interview/overcoming-technical-roadblocks-to-achieve-1-million-arr-3df1ac487f",
-   "checkedAt": "2026-10-06",
+   "checkedAt": "2026-10-08",
    "claimText": "項目=REVENUE / 期間=2019-05（インタビューの題が掲げる年間の定期売上）(YEAR) / 金額=1000000 USD / 由来=SELF_REPORTED"
   }
  },
@@ -79143,16 +79174,12 @@
    "claimText": "項目=REVENUE / 期間=〜2020-08（3製品の累計）(CUMULATIVE) / 金額=1000000 USD / 由来=SELF_REPORTED"
   },
   "m3": {
-   "verdict": "PARTIAL",
+   "verdict": "HELD",
    "quote": "Join 96,721+ developers learning, building, and",
-   "fix": {
-    "metric": {
-     "amount": 96721
-    }
-   },
    "sourceUrl": "https://gorails.com",
-   "checkedAt": "2026-10-06",
-   "claimText": "項目=USERS / 期間=公式トップの表示（開発者数）(POINT) / 金額=96669 人 / 由来=SELF_REPORTED"
+   "checkedAt": "2026-10-08",
+   "claimText": "項目=USERS / 期間=公式トップの表示（開発者数）(POINT) / 金額=96669 人 / 由来=SELF_REPORTED",
+   "reason": "公式トップの開発者数は日々変わる表示で、いつ時点かを原文から確かめられない"
   }
  },
  "ent_deploybotcom_f06300cc1ada": {
@@ -181982,11 +182009,14 @@
    "claimText": "2年目は読者約70万人、直接の支払い244件で3,030ドル、フォント取引325件（25ドルを割り当てて8,125ドル）、合計約11,155ドル。広告・PR費は引き続き0ドル。読者が増えたのに払う人の割合は、約1,000人に1人まで下がった。"
   },
   "f10": {
-   "verdict": "SUPPORTED",
+   "verdict": "PARTIAL",
    "quote": "I col­lected 489 pay­ments to­tal­ing $5472",
    "sourceUrl": "https://practicaltypography.com/to-pay-or-not-to-pay.html",
-   "checkedAt": "2026-10-06",
-   "claimText": "3年目（2016年8月の報告）は読者約61.5万人。直接の支払いは489件で5,472ドルと件数が約2倍になり、フォント取引は310件（25ドルを割り当てて7,750ドル）、合計約13,222ドル。支払った読者は799人。"
+   "checkedAt": "2026-10-08",
+   "claimText": "3年目（2016年8月の報告）は読者約61.5万人。直接の支払いは489件で5,472ドルと件数が約2倍になり、フォント取引は310件（25ドルを割り当てて7,750ドル）、合計約13,222ドル。支払った読者は799人。",
+   "fix": {
+    "text": "3年目（2016年8月の報告）は読者約61.5万人。直接の支払いは489件で5,472ドルと件数が約2倍になった。フォント取引は件数だけで、金額は仮の割り当てなので実収入には数えない。支払った読者は799人。"
+   }
   },
   "f11": {
    "verdict": "SUPPORTED",
@@ -182033,13 +182063,13 @@
    "verdict": "PARTIAL",
    "quote": "I got 321 pay­ments to­tal­ing $3676.",
    "sourceUrl": "https://practicaltypography.com/economics-year-one.html",
-   "checkedAt": "2026-10-07",
+   "checkedAt": "2026-10-08",
    "claimText": "項目=REVENUE / 期間=公開1年目（〜2014年7月）の直接の支払い 321件(YEAR) / 金額=3676 USD / 由来=SELF_REPORTED",
    "fix": {
     "metric": {
      "measure": "OTHER",
      "label": "直接の支払い（フォントの売上を除く）",
-     "period": "公開1年目（2013年8月〜2014年7月）、321件"
+     "period": "公開1年目（〜2014年の夏）、321件"
     }
    }
   },
@@ -182047,13 +182077,13 @@
    "verdict": "PARTIAL",
    "quote": "I col­lected 244 pay­ments to­tal­ing $3030.",
    "sourceUrl": "https://practicaltypography.com/effluents-influence-affluence.html",
-   "checkedAt": "2026-10-07",
+   "checkedAt": "2026-10-08",
    "claimText": "項目=REVENUE / 期間=公開2年目の直接の支払い 244件(YEAR) / 金額=3030 USD / 由来=SELF_REPORTED",
    "fix": {
     "metric": {
      "measure": "OTHER",
      "label": "直接の支払い（フォントの売上を除く）",
-     "period": "公開2年目（〜2015年7月）、244件"
+     "period": "公開2年目（〜2015年の夏）、244件"
     }
    }
   },
@@ -182061,36 +182091,47 @@
    "verdict": "PARTIAL",
    "quote": "I col­lected 489 pay­ments to­tal­ing $5472",
    "sourceUrl": "https://practicaltypography.com/to-pay-or-not-to-pay.html",
-   "checkedAt": "2026-10-07",
+   "checkedAt": "2026-10-08",
    "claimText": "項目=REVENUE / 期間=公開3年目（〜2016年）の直接の支払い 489件(YEAR) / 金額=5472 USD / 由来=SELF_REPORTED",
    "fix": {
     "metric": {
      "measure": "OTHER",
      "label": "直接の支払い（フォントの売上を除く）",
-     "period": "公開3年目（〜2016年7月）、489件"
+     "period": "公開3年目（〜2016年の夏）、489件"
     }
    }
   },
   "m4": {
-   "verdict": "SUPPORTED",
+   "verdict": "PARTIAL",
    "quote": "it claims that about 650,000 read­ers vis­ited the site in the first 12 months.",
    "sourceUrl": "https://practicaltypography.com/economics-year-one.html",
-   "checkedAt": "2026-10-06",
-   "claimText": "項目=USERS / 期間=公開1年目の読者数（アクセス解析）(YEAR) / 金額=650000 人 / 由来=SELF_REPORTED"
+   "checkedAt": "2026-10-08",
+   "claimText": "項目=USERS / 期間=公開1年目の読者数（アクセス解析）(YEAR) / 金額=650000 人 / 由来=SELF_REPORTED",
+   "fix": {
+    "metric": {
+     "period": "公開1年目（〜2014年の夏）の読者数（アクセス解析）"
+    }
+   }
   },
   "m5": {
-   "verdict": "SUPPORTED",
+   "verdict": "HELD",
    "quote": "from about 650,000 read­ers in year one to about 700,000 in year two.",
    "sourceUrl": "https://practicaltypography.com/effluents-influence-affluence.html",
-   "checkedAt": "2026-10-06",
-   "claimText": "項目=USERS / 期間=公開2年目の読者数（アクセス解析）(YEAR) / 金額=700000 人 / 由来=SELF_REPORTED"
+   "checkedAt": "2026-10-08",
+   "claimText": "項目=USERS / 期間=公開2年目の読者数（アクセス解析）(YEAR) / 金額=700000 人 / 由来=SELF_REPORTED",
+   "reason": "2年目の読者数は引用の近くに年が無く、いつの数字かを原文から確かめられない"
   },
   "m6": {
-   "verdict": "SUPPORTED",
+   "verdict": "PARTIAL",
    "quote": "traf­fic went down to about 615,000 read­ers",
    "sourceUrl": "https://practicaltypography.com/to-pay-or-not-to-pay.html",
-   "checkedAt": "2026-10-06",
-   "claimText": "項目=USERS / 期間=公開3年目の読者数（アクセス解析）(YEAR) / 金額=615000 人 / 由来=SELF_REPORTED"
+   "checkedAt": "2026-10-08",
+   "claimText": "項目=USERS / 期間=公開3年目の読者数（アクセス解析）(YEAR) / 金額=615000 人 / 由来=SELF_REPORTED",
+   "fix": {
+    "metric": {
+     "period": "公開3年目（〜2016年の夏）の読者数（アクセス解析）"
+    }
+   }
   }
  }
 }

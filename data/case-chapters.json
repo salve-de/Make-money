@@ -46,11 +46,7 @@
           "source": "https://news.ycombinator.com/item?id=8040524"
         },
         {
-          "text": "2018年初め: GoRails単体で、月の売上が約15,000ドル（約225万円）になった（本人）",
-          "source": "https://www.indiehackers.com/interview/rails-and-revenue-how-to-build-a-screencast-business-8999c7ac7f"
-        },
-        {
-          "text": "2020年8月: 決済サービスStripeでの累計売上が100万ドル（約1.5億円）を超えた。開始から約6年半（本人）",
+          "text": "2020年8月: 3製品の累計売上が100万ドル（約1.5億円）を超えた。開始から約6年半（本人）",
           "source": "https://www.indiehackers.com/post/my-first-1m-as-an-indie-dev-2b1afcf11f"
         }
       ],
@@ -440,11 +436,11 @@
           "source": "https://inc42.com/flash-feed/myoperator-mannkibaat-cloudtelephony"
         },
         {
-          "text": "2015年9月: 前年度の売上は約6,125万円（3,500万ルピー）だった（本人申告、第三者記事）。",
+          "text": "2015年9月: 本人によると、直近の会計年度の売上は約6,125万円（3,500万ルピー）だった（第三者記事）",
           "source": "https://inc42.com/flash-feed/myoperator-mannkibaat-cloudtelephony"
         },
         {
-          "text": "2016年: 前年度の売上は約3億円（200万ドル）だった。有料の利用企業は2,000社超だった（本人）。",
+          "text": "2016年: 直近の会計年度の売上は約3億円（200万ドル）。翌年度は倍にする目標だった。有料の利用企業は2,000社超、従業員は125人だった（本人）",
           "source": "https://myoperator.com/blog/cloud-telephony-platform-thriving-without-single-penny-investors"
         },
         {
@@ -682,8 +678,8 @@
           "source": "https://referralrock.com/blog/full-referral-rock-story/"
         },
         {
-          "text": "2019年7月: 月の売上は70,000ドル（約1,050万円）だった（本人）",
-          "source": "https://saasclub.io/podcast/josh-ho-referral-rock-bootstrapped-saas-217/"
+          "text": "2019年5月: 2人目の営業の採用が伸びの源だったと、本人が投稿した（本人）",
+          "source": "https://www.indiehackers.com/product/referral-rock"
         },
         {
           "text": "2022年5月: 人員は18人だった（本人）",
@@ -831,10 +827,6 @@
     "chapters": {
       "practice": [
         {
-          "text": "最初のツイートは40いいねだった。内容を改善した後の反応は、最大1万3千いいね・3千リツイートだった（本人）",
-          "source": "https://laravelpodcast.com/episodes/89e3758b/transcript"
-        },
-        {
           "text": "実在するサイトを作り直す無料動画を5本公開した（本人）",
           "source": "https://x.com/steveschoger/status/1116062198974042113"
         },
@@ -881,10 +873,6 @@
         {
           "text": "2019年1月10日: 購入は6,765件だった（第三者）",
           "source": "https://marketingexamples.com/landing-page/pricing"
-        },
-        {
-          "text": "2020年8月1日: 累計売上は230万ドル（約3.5億円）だった（本人）",
-          "source": "https://x.com/adamwathan/status/1289702466754211842"
         },
         {
           "text": "2020年8月20日: 発売後の最初の1か月の売上は約100万ドル（約1.5億円）だった（本人）",
@@ -975,12 +963,7 @@
         }
       ],
       "core": [],
-      "start": [
-        {
-          "text": "最初の月の売上は227ドル（約3万4,050円）だった。製品紹介サイトProduct Huntでの得票数は23票だった（本人、2025年11月）",
-          "source": "https://www.indiehackers.com/post/i-spent-6-months-building-for-indie-hackers-my-first-real-customer-taught-me-i-was-wrong-c4c6ac27fc"
-        }
-      ],
+      "start": [],
       "price": [
         {
           "text": "2024年7月: 料金は5段階で、5人まで使えて月25ドル（約3,750円）から、人数無制限で月299ドル（約4万5,000円）までだった。",
