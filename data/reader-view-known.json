@@ -42,25 +42,11 @@
   "reason": "事例の文の担当が、同じ数字を1か所だけにする"
  },
  {
-  "id": "ent_gorails_640d8f688451",
-  "where": "概要 / section-chapter-price",
-  "rule": "e.同じ話が2か所以上",
-  "text": "「ソフトを作るためのひな形Ju」",
-  "reason": "事例の文の担当が、同じ話を1か所だけにする"
- },
- {
   "id": "ent_rfrcui_64e924ac",
   "where": "概要 / section-chapter-timeline",
   "rule": "e.同じ数字が2か所以上",
   "text": "50章（2か所）",
   "reason": "事例の文の担当が、同じ数字を1か所だけにする"
- },
- {
-  "id": "ent_practicaltypographycom_e9aa6bc94ccf",
-  "where": "section-chapter-voices",
-  "rule": "a.出どころの印",
-  "text": "（読書記録サイトGoodreads、2018年1月）",
-  "reason": "事例の文の担当が、出どころの印を外す（src/shared/origin-tag.ts の対象を広げる）"
  },
  {
   "id": "ent_practicaltypographycom_e9aa6bc94ccf",
@@ -85,58 +71,16 @@
  },
  {
   "id": "ent_practicaltypographycom_e9aa6bc94ccf",
-  "where": "section-group-secret / section-chapter-turning",
-  "rule": "e.同じ数字が2か所以上",
-  "text": "489件（2か所）",
-  "reason": "事例の文の担当が、同じ数字を1か所だけにする"
- },
- {
-  "id": "ent_practicaltypographycom_e9aa6bc94ccf",
-  "where": "section-chapter-start / section-chapter-price / section-chapter-voices",
-  "rule": "e.同じ数字が2か所以上",
-  "text": "10ドル（3か所）",
-  "reason": "事例の文の担当が、同じ数字を1か所だけにする"
- },
- {
-  "id": "ent_practicaltypographycom_e9aa6bc94ccf",
   "where": "section-chapter-timeline / section-group-first",
   "rule": "e.同じ話が2か所以上",
   "text": "「DaringFireball」",
   "reason": "事例の文の担当が、同じ話を1か所だけにする"
  },
  {
-  "id": "ent_referralrock_8c13d5ee4cfc",
-  "where": "section-group-secret / section-group-first",
-  "rule": "e.同じ数字が2か所以上",
-  "text": "59ドル（2か所）",
-  "reason": "事例の文の担当が、第2回の画面直しの続きで直す（#203の事実訂正で文が入れ替わった分）"
- },
- {
   "id": "ent_ejunkie_7e9e46bd9643",
   "where": "section-group-secret / section-story",
   "rule": "e.同じ話が2か所以上",
   "text": "「2004年半ばに誰でも使える」",
-  "reason": "事例の文の担当が、第2回の画面直しの続きで直す（#203の事実訂正で文が入れ替わった分）"
- },
- {
-  "id": "ent_gorails_640d8f688451",
-  "where": "section-group-secret / section-group-first",
-  "rule": "e.同じ数字が2か所以上",
-  "text": "600件（2か所）",
-  "reason": "事例の文の担当が、第2回の画面直しの続きで直す（#203の事実訂正で文が入れ替わった分）"
- },
- {
-  "id": "ent_gorails_640d8f688451",
-  "where": "section-group-secret / section-group-first",
-  "rule": "e.同じ話が2か所以上",
-  "text": "「の投稿サイトHackerNe」",
-  "reason": "事例の文の担当が、第2回の画面直しの続きで直す（#203の事実訂正で文が入れ替わった分）"
- },
- {
-  "id": "ent_gorails_640d8f688451",
-  "where": "section-group-first / section-group-now",
-  "rule": "e.同じ話が2か所以上",
-  "text": "「作者が知られていなかったため」",
   "reason": "事例の文の担当が、第2回の画面直しの続きで直す（#203の事実訂正で文が入れ替わった分）"
  },
  {

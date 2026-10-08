@@ -10,7 +10,7 @@
     "entityId": "ent_codementor_ba692caa3db3",
     "analysisId": "a-customer_pain",
     "textHash": "18227e7d",
-    "answer": "設定やコードで困った時に、すぐ相談できる経験者がいない",
+    "answer": "設定やプログラムで困った時に、すぐ相談できる経験者がいない",
     "note": "創業者は、若手が設定で困る姿を見て、すぐ相談できる専門家が求められていると考えた（本人申告）。"
   },
   {
@@ -24,7 +24,7 @@
     "entityId": "ent_codementor_ba692caa3db3",
     "analysisId": "a-channels",
     "textHash": "6a1bab0b",
-    "answer": "最初の集客は投稿サイトHacker News。トップに載り、数千人が順番待ちに登録（本人の話、2013年6月1日）"
+    "answer": "最初の集客にはHacker Newsを使った（本人の話）。"
   },
   {
     "entityId": "ent_codementor_ba692caa3db3",
@@ -44,8 +44,8 @@
     "entityId": "ent_codementor_ba692caa3db3",
     "analysisId": "a-failure_cause",
     "textHash": "7678853e",
-    "answer": "通話技術WebRTCの不具合対応で、開発時間を取られた（本人の反省）。",
-    "note": "公開はあと3か月早めればよかったと振り返った。"
+    "answer": "ブラウザで音声や映像をやり取りする技術WebRTCの不具合対応に、開発時間を取られた（本人の反省）。",
+    "note": "創業者は、サービスの公開をあと3か月早めればよかったと振り返った。"
   },
   {
     "entityId": "ent_codementor_ba692caa3db3",
@@ -92,7 +92,7 @@
     "entityId": "ent_ejunkie_7e9e46bd9643",
     "analysisId": "a-business_model",
     "textHash": "1550a9b9",
-    "answer": "売り手に商品の自動配信や紹介制度を有料で提供する（公式）"
+    "answer": "売り手に、商品の自動配信や紹介制度（商品を他の人に紹介してもらう仕組み）を有料で提供する（公式）"
   },
   {
     "entityId": "ent_ejunkie_7e9e46bd9643",
@@ -118,7 +118,7 @@
     "entityId": "ent_ejunkie_7e9e46bd9643",
     "analysisId": "a-story",
     "textHash": "726bcf08",
-    "answer": "自作ソフトを手作業で届ける負担に疲れたことが、事業を始めるきっかけだった（本人申告）"
+    "answer": "創業者は、勤め先の収入を補うために自作ソフトを売っていた（本人申告）"
   },
   {
     "entityId": "ent_ejunkie_7e9e46bd9643",
@@ -131,15 +131,15 @@
     "entityId": "ent_ejunkie_7e9e46bd9643",
     "analysisId": "a-timeline",
     "textHash": "abd0552b",
-    "answer": "2011年: 創業者が持分を売って事業から退いた（本人申告）",
-    "note": "2017年12月: 経営に戻った（本人申告）。"
+    "answer": "2011年: 創業者が会社の持分を売って事業から退いた（本人申告）",
+    "note": "2017年12月: 創業者が経営に戻った（本人申告）。"
   },
   {
     "entityId": "ent_ejunkie_7e9e46bd9643",
     "analysisId": "a-story",
     "textHash": "48163e4c",
-    "answer": "支払いのたびに、手作業でソフトを届ける作業に疲れたことがきっかけ（本人申告）",
-    "note": "創業者は勤め先の収入を補うために、自作のソフトを売っていた。支払いから3時間以内に届けると約束していたため、外食中でも寝床からでも、支払いの知らせが来るたびにメールで送っていた。"
+    "answer": "購入者に手作業でソフトを届ける負担が、事業を始めるきっかけだった（本人申告）",
+    "note": "購入者には支払いから3時間以内にソフトを届けると約束していた。外食中でも寝床からでも、支払いの知らせが来るたびにメールで送っていた。"
   },
   {
     "entityId": "ent_ejunkie_7e9e46bd9643",
@@ -152,8 +152,8 @@
     "entityId": "ent_ejunkie_7e9e46bd9643",
     "analysisId": "a-why_it_worked",
     "textHash": "f6add7e8",
-    "answer": "売上が増えても利用料が変わらない料金と、販売設定の代行で、売り手が始めやすくなった（推測）",
-    "note": "売上に応じて利用料が増えるのを避けたい売り手に選ばれた。設定を引き受けたことで、販売を始める手間も減った（推測）。"
+    "answer": "売上に応じた利用料の増加を避けたい売り手に、月額固定の料金が選ばれた（推測）",
+    "note": "販売設定を引き受けたことで、売り手が販売を始める手間も減った（推測）。"
   },
   {
     "entityId": "ent_gorails_640d8f688451",
@@ -165,21 +165,21 @@
     "entityId": "ent_gorails_640d8f688451",
     "analysisId": "a-channels",
     "textHash": "abee0741",
-    "answer": "Railsのメモと無料動画を載せたサイトGoRails.comが開発者の投稿サイトHacker Newsに載った。",
-    "note": "Hacker News掲載の1日にメール登録が600件超。その登録者へのメルマガが事業の重要な柱になった（記事、2021年11月）。"
+    "answer": "Railsのメモと無料動画を載せたGoRails.comで読者を集めた。",
+    "note": "Hacker Newsへの掲載も集客につながった（記事、2021年11月）。"
   },
   {
     "entityId": "ent_gorails_640d8f688451",
     "analysisId": "a-business_model",
     "textHash": "f16cd436",
-    "answer": "メールの読者に有料講座を売った"
+    "answer": "ニュースレターの読者に有料講座を売った"
   },
   {
     "entityId": "ent_gorails_640d8f688451",
     "analysisId": "a-why_it_worked",
     "textHash": "76bcdae4",
-    "answer": "無料動画を公開し続けた。Hacker Newsに載った日に、メール登録が600件超集まった",
-    "note": "登録者に送るメールマガジンが、事業の重要な柱になった（記事、2021年11月）。"
+    "answer": "無料動画で集めた読者にニュースレターを送った",
+    "note": "ニュースレターが事業の重要な柱になった（記事、2021年11月）。"
   },
   {
     "entityId": "ent_gorails_640d8f688451",
@@ -199,21 +199,21 @@
     "analysisId": "a-story",
     "textHash": "2f867aa2",
     "answer": "依頼主のために数か月かけて作ったソフトが使われず、燃え尽きた。",
-    "note": "2014年1月1日に、依頼を受けてソフトを作る仕事をやめた。自分のRailsのメモを公開するため、サイトの住所GoRails.comを取得した。サイトを訪れる人に何かを売ろうと考えた。"
+    "note": "2014年1月1日に、依頼を受けてソフトを作る仕事をやめた。自分のRailsのメモを公開するため、GoRails.comというドメイン（サイトの住所）を取得した。サイトを訪れる人に何かを売ろうと考えた。"
   },
   {
     "entityId": "ent_gorails_640d8f688451",
     "analysisId": "a-first_customers",
     "textHash": "4d80294c",
     "answer": "最初の客は、以前からメモを読みにサイトへ来ていたRails開発者",
-    "note": "最初の2コースは、作者が知られていなかったため売れなかった。無料動画で集めたメールの読者が、後に客になった。"
+    "note": "無料動画で集めたニュースレターの読者が、後に有料講座の客になった。"
   },
   {
     "entityId": "ent_gorails_640d8f688451",
     "analysisId": "a-capital_and_team",
     "textHash": "90b1caf2",
-    "answer": "元手は約9か月分の手元資金で、2021年11月時点でも1人で運営していた。",
-    "note": "最初の2年は無給だった。当時、開発者とサポート担当の採用を始めていた。"
+    "answer": "手元には約9か月分の資金があった。2021年11月時点でも1人で運営していた。",
+    "note": "最初の2年は無給だった。2021年11月時点では、開発者とサポート担当の採用を始めていた。"
   },
   {
     "entityId": "ent_gorails_640d8f688451",
@@ -257,7 +257,7 @@
     "entityId": "ent_heygen_8f11a1",
     "analysisId": "a-capital_and_team",
     "textHash": "f6faa529",
-    "answer": "投資家から集めた資金は約7,400万ドル（約111億円）（公式）。",
+    "answer": "投資家から集めた資金は約7,400万ドル、円換算で約111億円（公式）。",
     "note": "従業員は150人超（公式表示・日付なし）。"
   },
   {
@@ -285,7 +285,7 @@
     "analysisId": "a-first_customers",
     "textHash": "dc37b494",
     "answer": "最初の客には政党や企業がいた（本人申告）",
-    "note": "開始から半年で、入るお金が出るお金を上回った（本人申告）。"
+    "note": "最初の半年の顧客には、通販サイトSnapdealと眼鏡販売のLenskartも含まれていた（本人申告）。"
   },
   {
     "entityId": "ent_myoperator_49c393230a2d",
@@ -312,7 +312,7 @@
     "entityId": "ent_myoperator_49c393230a2d",
     "analysisId": "a-competition",
     "textHash": "83e84b1f",
-    "answer": "競合の電話サービスはExotel・Knowlarity・Ozonetel。",
+    "answer": "競合は、電話サービスを提供するExotel・Knowlarity・Ozonetel。",
     "note": "Exotelは2012年に投資家から2,500万ルピー（約4,400万円）、Knowlarityは2014年7月に1,600万ドル（約24億円）を調達。"
   },
   {
@@ -359,7 +359,7 @@
     "entityId": "ent_myoperator_49c393230a2d",
     "analysisId": "a-timeline",
     "textHash": "51bbb46b",
-    "answer": "2010年: 音声サービスVoice Jadooを始めた。"
+    "answer": "創業者Ankitは2010年に音声サービスVoice Jadooを始めた。"
   },
   {
     "entityId": "ent_myoperator_49c393230a2d",
@@ -372,14 +372,14 @@
     "entityId": "ent_practicaltypographycom_e9aa6bc94ccf",
     "analysisId": "a-story",
     "textHash": "787e6110",
-    "answer": "紙の本の出版を持ちかけられたが、デザインを任せてもらえず断った。Webで自分で出版した。"
+    "answer": "作者は紙の本の出版を持ちかけられたが、デザインを任せてもらえず断った。自分でWebに本を公開した。"
   },
   {
     "entityId": "ent_practicaltypographycom_e9aa6bc94ccf",
     "analysisId": "a-customer",
     "textHash": "95249d79",
     "answer": "文書を美しく作りたい書き手。",
-    "note": "読者の大半は無料のまま読んで去る。"
+    "note": "読者の大半は、お金を払わずに本を読んで去る。"
   },
   {
     "entityId": "ent_practicaltypographycom_e9aa6bc94ccf",
@@ -392,7 +392,7 @@
     "entityId": "ent_practicaltypographycom_e9aa6bc94ccf",
     "analysisId": "a-cost_structure",
     "textHash": "8f27de8b",
-    "answer": "執筆、フォントや図版の制作、出版ソフトPollenの開発、サーバーの利用に費用がかかる。"
+    "answer": "執筆、フォントや図版の制作、Pollenの開発、サーバーの利用に費用がかかる。"
   },
   {
     "entityId": "ent_practicaltypographycom_e9aa6bc94ccf",
@@ -417,7 +417,7 @@
     "entityId": "ent_practicaltypographycom_e9aa6bc94ccf",
     "analysisId": "a-channels",
     "textHash": "8e5e7a88",
-    "answer": "2年目はHacker News、投稿サイトTwitter、まとめ記事から読者が来た。",
+    "answer": "2年目はHacker News、短文を投稿するサイトTwitter、まとめ記事から読者が来た。",
     "note": "Daring Fireballから来た読者は、読者数の多い紹介元から来た読者より、お金を払う人の割合が高かった（本人申告）。"
   },
   {
@@ -438,7 +438,7 @@
     "entityId": "ent_referralrock_8c13d5ee4cfc",
     "analysisId": "a-story",
     "textHash": "c3abfdda",
-    "answer": "2013年、小さな事業者が自分で紹介制度を運営できる道具を思いついた（本人申告）"
+    "answer": "2013年、創業者は小さな事業者が自分で紹介制度を運営できる道具を思いついた（本人申告）"
   },
   {
     "entityId": "ent_referralrock_8c13d5ee4cfc",
@@ -451,21 +451,20 @@
     "entityId": "ent_referralrock_8c13d5ee4cfc",
     "analysisId": "a-business_model",
     "textHash": "44df0aa1",
-    "answer": "事業者が、紹介制度を運営するソフトの利用料を月額で払う（公式）"
+    "answer": "事業者がReferral Rockに、紹介制度を運営するソフトの利用料を月額で払う（公式）"
   },
   {
     "entityId": "ent_referralrock_8c13d5ee4cfc",
     "analysisId": "a-first_customers",
     "textHash": "701de695",
-    "answer": "旧製品の利用者・新サービス紹介サイトBetalist・知人に伝え、有料化から2日以内に初の有料客を得た（本人申告）",
-    "note": "最初の1年半で500社超が試験版に登録した。2015年6月に月59ドル（約8,900円）で有料化し、月末には4社が利用していた。"
+    "answer": "以前の製品の利用者と知人に知らせ、新サービスの紹介サイトBetalistでも告知した（本人申告）",
+    "note": "最初の1年半で500社超が試験版に登録した。"
   },
   {
     "entityId": "ent_referralrock_8c13d5ee4cfc",
     "analysisId": "a-channels",
     "textHash": "05446203",
-    "answer": "集客経路はブログ記事と電話・メールでの営業だった（本人申告、2019年）",
-    "note": "サイトを訪れる人と電話・メールでの営業をそれぞれ倍に増やしたことが、成長の主な理由だった（本人申告）。"
+    "answer": "集客経路はブログ記事と電話・メールでの営業だった（本人申告、2019年）"
   },
   {
     "entityId": "ent_referralrock_8c13d5ee4cfc",
@@ -491,7 +490,7 @@
     "entityId": "ent_referralrock_8c13d5ee4cfc",
     "analysisId": "a-failure_cause",
     "textHash": "bfb6ebfc",
-    "answer": "2016年7月に雇った最初の営業担当は、研修と客への理解が足りず、採用に失敗した（本人申告）"
+    "answer": "最初の営業担当は、研修と客への理解が足りず、採用に失敗した（本人申告）"
   },
   {
     "entityId": "ent_requestly_28e9f2",
@@ -511,12 +510,12 @@
     "entityId": "ent_requestly_28e9f2",
     "analysisId": "a-pivots",
     "textHash": "6db6329a",
-    "answer": "プログラムのファイルを差し替える道具から、パソコン版や企業向けへ広げた"
+    "answer": "プログラムのファイルを差し替える道具から、パソコン版や企業向けの機能へ広げた"
   },
   {
     "entityId": "ent_requestly_28e9f2",
     "analysisId": "a-story",
-    "textHash": "bd25c412",
+    "textHash": "ef1a1c5b",
     "answer": "-",
     "hidden": true
   },
@@ -555,7 +554,7 @@
     "entityId": "ent_rfrcui_64e924ac",
     "analysisId": "a-first_customers",
     "textHash": "63806e9e",
-    "answer": "最初の買い手は、発売前から著者を知っていた読者だった（推測）"
+    "answer": "発売前から著者を知っていた読者が、最初の買い手だった（推測）"
   },
   {
     "entityId": "ent_rfrcui_64e924ac",
@@ -589,27 +588,27 @@
     "entityId": "ent_rfrcui_64e924ac",
     "analysisId": "a-dependencies",
     "textHash": "68ff3829",
-    "answer": "売れ行きは、発売前に集めたTwitterなどの読者に頼る（第三者の分析）"
+    "answer": "売れ行きは、発売前からTwitterなどで著者を読んでいた人に頼る（第三者の分析）"
   },
   {
     "entityId": "ent_rfrcui_64e924ac",
     "analysisId": "a-first_customers",
     "textHash": "8e0bc523",
-    "answer": "最初の買い手は、発売前の約2年間のツイートや記事で2人を知った読者（推測）"
+    "answer": "初期の購入者が著者2人を知ったきっかけは、発売前のツイートや記事だった（推測）"
   },
   {
     "entityId": "ent_rfrcui_64e924ac",
     "analysisId": "a-channels",
     "textHash": "d8245307",
-    "answer": "発売前の約2年間、Twitterへの投稿や記事でデザインの小技を無料で紹介し、読者を集めた",
-    "note": "デザインの小技を7つ紹介した記事は、文章投稿サイトMediumで長い間、歴代1位だった（本人申告）。"
+    "answer": "Twitterのツイートや記事から読者を集めた",
+    "note": "デザインの小技を7つ紹介した記事は、Mediumで長い間、歴代1位だった（本人申告）。"
   },
   {
     "entityId": "ent_teamcamp_ae0c21986c4d",
     "analysisId": "a-customer",
     "textHash": "2cb0ee68",
     "answer": "マーケティング代理店、小さな制作会社、フリーランスにも売る。",
-    "note": "顧客に進捗や請求書を見せる必要がある。"
+    "note": "顧客への進捗報告や請求書の提示が必要な人が対象。"
   },
   {
     "entityId": "ent_teamcamp_ae0c21986c4d",
@@ -622,13 +621,13 @@
     "analysisId": "a-channels",
     "textHash": "fab97a5e",
     "answer": "交流サイトFacebookの代理店向けグループで客を集めた（本人申告）",
-    "note": "聞き取り先は15個のグループだった（2025年9月）。公式サイトでは、ブログ運営者や比較サイトにも紹介を呼びかけている。"
+    "note": "15個のグループで聞き取りをした（2025年9月）。公式サイトでは、ブログ運営者や比較サイトにも紹介を呼びかけている。"
   },
   {
     "entityId": "ent_teamcamp_ae0c21986c4d",
     "analysisId": "a-referral",
     "textHash": "1a4c69e6",
-    "answer": "客を紹介した人に、紹介した客ごとに期限なく紹介料を払い続ける（公式）"
+    "answer": "Teamcampは、紹介された客ごとに、紹介者へ期限なく紹介料を払い続ける（公式）"
   },
   {
     "entityId": "ent_teamcamp_ae0c21986c4d",
@@ -641,7 +640,7 @@
     "entityId": "ent_teamcamp_ae0c21986c4d",
     "analysisId": "a-cost_structure",
     "textHash": "ec60bf05",
-    "answer": "買い切りの客が50人規模で使うと、サーバー費で利益が減る懸念がある（本人申告）"
+    "answer": "買い切りプランを50人規模のチームが使うと、サーバー費で利益が減る懸念がある（本人申告）"
   },
   {
     "entityId": "ent_teamcamp_ae0c21986c4d",
@@ -661,8 +660,8 @@
     "entityId": "ent_teamcamp_ae0c21986c4d",
     "analysisId": "a-competition",
     "textHash": "a685f000",
-    "answer": "既存のAsanaや、同じ作業管理ツールのClickUp・Linearからデータを取り込める（公式）",
-    "note": "他の管理ツールとの違いは顧客専用画面だった（本人申告）。"
+    "answer": "競合のAsanaや、作業管理ツールのClickUp・Linearからデータを取り込める（公式）",
+    "note": "違いは顧客専用画面だった（本人申告）。"
   },
   {
     "entityId": "ent_teamcamp_ae0c21986c4d",
@@ -702,20 +701,20 @@
     "entityId": "ent_teamcamp_ae0c21986c4d",
     "analysisId": "a-lesson",
     "textHash": "cb251cf0",
-    "answer": "売る相手に直接聞き、払う意思を先に確かめてから作る方が、作り込むことより効果があった（本人申告）"
+    "answer": "売る相手に直接聞き、支払う意思を確かめてから作る方が、機能を作り込むより効果があった（本人申告）"
   },
   {
     "entityId": "ent_teamcamp_ae0c21986c4d",
     "analysisId": "a-story",
     "textHash": "3b4c1667",
-    "answer": "創業者は複数の顧客の検索対策を担当するうちに、複雑な管理ツールにうんざりして自分で作り始めた（本人申告）",
-    "note": "既存の管理ツールについて、Asanaは作業を1つ作るだけでも操作が複雑だったという。Mondayは使わない機能にも料金がかかり、Trelloは単純すぎた。"
+    "answer": "検索対策の仕事で管理ツールの複雑さに不満を持ち、自分で作り始めた（本人申告）",
+    "note": "既存の作業管理ツールでは、Asanaは作業を1つ作るだけでも操作が複雑だったという。Mondayは使わない機能にも料金がかかった。Trelloは単純すぎた。"
   },
   {
     "entityId": "ent_teamcamp_ae0c21986c4d",
     "analysisId": "a-why_it_worked",
     "textHash": "7ae85bc9",
-    "answer": "顧客に見せる専用画面が、他の管理ツールとの一番の違いになった（本人申告）"
+    "answer": "顧客専用画面で、他の管理ツールと差を付けた（本人申告）"
   },
   {
     "entityId": "ent_feature_upvote_3d6a00d965f0",
