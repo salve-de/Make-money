@@ -1,0 +1,777 @@
+{
+ "version": 1,
+ "source": {
+  "manifest": "/Volumes/SS/Worktrees/Make-Money/case-discover/data/candidates/records/snitch.research.json",
+  "manifestSha256": "4e15b565c11b6ef2858ecdf90f60538f17b3f01dfa2fad11ada97a4e7f57ce12",
+  "artifactsDir": "",
+  "collectedAt": "2026-10-08T04:30:11.760Z",
+  "generation": 3
+ },
+ "records": [
+  {
+   "id": "ent_snitch_3804233e5c0d",
+   "provenance": {
+    "detailsHash": "3feb9f9e9ec012b842fb7d33ac658f0e4fa5d398226a50819940fde0e2c3efad",
+    "artifactSha256": "4e15b565c11b6ef2858ecdf90f60538f17b3f01dfa2fad11ada97a4e7f57ce12"
+   },
+   "record": {
+    "id": "ent_snitch_3804233e5c0d",
+    "ticker": "SNITCH",
+    "name": "SNITCH",
+    "tagline": "インドの男性向け衣料ブランド。自社の通販サイト、アプリ、実店舗で服を販売する。",
+    "description": "シャツ、ズボン、ジーンズなどを男性に販売する。小売店向けの販売から始まり、コロナ禍で消費者への直接販売に切り替えた。その後は実店舗と短時間配送にも販路を広げた。",
+    "sector": "UNKNOWN",
+    "scale": "SCALEUP",
+    "founder": "Siddharth R Dungarwal",
+    "country": "インド",
+    "url": "https://www.snitch.com/",
+    "officialUrl": "https://www.snitch.com/",
+    "verifiedBadge": false,
+    "growthRateYoY": 0,
+    "isGrowthUnconfirmed": true,
+    "architecturePattern": "自社ブランドの男性向け衣料を、通販サイト、アプリ、実店舗で消費者に販売する。",
+    "pipelineStack": "未確認",
+    "targetPainWallet": "未確認",
+    "tags": [
+     "男性向け衣料",
+     "インド",
+     "消費者への直接販売",
+     "通販",
+     "実店舗",
+     "収集事例"
+    ],
+    "pnl": {
+     "monthlyRevenue": 0,
+     "cogs": 0,
+     "grossProfit": 0,
+     "grossMargin": 0,
+     "operatingExpenses": {
+      "serverAndApi": 0,
+      "advertising": 0,
+      "subcontracting": 0,
+      "toolsAndSaaS": 0,
+      "other": 0
+     },
+     "operatingProfit": 0,
+     "operatingMargin": 0,
+     "estimatedAnnualNetProfit": 0,
+     "isRevenueUnconfirmed": true,
+     "isOperatingProfitUnconfirmed": true,
+     "isMarginUnconfirmed": true,
+     "isGrossProfitUnconfirmed": true,
+     "isGrossMarginUnconfirmed": true,
+     "isCogsUnconfirmed": true,
+     "isCostsUnconfirmed": true,
+     "isNetProfitUnconfirmed": true,
+     "financialStatus": "UNAVAILABLE",
+     "sourceClass": "PRIMARY",
+     "sourceDoc": "https://textileinsights.in/snitch-revenue-jumps-80-to-rs-900-cr-in-fy26/"
+    },
+    "operations": {
+     "teamSize": 0,
+     "weeklyHours": 0,
+     "initialCapitalRequired": 0,
+     "automationLevel": 0,
+     "primaryChannels": [],
+     "toolStack": [],
+     "isTeamSizeUnconfirmed": true,
+     "isWeeklyHoursUnconfirmed": true,
+     "isCapitalUnconfirmed": true,
+     "isAutomationUnconfirmed": true
+    },
+    "strategy": {
+     "moatType": "UNKNOWN",
+     "blindspot": "未確認",
+     "moatDescription": "未確認",
+     "initialTraction": [],
+     "actionPlaybook": []
+    },
+    "temporal": {
+     "foundedYear": 2019,
+     "initialTractionPeriod": "未確認",
+     "dataSnapshotPeriod": "2026-10-08 時点の公開情報",
+     "viabilityStatus": "UNKNOWN",
+     "viabilityLabel": "未確認",
+     "eraContext": "未確認",
+     "currentViabilityAnalysis": "未確認"
+    },
+    "facts": [
+     {
+      "kind": "DESCRIPTION",
+      "text": "SNITCHは、男性向けにシャツ、ズボン、ジーンズなどを販売する衣料ブランドである。",
+      "sourceUrl": "https://www.snitch.com/about-us",
+      "quote": "offering everything from classic shirts, tailored trousers, and denim",
+      "checkedAt": "2026-10-08"
+     },
+     {
+      "kind": "FOUNDING",
+      "text": "Siddharth R Dungarwalは、小売店向けに衣料を販売するブランドとしてSNITCHを創業した。",
+      "sourceUrl": "https://yourstory.com/2021/05/b2b-mens-apparel-brand-snitch-d2c-route-covid-pandemic",
+      "statedAt": "2019-01",
+      "quote": "by Siddharth R Dungarwal",
+      "checkedAt": "2026-10-08"
+     },
+     {
+      "kind": "FOUNDING",
+      "text": "Dungarwalは、他社向けの服づくりを続ける中で、自分の事業を作りたいと考えていた。",
+      "sourceUrl": "https://www.indianretailer.com/article/retail-business/fashion-accessories/snitch-didnt-take-birth-studio-it-happened-scrappy",
+      "quote": "I always wanted to create something of my own",
+      "checkedAt": "2026-10-08"
+     },
+     {
+      "kind": "CHANNEL",
+      "text": "SNITCHは、インド各地の小売店に商品を渡して、消費者の反応を確かめるところから始めた。",
+      "sourceUrl": "https://www.indianretailer.com/interview/retail-people/startup/how-snitch-is-embedding-technology-to-build-a-successful-brand.i1938",
+      "quote": "we distributed our stocks initially",
+      "checkedAt": "2026-10-08"
+     },
+     {
+      "kind": "EVENT",
+      "text": "SNITCHは、コロナ禍で小売店向けの販売が落ち込み、売れ残った在庫を抱えた。",
+      "sourceUrl": "https://yourstory.com/2021/05/b2b-mens-apparel-brand-snitch-d2c-route-covid-pandemic",
+      "quote": "stuck with a huge inventory",
+      "checkedAt": "2026-10-08"
+     },
+     {
+      "kind": "EVENT",
+      "text": "Dungarwalは、通販サイトFlipkartやMyntraで在庫を売る方法では利益を得られないと考えた。",
+      "sourceUrl": "https://www.indianretailer.com/interview/retail-people/startup/how-snitch-is-embedding-technology-to-build-a-successful-brand.i1938",
+      "quote": "we wouldn’t be making any money",
+      "checkedAt": "2026-10-08"
+     },
+     {
+      "kind": "CHANNEL",
+      "text": "SNITCHは、販売開始当初の商品宣伝にSNSを使った。",
+      "sourceUrl": "https://www.indianretailer.com/interview/retail-people/startup/how-snitch-is-embedding-technology-to-build-a-successful-brand.i1938",
+      "quote": "social media was the only platform",
+      "checkedAt": "2026-10-08"
+     },
+     {
+      "kind": "EVENT",
+      "text": "SNITCHは、顧客の信頼を得るため、通常の営業時間外にも問い合わせに答えた。",
+      "sourceUrl": "https://www.indianretailer.com/interview/retail-people/startup/how-snitch-is-embedding-technology-to-build-a-successful-brand.i1938",
+      "quote": "even at odd hours",
+      "checkedAt": "2026-10-08"
+     },
+     {
+      "kind": "FUNDING",
+      "text": "Dungarwalは、家族の支援を受けてSNITCHの初期資金を用意した。",
+      "sourceUrl": "https://yourstory.com/2021/05/b2b-mens-apparel-brand-snitch-d2c-route-covid-pandemic",
+      "quote": "with backing from his family",
+      "checkedAt": "2026-10-08"
+     },
+     {
+      "kind": "OTHER",
+      "text": "創業者によると、SNITCHの月間売上は約4 croreインドルピーに達した。",
+      "sourceUrl": "https://yourstory.com/2021/05/b2b-mens-apparel-brand-snitch-d2c-route-covid-pandemic",
+      "quote": "around Rs 4 crore",
+      "numberKind": "REVENUE",
+      "asOf": "2021-03",
+      "periodKind": "MONTH",
+      "checkedAt": "2026-10-08"
+     },
+     {
+      "kind": "EVENT",
+      "text": "SNITCHは、他社の通販サイトで売るより先に、自社の通販サイトを作った。",
+      "sourceUrl": "https://indianretailer.com/interview/retail-people/startup/here-s-how-snitch-giving-high-fashion-goals-to-indian-men.i1923",
+      "quote": "the brand created its website",
+      "checkedAt": "2026-10-08"
+     },
+     {
+      "kind": "EVENT",
+      "text": "SNITCHは、顧客が返品や交換を申し込む手続きを自動化した。",
+      "sourceUrl": "https://indianretailer.com/interview/retail-people/startup/here-s-how-snitch-giving-high-fashion-goals-to-indian-men.i1923",
+      "quote": "returns and exchange process seamless through automation",
+      "checkedAt": "2026-10-08"
+     },
+     {
+      "kind": "CHANNEL",
+      "text": "SNITCHは、自社の買い物用アプリを公開した。",
+      "sourceUrl": "https://indianretailer.com/interview/retail-people/startup/here-s-how-snitch-giving-high-fashion-goals-to-indian-men.i1923",
+      "quote": "it has launched an app",
+      "checkedAt": "2026-10-08"
+     },
+     {
+      "kind": "CHANNEL",
+      "text": "Dungarwalによると、起業家が出資を募るテレビ番組Shark Tank Indiaへの出演後に、SNITCHのサイトを訪れる人が増えた。",
+      "sourceUrl": "https://indianexpress.com/article/entertainment/television/shark-tank-india-2-snitch-founder-siddharth-dungarwal-on-bagging-an-all-shark-deal-busts-myth-about-show/",
+      "quote": "post the episode, his website saw massive traffic",
+      "checkedAt": "2026-10-08"
+     },
+     {
+      "kind": "FUNDING",
+      "text": "SNITCHは、シリーズAと呼ばれる資金調達で110 croreインドルピーを集めた。",
+      "sourceUrl": "https://www.indianretailer.com/interview/retail-people/new-commerce/how-tech-infused-threads-define-snitchs-journey-prominence",
+      "quote": "raised Rs 110 Cr",
+      "numberKind": "FUNDING",
+      "asOf": "2023-12",
+      "checkedAt": "2026-10-08"
+     },
+     {
+      "kind": "EVENT",
+      "text": "Dungarwalによると、実店舗での販売を始めた後、顧客の購入額の平均が上がった。",
+      "sourceUrl": "https://www.indianretailer.com/interview/retail-people/new-commerce/how-tech-infused-threads-define-snitchs-journey-prominence",
+      "quote": "boost in average order value",
+      "checkedAt": "2026-10-08"
+     },
+     {
+      "kind": "EVENT",
+      "text": "Dungarwalによると、実店舗での販売を始めた後、返品が減った。",
+      "sourceUrl": "https://www.indianretailer.com/interview/retail-people/new-commerce/how-tech-infused-threads-define-snitchs-journey-prominence",
+      "quote": "reduced returns when we ventured into retail",
+      "checkedAt": "2026-10-08"
+     },
+     {
+      "kind": "EVENT",
+      "text": "Dungarwalは、最初の店舗で採算が合ったため、出店を増やしたと説明した。",
+      "sourceUrl": "https://www.indianretailer.com/article/retail-business/fashion-accessories/snitch-didnt-take-birth-studio-it-happened-scrappy",
+      "quote": "The unit economics made sense.",
+      "checkedAt": "2026-10-08"
+     },
+     {
+      "kind": "CHANNEL",
+      "text": "SNITCHは、通販で売れ行きのよい地域への出店を優先した。",
+      "sourceUrl": "https://www.indianretailer.com/article/retail-business/fashion-accessories/snitch-didnt-take-birth-studio-it-happened-scrappy",
+      "quote": "our top-performing regions first",
+      "checkedAt": "2026-10-08"
+     },
+     {
+      "kind": "FUNDING",
+      "text": "SNITCHは、新株発行によって会社に入る資金として約280 croreインドルピーを調達した。",
+      "sourceUrl": "https://www.moneycontrol.com/news/business/startup/snitch-secures-rs-340-crore-from-360-one-asset-manyavar-s-ravi-modi-others-13083779.html",
+      "quote": "raised about Rs 280 crore in primary capital",
+      "numberKind": "FUNDING",
+      "asOf": "2025",
+      "checkedAt": "2026-10-08"
+     },
+     {
+      "kind": "EVENT",
+      "text": "SNITCHは、注文した衣服を短時間で届けるサービスSnitch Quickを開始した。",
+      "sourceUrl": "https://textileinsights.in/snitch-revenue-jumps-80-to-rs-900-cr-in-fy26/",
+      "statedAt": "2025-10",
+      "quote": "Snitch Quick launched in October 2025",
+      "checkedAt": "2026-10-08"
+     },
+     {
+      "kind": "EVENT",
+      "text": "SNITCHは、衣料品に加えて香水、靴、アクセサリーにも商品を広げている。",
+      "sourceUrl": "https://textileinsights.in/snitch-revenue-jumps-80-to-rs-900-cr-in-fy26/",
+      "quote": "expanding beyond core apparel into lifestyle segments including perfumes, footwear and accessories",
+      "checkedAt": "2026-10-08"
+     },
+     {
+      "kind": "EVENT",
+      "text": "SNITCHは、米国、イスラエル、イランを巡る緊張を理由に、西アジアへの店舗展開を一時停止した。",
+      "sourceUrl": "https://textileinsights.in/snitch-revenue-jumps-80-to-rs-900-cr-in-fy26/",
+      "quote": "temporarily paused its international retail expansion plans in West Asia",
+      "checkedAt": "2026-10-08"
+     },
+     {
+      "kind": "OTHER",
+      "text": "SNITCHの会計年度FY26の売上は、創業者が公表した未監査数値で900 croreインドルピーだった。",
+      "sourceUrl": "https://textileinsights.in/snitch-revenue-jumps-80-to-rs-900-cr-in-fy26/",
+      "quote": "revenue for FY26, reaching Rs 900 crore",
+      "numberKind": "REVENUE",
+      "asOf": "2026-03",
+      "periodKind": "FISCAL_YEAR",
+      "basis": "2026年3月期。創業者公表の未監査数値。",
+      "checkedAt": "2026-10-08"
+     },
+     {
+      "kind": "OTHER",
+      "text": "Textile Insightsは、SNITCHの前の会計年度の売上を498 croreインドルピーと報じた。",
+      "sourceUrl": "https://textileinsights.in/snitch-revenue-jumps-80-to-rs-900-cr-in-fy26/",
+      "quote": "Rs 498 crore in the previous fiscal",
+      "numberKind": "REVENUE",
+      "asOf": "2025-03",
+      "periodKind": "FISCAL_YEAR",
+      "basis": "2025年3月期。記事では当該年度の監査状況を個別に説明していない。",
+      "checkedAt": "2026-10-08"
+     },
+     {
+      "kind": "PRICING",
+      "text": "取得時に読めた紹介記事では、SNITCHと歌手Bismilが共同で作ったシャツの価格は1,499インドルピーからと記載されている。",
+      "sourceUrl": "https://www.indulgexpress.com/fashion/new-launches/2026/Jan/02/sufi-artiste-bismil-inspires-new-menswear-collaboration",
+      "quote": "Price starts at Rs 1,499.",
+      "numberKind": "PRICE",
+      "asOf": "2026-10",
+      "basis": "取得時に記事上で確認できた表示価格。発売日と現行の購入価格は未確認。",
+      "checkedAt": "2026-10-08"
+     }
+    ],
+    "metrics": [
+     {
+      "numberKind": "REVENUE",
+      "amount": 4,
+      "currency": "INR",
+      "unit": "crore",
+      "label": "月間売上",
+      "asOf": "2021-03",
+      "periodKind": "MONTH",
+      "quote": "around Rs 4 crore",
+      "sourceUrl": "https://yourstory.com/2021/05/b2b-mens-apparel-brand-snitch-d2c-route-covid-pandemic",
+      "checkedAt": "2026-10-08",
+      "origin": "SELF_REPORTED",
+      "basis": "創業者による概数。返品控除前後などの会計上の定義は未確認。",
+      "measure": "REVENUE",
+      "statedAt": "2021-03",
+      "period": "2021-03"
+     },
+     {
+      "numberKind": "FUNDING",
+      "amount": 110,
+      "currency": "INR",
+      "unit": "crore",
+      "label": "シリーズA調達額",
+      "asOf": "2023-12",
+      "quote": "raised Rs 110 Cr",
+      "sourceUrl": "https://www.indianretailer.com/interview/retail-people/new-commerce/how-tech-infused-threads-define-snitchs-journey-prominence",
+      "checkedAt": "2026-10-08",
+      "origin": "ARTICLE",
+      "basis": "SWC GlobalとIvyCap Venturesが共同で主導した調達。年月はMoneycontrolの記述でも照合した。",
+      "measure": "FUNDING",
+      "periodKind": "POINT",
+      "statedAt": "2023-12",
+      "period": "2023-12"
+     },
+     {
+      "numberKind": "FUNDING",
+      "amount": 280,
+      "currency": "INR",
+      "unit": "crore",
+      "label": "新株発行による会社への調達額",
+      "asOf": "2025",
+      "quote": "raised about Rs 280 crore in primary capital",
+      "sourceUrl": "https://www.moneycontrol.com/news/business/startup/snitch-secures-rs-340-crore-from-360-one-asset-manyavar-s-ravi-modi-others-13083779.html",
+      "checkedAt": "2026-10-08",
+      "origin": "ARTICLE",
+      "basis": "概数。既存株主が株式を売却した部分を除く。調達完了月は本文から特定できない。",
+      "measure": "FUNDING",
+      "periodKind": "POINT",
+      "statedAt": "2025",
+      "period": "2025"
+     },
+     {
+      "numberKind": "REVENUE",
+      "amount": 498,
+      "currency": "INR",
+      "unit": "crore",
+      "label": "2025年3月期売上",
+      "asOf": "2025-03",
+      "periodKind": "FISCAL_YEAR",
+      "quote": "Rs 498 crore in the previous fiscal",
+      "sourceUrl": "https://textileinsights.in/snitch-revenue-jumps-80-to-rs-900-cr-in-fy26/",
+      "checkedAt": "2026-10-08",
+      "origin": "ARTICLE",
+      "basis": "FY26記事の前年比較値。監査済みの提出書類とは照合していない。",
+      "measure": "REVENUE",
+      "statedAt": "2025-03",
+      "period": "2025-03"
+     },
+     {
+      "numberKind": "REVENUE",
+      "amount": 900,
+      "currency": "INR",
+      "unit": "crore",
+      "label": "2026年3月期売上",
+      "asOf": "2026-03",
+      "periodKind": "FISCAL_YEAR",
+      "quote": "revenue for FY26, reaching Rs 900 crore",
+      "sourceUrl": "https://textileinsights.in/snitch-revenue-jumps-80-to-rs-900-cr-in-fy26/",
+      "checkedAt": "2026-10-08",
+      "origin": "SELF_REPORTED",
+      "basis": "創業者兼CEOが公表した未監査数値。将来目標ではなく年度実績として報じられた値。",
+      "measure": "REVENUE",
+      "statedAt": "2026-03",
+      "period": "2026-03"
+     },
+     {
+      "numberKind": "PRICE",
+      "amount": 1499,
+      "currency": "INR",
+      "label": "Bismil共同企画シャツの紹介記事上の開始価格",
+      "asOf": "2026-10",
+      "quote": "Price starts at Rs 1,499.",
+      "sourceUrl": "https://www.indulgexpress.com/fashion/new-launches/2026/Jan/02/sufi-artiste-bismil-inspires-new-menswear-collaboration",
+      "checkedAt": "2026-10-08",
+      "origin": "ARTICLE",
+      "basis": "取得時に読めた紹介記事の表示価格。公式店の現行価格、商品ごとの価格、発売日は未確認。",
+      "measure": "PRICE",
+      "periodKind": "POINT",
+      "statedAt": "2026-10",
+      "period": "2026-10"
+     }
+    ],
+    "reaudit": {
+     "status": "PARTIAL",
+     "auditDate": "2026-10-08",
+     "timezone": "Asia/Tokyo",
+     "auditOwner": "case:research",
+     "method": "MANUAL_REAUDIT",
+     "family": "new-collection",
+     "sources": [
+      {
+       "url": "https://www.snitch.com/about-us",
+       "publisher": "SNITCH公式サイト",
+       "sourceType": "official_website",
+       "publicationDate": null,
+       "checkedAt": "2026-10-08",
+       "rightsTier": "TIER1_OFFICIAL"
+      },
+      {
+       "url": "https://yourstory.com/2021/05/b2b-mens-apparel-brand-snitch-d2c-route-covid-pandemic",
+       "publisher": "YourStory",
+       "sourceType": "article",
+       "publicationDate": "2021-05-10",
+       "checkedAt": "2026-10-08",
+       "rightsTier": "TIER2_FACTS_ONLY"
+      },
+      {
+       "url": "https://startupmahakumbh.org/profile/SiddharthDungarwal.pdf",
+       "publisher": "Startup Mahakumbh",
+       "sourceType": "article",
+       "publicationDate": null,
+       "checkedAt": "2026-10-08",
+       "rightsTier": "TIER2_FACTS_ONLY"
+      },
+      {
+       "url": "https://www.indianretailer.com/interview/retail-people/startup/how-snitch-is-embedding-technology-to-build-a-successful-brand.i1938",
+       "publisher": "Indian Retailer",
+       "sourceType": "article",
+       "publicationDate": "2021-11-26",
+       "checkedAt": "2026-10-08",
+       "rightsTier": "TIER2_FACTS_ONLY"
+      },
+      {
+       "url": "https://indianretailer.com/interview/retail-people/startup/here-s-how-snitch-giving-high-fashion-goals-to-indian-men.i1923",
+       "publisher": "Indian Retailer",
+       "sourceType": "article",
+       "publicationDate": "2021-10-29",
+       "checkedAt": "2026-10-08",
+       "rightsTier": "TIER2_FACTS_ONLY"
+      },
+      {
+       "url": "https://shop.indiaretailing.com/wp-content/uploads/2023/07/12-pages-sample-July23.pdf",
+       "publisher": "IMAGES Business of Fashion",
+       "sourceType": "article",
+       "publicationDate": null,
+       "checkedAt": "2026-10-08",
+       "rightsTier": "TIER2_FACTS_ONLY"
+      },
+      {
+       "url": "https://shop.indiaretailing.com/wp-content/uploads/2023/10/12-pages-sample-Oct23.pdf",
+       "publisher": "IMAGES Business of Fashion",
+       "sourceType": "article",
+       "publicationDate": null,
+       "checkedAt": "2026-10-08",
+       "rightsTier": "TIER2_FACTS_ONLY"
+      },
+      {
+       "url": "https://indianexpress.com/article/entertainment/television/shark-tank-india-2-snitch-founder-siddharth-dungarwal-on-bagging-an-all-shark-deal-busts-myth-about-show/",
+       "publisher": "The Indian Express",
+       "sourceType": "article",
+       "publicationDate": "2023-02-02",
+       "checkedAt": "2026-10-08",
+       "rightsTier": "TIER2_FACTS_ONLY"
+      },
+      {
+       "url": "https://www.indianretailer.com/interview/retail-people/new-commerce/how-tech-infused-threads-define-snitchs-journey-prominence",
+       "publisher": "Indian Retailer",
+       "sourceType": "article",
+       "publicationDate": "2023-12-19",
+       "checkedAt": "2026-10-08",
+       "rightsTier": "TIER2_FACTS_ONLY"
+      },
+      {
+       "url": "https://www.indianretailer.com/article/retail-business/fashion-accessories/snitch-didnt-take-birth-studio-it-happened-scrappy",
+       "publisher": "Indian Retailer",
+       "sourceType": "article",
+       "publicationDate": "2025-06-13",
+       "checkedAt": "2026-10-08",
+       "rightsTier": "TIER2_FACTS_ONLY"
+      },
+      {
+       "url": "https://www.moneycontrol.com/news/business/startup/snitch-secures-rs-340-crore-from-360-one-asset-manyavar-s-ravi-modi-others-13083779.html",
+       "publisher": "Moneycontrol",
+       "sourceType": "article",
+       "publicationDate": "2025-06-02",
+       "checkedAt": "2026-10-08",
+       "rightsTier": "TIER2_FACTS_ONLY"
+      },
+      {
+       "url": "https://textileinsights.in/snitch-revenue-jumps-80-to-rs-900-cr-in-fy26/",
+       "publisher": "Textile Insights",
+       "sourceType": "article",
+       "publicationDate": "2026-04-15",
+       "checkedAt": "2026-10-08",
+       "rightsTier": "TIER2_FACTS_ONLY"
+      },
+      {
+       "url": "https://www.indulgexpress.com/fashion/new-launches/2026/Jan/02/sufi-artiste-bismil-inspires-new-menswear-collaboration",
+       "publisher": "Indulge / The New Indian Express",
+       "sourceType": "article",
+       "publicationDate": "2026-01-02",
+       "checkedAt": "2026-10-08",
+       "rightsTier": "TIER2_FACTS_ONLY"
+      }
+     ],
+     "supported": [],
+     "unknown": [
+      "公式サイトの商品一覧では、本文から商品価格を取得できなかった。旧公式サイトとWebアーカイブでも価格を確認できず、公式店の現行価格と過去からの値上げ・値下げは未確認。",
+      "Myntraの検索結果には価格が表示されたが、ページを開くとメンテナンス表示になった。保存版も取得できなかったため、その価格は採用していない。",
+      "Bismil共同企画シャツの価格は紹介記事の表示として記録した。発売日、取得日の販売継続、公式店での現行価格は確認できていない。",
+      "最初の小売店顧客の店名と、その店に営業した具体的な方法は未確認。",
+      "自社通販の最初の購入者が、友人、SNS広告、商品提供を受けた発信者の紹介など、どこから来たかは未確認。関連する動画の第三者文字起こしページは本文を取得できず、採用していない。",
+      "現在の従業員数、創業者が専業になった時期、各担当者が加わった時期は未確認。",
+      "店舗開設後の平均購入額の上昇幅と返品の減少幅は、採用したインタビューに数値がない。",
+      "Textile Insightsの店舗数と販路別売上比率は、記事での現在値として書かれているが、測定年月が明示されていないためmetricsに採用していない。",
+      "FY26売上は創業者公表の未監査数値であり、監査済み決算や提出書類による独立確認は行えていない。",
+      "会社全体の売却、上場の実施、創業者の持分売却は確認できていない。既存投資家の株式売却を会社全体の売却として扱っていない。",
+      "衣料小売に対応するsectorの選択肢が指定一覧にないため、sectorはUNKNOWNとした。",
+      "Snitch Quickが約束する配送時間の上限（記事では60分以内）は、期間の数字ではなくサービスの約束時間であり、取り込みの検査で数字の区分に合わないため、数字の欄からは外した。実際の配達時間の平均や達成率も確認できていない。",
+      "実行方式に従いコマンド実行とファイル作成は行っていない。ローカルのREADME、見本JSON、OWNER_INTENTは未閲覧であり、取り込み検査のunconfirmedFactsとthinCasesは未確認。"
+     ],
+     "conflicts": [
+      "創業時期について、YourStoryとIndian Retailerのインタビューは2019年とし、IMAGES Business of Fashionの2023年7月号は2018年としている。複数の創業者取材記事が一致する2019年をfoundedYearに採用した。2020年の記述は消費者向け通販開始と区別した。",
+      "通販サイトの開始時期について、YourStoryは2020年6月とする一方、Startup Mahakumbhの創業者紹介は2020年7月4日、IMAGES Business of Fashionの創業者発言は2020年7月とする。本記録では後者を採用したが、公開記録による独立確認はできていない。",
+      "通販開始時の商品数は、YourStoryが40、Startup Mahakumbhが39、IMAGES Business of Fashionが35としている。対象や集計方法の差を説明する根拠がないため、商品数は採用していない。",
+      "資金調達の340 croreインドルピーという総額には、会社への新規資金約280 croreと既存株主による株式売却約60 croreが含まれる。会社に入る調達資金としては約280 croreだけを採用した。調達完了月は記事公開月から推定していない。",
+      "Textile Insightsは売上の伸びを80%と表現するが、同じ記事の比較値は900 croreと498 croreである。増加率は再計算して事実にせず、両年度の金額だけを採用した。",
+      "Textile InsightsはFY26のEBITDAという利益指標をFY25の純損失と比較している。両者は異なる利益指標なので、この比較だけで純利益の黒字化を主張していない。"
+     ]
+    },
+    "observationsStream": [],
+    "observations": [],
+    "claimBindings": [],
+    "publishability": "PUBLISHABLE",
+    "batchId": "research_snitch_20261008",
+    "financialStatus": "UNAVAILABLE",
+    "unknownsNotes": [
+     "公式サイトの商品一覧では、本文から商品価格を取得できなかった。旧公式サイトとWebアーカイブでも価格を確認できず、公式店の現行価格と過去からの値上げ・値下げは未確認。",
+     "Myntraの検索結果には価格が表示されたが、ページを開くとメンテナンス表示になった。保存版も取得できなかったため、その価格は採用していない。",
+     "Bismil共同企画シャツの価格は紹介記事の表示として記録した。発売日、取得日の販売継続、公式店での現行価格は確認できていない。",
+     "最初の小売店顧客の店名と、その店に営業した具体的な方法は未確認。",
+     "自社通販の最初の購入者が、友人、SNS広告、商品提供を受けた発信者の紹介など、どこから来たかは未確認。関連する動画の第三者文字起こしページは本文を取得できず、採用していない。",
+     "現在の従業員数、創業者が専業になった時期、各担当者が加わった時期は未確認。",
+     "店舗開設後の平均購入額の上昇幅と返品の減少幅は、採用したインタビューに数値がない。",
+     "Textile Insightsの店舗数と販路別売上比率は、記事での現在値として書かれているが、測定年月が明示されていないためmetricsに採用していない。",
+     "FY26売上は創業者公表の未監査数値であり、監査済み決算や提出書類による独立確認は行えていない。",
+     "会社全体の売却、上場の実施、創業者の持分売却は確認できていない。既存投資家の株式売却を会社全体の売却として扱っていない。",
+     "衣料小売に対応するsectorの選択肢が指定一覧にないため、sectorはUNKNOWNとした。",
+     "Snitch Quickが約束する配送時間の上限（記事では60分以内）は、期間の数字ではなくサービスの約束時間であり、取り込みの検査で数字の区分に合わないため、数字の欄からは外した。実際の配達時間の平均や達成率も確認できていない。",
+     "実行方式に従いコマンド実行とファイル作成は行っていない。ローカルのREADME、見本JSON、OWNER_INTENTは未閲覧であり、取り込み検査のunconfirmedFactsとthinCasesは未確認。"
+    ],
+    "evidenceCards": [
+     {
+      "id": "ent_snitch_3804233e5c0d_pack_source_1",
+      "type": "UNKNOWN_AUDIT",
+      "title": "出典: SNITCH公式サイト",
+      "badge": "出典",
+      "evidenceStatus": "REPORTED",
+      "punchline": "事例の材料に使った出典の所在。内容の照合は事例の照合段で行う。",
+      "details": [
+       "URL: https://www.snitch.com/about-us",
+       "ホスト: snitch.com",
+       "確認日: 2026-10-08"
+      ],
+      "url": "https://www.snitch.com/about-us",
+      "sourceNote": "official source listed in case-rebuild pack https://www.snitch.com/about-us",
+      "sourceClass": "PRIMARY"
+     },
+     {
+      "id": "ent_snitch_3804233e5c0d_pack_source_2",
+      "type": "UNKNOWN_AUDIT",
+      "title": "出典: YourStory",
+      "badge": "出典",
+      "evidenceStatus": "REPORTED",
+      "punchline": "事例の材料に使った出典の所在。内容の照合は事例の照合段で行う。",
+      "details": [
+       "URL: https://yourstory.com/2021/05/b2b-mens-apparel-brand-snitch-d2c-route-covid-pandemic",
+       "ホスト: yourstory.com",
+       "確認日: 2026-10-08"
+      ],
+      "url": "https://yourstory.com/2021/05/b2b-mens-apparel-brand-snitch-d2c-route-covid-pandemic",
+      "sourceNote": "secondary source listed in case-rebuild pack https://yourstory.com/2021/05/b2b-mens-apparel-brand-snitch-d2c-route-covid-pandemic",
+      "sourceClass": "INDEPENDENT_SECONDARY"
+     },
+     {
+      "id": "ent_snitch_3804233e5c0d_pack_source_3",
+      "type": "UNKNOWN_AUDIT",
+      "title": "出典: Startup Mahakumbh",
+      "badge": "出典",
+      "evidenceStatus": "REPORTED",
+      "punchline": "事例の材料に使った出典の所在。内容の照合は事例の照合段で行う。",
+      "details": [
+       "URL: https://startupmahakumbh.org/profile/SiddharthDungarwal.pdf",
+       "ホスト: startupmahakumbh.org",
+       "確認日: 2026-10-08"
+      ],
+      "url": "https://startupmahakumbh.org/profile/SiddharthDungarwal.pdf",
+      "sourceNote": "secondary source listed in case-rebuild pack https://startupmahakumbh.org/profile/SiddharthDungarwal.pdf",
+      "sourceClass": "INDEPENDENT_SECONDARY"
+     },
+     {
+      "id": "ent_snitch_3804233e5c0d_pack_source_4",
+      "type": "UNKNOWN_AUDIT",
+      "title": "出典: Indian Retailer",
+      "badge": "出典",
+      "evidenceStatus": "REPORTED",
+      "punchline": "事例の材料に使った出典の所在。内容の照合は事例の照合段で行う。",
+      "details": [
+       "URL: https://www.indianretailer.com/interview/retail-people/startup/how-snitch-is-embedding-technology-to-build-a-successful-brand.i1938",
+       "ホスト: indianretailer.com",
+       "確認日: 2026-10-08"
+      ],
+      "url": "https://www.indianretailer.com/interview/retail-people/startup/how-snitch-is-embedding-technology-to-build-a-successful-brand.i1938",
+      "sourceNote": "secondary source listed in case-rebuild pack https://www.indianretailer.com/interview/retail-people/startup/how-snitch-is-embedding-technology-to-build-a-successful-brand.i1938",
+      "sourceClass": "INDEPENDENT_SECONDARY"
+     },
+     {
+      "id": "ent_snitch_3804233e5c0d_pack_source_5",
+      "type": "UNKNOWN_AUDIT",
+      "title": "出典: Indian Retailer",
+      "badge": "出典",
+      "evidenceStatus": "REPORTED",
+      "punchline": "事例の材料に使った出典の所在。内容の照合は事例の照合段で行う。",
+      "details": [
+       "URL: https://indianretailer.com/interview/retail-people/startup/here-s-how-snitch-giving-high-fashion-goals-to-indian-men.i1923",
+       "ホスト: indianretailer.com",
+       "確認日: 2026-10-08"
+      ],
+      "url": "https://indianretailer.com/interview/retail-people/startup/here-s-how-snitch-giving-high-fashion-goals-to-indian-men.i1923",
+      "sourceNote": "secondary source listed in case-rebuild pack https://indianretailer.com/interview/retail-people/startup/here-s-how-snitch-giving-high-fashion-goals-to-indian-men.i1923",
+      "sourceClass": "INDEPENDENT_SECONDARY"
+     },
+     {
+      "id": "ent_snitch_3804233e5c0d_pack_source_6",
+      "type": "UNKNOWN_AUDIT",
+      "title": "出典: IMAGES Business of Fashion",
+      "badge": "出典",
+      "evidenceStatus": "REPORTED",
+      "punchline": "事例の材料に使った出典の所在。内容の照合は事例の照合段で行う。",
+      "details": [
+       "URL: https://shop.indiaretailing.com/wp-content/uploads/2023/07/12-pages-sample-July23.pdf",
+       "ホスト: shop.indiaretailing.com",
+       "確認日: 2026-10-08"
+      ],
+      "url": "https://shop.indiaretailing.com/wp-content/uploads/2023/07/12-pages-sample-July23.pdf",
+      "sourceNote": "secondary source listed in case-rebuild pack https://shop.indiaretailing.com/wp-content/uploads/2023/07/12-pages-sample-July23.pdf",
+      "sourceClass": "INDEPENDENT_SECONDARY"
+     },
+     {
+      "id": "ent_snitch_3804233e5c0d_pack_source_7",
+      "type": "UNKNOWN_AUDIT",
+      "title": "出典: IMAGES Business of Fashion",
+      "badge": "出典",
+      "evidenceStatus": "REPORTED",
+      "punchline": "事例の材料に使った出典の所在。内容の照合は事例の照合段で行う。",
+      "details": [
+       "URL: https://shop.indiaretailing.com/wp-content/uploads/2023/10/12-pages-sample-Oct23.pdf",
+       "ホスト: shop.indiaretailing.com",
+       "確認日: 2026-10-08"
+      ],
+      "url": "https://shop.indiaretailing.com/wp-content/uploads/2023/10/12-pages-sample-Oct23.pdf",
+      "sourceNote": "secondary source listed in case-rebuild pack https://shop.indiaretailing.com/wp-content/uploads/2023/10/12-pages-sample-Oct23.pdf",
+      "sourceClass": "INDEPENDENT_SECONDARY"
+     },
+     {
+      "id": "ent_snitch_3804233e5c0d_pack_source_8",
+      "type": "UNKNOWN_AUDIT",
+      "title": "出典: The Indian Express",
+      "badge": "出典",
+      "evidenceStatus": "REPORTED",
+      "punchline": "事例の材料に使った出典の所在。内容の照合は事例の照合段で行う。",
+      "details": [
+       "URL: https://indianexpress.com/article/entertainment/television/shark-tank-india-2-snitch-founder-siddharth-dungarwal-on-bagging-an-all-shark-deal-busts-myth-about-show/",
+       "ホスト: indianexpress.com",
+       "確認日: 2026-10-08"
+      ],
+      "url": "https://indianexpress.com/article/entertainment/television/shark-tank-india-2-snitch-founder-siddharth-dungarwal-on-bagging-an-all-shark-deal-busts-myth-about-show/",
+      "sourceNote": "secondary source listed in case-rebuild pack https://indianexpress.com/article/entertainment/television/shark-tank-india-2-snitch-founder-siddharth-dungarwal-on-bagging-an-all-shark-deal-busts-myth-about-show/",
+      "sourceClass": "INDEPENDENT_SECONDARY"
+     },
+     {
+      "id": "ent_snitch_3804233e5c0d_pack_source_9",
+      "type": "UNKNOWN_AUDIT",
+      "title": "出典: Indian Retailer",
+      "badge": "出典",
+      "evidenceStatus": "REPORTED",
+      "punchline": "事例の材料に使った出典の所在。内容の照合は事例の照合段で行う。",
+      "details": [
+       "URL: https://www.indianretailer.com/interview/retail-people/new-commerce/how-tech-infused-threads-define-snitchs-journey-prominence",
+       "ホスト: indianretailer.com",
+       "確認日: 2026-10-08"
+      ],
+      "url": "https://www.indianretailer.com/interview/retail-people/new-commerce/how-tech-infused-threads-define-snitchs-journey-prominence",
+      "sourceNote": "secondary source listed in case-rebuild pack https://www.indianretailer.com/interview/retail-people/new-commerce/how-tech-infused-threads-define-snitchs-journey-prominence",
+      "sourceClass": "INDEPENDENT_SECONDARY"
+     },
+     {
+      "id": "ent_snitch_3804233e5c0d_pack_source_10",
+      "type": "UNKNOWN_AUDIT",
+      "title": "出典: Indian Retailer",
+      "badge": "出典",
+      "evidenceStatus": "REPORTED",
+      "punchline": "事例の材料に使った出典の所在。内容の照合は事例の照合段で行う。",
+      "details": [
+       "URL: https://www.indianretailer.com/article/retail-business/fashion-accessories/snitch-didnt-take-birth-studio-it-happened-scrappy",
+       "ホスト: indianretailer.com",
+       "確認日: 2026-10-08"
+      ],
+      "url": "https://www.indianretailer.com/article/retail-business/fashion-accessories/snitch-didnt-take-birth-studio-it-happened-scrappy",
+      "sourceNote": "secondary source listed in case-rebuild pack https://www.indianretailer.com/article/retail-business/fashion-accessories/snitch-didnt-take-birth-studio-it-happened-scrappy",
+      "sourceClass": "INDEPENDENT_SECONDARY"
+     },
+     {
+      "id": "ent_snitch_3804233e5c0d_pack_source_11",
+      "type": "UNKNOWN_AUDIT",
+      "title": "出典: Moneycontrol",
+      "badge": "出典",
+      "evidenceStatus": "REPORTED",
+      "punchline": "事例の材料に使った出典の所在。内容の照合は事例の照合段で行う。",
+      "details": [
+       "URL: https://www.moneycontrol.com/news/business/startup/snitch-secures-rs-340-crore-from-360-one-asset-manyavar-s-ravi-modi-others-13083779.html",
+       "ホスト: moneycontrol.com",
+       "確認日: 2026-10-08"
+      ],
+      "url": "https://www.moneycontrol.com/news/business/startup/snitch-secures-rs-340-crore-from-360-one-asset-manyavar-s-ravi-modi-others-13083779.html",
+      "sourceNote": "secondary source listed in case-rebuild pack https://www.moneycontrol.com/news/business/startup/snitch-secures-rs-340-crore-from-360-one-asset-manyavar-s-ravi-modi-others-13083779.html",
+      "sourceClass": "INDEPENDENT_SECONDARY"
+     },
+     {
+      "id": "ent_snitch_3804233e5c0d_pack_source_12",
+      "type": "UNKNOWN_AUDIT",
+      "title": "出典: Textile Insights",
+      "badge": "出典",
+      "evidenceStatus": "REPORTED",
+      "punchline": "事例の材料に使った出典の所在。内容の照合は事例の照合段で行う。",
+      "details": [
+       "URL: https://textileinsights.in/snitch-revenue-jumps-80-to-rs-900-cr-in-fy26/",
+       "ホスト: textileinsights.in",
+       "確認日: 2026-10-08"
+      ],
+      "url": "https://textileinsights.in/snitch-revenue-jumps-80-to-rs-900-cr-in-fy26/",
+      "sourceNote": "secondary source listed in case-rebuild pack https://textileinsights.in/snitch-revenue-jumps-80-to-rs-900-cr-in-fy26/",
+      "sourceClass": "INDEPENDENT_SECONDARY"
+     },
+     {
+      "id": "ent_snitch_3804233e5c0d_pack_source_13",
+      "type": "UNKNOWN_AUDIT",
+      "title": "出典: Indulge / The New Indian Express",
+      "badge": "出典",
+      "evidenceStatus": "REPORTED",
+      "punchline": "事例の材料に使った出典の所在。内容の照合は事例の照合段で行う。",
+      "details": [
+       "URL: https://www.indulgexpress.com/fashion/new-launches/2026/Jan/02/sufi-artiste-bismil-inspires-new-menswear-collaboration",
+       "ホスト: indulgexpress.com",
+       "確認日: 2026-10-08"
+      ],
+      "url": "https://www.indulgexpress.com/fashion/new-launches/2026/Jan/02/sufi-artiste-bismil-inspires-new-menswear-collaboration",
+      "sourceNote": "secondary source listed in case-rebuild pack https://www.indulgexpress.com/fashion/new-launches/2026/Jan/02/sufi-artiste-bismil-inspires-new-menswear-collaboration",
+      "sourceClass": "INDEPENDENT_SECONDARY"
+     }
+    ]
+   }
+  }
+ ]
+}
