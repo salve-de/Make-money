@@ -711,6 +711,20 @@ export function yenText(yen: number): string {
   }
   return `${n.toLocaleString('en-US')}円`;
 }
+/** 「約3万7,500円」「約3.8万円」「約300億円」のような円の額を数に直す。読めなければ null。 */
+function parseYen(label: string): number | null {
+  const m = /^([0-9][0-9,]*(?:\.[0-9]+)?億)?([0-9][0-9,]*(?:\.[0-9]+)?万)?([0-9][0-9,]*(?:\.[0-9]+)?)?$/.exec(label.replace(/\s/g, ''));
+  if (!m || (!m[1] && !m[2] && !m[3])) return null;
+  const n = (part: string | undefined, unit: number) => (part ? Number(part.replace(/[億万,]/g, '')) * unit : 0);
+  return n(m[1], 1e8) + n(m[2], 1e4) + n(m[3], 1);
+}
+const YEN_QUALIFIER = '(?:超|以上|以下|未満|ほど|強|弱|前後)';
+/** 外貨の額のすぐ後ろにある「（約◯円）」。間に「超」などが入ってもよい。 */
+const EXISTING_YEN_PAREN = new RegExp(`^(${YEN_QUALIFIER})?(\\s*)[（(]\\s*(?:約|およそ)?\\s*([0-9][0-9,.万億]*)円(${YEN_QUALIFIER})?\\s*[）)]`);
+/** 直したあとの二重（「（約300億円）超（約300億円）」）。同じ額の括弧が続いたら後ろを落とす。 */
+const DOUBLE_YEN_PAREN = new RegExp(`^(${YEN_QUALIFIER})?(\\s*)[（(]\\s*(?:約|およそ)?\\s*([0-9][0-9,.万億]*)円(?:${YEN_QUALIFIER})?\\s*[）)]`);
+const RANGE_THEN_YEN_RANGE = /^\s*(?:から|〜|~|～)\s*(?:US\$|\$|€|£|₹)?[0-9][0-9,.]*\s*(?:億|万|[kKMB])?\s*(?:ドル|ユーロ|ポンド|ルピー)?\s*[（(]\s*(?:約|およそ)?[0-9][0-9,.万億]*円\s*(?:から|〜|~|～)/;
+const SAME_YEN = (a: number, b: number): boolean => b > 0 && Math.abs(a - b) / b <= 0.1;
 export function withYenApprox(text: string): string {
   const out: string[] = [];
   let last = 0;
@@ -738,8 +752,35 @@ export function withYenApprox(text: string): string {
     if (!rate || !Number.isFinite(high) || high <= 0 || (low !== null && (!Number.isFinite(low) || low <= 0))) continue;
     // 金額のすぐ後ろに英字が続く（読めない桁や別の単位）時は、数字の頭だけを換算しない
     if (/^[A-Za-z]/.test(rest)) continue;
-    // すぐ前が円の額の括弧（「約900万円（6万ドル）」。円が先で外貨が後の並び）なら、もう換算してある
+    // すぐ前が円の額の括弧（「約900万円（6万ドル）」。円が先で外貨が後の並び）なら、もう換算してある（並びは screenText が外貨が先に直す）
     if (/円[（(]\s*$/.test(text.slice(0, m.index ?? 0))) continue;
+    // 「347ドルから2,100ドル（約5万円から32万円）」のように、円が範囲で1つの括弧に入っている時は、前の金額に別の円を足さない
+    if (RANGE_THEN_YEN_RANGE.test(rest)) continue;
+    // 円が既にある時、基準の換算とほぼ同じ額なら、書き方を基準の形（約3万7,500円）にそろえる。違う額（別の為替・別の意味）は触らない。
+    const existing = low === null ? EXISTING_YEN_PAREN.exec(rest) : null;
+    if (existing) {
+      const parsed = parseYen(existing[3]);
+      const canonical = high * rate;
+      if (parsed !== null && SAME_YEN(parsed, canonical)) {
+        const tail = rest.slice(existing[0].length);
+        const dup = DOUBLE_YEN_PAREN.exec(tail);
+        const dupParsed = dup ? parseYen(dup[3]) : null;
+        const dropDup = dup && dupParsed !== null && SAME_YEN(dupParsed, canonical);
+        const qualifier = existing[1] ?? existing[4] ?? (dropDup ? dup?.[1] : undefined) ?? '';
+        const prefix = existing[1] ?? '';
+        const suffix = existing[4] ?? '';
+        out.push(text.slice(last, end), `${prefix}（約${yenText(canonical)}${suffix}）`);
+        last = end + existing[0].length;
+        if (dropDup && dup) {
+          // 二重の括弧は落とし、「超」などが前の括弧に無ければ括弧の外に残す
+          if (!prefix && !suffix && qualifier) out.push(qualifier);
+          last += dup[0].length;
+        }
+        continue;
+      }
+    }
+    // 外貨のすぐ後ろに「超」などがあり、そのあとに円の括弧が続く時も、もう換算してある
+    if (new RegExp(`^${YEN_QUALIFIER}\\s*[（(]\\s*(?:約|およそ)?[0-9][0-9,.万億]*円`).test(rest)) continue;
     // すぐ後ろが円の額、または円の額を含む括弧なら、もう換算してある
     // 「90ドル〜（約1.35万円）」のように、「〜」のあとに円の括弧が続く並びも換算済み
     if (/^[、,\s]*(?:約|およそ)?[0-9][0-9,.万億]*円/.test(rest) || /^\s*[（(][^）)]*円/.test(rest) || /^\s*[〜~～]\s*[（(]\s*(?:約|およそ)?\s*[0-9][0-9,.万億]*円/.test(rest)) continue;
@@ -766,7 +807,20 @@ export function metricPeriodText(period: string): string {
 
 /** 画面に出す文の仕上げ: 出どころの印を外し、外貨の金額に円の概算を添える（どの欄の文にも同じ処理を通す）。 */
 export function screenText(text: string): string {
-  return withYenApprox(stripOriginTag(text));
+  return withYenApprox(unifyYenStyle(stripOriginTag(text)));
+}
+
+/**
+ * 円の書き方を1つにそろえる（読む人に、同じ額が別の額に見えないように）。
+ * 1. 円が先で外貨が後の並び（「約900万円（6万ドル）」）は、外貨が先の「6万ドル（約900万円）」に直す。
+ * 2. 億の単位で小数が2桁以上の概算（「約3.75億円」）は、小数1桁（「約3.8億円」）にする。
+ */
+const FOREIGN_IN_PAREN = `(?:US\\$|\\$|€|£|₹)\\s?${NUM}\\s?(?:億|万|[kKMB])?|${NUM}\\s?(?:億|万)?\\s?(?:ドル|ユーロ|ポンド|ルピー)`;
+const YEN_THEN_FOREIGN = new RegExp(`(?:約|およそ)?(${NUM}(?:億|万)?(?:[0-9][0-9,]*)?円)[（(]\\s*(${FOREIGN_IN_PAREN})\\s*[）)]`, 'g');
+export function unifyYenStyle(text: string): string {
+  return text
+    .replace(YEN_THEN_FOREIGN, (_all, yen: string, foreign: string) => `${foreign}（約${yen}）`)
+    .replace(/約([0-9]+)\.([0-9]{2,})億円/g, (_all, whole: string, frac: string) => `約${trimNum(Number(`${whole}.${frac}`), 1)}億円`);
 }
 
 /** 推測の文末「〜とみる。」「〜と見る。」「〜と推す。」を画面では省く（読む邪魔になるだけ）。前が短すぎる時は元のまま。 */
