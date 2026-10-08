@@ -77,7 +77,9 @@ export function applyCorrections(
         const l = files.detail.find((x) => x.entityId === c.entityId && x.analysisId === a.analysisId);
         if (!l) fail(c, `分析欄 ${a.analysisId} が無い`);
         if (!`${l!.answer} ${l!.note ?? ''}`.includes(a.match)) {
-          if ((a.answer && l!.answer === a.answer) || (a.note && l!.note === a.note) || (a.note === '' && l!.note === undefined)) { skipped += 1; continue; }
+          // 直しの指定した項目がすべて目標の値になっているときだけ「既に当たっている」とみなす（一部だけ当たっていても残りは適用する）
+          const wanted = [a.answer ? l!.answer === a.answer : null, a.note === '' ? l!.note === undefined : a.note ? l!.note === a.note : null, a.hidden ? l!.hidden === true : null].filter((x): x is boolean => x !== null);
+          if (wanted.length > 0 && wanted.every(Boolean)) { skipped += 1; continue; }
           fail(c, `分析欄の文「${a.match}」が無い`);
         }
         if (a.answer) l!.answer = a.answer;
