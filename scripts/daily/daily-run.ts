@@ -273,7 +273,14 @@ export async function runDaily(o: Options, d: Deps): Promise<DayRecord> {
   });
 
   // 公開で変わった手元のデータ(目録・画面の文)を、変更の申請として残す。次の日にメインへ取り込んでも食い違わないようにする
-  if (rec.publishedIds.length) await stage('record-data', async () => {
+  // 前の日に公開できたのに記録(commit/push/申請)が済んでいない分が手元に残っていれば、それも今日の記録にまとめる
+  const unrecorded = async (): Promise<boolean> => {
+    if (o.dryRun) return false;
+    const dirty = await d.exec(['git', 'status', '--porcelain', 'data']);
+    const ahead = await d.exec(['git', 'rev-list', '--count', 'origin/main..HEAD']);
+    return dirty.stdout.trim().length > 0 || Number(ahead.stdout.trim() || 0) > 0;
+  };
+  if (rec.publishedIds.length || (!o.dryRun && !rec.stages['record-data'] && await unrecorded())) await stage('record-data', async () => {
     const br = `auto/daily-${o.date}`;
     // どの段で止まっても、次の起動で続きからやり直せるようにする(変更が無ければ commit を飛ばす、申請が既にあれば作らない)
     const run = async (argv: string[]): Promise<ExecResult> => d.exec(argv);
@@ -281,7 +288,7 @@ export async function runDaily(o: Options, d: Deps): Promise<DayRecord> {
     let r = await run(['git', 'add', 'data']); if (r.code !== 0) return fails(r, 'git add');
     const staged = await run(['git', 'diff', '--cached', '--quiet']);
     if (staged.code === 1) {
-      r = await run(['git', 'commit', '-m', `毎日の自動実行: ${o.date} に公開した ${rec.publishedIds.length} 件の公開データ\n\nCo-Authored-By: Claude Sonnet 5.5 <noreply@anthropic.com>`]);
+      r = await run(['git', 'commit', '-m', `毎日の自動実行: ${o.date} の公開データ(公開 ${rec.publishedIds.length} 件)\n\nCo-Authored-By: Claude Sonnet 5.5 <noreply@anthropic.com>`]);
       if (r.code !== 0) return fails(r, 'git commit');
     } else if (staged.code !== 0) return fails(staged, 'git diff');
     r = await run(['git', 'push', 'origin', `HEAD:refs/heads/${br}`]); if (r.code !== 0) return fails(r, 'git push');

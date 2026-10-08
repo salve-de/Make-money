@@ -247,3 +247,12 @@ test('--force でも、今日の持ち越しと公開した記録は消えない
   assert.deepEqual(forced.publishedIds, ['a', 'b', 'c']);
   assert.ok(forced.ids.includes('d'));
 });
+
+test('前の日に記録が済まなかった公開データは、公開が無い日でも記録する', async () => {
+  const root = fixture(); const m = make(root, { catalogTotal: () => 2 });
+  const base = m.deps.exec;
+  m.deps.exec = async (argv, env) => (argv.join(' ').startsWith('git rev-list') ? ok('1\n') : base(argv, env));
+  const rec = await runDaily(opts(root), m.deps);
+  assert.equal(rec.stages['record-data']?.status, 'ok');
+  assert.ok(m.calls.some((c) => c.startsWith('gh pr create')));
+});
