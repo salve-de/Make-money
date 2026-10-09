@@ -1,5 +1,6 @@
 import type { CasePage } from '../../src/shared/case-page';
-import type { ReaderCase, ReaderSource } from '../../src/shared/reader-case';
+import type { ReaderCase, ReaderDisplay, ReaderSource } from '../../src/shared/reader-case';
+import { caseYearFrom } from '../../src/shared/case-year';
 import { textFingerprint } from '../../src/shared/text-fingerprint';
 
 const hostOf = (url: string) => { try { return new URL(url).hostname.replace(/^www\./, ''); } catch { return url; } };
@@ -24,7 +25,8 @@ export function headlineSource(page: CasePage): CasePage['sources'][number] {
   return best;
 }
 
-export function buildCasePageReader(page: CasePage, base?: ReaderCase): ReaderCase {
+export function buildCasePageReader(page: CasePage, base?: ReaderCase, recordYear?: number | null, labels?: ReaderDisplay['labels'], tags?: ReaderDisplay['tags']): ReaderCase {
+  const year = caseYearFrom(recordYear, page.timeline);
   const first = headlineSource(page);
   const own: ReaderSource = { id: 'case-page-1', publisher: hostOf(first.url), url: first.url, kind: 'ARTICLE' };
   const metrics = base?.metrics ?? [];
@@ -39,6 +41,11 @@ export function buildCasePageReader(page: CasePage, base?: ReaderCase): ReaderCa
     analysis: [],
     display: {
       casePage: page,
+      ...(year ? { year } : {}),
+      // 事業の札（data/fact-lines.json の labels）。事例の札が少ない時の補い。一覧と詳細の札（caseLabels）が読む
+      ...(labels ? { labels } : {}),
+      // タグ（data/case-tags.json。src/shared/case-taxonomy.ts の言葉の一覧から選んだもの）。一覧の札と絞り込みが読む
+      ...(tags ? { tags } : {}),
       // 一覧の1行（「。」を含んでも全文）。要約の事実と指紋を合わせ、一覧・比較が1文目で切らないようにする
       listLine: { factId: 'case-page-summary', factHash: textFingerprint(page.listLine), text: page.listLine },
     },

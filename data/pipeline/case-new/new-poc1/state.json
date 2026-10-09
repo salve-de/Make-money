@@ -1,0 +1,18 @@
+{
+ "runId": "new-poc1",
+ "candidateIds": [
+  "cand_polarsteps_2b2970",
+  "cand_wildgrain_2b5aec"
+ ],
+ "entityIds": [
+  "ent_polarsteps_2b2970abd201",
+  "ent_wildgrain_2b5aec41c733"
+ ],
+ "skipped": [],
+ "done": [
+  "research",
+  "media",
+  "run",
+  "check"
+ ]
+}

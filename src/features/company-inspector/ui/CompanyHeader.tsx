@@ -2,6 +2,9 @@ import React, { useState } from 'react';
 import Link from 'next/link';
 
 import { caseLabels } from '@/shared/display-text';
+import { caseYearOf } from '@/shared/case-year';
+import { YearChip } from '@/platform/components/grid/YearChip';
+import { TAG_CLASS, TAG_STATIC } from '@/platform/components/grid/CaseChips';
 import { sectorLabel } from '@/platform/components/grid/sectorLabel';
 import { useCompareTray } from '@/platform/hooks/useCompareTray';
 import { useEntityMedia } from '@/platform/hooks/useEntityMedia';
@@ -57,6 +60,7 @@ export function CompanyHeader({
   const externalUrl = rawUrl && !rawUrl.startsWith('http') ? `https://${rawUrl}` : rawUrl;
   const sector = sectorLabel(entity);
   const labels = caseLabels(entity);
+  const year = caseYearOf(entity);
 
   return (
     <>
@@ -74,12 +78,13 @@ export function CompanyHeader({
           <span className="term-panel-name hidden h-6 shrink-0 items-center lg:inline-flex">{UI.DETAIL_PANEL}</span>
           {positionLabel && <span className="term-num hidden shrink-0 text-term-muted lg:inline">{positionLabel}</span>}
           <div className="order-last min-w-0 basis-full border-t border-term-line-soft bg-term-panel px-3 py-2 lg:-mx-2.5 lg:px-2.5">
-            <div className="flex min-w-0 items-center gap-2">
+            <div className="flex min-w-0 flex-wrap items-center gap-x-2 gap-y-1">
               <EntityLogo asset={logo} variant="header" name={entity.name} />
               <h2 className="min-w-0 break-words text-base font-semibold leading-5 text-term-fg-strong lg:text-lg lg:leading-tight" title={entity.name}>
                 {entity.name}
               </h2>
-              {labels.map((label) => <span key={label} className="shrink-0 rounded-[2px] border border-term-line px-1.5 text-xs leading-5 text-term-sub">{label}</span>)}
+              <YearChip year={year} className="lg:text-sm" />
+              {labels.map((label) => <span key={label} className={`${TAG_CLASS} ${TAG_STATIC}`}>{label}</span>)}
             </div>
             {sector && <p className="truncate text-xs leading-4 text-term-label lg:mt-0.5">{sector}</p>}
           </div>

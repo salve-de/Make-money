@@ -2,7 +2,8 @@ import assert from 'node:assert/strict';
 import { test } from 'node:test';
 import { hideLines } from '../owner-context';
 import { jaAmount, verifyDraft, yenOff } from '../../case-write/verify';
-import { extractMarkdown, writeCase } from '../../case-write/run';
+import { extractMarkdown, markInferences, parseFactReport, tidy, writeCase } from '../../case-write/run';
+import { NEWER_RULES, checkMarkdown } from '../../case-pages/lib';
 import type { CaseInput } from '../../case-write/input';
 import type { Caller } from '../agent-call';
 
@@ -36,6 +37,10 @@ Xbox Shop は2019年に公開した店。2021年の売上は12万ドル（約1,8
 
 ## 時間順の流れ
 - 2019年：公開。
+- 2019年：最初の客が付いた。
+- 2019年：店を広げた。
+- 2021年：売上が伸びた。
+- 2021年：客が3,000人になった。
 
 ## 数字と出典
 1. 公式の紹介（公開年、2021年の売上、客の数）：${body.src ?? 'https://x.example/about'}
@@ -153,12 +158,16 @@ test('writeCase: 1行は書く段が決め、読む段が変えても戻す。�
   const cheapSeen: Array<{ label: string; user: string }> = [];
   const caller: Caller = async (req) => { good.push({ label: req.label, system: req.system }); return { text: written, seconds: 0, costUsd: 0.2 }; };
   const replies = ['## 出典に無い事実\n- 「台所で作った」：出典に無い\n\n## 使えない1行の候補\nなし', page({ list: '読む段が勝手に変えた1行' })];
-  const cheap: Caller = async (req) => { cheapSeen.push({ label: req.label, user: req.user }); return { text: replies.shift()!, seconds: 0, costUsd: 0.01 }; };
+  const cheapSystems: Array<{ label: string; system: string }> = [];
+  const cheap: Caller = async (req) => { cheapSeen.push({ label: req.label, user: req.user }); cheapSystems.push({ label: req.label, system: req.system }); return { text: replies.shift()!, seconds: 0, costUsd: 0.01 }; };
   const r = await writeCase(input, caller, { root: ROOT, cheap, maxRepairs: 0 });
   assert.deepEqual(good.map((x) => x.label), ['ent_x 書く']);
   assert.deepEqual(cheapSeen.map((x) => x.label), ['ent_x 事実を照らす', 'ent_x 読む']);
-  // 長いやりとりの記録は貼らない（費用の大半になるため）
-  assert.ok(!good[0]!.system.includes('### docs/owner/OWNER_DIALOGUE_LOG.md') && good[0]!.system.includes('### docs/owner/LEAD_LINE_SHEET.md'));
+  // オーナーとのオーナーの指示の1枚は、書く・照らす・読むのどの段にも渡る（2026-10-09 オーナーの決定）
+  assert.ok(good[0]!.system.includes('### docs/owner/OWNER_RULES.md') && good[0]!.system.includes('### docs/owner/LEAD_LINE_SHEET.md'));
+  assert.ok(good[0]!.system.includes('### .claude/skills/natural-japanese/SKILL.md') && good[0]!.system.includes('### docs/CASE_TEXT_STANDARD.md'));
+  assert.equal(cheapSystems.length, 2);
+  for (const c of cheapSystems) assert.ok(c.system.includes('### docs/owner/OWNER_RULES.md'), `${c.label} にオーナーの指示の1枚が渡っていない`);
   assert.ok(cheapSeen[0]!.user.includes('6. 候補F'));
   assert.ok(cheapSeen[1]!.user.includes('「台所で作った」'));
   assert.ok(r.md.includes('## 一覧の1行\n2019年に公開し、年12万ドル（約1,800万円）を売る小さな店\n'));
@@ -182,4 +191,75 @@ test('照合: 「米ドル」「USドル」も外貨として拾い、円が無�
   assert.deepEqual(foreignWithoutYen('2,661人から約95,000米ドルを集めた'), ['95,000米ドル']);
   assert.deepEqual(foreignWithoutYen('100 USドルの物'), ['100 USドル']);
   assert.deepEqual(foreignWithoutYen('9万5,245米ドル（約1,430万円）を集めた'), []);
+});
+
+test('writeCase: 照合の差し戻し（直す）の段にも、オーナーの指示の1枚が渡る', async () => {
+  const bad = `${page({ list: '2019年に公開し、年12万ドルを売る小さな店' })}\n## 一覧の1行の候補\n- 候補A\n- 候補B\n- 候補C\n- 候補D\n- 候補E\n- 候補F\n`;
+  const seen: Array<{ label: string; system: string }> = [];
+  const caller: Caller = async (req) => { seen.push({ label: req.label, system: req.system }); return { text: bad, seconds: 0 }; };
+  const cheap: Caller = async (req) => { seen.push({ label: req.label, system: req.system }); return { text: req.label.includes('照らす') ? '## 出典に無い事実\nなし\n\n## 使えない1行の候補\nなし' : bad, seconds: 0 }; };
+  await writeCase(input, caller, { root: ROOT, cheap, maxRepairs: 1 });
+  const fix = seen.filter((x) => x.label.includes('直す'));
+  assert.ok(fix.length >= 1, '照合に合わない文を直しに返していない（試験の前提が崩れた）');
+  for (const x of seen) assert.ok(x.system.includes('### docs/owner/OWNER_RULES.md'), `${x.label} にオーナーの指示の1枚が渡っていない`);
+});
+
+test('renumberSources: 「数字と出典」の欠番を詰める', async () => {
+  const { renumberSources } = await import('../../case-write/run');
+  const md = '## 概要\n\n1. 本文の番号は触らない\n\n## 数字と出典\n\n1. A：https://a\n3. B：https://b\n7. C：https://c\n\n- 1ドル＝150円で計算\n';
+  assert.equal(renumberSources(md), '## 概要\n\n1. 本文の番号は触らない\n\n## 数字と出典\n\n1. A：https://a\n2. B：https://b\n3. C：https://c\n\n- 1ドル＝150円で計算\n');
+});
+
+test('verifyDraft: 時間順の流れが5行未満なら書き直しに回す', () => {
+  const thin = page().replace(/(## 時間順の流れ\n- 2019年：公開。\n)(?:- .*\n)+/, '$1\n');
+  assert.ok(verifyDraft(thin, input).some((x) => x.rule === 'timeline-thin'));
+  assert.ok(!verifyDraft(page(), input).some((x) => x.rule === 'timeline-thin'));
+});
+
+test('出典の番号の飛びは検査で止まり、tidy が1から詰める', () => {
+  const gap = page().replace('1. 公式の紹介', '2. 公式の紹介');
+  assert.ok(checkMarkdown(gap).violations.some((x) => x.rule === 'source-number-gap'));
+  assert.ok(!checkMarkdown(tidy(gap)).violations.some((x) => x.rule === 'source-number-gap'));
+});
+
+test('使っていない通貨の断りは検査で止まり、tidy が外す（使っている通貨の断りは残す）', () => {
+  const noUsd = page().replace(/ドル（約[^）]*円）/g, '円').replace(/12万円/g, '1,800万円').replace('月10円', '月1,500円');
+  assert.ok(!/ドル/.test(noUsd.split('## 数字と出典')[0]));
+  assert.ok(checkMarkdown(noUsd).violations.some((x) => x.rule === 'unused-currency-note'));
+  assert.ok(!tidy(noUsd).includes('1ドル＝150円'));
+  assert.ok(tidy(page()).includes('1ドル＝150円'));
+});
+
+test('markInferences: 出典に無い見立ては消さずに（推測）を付ける。1行・概要の見立ては置けないと返す', () => {
+  const md = page().replace('客は3,000人。', '客は3,000人。小さく始めたので続けやすい。');
+  const r = markInferences(md, ['小さく始めたので続けやすい', '2021年の売上は12万ドル']);
+  assert.ok(r.md.includes('小さく始めたので続けやすい（推測）。'));
+  assert.deepEqual(r.unplaced, ['2021年の売上は12万ドル']);
+  assert.equal(markInferences(r.md, ['小さく始めたので続けやすい']).md, r.md);
+  assert.deepEqual(parseFactReport('## 出典に無い事実\nなし\n\n## 出典に無い見立て\n- 「小さく始めたので続けやすい」：理由づけ\n\n## 使えない1行の候補\nなし').inferences, ['小さく始めたので続けやすい']);
+});
+
+test('timeline-thin: 5行未満は検査（case-pages:check と同じ）で止まり、書く段の照合も同じ規則を使う', () => {
+  const thin = page().replace(/(## 時間順の流れ\n- 2019年：公開。\n)(?:- .*\n)+/, '$1\n');
+  assert.ok(checkMarkdown(thin).violations.some((x) => x.rule === 'timeline-thin'));
+  assert.ok(NEWER_RULES.includes('timeline-thin') && NEWER_RULES.includes('source-number-gap') && NEWER_RULES.includes('unused-currency-note'));
+});
+
+test('number-guess: 数字・金額・年月の文に（推測）が付いていたら止める。数字の無い見立ては通る', () => {
+  const bad = page().replace('- 月10ドル（約1,500円）。（推測）', '- 月10ドル（約1,500円）から（推測）。');
+  assert.ok(checkMarkdown(bad).violations.some((x) => x.rule === 'number-guess'));
+  const ok = page().replace('客は3,000人。', '客は3,000人。小さく始めたので続けやすい（推測）。').replace('- 月10ドル（約1,500円）。（推測）', '- 月10ドル（約1,500円）。');
+  assert.ok(!checkMarkdown(ok).violations.some((x) => x.rule === 'number-guess'));
+});
+
+test('markInferences: 数字を含む文には印を付けない', () => {
+  const md = page().replace('客は3,000人。', '客は3,000人。毎月89ドルを上乗せする。');
+  assert.equal(markInferences(md, ['毎月89ドルを上乗せする']).md, md);
+});
+
+test('timeline-tense: 「：」の後が「る。」の行は止め、過去形と「〜している」は通す', () => {
+  const now = page().replace('- 2019年：公開。', '- 2019年：店を始める。');
+  assert.ok(checkMarkdown(now).violations.some((x) => x.rule === 'timeline-tense'));
+  assert.ok(!checkMarkdown(page()).violations.some((x) => x.rule === 'timeline-tense'));
+  assert.ok(!checkMarkdown(page().replace('- 2019年：公開。', '- 2026年：3,000人が使っている。')).violations.some((x) => x.rule === 'timeline-tense'));
 });

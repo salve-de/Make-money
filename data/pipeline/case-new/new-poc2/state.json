@@ -1,0 +1,12 @@
+{
+ "runId": "new-poc2",
+ "candidateIds": [
+  "cand_mid-day-squares_21b9a6",
+  "cand_storage-scholars_b39921"
+ ],
+ "entityIds": [],
+ "skipped": [],
+ "done": [
+  "discover"
+ ]
+}

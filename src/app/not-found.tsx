@@ -1,6 +1,6 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
-import { StatusScreen, STATUS_BUTTON_MAIN, STATUS_BUTTON_SUB } from '@/lib/site/StatusScreen';
+import { StatusScreen, STATUS_BUTTON_MAIN } from '@/lib/site/StatusScreen';
 
 export const metadata: Metadata = {
   title: 'ページが見つかりません | Make Money',
@@ -15,7 +15,6 @@ export default function NotFound() {
       actions={
         <>
           <Link href="/" className={STATUS_BUTTON_MAIN}>トップへ戻る</Link>
-          <Link href="/discover" className={STATUS_BUTTON_SUB}>事例を探す</Link>
         </>
       }
     >

@@ -5,7 +5,9 @@ import type { FinancialEntity } from '@/shared/terminal';
 import { MobileFeedCard } from './MobileFeedCard';
 import { Bookmark, X } from 'lucide-react';
 import { sectorLabel } from './sectorLabel';
-import { caseLabels } from '@/shared/display-text';
+import { CaseChips } from './CaseChips';
+import { YearChip } from './YearChip';
+import { caseYearOf } from '@/shared/case-year';
 import { useVerifiedEntityIds } from '@/platform/hooks/useVerifiedEntityIds';
 import { VerifiedMark } from './VerifiedMark';
 import { pickEntityLogo } from '@/shared/media-display';
@@ -186,7 +188,7 @@ export const InstitutionalDataGrid: React.FC<InstitutionalDataGridProps> = ({
         <table className="w-full table-fixed border-collapse text-left text-[13px] [counter-reset:ledger-row]">
           <colgroup>
             <col />
-            {!isSplitView && <col className="w-[110px]" />}
+            {!isSplitView && <col className="w-[210px]" />}
             <col className="w-[176px]" />
             {!isSplitView && <col className="w-[104px]" />}
             <col className="w-7" />
@@ -243,28 +245,14 @@ export const InstitutionalDataGrid: React.FC<InstitutionalDataGridProps> = ({
                     <span className="flex min-w-0 items-center gap-1.5">
                       <EntityLogo asset={pickEntityLogo(logos[entity.id])} name={entity.name} />
                       <span className="min-w-0 shrink truncate text-sm font-semibold text-term-fg-strong">{entity.name}</span>
+                      <YearChip year={caseYearOf(entity)} />
                       {verifiedIds.has(entity.id) && <VerifiedMark />}
-                      {caseLabels(entity).map((tag) => {
-                        const on = selectedTags.includes(tag);
-                        const tagClass = `hidden h-[18px] shrink-0 items-center whitespace-nowrap border px-1 text-[11px] xl:inline-flex`;
-                        // 事例が持つ札は押すと絞り込める。事業の説明から決めた分野の札は、絞り込みの札ではないので押せない
-                        if (!onToggleTag || !(entity.tags ?? []).includes(tag)) return <span key={tag} className={`${tagClass} border-term-line-soft text-term-label`}>{tag}</span>;
-                        return (
-                          <button
-                            key={tag}
-                            type="button"
-                            aria-pressed={on}
-                            onClick={(event) => { event.stopPropagation(); onToggleTag(tag); }}
-                            className={`${tagClass} ${on ? 'border-term-accent text-term-accent' : 'border-term-line-soft text-term-label hover:border-term-line hover:text-term-fg'}`}
-                          >
-                            {tag}
-                          </button>
-                        );
-                      })}
                     </span>
                   </td>
                   {!isSplitView && (
-                    <td className="truncate px-2 pt-1.5 text-xs text-term-muted">{sector}</td>
+                    <td className="overflow-hidden px-2 pt-1.5 text-xs text-term-muted">
+                      {sector ?? <CaseChips entity={entity} selectedTags={selectedTags} onToggleTag={onToggleTag} className="max-h-[44px] overflow-hidden" />}
+                    </td>
                   )}
                   <td className="term-num whitespace-nowrap px-2 pt-2 text-right text-sm">
                     <ListMetricCell metric={headline} expected={['REVENUE']} />
@@ -289,6 +277,7 @@ export const InstitutionalDataGrid: React.FC<InstitutionalDataGridProps> = ({
                   <tr className="border-b border-term-line">
                     <td colSpan={isSplitView ? 3 : 5} className={`overflow-hidden border-l-2 px-2 pb-2 pl-[32px] ${isSelected ? 'border-term-accent' : 'border-transparent'}`}>
                       <ListDescription reader={entity.reader} className="mt-0.5 line-clamp-2 text-xs text-term-sub" />
+                      {isSplitView && <CaseChips entity={entity} selectedTags={selectedTags} onToggleTag={onToggleTag} className="mt-1" />}
                     </td>
                   </tr>
                 </tbody>

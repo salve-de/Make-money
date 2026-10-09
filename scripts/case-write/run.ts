@@ -5,12 +5,12 @@
  *   pnpm case:write --ids a --out-dir docs/owner/trial --blind   （試し: 正本を上書きせず、見本からその事例の答えを隠す）
  *   オプション: --agent claude|codex|auto  --model <書く段の型>（claude の既定 opus）
  *              --cheap-agent codex|claude（事実を照らす段と照合の直し。既定 codex）  --cheap-model <型>（claude なら既定 haiku）
- *              --read-agent claude|codex（読む段。既定 claude）  --read-model <型>（claude なら既定 haiku）  --codex-effort <深さ>
+ *              --read-agent claude|codex（読む段。既定 claude。環境変数 CASE_AGENT_LOCK=codex の間は codex）  --read-model <型>（claude なら既定 haiku）  --codex-effort <深さ>  --read-effort <読む段だけの深さ>
  *              --max-repairs N（既定1）  --concurrency N（既定2）
  *              --cache-dir <別の作業場所>（出典の本文の写しを探す場所。何度でも）  --no-fetch（写しが無い出典を取りに行かない）
  *              正本以外へ書く時（試し）は、取ってきた出典の本文を data/source-cache.trial に残す（本番の写し data/source-cache は証拠の照合が読むので増やさない）
  *
- * 段（1件ごと。claude 側の費用は1件0.4〜0.6ドル（書く段の opus がほぼ全部）。毎回貼る資料は、段ごとに要る物だけを渡す）:
+ * 段（1件ごと。claude 側の費用は1件0.4〜0.6ドル（書く段の opus がほぼ全部）。貼る資料は段ごとに変えるが、OWNER_RULES は全段）:
  *   1. 書く（良いAI。既定 claude の opus）: 事例まるごとと一覧の1行の候補6つを出し、同じ呼び出しの中で見本と照らして1行を決める（write-prompt.md ＋ 見本 Candy Japan ＋ STEP_FILES ＋ 集めた事実と出典の本文）
  *   2. 事実を照らす（安いAI。既定 codex）: 文は返さず、出典に無い事実の一覧と、使えない1行の候補の番号だけを返す（fact-prompt.md。見本は付けない）
  *      決めた1行が使えないとされた時だけ、使える候補の先頭に替える
@@ -23,9 +23,10 @@
 import { appendFileSync, existsSync, mkdirSync, readFileSync, writeFileSync } from 'node:fs';
 import { dirname, join, resolve } from 'node:path';
 import { fileURLToPath, pathToFileURL } from 'node:url';
-import { makeCaller, mapPool, pickAgent, type Agent, type Caller } from '../reader-case/agent-call';
+import { codexLocked, makeCaller, mapPool, pickAgent, type Agent, type Caller } from '../reader-case/agent-call';
+import { dropUnusedCurrencyNotes } from '../case-pages/lib';
 import { fetchOne } from '../reader-case/fetch-sources';
-import { DECIDED_UI_FILE, ownerContext } from '../reader-case/owner-context';
+import { ownerContext } from '../reader-case/owner-context';
 import { buildInput, renderInput, type CaseInput, type Fetcher } from './input';
 import { verifyDraft, type WriteViolation } from './verify';
 
@@ -56,14 +57,16 @@ export function extractMarkdown(text: string): string {
 }
 
 /** 書く段と読む段に貼るオーナーの資料（根っこ・1行の見本・概要の見本）。長いやりとりの記録は貼らない */
-export const STEP_FILES = ['docs/owner/READER_EYE.md', 'docs/owner/LEAD_LINE_SHEET.md', 'docs/owner/OVERVIEW_SHEET.md', DECIDED_UI_FILE] as const;
+export const STYLE_FILES = ['.claude/skills/natural-japanese/SKILL.md', 'docs/CASE_TEXT_STANDARD.md'] as const;
+export const STEP_FILES = ['docs/owner/READER_EYE.md', 'docs/owner/LEAD_LINE_SHEET.md', 'docs/owner/OVERVIEW_SHEET.md', ...STYLE_FILES] as const;
 /** 読む段に貼る資料（1行に触らないので、1行の見本の紙は貼らない） */
-export const READ_FILES = ['docs/owner/READER_EYE.md', 'docs/owner/OVERVIEW_SHEET.md', DECIDED_UI_FILE] as const;
+// 画面の部品の決定（DECIDED_UI）は文を書く・読む段には要らないので渡さない（2026-10-09 判断）
+export const READ_FILES = ['docs/owner/READER_EYE.md', 'docs/owner/OVERVIEW_SHEET.md', ...STYLE_FILES] as const;
 
 function systemPrompt(root: string, file: string, hideNames: string[], files: readonly string[]): string {
   const base = readFileSync(join(HERE, file), 'utf8');
   const example = existsSync(join(root, EXAMPLE_FILE)) ? readFileSync(join(root, EXAMPLE_FILE), 'utf8') : '';
-  return `${base}\n\n## 見本（オーナー承認済み。この形と同じくらい良い文にする）\n\n${example}${files.length ? ownerContext(root, { hideNames, files }) : ''}`;
+  return `${base}\n\n## 見本（オーナー承認済み。この形と同じくらい良い文にする）\n\n${example}${ownerContext(root, { hideNames, files })}`;
 }
 
 export const NOTES_HEAD = '調べた側のメモ';
@@ -100,14 +103,58 @@ export function extractLine(text: string): string {
 
 export const formatViolations = (v: WriteViolation[]) => v.map((x) => `- [${x.where}] ${x.detail}`).join('\n');
 
+/** 「数字と出典」の番号を1から詰め直す（外した出典の欠番が画面に残らないように）。本文は番号で出典を指さない */
+export function renumberSources(md: string): string {
+  const head = md.match(/^##\s+数字と出典\s*$/m);
+  if (!head || head.index === undefined) return md;
+  const start = head.index + head[0].length;
+  const rest = md.slice(start);
+  const next = rest.search(/^##\s/m);
+  const body = next >= 0 ? rest.slice(0, next) : rest;
+  let n = 0;
+  return md.slice(0, start) + body.replace(/^\d+\.(\s)/gm, (_m, sp: string) => `${++n}.${sp}`) + (next >= 0 ? rest.slice(next) : '');
+}
+
+/** 機械で直せる所: 出典の番号を1から詰め直し、本文で使っていない通貨の断りを外す */
+export const tidy = (md: string) => renumberSources(dropUnusedCurrencyNotes(md));
+
 /** 一覧の1行の章の中身 */
 export const leadOf = (md: string) => splitSection(md, '一覧の1行').body.split('\n')[0]?.trim() ?? '';
 
 /** 事実を照らす段の返事から、出典に無い事実の一覧と、使えない1行の候補の番号を取り出す */
-export function parseFactReport(text: string): { missing: string; badCandidates: number[] } {
+export function parseFactReport(text: string): { missing: string; inferences: string[]; badCandidates: number[] } {
   const missing = splitSection(text, '出典に無い事実').body;
+  const inf = splitSection(text, '出典に無い見立て').body;
   const bad = splitSection(text, '使えない1行の候補').body;
-  return { missing: /^なし。?$/.test(missing.trim()) ? '' : missing.trim(), badCandidates: /^なし/.test(bad.trim()) ? [] : (bad.match(/\d+/g) ?? []).map(Number) };
+  const inferences = /^なし/.test(inf.trim()) ? [] : inf.split('\n').map((l) => l.match(/「([^」]{4,})」/)?.[1]).filter((x): x is string => Boolean(x));
+  return { missing: /^なし。?$/.test(missing.trim()) ? '' : missing.trim(), inferences, badCandidates: /^なし/.test(bad.trim()) ? [] : (bad.match(/\d+/g) ?? []).map(Number) };
+}
+
+/**
+ * 出典に無い見立てを、消さずに文の最後へ「（推測）」を付ける（「…できる（推測）。」の形）。
+ * 一覧の1行・概要・数字と出典の中の見立ては印を付けて置けない（1行と概要に推測は持ち込まない）ので、置けなかった言い回しとして返す
+ */
+export function markInferences(md: string, quotes: string[]): { md: string; unplaced: string[] } {
+  const unplaced: string[] = [];
+  let out = md;
+  for (const q of quotes) {
+    const at = out.indexOf(q);
+    if (at < 0) { unplaced.push(q); continue; }
+    const before = out.slice(0, at);
+    const head = before.lastIndexOf('\n## ');
+    const chapter = head >= 0 ? out.slice(head + 4, out.indexOf('\n', head + 4)).trim() : '';
+    if (/^(一覧の1行|概要|数字と出典)$/.test(chapter)) { unplaced.push(q); continue; }
+    // 数字・金額・年月の文は印を付けない（印は見立てだけ）。数字の真偽は照合（verifyDraft）が見る
+    const numEnd = out.indexOf('。', at + q.length);
+    if (/[0-9０-９]/.test(out.slice(Math.max(before.lastIndexOf('。') + 1, before.lastIndexOf('\n') + 1), numEnd < 0 ? out.length : numEnd))) continue;
+    const end = out.indexOf('。', at + q.length);
+    const lineEnd = out.indexOf('\n', at);
+    const stop = end >= 0 && (lineEnd < 0 || end < lineEnd) ? end : (lineEnd < 0 ? out.length : lineEnd);
+    const sentStart = Math.max(before.lastIndexOf('。') + 1, before.lastIndexOf('\n') + 1);
+    if (/[（(](?:推測|推定)[）)]/.test(out.slice(sentStart, stop + 1))) continue;
+    out = out.slice(0, stop) + '（推測）' + out.slice(stop);
+  }
+  return { md: out, unplaced };
 }
 
 /** 候補の章（「- 」の行）を配列に */
@@ -115,14 +162,15 @@ export const candidateLines = (body: string) => body.split('\n').map((l) => l.tr
 
 export async function writeCase(input: CaseInput, caller: Caller, opt: WriteOptions): Promise<WriteResult> {
   const hide = opt.hideNames ?? [];
-  // 費用の大半は、毎回貼る資料の長さ。段ごとに要る物だけを渡す（やりとりの記録 OWNER_DIALOGUE_LOG は長いので渡さない）
+  // 段ごとに貼る資料を変えるが、オーナーの指示の1枚 OWNER_RULES はどの段にも渡す。長い記録 OWNER_DIALOGUE_LOG は渡さない
   const writer = systemPrompt(opt.root, 'write-prompt.md', hide, STEP_FILES);
   // 読む段は1行に触らないので、1行の見本の紙は渡さない
   const reader = systemPrompt(opt.root, 'read-prompt.md', hide, READ_FILES);
-  // 照合の差し戻しは数字・円の直しだけなので、見本の資料は付けない
-  const repairer = systemPrompt(opt.root, 'write-prompt.md', hide, []);
+  // 照合の差し戻しは数字・円の直しだけなので、1行・概要の見本の紙は付けない（文の書き方の2枚と指示の1枚は付ける）
+  const repairer = systemPrompt(opt.root, 'write-prompt.md', hide, STYLE_FILES);
   // 事実を照らす段は文の良し悪しを見ないので、見本とオーナー資料は付けない
-  const factChecker = readFileSync(join(HERE, 'fact-prompt.md'), 'utf8');
+  // （オーナーの指示の1枚 OWNER_RULES だけは全段に渡す。ownerContext が files に関わらず付ける）
+  const factChecker = readFileSync(join(HERE, 'fact-prompt.md'), 'utf8') + ownerContext(opt.root, { hideNames: hide, files: [] });
   const cheap = opt.cheap ?? caller;
   const material = renderInput(input);
   const started = Date.now();
@@ -146,6 +194,11 @@ export async function writeCase(input: CaseInput, caller: Caller, opt: WriteOpti
   const candidates = candidateLines(cut.body);
   // 2. 事実を照らす（安いAI）: 文は返させず、出典に無い事実の一覧と、使えない候補の番号だけを返させる
   const report = parseFactReport(await askRaw(cheap, factChecker, `${material}\n\n---\n## 照らす事例の文\n\n${md}\n\n## 一覧の1行の候補\n${candidates.map((c, i) => `${i + 1}. ${c}`).join('\n') || 'なし'}`, '事実を照らす'));
+  // 出典に無い見立ては消さず「（推測）」を付ける。印を置けない所（1行・概要）の見立ては事実と同じく外す
+  const marked = markInferences(md, report.inferences);
+  md = marked.md;
+  if (report.inferences.length > marked.unplaced.length) notesParts.push(`- 出典に無い見立てに（推測）を付けた：${report.inferences.filter((q) => !marked.unplaced.includes(q)).join(' / ')}`);
+  report.missing = [report.missing, ...marked.unplaced.map((q) => `- 「${q}」：出典に無い見立て（1行・概要には置けない）`)].filter(Boolean).join('\n');
   if (report.missing) notesParts.push(`- 出典で確かめられず外した（事実を照らす段の一覧）：\n${report.missing}`);
   // 1行は書く段が決めた物。照らす段が使えないとした時だけ、使える候補の先頭に替える
   let lead = leadOf(md);
@@ -156,7 +209,7 @@ export async function writeCase(input: CaseInput, caller: Caller, opt: WriteOpti
   }
   // 3. 読む（安いAI）: 前提ゼロの読む人として読み直し、出典に無い事実を外す。1行には触らせない
   md = splitSection(keepNotes(await ask(opt.readerCaller ?? cheap, reader, `## 読み直す事例の文\n\n${md}\n\n## 出典に無い事実（本文から外す）\n${report.missing || 'なし'}`, '読む')), CANDIDATES_HEAD).page;
-  md = replaceLead(md, lead);
+  md = tidy(replaceLead(md, lead));
   const leadPick = candidates.length ? { candidates: candidates.map((c) => `- ${c}`).join('\n'), chosen: lead } : undefined;
   let v = verifyDraft(md, input, opt.rights);
   rounds.push({ step: '読む', violations: v.length });
@@ -164,11 +217,13 @@ export async function writeCase(input: CaseInput, caller: Caller, opt: WriteOpti
   for (let i = 0; i < (opt.maxRepairs ?? 1) && v.length > 0; i++) {
     opt.log?.(`${input.id}: 照合で ${v.length} 件合わない。直しに返す（${i + 1}回目）`);
     // 1行から稼ぎの数字が抜けた時は、1行を決めた書く段へ返す（安い直し役に1行を書かせない）
-    const toWriter = v.some((x) => x.rule === 'lead-no-amount');
+    const toWriter = v.some((x) => x.rule === 'lead-no-amount' || x.rule === 'timeline-thin');
     md = splitSection(keepNotes(await ask(toWriter ? caller : cheap, toWriter ? writer : repairer, `${material}\n\n---\n## 前に書いた事例の文\n\n${md}\n\n## プログラムの照合で合わなかった所（ここだけを直し、他の文は1文字も変えない。直せない数字は文ごと外すか「（推測）」の印を付ける）\n${formatViolations(v)}\n\n直した後の全体を、指示の形で返す（一覧の1行の候補の章は要らない）。`, `直す${i + 1}`)), CANDIDATES_HEAD).page;
+    md = tidy(md);
     v = verifyDraft(md, input, opt.rights);
     rounds.push({ step: `直す${i + 1}`, violations: v.length });
   }
+  md = tidy(md);
   return { id: input.id, ok: v.length === 0, md, leadPick, notes: [...new Set(notesParts)].join('\n\n'), calls: steps.length, seconds: Math.round((Date.now() - started) / 1000), costUsd: Number(cost.toFixed(3)), steps, rounds, violations: v };
 }
 
@@ -210,8 +265,9 @@ async function main() {
   const cheapAgent = (arg('--cheap-agent') as Agent | undefined) ?? 'codex';
   const cheap = makeCaller(cheapAgent, { model: arg('--cheap-model') ?? (cheapAgent === 'claude' ? 'haiku' : undefined), codexEffort: arg('--codex-effort'), noCache: true, plainText: true });
   // 読む段は、codex だと文が訳文調になった（2026-10-09 の試し）ので、既定は claude の haiku
-  const readAgent = (arg('--read-agent') as Agent | undefined) ?? 'claude';
-  const readerCaller = makeCaller(readAgent, { model: arg('--read-model') ?? (readAgent === 'claude' ? 'haiku' : undefined), codexEffort: arg('--codex-effort'), noCache: true, plainText: true });
+  // Codex だけで動かす時（環境変数 CASE_AGENT_LOCK=codex。pnpm case:new）は、読む段も codex
+  const readAgent = (arg('--read-agent') as Agent | undefined) ?? (codexLocked() ? 'codex' : 'claude');
+  const readerCaller = makeCaller(readAgent, { model: arg('--read-model') ?? (readAgent === 'claude' ? 'haiku' : undefined), codexEffort: arg('--read-effort') ?? arg('--codex-effort'), noCache: true, plainText: true });
   const fetcher: Fetcher | undefined = process.argv.includes('--no-fetch') ? undefined : fetchOne;
   const rightsFile = join(ROOT, 'data/catalog-source-rights.json');
   const rights = existsSync(rightsFile) ? JSON.parse(readFileSync(rightsFile, 'utf8')) as Record<string, { decision?: string }> : {};

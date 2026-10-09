@@ -54,6 +54,8 @@
 - 毎日の自動実行（[`pipeline/DAILY_RUN.md`](./pipeline/DAILY_RUN.md)）は従来の `run-pipeline.sh` のまま、選別と公開版の計画までで止まり、公開はしません。
 - **申請待ち（2026-10-07 時点）**: 段3の `--from-research` は、まだ main に入っていません（変更の申請 #164 の中）。入るまでは、#164 の作業用コピーの `scripts/reader-case/add-entity-records.ts` を使います。#164 には、段7の「式が無い」の食い違いの修正と、分析欄の文が無い事例を検査で落とす変更も入っています。
 
+> 新しい事例を Codex だけで候補探しから足す時は `pnpm case:new`（[`NEW_CASES_WITH_CODEX.md`](./NEW_CASES_WITH_CODEX.md)）。
+
 ## 3a. 1本のコマンド `pnpm case:run`（2026-10-08〜）
 
 ```
@@ -80,6 +82,7 @@ pnpm case:run --ids a --publish          # 最後に今の catalog:publish を�
 | 9 | prepare | 公開データの作成（`pnpm catalog:prepare --changed`）。原文照合で落ちた事例は含めない | 作れなければ段ごと失敗 |
 | 10 | publish | `--publish` の時だけ `pnpm catalog:publish`（中で `catalog:screen-check` を通す。飛ばさない） | 公開データの作成と画面の検査が通っていなければ公開しない |
 
+- **タグ（2026-10-09〜。分野・事業の形・売る相手・特徴）**: 一覧の札と左の絞り込みは、事例ごとの思いつきの言葉でなく、先に決めた言葉の一覧（`src/shared/case-taxonomy.ts`。各言葉の定義と入る例・入らない例つき）から選ぶ。集める段（`pnpm case:research`）の調べる役が、この一覧を渡されて `caseTags`（分野・事業の形・売る相手を1つずつ＋特徴＋判断の根拠）を返し、検査を通った時だけ `data/case-tags.json` に入る（一覧にない言葉は直し役に返る）。公開データの作成（prepare）がこれを `reader.display.tags` に移し、タグが無い・一覧どおりでない事例は出さない（`HOLD_SCHEMA`）。手で直す時も同じ一覧から選び、`pnpm case-tags:check`（lint に組み込み済み）で確かめる。言葉を足す・変える時は `CASE_TAXONOMY_VERSION` を上げ、割り当てを見直す。決めごとは `docs/design/DECIDED_UI.md` の D-16。fact-lines の `labels` は札の表示には使わない。
 - **手元の証拠が要る段**: 選別（select）と公開データの作成（prepare）は、出典本文の保存（`data/source-cache/`）と画像台帳（`data/media-staging/`）を読みます。どちらもバージョン管理に入らないので、持っている作業場所で動かすか、持っている場所から連結してください。無い場所でも、公開中の事例の判定は証明書（`data/publication-evidence.json`）で再現されます。証明書にも無い事例は「証拠不足」と出て止まります（取り下げにはなりません。落とし穴の表 12・24）。
 - 各段の所要時間は `data/pipeline/case-run.jsonl` に1行ずつ（`runId`・段・開始時刻・秒・対象件数・失敗件数）。実行ごとの記録は `data/pipeline/case-run/<runId>/`（`logs/` に各命令の出力、`summary.json` に最後の一覧）。
 - 束は `batch-r<runId>-NNN`（照合・分析）と監査の `in-999999…` で、1束に1事例。従来の `run-verify.sh` / `run-analyze.sh` / `run-audit.sh`（終了コード75で待つ版）は、毎日の自動実行と公開中の事例の直し（3b）がまだ使うので残してあります。
@@ -150,6 +153,8 @@ bash scripts/reader-case/run-diff-audit.sh <直した事例IDを1行ずつ書い
   - 公式サイトから: `node --import tsx scripts/media/fetch-official-assets.ts --ids <id>`
   - App Store から: `node --import tsx scripts/media/fetch-app-store-assets.ts --ids <id>`
   - 自動判定: `node --import tsx scripts/media/auto-review.ts --entity <id>`
+  - まとめて（足りない分だけ）: `node --import tsx scripts/media/ensure-case-media.ts --ids <id,id>`（公式→App Store（記録がある時だけ）→自動判定→枚数の表。取得済みは取り直さず、`--refresh` で取り直す。robots で断られた事例は飛ばす）
+  - 流れの位置: `case:run` の「media」段（display の後・case-text の前）で自動に呼ぶ。保留は「保留あり：人の目で見る」と出すだけで止めず、R2 へは自動で上げない（「上げる命令」の行を出すだけ）。`case-pages:check` は画像0枚の公開事例を警告する。
   - 人の判定: `node --import tsx scripts/media/review-assets.ts --entity <id> --asset <資産ID> --allow ...`（`--list` で今の判定を一覧）
 - **自動判定の結果**: アイコン・ストアの画面写真・製品の画面写真は、顔が無く画像として読めれば「使ってよい」。公式サイトのトップと料金ページの画面写真は、同意バナー（クッキーの確認など）が写り込むことがあるので「保留」のまま残り、**人が目で見て判定**します。
 - **どこに入るか**: 取得した画像と台帳は `data/media-staging/<事例ID>/`（git に入らない）。判定は同じ場所の `decisions.jsonl` に1行ずつ追記されます。公開の時に R2 の `foundation-raw`（全部）と `foundation-public`（使ってよい物だけ）へ上がります。

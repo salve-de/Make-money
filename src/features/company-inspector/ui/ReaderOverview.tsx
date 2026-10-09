@@ -532,12 +532,43 @@ function KeyNumbers({ page }: { page: CasePage }) {
  */
 export function CasePageView({ page, media }: { page: CasePage; media?: React.ReactNode }) {
   const hasEarnings = SHOW_CASE_CHARTS && earningsSeriesFor(page.timeline).length > 0;
-  const list = (items: string[]) => (
-    <ul className="grid grid-cols-1 gap-2">
-      {items.map((t) => (
-        <li key={t} className="text-sm leading-relaxed text-term-fg [overflow-wrap:anywhere]">{t}</li>
-      ))}
+  // 実際にやったこと・つまずき: 成功の秘訣と同じく「太字の答え1行＋小さな補足」。見出しの無い古い形の項目は1文のまま。
+  const items = (list: CasePage['did']) => (
+    <ul className="grid grid-cols-1 gap-3">
+      {list.map((x) =>
+        typeof x === 'string' ? (
+          <li key={x} data-case-page-item="" className="text-sm leading-relaxed text-term-fg [overflow-wrap:anywhere]">{x}</li>
+        ) : (
+          <li key={x.head} data-case-page-item="" className="min-w-0 [overflow-wrap:anywhere]">
+            <p className="text-sm font-semibold leading-snug text-term-fg-strong">{x.head}</p>
+            {x.body && <p className="mt-0.5 text-xs leading-relaxed text-term-sub">{x.body}</p>}
+          </li>
+        ),
+      )}
     </ul>
+  );
+  // 料金: 「品名：値段」は左に品名、右に値段の表。品名の無い行（以前の値段など）は表の下に小さく。
+  const priceRows = page.pricing.flatMap((t) => {
+    const cut = t.indexOf('：');
+    return cut > 0 && cut <= 24 ? [{ name: t.slice(0, cut), price: t.slice(cut + 1) }] : [];
+  });
+  const priceNotes = page.pricing.filter((t) => { const cut = t.indexOf('：'); return !(cut > 0 && cut <= 24); });
+  const pricing = (
+    <>
+      {priceRows.length > 0 && (
+        <dl className="grid grid-cols-1 gap-1.5">
+          {priceRows.map(({ name, price }) => (
+            <div key={name} data-case-page-price="" className="grid grid-cols-[minmax(0,7.5rem)_minmax(0,1fr)] gap-x-3 text-sm sm:grid-cols-[minmax(0,11rem)_minmax(0,1fr)]">
+              <dt className="text-term-sub [overflow-wrap:anywhere]">{name}</dt>
+              <dd className="text-term-fg-strong [overflow-wrap:anywhere]">{price}</dd>
+            </div>
+          ))}
+        </dl>
+      )}
+      {priceNotes.map((t) => (
+        <p key={t} className={`${priceRows.length > 0 ? 'mt-2 border-t border-term-line-soft pt-1.5 text-xs text-term-sub' : 'text-sm text-term-fg'} leading-relaxed [overflow-wrap:anywhere]`}>{t}</p>
+      ))}
+    </>
   );
   return (
     <>
@@ -562,9 +593,9 @@ export function CasePageView({ page, media }: { page: CasePage; media?: React.Re
           ))}
         </ol>
       </Fold>
-      <Fold id="section-chapter-practice" title={UI.CHAPTER_PRACTICE} defaultOpen>{list(page.did)}</Fold>
-      {page.setbacks.length > 0 && <Fold id="section-chapter-turning" title={UI.CHAPTER_TURNING} defaultOpen>{list(page.setbacks)}</Fold>}
-      <Fold id="section-chapter-price" title={UI.CASE_PAGE_PRICE} defaultOpen>{list(page.pricing)}</Fold>
+      <Fold id="section-chapter-practice" title={UI.CHAPTER_PRACTICE} defaultOpen>{items(page.did)}</Fold>
+      {page.setbacks.length > 0 && <Fold id="section-chapter-turning" title={UI.CHAPTER_TURNING} defaultOpen>{items(page.setbacks)}</Fold>}
+      <Fold id="section-chapter-price" title={UI.CASE_PAGE_PRICE} defaultOpen>{pricing}</Fold>
       {SHOW_CASE_CHARTS && page.flows && page.flows.length > 0 && <Fold id="section-chapter-money-flow" title={UI.CASE_PAGE_MONEY_FLOW} defaultOpen><MoneyFlow flows={page.flows} about={`${page.listLine}\n${page.overview}`} /></Fold>}
       {hasEarnings && <Fold id="section-chapter-earnings" title={UI.CASE_PAGE_EARNINGS} defaultOpen><EarningsCharts timeline={page.timeline} /></Fold>}
       <Fold id="section-chapter-timeline" title={UI.CHAPTER_TIMELINE} defaultOpen>

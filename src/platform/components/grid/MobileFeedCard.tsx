@@ -8,6 +8,10 @@ import { VerifiedMark } from './VerifiedMark';
 import type { PublicMediaAsset } from '@/shared/media-display';
 import { EntityLogo } from './EntityLogo';
 import { UI, uiFormat } from '@/shared/ui-strings';
+import { caseLabels } from '@/shared/display-text';
+import { caseYearOf } from '@/shared/case-year';
+import { YearChip } from './YearChip';
+import { TAG_CLASS, TAG_STATIC } from './CaseChips';
 import { ListDescription, ListMetricCell, listMetricsOf } from './ReaderListCells';
 
 interface MobileFeedCardProps {
@@ -37,6 +41,8 @@ export const MobileFeedCard: React.FC<MobileFeedCardProps> = ({
 }) => {
   const { main, profit } = listMetricsOf(entity.reader);
   const sector = sectorLabel(entity);
+  const labels = caseLabels(entity);
+  const year = caseYearOf(entity);
 
   // 開くボタンと保存ボタンを横に並べる（重ねないので、保存を押したつもりで事例が開くことがない）
   return (
@@ -52,6 +58,7 @@ export const MobileFeedCard: React.FC<MobileFeedCardProps> = ({
           <span className="flex min-w-0 items-center gap-1.5">
             <EntityLogo asset={logo} name={entity.name} />
             <span data-testid="entity-name" className="min-w-0 truncate text-[15px] font-semibold text-term-fg-strong">{entity.name}</span>
+            <YearChip year={year} />
             {isVerified && <VerifiedMark />}
           </span>
           <span className="term-num shrink-0 text-base">
@@ -59,6 +66,11 @@ export const MobileFeedCard: React.FC<MobileFeedCardProps> = ({
           </span>
         </span>
         <ListDescription reader={entity.reader} className="mt-0.5 line-clamp-2 text-[13px] text-term-muted" />
+        {labels.length > 0 && (
+          <span className="mt-1 flex flex-wrap items-center gap-1">
+            {labels.map((label) => <span key={label} className={`${TAG_CLASS} ${TAG_STATIC}`}>{label}</span>)}
+          </span>
+        )}
         <span className="mt-0.5 flex items-center justify-between gap-3 text-xs">
           <span className="flex min-w-0 items-center gap-3 truncate text-term-label">
             {sector && <span className="truncate">{sector}</span>}

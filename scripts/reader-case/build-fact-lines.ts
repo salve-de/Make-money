@@ -23,6 +23,7 @@ import { describeHit, findNoise, findUnnatural, loadNaturalRules } from '../arch
 import { priceExtras } from '../reader-view/rules.mjs';
 import { describeUnclear, findUnclear, loadClarityRules } from '../architecture/reader-clarity.mjs';
 import { textFingerprint } from '../../src/shared/text-fingerprint';
+import { OPERATOR_TAGS } from '../../src/shared/display-text';
 import type { ReaderCase } from '../../src/shared/reader-case';
 import { makeCaller, pickAgent, type Agent, type Caller } from './agent-call';
 import { loadReaders, argValue } from './load-readers';
@@ -47,7 +48,6 @@ const PRICE_ONLY = has('--price-only');
 const REVIEW = !has('--no-review');
 const say = (t: string) => console.log(`[fact-lines] ${t}`);
 
-const OPERATOR_TAGS = new Set(['収集事例', '新着', '未精査候補', '収益確認済']);
 const ABSENCE = /(未確認|書かれていない|公開されていない|記載(が)?(ない|なし)|確認できない|わからない|分からない|不明|非公開(?![版のなでに]))/;
 const HEDGE = /(と語る|と話す|と説明している|と書く|と述べる|と記す)/;
 const language = read<Array<{ pattern: string; suggest: string }>>(join(ROOT, 'data/reader-language.json')).map((r) => ({ re: new RegExp(r.pattern), suggest: r.suggest }));

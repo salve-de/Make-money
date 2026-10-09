@@ -1959,6 +1959,10 @@
   "display": "HOLD_QUEUE",
   "reason": "順番待ち。全項目の推論と抜き取り監査が済んだら出す（data/catalog-finished-ids.txt に載せる）"
  },
+ "ent_clube_de_literatura_cl_ssica_8f8c049c6059": {
+  "display": "HOLD_UNVERIFIED",
+  "reason": "出典と照合できた事実が無い（出典が開けない・消えた・未照合）。一次情報を探し直す"
+ },
  "ent_clubhouse_audio": {
   "display": "HOLD_UNVERIFIED",
   "reason": "出典と照合できた事実が無い（出典が開けない・消えた・未照合）。一次情報を探し直す"
@@ -6031,6 +6035,10 @@
   "display": "HOLD_UNVERIFIED",
   "reason": "出典と照合できた事実が無い（出典が開けない・消えた・未照合）。一次情報を探し直す"
  },
+ "ent_enter_79c6d488adb7": {
+  "display": "HOLD_UNVERIFIED",
+  "reason": "出典と照合できた事実が無い（出典が開けない・消えた・未照合）。一次情報を探し直す"
+ },
  "ent_entropylitein_225e69bea206": {
   "display": "HOLD_THIN",
   "reason": "データが少ない（事実2件以下で数字なし）。一次情報を探し直す"
@@ -9851,6 +9859,10 @@
   "display": "HOLD_QUEUE",
   "reason": "順番待ち。全項目の推論と抜き取り監査が済んだら出す（data/catalog-finished-ids.txt に載せる）"
  },
+ "ent_polarsteps_2b2970abd201": {
+  "display": "SHOW",
+  "reason": "章ごとの文（case-page）で公開"
+ },
  "ent_polygonjs_2fc5688b80fb": {
   "display": "HOLD_QUEUE",
   "reason": "順番待ち。全項目の推論と抜き取り監査が済んだら出す（data/catalog-finished-ids.txt に載せる）"
@@ -11370,6 +11382,10 @@
  "ent_snipscript_574ee6728dca": {
   "display": "HOLD_QUEUE",
   "reason": "順番待ち。全項目の推論と抜き取り監査が済んだら出す（data/catalog-finished-ids.txt に載せる）"
+ },
+ "ent_snitch_3804233e5c0d": {
+  "display": "HOLD_UNVERIFIED",
+  "reason": "出典と照合できた事実が無い（出典が開けない・消えた・未照合）。一次情報を探し直す"
  },
  "ent_snkrdunk_9b18c7": {
   "display": "HOLD_THIN",
@@ -13102,6 +13118,10 @@
  "ent_wikiby_ab": {
   "display": "HOLD_THIN",
   "reason": "データが少ない（事実2件以下で数字なし）。一次情報を探し直す"
+ },
+ "ent_wildgrain_2b5aec41c733": {
+  "display": "SHOW",
+  "reason": "章ごとの文（case-page）で公開"
  },
  "ent_wimemo_faa2b2a20849": {
   "display": "HOLD_QUEUE",

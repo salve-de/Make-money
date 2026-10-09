@@ -7,7 +7,6 @@ export const SITEMAP_MAX_URLS = 50_000;
 /** 検索に出してよい固定ページ。ログイン・個人データ・作業中の画面は入れない。 */
 export const PUBLIC_STATIC_PATHS: readonly string[] = [
   '/',
-  '/discover',
   '/welcome',
   '/marketplace',
   '/marketplace/businesses',

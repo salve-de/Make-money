@@ -1,0 +1,17 @@
+{
+ "runId": "new-final",
+ "passed": [
+  "ent_polarsteps_2b2970abd201",
+  "ent_wildgrain_2b5aec41c733"
+ ],
+ "failures": [],
+ "humanLook": [
+  "画像: 保留あり：人の目で見る ent_polarsteps_2b2970abd201（1 枚。node --import tsx scripts/media/review-assets.ts --entity ent_polarsteps_2b2970abd201 --list）",
+  "画像: 保留あり：人の目で見る ent_wildgrain_2b5aec41c733（1 枚。node --import tsx scripts/media/review-assets.ts --entity ent_wildgrain_2b5aec41c733 --list）"
+ ],
+ "urls": {
+  "ent_polarsteps_2b2970abd201": "http://localhost:3070/?entity=ent_polarsteps_2b2970abd201",
+  "ent_wildgrain_2b5aec41c733": "http://localhost:3070/?entity=ent_wildgrain_2b5aec41c733"
+ },
+ "ok": true
+}

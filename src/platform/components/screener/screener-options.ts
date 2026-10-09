@@ -1,4 +1,5 @@
 import type { BusinessScale, MoatType } from '../../types/terminal';
+import { AXES, axisOfWord } from '@/shared/case-taxonomy';
 
 /**
  * 絞り込みの選択肢と見出し。PC の左の欄（LedgerFilterRail）とスマホの「絞り込み・検索」（AdvancedScreenerModal）が
@@ -9,10 +10,8 @@ export const SCREENER_LABELS = {
   margin: '営業利益率の下限',
   capital: '初期資金の上限',
   moats: '事業の参入障壁',
-  tags: '事例の特徴',
   multiple: '複数選択可',
-  tagSearch: '特徴タグを検索',
-  tagClear: '特徴タグをすべて解除',
+  tagClear: '選んだタグをすべて解除',
 } as const;
 
 export const SCALE_OPTIONS: readonly { id: BusinessScale; label: string }[] = [
@@ -46,27 +45,14 @@ export const MOAT_OPTIONS: readonly { id: MoatType; label: string }[] = [
   { id: 'PROCESS_POWER', label: '独自の業務プロセス' },
 ];
 
-/** 特徴タグの一覧表示。数千件になっても重くならず、探せるようにする（検索は全件が対象）。 */
-export const TAG_PREVIEW_COUNT = 10;
-export const TAG_MAX_COUNT = 50;
+/**
+ * タグの絞り込みは、決まった言葉の一覧（src/shared/case-taxonomy.ts）を軸ごと（分野・事業の形・売る相手・特徴）に並べる。
+ * 同じ軸の中で複数選んだら「どれか」、軸をまたいだら「全部」。
+ */
+export const TAG_AXES = AXES.map((axis) => ({ id: axis.id, label: axis.label, words: axis.terms.map((t) => t.word) }));
 
-export function pickVisibleTags(input: {
-  tags: readonly string[];
-  counts: Record<string, number>;
-  selected: readonly string[];
-  query: string;
-  expanded: boolean;
-}): { shown: string[]; matched: number; hidden: number } {
-  const q = input.query.trim().toLowerCase();
-  const matched = input.tags.filter((tag) => tag.toLowerCase().includes(q));
-  // 選択中を先頭に、続けて件数の多い順（同数は五十音順）
-  const sorted = [...matched].sort((a, b) => {
-    const sa = input.selected.includes(a) ? 0 : 1;
-    const sb = input.selected.includes(b) ? 0 : 1;
-    return sa - sb || (input.counts[b] ?? 0) - (input.counts[a] ?? 0) || a.localeCompare(b, 'ja');
-  });
-  const limit = q || input.expanded ? TAG_MAX_COUNT : TAG_PREVIEW_COUNT;
-  const selectedInMatch = sorted.filter((tag) => input.selected.includes(tag)).length;
-  const shown = sorted.slice(0, Math.max(limit, selectedInMatch));
-  return { shown, matched: matched.length, hidden: matched.length - shown.length };
+/** その言葉を選んだ時の件数を数えるための選択: 同じ軸で選んでいる言葉は外し、この言葉だけを足す（ほかの軸はそのまま）。 */
+export function selectionWithOnly(selected: readonly string[], word: string): string[] {
+  const axis = axisOfWord(word);
+  return [...selected.filter((tag) => axisOfWord(tag) !== axis), word];
 }

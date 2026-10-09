@@ -8,10 +8,11 @@
  *              --run-id <名前>  --max-attempts N（束ごとの拒否の上限。既定3）
  *              --display legacy（画面の文を古い形 list-lines.json 等で作る。既定は画面の正本 data/case-pages/<id>.md を scripts/case-write/run.ts で書く）
  *              --rewrite-case-pages（正本が既にある事例も書き直す。既定は書き直さない）
+ *              --write-effort <深さ>（画面の正本を書く段へ渡す codex の深さ。他の段の --codex-effort とは別）
  *
  * 段（この順）:
  *   fetch 出典の取得 → verify 事実の照合 → source-check 原文照合 → analyze 分析 → audit 監査
- *   → select 仕上げ済みの選別 → display 画面の文 → case-text 文の検査 → prepare 公開データの作成 → publish（--publish の時だけ）
+ *   → select 仕上げ済みの選別 → display 画面の文 → media 画像の取得と自動判定（止めない） → case-text 文の検査 → prepare 公開データの作成 → publish（--publish の時だけ）
  * 照合・分析・監査は AI をその場で呼ぶ（runner/agent-run.ts）。終了コード 75 の待ち合わせは無い。
  * 束は事例ごと。1件が失敗しても他の件は止めず、失敗した件と理由は最後に一覧で出す。
  * 各段の所要時間は data/pipeline/case-run.jsonl に1行ずつ残す。
@@ -31,7 +32,7 @@ import { runStageWithAgent, type AgentStageOptions, type BundleOutcome } from '.
 const HERE = dirname(fileURLToPath(import.meta.url));
 export const ROOT = resolve(HERE, '../..');
 
-export const STAGE_ORDER = ['fetch', 'verify', 'source-check', 'analyze', 'audit', 'select', 'display', 'fact-lines', 'case-text', 'prepare', 'publish'] as const;
+export const STAGE_ORDER = ['fetch', 'verify', 'source-check', 'analyze', 'audit', 'select', 'display', 'fact-lines', 'media', 'case-text', 'prepare', 'publish'] as const;
 
 export interface ExecResult { code: number; stdout: string; stderr: string }
 /** 外の命令（node スクリプト・pnpm）を流す。試験では偽物に差し替える */
@@ -50,6 +51,8 @@ export interface CaseRunOptions {
   from?: string;
   /** build-display に渡す AI の指定 */
   agentArgs?: string[];
+  /** 画面の正本を書く段（case:write）に渡す codex の深さ。他の段の --codex-effort とは別 */
+  writeEffort?: string;
   /**
    * 画面の文の作り方。既定 'case-page': 画面の正本 data/case-pages/<id>.md を書く新しい流れ（scripts/case-write/run.ts → case-pages:build）。
    * 'legacy': 古い形（list-lines.json など。build-display.ts と build-fact-lines.ts）。正本がある事例は画面で正本が勝つので、古い形は使われない。
@@ -226,7 +229,7 @@ export async function runCases(opt: CaseRunOptions, deps: CaseRunDeps): Promise<
     const existing = [...alive].filter((id) => existsSync(join(root, 'data/case-pages', `${id}.md`)));
     const todo = opt.rewriteCasePages ? [...alive] : [...alive].filter((id) => !existing.includes(id));
     if (todo.length) {
-      const r = await deps.exec('display-case-write', node('scripts/case-write/run.ts', '--ids', todo.join(','), '--concurrency', String(Math.max(1, Math.min(opt.concurrency, 4))), ...(opt.agentArgs ?? []).filter((a, i, all) => a !== '--codex-effort' && all[i - 1] !== '--codex-effort')));
+      const r = await deps.exec('display-case-write', node('scripts/case-write/run.ts', '--ids', todo.join(','), '--concurrency', String(Math.max(1, Math.min(opt.concurrency, 4))), ...(opt.agentArgs ?? []).filter((a, i, all) => a !== '--codex-effort' && all[i - 1] !== '--codex-effort'), ...(opt.writeEffort ? ['--codex-effort', opt.writeEffort] : [])));
       for (const id of todo) {
         if (!new RegExp(`^\\[case:write\\] ${id}: 合格`, 'm').test(r.stdout)) fail(id, 'display', `画面の正本を書けなかった、または照合に通らなかった。理由: data/pipeline/case-write.jsonl と data/pipeline/case-write-rejected/${id}.rejected.md`);
       }
@@ -279,6 +282,15 @@ export async function runCases(opt: CaseRunOptions, deps: CaseRunDeps): Promise<
     const r = await deps.exec('fact-lines', node('scripts/reader-case/build-fact-lines.ts', '--ids', ids.join(','), '--concurrency', String(Math.max(1, Math.min(opt.concurrency, 4))), ...(opt.agentArgs ?? [])));
     if (r.code !== 0) for (const id of ids) fail(id, 'fact-lines', `記録の文の言い直しを作れなかった（終了コード ${r.code}）。理由: data/pipeline/fact-lines-failures.jsonl`);
     return { cases: ids.length };
+  });
+
+  // 7c. 画像の取得と自動判定（取得済みは取り直さない）。ここでは何があっても事例を外さない。保留は「人の目で見る」と出す。R2 へは自動で上げない
+  await stage('media', async () => {
+    const r = await deps.exec('media', node('scripts/media/ensure-case-media.ts', '--ids-file', idsFile('media', alive)));
+    const lines = r.stdout.split('\n').map((l) => l.trim());
+    for (const l of lines.filter((x) => /^(保留あり|使える画像なし|上げる命令)/.test(x) || x.includes(' | '))) log(`media: ${l}`);
+    if (r.code !== 0) log(`media: 画像の段が終了コード ${r.code} で終わった（事例は止めない）。理由: ${errorLine(r)}`);
+    return { held: lines.filter((l) => l.startsWith('保留あり')).length, noImage: lines.filter((l) => l.startsWith('使える画像なし')).length };
   });
 
   // 8. 文の検査（全件を対象にする検査なので、落ちたら理由を出して公開データの作成へ進まない）
@@ -361,6 +373,7 @@ function parseArgs(argv: string[]): CaseRunOptions & { agent?: string; model?: s
     from: val('--from'),
     display: val('--display') === 'legacy' ? 'legacy' as const : 'case-page' as const,
     rewriteCasePages: argv.includes('--rewrite-case-pages'),
+    writeEffort: val('--write-effort'),
     stallMinutes: Number(val('--stall-minutes') ?? 10),
     runId: val('--run-id') ?? new Date().toISOString().replace(/[-:]/g, '').slice(0, 15),
     maxAttempts: val('--max-attempts') ? Number(val('--max-attempts')) : undefined,

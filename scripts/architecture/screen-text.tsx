@@ -10,7 +10,7 @@
  *   → CompanyInspectorPane と同じ部品・同じ props を renderToStaticMarkup で描く（台帳タブ + メモタブ）
  *   → 出どころの検査: fact・metric・source（data-fact / data-metric / data-source）の外にある文字は、ui-strings の許可リストに
  *      一致しなければ失敗。中身の無い見出しと、同じ画面での同じ fact ID の2回目も失敗。禁止語の一覧は fact.text への補助の検査。
- *   → 一覧（トップの InstitutionalDataGrid = スマホのカード + 表、/discover の DiscoveryRow）も1件ずつ描く（ListRow）
+ *   → 一覧（トップの InstitutionalDataGrid = スマホのカード + 表）も1件ずつ描く（ListRow）
  *   → タグを除いて画面の文字だけにする（title / aria-label / alt / placeholder も含める）。
  */
 import { createHash } from 'node:crypto';
@@ -22,10 +22,8 @@ import { renderToStaticMarkup } from 'react-dom/server';
 
 import { publicEntity, publicSummaryEntity } from '@/lib/company-access/public-entity';
 import { InstitutionalDataGrid } from '@/platform/components/grid/InstitutionalDataGrid';
-import { DetailPane, DiscoveryRow } from '@/app/discover/DiscoverClient';
 import { ExecutionReference } from '@/app/execute/[id]/ExecutionClient';
 import { executionSource } from '@/shared/execution-source';
-import { deriveDiscoveryDataset } from '@/features/discover';
 import { buildInspectorModel } from '@/features/company-inspector/model/inspector-model';
 import type { InspectorSectionProps } from '@/features/company-inspector/model/section-props';
 import { AnalystNotes } from '@/features/company-inspector/ui/AnalystNotes';
@@ -35,6 +33,8 @@ import { ReaderLedger } from '@/features/company-inspector/ui/ReaderDetail';
 import { isGenerationHeading } from '@/platform/components/grid/generation';
 import { allowedUiTexts, isUnknownsLine } from '@/shared/ui-strings';
 import { casePageTexts } from '@/shared/case-page';
+import { caseYearOf } from '@/shared/case-year';
+import { ALL_TAXONOMY_WORDS } from '@/shared/case-taxonomy';
 import { parseFinancialEntitiesResiliently, parseFinancialEntity } from '@/shared/financial-entity-schema';
 import type { FinancialEntity } from '@/shared/terminal';
 import { INTERNAL_TERMS, LIST_ONLY_RES, PROCESS_RES, SCREEN_ONLY_RES, STANDALONE_LINES, analyzeScreen } from './screen-text-lib.mjs';
@@ -102,7 +102,7 @@ function baseProps(entity: FinancialEntity, tab: 'LEDGER' | 'AUDIT'): InspectorS
 }
 const h = React.createElement;
 /** [部品名, 画面, 描く関数]。同じ画面の部品は1つの HTML にまとめて出どころを検査する。 */
-type Part = [string, 'ledger' | 'audit' | 'list' | 'list2' | 'detail2' | 'execute', () => React.ReactElement | null];
+type Part = [string, 'ledger' | 'audit' | 'list' | 'execute', () => React.ReactElement | null];
 function parts(entity: FinancialEntity): Part[] {
   const ledger = baseProps(entity, 'LEDGER');
   const audit = baseProps(entity, 'AUDIT');
@@ -118,15 +118,6 @@ function parts(entity: FinancialEntity): Part[] {
       entities: [{ ...publicSummaryEntity(entity), ...(FIXTURE && entity.reader ? { reader: entity.reader } : {}) } as unknown as FinancialEntity], selectedEntityId: null, onSelectEntity: noop,
       currency: CURRENCY, bookmarkedIds: new Set<string>(), onToggleBookmark: noop,
     })],
-    ['ListRow(探す)', 'list2', () => {
-      const item = deriveDiscoveryDataset([entity]).cases[0];
-      return item ? h(DiscoveryRow, { item, selected: false, onSelect: noop }) : null;
-    }],
-    // 探すの詳細ペイン（AI への文脈 buildContext も同じ reader から作る）
-    ['DetailPane(探す)', 'detail2', () => {
-      const item = deriveDiscoveryDataset([entity]).cases[0];
-      return item ? h(DetailPane, { item }) : null;
-    }],
     // 計画画面の参考事例
     ['ExecutionReference', 'execute', () => h(ExecutionReference, { entity: executionSource(entity) })],
   ];
@@ -213,10 +204,11 @@ for (const id of ids) {
   const hits = [...findHits(all), ...findHits(list, LIST_RULES)];
   // 出どころの検査: fact・metric・source の外にあって、ui-strings の許可リストにも無い文字 / 中身の無い見出し / 同じ fact の2回目
   const allowed = allowedUiTexts(entity.name);
-  // 事例が持つ札（一覧の行と詳細の見出しに出る。caseLabels）は事例のデータから来る文字
-  for (const tag of entity.tags ?? []) allowed.add(tag);
-  // 言い直した札（data/fact-lines.json の labels。詳細の見出しの札に出る）も事例のデータから来る文字
-  for (const label of entity.reader?.display?.labels?.labels ?? []) allowed.add(label);
+  // 札は決まった言葉の一覧（src/shared/case-taxonomy.ts）の言葉だけが画面に出る（caseLabels と左の絞り込み）。事例ごとの自由な言葉は許さない
+  for (const word of ALL_TAXONOMY_WORDS) allowed.add(word);
+  // 年の札（事例の記録の創業・公開年か、章ごとの文の年表の最初の行から決めた年）も事例のデータから来る文字
+  const year = caseYearOf(entity as Parameters<typeof caseYearOf>[0]);
+  if (year) allowed.add(String(year));
   // 章ごとの文（case-page）の文字も、この事例のデータから来た文字
   for (const t of entity.reader?.display?.casePage ? casePageTexts(entity.reader.display.casePage) : []) allowed.add(t);
   const isAllowed = (t: string) => allowed.has(t) || isUnknownsLine(t) || isGenerationHeading(t);

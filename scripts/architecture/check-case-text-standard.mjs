@@ -123,7 +123,10 @@ const chapterEntries = read('data/case-chapters.json');
 const coverage = JSON.parse(execFileSync(process.execPath, ['--import', 'tsx', 'scripts/reader-case/detail-coverage.ts', ...chapterEntries.map((e) => e.entityId)], { cwd: REPO, encoding: 'utf8', maxBuffer: 64 * 1024 * 1024 }));
 const detailByKey = new Map(read('data/detail-lines.json').map((line) => [`${line.entityId}\u0000${line.analysisId}`, line]));
 for (const id of coverage.missing) problems.push(`分析欄 ${id}: 仕上げ済みだが事例データが読めない`);
+// 画面の正本（data/case-pages/<id>.md）を持つ事例は、画面が分析欄・記録の文・札を使わず正本を出す。正本の文は case-pages:check と case:write の照合が見る
+const casePageIds = new Set(existsSync(resolve(process.cwd(), 'data/case-pages.json')) ? read('data/case-pages.json').map((e) => e.entityId) : []);
 for (const entry of coverage.cases) {
+  if (casePageIds.has(entry.entityId)) continue;
   const live = (factId, factHash) => entry.facts[factId] === factHash;
   const chapterIds = new Set(chapterEntries.filter((c) => c.entityId === entry.entityId && live(c.factId, c.factHash)).flatMap((c) => Object.entries(c.chapters).filter(([, rows]) => rows.length > 0).map(([id]) => id)));
   const secrets = successPoints.some((p) => p.entityId === entry.entityId && (p.points ?? []).some((point) => live(point.factId, point.factHash)));
@@ -165,7 +168,8 @@ for (const entry of coverage.cases) {
 const factCoverage = JSON.parse(execFileSync(process.execPath, ['--import', 'tsx', 'scripts/reader-case/fact-lines-coverage.ts'], { cwd: REPO, encoding: 'utf8', maxBuffer: 64 * 1024 * 1024 }));
 const priceKeys = new Set(factCoverage.cases.flatMap((c) => c.targets.filter((t) => t.price).map((t) => `${c.entityId}\u0000${t.kind}\u0000${t.targetId}`)));
 const FACT_MAX = { fact: 200, basis: 70, period: 40, formula: 280, analysis: 150 };
-const OPERATOR_TAGS = new Set(['収集事例', '新着', '未精査候補', '収益確認済']);
+// 運営の印の一覧の正本は src/shared/display-text.ts（画面・札の作成と同じもの。coverage の出力から受け取る）
+const OPERATOR_TAGS = new Set(factCoverage.operatorTags);
 for (const line of factLines) {
   const where = `fact-lines ${line.entityId}/${line.kind}:${line.targetId}`;
   if (line.kind === 'labels') {
@@ -182,6 +186,7 @@ for (const line of factLines) {
 }
 for (const id of factCoverage.missing) problems.push(`記録の文 ${id}: 仕上げ済みだが事例データが読めない`);
 for (const entry of factCoverage.cases) {
+  if (casePageIds.has(entry.entityId)) continue;
   for (const target of entry.targets) {
     const line = factLineBy.get(`${entry.entityId}\u0000${target.kind}\u0000${target.targetId}`);
     const where = `記録の文 ${entry.name}（${entry.entityId}）の ${target.where}`;

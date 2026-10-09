@@ -1,0 +1,6 @@
+$ pnpm case-text:verify
+
+> make-money-app@0.1.0 case-text:verify /Volumes/SS/Worktrees/Make-Money/rewrite-27
+> node scripts/architecture/check-case-text-standard.mjs
+
+[case-text] OK

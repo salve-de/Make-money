@@ -52,8 +52,15 @@ export async function mapPool<T, R>(items: readonly T[], limit: number, fn: (ite
   return out;
 }
 
+/**
+ * Codex だけで動かす印（環境変数 CASE_AGENT_LOCK=codex）。pnpm case:new が立てる。
+ * 立っている間は、どの段が claude を選んでも codex に替える（claude を一切呼ばない。子の処理にも環境変数で伝わる）。
+ */
+export const codexLocked = (): boolean => process.env.CASE_AGENT_LOCK === 'codex';
+
 /** build-display.ts の pickAgent と同じ決め方。環境変数は DISPLAY_BUILD_AGENT（同じ既定を共有する） */
 export function pickAgent(want: Agent | 'auto' | undefined = undefined, log: (t: string) => void = () => {}): Agent {
+  if (codexLocked()) return 'codex';
   const w = want ?? ((process.env.DISPLAY_BUILD_AGENT as Agent | 'auto' | undefined) || 'auto');
   if (w === 'claude' || w === 'codex') return w;
   const s = spawnSync('claude', ['auth', 'status'], { encoding: 'utf8' });
@@ -112,7 +119,11 @@ export async function withStallRetry<T>(once: () => Promise<T>, retries = 1): Pr
 }
 
 /** 実際に claude / codex を呼ぶ Caller を作る */
-export function makeCaller(agent: Agent, opt: AgentOptions = {}): Caller {
+export function makeCaller(agentWanted: Agent, optWanted: AgentOptions = {}): Caller {
+  // codex 固定の間は claude を選ばれても codex で動かす。claude 用のモデル名（opus・haiku など）は codex に渡せないので外す
+  const locked = codexLocked() && agentWanted === 'claude';
+  const agent: Agent = locked ? 'codex' : agentWanted;
+  const opt: AgentOptions = locked ? { ...optWanted, model: undefined } : optWanted;
   const watch: WatchOptions = { timeoutMs: opt.timeoutMs ?? 20 * 60_000, idleMs: opt.idleMs ?? 10 * 60_000 };
   return (req) => withStallRetry(() => callOnce(agent, opt, watch, req));
 }

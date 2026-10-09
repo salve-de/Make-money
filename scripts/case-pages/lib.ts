@@ -1,4 +1,4 @@
-import { CasePageSchema, type CasePage, type CasePageRight } from '../../src/shared/case-page';
+import { CasePageSchema, caseItemTexts, type CasePage, type CasePageRight } from '../../src/shared/case-page';
 
 /**
  * 事例の章ごとの文（data/case-pages/<事例ID>.md）を読んで構造にする。
@@ -50,6 +50,20 @@ function numbered(lines: string[]): Array<{ no: number; body: string }> {
   for (const l of lines) {
     const m = l.match(/^(\d+)\.\s+(.+)$/);
     if (m) out.push({ no: Number(m[1]), body: m[2].trim() });
+  }
+  return out;
+}
+
+/** 実際にやったこと・つまずき: 「- **見出し**」の次の行（字下げ）が補足。見出しの無い「- 文」は古い形として1文のまま */
+function parseItems(lines: string[]): CasePage['did'] {
+  const out: CasePage['did'] = [];
+  for (const l of lines) {
+    const head = l.match(/^\s*[-・]\s+\*\*(.+?)\*\*\s*$/);
+    if (head) { out.push({ head: head[1].trim(), body: '' }); continue; }
+    const plain = l.match(/^\s*[-・]\s+(.+)$/);
+    if (plain) { out.push(plain[1].trim()); continue; }
+    const last = out[out.length - 1];
+    if (last && typeof last !== 'string' && l.trim()) last.body = `${last.body}${last.body ? ' ' : ''}${l.trim()}`;
   }
   return out;
 }
@@ -119,8 +133,8 @@ export function parseCasePage(md: string): CasePage {
     listLine: text(get(CHAPTER_HEADS.listLine)),
     overview: text(get(CHAPTER_HEADS.overview)),
     secrets: parseSecrets(get(CHAPTER_HEADS.secrets)),
-    did: bullets(get(CHAPTER_HEADS.did)),
-    setbacks: bullets(get(CHAPTER_HEADS.setbacks)),
+    did: parseItems(get(CHAPTER_HEADS.did)),
+    setbacks: parseItems(get(CHAPTER_HEADS.setbacks)),
     pricing: bullets(get(CHAPTER_HEADS.pricing)),
     timeline: parseTimeline(get(CHAPTER_HEADS.timeline)),
     sources,
@@ -145,7 +159,7 @@ export function parseRights(md: string): CasePageRight[] {
 
 // ---- 軽い検査（4つだけ） ----
 
-export interface Violation { rule: 'polite' | 'yen-after-foreign' | 'missing-chapter' | 'held-source' | 'list-line-estimate' | 'maker-memo' | 'flow-format' | 'flow-amount' | 'key-number'; where: string; detail: string }
+export interface Violation { rule: 'polite' | 'yen-after-foreign' | 'missing-chapter' | 'held-source' | 'list-line-estimate' | 'maker-memo' | 'flow-format' | 'flow-amount' | 'key-number' | 'source-number-gap' | 'unused-currency-note' | 'timeline-thin' | 'number-guess' | 'timeline-tense'; where: string; detail: string }
 
 /** 一覧の1行に出さない語（推定の数字は嘘になりうるので出さない。文の良し悪しは機械で決めない） */
 const LIST_LINE_ESTIMATE = /推定|推測/g;
@@ -163,8 +177,8 @@ export function bodyLines(page: CasePage): Array<{ where: string; text: string }
     { where: '概要', text: page.overview },
   ];
   page.secrets.forEach((x, i) => { out.push({ where: `成功の秘訣${i + 1}（見出し）`, text: x.head }); out.push({ where: `成功の秘訣${i + 1}（補足）`, text: x.body }); });
-  page.did.forEach((x, i) => out.push({ where: `実際にやったこと${i + 1}`, text: x }));
-  page.setbacks.forEach((x, i) => out.push({ where: `つまずきと立て直し${i + 1}`, text: x }));
+  page.did.forEach((x, i) => caseItemTexts(x).forEach((text, j) => out.push({ where: `実際にやったこと${i + 1}${typeof x === 'string' ? '' : j === 0 ? '（見出し）' : '（補足）'}`, text })));
+  page.setbacks.forEach((x, i) => caseItemTexts(x).forEach((text, j) => out.push({ where: `つまずきと立て直し${i + 1}${typeof x === 'string' ? '' : j === 0 ? '（見出し）' : '（補足）'}`, text })));
   page.pricing.forEach((x, i) => out.push({ where: `料金${i + 1}`, text: x }));
   (page.flows ?? []).forEach((x, i) => out.push({ where: `お金の流れ${i + 1}`, text: x.label }));
   page.timeline.forEach((x, i) => out.push({ where: `時間順の流れ${i + 1}`, text: `${x.when}${x.when ? '：' : ''}${x.what}` }));
@@ -202,7 +216,7 @@ export function checkFlows(page: CasePage): Violation[] {
   const rest = [
     page.listLine, page.overview,
     ...page.secrets.flatMap((x) => [x.head, x.body]),
-    ...page.did, ...page.setbacks, ...page.pricing,
+    ...page.did.flatMap(caseItemTexts), ...page.setbacks.flatMap(caseItemTexts), ...page.pricing,
     ...page.timeline.map((x) => x.what),
     ...page.notes,
   ].map(normAmount).join('\n');
@@ -220,7 +234,7 @@ export function checkKeyNumbers(page: CasePage): Violation[] {
   const rest = [
     page.listLine, page.overview,
     ...page.secrets.flatMap((x) => [x.head, x.body]),
-    ...page.did, ...page.setbacks, ...page.pricing,
+    ...page.did.flatMap(caseItemTexts), ...page.setbacks.flatMap(caseItemTexts), ...page.pricing,
     ...page.timeline.flatMap((x) => [x.when, x.what]),
     ...page.notes,
   ].join('\n').replace(/\s/g, '');
@@ -239,11 +253,78 @@ export function checkCasePage(page: CasePage): Violation[] {
     for (const m of text.matchAll(POLITE)) v.push({ rule: 'polite', where, detail: `「${m[0]}」は常体に直す` });
     for (const miss of foreignWithoutYen(text)) v.push({ rule: 'yen-after-foreign', where, detail: `「${miss}」の直後に円の概算（約…円）が要る` });
   }
+  v.push(...unusedCurrencyNotes(page));
+  v.push(...numberGuesses(page), ...timelineTense(page));
+  if (page.timeline.length < MIN_TIMELINE) v.push({ rule: 'timeline-thin', where: '時間順の流れ', detail: `${page.timeline.length}行しかない。創業・伸びた転機・規模の節目を年月で並べ、${MIN_TIMELINE}行以上にする（集めた事実と出典にある出来事だけ。広告や機能の細かい話で埋めない）` });
   for (const note of page.notes) for (const m of note.matchAll(POLITE)) v.push({ rule: 'polite', where: '注記', detail: `「${m[0]}」は常体に直す` });
   for (const s of page.sources) for (const m of s.label.matchAll(POLITE)) v.push({ rule: 'polite', where: `出典${s.no}`, detail: `「${m[0]}」は常体に直す` });
   // 一覧の1行で機械が見るのは推定・推測の語だけ（書き方は docs/owner/LEAD_LINE_SHEET.md の見本）
   for (const m of page.listLine.matchAll(LIST_LINE_ESTIMATE)) v.push({ rule: 'list-line-estimate', where: '一覧の1行', detail: `「${m[0]}」は一覧の1行に出さない（推定の数字は使わない）` });
   return v;
+}
+
+
+/** 数字・金額・年月を含む文に「（推測）」「（推定）」は付けない（印は見立て＝解釈にだけ。数字は出典で確かめた物だけ書き、確かめられなければ数字を消す） */
+export function numberGuesses(page: CasePage): Violation[] {
+  const v: Violation[] = [];
+  for (const { where, text } of bodyLines(page)) {
+    for (const sentence of text.split(/(?<=。)/)) {
+      if (/[（(](?:推測|推定)[）)]/.test(sentence) && /[0-9０-９]/.test(sentence.replace(/[（(](?:推測|推定)[）)]/g, ''))) {
+        v.push({ rule: 'number-guess', where, detail: `数字・金額・年月の文に（推測）は付けない（${sentence.trim().slice(0, 40)}）。出典で確かめられる数字なら印を外し、確かめられなければその数字を消す。印は数字の無い見立ての文だけ` });
+      }
+    }
+  }
+  return v;
+}
+
+/** 時間順の流れの過去の出来事は過去形（〜した）でそろえる。「：」の後が「る。」で終わる行を拾う（「〜している」の現在の状態は可） */
+export function timelineTense(page: CasePage): Violation[] {
+  return page.timeline.flatMap((t, i) => {
+    const what = t.what.trim();
+    return /る。?$/.test(what) && !/(?:て|で)いる。?$/.test(what)
+      ? [{ rule: 'timeline-tense' as const, where: `時間順の流れ${i + 1}`, detail: `「${what.slice(-14)}」は現在形。過去の出来事は過去形（〜した）にする（現在の状態は「〜している」）` }]
+      : [];
+  });
+}
+
+/** 時間順の流れの最少行数（見本 Candy Japan は5行） */
+export const MIN_TIMELINE = 5;
+
+/** 後から足した3つの検査。既に出ている事例（data/case-pages-legacy.json）では警告に留め、新しい事例では止める */
+export const NEWER_RULES: ReadonlyArray<Violation['rule']> = ['source-number-gap', 'unused-currency-note', 'timeline-thin', 'number-guess', 'timeline-tense'];
+
+/** 通貨の断り（「1ドル＝150円で計算」）の通貨名。本文でその通貨を使っていなければ断りは要らない */
+const CURRENCY_NOTE = /^\s*1\s*(ドル|ユーロ|ポンド|ルピー|ペソ|フラン|ウォン|元)\s*[＝=]/;
+const usedCurrencies = (page: CasePage) => new Set(bodyLines(page).flatMap((l) => [...l.text.matchAll(/(ドル|ユーロ|ポンド|ルピー|ペソ|フラン|ウォン)/g)].map((m) => m[1])));
+
+/** 本文で使っていない通貨の断りが残っていないか */
+export function unusedCurrencyNotes(page: CasePage): Violation[] {
+  const used = usedCurrencies(page);
+  return page.notes.flatMap((n) => {
+    const c = n.match(CURRENCY_NOTE)?.[1];
+    return c && !used.has(c) ? [{ rule: 'unused-currency-note' as const, where: '注記', detail: `「${n.slice(0, 30)}」は本文で${c}を使っていない。断りを外す` }] : [];
+  });
+}
+
+/** md の「数字と出典」から、本文で使っていない通貨の断りの行を外す（機械で直す。本文は変えない） */
+export function dropUnusedCurrencyNotes(md: string): string {
+  const { page } = (() => { try { return { page: parseCasePage(md) }; } catch { return { page: null }; } })();
+  if (!page) return md;
+  const used = usedCurrencies(page);
+  let inSources = false;
+  return md.split('\n').filter((l) => {
+    if (/^##\s/.test(l)) inSources = /^##\s+数字と出典\s*$/.test(l);
+    if (!inSources) return true;
+    const c = l.match(/^\s*[-・]\s+(.+)$/)?.[1]?.match(CURRENCY_NOTE)?.[1];
+    return !(c && !used.has(c));
+  }).join('\n');
+}
+
+/** 「数字と出典」の番号が 1 からそろっているか（飛び・重なりがあれば止める） */
+export function sourceNumberGaps(lines: string[]): Violation[] {
+  const nos = numbered(lines).map((r) => r.no);
+  const bad = nos.findIndex((n, i) => n !== i + 1);
+  return bad < 0 ? [] : [{ rule: 'source-number-gap', where: CHAPTER_HEADS.sources, detail: `出典の番号が 1 からそろっていない（${nos.join('、')}）。1 から詰めて振り直す` }];
 }
 
 /** 全章がそろっているか（markdown の段階。空の章・出典のリンク切れ・番号の飛びを見つける） */
@@ -289,7 +370,7 @@ export function checkMarkdown(md: string): { page: CasePage | null; violations: 
   if (missing.length > 0) return { page: null, violations: missing };
   try {
     const page = parseCasePage(md);
-    return { page, violations: [...checkCasePage(page), ...checkMakerMemo(md)] };
+    return { page, violations: [...checkCasePage(page), ...checkMakerMemo(md), ...sourceNumberGaps(sections(md).get(CHAPTER_HEADS.sources) ?? [])] };
   } catch (e) {
     return { page: null, violations: [{ rule: 'missing-chapter', where: '全体', detail: `読めない: ${(e as Error).message.slice(0, 160)}` }] };
   }

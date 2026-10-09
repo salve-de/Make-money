@@ -154,14 +154,6 @@ export function ExecutionHubClient() {
               ? 'クラウドとこの端末に保存された計画を確認しています。'
               : '作った実行計画が、ここに一覧で並びます。'}
           </p>
-          {!loadingRemote && (
-            <Link
-              href="/"
-              className="mt-3 inline-flex min-h-11 items-center border border-term-accent px-4 text-sm text-term-accent hover:bg-term-head lg:min-h-8"
-            >
-              事例を探す
-            </Link>
-          )}
         </section>
       ) : (
         <section aria-label="実行計画の一覧">

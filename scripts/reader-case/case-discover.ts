@@ -63,7 +63,7 @@ export const defaultCheck: SourceChecker = async (url, quote) => {
   return quoteInText(quote, rec.text) ? 'ok' : 'missing';
 };
 
-function systemPrompt(root: string): string {
+export function discoverSystem(root: string): string {
   return readFileSync(join(root, 'scripts/reader-case/discover-prompt.md'), 'utf8') + ownerContext(root);
 }
 
@@ -80,7 +80,7 @@ export async function runDiscover(opt: DiscoverOptions, deps: DiscoverDeps): Pro
   const rejected: { name: string; reason: string }[] = [];
   const idx = buildDedupIndex(opt.root);
   log(`照合先: 社名 ${idx.size.names} 件・ドメイン ${idx.size.domains} 件`);
-  const system = systemPrompt(opt.root);
+  const system = discoverSystem(opt.root);
   const recentNames = readQueue(opt.root).slice(-120).map((c) => c.name);
   const avoid = [...recentNames];
   let rounds = 0;

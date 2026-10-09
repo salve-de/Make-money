@@ -38,8 +38,8 @@ export interface BundleOutcome {
 /** 直接呼び出し用の指示。指示本体（*-prompt.md）に、実行方式と前回の拒否理由を足す */
 export function directPrompt(o: Pick<RunnerOptions, 'root' | 'stage'>, info: Pick<BundleInfo, 'attempts' | 'lastRejections'>, readPrompt: (file: string) => string): { system: string; retryNote: string } {
   const def = STAGES[o.stage];
-  // 事実の照合（verify）は出典だけで判定する役なので、オーナーの経緯は付けない
-  const owner = o.stage === 'verify' ? '' : ownerContext(o.root);
+  // どの段にもオーナーとのやりとりと経緯を付ける（照合 verify にも。2026-10-09 オーナーの決定）
+  const owner = ownerContext(o.root);
   const system = `${readPrompt(def.promptFile)}${owner}
 
 ## 実行方式（この節が指示本体より優先）

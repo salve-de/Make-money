@@ -18,9 +18,9 @@ export function lightReader(reader: ReaderCase): ReaderCase {
     unknowns: reader.unknowns,
     analysis: headline ? [headline] : [],
     ...(summary ? { summaryFactId: summary.id } : {}),
-    // 一覧で使う編集文は1行と札だけ。章や答えは詳細にだけ付ける（一覧の容量を増やさない）
-    ...(reader.display?.listLine || reader.display?.labels
-      ? { display: { ...(reader.display.listLine ? { listLine: reader.display.listLine } : {}), ...(reader.display.labels ? { labels: reader.display.labels } : {}) } }
+    // 一覧で使う編集文は1行と札（labels・tags）と年だけ。章や答えは詳細にだけ付ける（一覧の容量を増やさない）
+    ...(reader.display?.listLine || reader.display?.labels || reader.display?.year || reader.display?.tags
+      ? { display: { ...(reader.display.listLine ? { listLine: reader.display.listLine } : {}), ...(reader.display.labels ? { labels: reader.display.labels } : {}), ...(reader.display.year ? { year: reader.display.year } : {}), ...(reader.display.tags ? { tags: reader.display.tags } : {}) } }
       : {}),
     listForm: true,
   };

@@ -111,16 +111,19 @@ export function EntityMediaGalleryView({
               <span data-testid="media-gallery-origin" className="ml-1 font-normal text-term-label">［{mediaOriginLabel(asset.kind)}］</span>
             </span>
             <span data-testid="media-gallery-attribution" className="ml-1.5">{attributionName(asset.attribution)}</span>
-            {urls.map((url) => (
+            {/* 出典ページが複数ある時は同じ字を並べず「出典ページ 1 2」と番号で分ける */}
+            {urls.length > 1 && <span className="ml-1.5">出典ページ</span>}
+            {urls.map((url, i) => (
               <a
                 key={url}
                 data-testid="media-gallery-source-link"
                 href={url}
                 target="_blank"
                 rel="noopener noreferrer nofollow"
+                aria-label={urls.length > 1 ? `出典ページ${i + 1}を開く` : undefined}
                 className="ml-1.5 text-term-fg underline underline-offset-2"
               >
-                出典ページを開く
+                {urls.length > 1 ? i + 1 : '出典ページを開く'}
               </a>
             ))}
           </p>

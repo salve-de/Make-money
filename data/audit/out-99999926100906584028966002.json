@@ -1,0 +1,1 @@
+{"cases":[{"entityId":"ent_wildgrain_2b5aec41c733","items":[{"analysisId":"a-customer","kind":"WORK_WORDS","severity":"FIX","why":"formulaの「数字は出典に載っている値」は計算式ではなく、読む人に不要な調べる側の説明だ。","fix":"家庭でパンや菓子、生パスタを食べる定期購入の会員は15万人を超える。夏の間だけ配送を休む既存客もいる。","fixFormula":""}]}]}

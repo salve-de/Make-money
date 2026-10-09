@@ -4,6 +4,12 @@ import React from 'react';
 import { renderToStaticMarkup } from 'react-dom/server';
 import { describe, expect, it } from 'vitest';
 
+import { InstitutionalDataGrid } from '@/platform/components/grid/InstitutionalDataGrid';
+import { LedgerFilterRail } from '@/platform/components/grid/LedgerFilterRail';
+import { MobileFeedCard } from '@/platform/components/grid/MobileFeedCard';
+import { YearChip } from '@/platform/components/grid/YearChip';
+import { INSTITUTIONAL_ENTITIES } from '@/platform/data/mockLedgerData';
+import { caseLabels } from '@/shared/display-text';
 import { PRIMARY_NAV_ITEMS } from '@/platform/components/navigation/navigationItems';
 import { formatYen } from '@/platform/utils/moneyDisplay';
 import { baremetrics } from '@/shared/__fixtures__/reader-samples';
@@ -15,7 +21,7 @@ import { EntityMediaGalleryView } from './EntityMediaGallery';
 import { ReaderLedger } from './ReaderDetail';
 
 /**
- * 決まった画面の形を守る試験。台帳は docs/design/DECIDED_UI.md（D-01〜D-14）。
+ * 決まった画面の形を守る試験。台帳は docs/design/DECIDED_UI.md（D-01〜D-17）。
  * 試験名の先頭の「D-xx」が台帳の件。形を変える時は、先にオーナーに聞き、台帳の該当の件にOKを書いてから、この試験を直す。
  * 試験だけを弱めて通さない。
  */
@@ -110,6 +116,43 @@ describe('D-05 / D-08 事例の章と時間順の流れ', () => {
   });
 });
 
+describe('D-15 章の中身の読みやすさ', () => {
+  const page = buttonShyPage();
+  const html = render(page);
+  const block = (id: string, next: string) => {
+    const start = html.indexOf(`id="${id}"`);
+    expect(start).toBeGreaterThanOrEqual(0);
+    return html.slice(start, html.indexOf(`id="${next}"`, start));
+  };
+
+  it('D-15 成功の秘訣は番号＋太字の見出し＋補足', () => {
+    const b = block('section-group-secret', 'section-chapter-practice');
+    expect(b).toContain('grid-cols-[1.5rem_minmax(0,1fr)]');
+    expect(b).toContain('font-semibold');
+    expect(b).toContain('text-term-sub');
+    expect((b.match(/data-case-page-secret=/g) ?? []).length).toBe(page.secrets.length);
+  });
+
+  it('D-15 実際にやったこと・つまずきは「太字の答え1行＋補足」。点（・）は付けない', () => {
+    const b = block('section-chapter-practice', page.setbacks.length > 0 ? 'section-chapter-turning' : 'section-chapter-price');
+    expect((b.match(/data-case-page-item=/g) ?? []).length).toBe(page.did.length);
+    expect(b).not.toContain('>・<');
+    for (const x of page.did) {
+      expect(typeof x).not.toBe('string');
+      if (typeof x !== 'string') expect(b).toContain(`font-semibold leading-snug text-term-fg-strong">${x.head}</p>`);
+    }
+  });
+
+  it('D-15 料金は左に品名、右に値段の表', () => {
+    const price = block('section-chapter-price', 'section-chapter-timeline');
+    const rows = page.pricing.filter((t) => t.indexOf('：') > 0);
+    expect((price.match(/data-case-page-price=/g) ?? []).length).toBe(rows.length);
+    expect(price).toContain('<dt');
+    expect(price).toContain('<dd');
+    expect(price).not.toContain('>・<');
+  });
+});
+
 describe('D-06 画像は左右の矢印の欄（EntityMediaGalleryView）', () => {
   const page = buttonShyPage();
   const shots = [asset('screenshot_product', 'a'), asset('screenshot_product', 'b'), asset('screenshot_home', 'c')];
@@ -190,5 +233,92 @@ describe('D-12 金額の表記', () => {
     expect(formatYen(16_200_000)).toBe('1,620万円');
     expect(formatYen(150_000_000)).toBe('1.5億円');
     expect(formatYen(1_500_000, { approx: true })).toBe('約150万円');
+  });
+});
+
+describe('D-16 札（タグ）/ D-17 年の札', () => {
+  const base = INSTITUTIONAL_ENTITIES[0];
+  // 札は決まった言葉の一覧（case-taxonomy）から選んだタグだけ。事例ごとの自由な言葉（entity.tags）は出さない
+  const entity = { ...base, tags: ['開発・IT', '有料サービス', '収集事例'], reader: { ...baremetrics, display: { year: 2009, tags: { field: '開発・IT', form: 'ソフト・アプリ', buyer: '個人向け', features: [] } } } } as unknown as typeof base;
+  const noop = () => undefined;
+
+  it('D-16 事例の札は一覧の「種類」の列（PC）に出て、名前の横には出ない。運営の印（収集事例）は出さない', () => {
+    expect(caseLabels(entity)).toEqual(['開発・IT', 'ソフト・アプリ', '個人向け']);
+    const html = renderToStaticMarkup(
+      <InstitutionalDataGrid entities={[entity]} selectedEntityId={null} onSelectEntity={noop} currency="JPY" bookmarkedIds={new Set()} onToggleBookmark={noop} onToggleTag={noop} />,
+    );
+    const pc = html.slice(html.indexOf('<table'));
+    expect(pc).toContain('>種類<');
+    expect(pc).not.toContain('>分野<');
+    expect(pc).toContain('開発・IT');
+    expect(pc).not.toContain('収集事例');
+    // 自由な言葉（事例ごとの entity.tags）は札に出さない
+    expect(pc).not.toContain('有料サービス');
+    // 札は全部押せて、押すとその言葉で絞り込む
+    for (const word of ['開発・IT', 'ソフト・アプリ', '個人向け']) expect(pc).toMatch(new RegExp(`<button[^>]*aria-pressed="false"[^>]*>${word}</button>`));
+    // 名前のセルには札を置かず、年だけを名前の右に添える（札は名前の次のセル＝種類の列）
+    const nameCell = pc.slice(pc.indexOf('<td'), pc.indexOf('</td>'));
+    expect(nameCell).not.toContain('開発・IT');
+    expect(nameCell).toMatch(/data-testid="year-chip"[^>]*>2009</);
+    const kindCell = pc.slice(pc.indexOf('</td>') + 5, pc.indexOf('</td>', pc.indexOf('</td>') + 5));
+    expect(kindCell).toContain('開発・IT');
+    expect(kindCell).not.toContain('year-chip');
+    // 札は罫線の枠でなく薄い塗り
+    expect(kindCell).toContain('bg-term-line');
+  });
+
+  it('D-16 左右に分けた一覧（種類の列が隠れる時）は、説明の下に札を出す。年は名前の右', () => {
+    const html = renderToStaticMarkup(
+      <InstitutionalDataGrid entities={[entity]} selectedEntityId={null} onSelectEntity={noop} currency="JPY" bookmarkedIds={new Set()} onToggleBookmark={noop} onToggleTag={noop} isSplitView />,
+    );
+    const pc = html.slice(html.indexOf('<table'));
+    expect(pc).not.toContain('>種類<');
+    expect(pc.indexOf('開発・IT')).toBeGreaterThan(pc.indexOf('data-fact'));
+    expect(pc.indexOf('data-testid="year-chip"')).toBeLessThan(pc.indexOf('data-fact'));
+  });
+
+  it('D-16 スマホの一覧のカードにも札を出す。札の無い事例は札の欄を出さない', () => {
+    const card = (e: typeof base) => renderToStaticMarkup(<MobileFeedCard entity={e} isSelected={false} onSelect={noop} currency="JPY" onToggleBookmark={noop} isBookmarked={false} />);
+    expect(card(entity)).toContain('開発・IT');
+    expect(card({ ...entity, tags: [], tagline: '', reader: baremetrics } as unknown as typeof base)).not.toContain('mt-1 flex flex-wrap');
+  });
+
+  it('D-16 左の絞り込みは、決まった言葉の一覧を「分野」「事業の形」「売る相手」「特徴」の軸ごとの見出しで並べる。件数0の言葉は押せない', () => {
+    // 件数は画面に読み込んだ分ではなく、公開中の全件の最小の値（facets）で数える
+    const tagged = (field: string) => ({ scale: 'SOLO', margin: 60, capital: 0, moat: 'SWITCHING_COST', words: [field, 'ソフト・アプリ', '個人向け'] });
+    const html = renderToStaticMarkup(
+      <LedgerFilterRail filters={null} onChangeFilters={noop} resultCount={2} catalogTotal={2} facets={[tagged('開発・IT'), tagged('開発・IT'), tagged('食品・飲食')]} />,
+    );
+    for (const heading of ['分野', '事業の形', '売る相手', '特徴']) expect(html).toContain(`</span>${heading}</summary>`);
+    expect(html).not.toContain('事例の特徴');
+    // 一覧の言葉は隠さず全部並べる。付いている事例が無い言葉は押せない（disabled）
+    const row = (word: string) => html.match(new RegExp(`<button[^>]*>(?:(?!</button>).)*${word}(?:(?!</button>).)*</button>`))?.[0] ?? '';
+    expect(row('開発・IT')).not.toContain('disabled');
+    expect(row('食品・飲食')).not.toContain('disabled');
+    expect(row('健康・美容')).toContain('disabled');
+    expect(row('仲介')).toContain('disabled');
+    // 全件の件数が最初から出る（開発・IT は2件）
+    expect(row('開発・IT')).toMatch(/term-num[^>]*>2<\/span>/);
+    expect(html).not.toContain('収集事例');
+  });
+
+  it('D-17 年は一覧（PC・スマホ）の名前の右に、枠の無い数字で出て、押せない（ボタンでも手のカーソルでもない）', () => {
+    const grid = renderToStaticMarkup(
+      <InstitutionalDataGrid entities={[entity]} selectedEntityId={null} onSelectEntity={noop} currency="JPY" bookmarkedIds={new Set()} onToggleBookmark={noop} onToggleTag={noop} />,
+    );
+    const mobile = renderToStaticMarkup(<MobileFeedCard entity={entity} isSelected={false} onSelect={noop} currency="JPY" onToggleBookmark={noop} isBookmarked={false} />);
+    for (const html of [grid, mobile]) expect(html).toMatch(/data-testid="year-chip"[^>]*>2009</);
+    const chip = renderToStaticMarkup(<YearChip year={2009} />);
+    expect(chip).toMatch(/^<span /);
+    expect(chip).not.toMatch(/<button|role="button"|tabindex|onclick|cursor-pointer|hover:/);
+    expect(chip).toContain('cursor-default');
+    expect(chip).toContain('text-xs');
+    expect(chip).not.toMatch(/rounded|shadow|border/);
+    // スマホも名前のすぐ後（説明より前）
+    expect(mobile.indexOf('data-testid="year-chip"')).toBeLessThan(mobile.indexOf('data-fact'));
+  });
+
+  it('D-17 年が決まらない事例には年の札を出さない', () => {
+    expect(renderToStaticMarkup(<YearChip year={null} />)).toBe('');
   });
 });

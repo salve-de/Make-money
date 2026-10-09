@@ -3,9 +3,9 @@
   "id": "ent_wildgrain_2b5aec41c733",
   "ticker": "WILDGRAI",
   "name": "Wildgrain",
-  "tagline": "家庭で焼き上げる冷凍パンや焼き菓子、生パスタを定期配送する米国の食品事業。",
-  "description": "会員が選んだ食品を冷凍で届け、家庭のオーブンで焼き上げてもらう。創業者が自分たちで製造する方式から、地域のパン店に製造を委託する方式へ転換した。発売当初の定期配送は送料込みで月79米ドルだった。",
-  "sector": "PHYSICAL_ASSET",
+  "tagline": "冷凍のパンや菓子、生パスタを家庭に定期配送するサービス。パンや菓子は、自宅のオーブンで焼き上げて食べられる。",
+  "description": "Wildgrainは、パンや菓子、生パスタを詰め合わせた箱を家庭に届ける定期購入サービス。夫妻が自宅で作ったパンを友人や近所の人が気に入ったことから、冷凍して届ける事業に発展した。注文に自分たちだけでは対応できなくなり、地域のパン店に製造を委託した。",
+  "sector": "UNKNOWN",
   "scale": "SMALL_TEAM",
   "founder": "Johanna Hartzheim、Ismail Salhi",
   "country": "米国",
@@ -14,17 +14,10 @@
   "verifiedBadge": false,
   "growthRateYoY": 0,
   "isGrowthUnconfirmed": true,
-  "architecturePattern": "地域のパン店に製造を委託した冷凍食品を、家庭向けの定期配送で直接販売する。",
+  "architecturePattern": "地域のパン店などに自社の製法で食品を作ってもらい、家庭から定期配送の箱の代金を受け取る。",
   "pipelineStack": "未確認",
   "targetPainWallet": "未確認",
-  "tags": [
-   "冷凍食品",
-   "パン",
-   "定期配送",
-   "製造委託",
-   "夫婦創業",
-   "顧客対応"
-  ],
+  "tags": [],
   "pnl": {
    "monthlyRevenue": 0,
    "cogs": 0,
@@ -74,7 +67,7 @@
   "temporal": {
    "foundedYear": 2020,
    "initialTractionPeriod": "未確認",
-   "dataSnapshotPeriod": "2026-10-08 時点の公開情報",
+   "dataSnapshotPeriod": "2026-10-09 時点の公開情報",
    "viabilityStatus": "UNKNOWN",
    "viabilityLabel": "未確認",
    "eraContext": "未確認",
@@ -83,331 +76,229 @@
   "facts": [
    {
     "kind": "DESCRIPTION",
-    "text": "Wildgrainは家庭向けに、パンや焼き菓子、生パスタを定期配送する。",
+    "text": "Wildgrainは、パンや菓子、生パスタを家庭に届ける定期購入サービスだ。",
     "sourceUrl": "https://wildgrain.com/",
-    "quote": "Frozen sourdough breads, artisan pastries, and fresh pasta. Delivered on a flexible subscription",
-    "checkedAt": "2026-10-08"
+    "quote": "Wildgrain delivers artisan breads, pasta & pastries directly to your door.",
+    "checkedAt": "2026-10-09"
    },
    {
     "kind": "DESCRIPTION",
-    "text": "Wildgrainの会員は、届いた冷凍パンや焼き菓子を家庭のオーブンで焼き上げる。",
+    "text": "利用者は、届いたパンや菓子を解凍せずに焼き、好きなときに焼きたてを食べられる。",
     "sourceUrl": "https://wildgrain.com/",
     "quote": "Bake straight from frozen and enjoy warm, fresh baked goods any time.",
-    "checkedAt": "2026-10-08"
-   },
-   {
-    "kind": "FOUNDING",
-    "text": "Johanna HartzheimとIsmail Salhiの夫妻がWildgrainを創業した。",
-    "sourceUrl": "https://www.tasteradio.com/episodes/30-million-in-three-years-profitable-wildgrain-is-just-warming-up",
-    "statedAt": "2020",
-    "quote": "Ismail and Johanna launched Wild Grain in 2020",
-    "checkedAt": "2026-10-08"
-   },
-   {
-    "kind": "FOUNDING",
-    "text": "夫妻は、自分たちの家族が食べるパンやパスタの材料と品質を見直したいと考えた。",
-    "sourceUrl": "https://wildgrain.com/pages/story",
-    "quote": "clean and high-quality carbs for our family",
-    "checkedAt": "2026-10-08"
-   },
-   {
-    "kind": "FOUNDING",
-    "text": "夫妻は、スーパーで買っていたパンやパスタ、焼き菓子を自分たちのレシピで作るようになった。",
-    "sourceUrl": "https://wildgrain.com/pages/story",
-    "quote": "replacing stale supermarket breads, pastas, and pastries with our own homemade recipes",
-    "checkedAt": "2026-10-08"
-   },
-   {
-    "kind": "FOUNDING",
-    "text": "Johannaは、パン作りを教わるために友人の父親を頼った。",
-    "sourceUrl": "https://www.entrepreneur.com/starting-a-business/she-started-a-business-thats-earning-over-10m-this-year/479671",
-    "quote": "she turned to a friend’s father",
-    "checkedAt": "2026-10-08"
-   },
-   {
-    "kind": "EVENT",
-    "text": "Johannaは、自宅で焼いたパンを友人や近所の人に分けた。",
-    "sourceUrl": "https://www.entrepreneur.com/starting-a-business/she-started-a-business-thats-earning-over-10m-this-year/479671",
-    "quote": "friends and neighbors",
-    "checkedAt": "2026-10-08"
-   },
-   {
-    "kind": "EVENT",
-    "text": "Johannaは、パンを途中まで焼いて冷凍する方法を試し始めた。",
-    "sourceUrl": "https://www.entrepreneur.com/starting-a-business/she-started-a-business-thats-earning-over-10m-this-year/479671",
-    "quote": "started experimenting with parbaking",
-    "checkedAt": "2026-10-08"
-   },
-   {
-    "kind": "EVENT",
-    "text": "夫妻が焼き上げたパンを冷凍して温め直したところ、中心が凍ったままになった。",
-    "sourceUrl": "https://www.deliveryrank.com/blog/wildgrain-interview",
-    "quote": "the inside stayed frozen",
-    "checkedAt": "2026-10-08"
-   },
-   {
-    "kind": "EVENT",
-    "text": "Ismailは、ふた付きの鍋でパンを焼く途中に冷凍する方法を思いついた。",
-    "sourceUrl": "https://www.deliveryrank.com/blog/wildgrain-interview",
-    "quote": "freezing the bread before removing the lid",
-    "checkedAt": "2026-10-08"
-   },
-   {
-    "kind": "EVENT",
-    "text": "Wildgrainは当初、客に生のパン生地を送る方式を考えていた。",
-    "sourceUrl": "https://www.entrepreneur.com/starting-a-business/she-started-a-business-thats-earning-over-10m-this-year/479671",
-    "quote": "ship raw dough",
-    "checkedAt": "2026-10-08"
-   },
-   {
-    "kind": "EVENT",
-    "text": "生のパン生地を家庭で焼く方式では、必要な調理器具を持たない客がうまく焼けなかった。",
-    "sourceUrl": "https://www.entrepreneur.com/starting-a-business/she-started-a-business-thats-earning-over-10m-this-year/479671",
-    "quote": "struggled to successfully bake",
-    "checkedAt": "2026-10-08"
-   },
-   {
-    "kind": "EVENT",
-    "text": "夫妻は当初、製造を自社で行うパン事業を計画していた。",
-    "sourceUrl": "https://www.tasteradio.com/episodes/30-million-in-three-years-profitable-wildgrain-is-just-warming-up",
-    "quote": "originally planning to build a vertically integrated company",
-    "checkedAt": "2026-10-08"
-   },
-   {
-    "kind": "TEAM",
-    "text": "創業初期は、夫妻が商品の製造と配送を担っていた。",
-    "sourceUrl": "https://www.tasteradio.com/episodes/30-million-in-three-years-profitable-wildgrain-is-just-warming-up",
-    "quote": "both of us",
-    "checkedAt": "2026-10-08"
-   },
-   {
-    "kind": "EVENT",
-    "text": "Johannaは、感染症の流行で仕事が減った地域のパン店に、途中まで焼いて冷凍する商品の製造を引き受けてもらった。",
-    "sourceUrl": "https://www.entrepreneur.com/starting-a-business/she-started-a-business-thats-earning-over-10m-this-year/479671",
-    "quote": "a big pivot point",
-    "checkedAt": "2026-10-08"
-   },
-   {
-    "kind": "TEAM",
-    "text": "Johannaは、製造を委託する職人に商品の冷凍方法と配送用の梱包方法を教えている。",
-    "sourceUrl": "https://www.deliveryrank.com/blog/wildgrain-interview",
-    "quote": "trains them on freezing and packaging for delivery",
-    "checkedAt": "2026-10-08"
-   },
-   {
-    "kind": "FUNDING",
-    "text": "Wildgrainは、創業時の資金として750,000米ドルを調達した。",
-    "sourceUrl": "https://www.tasteradio.com/episodes/30-million-in-three-years-profitable-wildgrain-is-just-warming-up",
-    "quote": "$750,000 from them",
-    "numberKind": "FUNDING",
-    "asOf": "2020",
-    "checkedAt": "2026-10-08",
-    "basis": "創業者が語った創業時の調達額。累計調達額ではない。"
-   },
-   {
-    "kind": "CHANNEL",
-    "text": "Wildgrainは創業初期に、Facebookなどを運営するMetaの広告と、SNSで商品を紹介する発信者を使って集客した。",
-    "sourceUrl": "https://www.tasteradio.com/episodes/30-million-in-three-years-profitable-wildgrain-is-just-warming-up",
-    "statedAt": "2020",
-    "quote": "Meta and influencers",
-    "checkedAt": "2026-10-08"
-   },
-   {
-    "kind": "EVENT",
-    "text": "Wildgrainは配送の問題が起きたとき、何が起きたかを客にメールで説明した。",
-    "sourceUrl": "https://www.tasteradio.com/episodes/30-million-in-three-years-profitable-wildgrain-is-just-warming-up",
-    "quote": "email them and tell them",
-    "checkedAt": "2026-10-08"
-   },
-   {
-    "kind": "TEAM",
-    "text": "取材時点で、Wildgrainで働く人数は約10人だった。",
-    "sourceUrl": "https://www.tasteradio.com/episodes/30-million-in-three-years-profitable-wildgrain-is-just-warming-up",
-    "quote": "about 10 people",
-    "numberKind": "USERS",
-    "asOf": "2024",
-    "checkedAt": "2026-10-08",
-    "basis": "会社で働く人数についての創業者の回答。委託先の職人や顧客対応担当者を含む総人数ではない。"
-   },
-   {
-    "kind": "PRICING",
-    "text": "発売当初、客がWildgrainに払う定期配送の料金は、送料込みで月79米ドルだった。",
-    "sourceUrl": "https://www.refrigeratedfrozenfood.com/articles/99413-wildgrain-launches-first-dtc-ready-to-bake-sourdough-and-artisanal-bread-box-subscription",
-    "quote": "$79, including free shipping.",
-    "numberKind": "PRICE",
-    "asOf": "2020",
-    "checkedAt": "2026-10-08",
-    "basis": "発売当初の月額配送箱。現在の選択式プランとは内容が異なる。"
-   },
-   {
-    "kind": "CHANNEL",
-    "text": "Wildgrainは夏の新規会員向けに、契約を続ける間は全粒粉のパンを毎回無料で付ける特典を設けた。",
-    "sourceUrl": "https://www.refrigeratedfrozenfood.com/articles/99413-wildgrain-launches-first-dtc-ready-to-bake-sourdough-and-artisanal-bread-box-subscription",
-    "statedAt": "2020-07-13",
-    "quote": "free whole wheat sourdough loaf in every box for the life of their subscription",
-    "checkedAt": "2026-10-08"
-   },
-   {
-    "kind": "PRICING",
-    "text": "報道時点で、Wildgrainの配送箱の最低料金は69米ドルだった。",
-    "sourceUrl": "https://www.foodbusinessnews.net/articles/27818-wildgrain-seeking-to-become-americas-online-bakery",
-    "quote": "$69 to $189",
-    "numberKind": "PRICE",
-    "asOf": "2025",
-    "checkedAt": "2026-10-08",
-    "basis": "記事が示した複数プランの価格帯の下限。値下げの実施日や同じ内容の旧料金との比較ではない。"
-   },
-   {
-    "kind": "PRICING",
-    "text": "報道時点で、Wildgrainの配送箱の最高料金は189米ドルだった。",
-    "sourceUrl": "https://www.foodbusinessnews.net/articles/27818-wildgrain-seeking-to-become-americas-online-bakery",
-    "quote": "$69 to $189",
-    "numberKind": "PRICE",
-    "asOf": "2025",
-    "checkedAt": "2026-10-08",
-    "basis": "記事が示した複数プランの価格帯の上限。追加商品の料金は確認していない。"
+    "checkedAt": "2026-10-09"
    },
    {
     "kind": "OTHER",
-    "text": "共同創業者によると、Wildgrainの年間売上は3,000万米ドルだった。",
+    "text": "Johanna Hartzheimは、パリの学校で製品のデザインを学んだ。",
+    "sourceUrl": "https://www.citybiz.co/article/650633/qa-with-ismail-salhi-and-johanna-hartzheim-co-founders-of-wildgrain/",
+    "quote": "Industrial Design school in Paris",
+    "checkedAt": "2026-10-09"
+   },
+   {
+    "kind": "OTHER",
+    "text": "Ismail Salhiは、パリでコンピューター科学の博士号を取得した。",
+    "sourceUrl": "https://michaelhingson.com/episode-33-wildgrain-wild-idea-you-decide-with-ismail-salhi/",
+    "quote": "my PhD in computer science",
+    "checkedAt": "2026-10-09"
+   },
+   {
+    "kind": "OTHER",
+    "text": "夫妻はWildgrainを始める前に、音楽に関わる製品の会社を共同で作っていた。",
+    "sourceUrl": "https://www.citybiz.co/article/650633/qa-with-ismail-salhi-and-johanna-hartzheim-co-founders-of-wildgrain/",
+    "quote": "a music industry project",
+    "checkedAt": "2026-10-09"
+   },
+   {
+    "kind": "FOUNDING",
+    "text": "Johanna Hartzheimは、妊娠をきっかけに家族のためのパン作りに取り組んだ。",
+    "sourceUrl": "https://wildgrain.com/blogs/news/wildgrain",
+    "quote": "when I got pregnant",
+    "checkedAt": "2026-10-09"
+   },
+   {
+    "kind": "FOUNDING",
+    "text": "Johanna Hartzheimは、市販品に満足できず、自宅で作る食品のレシピを研究した。",
+    "sourceUrl": "https://wildgrain.com/blogs/news/wildgrain",
+    "quote": "own homemade recipes",
+    "checkedAt": "2026-10-09"
+   },
+   {
+    "kind": "FOUNDING",
+    "text": "Johanna HartzheimとIsmail Salhiの夫妻がWildgrainを共同で始めた。",
+    "sourceUrl": "https://wildgrain.com/blogs/news/wildgrain",
+    "statedAt": "2020-01",
+    "quote": "I co-founded Wildgrain",
+    "checkedAt": "2026-10-09"
+   },
+   {
+    "kind": "OTHER",
+    "text": "Johanna Hartzheimは、ドイツの友人宅で食べたパンをきっかけに、パン作りに打ち込んだ。",
+    "sourceUrl": "https://www.citybiz.co/article/650633/qa-with-ismail-salhi-and-johanna-hartzheim-co-founders-of-wildgrain/",
+    "quote": "sourdough at a friend’s house",
+    "checkedAt": "2026-10-09"
+   },
+   {
+    "kind": "CHANNEL",
+    "text": "友人や近所の人が、夫妻の作ったパンを気に入った。",
+    "sourceUrl": "https://www.edibleboston.com/blog/2021/1/2/edible-food-finds-wildgrain",
+    "quote": "Friends and neighbors loved",
+    "checkedAt": "2026-10-09",
+    "basis": "試作品への反応を示す事実。購入や代金の支払いを示す記述ではない。"
+   },
+   {
+    "kind": "EVENT",
+    "text": "夫妻は試作を重ね、途中まで焼いたパンを冷凍する方法を選んだ。",
+    "sourceUrl": "https://www.edibleboston.com/blog/2021/1/2/edible-food-finds-wildgrain",
+    "quote": "parbaking and freezing delivered the best results",
+    "checkedAt": "2026-10-09"
+   },
+   {
+    "kind": "FOUNDING",
+    "text": "前の事業が閉鎖に向かうなか、夫妻は別々に就職するよりも、再び一緒に事業を始めることを選んだ。",
+    "sourceUrl": "https://michaelhingson.com/episode-33-wildgrain-wild-idea-you-decide-with-ismail-salhi/",
+    "quote": "about to shut down",
+    "checkedAt": "2026-10-09"
+   },
+   {
+    "kind": "OTHER",
+    "text": "創業当初のパンや菓子は、Johanna Hartzheimが手作業で作っていた。",
+    "sourceUrl": "https://www.citybiz.co/article/650633/qa-with-ismail-salhi-and-johanna-hartzheim-co-founders-of-wildgrain/",
+    "quote": "initially crafted all the breads and pastries by hand",
+    "checkedAt": "2026-10-09"
+   },
+   {
+    "kind": "EVENT",
+    "text": "注文に対応するため、夫妻は自宅の台所からマサチューセッツ州ウォバーンの業務用厨房へ製造場所を移した。",
+    "sourceUrl": "https://michaelhingson.com/episode-33-wildgrain-wild-idea-you-decide-with-ismail-salhi/",
+    "quote": "commercial kitchen here in Woburn",
+    "checkedAt": "2026-10-09"
+   },
+   {
+    "kind": "TEAM",
+    "text": "夫妻は製造担当者を雇おうとしたが、感染症対策で外出や営業が制限されていたため採用できなかった。",
+    "sourceUrl": "https://michaelhingson.com/episode-33-wildgrain-wild-idea-you-decide-with-ismail-salhi/",
+    "quote": "we couldn’t hire people",
+    "checkedAt": "2026-10-09"
+   },
+   {
+    "kind": "EVENT",
+    "text": "注文が増えると、夫妻は業務用厨房での自社製造から地域のパン店などへの製造委託に切り替えた。",
+    "sourceUrl": "https://www.edibleboston.com/blog/2021/1/2/edible-food-finds-wildgrain",
+    "quote": "partnering with local bakeries",
+    "checkedAt": "2026-10-09"
+   },
+   {
+    "kind": "OTHER",
+    "text": "夫妻は委託先に、Wildgrainの製法とレシピを教えた。",
+    "sourceUrl": "https://www.edibleboston.com/blog/2021/1/2/edible-food-finds-wildgrain",
+    "quote": "process and recipes",
+    "checkedAt": "2026-10-09"
+   },
+   {
+    "kind": "TOOL",
+    "text": "Ismail Salhiは、配送先の郵便番号、天候、到着までの時間に応じてドライアイスの量を変える仕組みを作った。",
+    "sourceUrl": "https://www.edibleboston.com/blog/2021/1/2/edible-food-finds-wildgrain",
+    "quote": "can adjust the dry ice quantity",
+    "checkedAt": "2026-10-09"
+   },
+   {
+    "kind": "TEAM",
+    "text": "前の事業で集客に力を割かなかった反省から、Ismail SalhiはWildgrainに集客の責任者を迎えた。",
+    "sourceUrl": "https://michaelhingson.com/episode-33-wildgrain-wild-idea-you-decide-with-ismail-salhi/",
+    "quote": "who is our head of marketing",
+    "checkedAt": "2026-10-09"
+   },
+   {
+    "kind": "OTHER",
+    "text": "Wildgrainは年間売上3,000万米ドルを記録した。",
     "sourceUrl": "https://www.tasteradio.com/episodes/30-million-in-three-years-profitable-wildgrain-is-just-warming-up",
-    "quote": "last year, we did $30 million in revenue.",
+    "quote": "Last year, it generated $30 million in revenue",
     "numberKind": "REVENUE",
     "asOf": "2023",
     "periodKind": "YEAR",
-    "checkedAt": "2026-10-08",
-    "basis": "2024年の取材で創業者が述べた前年の売上。創業以来の累計売上ではない。"
-   },
-   {
-    "kind": "EVENT",
-    "text": "Wildgrainは黒字になったと公表した。",
-    "sourceUrl": "https://www.tasteradio.com/episodes/30-million-in-three-years-profitable-wildgrain-is-just-warming-up",
-    "statedAt": "2023",
-    "quote": "and became profitable.",
-    "checkedAt": "2026-10-08"
+    "checkedAt": "2026-10-09",
+    "basis": "2024年11月公開の番組本文が前年の年間売上として紹介した数字。累計売上ではない。出典の利用条件により掲載用から除外する。"
    },
    {
     "kind": "OTHER",
-    "text": "報道時点で、Wildgrainの利用中の定期購入者は80,000人を超えていた。",
-    "sourceUrl": "https://www.foodbusinessnews.net/articles/27818-wildgrain-seeking-to-become-americas-online-bakery",
-    "quote": "more than 80,000 active subscribers",
-    "numberKind": "USERS",
-    "asOf": "2025",
-    "checkedAt": "2026-10-08",
-    "basis": "active subscribersと記載された利用中の定期購入者。累計購入者ではない。"
+    "text": "Wildgrainの2023年の年間売上は3,000万米ドルを超えた。",
+    "sourceUrl": "https://www.themarketingsage.com/wildgrain-a-novel-twist-on-building-a-bakery-enterprise/",
+    "quote": "crossed $30 million in annual revenue in 2023",
+    "numberKind": "REVENUE",
+    "asOf": "2023",
+    "periodKind": "YEAR",
+    "checkedAt": "2026-10-09",
+    "basis": "二次資料の表現は下限を示す。正確な年間売上額や独立した会計確認を示す数字ではない。"
+   },
+   {
+    "kind": "EVENT",
+    "text": "Wildgrainは黒字になった。",
+    "sourceUrl": "https://www.modernretail.co/marketing/why-food-subscription-startup-wildgrain-is-planning-a-january-advertising-blitz/",
+    "statedAt": "2023",
+    "quote": "We have been profitable since 2023",
+    "checkedAt": "2026-10-09"
+   },
+   {
+    "kind": "OTHER",
+    "text": "Wildgrainの既存客には、夏の間だけ定期配送を休む人がいた。",
+    "sourceUrl": "https://www.modernretail.co/marketing/why-food-subscription-startup-wildgrain-is-planning-a-january-advertising-blitz/",
+    "quote": "pause during the summer",
+    "checkedAt": "2026-10-09"
    },
    {
     "kind": "CHANNEL",
-    "text": "Wildgrainは、ポッドキャストとインターネット接続テレビへの広告を試すようになった。",
+    "text": "Wildgrainは、年明けに広告予算を増やす方針を取った。",
+    "sourceUrl": "https://www.modernretail.co/marketing/why-food-subscription-startup-wildgrain-is-planning-a-january-advertising-blitz/",
+    "quote": "ramps up its budget in January",
+    "checkedAt": "2026-10-09"
+   },
+   {
+    "kind": "CHANNEL",
+    "text": "Wildgrainは、音声番組の広告とインターネット経由で見るテレビの広告を試した。",
     "sourceUrl": "https://www.modernretail.co/marketing/why-food-subscription-startup-wildgrain-is-planning-a-january-advertising-blitz/",
     "statedAt": "2023",
     "quote": "podcast advertising and connected TV",
-    "checkedAt": "2026-10-08"
+    "checkedAt": "2026-10-09"
    },
    {
-    "kind": "CHANNEL",
-    "text": "Wildgrainは、広告予算を増やす時期を毎年の年明けに合わせている。",
-    "sourceUrl": "https://www.modernretail.co/marketing/why-food-subscription-startup-wildgrain-is-planning-a-january-advertising-blitz/",
-    "quote": "ramps up its budget in January",
-    "checkedAt": "2026-10-08"
+    "kind": "TOOL",
+    "text": "Wildgrainは、需要予測、問い合わせ対応、商品の販売管理、配送に使う社内用の道具を作った。",
+    "sourceUrl": "https://podtail.se/podcast/in-the-money-ecommerce-dtc-and-cpg/from-frozen-bread-to-fresh-profits-the-wildgrain-p/",
+    "quote": "building internal tools for forecasting",
+    "checkedAt": "2026-10-09",
+    "basis": "創業者が出演した番組の説明文。音声を直接確認した逐語録ではない。"
    },
    {
-    "kind": "CHANNEL",
-    "text": "Wildgrainは、食品のギフト配送が会員限定であることを休止中の客に知らせ、利用の再開を促した。",
-    "sourceUrl": "https://www.modernretail.co/marketing/why-food-subscription-startup-wildgrain-is-planning-a-january-advertising-blitz/",
-    "quote": "gifting is only available for subscribers",
-    "checkedAt": "2026-10-08"
-   },
-   {
-    "kind": "EVENT",
-    "text": "Wildgrainは、小麦などに含まれるグルテンを除いた食品と、動物由来の材料を使わない食品の配送箱を発売した。",
-    "sourceUrl": "https://www.modernretail.co/marketing/why-food-subscription-startup-wildgrain-is-planning-a-january-advertising-blitz/",
-    "quote": "newly launched gluten-free and vegan boxes",
-    "checkedAt": "2026-10-08"
+    "kind": "PRICING",
+    "text": "Wildgrain Boxの月ごとの定期配送は、商品ページで89米ドルと表示されている。",
+    "sourceUrl": "https://wildgrain.com/products/box-free-croissants",
+    "quote": "$89 Every 1 month",
+    "numberKind": "PRICE",
+    "asOf": "2026-10",
+    "periodKind": "MONTH",
+    "checkedAt": "2026-10-09",
+    "basis": "この商品ページの箱の表示価格。現在の全プランの最低価格や、税などを含む最終支払額とは扱わない。"
    },
    {
     "kind": "OTHER",
-    "text": "公式サイトは、Wildgrainの会員数が150,000人を超えると表示している。",
+    "text": "Wildgrainの会員は15万人を超える。",
     "sourceUrl": "https://wildgrain.com/",
     "quote": "Over 150,000 Wildgrain members bake with us every day.",
     "numberKind": "USERS",
     "asOf": "2026-10",
-    "checkedAt": "2026-10-08",
-    "basis": "取得時点の公式サイトの会員数表示。利用中の有料会員だけを数えているかは未確認。"
-   },
-   {
-    "kind": "OTHER",
-    "text": "Wildgrainは、年間の配送箱数が120万箱に達したと発表した。",
-    "sourceUrl": "https://www.prnewswire.com/news-releases/wildgrain-opens-its-first-bakehouse-in-somerville-302703909.html",
-    "quote": "ships 1.2 million boxes annually",
-    "numberKind": "OTHER",
-    "label": "年間配送箱数",
-    "asOf": "2026",
-    "periodKind": "YEAR",
-    "checkedAt": "2026-10-08",
-    "basis": "会社発表の年間配送規模。対象となる暦年や集計期間の開始日は記載されていない。"
+    "checkedAt": "2026-10-09",
+    "basis": "公式サイトが示す会員数。現在課金中の契約数、累計購入者数、毎日の利用者数の定義は示されていない。"
    },
    {
     "kind": "EVENT",
-    "text": "Wildgrainは、創業した地域のSomervilleに初の実店舗を開くと発表した。",
-    "sourceUrl": "https://www.prnewswire.com/news-releases/wildgrain-opens-its-first-bakehouse-in-somerville-302703909.html",
-    "statedAt": "2026-03-05",
-    "quote": "first brick-and-mortar location on March 5",
-    "checkedAt": "2026-10-08"
+    "text": "Wildgrainは、創業したソマービルに実店舗Wildgrain Bakehouseを開いた。",
+    "sourceUrl": "https://wildgrain.com/pages/bakehouse",
+    "quote": "first Bakehouse opens here",
+    "checkedAt": "2026-10-09"
    }
   ],
   "metrics": [
-   {
-    "numberKind": "FUNDING",
-    "amount": 750000,
-    "currency": "USD",
-    "label": "創業時の資金調達額",
-    "asOf": "2020",
-    "quote": "$750,000 from them",
-    "sourceUrl": "https://www.tasteradio.com/episodes/30-million-in-three-years-profitable-wildgrain-is-just-warming-up",
-    "checkedAt": "2026-10-08",
-    "origin": "SELF_REPORTED",
-    "basis": "創業者が語った創業時の調達。Entrepreneurの別取材では投資元をBoltと記載している。累計額ではない。"
-   },
-   {
-    "numberKind": "PRICE",
-    "amount": 79,
-    "currency": "USD",
-    "unit": "米ドル／月",
-    "label": "発売当初の送料込み月額料金",
-    "asOf": "2020",
-    "quote": "$79, including free shipping.",
-    "sourceUrl": "https://www.refrigeratedfrozenfood.com/articles/99413-wildgrain-launches-first-dtc-ready-to-bake-sourdough-and-artisanal-bread-box-subscription",
-    "checkedAt": "2026-10-08",
-    "origin": "ARTICLE",
-    "basis": "発売当初の月額配送箱。現在の選択式プランとは内容が異なる。"
-   },
-   {
-    "numberKind": "PRICE",
-    "amount": 69,
-    "currency": "USD",
-    "unit": "米ドル／箱",
-    "label": "報道された配送箱の最低料金",
-    "asOf": "2025",
-    "quote": "$69 to $189",
-    "sourceUrl": "https://www.foodbusinessnews.net/articles/27818-wildgrain-seeking-to-become-americas-online-bakery",
-    "checkedAt": "2026-10-08",
-    "origin": "ARTICLE",
-    "basis": "複数プランの価格帯の下限。値下げの実施日を示す数字ではない。"
-   },
-   {
-    "numberKind": "PRICE",
-    "amount": 189,
-    "currency": "USD",
-    "unit": "米ドル／箱",
-    "label": "報道された配送箱の最高料金",
-    "asOf": "2025",
-    "quote": "$69 to $189",
-    "sourceUrl": "https://www.foodbusinessnews.net/articles/27818-wildgrain-seeking-to-become-americas-online-bakery",
-    "checkedAt": "2026-10-08",
-    "origin": "ARTICLE",
-    "basis": "複数プランの価格帯の上限。追加商品の料金は確認していない。"
-   },
    {
     "numberKind": "REVENUE",
     "amount": 30000000,
@@ -415,65 +306,55 @@
     "label": "年間売上",
     "asOf": "2023",
     "periodKind": "YEAR",
-    "quote": "last year, we did $30 million in revenue.",
+    "quote": "Last year, it generated $30 million in revenue",
     "sourceUrl": "https://www.tasteradio.com/episodes/30-million-in-three-years-profitable-wildgrain-is-just-warming-up",
-    "checkedAt": "2026-10-08",
-    "origin": "SELF_REPORTED",
-    "basis": "2024年の取材における前年の売上。創業以来の累計売上ではない。監査済み財務諸表は確認していない。"
-   },
-   {
-    "numberKind": "USERS",
-    "amount": 10,
-    "unit": "人",
-    "label": "会社で働く人数",
-    "asOf": "2024",
-    "quote": "about 10 people",
-    "sourceUrl": "https://www.tasteradio.com/episodes/30-million-in-three-years-profitable-wildgrain-is-just-warming-up",
-    "checkedAt": "2026-10-08",
-    "origin": "SELF_REPORTED",
-    "basis": "創業者の概数。時点の人数であり期間の数字ではない。製造や顧客対応の委託先を含む総人数ではない。"
-   },
-   {
-    "numberKind": "USERS",
-    "amount": 80000,
-    "unit": "人",
-    "label": "利用中の定期購入者数の下限",
-    "asOf": "2025",
-    "quote": "more than 80,000 active subscribers",
-    "sourceUrl": "https://www.foodbusinessnews.net/articles/27818-wildgrain-seeking-to-become-americas-online-bakery",
-    "checkedAt": "2026-10-08",
     "origin": "ARTICLE",
-    "basis": "80,000人超という下限の表示。正確な人数や累計購入者数ではない。"
+    "basis": "創業者が出演した2024年の番組本文による前年の売上紹介。監査済み決算ではなく、利用条件により掲載用から除外する。",
+    "checkedAt": "2026-10-09"
+   },
+   {
+    "numberKind": "REVENUE",
+    "amount": 30000000,
+    "currency": "USD",
+    "label": "年間売上の公表された下限",
+    "asOf": "2023",
+    "periodKind": "YEAR",
+    "quote": "crossed $30 million in annual revenue in 2023",
+    "sourceUrl": "https://www.themarketingsage.com/wildgrain-a-novel-twist-on-building-a-bakery-enterprise/",
+    "origin": "THIRD_PARTY",
+    "basis": "原文のcrossedは、この額を超えたという下限の表現。正確な売上額としては採らず、Taste Radioの数字と合算しない。",
+    "checkedAt": "2026-10-09"
+   },
+   {
+    "numberKind": "PRICE",
+    "amount": 89,
+    "currency": "USD",
+    "unit": "箱",
+    "label": "Wildgrain Boxの月ごとの定期配送価格",
+    "asOf": "2026-10",
+    "periodKind": "MONTH",
+    "quote": "$89 Every 1 month",
+    "sourceUrl": "https://wildgrain.com/products/box-free-croissants",
+    "origin": "SELF_REPORTED",
+    "basis": "指定の商品ページの表示価格。全プランの最低価格や最終支払額ではない。",
+    "checkedAt": "2026-10-09"
    },
    {
     "numberKind": "USERS",
     "amount": 150000,
-    "unit": "人",
-    "label": "公式サイトが表示する会員数の下限",
+    "unit": "会員",
+    "label": "公式サイトが示す会員数の下限",
     "asOf": "2026-10",
     "quote": "Over 150,000 Wildgrain members bake with us every day.",
     "sourceUrl": "https://wildgrain.com/",
-    "checkedAt": "2026-10-08",
     "origin": "SELF_REPORTED",
-    "basis": "150,000人超という下限の表示。利用中の有料会員だけを数えているかは未確認。"
-   },
-   {
-    "numberKind": "OTHER",
-    "amount": 1200000,
-    "unit": "箱／年",
-    "label": "年間配送箱数",
-    "asOf": "2026",
-    "periodKind": "YEAR",
-    "quote": "ships 1.2 million boxes annually",
-    "sourceUrl": "https://www.prnewswire.com/news-releases/wildgrain-opens-its-first-bakehouse-in-somerville-302703909.html",
-    "checkedAt": "2026-10-08",
-    "origin": "SELF_REPORTED",
-    "basis": "会社発表の年間配送規模。特定の暦年に配送した実績か、直近の年間換算規模かは記載されていない。"
+    "basis": "原文はOverなので下限。課金中の契約数や累計購入者数との関係は説明されていない。",
+    "checkedAt": "2026-10-09"
    }
   ],
   "reaudit": {
    "status": "PARTIAL",
-   "auditDate": "2026-10-08",
+   "auditDate": "2026-10-09",
    "timezone": "Asia/Tokyo",
    "auditOwner": "case:research",
    "method": "MANUAL_REAUDIT",
@@ -484,113 +365,267 @@
      "publisher": "Wildgrain",
      "sourceType": "official_website",
      "publicationDate": null,
-     "checkedAt": "2026-10-08",
+     "checkedAt": "2026-10-09",
      "rightsTier": "TIER1_OFFICIAL"
     },
     {
-     "url": "https://wildgrain.com/pages/story",
+     "url": "https://wildgrain.com/blogs/news/wildgrain",
+     "publisher": "Wildgrain／Johanna Hartzheim",
+     "sourceType": "official_blog",
+     "publicationDate": "2020-01-01",
+     "checkedAt": "2026-10-09",
+     "rightsTier": "TIER1_OFFICIAL"
+    },
+    {
+     "url": "https://wildgrain.com/products/box-free-croissants",
      "publisher": "Wildgrain",
      "sourceType": "official_website",
      "publicationDate": null,
-     "checkedAt": "2026-10-08",
+     "checkedAt": "2026-10-09",
      "rightsTier": "TIER1_OFFICIAL"
     },
     {
-     "url": "https://www.tasteradio.com/episodes/30-million-in-three-years-profitable-wildgrain-is-just-warming-up",
-     "publisher": "Taste Radio / BevNET",
-     "sourceType": "article",
-     "publicationDate": "2024-11-12",
-     "checkedAt": "2026-10-08",
-     "rightsTier": "TIER2_FACTS_ONLY"
+     "url": "https://wildgrain.com/pages/bakehouse",
+     "publisher": "Wildgrain",
+     "sourceType": "official_website",
+     "publicationDate": null,
+     "checkedAt": "2026-10-09",
+     "rightsTier": "TIER1_OFFICIAL"
     },
     {
-     "url": "https://www.entrepreneur.com/starting-a-business/she-started-a-business-thats-earning-over-10m-this-year/479671",
-     "publisher": "Entrepreneur",
+     "url": "https://www.edibleboston.com/blog/2021/1/2/edible-food-finds-wildgrain",
+     "publisher": "Edible Boston",
      "sourceType": "article",
-     "publicationDate": "2024-09-11",
-     "checkedAt": "2026-10-08",
-     "rightsTier": "TIER2_FACTS_ONLY"
+     "publicationDate": "2021-01-04",
+     "checkedAt": "2026-10-09",
+     "rightsTier": "TIER2_FACTS_ONLY",
+     "rights": {
+      "loginFree": "yes",
+      "noPaywall": "yes",
+      "quoteTerms": "unconfirmed",
+      "termsUrl": null,
+      "note": "2026-10-09に記事本文をログインなしで無料閲覧できた。FAQの印刷・保存案内だけでは第三者による引用の条件を判断できず、利用規約は確認できなかった。"
+     }
     },
     {
-     "url": "https://www.deliveryrank.com/blog/wildgrain-interview",
-     "publisher": "DeliveryRank",
+     "url": "https://michaelhingson.com/episode-33-wildgrain-wild-idea-you-decide-with-ismail-salhi/",
+     "publisher": "Michael Hingson／Unstoppable Mindset",
      "sourceType": "article",
-     "publicationDate": "2024-06-06",
-     "checkedAt": "2026-10-08",
-     "rightsTier": "TIER2_FACTS_ONLY"
+     "publicationDate": null,
+     "checkedAt": "2026-10-09",
+     "rightsTier": "TIER2_FACTS_ONLY",
+     "rights": {
+      "loginFree": "yes",
+      "noPaywall": "yes",
+      "quoteTerms": "unconfirmed",
+      "termsUrl": null,
+      "note": "2026-10-09に公開されたインタビューの書き起こしを無料閲覧できた。引用条件を定めた利用規約は確認できず、書き起こしには固有名詞などの誤記があるため、該当箇所の意味を他の出典とも照合した。"
+     }
     },
     {
-     "url": "https://www.refrigeratedfrozenfood.com/articles/99413-wildgrain-launches-first-dtc-ready-to-bake-sourdough-and-artisanal-bread-box-subscription",
-     "publisher": "Refrigerated & Frozen Foods",
+     "url": "https://www.citybiz.co/article/650633/qa-with-ismail-salhi-and-johanna-hartzheim-co-founders-of-wildgrain/",
+     "publisher": "citybiz",
      "sourceType": "article",
-     "publicationDate": "2020-07-09",
-     "checkedAt": "2026-10-08",
-     "rightsTier": "TIER2_FACTS_ONLY"
+     "publicationDate": "2025-01-21",
+     "checkedAt": "2026-10-09",
+     "rightsTier": "TIER2_FACTS_ONLY",
+     "rights": {
+      "loginFree": "yes",
+      "noPaywall": "yes",
+      "quoteTerms": "silent",
+      "termsUrl": "https://www.citybiz.co/terms-of-service/",
+      "note": "2026-10-09に記事本文をログインなしで無料閲覧できた。確認した規約は主に投稿・掲載依頼者向けで、読者による短い引用についての条項は見つからなかった。"
+     }
     },
     {
-     "url": "https://www.foodbusinessnews.net/articles/27818-wildgrain-seeking-to-become-americas-online-bakery",
-     "publisher": "Food Business News",
+     "url": "https://dtcpod.simplecast.com/episodes/346-scaling-sourdough-how-wildgrain-baked-up-80k-subscribers-KEXVO1A2",
+     "publisher": "DTC Pod",
      "sourceType": "article",
-     "publicationDate": "2025-03-03",
-     "checkedAt": "2026-10-08",
-     "rightsTier": "TIER2_FACTS_ONLY"
+     "publicationDate": null,
+     "checkedAt": "2026-10-09",
+     "rightsTier": "TIER2_FACTS_ONLY",
+     "rights": {
+      "loginFree": "yes",
+      "noPaywall": "yes",
+      "quoteTerms": "unconfirmed",
+      "termsUrl": null,
+      "note": "2026-10-09に番組説明と章立てを無料閲覧できた。ページに引用条件の案内はなく、適用される引用規約は確認できなかった。"
+     }
+    },
+    {
+     "url": "https://apogeeagency.com/wp-content/uploads/Wildgrain-Apogee-Case-Study-Final.pdf",
+     "publisher": "Apogee Agency",
+     "sourceType": "article",
+     "publicationDate": null,
+     "checkedAt": "2026-10-09",
+     "rightsTier": "TIER2_FACTS_ONLY",
+     "rights": {
+      "loginFree": "yes",
+      "noPaywall": "yes",
+      "quoteTerms": "unconfirmed",
+      "termsUrl": null,
+      "note": "2026-10-09に公開PDFの本文をログインなしで取得できた。サイトと利用条件の案内を探したが、引用を定める規約は確認できなかった。"
+     }
     },
     {
      "url": "https://www.modernretail.co/marketing/why-food-subscription-startup-wildgrain-is-planning-a-january-advertising-blitz/",
      "publisher": "Modern Retail",
      "sourceType": "article",
      "publicationDate": "2024-12-18",
-     "checkedAt": "2026-10-08",
-     "rightsTier": "TIER2_FACTS_ONLY"
+     "checkedAt": "2026-10-09",
+     "rightsTier": "TIER2_FACTS_ONLY",
+     "rights": {
+      "loginFree": "yes",
+      "noPaywall": "yes",
+      "quoteTerms": "silent",
+      "termsUrl": "https://www.modernretail.co/terms-conditions/",
+      "note": "2026-10-09にこの記事の本文を無料閲覧できた。確認した規約には権利の留保があるが、短い引用を明示的に許可または禁止する条項は見つからなかった。"
+     }
     },
     {
-     "url": "https://www.prnewswire.com/news-releases/wildgrain-opens-its-first-bakehouse-in-somerville-302703909.html",
-     "publisher": "Wildgrain / PR Newswire",
+     "url": "https://podtail.se/podcast/in-the-money-ecommerce-dtc-and-cpg/from-frozen-bread-to-fresh-profits-the-wildgrain-p/",
+     "publisher": "In The Money／Podtail",
      "sourceType": "article",
-     "publicationDate": "2026-03-04",
-     "checkedAt": "2026-10-08",
-     "rightsTier": "TIER2_FACTS_ONLY"
+     "publicationDate": "2025-11-24",
+     "checkedAt": "2026-10-09",
+     "rightsTier": "TIER2_FACTS_ONLY",
+     "rights": {
+      "loginFree": "yes",
+      "noPaywall": "yes",
+      "quoteTerms": "unconfirmed",
+      "termsUrl": "https://podtail.se/about/terms-of-service/",
+      "note": "2026-10-09に番組説明を無料閲覧できた。利用規約ページの本文は取得できず、別の著作権方針ページは削除申請の手続を述べるもので、引用の可否は判断できなかった。"
+     }
+    },
+    {
+     "url": "https://www.themarketingsage.com/wildgrain-a-novel-twist-on-building-a-bakery-enterprise/",
+     "publisher": "The Marketing Sage／Jeff Slater",
+     "sourceType": "article",
+     "publicationDate": "2026-08-16",
+     "checkedAt": "2026-10-09",
+     "rightsTier": "TIER2_FACTS_ONLY",
+     "rights": {
+      "loginFree": "yes",
+      "noPaywall": "yes",
+      "quoteTerms": "unconfirmed",
+      "termsUrl": null,
+      "note": "2026-10-09に本文を無料閲覧できた。プライバシー方針は確認したが、引用条件を定める利用規約は見つからなかった。"
+     }
+    },
+    {
+     "url": "https://www.tasteradio.com/episodes/30-million-in-three-years-profitable-wildgrain-is-just-warming-up",
+     "publisher": "Taste Radio／BevNET",
+     "sourceType": "article",
+     "publicationDate": "2024-11-12",
+     "checkedAt": "2026-10-09",
+     "rightsTier": "TIER2_FACTS_ONLY",
+     "rights": {
+      "loginFree": "yes",
+      "noPaywall": "yes",
+      "quoteTerms": "prohibits",
+      "termsUrl": "https://www.bevnet.com/legal-terms/",
+      "note": "依頼本文に提供された記事と公開本文は読めた。2026-10-09に運営元の規約で自動取得やAI利用等の禁止を確認したため追加取得を止め、ここから残した売上は掲載用から除外する。"
+     }
+    },
+    {
+     "url": "https://www.foodbusinessnews.net/articles/27818-wildgrain-seeking-to-become-americas-online-bakery",
+     "publisher": "Food Business News",
+     "sourceType": "article",
+     "publicationDate": "2025-03-03",
+     "checkedAt": "2026-10-09",
+     "rightsTier": "TIER2_FACTS_ONLY",
+     "rights": {
+      "loginFree": "yes",
+      "noPaywall": "yes",
+      "quoteTerms": "prohibits",
+      "termsUrl": "https://www.foodbusinessnews.net/terms-of-use",
+      "note": "記事本文は読めた。2026-10-09に自動取得と商用複製の制限を確認したため、追加取得を止め、独自の数値は掲載用の事実に採らなかった。"
+     }
+    },
+    {
+     "url": "https://www.entrepreneur.com/starting-a-business/she-started-a-business-thats-earning-over-10m-this-year/479671",
+     "publisher": "Entrepreneur",
+     "sourceType": "article",
+     "publicationDate": "2024-09-11",
+     "checkedAt": "2026-10-09",
+     "rightsTier": "TIER2_FACTS_ONLY",
+     "rights": {
+      "loginFree": "yes",
+      "noPaywall": "yes",
+      "quoteTerms": "prohibits",
+      "termsUrl": "https://www.entrepreneur.com/reprint-policy",
+      "note": "本文は無料で読めた。2026-10-09に記事の全部または一部の再利用に許可を求める方針を確認したため、この出典だけにある価格や試作の失敗は掲載用に採らなかった。"
+     }
+    },
+    {
+     "url": "https://www.thepitch.show/108-Qleek-part-three-a-postmortem-and-a-comeback",
+     "publisher": "The Pitch",
+     "sourceType": "article",
+     "publicationDate": "2023-03-22",
+     "checkedAt": "2026-10-09",
+     "rightsTier": "TIER2_FACTS_ONLY",
+     "rights": {
+      "loginFree": "yes",
+      "noPaywall": "yes",
+      "quoteTerms": "prohibits",
+      "termsUrl": "https://www.thepitch.show/terms",
+      "note": "公開本文は読めた。2026-10-09に複製や商用利用を制限する規約を確認したため追加取得を止め、創業経緯は別の公開インタビューから採った。"
+     }
     }
    ],
    "supported": [],
    "unknown": [
-    "最初の有料購入者が誰で、どの広告や紹介から購入したかは確認できなかった。創業初期にMetaの広告とSNSの発信者を使ったことまで確認した。",
-    "夫妻が前の事業を終え、Wildgrainに専業で取り組むようになった正確な日付は確認できなかった。",
-    "生の生地を送る方式から途中まで焼いた冷凍パンへの変更日と、製造を地域のパン店に委託した変更日は確認できなかった。",
-    "2026年10月の定期配送箱の確定料金は確認できなかった。公式トップページには読み込み待ちの箇所があり、商品単品の表示価格を配送箱の料金として採用しなかった。",
-    "同じ内容の配送箱について、いつ料金を変更したかは確認できなかった。発売当初の月額料金と後年の複数プランの価格帯は、同じ商品の値上げ・値下げとして扱っていない。",
-    "利益額と黒字の会計上の定義は確認できなかった。黒字になったという発表から利益額を推定していない。",
-    "創業時の調達後に行った追加調達、累計調達額、企業評価額、会社の売却は確認できなかった。",
-    "公式サイトの会員数に、休止中の会員や過去の購入者が含まれるかは確認できなかった。",
-    "年間配送箱数の集計対象期間と、実績値か年間換算値かは確認できなかった。",
-    "Taste Radioの文字起こしは自動生成であり、公式ページにも誤記の可能性が明記されている。創業者名は公式サイトと別取材で突き合わせた。",
-    "実行方式に従い、コマンド実行とファイル作成は行っていない。取り込み検査の再実行は未実施。"
+    "最初の有料客の氏名、購入日、獲得経路、最初の売上額は、取得できた本文から特定できなかった。友人や近所の人が試作品を気に入ったという記述を、最初の購入実績には置き換えない。",
+    "創業時の出資について二次資料の記載は見つかったが、出資が実行された年月と契約・提出書類は確認できなかったため、日時付きの調達実績には採らなかった。",
+    "初年度と、その後の各年の年間売上を連続して確認できる、利用可能な一次資料は取得できなかった。",
+    "番組説明にある過去の登録者数と従業員数は、その人数が成立した出来事の日付を特定できなかったため、日時付きの数値事実には採らなかった。",
+    "現在の会員数について、課金中の契約だけを数えるのか、累計登録者を含むのかは説明されていない。",
+    "現在の製造委託先の総数と、国・地域別の内訳を、同じ時点と定義で確認できなかった。",
+    "過去の箱の価格は複数見つかったが、引用や自動取得を制限する出典に依存するものがあり、現在の箱との内容の違いもあるため、単純な値上げの履歴にはしなかった。",
+    "公式トップページの全プランについて、箱の大きさごとの最終価格を取得できなかった。記録した価格は、本文を取得できたWildgrain Boxの商品ページに限定した。",
+    "Apogee AgencyのPDFには紹介販売の初年度の売上があるが、その集計期間の開始日と終了日を確定できなかった。翌年の見込みも実績には採らなかった。",
+    "生の生地を届ける試作の失敗や配送事故への対応は別の取材で見つかったが、利用条件を満たす別出典で詳細を確認できなかったため、その出典だけに依存する事実は採らなかった。",
+    "画像は公式ページから商品写真と陳列ケースのURLを収集したが、画像ファイルの取得は失敗した。公開に使う画像の内容と再利用条件の確認は残っている。",
+    "今回の実行方式ではコマンド実行とファイル作成を行わないため、取り込みスクリプトによるunconfirmedFactsとthinCasesの検査は実施していない。",
+    "出典で確かめられず外した: 事実「Wildgrainは、商品の使い方や価値を伝える」: 出典の本文を取得できない（https://dtcpod.simplecast.com/episodes/346-scaling-sourdough-how-wildgrain-baked-up-80k-subscribers-KEXVO1A2）",
+    "出典で確かめられず外した: 事実「Wildgrainは、配送を改善するために物流の」: 出典の本文を取得できない（https://dtcpod.simplecast.com/episodes/346-scaling-sourdough-how-wildgrain-baked-up-80k-subscribers-KEXVO1A2）",
+    "出典で確かめられず外した: 事実「Wildgrainは、紹介販売を運営する会社Ap」: 出典の本文を取得できない（https://apogeeagency.com/wp-content/uploads/Wildgrain-Apogee-Case-Study-Final.pdf）",
+    "出典で確かめられず外した: 事実「Apogee Agencyは、商品レビューやSN」: 出典の本文を取得できない（https://apogeeagency.com/wp-content/uploads/Wildgrain-Apogee-Case-Study-Final.pdf）",
+    "出典で確かめられず外した: 事実「Apogee Agencyは、成果を出した紹介者」: 出典の本文を取得できない（https://apogeeagency.com/wp-content/uploads/Wildgrain-Apogee-Case-Study-Final.pdf）",
+    "出典で確かめられず外した: 事実「Apogee Agencyは、不正なクーポン利用」: 出典の本文を取得できない（https://apogeeagency.com/wp-content/uploads/Wildgrain-Apogee-Case-Study-Final.pdf）"
    ],
    "conflicts": [
-    "Taste Radioの2023年売上は3,000万米ドルだが、Entrepreneurの見出しは前年に3,000万米ドルを超えたと表現している。精度の異なる表現として扱い、創業者が金額を述べたTaste Radioの3,000万米ドルを採用した。",
-    "2025年の記事は利用中の定期購入者80,000人超、取得時点の公式サイトは会員150,000人超と表現している。時点と人数の定義が異なるため、矛盾とは断定せず、それぞれのbasisに対象を記載した。",
-    "発売当初の送料込み月79米ドルと、後年の配送箱69〜189米ドルは、時点とプラン構成が異なる。差額を値上げ幅や値下げ幅として計算していない。",
-    "働く人数について、Taste Radio（2024年）の約10人と、Food Business News（2025年3月）の常勤12人は時点と数え方が異なる。後者は今回の材料に採用せず、前者のみを採った。"
+    "2023年の年間売上について、2024年のTaste Radio本文は3,000万米ドル、2025年のFood Business News記事は3,100万米ドルと記載する。丸め方や売上の範囲の違いは説明されていないため、正確な額の食い違いは未解決として残す。両出典には利用制限があるため掲載用から除外し、利用制限を確認できなかった二次資料の『2023年に3,000万米ドルを超えた』という下限表現を別記録にした。",
+    "創業と子どもの誕生の順序は、公式ブログでは誕生日の前、Edible BostonとIsmail Salhiのインタビューでは誕生の後とされる。創業の年月は2020年1月で一致するため、誕生前後の順序は事実の文に採らなかった。",
+    "The Marketing Sageの2026年8月の記事には実店舗へ進出していないという記述があるが、現在の公式サイトにはソマービルのWildgrain Bakehouseが掲載されている。現在の販売形態には公式店舗ページを採り、二次資料の実店舗に関する記述は採らなかった。この不整合のため、同記事の歴史的売上も独立した会計確認とは扱わない。",
+    "公式サイトの現在の会員数と、過去の番組や商品ページにある登録者数は、時点と集計対象が揃っていない。人数を引き算して増加数を作ったり、現在課金中の客の数と断定したりしない。"
    ]
   },
   "observationsStream": [],
   "observations": [],
   "claimBindings": [],
   "publishability": "PUBLISHABLE",
-  "batchId": "research_wildgrain_20261008",
+  "batchId": "research_wildgrain_20261009",
   "financialStatus": "UNAVAILABLE",
   "unknownsNotes": [
-   "最初の有料購入者が誰で、どの広告や紹介から購入したかは確認できなかった。創業初期にMetaの広告とSNSの発信者を使ったことまで確認した。",
-   "夫妻が前の事業を終え、Wildgrainに専業で取り組むようになった正確な日付は確認できなかった。",
-   "生の生地を送る方式から途中まで焼いた冷凍パンへの変更日と、製造を地域のパン店に委託した変更日は確認できなかった。",
-   "2026年10月の定期配送箱の確定料金は確認できなかった。公式トップページには読み込み待ちの箇所があり、商品単品の表示価格を配送箱の料金として採用しなかった。",
-   "同じ内容の配送箱について、いつ料金を変更したかは確認できなかった。発売当初の月額料金と後年の複数プランの価格帯は、同じ商品の値上げ・値下げとして扱っていない。",
-   "利益額と黒字の会計上の定義は確認できなかった。黒字になったという発表から利益額を推定していない。",
-   "創業時の調達後に行った追加調達、累計調達額、企業評価額、会社の売却は確認できなかった。",
-   "公式サイトの会員数に、休止中の会員や過去の購入者が含まれるかは確認できなかった。",
-   "年間配送箱数の集計対象期間と、実績値か年間換算値かは確認できなかった。",
-   "Taste Radioの文字起こしは自動生成であり、公式ページにも誤記の可能性が明記されている。創業者名は公式サイトと別取材で突き合わせた。",
-   "実行方式に従い、コマンド実行とファイル作成は行っていない。取り込み検査の再実行は未実施。"
+   "最初の有料客の氏名、購入日、獲得経路、最初の売上額は、取得できた本文から特定できなかった。友人や近所の人が試作品を気に入ったという記述を、最初の購入実績には置き換えない。",
+   "創業時の出資について二次資料の記載は見つかったが、出資が実行された年月と契約・提出書類は確認できなかったため、日時付きの調達実績には採らなかった。",
+   "初年度と、その後の各年の年間売上を連続して確認できる、利用可能な一次資料は取得できなかった。",
+   "番組説明にある過去の登録者数と従業員数は、その人数が成立した出来事の日付を特定できなかったため、日時付きの数値事実には採らなかった。",
+   "現在の会員数について、課金中の契約だけを数えるのか、累計登録者を含むのかは説明されていない。",
+   "現在の製造委託先の総数と、国・地域別の内訳を、同じ時点と定義で確認できなかった。",
+   "過去の箱の価格は複数見つかったが、引用や自動取得を制限する出典に依存するものがあり、現在の箱との内容の違いもあるため、単純な値上げの履歴にはしなかった。",
+   "公式トップページの全プランについて、箱の大きさごとの最終価格を取得できなかった。記録した価格は、本文を取得できたWildgrain Boxの商品ページに限定した。",
+   "Apogee AgencyのPDFには紹介販売の初年度の売上があるが、その集計期間の開始日と終了日を確定できなかった。翌年の見込みも実績には採らなかった。",
+   "生の生地を届ける試作の失敗や配送事故への対応は別の取材で見つかったが、利用条件を満たす別出典で詳細を確認できなかったため、その出典だけに依存する事実は採らなかった。",
+   "画像は公式ページから商品写真と陳列ケースのURLを収集したが、画像ファイルの取得は失敗した。公開に使う画像の内容と再利用条件の確認は残っている。",
+   "今回の実行方式ではコマンド実行とファイル作成を行わないため、取り込みスクリプトによるunconfirmedFactsとthinCasesの検査は実施していない。",
+   "出典で確かめられず外した: 事実「Wildgrainは、商品の使い方や価値を伝える」: 出典の本文を取得できない（https://dtcpod.simplecast.com/episodes/346-scaling-sourdough-how-wildgrain-baked-up-80k-subscribers-KEXVO1A2）",
+   "出典で確かめられず外した: 事実「Wildgrainは、配送を改善するために物流の」: 出典の本文を取得できない（https://dtcpod.simplecast.com/episodes/346-scaling-sourdough-how-wildgrain-baked-up-80k-subscribers-KEXVO1A2）",
+   "出典で確かめられず外した: 事実「Wildgrainは、紹介販売を運営する会社Ap」: 出典の本文を取得できない（https://apogeeagency.com/wp-content/uploads/Wildgrain-Apogee-Case-Study-Final.pdf）",
+   "出典で確かめられず外した: 事実「Apogee Agencyは、商品レビューやSN」: 出典の本文を取得できない（https://apogeeagency.com/wp-content/uploads/Wildgrain-Apogee-Case-Study-Final.pdf）",
+   "出典で確かめられず外した: 事実「Apogee Agencyは、成果を出した紹介者」: 出典の本文を取得できない（https://apogeeagency.com/wp-content/uploads/Wildgrain-Apogee-Case-Study-Final.pdf）",
+   "出典で確かめられず外した: 事実「Apogee Agencyは、不正なクーポン利用」: 出典の本文を取得できない（https://apogeeagency.com/wp-content/uploads/Wildgrain-Apogee-Case-Study-Final.pdf）"
   ]
  }
 ]

@@ -1,25 +1,25 @@
 {
  "version": 1,
  "source": {
-  "manifest": "/Volumes/SS/Worktrees/Make-Money/case-discover/data/candidates/records/polarsteps.research.json",
-  "manifestSha256": "4bf0e5d4f738051771b0d5ceda2c07da0d5d762b68d59061a3fba7a6bbc4d281",
+  "manifest": "/Volumes/SS/Worktrees/Make-Money/rewrite-27/data/candidates/records/polarsteps.research.json",
+  "manifestSha256": "5145202876ea71178a64921588bfe11a203dfd427963c42a52e6bd8ceba9e506",
   "artifactsDir": "",
-  "collectedAt": "2026-10-08T04:30:18.593Z",
-  "generation": 3
+  "collectedAt": "2026-10-09T06:55:04.379Z",
+  "generation": 4
  },
  "records": [
   {
    "id": "ent_polarsteps_2b2970abd201",
    "provenance": {
-    "detailsHash": "93cb800e310bb8b7fe5e6c3d8172d917fcc6b604aa7bb94b3daa50667a9aee82",
-    "artifactSha256": "4bf0e5d4f738051771b0d5ceda2c07da0d5d762b68d59061a3fba7a6bbc4d281"
+    "detailsHash": "ece21493f6b38ab6554156ad8a5420e407223ad7d4093ff3167f98d66c169604",
+    "artifactSha256": "5145202876ea71178a64921588bfe11a203dfd427963c42a52e6bd8ceba9e506"
    },
    "record": {
     "id": "ent_polarsteps_2b2970abd201",
     "ticker": "POLARSTE",
     "name": "Polarsteps",
-    "tagline": "旅行の計画や移動経路を記録し、家族や友人と共有できるアプリ。利用者は、記録した写真や文章をまとめた紙の旅行記を買える。",
-    "description": "旅行者は、旅行の計画・記録・共有を無料で使える。Polarstepsは、旅行記をまとめた写真集や追加機能の有料会員サービスを販売している。アプリを通じた宿泊・航空券・体験の予約でも、紹介手数料を得る場合がある。",
+    "tagline": "旅の経路と写真を記録し、家族や友人に旅の様子を伝えられるアプリ。記録した旅を紙の本にして注文できる。",
+    "description": "Polarstepsは、旅行の予定を立て、移動した経路や写真、文章を地図に残せるアプリだ。旅行者は基本機能を無料で使い、旅の記録をまとめた紙の本を注文するとPolarstepsに代金を払う。追加機能を使える有料プランや、宿泊予約などの紹介による収入もある。",
     "sector": "NICHE_SAAS",
     "scale": "SCALEUP",
     "founder": "Niek Bokkers、Koen Droste、Job Harmsen、Maximiliano Neustadt",
@@ -29,16 +29,10 @@
     "verifiedBadge": false,
     "growthRateYoY": 0,
     "isGrowthUnconfirmed": true,
-    "architecturePattern": "旅行の計画・記録・共有を無料で提供し、利用者への写真集と追加機能の販売、および旅行予約の紹介手数料で収入を得る。",
+    "architecturePattern": "無料の旅行アプリで経路・写真・文章を蓄積してもらい、その記録を使った紙の本と追加機能を販売する。",
     "pipelineStack": "未確認",
     "targetPainWallet": "未確認",
     "tags": [
-     "旅行",
-     "旅行記録",
-     "写真集",
-     "無料アプリ",
-     "口コミ",
-     "有料会員",
      "収集事例"
     ],
     "pnl": {
@@ -90,7 +84,7 @@
     "temporal": {
      "foundedYear": 2015,
      "initialTractionPeriod": "未確認",
-     "dataSnapshotPeriod": "2026-10-08 時点の公開情報",
+     "dataSnapshotPeriod": "2026-10-09 時点の公開情報",
      "viabilityStatus": "UNKNOWN",
      "viabilityLabel": "未確認",
      "eraContext": "未確認",
@@ -99,252 +93,439 @@
     "facts": [
      {
       "kind": "DESCRIPTION",
-      "text": "Polarstepsは、旅行者が旅行を計画し、移動経路を記録して、旅の思い出を振り返るためのアプリだ。",
+      "text": "Polarstepsは、旅行中に移動した経路を自動で地図に記録できるアプリだ。",
       "sourceUrl": "https://www.polarsteps.com/",
-      "quote": "One travel app for all your adventures",
-      "checkedAt": "2026-10-08"
+      "quote": "Capture your route automatically",
+      "checkedAt": "2026-10-09"
+     },
+     {
+      "kind": "OTHER",
+      "text": "旅行者は旅のリンクを共有すると、家族や友人に現在の様子をまとめて伝えられる。",
+      "sourceUrl": "https://www.polarsteps.com/",
+      "quote": "I just share the link",
+      "checkedAt": "2026-10-09",
+      "basis": "公式サイトに掲載された利用者Deborahの感想。個別に近況を送る手間が減ったと述べている。"
+     },
+     {
+      "kind": "OTHER",
+      "text": "旅行者はPolarstepsに残した旅の記録を、写真や地図が入った紙の本にして注文できる。",
+      "sourceUrl": "https://www.polarsteps.com/",
+      "quote": "Transform your trip into a beautiful hardback book",
+      "checkedAt": "2026-10-09"
+     },
+     {
+      "kind": "OTHER",
+      "text": "共同創業者のNiek Bokkersは、大学で技術を使い始め、ウェブサイトなどを制作していた。",
+      "sourceUrl": "https://blog.google/products-and-platforms/platforms/google-play/imakeapps-meet-niek-bokkers-dutch-adventurer-and-creative-director/",
+      "quote": "building websites and other interactive concepts",
+      "checkedAt": "2026-10-09"
      },
      {
       "kind": "FOUNDING",
-      "text": "共同創業者のNiek Bokkersは、家で待つ家族や友人に旅の様子を伝えるため、旅行記録の試作を作った。",
-      "sourceUrl": "https://www.polarsteps.com/news/startup-launches-travel-app-that-logs-your-route-automatically",
-      "quote": "friends and family at home",
-      "checkedAt": "2026-10-08"
+      "text": "Niekは父親と大西洋を渡った航海で、家族や友人に船の位置を伝える仕組みを作った。",
+      "sourceUrl": "https://blog.google/products-and-platforms/platforms/google-play/imakeapps-meet-niek-bokkers-dutch-adventurer-and-creative-director/",
+      "quote": "with my father",
+      "checkedAt": "2026-10-09"
      },
      {
       "kind": "FOUNDING",
-      "text": "Job Harmsen、Koen Droste、Maximiliano NeustadtがNiek Bokkersに加わり、Polarstepsの創業チームになった。",
+      "text": "Niekは帰国後にアプリの試作品を作り、アムステルダムからケープタウンへの自転車旅行で使った。",
+      "sourceUrl": "https://blog.google/products-and-platforms/platforms/google-play/imakeapps-meet-niek-bokkers-dutch-adventurer-and-creative-director/",
+      "quote": "my bike trip",
+      "checkedAt": "2026-10-09"
+     },
+     {
+      "kind": "EVENT",
+      "text": "Niekは旅行中に試作品への好意的な反応を受け、アプリを事業にすることを決めた。",
+      "sourceUrl": "https://blog.google/products-and-platforms/platforms/google-play/imakeapps-meet-niek-bokkers-dutch-adventurer-and-creative-director/",
+      "quote": "so much positive feedback",
+      "checkedAt": "2026-10-09"
+     },
+     {
+      "kind": "OTHER",
+      "text": "共同創業者のKoen Drosteは、Polarstepsを始める前に会社の評判を扱うサービスCompanySpotを起業したが、事業を成功させられなかった。",
+      "sourceUrl": "https://podcast.uprotterdam.com/1607803/episodes/15686315-from-travel-enthusiast-to-tech-entrepreneur-the-polar-steps-story-with-koen-droste",
+      "quote": "we miserably failed",
+      "checkedAt": "2026-10-09",
+      "basis": "Polarsteps以前の別事業の経歴。CompanySpotの金額をPolarstepsの売上には含めていない。"
+     },
+     {
+      "kind": "OTHER",
+      "text": "Koenは以前、ニュースと娯楽の記事を載せるサイトUpcomingを立ち上げた。",
+      "sourceUrl": "https://podcast.uprotterdam.com/1607803/episodes/15686315-from-travel-enthusiast-to-tech-entrepreneur-the-polar-steps-story-with-koen-droste",
+      "quote": "co-founded Upcoming, a news and entertainment platform",
+      "checkedAt": "2026-10-09"
+     },
+     {
+      "kind": "TEAM",
+      "text": "KoenはUpcomingの技術責任者だったMaximiliano Neustadtと、後にPolarstepsを共同創業した。",
+      "sourceUrl": "https://podcast.uprotterdam.com/1607803/episodes/15686315-from-travel-enthusiast-to-tech-entrepreneur-the-polar-steps-story-with-koen-droste",
+      "quote": "the technical lead",
+      "checkedAt": "2026-10-09"
+     },
+     {
+      "kind": "TEAM",
+      "text": "NiekにJob、Koen、Maximilianoが加わり、Polarstepsの創業チームができた。",
       "sourceUrl": "https://www.polarsteps.com/about",
-      "quote": "Together, they joined Niek",
-      "checkedAt": "2026-10-08"
+      "quote": "Those believers were Job, Koen, and Maximiliano",
+      "checkedAt": "2026-10-09"
      },
      {
-      "kind": "TEAM",
-      "text": "創業時のPolarstepsは、旅行・デザイン・プログラミングに関心を持つ4人で作った。",
-      "sourceUrl": "https://www.polarsteps.com/news/startup-launches-travel-app-that-logs-your-route-automatically",
-      "quote": "created by 4 enthusiastic adventurers",
-      "numberKind": "OTHER",
-      "label": "創業者数",
-      "asOf": "2015",
-      "checkedAt": "2026-10-08"
-     },
-     {
-      "kind": "TEAM",
-      "text": "Polarstepsは、創業者たちが本業の勤務後に取り組む活動として始まった。",
-      "sourceUrl": "https://www.polarsteps.com/news/20-million-travelers-and-counting-tech-success-story-polarsteps-celebrates-its-fast-growing-community",
-      "quote": "an after-work project",
-      "checkedAt": "2026-10-08"
-     },
-     {
-      "kind": "CHANNEL",
-      "text": "Niek Bokkersの航海を地図で伝える試作は、航海中に他の旅行者の間で広まった。",
+      "kind": "FOUNDING",
+      "text": "PolarstepsはiPhone用の試用版アプリを公開した。",
       "sourceUrl": "https://www.polarsteps.com/news/travel-tracking-app-polarsteps-raises-500-000-investment",
-      "quote": "went viral among fellow travelers",
-      "checkedAt": "2026-10-08"
-     },
-     {
-      "kind": "EVENT",
-      "text": "創業チームは、モンゴルへの自動車旅行と南アフリカへのオートバイ旅行で試作を試した。",
-      "sourceUrl": "https://www.polarsteps.com/news/startup-launches-travel-app-that-logs-your-route-automatically",
-      "quote": "Several prototypes were tested",
-      "checkedAt": "2026-10-08"
+      "statedAt": "2015-04",
+      "quote": "launched in April 2015",
+      "checkedAt": "2026-10-09"
      },
      {
       "kind": "CHANNEL",
-      "text": "Koen Drosteによると、公開直後にアプリを使ったのは、創業者たちの友人や家族だった。",
+      "text": "公開直後にPolarstepsを使い始めたのは、創業メンバーの友人と家族だった。",
       "sourceUrl": "https://www.buzzsprout.com/1889238/episodes/16825457-he-lost-90-of-his-users-overnight-then-grew-his-consumer-app-to-10m-arr-koen-droste-founder-of-polarsteps",
+      "statedAt": "2015",
       "quote": "friends and family",
-      "checkedAt": "2026-10-08"
+      "checkedAt": "2026-10-09"
      },
      {
       "kind": "CHANNEL",
-      "text": "創業チームはオランダの記者に公開を知らせるメールを送り、ニュースサイトに紹介記事が載った。",
+      "text": "オランダのニュースサイトに記事が載り、公開初日のPolarstepsのダウンロード数は約2,000件になった。",
       "sourceUrl": "https://www.buzzsprout.com/1889238/episodes/16825457-he-lost-90-of-his-users-overnight-then-grew-his-consumer-app-to-10m-arr-koen-droste-founder-of-polarsteps",
-      "quote": "sent an email",
-      "checkedAt": "2026-10-08"
+      "quote": "about 2,000 installs on the first day",
+      "numberKind": "USERS",
+      "label": "公開初日のダウンロード数",
+      "asOf": "2015",
+      "checkedAt": "2026-10-09",
+      "basis": "創業者が振り返った概数。利用者の総数や有料購入者数ではない。公開月には出典間の食い違いがあるため、年だけを採用した。"
      },
      {
-      "kind": "EVENT",
-      "text": "創業チームは、利用者にアプリを他人へ勧めたいか尋ね、その回答に添えられた意見を機能改善の優先順位に使った。",
+      "kind": "OTHER",
+      "text": "創業メンバーは、利用者が友人にアプリを勧めたいと思うかを測る指標を、初期の改善で重視した。",
       "sourceUrl": "https://www.buzzsprout.com/1889238/episodes/16825457-he-lost-90-of-his-users-overnight-then-grew-his-consumer-app-to-10m-arr-koen-droste-founder-of-polarsteps",
-      "quote": "the qualitative comments",
-      "checkedAt": "2026-10-08"
+      "quote": "metric was NPS",
+      "checkedAt": "2026-10-09"
      },
      {
-      "kind": "FUNDING",
-      "text": "Polarstepsは、投資会社Silver Point Venturesと、オランダの大手報道会社テレグラフ・メディア・グループから、事業初期の資金として€500,000を調達した。",
-      "sourceUrl": "https://www.polarsteps.com/news/travel-tracking-app-polarsteps-raises-500-000-investment",
-      "quote": "raised €500,000 in seed funding",
-      "numberKind": "FUNDING",
-      "asOf": "2016-03-17",
-      "checkedAt": "2026-10-08"
+      "kind": "OTHER",
+      "text": "創業メンバーは公開前に画面の案や試作品を旅行者に見せ、使いたいと思うかを確かめた。",
+      "sourceUrl": "https://www.pmf.show/blog/polarsteps-10m-arr-nps-organic-growth-koen-droste",
+      "quote": "prototypes and designs",
+      "checkedAt": "2026-10-09",
+      "basis": "番組の要約記事。元の記録では、インタビューの00:09:59以降でも確認したとされている。"
+     },
+     {
+      "kind": "OTHER",
+      "text": "Polarstepsは利用者の自由記述の感想を社内の連絡ツールSlackに送り、チーム全員で困りごとを読めるようにした。",
+      "sourceUrl": "https://www.pmf.show/blog/polarsteps-10m-arr-nps-organic-growth-koen-droste",
+      "quote": "company-wide Slack channel",
+      "checkedAt": "2026-10-09",
+      "basis": "元の記録では、インタビューの00:26:42以降でも感想を読み、改善する項目を決めていたことを確認したとされている。"
      },
      {
       "kind": "TEAM",
-      "text": "Koen Drosteによると、資金調達を受けて、創業者たちは本業を辞めてPolarstepsに専念できるようになった。",
-      "sourceUrl": "https://www.buzzsprout.com/1889238/episodes/16825457-he-lost-90-of-his-users-overnight-then-grew-his-consumer-app-to-10m-arr-koen-droste-founder-of-polarsteps",
-      "quote": "quit our jobs",
-      "asOf": "2016",
-      "checkedAt": "2026-10-08"
+      "text": "創業メンバーは本業を辞め、Polarstepsの仕事に専念した。",
+      "sourceUrl": "https://www.1twente.nl/artikel/2142610/polarsteps-reisapp-met-2-miljoen-gebruikers-dankzij-drie-jongens-uit-twente",
+      "statedAt": "2016-03",
+      "quote": "hun baan opzeggen",
+      "checkedAt": "2026-10-09",
+      "basis": "元の記録では、PMFインタビューの00:30:00以降でも、調達後に本業を辞めて専念したことを確認したとされている。"
      },
      {
       "kind": "EVENT",
-      "text": "Polarstepsは、調達した資金でAndroid向けアプリの開発者を雇った。",
-      "sourceUrl": "https://www.buzzsprout.com/1889238/episodes/16825457-he-lost-90-of-his-users-overnight-then-grew-his-consumer-app-to-10m-arr-koen-droste-founder-of-polarsteps",
-      "quote": "hire an Android developer",
-      "asOf": "2016",
-      "checkedAt": "2026-10-08"
+      "text": "Koenは旅行会社との提携が製品改善の時間を奪うと考え、提携を増やすよりアプリの改善を優先した。",
+      "sourceUrl": "https://www.pmf.show/blog/polarsteps-10m-arr-nps-organic-growth-koen-droste",
+      "quote": "attention diverted from core product work",
+      "checkedAt": "2026-10-09",
+      "basis": "元の記録では、インタビューの00:32:52以降でも、提携に伴う調整や製品変更が負担だったと説明していることを確認したとされている。"
+     },
+     {
+      "kind": "OTHER",
+      "text": "利用者は他社で写真集を作る際に、Polarstepsに残した地図を手作業で貼り付けていた。",
+      "sourceUrl": "https://www.pmf.show/blog/polarsteps-10m-arr-nps-organic-growth-koen-droste",
+      "quote": "copy-pasting Polarsteps maps",
+      "checkedAt": "2026-10-09",
+      "basis": "元の記録では、インタビューの00:39:03以降でも、同じ写真・文章・地図を別の写真集サービスへ入れ直していた利用者の要望を確認したとされている。"
      },
      {
       "kind": "EVENT",
-      "text": "Koen Drosteによると、家族や友人が旅行の記録を追える機能の追加が、利用者の増加を加速させた。",
-      "sourceUrl": "https://www.buzzsprout.com/1889238/episodes/16825457-he-lost-90-of-his-users-overnight-then-grew-his-consumer-app-to-10m-arr-koen-droste-founder-of-polarsteps",
-      "quote": "a huge accelerator",
-      "checkedAt": "2026-10-08"
+      "text": "Polarstepsは旅行記の本の販売で初めて売上を得た。",
+      "sourceUrl": "https://www.pmf.show/blog/polarsteps-10m-arr-nps-organic-growth-koen-droste",
+      "statedAt": "2017",
+      "quote": "revenue in 2017",
+      "checkedAt": "2026-10-09",
+      "basis": "元の記録では、インタビューの00:29:48と00:39:03以降でも、初めて収入を得た年と本の販売開始を確認したとされている。"
      },
      {
       "kind": "EVENT",
-      "text": "Polarstepsは、アプリの旅行記録から紙の写真集を作る商品「Travel Book」の販売を始めた。",
+      "text": "Polarstepsは、旅の記録を紙の本にする商品Travel Bookを発売した。",
       "sourceUrl": "https://www.polarsteps.com/news/polarsteps-tracks-your-trip-and-turns-it-into-an-instant-photo-album",
       "statedAt": "2017-02-06",
-      "quote": "launch of its \"Travel Book\"",
-      "checkedAt": "2026-10-08"
+      "quote": "announces the launch",
+      "checkedAt": "2026-10-09"
+     },
+     {
+      "kind": "OTHER",
+      "text": "Travel Bookは旅の記録から本の配置を自動で作り、利用者が写真集の編集に時間をかける手間を減らした。",
+      "sourceUrl": "https://www.polarsteps.com/news/polarsteps-tracks-your-trip-and-turns-it-into-an-instant-photo-album",
+      "quote": "spend evenings in a photo album editor",
+      "checkedAt": "2026-10-09"
      },
      {
       "kind": "PRICING",
-      "text": "Travel Bookの販売開始時、利用者がPolarstepsに払う写真集の価格は€20からだった。",
+      "text": "Travel Bookの発売時の料金は、硬い表紙の本で20ユーロからだった。",
       "sourceUrl": "https://www.polarsteps.com/news/polarsteps-tracks-your-trip-and-turns-it-into-an-instant-photo-album",
       "quote": "Pricing starts at €20",
       "numberKind": "PRICE",
       "asOf": "2017-02-06",
-      "checkedAt": "2026-10-08"
-     },
-     {
-      "kind": "FUNDING",
-      "text": "Polarstepsは、アムステルダムのベンチャー投資会社インケフ・キャピタルが主導した資金調達で€3 millionを調達した。",
-      "sourceUrl": "https://news.polarsteps.com/de/news/polarsteps-hits-1-million-users-and-raises-3-million-in-funding",
-      "quote": "raised €3 million",
-      "numberKind": "FUNDING",
-      "asOf": "2019-01-16",
-      "checkedAt": "2026-10-08"
-     },
-     {
-      "kind": "FUNDING",
-      "text": "この資金調達を含め、Polarstepsがそれまでに調達した資金の合計は€4.6 millionになった。",
-      "sourceUrl": "https://news.polarsteps.com/de/news/polarsteps-hits-1-million-users-and-raises-3-million-in-funding",
-      "quote": "to €4.6 million",
-      "numberKind": "FUNDING",
-      "asOf": "2019-01-16",
-      "checkedAt": "2026-10-08"
-     },
-     {
-      "kind": "OTHER",
-      "text": "Polarstepsは、登録利用者が1 million人を超えたと発表した。",
-      "sourceUrl": "https://news.polarsteps.com/de/news/polarsteps-hits-1-million-users-and-raises-3-million-in-funding",
-      "quote": "the 1 million user mark",
-      "numberKind": "USERS",
-      "asOf": "2019-01-16",
-      "checkedAt": "2026-10-08"
+      "checkedAt": "2026-10-09",
+      "basis": "発売時の最低価格。現在の価格ではない。"
      },
      {
       "kind": "EVENT",
-      "text": "感染症の流行で旅行が止まった時期も、利用者は過去の旅行をまとめた写真集を注文し続けた。",
-      "sourceUrl": "https://www.iamsterdam.com/en/business/startupamsterdam/insights-interviews/foundersfridays-meet-koen-droste",
-      "quote": "they continued to order them",
-      "checkedAt": "2026-10-08"
+      "text": "Polarstepsは利用者の要望を受けて本の販売機能を作り、この機能が事業の収入を支えるようになった。",
+      "sourceUrl": "https://siliconcanals.com/polarsteps-travel-tracking-maximiliano-neustadt-interview/",
+      "quote": "users were asking for it",
+      "checkedAt": "2026-10-09"
+     },
+     {
+      "kind": "OTHER",
+      "text": "Polarstepsは、アプリ内の旅行案内を見た利用者が宿泊先などを予約すると、予約に応じた収入を受け取る。",
+      "sourceUrl": "https://siliconcanals.com/polarsteps-travel-tracking-maximiliano-neustadt-interview/",
+      "quote": "gets a revenue share",
+      "checkedAt": "2026-10-09",
+      "basis": "共同創業者への取材で説明された予約紹介の収益。手数料率は記載されていない。"
      },
      {
       "kind": "EVENT",
-      "text": "Polarstepsは、感染症流行中にアプリの利用が減った時期を使い、旅先探しや旅行計画を助ける機能の開発を進めた。",
-      "sourceUrl": "https://www.iamsterdam.com/en/business/startupamsterdam/insights-interviews/foundersfridays-meet-koen-droste",
-      "quote": "to inspire and plan those adventures as well",
-      "checkedAt": "2026-10-08"
-     },
-     {
-      "kind": "CHANNEL",
-      "text": "共同創業者のMaximiliano Neustadtによると、製品の改善に取り組むと、旅行者が他の旅行者にアプリを勧めるようになった。",
-      "sourceUrl": "https://www.polarsteps.com/news/20-million-travelers-and-counting-tech-success-story-polarsteps-celebrates-its-fast-growing-community",
-      "quote": "travelers recommended the app",
-      "checkedAt": "2026-10-08"
-     },
-     {
-      "kind": "OTHER",
-      "text": "Polarstepsは、世界の利用者が15 million人になったと発表した。",
-      "sourceUrl": "https://www.polarsteps.com/news/from-dutch-startup-to-global-sensation-polarsteps-captures-international-headlines",
-      "quote": "With 15 million users worldwide",
+      "text": "コロナ禍が始まると、Polarstepsを実際に使っている利用者は数日で90%減った。",
+      "sourceUrl": "https://www.pmf.show/blog/polarsteps-10m-arr-nps-organic-growth-koen-droste",
+      "quote": "lost 90% of active users",
       "numberKind": "USERS",
-      "asOf": "2025-06",
-      "checkedAt": "2026-10-08"
+      "label": "実際に使っている利用者の減少率",
+      "asOf": "2020-03",
+      "checkedAt": "2026-10-09",
+      "basis": "登録者の総数ではなくactive usersの減少率。提供された本人インタビューの冒頭にも同じ説明がある。"
      },
      {
-      "kind": "OTHER",
-      "text": "Polarstepsは、利用者が20 million人に達したと発表した。",
-      "sourceUrl": "https://www.polarsteps.com/news/20-million-travelers-and-counting-tech-success-story-polarsteps-celebrates-its-fast-growing-community",
-      "quote": "reaching 20 million travelers",
-      "numberKind": "USERS",
-      "asOf": "2026-03-27",
-      "checkedAt": "2026-10-08"
+      "kind": "EVENT",
+      "text": "外出が制限された時期にも、利用者は過去の旅の記録を紙の本にして注文した。",
+      "sourceUrl": "https://www.polarsteps.com/nl/news/20-million-travelers-and-counting-tech-success-story-polarsteps-celebrates-its-fast-growing-community",
+      "quote": "using their time to convert their photos into Travel Books",
+      "checkedAt": "2026-10-09",
+      "basis": "コロナ禍の振り返り。注文数や注文額は記載されていない。"
      },
      {
       "kind": "TEAM",
-      "text": "利用者の節目を発表した時点で、Polarstepsの従業員は100人だった。",
-      "sourceUrl": "https://www.polarsteps.com/news/20-million-travelers-and-counting-tech-success-story-polarsteps-celebrates-its-fast-growing-community",
-      "quote": "team of 100 employees",
-      "numberKind": "OTHER",
-      "label": "従業員数",
-      "asOf": "2026-03-27",
-      "checkedAt": "2026-10-08"
+      "text": "Polarstepsはコロナ禍を乗り切るために従業員を解雇せずに済んだ。",
+      "sourceUrl": "https://podcast.uprotterdam.com/1607803/episodes/15686315-from-travel-enthusiast-to-tech-entrepreneur-the-polar-steps-story-with-koen-droste",
+      "quote": "didn't have to fire anyone",
+      "checkedAt": "2026-10-09"
      },
      {
       "kind": "EVENT",
-      "text": "Polarstepsは、追加機能を使える有料会員サービス「Polarsteps Plus」を全利用者向けに提供した。",
-      "sourceUrl": "https://www.polarsteps.com/news/polarsteps-launches-polarsteps-plus-a-new-subscription-for-its-most-dedicated-travelers",
-      "statedAt": "2026-07-14",
-      "quote": "available to all users",
-      "checkedAt": "2026-10-08"
+      "text": "Koenはコロナ禍の経営を担った後、心身の疲労で仕事を続けられなくなった。",
+      "sourceUrl": "https://techround.co.uk/saas66/31-polarsteps/",
+      "quote": "ended up severely burned out",
+      "checkedAt": "2026-10-09"
      },
      {
-      "kind": "PRICING",
-      "text": "公式料金ページでは、利用者が追加機能のためにPolarstepsへ払うPlusの月額料金は€8.99で、地域によって料金が異なる場合がある。",
-      "sourceUrl": "https://www.polarsteps.com/plus",
-      "quote": "Polarsteps Plus monthly costs €8.99* per month",
-      "numberKind": "PRICE",
-      "asOf": "2026-10",
-      "periodKind": "MONTH",
-      "checkedAt": "2026-10-08"
+      "kind": "TEAM",
+      "text": "共同創業者のMaximiliano Neustadtは、コロナ禍の後半にKoenから経営責任者の役割を引き継いだ。",
+      "sourceUrl": "https://techround.co.uk/saas66/31-polarsteps/",
+      "quote": "took up the mantle as CEO for the final years of the pandemic",
+      "checkedAt": "2026-10-09"
      },
      {
-      "kind": "PRICING",
-      "text": "公式料金ページでは、利用者が追加機能のためにPolarstepsへ払うPlusの年額料金は€29.99で、地域によって料金が異なる場合がある。",
-      "sourceUrl": "https://www.polarsteps.com/plus",
-      "quote": "yearly costs €29.99* per year",
-      "numberKind": "PRICE",
-      "asOf": "2026-10",
-      "periodKind": "YEAR",
-      "checkedAt": "2026-10-08"
+      "kind": "TEAM",
+      "text": "創業メンバーは次の成長を担う経営責任者として、社外からClare Jonesを迎えた。",
+      "sourceUrl": "https://techround.co.uk/saas66/31-polarsteps/",
+      "quote": "bring in an outside CEO",
+      "checkedAt": "2026-10-09"
      },
      {
       "kind": "OTHER",
-      "text": "取得した公式トップページには、Polarstepsで旅行を計画・記録・回想する旅行者が22M+人と表示されていた。",
+      "text": "Polarstepsの従業員は旅行先でもアプリを使い、通信状態が悪い場所で利用者が困る点を確かめている。",
+      "sourceUrl": "https://podcast.uprotterdam.com/1607803/episodes/15686315-from-travel-enthusiast-to-tech-entrepreneur-the-polar-steps-story-with-koen-droste",
+      "quote": "shitty internet connection",
+      "checkedAt": "2026-10-09"
+     },
+     {
+      "kind": "CHANNEL",
+      "text": "Polarstepsは利用者が他の旅行者にアプリを勧めることで広がった。",
+      "sourceUrl": "https://www.polarsteps.com/nl/news/20-million-travelers-and-counting-tech-success-story-polarsteps-celebrates-its-fast-growing-community",
+      "quote": "travelers recommended the app to other travelers themselves",
+      "checkedAt": "2026-10-09"
+     },
+     {
+      "kind": "EVENT",
+      "text": "Polarstepsは利用者の要望を受け、仲間と旅の記録を共同で作る機能を開発した。",
+      "sourceUrl": "https://www.polarsteps.com/nl/news/20-million-travelers-and-counting-tech-success-story-polarsteps-celebrates-its-fast-growing-community",
+      "quote": "in response to requests from people all over the world",
+      "checkedAt": "2026-10-09"
+     },
+     {
+      "kind": "OTHER",
+      "text": "Polarstepsの年間売上は2024年に1,000万ユーロを超えた。",
+      "sourceUrl": "https://www.eu-startups.com/2026/02/polarsteps-ceo-clare-jones-joins-the-eu-startups-summit-2026-on-may-7-8-in-malta/",
+      "quote": "was profitable in 2024, generating more than €10 million in revenue",
+      "numberKind": "REVENUE",
+      "asOf": "2024",
+      "periodKind": "YEAR",
+      "checkedAt": "2026-10-09",
+      "basis": "会社全体の年間売上として掲載された下限。利益額や予約の取扱高ではない。"
+     },
+     {
+      "kind": "OTHER",
+      "text": "Polarstepsの利用者数は100万人を超えた。",
+      "sourceUrl": "https://www.polarsteps.com/news/polarsteps-hits-1-million-users-and-raises-3-million-in-funding",
+      "quote": "1 million user mark",
+      "numberKind": "USERS",
+      "asOf": "2019-01-16",
+      "checkedAt": "2026-10-09",
+      "basis": "同日の発表本文ではregistered usersと説明されている。日々使っている人数ではない。"
+     },
+     {
+      "kind": "FUNDING",
+      "text": "Polarstepsは投資会社と報道会社から50万ユーロを調達したと発表した。",
+      "sourceUrl": "https://www.polarsteps.com/news/travel-tracking-app-polarsteps-raises-500-000-investment",
+      "quote": "raised €500,000 in seed funding",
+      "numberKind": "FUNDING",
+      "asOf": "2016-03-17",
+      "checkedAt": "2026-10-09",
+      "basis": "当該調達の発表時点。調達元はSilver Point VenturesとTelegraaf Media Groep。売上ではない。"
+     },
+     {
+      "kind": "FUNDING",
+      "text": "Polarstepsは300万ユーロを調達したと発表した。",
+      "sourceUrl": "https://www.polarsteps.com/news/polarsteps-hits-1-million-users-and-raises-3-million-in-funding",
+      "quote": "raised €3 million",
+      "numberKind": "FUNDING",
+      "asOf": "2019-01-16",
+      "checkedAt": "2026-10-09",
+      "basis": "投資会社INKEF Capitalが主導した調達の発表時点。調達完了日とは区別した。"
+     },
+     {
+      "kind": "FUNDING",
+      "text": "Polarstepsが公表した調達額の累計は460万ユーロになった。",
+      "sourceUrl": "https://www.polarsteps.com/news/polarsteps-hits-1-million-users-and-raises-3-million-in-funding",
+      "quote": "to €4.6 million",
+      "numberKind": "FUNDING",
+      "asOf": "2019-01-16",
+      "periodKind": "CUMULATIVE",
+      "checkedAt": "2026-10-09",
+      "basis": "創業から発表時点までの調達累計。当該回の300万ユーロを含む。"
+     },
+     {
+      "kind": "OTHER",
+      "text": "Polarstepsは旅行記の本を利用者に販売して収入を得ていた。",
+      "sourceUrl": "https://www.polarsteps.com/news/polarsteps-hits-1-million-users-and-raises-3-million-in-funding",
+      "statedAt": "2019-01-16",
+      "quote": "letting users buy Travel Books",
+      "checkedAt": "2026-10-09"
+     },
+     {
+      "kind": "OTHER",
+      "text": "Polarstepsの世界の利用者数は1,500万人になった。",
+      "sourceUrl": "https://www.polarsteps.com/news/from-dutch-startup-to-global-sensation-polarsteps-captures-international-headlines",
+      "quote": "With 15 million users worldwide",
+      "numberKind": "USERS",
+      "asOf": "2025",
+      "checkedAt": "2026-10-09",
+      "basis": "提供された本文。翌年の公式振り返りにも2025年の数字として記載されているため、記事の日付から月を補わず年だけを採用した。"
+     },
+     {
+      "kind": "OTHER",
+      "text": "Polarstepsの世界の利用者数は2,000万人に達した。",
+      "sourceUrl": "https://www.polarsteps.com/nl/news/20-million-travelers-and-counting-tech-success-story-polarsteps-celebrates-its-fast-growing-community",
+      "quote": "reaching 20 million travelers",
+      "numberKind": "USERS",
+      "asOf": "2026-03-27",
+      "checkedAt": "2026-10-09",
+      "basis": "同日に到達を発表した節目の数字。月間利用者数ではない。"
+     },
+     {
+      "kind": "OTHER",
+      "text": "Polarstepsの公式サイトは、世界の利用者数が2,200万人を超えていると案内している。",
       "sourceUrl": "https://www.polarsteps.com/",
       "quote": "Join the 22M+ travelers",
       "numberKind": "USERS",
       "asOf": "2026-10",
-      "checkedAt": "2026-10-08"
+      "checkedAt": "2026-10-09",
+      "basis": "提供されたトップページ本文の表示。過去の節目の数字とは区別した。"
+     },
+     {
+      "kind": "EVENT",
+      "text": "Polarstepsは追加機能を使える有料プランの提供を発表した。",
+      "sourceUrl": "https://www.polarsteps.com/nl/news/polarsteps-launches-polarsteps-plus-a-new-subscription-for-its-most-dedicated-travelers",
+      "statedAt": "2026-07-14",
+      "quote": "announced the launch",
+      "checkedAt": "2026-10-09",
+      "basis": "Polarsteps Plusの全利用者への提供開始の公式発表。先行提供の日付とは区別した。"
+     },
+     {
+      "kind": "OTHER",
+      "text": "有料の追加機能は、長距離の登山などで地形や移動の詳しい記録を求める利用者のために作られた。",
+      "sourceUrl": "https://www.polarsteps.com/stories/introducing-polarsteps-plus",
+      "quote": "for the smaller groups of power users who will really benefit from them",
+      "checkedAt": "2026-10-09"
+     },
+     {
+      "kind": "PRICING",
+      "text": "立体の地図や移動の詳しい記録を使える有料機能の料金は、月払いで8.99ユーロだ。",
+      "sourceUrl": "https://www.polarsteps.com/plus",
+      "quote": "costs €8.99* per month",
+      "numberKind": "PRICE",
+      "asOf": "2026-10",
+      "periodKind": "MONTH",
+      "checkedAt": "2026-10-09",
+      "basis": "Polarsteps Plusの公式ユーロ表示。地域によって料金が異なる。"
+     },
+     {
+      "kind": "PRICING",
+      "text": "立体の地図や移動の詳しい記録を使える有料機能の料金は、年払いで29.99ユーロだ。",
+      "sourceUrl": "https://www.polarsteps.com/plus",
+      "quote": "costs €29.99* per year",
+      "numberKind": "PRICE",
+      "asOf": "2026-10",
+      "periodKind": "YEAR",
+      "checkedAt": "2026-10-09",
+      "basis": "Polarsteps Plusの公式ユーロ表示。月払いの金額を年額に換算した数字ではない。年払いには本の割引も付く。"
+     },
+     {
+      "kind": "OTHER",
+      "text": "Polarstepsは現在、旅行記の本、有料プラン、予約などの紹介から収入を得ている。",
+      "sourceUrl": "https://techround.co.uk/saas66/31-polarsteps/",
+      "quote": "Travel Book sales, a subscription and carefully selected affiliate partnerships",
+      "checkedAt": "2026-10-09"
      }
     ],
     "metrics": [
      {
+      "numberKind": "USERS",
+      "amount": 2000,
+      "unit": "ダウンロード",
+      "label": "公開初日のダウンロード数",
+      "asOf": "2015",
+      "quote": "about 2,000 installs on the first day",
+      "sourceUrl": "https://www.buzzsprout.com/1889238/episodes/16825457-he-lost-90-of-his-users-overnight-then-grew-his-consumer-app-to-10m-arr-koen-droste-founder-of-polarsteps",
+      "checkedAt": "2026-10-09",
+      "origin": "SELF_REPORTED",
+      "basis": "約2,000件という概数。登録者総数や有料購入者数ではない。公開月の食い違いを避けて年だけを記録した。",
+      "measure": "USERS",
+      "periodKind": "POINT",
+      "statedAt": "2015",
+      "period": "2015"
+     },
+     {
       "numberKind": "FUNDING",
       "amount": 500000,
       "currency": "EUR",
-      "label": "事業初期の資金調達額",
+      "label": "投資会社と報道会社からの調達額",
       "asOf": "2016-03-17",
       "quote": "raised €500,000 in seed funding",
       "sourceUrl": "https://www.polarsteps.com/news/travel-tracking-app-polarsteps-raises-500-000-investment",
-      "checkedAt": "2026-10-08",
+      "checkedAt": "2026-10-09",
       "origin": "SELF_REPORTED",
-      "basis": "Silver Point Venturesとテレグラフ・メディア・グループからの今回の調達額。累計ではない。",
+      "basis": "Silver Point VenturesとTelegraaf Media Groepからの当該調達の公式発表時点。",
       "measure": "FUNDING",
       "periodKind": "POINT",
       "statedAt": "2016-03-17",
@@ -355,29 +536,45 @@
       "amount": 20,
       "currency": "EUR",
       "unit": "冊",
-      "label": "Travel Book販売開始時の最低価格",
+      "label": "Travel Book発売時の最低価格",
       "asOf": "2017-02-06",
       "quote": "Pricing starts at €20",
       "sourceUrl": "https://www.polarsteps.com/news/polarsteps-tracks-your-trip-and-turns-it-into-an-instant-photo-album",
-      "checkedAt": "2026-10-08",
+      "checkedAt": "2026-10-09",
       "origin": "SELF_REPORTED",
-      "basis": "販売開始時の最小サイズのハードカバー写真集。税と世界向け送料を含む。現在の価格ではない。",
+      "basis": "硬い表紙の本の開始価格。現在の価格には使用しない。",
       "measure": "PRICE",
       "periodKind": "POINT",
       "statedAt": "2017-02-06",
       "period": "2017-02-06"
      },
      {
+      "numberKind": "USERS",
+      "amount": 1000000,
+      "unit": "登録利用者",
+      "label": "登録利用者数の到達した節目",
+      "asOf": "2019-01-16",
+      "quote": "1 million user mark",
+      "sourceUrl": "https://www.polarsteps.com/news/polarsteps-hits-1-million-users-and-raises-3-million-in-funding",
+      "checkedAt": "2026-10-09",
+      "origin": "SELF_REPORTED",
+      "basis": "100万人を超えたとの発表。月間利用者数ではない。",
+      "measure": "USERS",
+      "periodKind": "POINT",
+      "statedAt": "2019-01-16",
+      "period": "2019-01-16"
+     },
+     {
       "numberKind": "FUNDING",
       "amount": 3000000,
       "currency": "EUR",
-      "label": "インケフ・キャピタル主導の資金調達額",
+      "label": "投資会社主導の調達額",
       "asOf": "2019-01-16",
       "quote": "raised €3 million",
-      "sourceUrl": "https://news.polarsteps.com/de/news/polarsteps-hits-1-million-users-and-raises-3-million-in-funding",
-      "checkedAt": "2026-10-08",
+      "sourceUrl": "https://www.polarsteps.com/news/polarsteps-hits-1-million-users-and-raises-3-million-in-funding",
+      "checkedAt": "2026-10-09",
       "origin": "SELF_REPORTED",
-      "basis": "今回の資金調達額。累計ではない。",
+      "basis": "INKEF Capitalが主導した当該調達の発表時点。調達の完了日は確定していない。",
       "measure": "FUNDING",
       "periodKind": "POINT",
       "statedAt": "2019-01-16",
@@ -387,78 +584,110 @@
       "numberKind": "FUNDING",
       "amount": 4600000,
       "currency": "EUR",
-      "label": "資金調達累計",
+      "label": "公表された調達額の累計",
       "asOf": "2019-01-16",
+      "periodKind": "CUMULATIVE",
       "quote": "to €4.6 million",
-      "sourceUrl": "https://news.polarsteps.com/de/news/polarsteps-hits-1-million-users-and-raises-3-million-in-funding",
-      "checkedAt": "2026-10-08",
+      "sourceUrl": "https://www.polarsteps.com/news/polarsteps-hits-1-million-users-and-raises-3-million-in-funding",
+      "checkedAt": "2026-10-09",
       "origin": "SELF_REPORTED",
-      "basis": "今回の資金調達を含む累計。個別の調達額と重複して足さない。",
+      "basis": "当該回の300万ユーロを含む創業以来の累計。各回の調達額と足し合わせない。",
       "measure": "FUNDING",
-      "periodKind": "POINT",
       "statedAt": "2019-01-16",
       "period": "2019-01-16"
      },
      {
       "numberKind": "USERS",
-      "amount": 1000000,
-      "unit": "人",
-      "label": "登録利用者数の突破人数",
-      "asOf": "2019-01-16",
-      "quote": "the 1 million user mark",
-      "sourceUrl": "https://news.polarsteps.com/de/news/polarsteps-hits-1-million-users-and-raises-3-million-in-funding",
-      "checkedAt": "2026-10-08",
+      "amount": 90,
+      "unit": "%",
+      "label": "コロナ禍開始時の実際に使っている利用者の減少率",
+      "asOf": "2020-03",
+      "quote": "lost 90% of active users",
+      "sourceUrl": "https://www.pmf.show/blog/polarsteps-10m-arr-nps-organic-growth-koen-droste",
+      "checkedAt": "2026-10-09",
       "origin": "SELF_REPORTED",
-      "basis": "登録利用者数。実数はこの人数を超えている。月間利用者数や購入者数ではない。",
+      "basis": "active usersが数日で減った割合。提供された本人インタビューの冒頭にも同じ説明がある。登録者総数の減少ではない。",
       "measure": "USERS",
       "periodKind": "POINT",
-      "statedAt": "2019-01-16",
-      "period": "2019-01-16"
+      "statedAt": "2020-03",
+      "period": "2020-03"
+     },
+     {
+      "numberKind": "REVENUE",
+      "amount": 10000000,
+      "currency": "EUR",
+      "label": "2024年の年間売上の公表下限",
+      "asOf": "2024",
+      "periodKind": "YEAR",
+      "quote": "was profitable in 2024, generating more than €10 million in revenue",
+      "sourceUrl": "https://www.eu-startups.com/2026/02/polarsteps-ceo-clare-jones-joins-the-eu-startups-summit-2026-on-may-7-8-in-malta/",
+      "checkedAt": "2026-10-09",
+      "origin": "ARTICLE",
+      "basis": "1,000万ユーロ超。正確な売上額ではなく下限を記録した。監査済み決算書は取得していない。",
+      "measure": "REVENUE",
+      "statedAt": "2024",
+      "period": "2024"
      },
      {
       "numberKind": "USERS",
       "amount": 15000000,
-      "unit": "人",
+      "unit": "利用者",
       "label": "世界の利用者数",
-      "asOf": "2025-06",
+      "asOf": "2025",
       "quote": "With 15 million users worldwide",
       "sourceUrl": "https://www.polarsteps.com/news/from-dutch-startup-to-global-sensation-polarsteps-captures-international-headlines",
-      "checkedAt": "2026-10-08",
+      "checkedAt": "2026-10-09",
       "origin": "SELF_REPORTED",
-      "basis": "当時の公式記事冒頭の人数。月間利用者数や購入者数とは書かれていない。",
+      "basis": "提供された本文を使用。翌年の公式振り返りで2025年の数字と確認できる。月間利用者数ではない。",
       "measure": "USERS",
       "periodKind": "POINT",
-      "statedAt": "2025-06",
-      "period": "2025-06"
+      "statedAt": "2025",
+      "period": "2025"
      },
      {
       "numberKind": "USERS",
       "amount": 20000000,
-      "unit": "人",
-      "label": "利用者数の到達人数",
+      "unit": "利用者",
+      "label": "世界の利用者数の到達した節目",
       "asOf": "2026-03-27",
       "quote": "reaching 20 million travelers",
-      "sourceUrl": "https://www.polarsteps.com/news/20-million-travelers-and-counting-tech-success-story-polarsteps-celebrates-its-fast-growing-community",
-      "checkedAt": "2026-10-08",
+      "sourceUrl": "https://www.polarsteps.com/nl/news/20-million-travelers-and-counting-tech-success-story-polarsteps-celebrates-its-fast-growing-community",
+      "checkedAt": "2026-10-09",
       "origin": "SELF_REPORTED",
-      "basis": "到達を発表した人数。月間利用者数や購入者数とは書かれていない。",
+      "basis": "同日に到達を発表。月間利用者数や本の購入者数ではない。",
       "measure": "USERS",
       "periodKind": "POINT",
       "statedAt": "2026-03-27",
       "period": "2026-03-27"
      },
      {
+      "numberKind": "USERS",
+      "amount": 22000000,
+      "unit": "利用者",
+      "label": "提供された公式サイト本文に表示された世界の利用者数の下限",
+      "asOf": "2026-10",
+      "quote": "Join the 22M+ travelers",
+      "sourceUrl": "https://www.polarsteps.com/",
+      "checkedAt": "2026-10-09",
+      "origin": "SELF_REPORTED",
+      "basis": "2,200万人超。過去の節目の数字とは区別した。",
+      "measure": "USERS",
+      "periodKind": "POINT",
+      "statedAt": "2026-10",
+      "period": "2026-10"
+     },
+     {
       "numberKind": "PRICE",
       "amount": 8.99,
       "currency": "EUR",
-      "label": "Polarsteps Plus月額料金",
+      "label": "立体の地図や移動の詳しい記録を使える有料機能の月払い料金",
       "asOf": "2026-10",
       "periodKind": "MONTH",
-      "quote": "monthly costs €8.99* per month",
+      "quote": "costs €8.99* per month",
       "sourceUrl": "https://www.polarsteps.com/plus",
-      "checkedAt": "2026-10-08",
+      "checkedAt": "2026-10-09",
       "origin": "SELF_REPORTED",
-      "basis": "取得日の英語版公式料金表示。地域によって料金が異なる場合がある。",
+      "basis": "Polarsteps Plusの公式表示価格。地域によって異なる。",
       "measure": "PRICE",
       "statedAt": "2026-10",
       "period": "2026-10"
@@ -467,38 +696,22 @@
       "numberKind": "PRICE",
       "amount": 29.99,
       "currency": "EUR",
-      "label": "Polarsteps Plus年額料金",
+      "label": "立体の地図や移動の詳しい記録を使える有料機能の年払い料金",
       "asOf": "2026-10",
       "periodKind": "YEAR",
-      "quote": "yearly costs €29.99* per year",
+      "quote": "costs €29.99* per year",
       "sourceUrl": "https://www.polarsteps.com/plus",
-      "checkedAt": "2026-10-08",
+      "checkedAt": "2026-10-09",
       "origin": "SELF_REPORTED",
-      "basis": "取得日の英語版公式料金表示。地域によって料金が異なる場合がある。月額料金からの計算値ではない。",
+      "basis": "Polarsteps Plusの公式表示価格。月払いの料金とは別の商品価格。年払いには本の割引も付く。",
       "measure": "PRICE",
-      "statedAt": "2026-10",
-      "period": "2026-10"
-     },
-     {
-      "numberKind": "USERS",
-      "amount": 22000000,
-      "unit": "人",
-      "label": "公式トップページが表示する旅行者数の下限",
-      "asOf": "2026-10",
-      "quote": "Join the 22M+ travelers",
-      "sourceUrl": "https://www.polarsteps.com/",
-      "checkedAt": "2026-10-08",
-      "origin": "SELF_REPORTED",
-      "basis": "依頼に添付された取得本文の主要表示。プラス記号付きの人数であり、正確な実数ではない。",
-      "measure": "USERS",
-      "periodKind": "POINT",
       "statedAt": "2026-10",
       "period": "2026-10"
      }
     ],
     "reaudit": {
      "status": "PARTIAL",
-     "auditDate": "2026-10-08",
+     "auditDate": "2026-10-09",
      "timezone": "Asia/Tokyo",
      "auditOwner": "case:research",
      "method": "MANUAL_REAUDIT",
@@ -509,158 +722,367 @@
        "publisher": "Polarsteps",
        "sourceType": "official_website",
        "publicationDate": null,
-       "checkedAt": "2026-10-08",
-       "rightsTier": "TIER1_OFFICIAL"
+       "checkedAt": "2026-10-09",
+       "rightsTier": "TIER1_OFFICIAL",
+       "rights": {
+        "loginFree": "yes",
+        "noPaywall": "yes",
+        "quoteTerms": "prohibits",
+        "termsUrl": "https://www.polarsteps.com/legal/terms",
+        "note": "元の記録では、提供本文と公開ページを確認し、規約に非商用以外のコンテンツの複製・保存と自動巡回の制限があると判断している。今回、規約は再閲覧していない。"
+       }
       },
       {
        "url": "https://www.polarsteps.com/about",
        "publisher": "Polarsteps",
        "sourceType": "official_website",
        "publicationDate": null,
-       "checkedAt": "2026-10-08",
-       "rightsTier": "TIER1_OFFICIAL"
+       "checkedAt": "2026-10-09",
+       "rightsTier": "TIER1_OFFICIAL",
+       "rights": {
+        "loginFree": "yes",
+        "noPaywall": "yes",
+        "quoteTerms": "prohibits",
+        "termsUrl": "https://www.polarsteps.com/legal/terms",
+        "note": "元の記録では、創業物語はログインなしで読め、サイト規約に複製・保存の制限があると判断している。今回、規約は再閲覧していない。"
+       }
       },
       {
-       "url": "https://www.polarsteps.com/news/startup-launches-travel-app-that-logs-your-route-automatically",
-       "publisher": "Polarsteps Editors",
-       "sourceType": "official_blog",
-       "publicationDate": "2015-05-31",
-       "checkedAt": "2026-10-08",
-       "rightsTier": "TIER1_OFFICIAL"
+       "url": "https://blog.google/products-and-platforms/platforms/google-play/imakeapps-meet-niek-bokkers-dutch-adventurer-and-creative-director/",
+       "publisher": "Google／Pat Correa",
+       "sourceType": "article",
+       "publicationDate": "2018-06-21",
+       "checkedAt": "2026-10-09",
+       "rightsTier": "TIER2_FACTS_ONLY",
+       "rights": {
+        "loginFree": "yes",
+        "noPaywall": "yes",
+        "quoteTerms": "unconfirmed",
+        "termsUrl": "https://policies.google.com/terms",
+        "note": "元の記録では、本人の回答を含む全文をログインなしで読めたが、記事の引用に適用する個別条件は確定できなかった。今回、提供本文を参照した。"
+       }
       },
       {
-       "url": "https://www.polarsteps.com/news/travel-tracking-app-polarsteps-raises-500-000-investment",
-       "publisher": "Polarsteps Editors",
-       "sourceType": "official_blog",
-       "publicationDate": "2016-03-17",
-       "checkedAt": "2026-10-08",
-       "rightsTier": "TIER1_OFFICIAL"
-      },
-      {
-       "url": "https://www.polarsteps.com/news/polarsteps-tracks-your-trip-and-turns-it-into-an-instant-photo-album",
-       "publisher": "Polarsteps Editors",
-       "sourceType": "official_blog",
-       "publicationDate": "2017-02-06",
-       "checkedAt": "2026-10-08",
-       "rightsTier": "TIER1_OFFICIAL"
-      },
-      {
-       "url": "https://news.polarsteps.com/de/news/polarsteps-hits-1-million-users-and-raises-3-million-in-funding",
-       "publisher": "Polarsteps",
-       "sourceType": "official_blog",
-       "publicationDate": "2019-01-16",
-       "checkedAt": "2026-10-08",
-       "rightsTier": "TIER1_OFFICIAL"
+       "url": "https://podcast.uprotterdam.com/1607803/episodes/15686315-from-travel-enthusiast-to-tech-entrepreneur-the-polar-steps-story-with-koen-droste",
+       "publisher": "Start to scale／Lars Crama",
+       "sourceType": "article",
+       "publicationDate": "2024-09-03",
+       "checkedAt": "2026-10-09",
+       "rightsTier": "TIER2_FACTS_ONLY",
+       "rights": {
+        "loginFree": "yes",
+        "noPaywall": "yes",
+        "quoteTerms": "unconfirmed",
+        "termsUrl": "https://www.buzzsprout.com/tos",
+        "note": "元の記録では、公開文字起こしを読めたが、番組独自の引用条件は確定できなかった。今回の提供本文は文字起こしの途中までで、後半の引用は元の記録を引き継いだ。"
+       }
       },
       {
        "url": "https://www.buzzsprout.com/1889238/episodes/16825457-he-lost-90-of-his-users-overnight-then-grew-his-consumer-app-to-10m-arr-koen-droste-founder-of-polarsteps",
-       "publisher": "The Product Market Fit Show",
+       "publisher": "A Product Market Fit Show／Pablo Srugo",
        "sourceType": "article",
-       "publicationDate": null,
-       "checkedAt": "2026-10-08",
-       "rightsTier": "TIER2_FACTS_ONLY"
+       "publicationDate": "2025-05-01",
+       "checkedAt": "2026-10-09",
+       "rightsTier": "TIER2_FACTS_ONLY",
+       "rights": {
+        "loginFree": "yes",
+        "noPaywall": "yes",
+        "quoteTerms": "unconfirmed",
+        "termsUrl": "https://www.buzzsprout.com/tos",
+        "note": "元の記録では、本人の回答を含む文字起こしを読めたが、番組本文の第三者による引用条件は確定できなかった。今回の提供本文に無い後半の引用は元の記録を引き継いだ。"
+       }
       },
       {
-       "url": "https://www.iamsterdam.com/en/business/startupamsterdam/insights-interviews/foundersfridays-meet-koen-droste",
-       "publisher": "I amsterdam / StartupAmsterdam",
+       "url": "https://www.pmf.show/blog/polarsteps-10m-arr-nps-organic-growth-koen-droste",
+       "publisher": "The Product Market Fit Show",
        "sourceType": "article",
-       "publicationDate": null,
-       "checkedAt": "2026-10-08",
-       "rightsTier": "TIER2_FACTS_ONLY"
+       "publicationDate": "2025-05-01",
+       "checkedAt": "2026-10-09",
+       "rightsTier": "TIER2_FACTS_ONLY",
+       "rights": {
+        "loginFree": "yes",
+        "noPaywall": "yes",
+        "quoteTerms": "unconfirmed",
+        "termsUrl": null,
+        "note": "元の記録では、要約記事をログインなしで読めたが、引用条件を定めた規約ページは確認できなかった。今回、提供本文を参照した。"
+       }
+      },
+      {
+       "url": "https://www.polarsteps.com/news/travel-tracking-app-polarsteps-raises-500-000-investment",
+       "publisher": "Polarsteps",
+       "sourceType": "official_blog",
+       "publicationDate": "2016-03-17",
+       "checkedAt": "2026-10-09",
+       "rightsTier": "TIER1_OFFICIAL",
+       "rights": {
+        "loginFree": "yes",
+        "noPaywall": "yes",
+        "quoteTerms": "prohibits",
+        "termsUrl": "https://www.polarsteps.com/legal/terms",
+        "note": "元の記録では、公式発表本文を読め、サイト規約に複製・保存の制限があると判断している。今回、提供本文を参照し、規約は再閲覧していない。"
+       }
+      },
+      {
+       "url": "https://www.polarsteps.com/news/polarsteps-tracks-your-trip-and-turns-it-into-an-instant-photo-album",
+       "publisher": "Polarsteps",
+       "sourceType": "official_blog",
+       "publicationDate": "2017-02-06",
+       "checkedAt": "2026-10-09",
+       "rightsTier": "TIER1_OFFICIAL",
+       "rights": {
+        "loginFree": "yes",
+        "noPaywall": "yes",
+        "quoteTerms": "prohibits",
+        "termsUrl": "https://www.polarsteps.com/legal/terms",
+        "note": "元の記録では、移転先の公式発表を読め、サイト規約に複製・保存の制限があると判断している。今回、提供本文を参照し、規約は再閲覧していない。"
+       }
+      },
+      {
+       "url": "https://www.polarsteps.com/news/polarsteps-hits-1-million-users-and-raises-3-million-in-funding",
+       "publisher": "Polarsteps",
+       "sourceType": "official_blog",
+       "publicationDate": "2019-01-16",
+       "checkedAt": "2026-10-09",
+       "rightsTier": "TIER1_OFFICIAL",
+       "rights": {
+        "loginFree": "yes",
+        "noPaywall": "yes",
+        "quoteTerms": "prohibits",
+        "termsUrl": "https://www.polarsteps.com/legal/terms",
+        "note": "元の記録では、発表本文を読め、サイト規約に複製・保存の制限があると判断している。今回、提供本文を参照し、規約は再閲覧していない。"
+       }
+      },
+      {
+       "url": "https://www.1twente.nl/artikel/2142610/polarsteps-reisapp-met-2-miljoen-gebruikers-dankzij-drie-jongens-uit-twente",
+       "publisher": "1Twente／Newsroom Enschede",
+       "sourceType": "article",
+       "publicationDate": "2019-08-19",
+       "checkedAt": "2026-10-09",
+       "rightsTier": "TIER2_FACTS_ONLY",
+       "rights": {
+        "loginFree": "yes",
+        "noPaywall": "yes",
+        "quoteTerms": "prohibits",
+        "termsUrl": "https://www.1twente.nl/disclaimer",
+        "note": "元の記録では、本文はログインなしで読めたが、転載には事前の書面許可が必要と判断している。今回、提供本文を参照し、規約は再閲覧していない。"
+       }
+      },
+      {
+       "url": "https://siliconcanals.com/polarsteps-travel-tracking-maximiliano-neustadt-interview/",
+       "publisher": "Silicon Canals",
+       "sourceType": "article",
+       "publicationDate": "2022-07-28",
+       "checkedAt": "2026-10-09",
+       "rightsTier": "TIER2_FACTS_ONLY",
+       "rights": {
+        "loginFree": "yes",
+        "noPaywall": "yes",
+        "quoteTerms": "permits",
+        "termsUrl": "https://siliconcanals.com/terms-conditions/",
+        "note": "元の記録では、取材全文を読め、規約は出典を正確に示す短い引用を法令の範囲内で認めていると判断している。今回、提供本文を参照し、規約は再閲覧していない。"
+       }
+      },
+      {
+       "url": "https://www.eu-startups.com/2026/02/polarsteps-ceo-clare-jones-joins-the-eu-startups-summit-2026-on-may-7-8-in-malta/",
+       "publisher": "EU-Startups／Antonio L. Escárzaga",
+       "sourceType": "article",
+       "publicationDate": "2026-02-10",
+       "checkedAt": "2026-10-09",
+       "rightsTier": "TIER2_FACTS_ONLY",
+       "rights": {
+        "loginFree": "yes",
+        "noPaywall": "yes",
+        "quoteTerms": "unconfirmed",
+        "termsUrl": null,
+        "note": "元の記録では、売上額を含む本文をログインなしで読めたが、引用条件の規約は確認できなかった。今回、提供本文を参照した。"
+       }
       },
       {
        "url": "https://www.polarsteps.com/news/from-dutch-startup-to-global-sensation-polarsteps-captures-international-headlines",
-       "publisher": "Polarsteps Editors",
+       "publisher": "Polarsteps",
        "sourceType": "official_blog",
        "publicationDate": "2025-06-06",
-       "checkedAt": "2026-10-08",
-       "rightsTier": "TIER1_OFFICIAL"
+       "checkedAt": "2026-10-09",
+       "rightsTier": "TIER1_OFFICIAL",
+       "rights": {
+        "loginFree": "yes",
+        "noPaywall": "yes",
+        "quoteTerms": "prohibits",
+        "termsUrl": "https://www.polarsteps.com/legal/terms",
+        "note": "提供本文の当時の数字と、更新された会社紹介を分けた。規約による複製・保存の制限という元の判断を引き継ぎ、今回、規約は再閲覧していない。"
+       }
       },
       {
-       "url": "https://www.polarsteps.com/news/20-million-travelers-and-counting-tech-success-story-polarsteps-celebrates-its-fast-growing-community",
-       "publisher": "Polarsteps Editors",
+       "url": "https://www.polarsteps.com/nl/news/20-million-travelers-and-counting-tech-success-story-polarsteps-celebrates-its-fast-growing-community",
+       "publisher": "Polarsteps",
        "sourceType": "official_blog",
        "publicationDate": "2026-03-27",
-       "checkedAt": "2026-10-08",
-       "rightsTier": "TIER1_OFFICIAL"
+       "checkedAt": "2026-10-09",
+       "rightsTier": "TIER1_OFFICIAL",
+       "rights": {
+        "loginFree": "yes",
+        "noPaywall": "yes",
+        "quoteTerms": "prohibits",
+        "termsUrl": "https://www.polarsteps.com/legal/terms",
+        "note": "元の記録では、公式発表を読め、サイト規約に複製・保存の制限があると判断している。今回、提供本文を参照し、規約は再閲覧していない。"
+       }
       },
       {
-       "url": "https://www.polarsteps.com/news/polarsteps-launches-polarsteps-plus-a-new-subscription-for-its-most-dedicated-travelers",
-       "publisher": "Polarsteps Editors",
+       "url": "https://techround.co.uk/saas66/31-polarsteps/",
+       "publisher": "TechRound",
+       "sourceType": "article",
+       "publicationDate": "2026-10-01",
+       "checkedAt": "2026-10-09",
+       "rightsTier": "TIER2_FACTS_ONLY",
+       "rights": {
+        "loginFree": "yes",
+        "noPaywall": "yes",
+        "quoteTerms": "unconfirmed",
+        "termsUrl": null,
+        "note": "元の記録では、経営交代と収益源を説明する本文を読めたが、引用条件の規約は確認できなかった。今回、提供本文を参照した。"
+       }
+      },
+      {
+       "url": "https://www.polarsteps.com/nl/news/polarsteps-launches-polarsteps-plus-a-new-subscription-for-its-most-dedicated-travelers",
+       "publisher": "Polarsteps",
        "sourceType": "official_blog",
        "publicationDate": "2026-07-14",
-       "checkedAt": "2026-10-08",
-       "rightsTier": "TIER1_OFFICIAL"
+       "checkedAt": "2026-10-09",
+       "rightsTier": "TIER1_OFFICIAL",
+       "rights": {
+        "loginFree": "yes",
+        "noPaywall": "yes",
+        "quoteTerms": "prohibits",
+        "termsUrl": "https://www.polarsteps.com/legal/terms",
+        "note": "元の記録では、公式発表を読め、サイト規約に複製・保存の制限があると判断している。今回、提供本文を参照し、規約は再閲覧していない。"
+       }
+      },
+      {
+       "url": "https://www.polarsteps.com/stories/introducing-polarsteps-plus",
+       "publisher": "Polarsteps／Clare Jones",
+       "sourceType": "official_blog",
+       "publicationDate": null,
+       "checkedAt": "2026-10-09",
+       "rightsTier": "TIER1_OFFICIAL",
+       "rights": {
+        "loginFree": "yes",
+        "noPaywall": "yes",
+        "quoteTerms": "prohibits",
+        "termsUrl": "https://www.polarsteps.com/legal/terms",
+        "note": "表示日は編集日であり、初回公開日とは区別した。規約による複製・保存の制限という元の判断を引き継ぎ、今回、規約は再閲覧していない。"
+       }
       },
       {
        "url": "https://www.polarsteps.com/plus",
        "publisher": "Polarsteps",
        "sourceType": "official_website",
        "publicationDate": null,
-       "checkedAt": "2026-10-08",
-       "rightsTier": "TIER1_OFFICIAL"
-      },
-      {
-       "url": "https://support.polarsteps.com/hc/en-us/articles/29003435822866-Is-Polarsteps-free",
-       "publisher": "Polarsteps Help Center",
-       "sourceType": "official_website",
-       "publicationDate": null,
-       "checkedAt": "2026-10-08",
-       "rightsTier": "TIER1_OFFICIAL"
+       "checkedAt": "2026-10-09",
+       "rightsTier": "TIER1_OFFICIAL",
+       "rights": {
+        "loginFree": "yes",
+        "noPaywall": "yes",
+        "quoteTerms": "prohibits",
+        "termsUrl": "https://www.polarsteps.com/legal/terms",
+        "note": "提供本文で無料機能と有料機能の料金を確認した。規約による複製・保存の制限という元の判断を引き継ぎ、今回、規約は再閲覧していない。"
+       }
       },
       {
        "url": "https://support.polarsteps.com/hc/en-us/articles/24003935464466-What-is-the-price-of-a-Travel-Book",
        "publisher": "Polarsteps Help Center",
        "sourceType": "official_website",
        "publicationDate": null,
-       "checkedAt": "2026-10-08",
-       "rightsTier": "TIER1_OFFICIAL"
+       "checkedAt": "2026-10-09",
+       "rightsTier": "TIER1_OFFICIAL",
+       "rights": {
+        "loginFree": "yes",
+        "noPaywall": "yes",
+        "quoteTerms": "unconfirmed",
+        "termsUrl": "https://www.polarsteps.com/legal/terms",
+        "note": "元の記録では、料金の決まりを説明する公開本文を読めたが、製品サイトの規約が別ホストのサポート記事に適用されるかは確定できなかった。今回、本文と規約は再閲覧していない。"
+       }
+      },
+      {
+       "url": "https://apps.apple.com/us/app/polarsteps/id947925763",
+       "publisher": "Apple App Store／Polarsteps B.V.",
+       "sourceType": "official_website",
+       "publicationDate": null,
+       "checkedAt": "2026-10-09",
+       "rightsTier": "TIER2_FACTS_ONLY",
+       "rights": {
+        "loginFree": "yes",
+        "noPaywall": "yes",
+        "quoteTerms": "unconfirmed",
+        "termsUrl": null,
+        "note": "元の記録では、アプリの説明と画面写真の掲載を確認したが、画像の利用条件と直接URLは確認できなかった。今回、ページは再閲覧していない。"
+       }
+      },
+      {
+       "url": "https://www.keepgo.com/blogs/articles/top-10-apps-for-trip-logging",
+       "publisher": "Keepgo",
+       "sourceType": "article",
+       "publicationDate": null,
+       "checkedAt": "2026-10-09",
+       "rightsTier": "TIER2_FACTS_ONLY",
+       "rights": {
+        "loginFree": "yes",
+        "noPaywall": "yes",
+        "quoteTerms": "prohibits",
+        "termsUrl": "https://www.keepgo.com/pages/terms-of-service",
+        "note": "元の記録では、製品画面と直接URLを確認したが、規約が個人の一時的な閲覧以外の複製や公開表示を禁じるため掲載候補から外した。今回、ページと規約は再閲覧していない。"
+       }
       }
      ],
      "supported": [],
      "unknown": [
-      "Travel Bookを最初に買った客の人数・購入経路・購入日は確認できなかった。最初のアプリ利用者と、最初の購入者は区別した。",
-      "現在のTravel Bookの最低価格は確認できなかった。公式の商品ページは非対応ブラウザーの表示になり、Webアーカイブも取得できなかった。別の公式ヘルプで価格の決まり方は確認した。",
-      "Travel Bookの販売開始後の値上げ・値下げについて、日付と価格をそろえた履歴は確認できなかった。",
-      "創業者のインタビューには写真集販売による年間売上の発言があるが、その数字がどの年または集計期間のものか確認できなかったため、売上指標には入れなかった。",
-      "感染症流行中に写真集の注文が続いた事実は確認できたが、注文数・売上・利益の変化は確認できなかった。",
-      "専業化は創業者の回想で2016年と確認できたが、月は確認できなかった。",
-      "家族や友人が旅行記録を追う機能を追加した正確な年月と、追加前後の利用者増加率は確認できなかった。",
-      "I amsterdamのインタビューには2025-05-21の更新日があるが、当初の公開日と感染症流行中の出来事の年月は確認できなかった。更新日を出来事の日付には使っていない。",
-      "現在の年間売上・利益・写真集購入者数・有料会員数・予約紹介手数料額は確認できなかった。",
-      "会社の売却について、今回開いた出典では確認できなかった。",
-      "創業者数（4人、2015年）と従業員数（100人、2026-03-27）は、時点の人数であり期間の数字ではないため、取り込み検査が求める期間の種類（periodKind）を付けられなかった。指標（metrics）からは外し、人数は事実の文（TEAM）にだけ残した。",
-      "指定のローカル文書の閲覧と取り込み検査は、コマンド実行・ファイル作成をしない今回の実行方式では行っていない。unconfirmedFactsとthinCasesが0件であることは未検証。"
+      "最初にTravel Bookを買った客の名前、最初の注文額、発売直後の販売冊数は確認できなかった。",
+      "2025年と2026年の会社全体の年間売上、利益額、旅行記の本・有料プラン・予約紹介ごとの売上内訳は確認できなかった。",
+      "2024年の年間売上について、監査済み決算書や提出書類による独立した確認はできていない。採用した金額はEU-Startupsの記事にある下限だ。",
+      "現在のTravel Bookの確定価格は、元の記録では公開ヘルプが注文画面で確認するよう説明していた。ログインせずに確定額を取得できなかったため、発売時の20ユーロを現在の料金としては使わない。",
+      "KoenからMaximilianoへの経営交代日と、Clare Jonesの就任日は、採用した本文から確定できなかった。",
+      "各利用者が友人を招く人数や、招待された人が旅行者として使い始める割合について、期間と定義がそろった数字は確認できなかった。",
+      "App Storeの製品画面写真の掲載は元の記録で確認されているが、画像の直接URLは取得できていない。直接URLがあるKeepgo掲載画像は規約により使用できないため、画面に使用可能と確認できた画像は未収集だ。",
+      "公式サイトの規約に複製・保存と自動巡回の制限があるという元の権利判断を引き継いだ。prohibitsと記録した出典だけを根拠に画面へ出さない。今回、権利条件の再確認はしていない。",
+      "元の記録では、Hacker Newsの採用投稿とRedditの運営チーム投稿を探索したが、最初の有料客や初回売上を確定する追加材料は得られなかった。Indie Hackersは閲覧が制限され、初期サイトのWebアーカイブも取得できなかった。",
+      "創業メンバー数4人の数値項目は、元の引用がfourという文字表記で、取り込み検査が数字として認識しなかった。提供されたGoogle記事には「First we were with 4」という数字表記もあるが、創業人数は期間内の合計ではなく、指定されたperiodKindを事実に忠実に付けられないため、数値項目を外した。創業メンバーの名前と参加の経緯はTEAMの事実に残した。",
+      "従業員数100人の数値項目は、2026年3月の在籍人数であり、月間・年間・累計の人数ではない。指定されたperiodKindを事実に忠実に付けられないため、metricsと対応する数字の事実を外した。原文は「team of 100 employees」で、出典は2026年3月27日の公式発表だ。",
+      "README、見本JSON、OWNER_INTENTなどのローカル文書は今回読んでいない。依頼に貼られた形式と規則に従った。",
+      "今回、ツール・コマンド・ファイル作成は行っていない。取り込みスクリプトは再実行しておらず、修正後のunconfirmedFactsとthinCasesが0件かは確認していない。",
+      "提供されたポッドキャスト本文は途中までのため、公開初日の約2,000件、初期に重視した指標、Upcomingの技術責任者、解雇を避けたこと、通信状態が悪い場所での検証に関する後半の引用は今回の提供本文では再照合できない。これらは直前の材料から引き継いだ。"
      ],
      "conflicts": [
-      "利用者数は、過去の公式発表と現在のページ表示を分けた。2019年の登録利用者の節目、2025年6月の記事冒頭、2026年3月の到達発表、取得日のトップページ表示を、それぞれの時点の数字として採用した。月間利用者数や写真集購入者数には読み替えていない。",
-      "依頼に添付されたトップページ本文では、主要部分の22M+に対してページ説明に20M+が残っている。取得日の主要表示である22M+を下限として採用し、正確な実数とは扱っていない。",
-      "2025年6月の公式記事には、当時の記事冒頭の利用者数と、後から更新されたと考えられる会社紹介・共通部分の利用者数が併存する。当時の人数には記事冒頭を採用し、共通部分を2025年6月の人数として使っていない。",
-      "アプリ公開時期は、創業者の回想が2015年3月、2016年の公式記事がベータ版の公開を2015年4月、別の公開告知ページが2015年5月31日としている。各版の違いを確定できないため、創業年は2015年とし、最初の公開月は断定していない。",
-      "2016年の調達額は、当時の公式発表ではユーロ、後年の創業者の回想ではドル表記になっている。今回の調達指標には当時の公式発表の元通貨を採用し、回想の数字を別の調達として加算していない。",
-      "2019年の公式発表は資金調達累計を正確な金額で示し、2025年の公式記事は約10年間の調達を丸めた金額で紹介している。時点と精度が異なるため、今回の累計指標には2019年の発表額を採用した。",
-      "ポッドキャストの題名はドル建てのARRを掲げる一方、本文で創業者はユーロ建ての写真集の年間売上を述べている。通貨・収入の種類・対象期間が一致しないため、題名を売上の証拠にせず、売上指標への採用を保留した。"
+      "アプリの初回公開月は、創業者のPMFインタビューと1Twenteの記事では2015年3月、当時の公式発表ではiPhone試用版を2015年4月に公開したとされる。初版と試用版の違いは確定できないため、公式の試用版公開を2015年4月として残し、公開初日のダウンロード数は2015年だけを採用した。",
+      "コロナ禍の利用者減少について、元の記録では2024年のポッドキャスト文字起こしに約80という表記があった一方、提供されたPMFの本人発言は2020年3月にactive usersが90%減ったという表記だ。前者は百分率記号と対象が明確でないため、後者の90%を実際に使っている利用者の減少率として採用した。",
+      "PMFの番組見出しはドル建てのARRを掲げるが、本文には本の販売で年間1,000万ユーロ超を稼ぐという本人の説明がある。定期契約による売上とは確認できないため、ARRやドル建ての数字は採用せず、2024年の期間が明示されたユーロ建て年間売上を採用した。",
+      "PMFのコロナ禍の説明では、その直前に資金調達したとされるが、公式の大型調達発表は2019年1月だ。別の調達か時期の記憶違いかを確定できないため、資金調達とコロナ禍の間隔は事実にしていない。",
+      "Silicon Canalsの2022年記事は調達累計をDealroomによる480万ユーロとする一方、2019年の公式発表は460万ユーロとしている。時点と集計範囲が一致せず差額の内訳も確認できないため、2019年の公式発表時点の460万ユーロだけを数値項目に残した。",
+      "2025年の記事末尾にも、後から更新された利用者数と従業員数が入っている。本文の当時の1,500万人、2026年の2,000万人到達、提供されたトップページの2,200万人超を別時点の数字として扱った。",
+      "元の記録では、採用ページのチーム規模は90人超、2026年3月の公式発表は100人、2026年10月のTechRound紹介も100人となっている。範囲と更新時点が一致しないため、現在の厳密な在籍数は確定していない。今回、従業員数は期間区分を忠実に付けられず、数値項目から外した。",
+      "TechRoundの2026年10月記事の共同創業者欄にはClare Jonesが含まれ、Maximilianoの名前にも表記の違いがある。一方で同じ記事本文はClareを社外から迎えた経営責任者と説明している。創業者名は公式の創業物語と共同創業者への取材を採用した。",
+      "初期のアプリは無料で本の販売が収益源だったが、2026年には有料の追加機能が導入された。過去の『有料プランを持たない』という説明を現在の収益構造には使わない。"
      ]
     },
     "observationsStream": [],
     "observations": [],
     "claimBindings": [],
     "publishability": "PUBLISHABLE",
-    "batchId": "research_polarsteps_20261008",
+    "batchId": "research_polarsteps_20261009",
     "financialStatus": "UNAVAILABLE",
     "unknownsNotes": [
-     "Travel Bookを最初に買った客の人数・購入経路・購入日は確認できなかった。最初のアプリ利用者と、最初の購入者は区別した。",
-     "現在のTravel Bookの最低価格は確認できなかった。公式の商品ページは非対応ブラウザーの表示になり、Webアーカイブも取得できなかった。別の公式ヘルプで価格の決まり方は確認した。",
-     "Travel Bookの販売開始後の値上げ・値下げについて、日付と価格をそろえた履歴は確認できなかった。",
-     "創業者のインタビューには写真集販売による年間売上の発言があるが、その数字がどの年または集計期間のものか確認できなかったため、売上指標には入れなかった。",
-     "感染症流行中に写真集の注文が続いた事実は確認できたが、注文数・売上・利益の変化は確認できなかった。",
-     "専業化は創業者の回想で2016年と確認できたが、月は確認できなかった。",
-     "家族や友人が旅行記録を追う機能を追加した正確な年月と、追加前後の利用者増加率は確認できなかった。",
-     "I amsterdamのインタビューには2025-05-21の更新日があるが、当初の公開日と感染症流行中の出来事の年月は確認できなかった。更新日を出来事の日付には使っていない。",
-     "現在の年間売上・利益・写真集購入者数・有料会員数・予約紹介手数料額は確認できなかった。",
-     "会社の売却について、今回開いた出典では確認できなかった。",
-     "創業者数（4人、2015年）と従業員数（100人、2026-03-27）は、時点の人数であり期間の数字ではないため、取り込み検査が求める期間の種類（periodKind）を付けられなかった。指標（metrics）からは外し、人数は事実の文（TEAM）にだけ残した。",
-     "指定のローカル文書の閲覧と取り込み検査は、コマンド実行・ファイル作成をしない今回の実行方式では行っていない。unconfirmedFactsとthinCasesが0件であることは未検証。"
+     "最初にTravel Bookを買った客の名前、最初の注文額、発売直後の販売冊数は確認できなかった。",
+     "2025年と2026年の会社全体の年間売上、利益額、旅行記の本・有料プラン・予約紹介ごとの売上内訳は確認できなかった。",
+     "2024年の年間売上について、監査済み決算書や提出書類による独立した確認はできていない。採用した金額はEU-Startupsの記事にある下限だ。",
+     "現在のTravel Bookの確定価格は、元の記録では公開ヘルプが注文画面で確認するよう説明していた。ログインせずに確定額を取得できなかったため、発売時の20ユーロを現在の料金としては使わない。",
+     "KoenからMaximilianoへの経営交代日と、Clare Jonesの就任日は、採用した本文から確定できなかった。",
+     "各利用者が友人を招く人数や、招待された人が旅行者として使い始める割合について、期間と定義がそろった数字は確認できなかった。",
+     "App Storeの製品画面写真の掲載は元の記録で確認されているが、画像の直接URLは取得できていない。直接URLがあるKeepgo掲載画像は規約により使用できないため、画面に使用可能と確認できた画像は未収集だ。",
+     "公式サイトの規約に複製・保存と自動巡回の制限があるという元の権利判断を引き継いだ。prohibitsと記録した出典だけを根拠に画面へ出さない。今回、権利条件の再確認はしていない。",
+     "元の記録では、Hacker Newsの採用投稿とRedditの運営チーム投稿を探索したが、最初の有料客や初回売上を確定する追加材料は得られなかった。Indie Hackersは閲覧が制限され、初期サイトのWebアーカイブも取得できなかった。",
+     "創業メンバー数4人の数値項目は、元の引用がfourという文字表記で、取り込み検査が数字として認識しなかった。提供されたGoogle記事には「First we were with 4」という数字表記もあるが、創業人数は期間内の合計ではなく、指定されたperiodKindを事実に忠実に付けられないため、数値項目を外した。創業メンバーの名前と参加の経緯はTEAMの事実に残した。",
+     "従業員数100人の数値項目は、2026年3月の在籍人数であり、月間・年間・累計の人数ではない。指定されたperiodKindを事実に忠実に付けられないため、metricsと対応する数字の事実を外した。原文は「team of 100 employees」で、出典は2026年3月27日の公式発表だ。",
+     "README、見本JSON、OWNER_INTENTなどのローカル文書は今回読んでいない。依頼に貼られた形式と規則に従った。",
+     "今回、ツール・コマンド・ファイル作成は行っていない。取り込みスクリプトは再実行しておらず、修正後のunconfirmedFactsとthinCasesが0件かは確認していない。",
+     "提供されたポッドキャスト本文は途中までのため、公開初日の約2,000件、初期に重視した指標、Upcomingの技術責任者、解雇を避けたこと、通信状態が悪い場所での検証に関する後半の引用は今回の提供本文では再照合できない。これらは直前の材料から引き継いだ。"
     ],
     "evidenceCards": [
      {
@@ -673,7 +1095,7 @@
       "details": [
        "URL: https://www.polarsteps.com/",
        "ホスト: polarsteps.com",
-       "確認日: 2026-10-08"
+       "確認日: 2026-10-09"
       ],
       "url": "https://www.polarsteps.com/",
       "sourceNote": "official source listed in case-rebuild pack https://www.polarsteps.com/",
@@ -689,7 +1111,7 @@
       "details": [
        "URL: https://www.polarsteps.com/about",
        "ホスト: polarsteps.com",
-       "確認日: 2026-10-08"
+       "確認日: 2026-10-09"
       ],
       "url": "https://www.polarsteps.com/about",
       "sourceNote": "official source listed in case-rebuild pack https://www.polarsteps.com/about",
@@ -698,149 +1120,245 @@
      {
       "id": "ent_polarsteps_2b2970abd201_pack_source_3",
       "type": "UNKNOWN_AUDIT",
-      "title": "出典: Polarsteps Editors",
+      "title": "出典: Google／Pat Correa",
       "badge": "出典",
       "evidenceStatus": "REPORTED",
       "punchline": "事例の材料に使った出典の所在。内容の照合は事例の照合段で行う。",
       "details": [
-       "URL: https://www.polarsteps.com/news/startup-launches-travel-app-that-logs-your-route-automatically",
-       "ホスト: polarsteps.com",
-       "確認日: 2026-10-08"
+       "URL: https://blog.google/products-and-platforms/platforms/google-play/imakeapps-meet-niek-bokkers-dutch-adventurer-and-creative-director/",
+       "ホスト: blog.google",
+       "確認日: 2026-10-09"
       ],
-      "url": "https://www.polarsteps.com/news/startup-launches-travel-app-that-logs-your-route-automatically",
-      "sourceNote": "official source listed in case-rebuild pack https://www.polarsteps.com/news/startup-launches-travel-app-that-logs-your-route-automatically",
-      "sourceClass": "PRIMARY"
+      "url": "https://blog.google/products-and-platforms/platforms/google-play/imakeapps-meet-niek-bokkers-dutch-adventurer-and-creative-director/",
+      "sourceNote": "secondary source listed in case-rebuild pack https://blog.google/products-and-platforms/platforms/google-play/imakeapps-meet-niek-bokkers-dutch-adventurer-and-creative-director/",
+      "sourceClass": "INDEPENDENT_SECONDARY"
      },
      {
       "id": "ent_polarsteps_2b2970abd201_pack_source_4",
       "type": "UNKNOWN_AUDIT",
-      "title": "出典: Polarsteps Editors",
+      "title": "出典: Start to scale／Lars Crama",
       "badge": "出典",
       "evidenceStatus": "REPORTED",
       "punchline": "事例の材料に使った出典の所在。内容の照合は事例の照合段で行う。",
       "details": [
-       "URL: https://www.polarsteps.com/news/travel-tracking-app-polarsteps-raises-500-000-investment",
-       "ホスト: polarsteps.com",
-       "確認日: 2026-10-08"
+       "URL: https://podcast.uprotterdam.com/1607803/episodes/15686315-from-travel-enthusiast-to-tech-entrepreneur-the-polar-steps-story-with-koen-droste",
+       "ホスト: podcast.uprotterdam.com",
+       "確認日: 2026-10-09"
       ],
-      "url": "https://www.polarsteps.com/news/travel-tracking-app-polarsteps-raises-500-000-investment",
-      "sourceNote": "official source listed in case-rebuild pack https://www.polarsteps.com/news/travel-tracking-app-polarsteps-raises-500-000-investment",
-      "sourceClass": "PRIMARY"
+      "url": "https://podcast.uprotterdam.com/1607803/episodes/15686315-from-travel-enthusiast-to-tech-entrepreneur-the-polar-steps-story-with-koen-droste",
+      "sourceNote": "secondary source listed in case-rebuild pack https://podcast.uprotterdam.com/1607803/episodes/15686315-from-travel-enthusiast-to-tech-entrepreneur-the-polar-steps-story-with-koen-droste",
+      "sourceClass": "INDEPENDENT_SECONDARY"
      },
      {
       "id": "ent_polarsteps_2b2970abd201_pack_source_5",
       "type": "UNKNOWN_AUDIT",
-      "title": "出典: Polarsteps Editors",
-      "badge": "出典",
-      "evidenceStatus": "REPORTED",
-      "punchline": "事例の材料に使った出典の所在。内容の照合は事例の照合段で行う。",
-      "details": [
-       "URL: https://www.polarsteps.com/news/polarsteps-tracks-your-trip-and-turns-it-into-an-instant-photo-album",
-       "ホスト: polarsteps.com",
-       "確認日: 2026-10-08"
-      ],
-      "url": "https://www.polarsteps.com/news/polarsteps-tracks-your-trip-and-turns-it-into-an-instant-photo-album",
-      "sourceNote": "official source listed in case-rebuild pack https://www.polarsteps.com/news/polarsteps-tracks-your-trip-and-turns-it-into-an-instant-photo-album",
-      "sourceClass": "PRIMARY"
-     },
-     {
-      "id": "ent_polarsteps_2b2970abd201_pack_source_6",
-      "type": "UNKNOWN_AUDIT",
-      "title": "出典: Polarsteps",
-      "badge": "出典",
-      "evidenceStatus": "REPORTED",
-      "punchline": "事例の材料に使った出典の所在。内容の照合は事例の照合段で行う。",
-      "details": [
-       "URL: https://news.polarsteps.com/de/news/polarsteps-hits-1-million-users-and-raises-3-million-in-funding",
-       "ホスト: news.polarsteps.com",
-       "確認日: 2026-10-08"
-      ],
-      "url": "https://news.polarsteps.com/de/news/polarsteps-hits-1-million-users-and-raises-3-million-in-funding",
-      "sourceNote": "secondary source listed in case-rebuild pack https://news.polarsteps.com/de/news/polarsteps-hits-1-million-users-and-raises-3-million-in-funding",
-      "sourceClass": "INDEPENDENT_SECONDARY"
-     },
-     {
-      "id": "ent_polarsteps_2b2970abd201_pack_source_7",
-      "type": "UNKNOWN_AUDIT",
-      "title": "出典: The Product Market Fit Show",
+      "title": "出典: A Product Market Fit Show／Pablo Srugo",
       "badge": "出典",
       "evidenceStatus": "REPORTED",
       "punchline": "事例の材料に使った出典の所在。内容の照合は事例の照合段で行う。",
       "details": [
        "URL: https://www.buzzsprout.com/1889238/episodes/16825457-he-lost-90-of-his-users-overnight-then-grew-his-consumer-app-to-10m-arr-koen-droste-founder-of-polarsteps",
        "ホスト: buzzsprout.com",
-       "確認日: 2026-10-08"
+       "確認日: 2026-10-09"
       ],
       "url": "https://www.buzzsprout.com/1889238/episodes/16825457-he-lost-90-of-his-users-overnight-then-grew-his-consumer-app-to-10m-arr-koen-droste-founder-of-polarsteps",
       "sourceNote": "secondary source listed in case-rebuild pack https://www.buzzsprout.com/1889238/episodes/16825457-he-lost-90-of-his-users-overnight-then-grew-his-consumer-app-to-10m-arr-koen-droste-founder-of-polarsteps",
       "sourceClass": "INDEPENDENT_SECONDARY"
      },
      {
-      "id": "ent_polarsteps_2b2970abd201_pack_source_8",
+      "id": "ent_polarsteps_2b2970abd201_pack_source_6",
       "type": "UNKNOWN_AUDIT",
-      "title": "出典: I amsterdam / StartupAmsterdam",
+      "title": "出典: The Product Market Fit Show",
       "badge": "出典",
       "evidenceStatus": "REPORTED",
       "punchline": "事例の材料に使った出典の所在。内容の照合は事例の照合段で行う。",
       "details": [
-       "URL: https://www.iamsterdam.com/en/business/startupamsterdam/insights-interviews/foundersfridays-meet-koen-droste",
-       "ホスト: iamsterdam.com",
-       "確認日: 2026-10-08"
+       "URL: https://www.pmf.show/blog/polarsteps-10m-arr-nps-organic-growth-koen-droste",
+       "ホスト: pmf.show",
+       "確認日: 2026-10-09"
       ],
-      "url": "https://www.iamsterdam.com/en/business/startupamsterdam/insights-interviews/foundersfridays-meet-koen-droste",
-      "sourceNote": "secondary source listed in case-rebuild pack https://www.iamsterdam.com/en/business/startupamsterdam/insights-interviews/foundersfridays-meet-koen-droste",
+      "url": "https://www.pmf.show/blog/polarsteps-10m-arr-nps-organic-growth-koen-droste",
+      "sourceNote": "secondary source listed in case-rebuild pack https://www.pmf.show/blog/polarsteps-10m-arr-nps-organic-growth-koen-droste",
       "sourceClass": "INDEPENDENT_SECONDARY"
+     },
+     {
+      "id": "ent_polarsteps_2b2970abd201_pack_source_7",
+      "type": "UNKNOWN_AUDIT",
+      "title": "出典: Polarsteps",
+      "badge": "出典",
+      "evidenceStatus": "REPORTED",
+      "punchline": "事例の材料に使った出典の所在。内容の照合は事例の照合段で行う。",
+      "details": [
+       "URL: https://www.polarsteps.com/news/travel-tracking-app-polarsteps-raises-500-000-investment",
+       "ホスト: polarsteps.com",
+       "確認日: 2026-10-09"
+      ],
+      "url": "https://www.polarsteps.com/news/travel-tracking-app-polarsteps-raises-500-000-investment",
+      "sourceNote": "official source listed in case-rebuild pack https://www.polarsteps.com/news/travel-tracking-app-polarsteps-raises-500-000-investment",
+      "sourceClass": "PRIMARY"
+     },
+     {
+      "id": "ent_polarsteps_2b2970abd201_pack_source_8",
+      "type": "UNKNOWN_AUDIT",
+      "title": "出典: Polarsteps",
+      "badge": "出典",
+      "evidenceStatus": "REPORTED",
+      "punchline": "事例の材料に使った出典の所在。内容の照合は事例の照合段で行う。",
+      "details": [
+       "URL: https://www.polarsteps.com/news/polarsteps-tracks-your-trip-and-turns-it-into-an-instant-photo-album",
+       "ホスト: polarsteps.com",
+       "確認日: 2026-10-09"
+      ],
+      "url": "https://www.polarsteps.com/news/polarsteps-tracks-your-trip-and-turns-it-into-an-instant-photo-album",
+      "sourceNote": "official source listed in case-rebuild pack https://www.polarsteps.com/news/polarsteps-tracks-your-trip-and-turns-it-into-an-instant-photo-album",
+      "sourceClass": "PRIMARY"
      },
      {
       "id": "ent_polarsteps_2b2970abd201_pack_source_9",
       "type": "UNKNOWN_AUDIT",
-      "title": "出典: Polarsteps Editors",
+      "title": "出典: Polarsteps",
+      "badge": "出典",
+      "evidenceStatus": "REPORTED",
+      "punchline": "事例の材料に使った出典の所在。内容の照合は事例の照合段で行う。",
+      "details": [
+       "URL: https://www.polarsteps.com/news/polarsteps-hits-1-million-users-and-raises-3-million-in-funding",
+       "ホスト: polarsteps.com",
+       "確認日: 2026-10-09"
+      ],
+      "url": "https://www.polarsteps.com/news/polarsteps-hits-1-million-users-and-raises-3-million-in-funding",
+      "sourceNote": "official source listed in case-rebuild pack https://www.polarsteps.com/news/polarsteps-hits-1-million-users-and-raises-3-million-in-funding",
+      "sourceClass": "PRIMARY"
+     },
+     {
+      "id": "ent_polarsteps_2b2970abd201_pack_source_10",
+      "type": "UNKNOWN_AUDIT",
+      "title": "出典: 1Twente／Newsroom Enschede",
+      "badge": "出典",
+      "evidenceStatus": "REPORTED",
+      "punchline": "事例の材料に使った出典の所在。内容の照合は事例の照合段で行う。",
+      "details": [
+       "URL: https://www.1twente.nl/artikel/2142610/polarsteps-reisapp-met-2-miljoen-gebruikers-dankzij-drie-jongens-uit-twente",
+       "ホスト: 1twente.nl",
+       "確認日: 2026-10-09"
+      ],
+      "url": "https://www.1twente.nl/artikel/2142610/polarsteps-reisapp-met-2-miljoen-gebruikers-dankzij-drie-jongens-uit-twente",
+      "sourceNote": "secondary source listed in case-rebuild pack https://www.1twente.nl/artikel/2142610/polarsteps-reisapp-met-2-miljoen-gebruikers-dankzij-drie-jongens-uit-twente",
+      "sourceClass": "INDEPENDENT_SECONDARY"
+     },
+     {
+      "id": "ent_polarsteps_2b2970abd201_pack_source_11",
+      "type": "UNKNOWN_AUDIT",
+      "title": "出典: Silicon Canals",
+      "badge": "出典",
+      "evidenceStatus": "REPORTED",
+      "punchline": "事例の材料に使った出典の所在。内容の照合は事例の照合段で行う。",
+      "details": [
+       "URL: https://siliconcanals.com/polarsteps-travel-tracking-maximiliano-neustadt-interview/",
+       "ホスト: siliconcanals.com",
+       "確認日: 2026-10-09"
+      ],
+      "url": "https://siliconcanals.com/polarsteps-travel-tracking-maximiliano-neustadt-interview/",
+      "sourceNote": "secondary source listed in case-rebuild pack https://siliconcanals.com/polarsteps-travel-tracking-maximiliano-neustadt-interview/",
+      "sourceClass": "INDEPENDENT_SECONDARY"
+     },
+     {
+      "id": "ent_polarsteps_2b2970abd201_pack_source_12",
+      "type": "UNKNOWN_AUDIT",
+      "title": "出典: EU-Startups／Antonio L. Escárzaga",
+      "badge": "出典",
+      "evidenceStatus": "REPORTED",
+      "punchline": "事例の材料に使った出典の所在。内容の照合は事例の照合段で行う。",
+      "details": [
+       "URL: https://www.eu-startups.com/2026/02/polarsteps-ceo-clare-jones-joins-the-eu-startups-summit-2026-on-may-7-8-in-malta/",
+       "ホスト: eu-startups.com",
+       "確認日: 2026-10-09"
+      ],
+      "url": "https://www.eu-startups.com/2026/02/polarsteps-ceo-clare-jones-joins-the-eu-startups-summit-2026-on-may-7-8-in-malta/",
+      "sourceNote": "secondary source listed in case-rebuild pack https://www.eu-startups.com/2026/02/polarsteps-ceo-clare-jones-joins-the-eu-startups-summit-2026-on-may-7-8-in-malta/",
+      "sourceClass": "INDEPENDENT_SECONDARY"
+     },
+     {
+      "id": "ent_polarsteps_2b2970abd201_pack_source_13",
+      "type": "UNKNOWN_AUDIT",
+      "title": "出典: Polarsteps",
       "badge": "出典",
       "evidenceStatus": "REPORTED",
       "punchline": "事例の材料に使った出典の所在。内容の照合は事例の照合段で行う。",
       "details": [
        "URL: https://www.polarsteps.com/news/from-dutch-startup-to-global-sensation-polarsteps-captures-international-headlines",
        "ホスト: polarsteps.com",
-       "確認日: 2026-10-08"
+       "確認日: 2026-10-09"
       ],
       "url": "https://www.polarsteps.com/news/from-dutch-startup-to-global-sensation-polarsteps-captures-international-headlines",
       "sourceNote": "official source listed in case-rebuild pack https://www.polarsteps.com/news/from-dutch-startup-to-global-sensation-polarsteps-captures-international-headlines",
       "sourceClass": "PRIMARY"
      },
      {
-      "id": "ent_polarsteps_2b2970abd201_pack_source_10",
+      "id": "ent_polarsteps_2b2970abd201_pack_source_14",
       "type": "UNKNOWN_AUDIT",
-      "title": "出典: Polarsteps Editors",
+      "title": "出典: Polarsteps",
       "badge": "出典",
       "evidenceStatus": "REPORTED",
       "punchline": "事例の材料に使った出典の所在。内容の照合は事例の照合段で行う。",
       "details": [
-       "URL: https://www.polarsteps.com/news/20-million-travelers-and-counting-tech-success-story-polarsteps-celebrates-its-fast-growing-community",
+       "URL: https://www.polarsteps.com/nl/news/20-million-travelers-and-counting-tech-success-story-polarsteps-celebrates-its-fast-growing-community",
        "ホスト: polarsteps.com",
-       "確認日: 2026-10-08"
+       "確認日: 2026-10-09"
       ],
-      "url": "https://www.polarsteps.com/news/20-million-travelers-and-counting-tech-success-story-polarsteps-celebrates-its-fast-growing-community",
-      "sourceNote": "official source listed in case-rebuild pack https://www.polarsteps.com/news/20-million-travelers-and-counting-tech-success-story-polarsteps-celebrates-its-fast-growing-community",
+      "url": "https://www.polarsteps.com/nl/news/20-million-travelers-and-counting-tech-success-story-polarsteps-celebrates-its-fast-growing-community",
+      "sourceNote": "official source listed in case-rebuild pack https://www.polarsteps.com/nl/news/20-million-travelers-and-counting-tech-success-story-polarsteps-celebrates-its-fast-growing-community",
       "sourceClass": "PRIMARY"
      },
      {
-      "id": "ent_polarsteps_2b2970abd201_pack_source_11",
+      "id": "ent_polarsteps_2b2970abd201_pack_source_15",
       "type": "UNKNOWN_AUDIT",
-      "title": "出典: Polarsteps Editors",
+      "title": "出典: TechRound",
       "badge": "出典",
       "evidenceStatus": "REPORTED",
       "punchline": "事例の材料に使った出典の所在。内容の照合は事例の照合段で行う。",
       "details": [
-       "URL: https://www.polarsteps.com/news/polarsteps-launches-polarsteps-plus-a-new-subscription-for-its-most-dedicated-travelers",
-       "ホスト: polarsteps.com",
-       "確認日: 2026-10-08"
+       "URL: https://techround.co.uk/saas66/31-polarsteps/",
+       "ホスト: techround.co.uk",
+       "確認日: 2026-10-09"
       ],
-      "url": "https://www.polarsteps.com/news/polarsteps-launches-polarsteps-plus-a-new-subscription-for-its-most-dedicated-travelers",
-      "sourceNote": "official source listed in case-rebuild pack https://www.polarsteps.com/news/polarsteps-launches-polarsteps-plus-a-new-subscription-for-its-most-dedicated-travelers",
+      "url": "https://techround.co.uk/saas66/31-polarsteps/",
+      "sourceNote": "secondary source listed in case-rebuild pack https://techround.co.uk/saas66/31-polarsteps/",
+      "sourceClass": "INDEPENDENT_SECONDARY"
+     },
+     {
+      "id": "ent_polarsteps_2b2970abd201_pack_source_16",
+      "type": "UNKNOWN_AUDIT",
+      "title": "出典: Polarsteps",
+      "badge": "出典",
+      "evidenceStatus": "REPORTED",
+      "punchline": "事例の材料に使った出典の所在。内容の照合は事例の照合段で行う。",
+      "details": [
+       "URL: https://www.polarsteps.com/nl/news/polarsteps-launches-polarsteps-plus-a-new-subscription-for-its-most-dedicated-travelers",
+       "ホスト: polarsteps.com",
+       "確認日: 2026-10-09"
+      ],
+      "url": "https://www.polarsteps.com/nl/news/polarsteps-launches-polarsteps-plus-a-new-subscription-for-its-most-dedicated-travelers",
+      "sourceNote": "official source listed in case-rebuild pack https://www.polarsteps.com/nl/news/polarsteps-launches-polarsteps-plus-a-new-subscription-for-its-most-dedicated-travelers",
       "sourceClass": "PRIMARY"
      },
      {
-      "id": "ent_polarsteps_2b2970abd201_pack_source_12",
+      "id": "ent_polarsteps_2b2970abd201_pack_source_17",
+      "type": "UNKNOWN_AUDIT",
+      "title": "出典: Polarsteps／Clare Jones",
+      "badge": "出典",
+      "evidenceStatus": "REPORTED",
+      "punchline": "事例の材料に使った出典の所在。内容の照合は事例の照合段で行う。",
+      "details": [
+       "URL: https://www.polarsteps.com/stories/introducing-polarsteps-plus",
+       "ホスト: polarsteps.com",
+       "確認日: 2026-10-09"
+      ],
+      "url": "https://www.polarsteps.com/stories/introducing-polarsteps-plus",
+      "sourceNote": "official source listed in case-rebuild pack https://www.polarsteps.com/stories/introducing-polarsteps-plus",
+      "sourceClass": "PRIMARY"
+     },
+     {
+      "id": "ent_polarsteps_2b2970abd201_pack_source_18",
       "type": "UNKNOWN_AUDIT",
       "title": "出典: Polarsteps",
       "badge": "出典",
@@ -849,30 +1367,14 @@
       "details": [
        "URL: https://www.polarsteps.com/plus",
        "ホスト: polarsteps.com",
-       "確認日: 2026-10-08"
+       "確認日: 2026-10-09"
       ],
       "url": "https://www.polarsteps.com/plus",
       "sourceNote": "official source listed in case-rebuild pack https://www.polarsteps.com/plus",
       "sourceClass": "PRIMARY"
      },
      {
-      "id": "ent_polarsteps_2b2970abd201_pack_source_13",
-      "type": "UNKNOWN_AUDIT",
-      "title": "出典: Polarsteps Help Center",
-      "badge": "出典",
-      "evidenceStatus": "REPORTED",
-      "punchline": "事例の材料に使った出典の所在。内容の照合は事例の照合段で行う。",
-      "details": [
-       "URL: https://support.polarsteps.com/hc/en-us/articles/29003435822866-Is-Polarsteps-free",
-       "ホスト: support.polarsteps.com",
-       "確認日: 2026-10-08"
-      ],
-      "url": "https://support.polarsteps.com/hc/en-us/articles/29003435822866-Is-Polarsteps-free",
-      "sourceNote": "secondary source listed in case-rebuild pack https://support.polarsteps.com/hc/en-us/articles/29003435822866-Is-Polarsteps-free",
-      "sourceClass": "INDEPENDENT_SECONDARY"
-     },
-     {
-      "id": "ent_polarsteps_2b2970abd201_pack_source_14",
+      "id": "ent_polarsteps_2b2970abd201_pack_source_19",
       "type": "UNKNOWN_AUDIT",
       "title": "出典: Polarsteps Help Center",
       "badge": "出典",
@@ -881,10 +1383,42 @@
       "details": [
        "URL: https://support.polarsteps.com/hc/en-us/articles/24003935464466-What-is-the-price-of-a-Travel-Book",
        "ホスト: support.polarsteps.com",
-       "確認日: 2026-10-08"
+       "確認日: 2026-10-09"
       ],
       "url": "https://support.polarsteps.com/hc/en-us/articles/24003935464466-What-is-the-price-of-a-Travel-Book",
       "sourceNote": "secondary source listed in case-rebuild pack https://support.polarsteps.com/hc/en-us/articles/24003935464466-What-is-the-price-of-a-Travel-Book",
+      "sourceClass": "INDEPENDENT_SECONDARY"
+     },
+     {
+      "id": "ent_polarsteps_2b2970abd201_pack_source_20",
+      "type": "UNKNOWN_AUDIT",
+      "title": "出典: Apple App Store／Polarsteps B.V.",
+      "badge": "出典",
+      "evidenceStatus": "REPORTED",
+      "punchline": "事例の材料に使った出典の所在。内容の照合は事例の照合段で行う。",
+      "details": [
+       "URL: https://apps.apple.com/us/app/polarsteps/id947925763",
+       "ホスト: apps.apple.com",
+       "確認日: 2026-10-09"
+      ],
+      "url": "https://apps.apple.com/us/app/polarsteps/id947925763",
+      "sourceNote": "secondary source listed in case-rebuild pack https://apps.apple.com/us/app/polarsteps/id947925763",
+      "sourceClass": "INDEPENDENT_SECONDARY"
+     },
+     {
+      "id": "ent_polarsteps_2b2970abd201_pack_source_21",
+      "type": "UNKNOWN_AUDIT",
+      "title": "出典: Keepgo",
+      "badge": "出典",
+      "evidenceStatus": "REPORTED",
+      "punchline": "事例の材料に使った出典の所在。内容の照合は事例の照合段で行う。",
+      "details": [
+       "URL: https://www.keepgo.com/blogs/articles/top-10-apps-for-trip-logging",
+       "ホスト: keepgo.com",
+       "確認日: 2026-10-09"
+      ],
+      "url": "https://www.keepgo.com/blogs/articles/top-10-apps-for-trip-logging",
+      "sourceNote": "secondary source listed in case-rebuild pack https://www.keepgo.com/blogs/articles/top-10-apps-for-trip-logging",
       "sourceClass": "INDEPENDENT_SECONDARY"
      }
     ]
