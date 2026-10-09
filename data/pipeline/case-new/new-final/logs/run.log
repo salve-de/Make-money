@@ -1,0 +1,44 @@
+$ --import tsx scripts/reader-case/case-run.ts --ids-file /Volumes/SS/Worktrees/Make-Money/rewrite-27/data/pipeline/case-new/new-final/entities.ids.txt --agent codex --codex-effort medium --write-effort high --concurrency 2 --run-id new-final-run
+[case:run] fetch: 開始（2 件）
+[case:run] fetch: 1.2 秒、失敗 0 件
+[case:run] verify: 開始（2 件）
+[case:run] verify: 2.6 秒、失敗 0 件
+[case:run] source-check: 開始（2 件）
+[case:run] 原文照合で不合格の 4 項目を保留にして外した（2 件の事例。終了コード 1）
+[case:run]   保留 ent_polarsteps_2b2970abd201: 3 件（例: 数字が引用に無い（3000000 が引用「The Series A round, which was led by INKEF Capital, brings ）
+[case:run]   保留 ent_wildgrain_2b5aec41c733: 1 件（例: 数字の時点（年・月）が原文で裏づけられない（時点 2026-10 が引用の近く（前後500字）に無い）「項目=PRICE / 名前=Wildgrain Boxの）
+[case:run] source-check: 15.2 秒、失敗 0 件
+[case:run] analyze: 開始（2 件）
+[case:run] analyze: 4.6 秒、失敗 0 件
+[case:run] audit: 開始（2 件）
+[case:run] audit: 0 秒、失敗 0 件
+[case:run] select: 開始（2 件）
+[case:run] select: 2.3 秒、失敗 0 件
+[case:run] display: 開始（2 件）
+[case:run] display: 0.8 秒、失敗 0 件
+[case:run] fact-lines: 開始（2 件）
+[case:run] fact-lines: 0 秒、失敗 0 件
+[case:run] media: 開始（2 件）
+[case:run] media: 事例ID | 使ってよい画像 | 保留 | アイコン | 状態
+[case:run] media: ent_polarsteps_2b2970abd201 | 3 | 1 | あり | 取得済み（取り直さない）
+[case:run] media: ent_wildgrain_2b5aec41c733 | 0 | 1 | あり | 取得済み（取り直さない）
+[case:run] media: 保留あり：人の目で見る ent_polarsteps_2b2970abd201（1 枚。node --import tsx scripts/media/review-assets.ts --entity ent_polarsteps_2b2970abd201 --list）
+[case:run] media: 保留あり：人の目で見る ent_wildgrain_2b5aec41c733（1 枚。node --import tsx scripts/media/review-assets.ts --entity ent_wildgrain_2b5aec41c733 --list）
+[case:run] media: 上げる命令（R2 へは自動で上げない。確認してから手で実行）: node scripts/with-r2-keychain-secrets.mjs node --import tsx scripts/media/upload-media-assets.ts --entity ent_polarsteps_2b2970abd201,ent_wildgrain_2b5aec41c733
+[case:run] media: 0.2 秒、失敗 0 件
+[case:run] case-text: 開始（2 件）
+[case:run] case-text: 10.7 秒、失敗 0 件
+[case:run] prepare: 開始（2 件）
+[case:run] prepare: 26.8 秒、失敗 0 件
+実行 new-final-run: 全体 64.3 秒、通った事例 2 件、失敗 0 件
+  fetch            1.2 秒  対象 2 件  失敗 0 件
+  verify           2.6 秒  対象 2 件  失敗 0 件
+  source-check    15.2 秒  対象 2 件  失敗 0 件
+  analyze          4.6 秒  対象 2 件  失敗 0 件
+  audit              0 秒  対象 2 件  失敗 0 件
+  select           2.3 秒  対象 2 件  失敗 0 件
+  display          0.8 秒  対象 2 件  失敗 0 件
+  fact-lines         0 秒  対象 2 件  失敗 0 件
+  media            0.2 秒  対象 2 件  失敗 0 件
+  case-text       10.7 秒  対象 2 件  失敗 0 件
+  prepare         26.8 秒  対象 2 件  失敗 0 件

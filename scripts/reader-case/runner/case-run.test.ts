@@ -68,21 +68,21 @@ function fakeCaller(root: string, log: { label: string }[], badId?: string): Cal
   };
 }
 
-const opts = (root: string) => ({ root, ids: IDS, runId: 't1', concurrency: 4, publish: false, log: () => {} });
+const opts = (root: string) => ({ root, ids: IDS, runId: 't1', concurrency: 4, publish: false, display: 'legacy' as const, log: () => {} });
 
 test('偽のAIで、待ち合わせ（終了コード75）なしに最後まで通り、段ごとの時間が記録される', async () => {
   const root = setupRoot(); const calls: string[] = []; const ai: { label: string }[] = [];
   const s = await runCases(opts(root), { exec: fakeExec(root, calls), caller: fakeCaller(root, ai) });
   assert.equal(s.ok, true, JSON.stringify(s.failures));
-  assert.deepEqual(s.stages.map((x) => x.stage), ['fetch', 'verify', 'source-check', 'analyze', 'audit', 'select', 'display', 'fact-lines', 'case-text', 'prepare']);
+  assert.deepEqual(s.stages.map((x) => x.stage), ['fetch', 'verify', 'source-check', 'analyze', 'audit', 'select', 'display', 'fact-lines', 'media', 'case-text', 'prepare']);
   assert.equal(ai.length, 9, '3段 x 3事例 = 事例ごとに1回ずつ');
   assert.deepEqual(s.passed.sort(), IDS);
   for (const st of ['verify', 'analyze', 'audit'] as const) assert.equal(readdirSync(join(root, STAGES[st].outDir)).filter((f) => /^(out-|batch-).*\.json$/.test(f)).length, 3, `${st} の出力が事例ごとに確定している`);
   // 呼ぶ順
-  assert.deepEqual(calls.filter((c) => !c.startsWith('display-')), ['fetch', 'verify-build', 'verify-merge', 'source-check', 'analyze-build', 'analyze-merge', 'audit-build', 'audit-merge', 'select', 'fact-lines', 'case-text', 'prepare']);
+  assert.deepEqual(calls.filter((c) => !c.startsWith('display-')), ['fetch', 'verify-build', 'verify-merge', 'source-check', 'analyze-build', 'analyze-merge', 'audit-build', 'audit-merge', 'select', 'fact-lines', 'media', 'case-text', 'prepare']);
   // 所要時間の記録（1段1行）
   const lines = readFileSync(join(root, 'data/pipeline/case-run.jsonl'), 'utf8').trim().split('\n').map((l) => JSON.parse(l));
-  assert.equal(lines.length, 10);
+  assert.equal(lines.length, 11);
   assert.ok(lines.every((l) => l.runId === 't1' && typeof l.seconds === 'number' && l.startedAt));
 });
 
@@ -167,4 +167,21 @@ test('監査の入力を組めない事例が1件あっても、ほかの事例�
   assert.doesNotMatch(f[0].reason, /at main/, '理由には Error の行だけを出す');
   assert.equal(ai.filter((a) => a.label.startsWith('audit')).length, 2);
   assert.ok(calls.includes('audit-build-fx-001') && calls.includes('select'));
+});
+
+test('画面の正本の流れ（既定）: 正本の無い事例だけ書かせ、照合に通らなかった件だけ落とし、古い形の言い直しは作らない', async () => {
+  const root = setupRoot(); const calls: string[] = []; const ai: { label: string }[] = [];
+  mkdirSync(join(root, 'data/case-pages'), { recursive: true });
+  writeFileSync(join(root, 'data/case-pages', `${IDS[0]}.md`), '# 承認済み\n');
+  const base = fakeExec(root, calls);
+  let written = '';
+  const exec: Exec = async (name, argv) => {
+    if (name === 'display-case-write') { calls.push(name); written = argv[argv.indexOf('--ids') + 1]; return { code: 1, stdout: `[case:write] ${IDS[1]}: 合格 1秒\n[case:write] ${IDS[2]}: 不合格（2件）\n`, stderr: '' }; }
+    return base(name, argv);
+  };
+  const s = await runCases({ ...opts(root), display: 'case-page' }, { exec, caller: fakeCaller(root, ai) });
+  assert.equal(written, `${IDS[1]},${IDS[2]}`, '正本がある事例は書き直さない');
+  assert.ok(calls.includes('display-case-pages-build'));
+  assert.ok(!calls.includes('fact-lines'));
+  assert.deepEqual(s.failures.filter((f) => f.stage === 'display').map((f) => f.id), [IDS[2]]);
 });

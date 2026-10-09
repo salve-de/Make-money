@@ -19,6 +19,8 @@ This block is written and re-added by `next dev` — verify at `node_modules/nex
 保存先・ファイル配置・責務・設計理由・他プロジェクトへの適用は [データとコードの置き場所](docs/architecture/STORAGE.md) を正本とする。D1へユーザーと決済状態、非公開R2へ添付・原本・バックアップを置く。Neonを新規の実行時依存にしない。移行途中の実装を完成形と誤認せず、同文書の現在地と実コードを確認する。保存先や境界を変えたら、関連するschema/migration・テスト・この正本を同じ変更で更新する。
 
 
+> 新しい事例を足す時は [docs/NEW_CASES_WITH_CODEX.md](docs/NEW_CASES_WITH_CODEX.md) を読み、`pnpm case:new` を1つ実行する（Codex だけで最後まで通る）。
+
 ## 新規データ収集の入口（最高正本）
 
 > **【全エージェント必読：最もメタ的・最高視座の収集本質】**:

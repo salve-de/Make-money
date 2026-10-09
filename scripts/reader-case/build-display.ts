@@ -41,6 +41,7 @@ import {
   type AiOutput, type DisplayFiles, type RepairRow, type DisplayNeed, type EntityDisplay, type ItemContract, type LiveReader,
 } from '../../src/shared/display-build';
 import { loadReaders, argValue } from './load-readers';
+import { ownerContext } from './owner-context';
 import { dropRows, normalizeDisplay, pruneUntilClean, visibleOnly } from './display-lenient';
 import { preparePublicationReader } from './publication-evaluation';
 import { VERDICTS_FILE, type VerdictsFile } from './verify-lib';
@@ -169,8 +170,8 @@ function callAgent(agent: Agent, system: string, user: string, schema: Record<st
   } finally { rmSync(empty, { recursive: true, force: true }); }
 }
 
-const SYSTEM = `${readFileSync(join(ROOT, 'scripts/reader-case/display-prompt.md'), 'utf8')}\n## 使わない語（左の形に当たる語は、右の言い方に直す）\n${language.map((r) => `- /${r.pattern}/ → ${r.suggest}`).join('\n')}\n\n## 使わない言い回し（話し言葉・業界のくだけた言い方。左の形に当たる言い回しは、右のどれかに直す）\n${naturalList.map((r) => `- /${r.pattern}/ → ${r.suggest.join('／')}${r.bad && r.good ? `（例: 「${r.bad}」→「${r.good}」）` : ''}`).join('\n')}\n\n${CLARITY_SKILL}`;
-const REVIEW_SYSTEM = `${readFileSync(join(ROOT, 'scripts/reader-case/display-review-prompt.md'), 'utf8')}\n\n${CLARITY_SKILL}`;
+const SYSTEM = `${readFileSync(join(ROOT, 'scripts/reader-case/display-prompt.md'), 'utf8')}\n## 使わない語（左の形に当たる語は、右の言い方に直す）\n${language.map((r) => `- /${r.pattern}/ → ${r.suggest}`).join('\n')}\n\n## 使わない言い回し（話し言葉・業界のくだけた言い方。左の形に当たる言い回しは、右のどれかに直す）\n${naturalList.map((r) => `- /${r.pattern}/ → ${r.suggest.join('／')}${r.bad && r.good ? `（例: 「${r.bad}」→「${r.good}」）` : ''}`).join('\n')}\n\n${CLARITY_SKILL}${ownerContext(ROOT)}`;
+const REVIEW_SYSTEM = `${readFileSync(join(ROOT, 'scripts/reader-case/display-review-prompt.md'), 'utf8')}\n\n${CLARITY_SKILL}${ownerContext(ROOT)}`;
 interface ReviewIssue { severity: string; kind: string; id: string; problem: string; fix: string; phrase?: string }
 /** 事例を止めてよい指摘の種類（嘘・作る側の言葉・違法の手順・個人情報と名誉毀損）。読みやすさの指摘は止める理由にしない */
 const BLOCKING_KINDS = ['fact', 'builder', 'legal', 'privacy'];
@@ -295,7 +296,7 @@ function recordCandidates(entityId: string, issues: Array<{ kind?: string; id: s
 }
 
 // ---------- 言い回しだけを直す（1件） ----------
-const REPAIR_SYSTEM = `${readFileSync(join(ROOT, 'scripts/reader-case/display-repair-prompt.md'), 'utf8')}\n## 使わない言い回し（左の形に当たる言い回しは、右のどれかに直す）\n${naturalList.map((r) => `- /${r.pattern}/ → ${r.suggest.join('／')}`).join('\n')}\n\n${CLARITY_SKILL}`;
+const REPAIR_SYSTEM = `${readFileSync(join(ROOT, 'scripts/reader-case/display-repair-prompt.md'), 'utf8')}\n## 使わない言い回し（左の形に当たる言い回しは、右のどれかに直す）\n${naturalList.map((r) => `- /${r.pattern}/ → ${r.suggest.join('／')}`).join('\n')}\n\n${CLARITY_SKILL}${ownerContext(ROOT)}`;
 
 // ---------- 読者役（--reader）: 作る者と別のAIが「何も知らない読者」として全行を読み、意味が取れない語句をそのまま引用する ----------
 // 誤りの箇所を引用させる形（点数を聞かない）。指摘が出た行だけを、さらに2回読ませて3回中2回以上で採用する（判定のぶれを抑える）。
@@ -312,7 +313,7 @@ function readerRecord(runId: string, entityId: string): { votes: number; issues:
   const hit = rows.filter((r) => r.summary && r.runId === runId && r.entityId === entityId).at(-1);
   return hit ? { votes: hit.votes ?? 1, issues: hit.issues } : undefined;
 }
-const READER_SYSTEM = `${readFileSync(join(ROOT, 'scripts/reader-case/display-reader-prompt.md'), 'utf8')}\n\n${CLARITY_SKILL}`;
+const READER_SYSTEM = `${readFileSync(join(ROOT, 'scripts/reader-case/display-reader-prompt.md'), 'utf8')}\n\n${CLARITY_SKILL}${ownerContext(ROOT)}`;
 const READER_SCHEMA = { type: 'object', properties: { issues: { type: 'array', items: { type: 'object', properties: { id: { type: 'string' }, quote: { type: 'string' }, reason: { type: 'string' }, fix: { type: 'string' } }, required: ['id', 'quote', 'reason', 'fix'], additionalProperties: false } } }, required: ['issues'], additionalProperties: false };
 type ReaderIssue = { id: string; quote: string; reason: string; fix: string };
 function withReaderFlags(repairs: Array<{ id: string; rows: RepairRow[] }>, files: DisplayFiles, readers: Map<string, LiveReader>): Array<{ id: string; rows: RepairRow[] }> {

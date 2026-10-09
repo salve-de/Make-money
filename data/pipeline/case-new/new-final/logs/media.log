@@ -1,0 +1,7 @@
+$ --import tsx scripts/media/ensure-case-media.ts --ids-file /Volumes/SS/Worktrees/Make-Money/rewrite-27/data/pipeline/case-new/new-final/entities.ids.txt
+事例ID | 使ってよい画像 | 保留 | アイコン | 状態
+ent_polarsteps_2b2970abd201 | 3 | 1 | あり | 取得済み（取り直さない）
+ent_wildgrain_2b5aec41c733 | 0 | 1 | あり | 取得済み（取り直さない）
+保留あり：人の目で見る ent_polarsteps_2b2970abd201（1 枚。node --import tsx scripts/media/review-assets.ts --entity ent_polarsteps_2b2970abd201 --list）
+保留あり：人の目で見る ent_wildgrain_2b5aec41c733（1 枚。node --import tsx scripts/media/review-assets.ts --entity ent_wildgrain_2b5aec41c733 --list）
+上げる命令（R2 へは自動で上げない。確認してから手で実行）: node scripts/with-r2-keychain-secrets.mjs node --import tsx scripts/media/upload-media-assets.ts --entity ent_polarsteps_2b2970abd201,ent_wildgrain_2b5aec41c733

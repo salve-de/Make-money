@@ -12,12 +12,9 @@ describe('画面の章の見出しは作る側の言葉でない', () => {
 });
 
 describe('caseLabels（一覧の行と詳細の見出しが同じ札を出す）', () => {
-  it('事例が持つ事業の札を先頭から3つ。運営側の印は出さない', () => {
-    expect(caseLabels({ tags: ['収集事例', '教材', 'デザイン', '電子書籍', '買い切り'], tagline: '' })).toEqual(['教材', 'デザイン', '電子書籍']);
-    expect(caseLabels({ tags: ['収集事例'], tagline: '' })).toEqual([]);
-  });
-  it('札が無い時だけ、事業の説明の語尾から決まる分野を1つ。決まらなければ出さない', () => {
-    expect(caseLabels({ tags: [], tagline: 'チームで使うプロジェクト管理ツール' })).toEqual(['SaaS・ツール']);
-    expect(caseLabels({ tags: [], tagline: 'APIの設計・テストを提供し、利用者単位で課金する' })).toEqual([]);
+  it('タグの言葉だけを出す。運営側の印や自由な言葉は出さない', () => {
+    const tags = { field: '教育・学び', form: '講座・教材', buyer: '個人向け', features: [] };
+    expect(caseLabels({ reader: { display: { tags } } })).toEqual(['教育・学び', '講座・教材', '個人向け']);
+    expect(caseLabels({ reader: { display: {} } })).toEqual([]);
   });
 });

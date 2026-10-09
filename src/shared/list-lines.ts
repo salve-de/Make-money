@@ -1,6 +1,6 @@
-import { screenText } from './display-text';
+import { firstSentence, readerSummaryFact, screenText } from './display-text';
 import { textFingerprint } from './text-fingerprint';
-import type { ReaderDisplay } from './reader-case';
+import type { ReaderCase, ReaderDisplay } from './reader-case';
 
 /**
  * 一覧の下の1行（何の事業かが一瞬でわかる短い文）。事例の画面用の編集文（reader.display.listLine）で、
@@ -20,4 +20,14 @@ export function listLineFor(display: ReaderDisplay | undefined, fact: { id: stri
 /** 一覧の1行・概要の先頭の1行は、文末を句点なしにそろえる（事例によって有無がまちまちにならないように）。 */
 export function trimLineEnd(text: string): string {
   return text.replace(/[。.．]+\s*$/, '');
+}
+
+/**
+ * 一覧・比較の「何の事業か」の1行。画面用の1行（display.listLine）が要約の事実と合っていれば、その全文（文の途中の句点で切らない）。
+ * 無ければ要約の事実の1文目。要約の事実が無ければ null。
+ */
+export function summaryLineOf(reader: ReaderCase | undefined | null): string | null {
+  const fact = readerSummaryFact(reader);
+  if (!fact) return null;
+  return listLineFor(reader?.display, fact) ?? trimLineEnd(screenText(firstSentence(fact.text)));
 }

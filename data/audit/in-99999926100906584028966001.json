@@ -1,0 +1,1069 @@
+{
+ "cases": [
+  {
+   "entityId": "ent_polarsteps_2b2970abd201",
+   "scope": "full",
+   "facts": [
+    {
+     "id": "f1",
+     "kind": "DESCRIPTION",
+     "text": "Polarstepsは、旅行中に移動した経路を自動で地図に記録できるアプリだ。",
+     "attribution": "OFFICIAL"
+    },
+    {
+     "id": "f2",
+     "kind": "DESCRIPTION",
+     "text": "旅行者は旅のリンクを共有すると、家族や友人に現在の様子をまとめて伝えられる。",
+     "attribution": "OFFICIAL"
+    },
+    {
+     "id": "f3",
+     "kind": "OTHER",
+     "text": "旅行者はPolarstepsの旅の記録を、硬い表紙の紙の本にできる。",
+     "attribution": "OFFICIAL"
+    },
+    {
+     "id": "f4",
+     "kind": "TEAM",
+     "text": "NiekにJob、Koen、Maximilianoが加わり、Polarstepsの創業チームができた。",
+     "attribution": "OFFICIAL"
+    },
+    {
+     "id": "f5",
+     "kind": "FOUNDING",
+     "text": "PolarstepsはiPhone用の試用版アプリを公開した。",
+     "attribution": "OFFICIAL"
+    },
+    {
+     "id": "f6",
+     "kind": "EVENT",
+     "text": "Polarstepsは、旅の記録を紙の本にする商品Travel Bookを発売した。",
+     "attribution": "OFFICIAL"
+    },
+    {
+     "id": "f7",
+     "kind": "OTHER",
+     "text": "Travel Bookは旅の記録から本の配置を自動で作り、利用者が写真集の編集に時間をかける手間を減らした。",
+     "attribution": "OFFICIAL"
+    },
+    {
+     "id": "f8",
+     "kind": "PRICING",
+     "text": "Travel Bookの発売時の料金は、硬い表紙の本で20ユーロからだった。",
+     "attribution": "OFFICIAL"
+    },
+    {
+     "id": "f9",
+     "kind": "EVENT",
+     "text": "Polarstepsは利用者の要望を受けて本の販売機能を作り、この機能が事業の収入を支えるようになった。",
+     "attribution": "ARTICLE"
+    },
+    {
+     "id": "f10",
+     "kind": "OTHER",
+     "text": "Polarstepsは、アプリ内の旅行案内を見た利用者が宿泊先などを予約すると、予約に応じた収入を受け取る。",
+     "attribution": "ARTICLE"
+    },
+    {
+     "id": "f11",
+     "kind": "EVENT",
+     "text": "旅行がほぼ止まった時期にも、利用者はPolarstepsで過去の旅を振り返り、写真をTravel Booksにした。",
+     "attribution": "OFFICIAL"
+    },
+    {
+     "id": "f12",
+     "kind": "CHANNEL",
+     "text": "Polarstepsは利用者が他の旅行者にアプリを勧めることで広がった。",
+     "attribution": "OFFICIAL"
+    },
+    {
+     "id": "f13",
+     "kind": "EVENT",
+     "text": "Polarstepsは利用者の要望を受け、仲間と旅の記録を共同で作る機能を開発した。",
+     "attribution": "OFFICIAL"
+    },
+    {
+     "id": "f14",
+     "kind": "OTHER",
+     "text": "Polarstepsの利用者数は100万人を超えた。",
+     "attribution": "OFFICIAL"
+    },
+    {
+     "id": "f15",
+     "kind": "FUNDING",
+     "text": "Polarstepsは投資会社と報道会社から50万ユーロを調達したと発表した。",
+     "attribution": "OFFICIAL"
+    },
+    {
+     "id": "f16",
+     "kind": "FUNDING",
+     "text": "Polarstepsが公表した調達額の累計は460万ユーロになった。",
+     "attribution": "OFFICIAL"
+    },
+    {
+     "id": "f17",
+     "kind": "OTHER",
+     "text": "Polarstepsは旅行記の本を利用者に販売して収入を得ていた。",
+     "attribution": "OFFICIAL"
+    },
+    {
+     "id": "f18",
+     "kind": "OTHER",
+     "text": "Polarstepsの世界の利用者数は1,500万人になった。",
+     "attribution": "OFFICIAL"
+    },
+    {
+     "id": "f19",
+     "kind": "OTHER",
+     "text": "Polarstepsの公式サイトは、世界の利用者数が2,200万人を超えていると案内している。",
+     "attribution": "OFFICIAL"
+    },
+    {
+     "id": "f20",
+     "kind": "EVENT",
+     "text": "Polarstepsは追加機能を使える有料プランの提供を発表した。",
+     "attribution": "OFFICIAL"
+    },
+    {
+     "id": "f21",
+     "kind": "OTHER",
+     "text": "有料の追加機能は、長距離の登山などで地形や移動の詳しい記録を求める利用者のために作られた。",
+     "attribution": "OFFICIAL"
+    },
+    {
+     "id": "f22",
+     "kind": "PRICING",
+     "text": "立体の地図や移動の詳しい記録を使える有料機能の料金は、月払いで8.99ユーロだ。",
+     "attribution": "OFFICIAL"
+    }
+   ],
+   "metrics": [
+    {
+     "id": "m1",
+     "line": "項目=FUNDING / 名前=投資会社と報道会社からの調達額 / 期間=2016-03-17(POINT) / 金額=500000 EUR / 由来=SELF_REPORTED / 基準=Silver Point VenturesとTelegraaf Media Groepからの当該調達の公式発表時点。 / 記載日=2016-03-17"
+    },
+    {
+     "id": "m2",
+     "line": "項目=PRICE / 名前=Travel Book発売時の最低価格 / 期間=2017-02-06(POINT) / 金額=20 EUR / 由来=SELF_REPORTED / 基準=硬い表紙の本の開始価格。現在の価格には使用しない。 / 記載日=2017-02-06"
+    },
+    {
+     "id": "m3",
+     "line": "項目=USERS / 名前=登録利用者数の到達した節目 / 期間=2019-01-16(POINT) / 金額=1000000 登録利用者 / 由来=SELF_REPORTED / 基準=100万人を超えたとの発表。月間利用者数ではない。 / 記載日=2019-01-16"
+    },
+    {
+     "id": "m5",
+     "line": "項目=FUNDING / 名前=公表された調達額の累計 / 期間=2019-01-16(CUMULATIVE) / 金額=4600000 EUR / 由来=SELF_REPORTED / 基準=当該回の300万ユーロを含む創業以来の累計。各回の調達額と足し合わせない。 / 記載日=2019-01-16"
+    },
+    {
+     "id": "m6",
+     "line": "項目=USERS / 名前=世界の利用者数 / 期間=2025(POINT) / 金額=15000000 利用者 / 由来=SELF_REPORTED / 基準=世界の利用者数が1,500万人との発表。"
+    },
+    {
+     "id": "m7",
+     "line": "項目=USERS / 名前=世界の利用者数の到達した節目 / 期間=2026-03-27(POINT) / 金額=20000000 利用者 / 由来=SELF_REPORTED / 基準=同日に到達を発表。月間利用者数や本の購入者数ではない。 / 記載日=2026-03-27"
+    }
+   ],
+   "sources": [
+    {
+     "sourceId": "s2",
+     "url": "https://www.polarsteps.com/news/travel-tracking-app-polarsteps-raises-500-000-investment",
+     "publisher": "Polarsteps",
+     "snapshot": {
+      "url": "https://www.polarsteps.com/news/travel-tracking-app-polarsteps-raises-500-000-investment",
+      "finalUrl": "https://www.polarsteps.com/news/travel-tracking-app-polarsteps-raises-500-000-investment",
+      "status": 200,
+      "fetchedAt": "2026-10-09T06:50:16.576Z",
+      "via": "direct",
+      "contentType": "text/html; charset=utf-8",
+      "textHash": "0d92b99aa96383d2e2bdb83e0d16c4b5ffdb4e5898113dce51015c4ce0d323ea"
+     },
+     "text": "Travel tracking app Polarsteps raises €500.000 investment - Polarsteps News\nAmsterdam-based start-up Polarsteps will use its new investment to further develop the travel-tracking app.\nTravel tracking app Polarsteps raises €500.000 investment - Polarsteps News\nAmsterdam-based start-up Polarsteps will use its new investment to further develop the travel-tracking app.\nTravel tracking app Polarsteps raises €500.000 investment - Polarsteps News\nLog in\nGet the app\nNews\nTravel tracking app Polarsteps raises €500.000 investment\nPolarsteps, an upcoming automatic travel tracking app, announced today that it has raised €500,000 in seed funding from Silver Point Ventures and TMG. The Amsterdam based startup plans to use the funds to further develop its product. The beta version of Polarsteps’ iPhone app was launched in April 2015 and has rapidly gained traction amongst travelers.\nWritten by\nPolarsteps Editors\nPublished\nMar 17, 2016\nPolarsteps ( www.polarsteps.com ) automatically tracks travelers’ route and places they’ve visited during their trip. Once connected to the internet, the app seamlessly transfers travel routes, key locations and photos to their personal Polarsteps page, where the route is plotted on a colorful world map that can be shared with close friends and family. The app uses advanced technologies to enable travelers to track their routes without internet or GPS, and to prevent battery drain.\n“Just before heading off to a transatlantic sailing trip I created a small app that enabled me - through the use of a satellite phone - to log and share my route with friends and family at home”, says founder Niek Bokkers. “During the trip the concept went viral among fellow travelers, who loved the approach of telling their travel story on a stunning map and sharing it real-time with their loved ones at home. We decided to further develop it into an app for all travelers that helps them to automatically track and share their adventures in an easy and beautiful way.”\n“It’s been less than a year since we launched the first beta version of our iPhone app, and we’ve already acquired a very active user base”, says founder Koen Droste. “We are receiving requests for an Android version on a daily basis and this funding will allow us to launch on Android as well as to further develop our iPhone app.” Polarsteps also plans to start experimenting with monetization models around trip planning and printed photo albums. “We believe that the current online travel experience is utterly broken”, says Droste. “Did you know the average traveler visits over 40 websites before booking a trip? We want to fix this by bringing travel planning, tracking and remembering into one unified experience.”\nDroste is excited about the combination between Silver Point Ventures and TMG: “Silver Point Ventures has an extensive and profound background in e-commerce, which is very valuable for our monetization plans. Because we see media partnerships as a key pillar of our growth strategy, having TMG on board as an investor allows us to experiment with this in The Netherlands”, says Droste.\nSilver Point Ventures is the investment fund of internet entrepreneur Jorrit Steinz. “There is a lot of room for innovation in the online travel experience”, says Steinz. “Though Polarsteps is still in beta, its innovative product and initial user adoption demonstrates strong growth prospects. I look forward to playing a role in driving its development from the early stage phase to the next level.”\nTMG (Telegraaf Media Groep N.V.) is one of the largest news media companies in the Netherlands, featuring well-known consumer brands such as De Telegraaf, Skyradio, Radio Veronica, Metro, Dumpert and Upcoming. TMG was already involved with Polarsteps through a previous investment.\nAs a result of the investment, Polarsteps will expand its team and move into a new office in Amsterdam.\nThere is more\nDiscover more news\nCompany news\nFollow the Money response\nSep 4, 2026\nMilestones\nPolarsteps reaches 25 million tracked trips, and celebrates the adventures behind the number\nAug 3, 2026\nJoin now\nJoin 20M+ explorers by downloading Polarsteps today!\nGet the app\nGET STARTED\nGet the app\nLog in\nPolarsteps Plus\nTrip privacy\nABOUT\nAbout us\nCareers\nNews & press\nStories\nFeatures\nTravel Planner\nAI Trip Planner\nTravel Tracker\nTravel Books\nHelp & Support\nHelp Center\nContact us\n© 2026 Polarsteps\n·\nTerms\n·\nPrivacy\n·\nCookies\nGET STARTED\nGet the app\nLog in\nPolarsteps Plus\nTrip privacy\nABOUT\nAbout us\nCareers\nNews & press\nStories\nFeatures\nTravel Planner\nAI Trip Planner\nTravel Tracker\nTravel Books\nHelp & Support\nHelp Center\nContact us\n© 2026 Polarsteps\n·\nTerms\n·\nPrivacy\n·\nCookies\nGET STARTED\nGet the app\nLog in\nPolarsteps Plus\nTrip privacy\nABOUT\nAbout us\nCareers\nNews & press\nStories\nFeatures\nTravel Planner\nAI Trip Planner\nTravel Tracker\nTravel Books\nHelp & Support\nHelp Center\nContact us\n© 2026 Polarsteps\nTerms\nPrivacy\nCookies",
+     "policy": {
+      "policyId": "rights.official-company-website.v1",
+      "sourceId": "src.official-company-website",
+      "providerName": "Official company or product website (entity-bound)",
+      "displayTier": "automatic",
+      "registryHash": "30d893f5b810c363886fbef8bc35e9535700abdcb83e6a517b66018b3993cacc"
+     }
+    },
+    {
+     "sourceId": "s3",
+     "url": "https://www.polarsteps.com/news/polarsteps-tracks-your-trip-and-turns-it-into-an-instant-photo-album",
+     "publisher": "Polarsteps",
+     "snapshot": {
+      "url": "https://www.polarsteps.com/news/polarsteps-tracks-your-trip-and-turns-it-into-an-instant-photo-album",
+      "finalUrl": "https://www.polarsteps.com/news/polarsteps-tracks-your-trip-and-turns-it-into-an-instant-photo-album",
+      "status": 200,
+      "fetchedAt": "2026-10-09T06:50:18.062Z",
+      "via": "direct",
+      "contentType": "text/html; charset=utf-8",
+      "textHash": "b6ed8324a785396370716f8dda5bf52fdb9396fab43764a3c0776ce372b16621"
+     },
+     "text": "Polarsteps tracks your trip and turns it into an instant photo album - Polarsteps News\nPolarsteps announces the launch of Travel Books automatically generated using photos from users\nPolarsteps tracks your trip and turns it into an instant photo album - Polarsteps News\nPolarsteps announces the launch of Travel Books automatically generated using photos from users\nPolarsteps tracks your trip and turns it into an instant photo album - Polarsteps News\nLog in\nGet the app\nNews\nPolarsteps tracks your trip and turns it into an instant photo album\nPolarsteps, the popular travel tracking app, today announces the launch of its \"Travel Book\": an instant photo album designed for the avid traveler. The app lets globetrotters automatically track their route and places they've visited during their trip. With the new Travel Book innovation, travelers can instantly generate an epic photo album right after their journey is finished. Travel Books are made specifically for telling a travel story and include rich trip details such as route, travel statistics, weather and altitudes.\nWritten by\nPolarsteps Editors\nPublished\nFeb 6, 2017\nThe concept of Polarsteps is simple: schedule your upcoming trips and the app will do its magic. It checks your location from time to time, and plots the results on a colorful map where your family and friends can follow your adventures in realtime. As you approve suggested ‘steps’ and add photos, the travel log populates itself. The app also offers a wide range of statistics, such as trip duration, countries visited and distance traveled. When your trip is finished, a personal Travel Book is generated with the push of a button. If you have no future trips planned, it’s also easy to create an album for past trips using the website.\nIn the mobile age, travel memories are easily lost with the rise and fall of apps and services used by travelers. Polarsteps taps into this problem by turning your travel moments into a lifetime keepsake in the wink of an eye. The layout of a Travel Book is generated by Polarsteps based on all details of a trip, taking away the hassle of having to spend evenings in a photo album editor. Photos, texts, travel statistics and details such as weather and altitude are neatly visualized for each location visited. The books come in four colors and can hold up to 300 pages. Pricing starts at €20 ($22) for a 24-page hardcover album, and includes worldwide shipping and taxes.\nWith the introduction of Travel Books, Polarsteps is extending their already popular travel tracking app with a paper product that is meticulously crafted to tell a travel story in all its glory. “We all know that nostalgic feeling when going through photos of a trip you took 5 or 10 years ago”, says Polarsteps co-founder and CEO Koen Droste . “Yet the real story of a trip is so much more than just your photos. Our app is used by travelers all around the world to automatically record their trips in full detail. With Travel Books we are making sure that 10 years from now they’ll not only still have an awesome photo of a lake in Guatemala, but they’ll remember every detail of visiting that lake - including route, locations, weather and their personal story. Travel Books are designed to turn all this information into a vivid experience that will last forever.”\nPolarsteps for Android and iPhone can be downloaded at www.polarsteps.com/app . An introduction video for the Travel Book is available on YouTube .\nThere is more\nDiscover more news\nCompany news\nFollow the Money response\nSep 4, 2026\nMilestones\nPolarsteps reaches 25 million tracked trips, and celebrates the adventures behind the number\nAug 3, 2026\nJoin now\nJoin 20M+ explorers by downloading Polarsteps today!\nGet the app\nGET STARTED\nGet the app\nLog in\nPolarsteps Plus\nTrip privacy\nABOUT\nAbout us\nCareers\nNews & press\nStories\nFeatures\nTravel Planner\nAI Trip Planner\nTravel Tracker\nTravel Books\nHelp & Support\nHelp Center\nContact us\n© 2026 Polarsteps\n·\nTerms\n·\nPrivacy\n·\nCookies\nGET STARTED\nGet the app\nLog in\nPolarsteps Plus\nTrip privacy\nABOUT\nAbout us\nCareers\nNews & press\nStories\nFeatures\nTravel Planner\nAI Trip Planner\nTravel Tracker\nTravel Books\nHelp & Support\nHelp Center\nContact us\n© 2026 Polarsteps\n·\nTerms\n·\nPrivacy\n·\nCookies\nGET STARTED\nGet the app\nLog in\nPolarsteps Plus\nTrip privacy\nABOUT\nAbout us\nCareers\nNews & press\nStories\nFeatures\nTravel Planner\nAI Trip Planner\nTravel Tracker\nTravel Books\nHelp & Support\nHelp Center\nContact us\n© 2026 Polarsteps\nTerms\nPrivacy\nCookies",
+     "policy": {
+      "policyId": "rights.official-company-website.v1",
+      "sourceId": "src.official-company-website",
+      "providerName": "Official company or product website (entity-bound)",
+      "displayTier": "automatic",
+      "registryHash": "30d893f5b810c363886fbef8bc35e9535700abdcb83e6a517b66018b3993cacc"
+     }
+    },
+    {
+     "sourceId": "s4",
+     "url": "https://www.polarsteps.com/news/polarsteps-hits-1-million-users-and-raises-3-million-in-funding",
+     "publisher": "Polarsteps",
+     "snapshot": {
+      "url": "https://www.polarsteps.com/news/polarsteps-hits-1-million-users-and-raises-3-million-in-funding",
+      "finalUrl": "https://www.polarsteps.com/news/polarsteps-hits-1-million-users-and-raises-3-million-in-funding",
+      "status": 200,
+      "fetchedAt": "2026-10-09T06:57:45.324Z",
+      "via": "direct",
+      "contentType": "text/html; charset=utf-8",
+      "textHash": "8e7f902eea06803089980ccbc6d0143b5889c15b7e1d801f11792bf11904a916"
+     },
+     "text": "Polarsteps hits 1 million users and raises €3 million in funding - Polarsteps News\nAmsterdam-based travel startup Polarsteps has broken through the one million user mark and raised €3 million in funding.\nPolarsteps hits 1 million users and raises €3 million in funding - Polarsteps News\nAmsterdam-based travel startup Polarsteps has broken through the one million user mark and raised €3 million in funding.\nPolarsteps hits 1 million users and raises €3 million in funding - Polarsteps News\nLog in\nGet the app\nNews\nPolarsteps hits 1 million users and raises €3 million in funding\nAmsterdam-based travel startup Polarsteps today announced that it has broken through the 1 million user mark and raised €3 million (USD $3.5 million) in funding.\nWritten by\nPolarsteps Editors\nPublished\nJan 16, 2019\nThe Series A round, which was led by INKEF Capital, brings Polarsteps’ total funding to date to €4.6 million (USD 5.25 million). The new funds will be mainly invested in product development and expanding the team.\nFounded in 2015, Polarsteps is used by travelers in over 180 countries to track their trips and share them in real time with their closest friends and family. Travelers also use the platform to explore inspiring trips of others, which include endeavors such as “ Around the world in an ambulance “, “ Nepal on a Royal Enfield “, and “ Exploring Iceland by bicycle “. Polarsteps makes money by letting users buy Travel Books : instant photo albums of trips that can be ordered at the push of a button.\nPolarsteps’ one million registered users have collectively traveled over 52 million days on the app, which is shown on a heat map that the company published today. The map exposes the most popular travel routes across the globe.\nAccording to Polarsteps co-founder and CEO Koen Droste, the future of the platform will be about much more than just tracking and remembering trips: “Being avid travelers ourselves, we founded Polarsteps because we want to inspire and connect people through travel. We believe that the best way to do that is by creating a place where the entire travel experience is combined within one platform. From the very first inspiration on where to go, to remembering your trip years after it has ended. That’s why we’ve been working behind the scenes on our next big challenge: to re-invent the way in which travelers plan their trips. In the coming year we will roll out a whole new way for travelers to plan their next journey. Polarsteps will become the place to go to for planning, tracking and remembering all your trips.”\nKyang Yung, Investment Director at INKEF , commented: “The two things that stood out to us about Polarsteps were the virality of the product and a company business model that is global from the get-go. The growth they have been able to achieve with basically zero paid marketing is remarkable, to say the least. We were equally impressed with the team’s overall vision, and their laser-focus on building a product that consumers love. The Polarsteps team has the potential to create something truly disruptive in the travel space, and we’re excited to join them on their journey.”\nThe Amsterdam-based company currently has 10 employees and plans to rapidly expand its team.\nAbout Inkef\nINKEF Capital is an Amsterdam-based venture capital firm that focuses on long-term collaboration and active support of innovative healthcare and technology companies. INKEF Capital was founded in 2010 by Dutch pension fund ABP and with €500 million under management it is one of the largest venture capital funds in the Netherlands. INKEF focuses on investment opportunities in Healthcare, Technology, IT/New Media & FinTech. For more information: www.INKEF.com\nThere is more\nDiscover more news\nCompany news\nFollow the Money response\nSep 4, 2026\nMilestones\nPolarsteps reaches 25 million tracked trips, and celebrates the adventures behind the number\nAug 3, 2026\nJoin now\nJoin 20M+ explorers by downloading Polarsteps today!\nGet the app\nGET STARTED\nGet the app\nLog in\nPolarsteps Plus\nTrip privacy\nABOUT\nAbout us\nCareers\nNews & press\nStories\nFeatures\nTravel Planner\nAI Trip Planner\nTravel Tracker\nTravel Books\nHelp & Support\nHelp Center\nContact us\n© 2026 Polarsteps\n·\nTerms\n·\nPrivacy\n·\nCookies\nGET STARTED\nGet the app\nLog in\nPolarsteps Plus\nTrip privacy\nABOUT\nAbout us\nCareers\nNews & press\nStories\nFeatures\nTravel Planner\nAI Trip Planner\nTravel Tracker\nTravel Books\nHelp & Support\nHelp Center\nContact us\n© 2026 Polarsteps\n·\nTerms\n·\nPrivacy\n·\nCookies\nGET STARTED\nGet the app\nLog in\nPolarsteps Plus\nTrip privacy\nABOUT\nAbout us\nCareers\nNews & press\nStories\nFeatures\nTravel Planner\nAI Trip Planner\nTravel Tracker\nTravel Books\nHelp & Support\nHelp Center\nContact us\n© 2026 Polarsteps\nTerms\nPrivacy\nCookies",
+     "policy": {
+      "policyId": "rights.official-company-website.v1",
+      "sourceId": "src.official-company-website",
+      "providerName": "Official company or product website (entity-bound)",
+      "displayTier": "automatic",
+      "registryHash": "30d893f5b810c363886fbef8bc35e9535700abdcb83e6a517b66018b3993cacc"
+     }
+    },
+    {
+     "sourceId": "s7",
+     "url": "https://www.polarsteps.com/news/from-dutch-startup-to-global-sensation-polarsteps-captures-international-headlines",
+     "publisher": "Polarsteps",
+     "snapshot": {
+      "url": "https://www.polarsteps.com/news/from-dutch-startup-to-global-sensation-polarsteps-captures-international-headlines",
+      "finalUrl": "https://www.polarsteps.com/news/from-dutch-startup-to-global-sensation-polarsteps-captures-international-headlines",
+      "status": 200,
+      "fetchedAt": "2026-10-09T06:30:45.192Z",
+      "via": "direct",
+      "contentType": "text/html; charset=utf-8",
+      "textHash": "0e6b539e9b93189ba70124a3345b60a3e53146494999e20b2a673cf8327cdc4c"
+     },
+     "text": "From Dutch startup to global sensation: Polarsteps captures international headlines - Polarsteps News\nPolarsteps has become a standout success story in the tech-travel world, attracting media attention across Europe.\nFrom Dutch startup to global sensation: Polarsteps captures international headlines - Polarsteps News\nPolarsteps has become a standout success story in the tech-travel world, attracting media attention across Europe.\nFrom Dutch startup to global sensation: Polarsteps captures international headlines - Polarsteps News\nLog in\nGet the app\nNews\nFrom Dutch startup to global sensation: Polarsteps captures international headlines\nWith 15 million users worldwide and explosive growth, Polarsteps has become a standout success story, attracting media attention across Europe.\nWritten by\nPolarsteps Editors\nPublished\nJun 6, 2025\nFrom achieving nearly one-third market penetration in the Netherlands to seeing 290% user growth in France, Polarsteps is proving that European startups can compete with Silicon Valley giants. Here’s a selection of recent international media coverage highlighting the company’s remarkable journey.\nPolarsteps in recent news\nUK\nTechRound featured an in-depth interview with Clare Jones, CEO at travel app Polarsteps, where she discusses the company’s mission to build “the essential tool for modern-day explorers.” Jones explains how Polarsteps is evolving into an all-in-one travel platform that helps users get inspired, plan adventures, track travels, and relive trips.\nShe highlights the company’s impressive scale — with trips tracked in every country worldwide and over 3 billion miles logged in a single year (equivalent to 10 round trips to Mars). The interview reveals how impressively the team has scaled while maintaining profitability without external funding, and discusses their strategic use of AI combined with human travel expertise. Read the full interview →\nFrance\nLes Echos reported on Polarsteps’ explosive growth, particularly highlighting France as the company’s fastest-growing market with 290% user growth in 2024. The article reveals that Paris is now the city with the most active users worldwide, and France represents over 21% of Polarsteps’ users.\nThe piece details the company’s journey from 1 million users in 2019 to 14 million at the time of writing (now 15 million), with users collectively traveling 20 billion kilometers in 2024 alone — equivalent to 40 round trips to Mars. Lire l’article complet →\nThe Netherlands\nFinancieele Dagblad explores Polarsteps’ ambitious goal to rival travel giants like Booking.com, Expedia, and Airbnb. The comprehensive piece reveals that nearly one-third of all Dutch residents (5.5 million people) have a Polarsteps account, and the company expects to achieve similar penetration in France, Germany, the UK, and the US within four years. Co-founder Koen Droste discusses the company’s organic growth strategy, noting that each new user invites an average of five friends to follow their travels.\nThe article details the founding story of three friends from Twente who built the company with minimal funding (€5 million total over nearly a decade) and how they survived the pandemic without layoffs thanks to their sustainable business model. Lees het volledige artikel →\nPodcast features\nPolarsteps leadership has also shared insights through several podcast appearances, including:\nClare Jones interview on “Van Start tot Ster: On Tour: “ CEO Clare Jones discusses Polarsteps’ organic growth, their goal of reaching 100 million users, and how they’ve scaled profitably without external funding since 2019. The conversation covers their word-of-mouth growth engine, vision for AI in travel, and plans to revolutionize trip planning beyond tracking and reliving adventures. Watch on YouTube →\nPMF Show with founder Koen Droste : A compelling story of resilience and growth strategy, where Droste reveals how Polarsteps transformed from losing 90% of users overnight to achieving $10 million in revenue with minimal funding. The episode focuses on their counterintuitive approach of obsessing over Net Promoter Score (NPS) rather than revenue, which drove explosive organic growth. Droste explains why they ignored conventional startup advice about launching early and chasing partnerships, instead focusing on quality-first development and word-of-mouth marketing. Listen to the episode →\nAbout Polarsteps\nRecognized by the Financial Times and Sifted as one of Europe’s fastest-growing tech companies, Polarsteps is the all-in-one travel app loved by over 20 million travelers worldwide. Travelers can easily create itineraries with the Travel Planner , see their trips automatically plotted on a beautiful world map with the Travel Tracker , and relive every adventure with premium Travel Books . Headquartered in Amsterdam and powered by an international team of 100 passionate travelers, Polarsteps is becoming the essential tool for modern-day explorers: before, during, and after their trips.\nThere is more\nDiscover more news\nCompany news\nFollow the Money response\nSep 4, 2026\nMilestones\nPolarsteps reaches 25 million tracked trips, and celebrates the adventures behind the number\nAug 3, 2026\nJoin now\nJoin 20M+ explorers by downloading Polarsteps today!\nGet the app\nGET STARTED\nGet the app\nLog in\nPolarsteps Plus\nTrip privacy\nABOUT\nAbout us\nCareers\nNews & press\nStories\nFeatures\nTravel Planner\nAI Trip Planner\nTravel Tracker\nTravel Books\nHelp & Support\nHelp Center\nContact us\n© 2026 Polarsteps\n·\nTerms\n·\nPrivacy\n·\nCookies\nGET STARTED\nGet the app\nLog in\nPolarsteps Plus\nTrip privacy\nABOUT\nAbout us\nCareers\nNews & press\nStories\nFeatures\nTravel Planner\nAI Trip Planner\nTravel Tracker\nTravel Books\nHelp & Support\nHelp Center\nContact us\n© 2026 Polarsteps\n·\nTerms\n·\nPrivacy\n·\nCookies\nGET STARTED\nGet the app\nLog in\nPolarsteps Plus\nTrip privacy\nABOUT\nAbout us\nCareers\nNews & press\nStories\nFeatures\nTravel Planner\nAI Trip Planner\nTravel Tracker\nTravel Books\nHelp & Support\nHelp Center\nContact us\n© 2026 Polarsteps\nTerms\nPrivacy\nCookies",
+     "policy": {
+      "policyId": "rights.official-company-website.v1",
+      "sourceId": "src.official-company-website",
+      "providerName": "Official company or product website (entity-bound)",
+      "displayTier": "automatic",
+      "registryHash": "30d893f5b810c363886fbef8bc35e9535700abdcb83e6a517b66018b3993cacc"
+     }
+    },
+    {
+     "sourceId": "s8",
+     "url": "https://www.polarsteps.com/nl/news/20-million-travelers-and-counting-tech-success-story-polarsteps-celebrates-its-fast-growing-community",
+     "publisher": "Polarsteps",
+     "snapshot": {
+      "url": "https://www.polarsteps.com/nl/news/20-million-travelers-and-counting-tech-success-story-polarsteps-celebrates-its-fast-growing-community",
+      "finalUrl": "https://www.polarsteps.com/nl/news/20-million-travelers-and-counting-tech-success-story-polarsteps-celebrates-its-fast-growing-community",
+      "status": 200,
+      "fetchedAt": "2026-10-09T06:50:18.242Z",
+      "via": "direct",
+      "contentType": "text/html; charset=utf-8",
+      "textHash": "7ca0184668e137b2d88b2f63c720b79c577cbce0c5ac2bab5a71a59188262bad"
+     },
+     "text": "20 million travelers and counting: tech success story Polarsteps celebrates its fast-growing community - Polarsteps News\nPolarsteps celebrates 20 million travelers planning, tracking, and reliving their trips on the app, and predicts dramatic user growth.\n20 million travelers and counting: tech success story Polarsteps celebrates its fast-growing community - Polarsteps News\nPolarsteps celebrates 20 million travelers planning, tracking, and reliving their trips on the app, and predicts dramatic user growth.\n20 million travelers and counting: tech success story Polarsteps celebrates its fast-growing community - Polarsteps News\nLog in\nDownload de app\nNews\n20 million travelers and counting: tech success story Polarsteps celebrates its fast-growing community\nDutch travel app Polarsteps is celebrating reaching 20 million travelers, and expects the number of people using the app to plan, track, and relive their travels to continue to grow dramatically.\nWritten by\nPolarsteps Editors\nPublished\n27 mrt 2026\nWhat started as an after-work project between four travel-obsessed friends has turned into an app that’s used by 20 million people. Polarsteps is in the back pocket of almost every Dutch traveler and is making waves in Europe and beyond.\nPolarsteps co-founder and CTO Maximiliano Neustadt says: “I remember celebrating our first 10,000 users and what a huge moment it was. It feels unreal to think back to those early days now, when 20 million travelers are using the product we created.”\nThe secret of the company’s success has been to keep the joy of travel and user-first design at the center of its offering, so that growth has been the natural consequence of a quality product rather than being driven purely by marketing.\nCEO Clare Jones says: “We’ve seen millions of users in Europe fall in love with Polarsteps for planning and tracking their trips. It’s so good to see this now spreading to places like the US and Canada as users keep telling each other about the app.”\nStart-up beginnings\nThe idea for Polarsteps was born aboard a catamaran as co-fouder Niek Bokkers crossed the Atlantic Ocean . When he and the other founders started building Polarsteps, there were no all-in-one travel apps already on the market. So without a map to follow, they were led by a simple guiding principle: travelers should love what they created. In the first eight years after launching, the team didn’t spend a single euro on marketing.\nMaximiliano, says: “Instead, we focused on getting the product right. This led to so much user love that travelers recommended the app to other travelers themselves. We grew organically.”\nSurviving the pandemic\nIt was this unshakeable belief in the product, and the love travelers already had for Polarsteps, that helped the company weather the storm of the global Covid-19 pandemic , when almost all travel stopped. As travel lovers adapted to the new reality of being stuck in one place, they started reliving the memories of past trips on Polarsteps, and using their time to convert their photos into Travel Books .\nMaximiliano says: “ What could have been a bleak time for the company turned out to be a reminder that our travel community was ready and waiting to get back on the road with Polarsteps.”\nSteady growth dramatically accelerates\nAs Polarsteps scaled up, the number of travelers installing the app grew and grew. Back in 2019, the company celebrated its first million users ; by 2022, five million travelers were tracking trips with Polarsteps. By 2025, that number had tripled to 15 million .\nClare says: “To have 20 million people using Polarsteps just nine months after we celebrated the 15 million milestone shows that the people in our community value what we’ve created, see Polarsteps as an essential part of the journey, and are sharing their love of the app with others.”\nThe world takes notice\nHaving cemented its place in the travel sphere, Polarsteps is being mentioned more and more in tech circles and travel news. Newspapers and travel publications in the Netherlands, Europe, and North America have followed this tech success story, while industry awards recognize the company’s unique approach, and recognition by tech giant Apple reflects the app’s reputation for seamless and elegant design.\nPolarsteps is still driven by the needs of travelers. The team built features like Travel Together (the ability to plan and track your trip as a couple or group) and Trip Reels (an auto-generated video of your trip) in response to requests from people all over the world who were using Polarsteps to track their adventures.\nClare says: “We spend a lot of time listening to our users’ feature requests, whether that’s in our Support inbox, on Reddit or via App Store reviews. We love that people care so much about the app and help us improve it all the time.”\nWhat’s next for Polarsteps?\nFrom its humble beginnings, Polarsteps has grown into a team of 100 employees and is now one of Europe’s fastest-growing companies , helping 20 million travelers around the world plan, track, and relive their adventures. The team is continuously improving the app and adding features that make planning trips easier.\nClare says: “This dramatic increase in people using Polarsteps shows we’re on course to achieve our goal of becoming an essential app for all travellers.”\nAbout Polarsteps\nRecognized by the Financial Times and Sifted as one of Europe’s fastest-growing tech companies, Polarsteps is the all-in-one travel app loved by over 20 million travelers worldwide. Travelers can easily create itineraries with the Travel Planner , see their trips automatically plotted on a beautiful world map with the Travel Tracker , and relive every adventure with premium Travel Books . Headquartered in Amsterdam and powered by an international team of 100 passionate travelers, Polarsteps is becoming the essential tool for modern-day explorers: before, during, and after their trips.\nThere is more\nDiscover more news\nCompany news\nFollow the Money response\n4 sep 2026\nMilestones\nPolarsteps reaches 25 million tracked trips, and celebrates the adventures behind the number\n3 aug 2026\nStart nu\nSluit je aan bij 20+ miljoen reizigers en download Polarsteps!\nDownload de app\nAAN DE SLAG\nDownload de app\nLog in\nPolarsteps Plus\nTrip-privacy\nOVER\nOver ons\nVacatures\nNieuws en pers\nStories\nFeatures\nTravel Planner\nAI Trip Planner\nTravel Tracker\nTravel Books\nHelp & Support\nHelpcentrum\nNeem contact op\n© 2026 Polarsteps\n·\nVoorwaarden\n·\nPrivacy\n·\nCookies\nAAN DE SLAG\nDownload de app\nLog in\nPolarsteps Plus\nTrip-privacy\nOVER\nOver ons\nVacatures\nNieuws en pers\nStories\nFeatures\nTravel Planner\nAI Trip Planner\nTravel Tracker\nTravel Books\nHelp & Support\nHelpcentrum\nNeem contact op\n© 2026 Polarsteps\n·\nVoorwaarden\n·\nPrivacy\n·\nCookies\nAAN DE SLAG\nDownload de app\nLog in\nPolarsteps Plus\nTrip-privacy\nOVER\nOver ons\nVacatures\nNieuws en pers\nStories\nFeatures\nTravel Planner\nAI Trip Planner\nTravel Tracker\nTravel Books\nHelp & Support\nHelpcentrum\nNeem contact op\n© 2026 Polarsteps\nVoorwaarden\nPrivacy\nCookies",
+     "policy": {
+      "policyId": "rights.official-company-website.v1",
+      "sourceId": "src.official-company-website",
+      "providerName": "Official company or product website (entity-bound)",
+      "displayTier": "automatic",
+      "registryHash": "30d893f5b810c363886fbef8bc35e9535700abdcb83e6a517b66018b3993cacc"
+     }
+    },
+    {
+     "sourceId": "s9",
+     "url": "https://www.polarsteps.com/",
+     "publisher": "Polarsteps",
+     "snapshot": {
+      "url": "https://www.polarsteps.com/",
+      "finalUrl": "https://www.polarsteps.com/",
+      "status": 200,
+      "fetchedAt": "2026-10-09T06:30:45.192Z",
+      "via": "direct",
+      "contentType": "text/html; charset=utf-8",
+      "textHash": "27cad1e4417c6ef02b988f1628d0f663ce2d17206cca42fc357df399f1f81174"
+     },
+     "text": "Polarsteps Travel App | Plan, Track & Relive Your Trips\nEasily create travel itineraries and watch your route unfold on a beautiful world map. Join 20M+ travelers and download the Polarsteps app.\nPolarsteps Travel App | Plan, Track & Relive Your Trips\nEasily create travel itineraries and watch your route unfold on a beautiful world map. Join 20M+ travelers and download the Polarsteps app.\nPolarsteps Travel App | Plan, Track & Relive Your Trips\nLog in\n↓ explore the app\nPlan\n-\ntrack\n-\nrelive\nOne travel app for all your adventures\nJoin the 22M+ travelers who plan, track, and relive their trips with Polarsteps.\nGet the app\nGet the app\n4.7 (370K RATINGS)\nTravel planner\nPlan your next adventure\nTrip overview\nAdd your stays and activities\nTravel inspiration\nGet personalized travel tips\nTravel tracker\nCapture your route automatically\nStep-by-step updates\nShare the journey with family and friends\nCountries visited\nSee your travel stats grow\nTrip Reel x Travel Book\nRelive your favorite travel moments\nCreate a shareable video with the push of a button\nTransform your trip into a beautiful hardback book\nSee our Travel Books\nGift a Travel Book\nTravel planner\nPlan your next adventure\nReceive personalized travel tips\nSee your trip plotted on the map\nAdd your stays and activities\nTravel tracker\nCapture your route automatically\nEasily add photos, videos and stories\nLet your friends and family follow along\nSee your trips and stats unfold on the map\nA recap of your trip\nRelive the adventure\nIn your hands\nTransform your trip into a Travel Book\nA beautiful keepsake of your travel memories. Created with the push of a button.\nGift a Travel Book\nAnd the best part…\nOnly you\nFriends & Family\nThe entire world\nFull privacy control\nYou decide who can see your trip\nFull privacy control\nYou decide who can see your trip\nfeatured in:\nfeatured in:\nWorks offline\nKeeps tracking — even when you're offgrid\nBattery-efficient\nTypically less than 4% battery per day while tracking\n0 %\n0 %\nBy travelers, for travelers\nProudly ad-free\nLoved by explorers everywhere\nCourtney Allan\nHitchhiker\nPerfect for tracking trips\nConor, March 9 2026\nI love this app! It's perfect for tracking trips and I've ordered a few of the travel books which are very good quality and really nice to look at.\nLove the app\nJenny, March 24 2026\nI love the app, it tracks where you've been during the day and you can add your photos and comments later. Great to look back on over the years.\nAlex Hubin\nadventurer\nEasy to use\nRachel, March 15 2026\nI've been using this app for several trips now. Easy peasy to use. Shared it with family and friends who are using this app as well now. We get to follow each other on trips. Love this app.\nStops me waisting time\nDeborah, March 19 2026\nJust completed a 4 month trip using Polarsteps. Totally love it, easy to use, helps me remember the journey and stops me wasting time private messaging people about what we are doing, I just share the link, a real time and memory saver.\nLeoni Kolberg\nSolo cyclist\nCourtney Allan\nHitchhiker\nPerfect for tracking trips\nConor, March 9 2026\nI love this app! It's perfect for tracking trips and I've ordered a few of the travel books which are very good quality and really nice to look at.\nLove the app\nJenny, March 24 2026\nI love the app, it tracks where you've been during the day and you can add your photos and comments later. Great to look back on over the years.\nAlex Hubin\nadventurer\nEasy to use\nRachel, March 15 2026\nI've been using this app for several trips now. Easy peasy to use. Shared it with family and friends who are using this app as well now. We get to follow each other on trips. Love this app.\nStops me waisting time\nDeborah, March 19 2026\nJust completed a 4 month trip using Polarsteps. Totally love it, easy to use, helps me remember the journey and stops me wasting time private messaging people about what we are doing, I just share the link, a real time and memory saver.\nLeoni Kolberg\nSolo cyclist\nJoin 22M+ explorers by downloading Polarsteps today!\nGet the app\nGet the app\nGET STARTED\nGet the app\nLog in\nPolarsteps Plus\nTrip privacy\nABOUT\nAbout us\nCareers\nNews & press\nStories\nFeatures\nTravel Planner\nAI Trip Planner\nTravel Tracker\nTravel Books\nHelp & Support\nHelp Center\nContact us\n© 2026 Polarsteps\n·\nTerms\n·\nPrivacy\n·\nCookies\nGET STARTED\nGet the app\nLog in\nPolarsteps Plus\nTrip privacy\nABOUT\nAbout us\nCareers\nNews & press\nStories\nFeatures\nTravel Planner\nAI Trip Planner\nTravel Tracker\nTravel Books\nHelp & Support\nHelp Center\nContact us\n© 2026 Polarsteps\nTerms\nPrivacy\nCookies\nGET STARTED\nGet the app\nLog in\nPolarsteps Plus\nTrip privacy\nABOUT\nAbout us\nCareers\nNews & press\nStories\nFeatures\nTravel Planner\nAI Trip Planner\nTravel Tracker\nTravel Books\nHelp & Support\nHelp Center\nContact us\n© 2026 Polarsteps\n·\nTerms\n·\nPrivacy\n·\nCookies",
+     "policy": {
+      "policyId": "rights.official-company-website.v1",
+      "sourceId": "src.official-company-website",
+      "providerName": "Official company or product website (entity-bound)",
+      "displayTier": "automatic",
+      "registryHash": "30d893f5b810c363886fbef8bc35e9535700abdcb83e6a517b66018b3993cacc"
+     }
+    },
+    {
+     "sourceId": "s10",
+     "url": "https://www.polarsteps.com/plus",
+     "publisher": "Polarsteps",
+     "snapshot": {
+      "url": "https://www.polarsteps.com/plus",
+      "finalUrl": "https://www.polarsteps.com/plus",
+      "status": 200,
+      "fetchedAt": "2026-10-09T06:57:48.914Z",
+      "via": "direct",
+      "contentType": "text/html; charset=utf-8",
+      "textHash": "f42a2884f44cf3c972fe78830234d99fe7a8f92df1ccee1f820114ed189c7cc1"
+     },
+     "text": "Polarsteps Plus | Get more from every adventure\nNew ways to see, understand and share every journey. Get your Polarsteps Plus subscription today.\nPolarsteps Plus | Get more from every adventure\nNew ways to see, understand and share every journey. Get your Polarsteps Plus subscription today.\nPolarsteps Plus | Get more from every adventure\nLog in\nGet more from every adventure\nNew ways to see, understand and share every journey, as well as a 20% discount on all your Travel Books*.\nGet Polarsteps Plus\n*Only available with a yearly subscription, and discount cannot be combined with other promotions.\nGet more from every adventure\nNew ways to see, understand and share every journey, as well as a 20% discount on all your Travel Books*.\nGet Polarsteps Plus\n*Only available with a yearly subscription, and discount cannot be combined with other promotions.\nSee trips in 3D\n20% off Travel Books*\nMore map styles\nUp to 10 Travel Buddies\nStep stats\n3D maps\nYour world, in a new light\nThe most beautiful way for you and your followers to relive where you've been.\nNew looks\nMore map styles\nMore map styles\nChoose how your world looks, with new Winter and Terrain styles.\nChoose how your world looks, with new Winter and Terrain styles.\nPlay mode\nReplay your route\nReplay your route\nWatch it rise and fall across the terrain, tracing every mountain and valley you crossed.\nWatch it rise and fall across the terrain, tracing every mountain and valley you crossed.\nGet Polarsteps Plus\nGet Polarsteps Plus\nElevation profile\nNow numbers have stories to tell\nEvery trip leaves a trail of detail. Now you can see all of it with step stats.\nTransport totals\nEvery mode of transport, charted across your whole trip.\nSee every climb\nHow high you climbed, every peak and valley captured as you lived it.\nThat's not all\nMore reasons to go Plus\nTravel together in a group\nInvite more friends or family to help build the story. Plus lets up to 10 Travel Buddies contribute to a single trip.\n20% off Travel Books\nTurn your memories into printed keepsakes for less. Yearly Plus members get 20% off every Travel Book.\nYour Plus badge\nShow your support for Polarsteps and help us keep building the app you love.\nWhat's in Plus?\nWhat you get\nFree\nPlus\n€8.99\n€8.99\n*\n/ month\nPlus\n€29.99\n€29.99\n*\n/ year\n-72%\n-72%\nPlan trips\nTrack trips\nRelive trips\nFollow trips\nTravel Buddies\n5\n10\n10\n3D maps\nMap styles\nStep stats\nPlay mode\n20% off Travel Books**\n* Pricing may vary by region ** Travel Book discount cannot be combined with other promotions\nScan to get Plus\nDiscover Polarsteps Plus\nGet Polarsteps Plus\nGet Polarsteps Plus\nFAQ\nFrequently asked questions\nFrequently asked questions\nEverything you need to know about Polarsteps Plus.\nWhy did Polarsteps launch Polarsteps Plus?\nWe launched Polarsteps Plus to offer additional premium travel features for travelers who want more from their trips, while keeping everything you know and love about Polarsteps free for everyone. Travelers can still plan, track, share and relive their adventures for free, and friends and family can continue following trips at no cost. Plus memberships help us to build more advanced features that dedicated travelers are asking for, as well as allowing us to stay ad-free and grow our business. Read more about why we built Polarsteps Plus in this letter from our CEO Clare Jones .\nWill Polarsteps still be free?\nYes. Everything you’ve come to know and love about Polarsteps stays free to use. You can still plan, track, share and relive your trips without paying, and your friends and family can still follow along for free. Polarsteps Plus offers features for travelers who want extra tools and insights, things that have never been part of the Polarsteps experience before.\nWhat is the difference between the Polarsteps Plus monthly and Polarsteps Plus yearly subscriptions?\nPolarsteps Plus monthly costs €8.99* per month and includes all Polarsteps Plus features, such as 3D maps, step stats, 3D play, new map styles, and more Travel Buddies, but no Travel Books discount. Polarsteps Plus yearly costs €29.99* per year and includes all the same Plus features, as well as an extra benefit: 20% off Travel Books for as long as you’re a yearly Plus member (this can’t be combined with other promotions). *Prices may vary by region\nCan I switch between Polarsteps Plus monthly and Polarsteps Plus yearly subscriptions?\nYes. You can request to switch between monthly and yearly subscriptions at any time through your app store subscription settings or through the Plus section in the settings menu of the Polarsteps app, though a change to monthly from yearly will only take place at the end of your current billing period.\nHow does the Polarsteps Plus Travel Book discount work?\nIf you’re a Polarsteps Plus yearly member, your 20% Travel Book discount is automatically applied during checkout. There’s no code needed. The discount is only available while your yearly Plus subscription is active and cannot be combined with other discount codes.\nCan I get a free trial of Polarsteps Plus?\nNo, Polarsteps Plus does not offer a free trial at this time. You can choose between a monthly or yearly subscription and cancel anytime through your app store subscription settings or through the Plus section in the settings menu of the Polarsteps app.\nHow do I cancel my Polarsteps Plus subscription?\nYou can cancel your Polarsteps Plus subscription at any time through your app store subscription settings or through the Plus section in the settings menu of the Polarsteps app. Your Plus features will remain available until the end of your current billing period. If you cancel your subscription, fees for the remainder of your current billing cycle are non-refundable, except where required by applicable law.\nWill Polarsteps add more features to Plus?\nYes. Polarsteps Plus is just getting started and we plan to add more features over time. We already have a big list of ideas for Plus and will keep improving it based on feedback from our community. If there’s something you’d love to see, we’d love to hear from you .\nJoin now\nJoin 20M+ explorers by downloading Polarsteps today!\nJoin 20M+ explorers by downloading Polarsteps today!\nGet the app\nGet the app\nGET STARTED\nGet the app\nLog in\nPolarsteps Plus\nTrip privacy\nABOUT\nAbout us\nCareers\nNews & press\nStories\nFeatures\nTravel Planner\nAI Trip Planner\nTravel Tracker\nTravel Books\nHelp & Support\nHelp Center\nContact us\n© 2026 Polarsteps\n·\nTerms\n·\nPrivacy\n·\nCookies\nGET STARTED\nGet the app\nLog in\nPolarsteps Plus\nTrip privacy\nABOUT\nAbout us\nCareers\nNews & press\nStories\nFeatures\nTravel Planner\nAI Trip Planner\nTravel Tracker\nTravel Books\nHelp & Support\nHelp Center\nContact us\n© 2026 Polarsteps\n·\nTerms\n·\nPrivacy\n·\nCookies\nGET STARTED\nGet the app\nLog in\nPolarsteps Plus\nTrip privacy\nABOUT\nAbout us\nCareers\nNews & press\nStories\nFeatures\nTravel Planner\nAI Trip Planner\nTravel Tracker\nTravel Books\nHelp & Support\nHelp Center\nContact us\n© 2026 Polarsteps\nTerms\nPrivacy\nCookies",
+     "policy": {
+      "policyId": "rights.official-company-website.v1",
+      "sourceId": "src.official-company-website",
+      "providerName": "Official company or product website (entity-bound)",
+      "displayTier": "automatic",
+      "registryHash": "30d893f5b810c363886fbef8bc35e9535700abdcb83e6a517b66018b3993cacc"
+     }
+    },
+    {
+     "sourceId": "s13",
+     "url": "https://www.polarsteps.com/about",
+     "publisher": "Polarsteps",
+     "snapshot": {
+      "url": "https://www.polarsteps.com/about",
+      "finalUrl": "https://www.polarsteps.com/about",
+      "status": 200,
+      "fetchedAt": "2026-10-09T06:50:16.576Z",
+      "via": "direct",
+      "contentType": "text/html; charset=utf-8",
+      "textHash": "a2b2cf307df102b818044fd4c5586cfbd959cec5f748fa3872604303abe196aa"
+     },
+     "text": "Polarsteps Travel App | About | Our Story\nPolarsteps is the all-in-one travel app to plan, track, and relive every adventure. We weren\nPolarsteps Travel App | About | Our Story\nPolarsteps is the all-in-one travel app to plan, track, and relive every adventure. We weren\nPolarsteps Travel App | About | Our Story\nWe are Polarsteps\nOne app to plan, track, and relive every adventure. For explorers, by explorers.\nFounded in\n2015\nTeam size\n0 +\nUsers\n0 + million\nHQ\n🇳🇱 Amsterdam\nmission & vision\nWhat motivates us\nWe want to lead a global movement towards more adventurous travel. Our app inspires people to explore the world and captures the stories they create along the way — whether it’s a six-month trip or a weekend canoeing close to home. True adventure shapes us and pushes us to grow as humans, forging a deeper connection with the world and our place in it.\nWork at Polarsteps\ncareers\nRead our\nlatest news\nNews & Press\nCheck out our Help Center\nHelp & Support\nDownload\nthe app\nPolarsteps\nOur story\nBorn at sea, built for adventure\nAt Polarsteps, everyone is an explorer at heart. So it’s only fitting that our app wasn’t born at a desk, but on a catamaran, halfway across the Atlantic. No business plan, no boardroom — just Niek, a Dutch adventurer with a vision, a bit of technical know-how, and nothing but open water as far as the eye could see.\nThe idea was simple: capture the adventure and let others follow along. Armed with a basic satellite setup, Niek created a way to ping his location and his descriptions of the day to a server back home, mapping his journey in real time so friends and family could come for the ride.\nThe more he traveled, the more he tracked. The more he tracked, the more people followed.\nBut some did more than follow — they saw potential. What if this wasn’t just for one trip? What if it was for all travelers?\nThose believers were Job, Koen, and Maximiliano . Together, they joined Niek to form an adventure-seeking founding team of four. Their mission? To change the way people capture their adventures. Well, that was the goal at first…\nBut it soon evolved into something bigger — helping travelers at every single stage of the journey, from the first spark of inspiration to seamlessly planning their trip, tracking and sharing their experiences on a beautiful world map, and finally, reliving their adventures for years to come.\nWith the help of our very first hires (who, by the way, are still with us today), those rough prototypes became a fully-fledged app. That spark of an idea? It became a company. We found an office and formed a team of people who love travel and care deeply about what they're building.\nAnd the travelers — first thousands, then millions — took it from there , spreading the word. Today, Polarsteps isn’t just an app — it’s a global community and a way to celebrate the spirit of true adventure.\nNow, with Clare, our new CEO, leading the way, we’re more excited than ever for the next steps of our journey…\nLog in\nGET STARTED\nGet the app\nLog in\nPolarsteps Plus\nTrip privacy\nABOUT\nAbout us\nCareers\nNews & press\nStories\nFeatures\nTravel Planner\nAI Trip Planner\nTravel Tracker\nTravel Books\nHelp & Support\nHelp Center\nContact us\n© 2026 Polarsteps\n·\nTerms\n·\nPrivacy\n·\nCookies\nGET STARTED\nGet the app\nLog in\nPolarsteps Plus\nTrip privacy\nABOUT\nAbout us\nCareers\nNews & press\nStories\nFeatures\nTravel Planner\nAI Trip Planner\nTravel Tracker\nTravel Books\nHelp & Support\nHelp Center\nContact us\n© 2026 Polarsteps\n·\nTerms\n·\nPrivacy\n·\nCookies\nGET STARTED\nGet the app\nLog in\nPolarsteps Plus\nTrip privacy\nABOUT\nAbout us\nCareers\nNews & press\nStories\nFeatures\nTravel Planner\nAI Trip Planner\nTravel Tracker\nTravel Books\nHelp & Support\nHelp Center\nContact us\n© 2026 Polarsteps\nTerms\nPrivacy\nCookies",
+     "policy": {
+      "policyId": "rights.official-company-website.v1",
+      "sourceId": "src.official-company-website",
+      "providerName": "Official company or product website (entity-bound)",
+      "displayTier": "automatic",
+      "registryHash": "30d893f5b810c363886fbef8bc35e9535700abdcb83e6a517b66018b3993cacc"
+     }
+    },
+    {
+     "sourceId": "s15",
+     "url": "https://siliconcanals.com/polarsteps-travel-tracking-maximiliano-neustadt-interview/",
+     "publisher": "Silicon Canals",
+     "snapshot": {
+      "url": "https://siliconcanals.com/polarsteps-travel-tracking-maximiliano-neustadt-interview/",
+      "finalUrl": "https://siliconcanals.com/polarsteps-travel-tracking-maximiliano-neustadt-interview/",
+      "status": 200,
+      "fetchedAt": "2026-10-09T06:50:18.228Z",
+      "via": "direct",
+      "contentType": "text/html; charset=UTF-8",
+      "textHash": "407e2e83dd50994a4315fe839cfd211e08a44199f90b9ed01a387469f6963d3e"
+     },
+     "text": "Polarsteps co-founder on how to create a truly integrated travel app\nPolarsteps is a Dutch startup born from an idea or need to automatically track your travel. However, it has now become a fully integrated solution for all travel needs.\nPolarsteps co-founder on how to create a truly integrated travel app\nPolarsteps is a Dutch startup born from an idea or need to automatically track your travel. However, it has now become a fully integrated solution for all travel needs.\nPolarsteps co-founder on how to create a truly integrated travel app\nTechnology, power and human behaviour inside modern systems.\nGet The Empire File\nTechnology & Power\nWork & Digital Life\nRelationships & Society\nLong Reads\nEmpire File\nAbout\nSearch Silicon Canals\nSearch\nPopular topics\nAI\ntechnology\nAmsterdam\nfunding\nwork\nrelationships\nTechnology & Power\nWork & Digital Life\nRelationships & Society\nLong Reads\nEmpire File\nAbout\nSearch\nWritten by\nSilicon Canals Editorial Team\nPublished\nJul 28, 2022\nReading time\n6 min\nShare\nArchive note\nThis article was published before Brown Brothers Media acquired Silicon Canals. It remains in the historical archive under the ownership, editorial processes and standards in place at the time, and has not been materially updated under the current editorial process.\nBusiness\nAn idea born in the Atlantic: Polarsteps' co-founder Maximiliano Neustadt on how they created a truly integrated travel app\nPolarsteps is a travel startup built by a team of passionate travellers\nTravel is one of the most rewarding experiences in life. However, it is also one of the most challenging things to plan and execute. Even if you successfully reach your destination and execute your travel plan, you are met with another challenge – one of carefully documenting the journey. Now, what if there was a singular solution to all of those pain points and it was designed by a bunch of enthusiastic travellers. Well, that’s Polarsteps .\nBased in Amsterdam , this Dutch startup is one of those few startups whose origin steps from a deeply personal experience. Polarsteps was not started because of an idea or a business model. Instead, it was started because the founders of the startup experienced a problem related to travel themselves and soon decided to fix it for everyone. This mission-driven approach is what makes Polarsteps a favourite among three million explorers.\nA big passion for travel\nPolarsteps has recently begun offering destination guide | Image Credit: Polarsteps\nThe origin story of Polarsteps is not that stemmed from a garage or a basement but that one that was created when Niek Bokkers, one of the co-founder of Polarsteps, was sailing across the Atlantic. This was pre-smartphone days and Niek wanted to keep his family and friends informed about his whereabouts. A doer at heart, Bokkers took a GPS device and a satellite phone with him.\nHe also decided to set up a server in The Netherlands that would plot his movement on a map. This creative way of keeping family and friends informed about your whereabouts when smartphones weren’t the norm became viral. At that moment, Bokkers knew he could turn this ingenuity of his creation into a product that can be used by travellers around the world.\nWhen Job Harmsen, Koen Droste, and Niek Bokkers began to rethink the idea, they met Maximiliano Neustadt, who came together to start Polarsteps in 2015. With four of them sharing a big passion for travel, they began to work on the idea of a service that overcame every challenge that a traveller might face, during the planning, travelling, and documenting phase of their trip.\nAs a travel service, Polarsteps solves the problem that a typical traveller goes through. This includes inspiration, planning, taking the actual trip, and then reliving it. “We believe that creating an end-to-end platform that makes this journey more enjoyable is something that is very needed in the industry. We also believe that there is a lot of land ripe for disruption individually on each of these steps in the funnel, especially when it comes to creating great user experiences,” says Neustadt.\nChallenging the convention\nPolarsteps recently crossed 4 million users on its platform | Image Credit: Polarsteps\nFor Job Harmsen, Koen Droste, Niek Bokkers, and Maximiliano Neustadt, the biggest challenge was to overcome the cold feet that people get while making a big move. Neustadt says, “the first challenge was to take the plunge and make the bet.”\nThe bet is to transform a side project that Bokkers envisioned in the Atlantic to a real company making impact in the lives of millions of people. This bet meant “radically changing the course of existing careers,” adds Neustadt. Their story is not dissimilar from that of Mark Zuckerberg who saw a lack of social communication tools in his college campus and eventually decided to drop out and build Facebook (now Meta).\nNeustadt says their second challenge came in the form of getting seed investment. “Without big activity numbers to get investors excited or monetization streams in place or ready for scale, it was difficult to get people on board,” he explains.\nTheir singular focus on creating a great experience for their target audience did help them win both investors as well as users. Neustadt says 100 per cent of its users have come to the organisation either by discovering the service or by recommendation from an existing user.\nBefore the pandemic, Neustadt says Polarsteps was able to triple all of its metrics on a year-over-year basis. He says the pandemic did have an impact on them since the travel industry was significantly disrupted. Even during those tough times, Polarsteps found a silver lining with its users reliving their activities. In other words, Polarsteps achieved what it had set out to accomplish in the first place.\n“Since we were doing so well before the pandemic, we were able to weather the storm without having to take any drastic action,” Neustadt confirms.\nNow that the travel industry is returning to pre-pandemic normalcy, Neustadt says they are once again seeing a big surge in activity. The platform has recently reached 4 million users and a large percentage of them are active on a monthly basis. “Compared to January this year, we are seeing almost 3 times as many active users,” he adds.\nAn experiential business model\nPolarsteps says its main source of revenue comes from travel books | Image Credit: Polarsteps\nThe business model of Polarsteps is unconventionally brilliant. Neustadt says they generate their income via printed travel books that users can order with the click of a button after completing their trip. One of the books that people like to place on their coffee table is a travel book or picture book centred around travel.\nWith Polarsteps, you can put your own travel book on your coffee table.Since the service has access to your location, photos, and stories, it is able to turn that data into a beautiful book documenting the journey. “Even though this was just a feature we implemented because users were asking for it, it quickly became a fundamental income stream for us,” Neustadt tells us.\nPolarsteps has recently added destination guides as a way for people to find best places to eat, sleep, and drink around the world. When people book something they have seen on a destination guide, Polarsteps gets a revenue share. The co-founder says Polarsteps is on track to double its revenue compared to last year or even 2019, which Neustadt calls as pre-pandemic year and best one for the company yet.\nTo develop its product and sustain the growth, Polarsteps has so far raised a couple of angel and seed rounds and closed its Series A round at the end of 2018. It closed a Series A round of €3M from INKEF and Silver Point Ventures , and according to Dealroom, Polarsteps has raised a total of €4.8M.\nNeustadt says they are in a “very luxurious position” of not having to raise in the near future. He says the current user growth and revenue that comes along with it will allow the company to further grow the business. One of the areas where Polarsteps wants to focus is building the team and ensuring that every team is allowed to succeed in their goals.\n“We are always talking to investors that come knocking at our door to explore potential synergies, but for the short term our laser-sharp focus is on product development,” says Neustadt.\nStanding apart with a strong product\nPolarsteps is a team of 30 people focussed on making travel experience better for people around the world, from planning to execution to documenting phase. The startup has begun hiring once again for a number of areas and is particularly focussing on filling roles in its product and tech team.\nNeustadt says they are also looking to fill a few engineering positions in the short term while long term focus is to fill roles across all disciplines within the company. With its biggest user base in the Netherlands, Polarsteps has grown on the back of strong organic support within its community. Now, the startup is looking at growing its presence in other markets as well.\n“We have plans to boost our brand and run some marketing or user acquisition campaigns in a few key markets, but the core will come from our organic flywheel,” Neustadt explains the expansion strategy.\nPolarsteps is unique in its ability to offer an end-to-end travel platform covering all the experiences. Thus, it lacks a direct competitor, but it does count Lonely Planet, Airbnb, and Booking.com among its competitors, even if they cater to a specific segment. To fend off these established challengers, Neustadt says they will stay focussed on their integrated approach and offer a “top notch UX for every single one of our product propositions.”\nFollow Silicon Canals on Google\nAdd us as a preferred source to see more Silicon Canals reporting in Google.\nShare\nFree field brief\nThe Empire File\nHow money, ownership, and power actually move behind the companies you think you know. Built for people who watch our documentaries. Sundays you also get The Undercurrent.\nEmail address\nSend me the file\nFree PDF. Also The Undercurrent. Unsubscribe anytime.\nWritten by\nSilicon Canals Editorial Team\nThe Silicon Canals Editorial Team produces content across our three editorial pillars: technology and business, power and investigations, and human systems. We chronicle the systems that shape our lives, from the global infrastructure of technology to the internal infrastructure of the human mind. Articles reflect our team's collective editorial process, sourcing, drafting, fact-checking, editing, and review, rather than a single journalist's writing. Silicon Canals takes editorial responsibility for content under this byline. For more on how we work, see our editorial policy .\nMore from this author →\nFrom around the web\nTechnology, power and human behaviour inside modern systems.\nAll rights reserved &copy; 2026.\nSections\nTechnology & Power\nWork & Digital Life\nRelationships & Society\nLong Reads\nArchive\nEditorial\nAbout\nMasthead\nEditorial Policy\nCorrections\nContact\nThe Empire File\nFree briefing on how money, ownership, and power actually move. Sundays: The Undercurrent.\nGet The Empire File &rarr;\nAlso available via RSS .\nPrivacy\nTerms\nCookies\nDMCA\nClose\nTechnology\nPolitics\nMind\nAbout Us\nNewsletter\nGet in touch.\nSubscribe to our newsletter\nLinkedIn\nFacebook\nX\nInstagram\nRSS",
+     "policy": {
+      "policyId": "ledger.ai-judgment",
+      "sourceId": "ledger.siliconcanals.com",
+      "providerName": "Silicon Canals",
+      "displayTier": "facts_only"
+     }
+    },
+    {
+     "sourceId": "s17",
+     "url": "https://www.polarsteps.com/nl/news/polarsteps-launches-polarsteps-plus-a-new-subscription-for-its-most-dedicated-travelers",
+     "publisher": "Polarsteps",
+     "snapshot": {
+      "url": "https://www.polarsteps.com/nl/news/polarsteps-launches-polarsteps-plus-a-new-subscription-for-its-most-dedicated-travelers",
+      "finalUrl": "https://www.polarsteps.com/nl/news/polarsteps-launches-polarsteps-plus-a-new-subscription-for-its-most-dedicated-travelers",
+      "status": 200,
+      "fetchedAt": "2026-10-09T06:50:19.165Z",
+      "via": "direct",
+      "contentType": "text/html; charset=utf-8",
+      "textHash": "25952faf51d21199457405f355f84c7029c5b782d626eee1c4047abdac27bd43"
+     },
+     "text": "Polarsteps launches Polarsteps Plus, a new subscription for its most dedicated travelers - Polarsteps News\nPolarsteps is announcing the launch of Polarsteps Plus, a new optional subscription that brings advanced features to the app\nPolarsteps launches Polarsteps Plus, a new subscription for its most dedicated travelers - Polarsteps News\nPolarsteps is announcing the launch of Polarsteps Plus, a new optional subscription that brings advanced features to the app\nPolarsteps launches Polarsteps Plus, a new subscription for its most dedicated travelers - Polarsteps News\nLog in\nDownload de app\nNews\nPolarsteps launches Polarsteps Plus, a new subscription for its most dedicated travelers\nPolarsteps today announced the launch of Polarsteps Plus, a new optional subscription that brings advanced features to travelers who want to dive deeper into their adventures. The Polarsteps experience everyone loves — planning, tracking, sharing, and following trips — remains free for everyone, and always will.\nWritten by\nPolarsteps Editors\nPublished\n14 jul 2026\nBuilt for Polarsteps power users\nDesigned for long-distance hikers, bikepackers, backcountry skiers, and anyone who wants deeper insights into their adventures, Polarsteps Plus introduces a collection of new tools built specifically around how these travelers use the app, from tracking elevation on multi-week treks to mapping backcountry routes.\n“We hear directly and often from our users about what they want, and we regularly build and release many of those features,” says Clare Jones, CEO of Polarsteps. “But some of the requests only make sense for a smaller group. A subscription lets us go further for the travelers who will really benefit from deeper terrain data and trip stats, while keeping everything that makes Polarsteps useful for millions of people free.”\nWhat’s included in Polarsteps Plus\n3D Maps to view routes across realistic terrain.\nAdditional map styles to personalize trips.\nPlay mode to replay journeys from start to finish.\nTravel Together perks , including up to 10 Travel Buddies.\nAdvanced step statistics , including elevation gain, descent, and transport modes.\nElevation profiles throughout a trip.\nYearly Polarsteps Plus subscribers also receive 20% off Travel Books .\nPolarsteps Plus is available as a monthly subscription for €8.99 or a yearly subscription for €29.99 (pricing may vary per region).\nEverything users already love about Polarsteps stays free\nThe launch of Polarsteps Plus does not change the core Polarsteps experience. Every user can continue to plan, track, and share their trips for free, and friends and family can continue following along without paying. Polarsteps will also continue building and releasing new core features for all users at no cost.\n“Polarsteps remains ad-free, and we don’t sell user data,” Clare adds. “Plus ties our growth to something simpler: whether the app is actually getting better for the people using it. It lets us do even more for our power users while we keep improving the core experience for everyone.”\nAs of today, Polarsteps Plus is available to all users, with additional Plus features planned for future releases.\nLearn more about Polarsteps Plus at polarsteps.com/plus .\nAbout Polarsteps\nRecognized by the Financial Times and Sifted as one of Europe’s fastest-growing tech companies, Polarsteps is the all-in-one travel app loved by over 20 million travelers worldwide. Travelers can easily create itineraries with the Travel Planner , see their trips automatically plotted on a beautiful world map with the Travel Tracker , and relive every adventure with premium Travel Books . Headquartered in Amsterdam and powered by an international team of 100 passionate travelers, Polarsteps is becoming the essential tool for modern-day explorers: before, during, and after their trips.\nThere is more\nDiscover more news\nCompany news\nFollow the Money response\n4 sep 2026\nMilestones\nPolarsteps reaches 25 million tracked trips, and celebrates the adventures behind the number\n3 aug 2026\nStart nu\nSluit je aan bij 20+ miljoen reizigers en download Polarsteps!\nDownload de app\nAAN DE SLAG\nDownload de app\nLog in\nPolarsteps Plus\nTrip-privacy\nOVER\nOver ons\nVacatures\nNieuws en pers\nStories\nFeatures\nTravel Planner\nAI Trip Planner\nTravel Tracker\nTravel Books\nHelp & Support\nHelpcentrum\nNeem contact op\n© 2026 Polarsteps\n·\nVoorwaarden\n·\nPrivacy\n·\nCookies\nAAN DE SLAG\nDownload de app\nLog in\nPolarsteps Plus\nTrip-privacy\nOVER\nOver ons\nVacatures\nNieuws en pers\nStories\nFeatures\nTravel Planner\nAI Trip Planner\nTravel Tracker\nTravel Books\nHelp & Support\nHelpcentrum\nNeem contact op\n© 2026 Polarsteps\n·\nVoorwaarden\n·\nPrivacy\n·\nCookies\nAAN DE SLAG\nDownload de app\nLog in\nPolarsteps Plus\nTrip-privacy\nOVER\nOver ons\nVacatures\nNieuws en pers\nStories\nFeatures\nTravel Planner\nAI Trip Planner\nTravel Tracker\nTravel Books\nHelp & Support\nHelpcentrum\nNeem contact op\n© 2026 Polarsteps\nVoorwaarden\nPrivacy\nCookies",
+     "policy": {
+      "policyId": "rights.official-company-website.v1",
+      "sourceId": "src.official-company-website",
+      "providerName": "Official company or product website (entity-bound)",
+      "displayTier": "automatic",
+      "registryHash": "30d893f5b810c363886fbef8bc35e9535700abdcb83e6a517b66018b3993cacc"
+     }
+    },
+    {
+     "sourceId": "s18",
+     "url": "https://www.polarsteps.com/stories/introducing-polarsteps-plus",
+     "publisher": "Polarsteps／Clare Jones",
+     "snapshot": {
+      "url": "https://www.polarsteps.com/stories/introducing-polarsteps-plus",
+      "finalUrl": "https://www.polarsteps.com/stories/introducing-polarsteps-plus",
+      "status": 200,
+      "fetchedAt": "2026-10-09T06:50:19.318Z",
+      "via": "direct",
+      "contentType": "text/html; charset=utf-8",
+      "textHash": "d4df14f965de88600bbbe2323296ca01cd1745d0bc67473bb57c76c5e1f39766"
+     },
+     "text": "Introducing Polarsteps Plus - Polarsteps Stories\nPolarsteps Plus brings new extra features such as 3D maps and new map styles to subscribers. Plan, track, and relive features remain free.\nIntroducing Polarsteps Plus - Polarsteps Stories\nPolarsteps Plus brings new extra features such as 3D maps and new map styles to subscribers. Plan, track, and relive features remain free.\nIntroducing Polarsteps Plus - Polarsteps Stories\nLog in\nGet the app\nStories\nIntroducing Polarsteps Plus\nPolarsteps CEO Clare Jones introduces Polarsteps Plus, a new subscription that adds extra features for power users while keeping the app's beloved trip-planning, tracking and sharing experience free for everyone.\nWritten by\nClare Jones\nLast edited\nAug 6, 2026\nTable of Contents\nFor many years, millions of travelers have used Polarsteps for free to plan, track and share their trips. We’re obsessed with creating a beautiful user experience, and we feel both the joy and the responsibility of being brought along with you on your adventures. This month we’ve started to gradually roll out Polarsteps Plus . This subscription brings new features to our app, which users can enjoy with monthly or yearly memberships.\nAll the Polarsteps features you know and love will remain free to use.\nYou’ll still be able to plan, track, share, and relive your adventures for free. Friends and family will still be able to follow along with your trips without paying for anything. We’re not taking anything away; we’re adding new features many of our users have asked for.\nWe’ll keep adding new core features for free, too. We want to keep improving our product for all our users, not just those paying a subscription.\nWhy we’re launching Polarsteps Plus\nFor years, we’ve been hearing from users about features they’d like to see, and we build and release many of them every month. Having a subscription allows us to bring more of the features that certain users are craving: the hikers doing epic multi-week trips, for example, or the skiers tackling backcountry terrain. While these features aren't a priority for most of our 20+ million users, a subscription allows us to build them for the smaller groups of power users who will really benefit from them.\nPlus also helps us grow the business in a way that aligns with our values. Polarsteps is ad-free, and we don't sell user data. Protecting our users' privacy is important to us; after all, people are taking our app with them during some of the most important moments of their lives. With Plus, our success is tied directly to creating a better experience for our users, which is exactly how we think it should be.\nWhat’s included in Plus?\nWe’ve listened to some of the most frequent requests from our power users. From today, subscribers to Plus will get:\n3D maps: see your route on stunning 3D terrain.\nMore map-style options: make the map match your trip.\nPlay mode: replay your route across every mountain and valley.\nTravel Together perks: add up to 10 Travel Buddies.\nAdvanced step stats: get breakdowns of your climbs, descents, and transport modes.\nElevation profile: see your elevation charted as you scroll through your trip page.\nUsers with a yearly subscription will also receive 20% off Travel Books .\nYou can choose to subscribe monthly for €8.99 and cancel anytime, or annually for €29.99.\nPolarsteps Plus is just beginning; we’ll be adding more features to it over time. We already have a big list of ideas, and we’d love to hear your suggestions . You can also join our Reddit community to share feedback and feature requests.\nWe’re excited about this next phase of the Polarsteps journey, and we’re happy to be able to offer additional features for some of our most dedicated users, who have been such an important part of our adventure so far.\nFind out more about Polarsteps Plus at polarsteps.com/plus\nTags\nProduct updates\nThere is more\nThere is more\nDiscover more Stories\nStories from the road\nA route-by-route guide to hiking Luxembourg's Mullerthal Trail\nMatt Bainbridge\nTravel tips\nAutumn adventures by campervan: five inspiring European routes\nBrin Andrews\nJoin now\nJoin now\nJoin 20M+ explorers by downloading Polarsteps today!\nGet the app\nGET STARTED\nGet the app\nLog in\nPolarsteps Plus\nTrip privacy\nABOUT\nAbout us\nCareers\nNews & press\nStories\nFeatures\nTravel Planner\nAI Trip Planner\nTravel Tracker\nTravel Books\nHelp & Support\nHelp Center\nContact us\n© 2026 Polarsteps\n·\nTerms\n·\nPrivacy\n·\nCookies\nGET STARTED\nGet the app\nLog in\nPolarsteps Plus\nTrip privacy\nABOUT\nAbout us\nCareers\nNews & press\nStories\nFeatures\nTravel Planner\nAI Trip Planner\nTravel Tracker\nTravel Books\nHelp & Support\nHelp Center\nContact us\n© 2026 Polarsteps\n·\nTerms\n·\nPrivacy\n·\nCookies\nGET STARTED\nGet the app\nLog in\nPolarsteps Plus\nTrip privacy\nABOUT\nAbout us\nCareers\nNews & press\nStories\nFeatures\nTravel Planner\nAI Trip Planner\nTravel Tracker\nTravel Books\nHelp & Support\nHelp Center\nContact us\n© 2026 Polarsteps\nTerms\nPrivacy\nCookies",
+     "policy": {
+      "policyId": "rights.official-company-website.v1",
+      "sourceId": "src.official-company-website",
+      "providerName": "Official company or product website (entity-bound)",
+      "displayTier": "automatic",
+      "registryHash": "30d893f5b810c363886fbef8bc35e9535700abdcb83e6a517b66018b3993cacc"
+     }
+    }
+   ],
+   "analysis": [
+    {
+     "id": "a-headline",
+     "item": "HEADLINE",
+     "text": "利用者の要望から旅の記録を紙の本にする機能を作り、本の販売を収入の柱にした、移動経路を自動で地図に残す旅行アプリ",
+     "basis": [
+      "f1",
+      "f3",
+      "f9",
+      "f17"
+     ],
+     "presentation": "FACT_SUMMARY"
+    },
+    {
+     "id": "a-story",
+     "item": "STORY",
+     "text": "Niekが大西洋を航海する際、家族や友人に居場所を伝える仕組みを作った。Job、Koen、Maximilianoが加わり、iPhone用の試用版を公開した。その後、利用者の要望に応えて旅の記録を紙の本にするTravel Bookを発売し、販売が収入の柱になった。旅行がほぼ止まった時期にも、利用者は過去の旅の写真を本にした。さらに、詳しい地形や移動の記録を求める旅行者向けに有料プランを加えた。",
+     "basis": [
+      "f4",
+      "f5",
+      "f6",
+      "f9",
+      "f11",
+      "f20",
+      "f21"
+     ],
+     "presentation": "FACT_SUMMARY"
+    },
+    {
+     "id": "a-business_model",
+     "item": "BUSINESS_MODEL",
+     "text": "旅行者がアプリに残した経路・写真・文章を硬い表紙の本にまとめ、その本を販売して代金を得る。詳しい地形や移動の記録を使いたい利用者からは、有料プランの利用料を受け取る。アプリ内の旅行案内を見た利用者が宿泊先などを予約した場合にも、予約に応じた収入を得る。",
+     "basis": [
+      "f3",
+      "f9",
+      "f10",
+      "f17",
+      "f20",
+      "f21",
+      "f22"
+     ],
+     "presentation": "FACT_SUMMARY"
+    },
+    {
+     "id": "a-customer",
+     "item": "CUSTOMER",
+     "text": "旅の写真や経路、出来事を紙の本として手元に残したい旅行者がTravel Bookを購入する。有料の追加機能は、長距離の登山などで地形や移動を詳しく記録したい旅行者向けだ。",
+     "basis": [
+      "f3",
+      "f17",
+      "f21"
+     ],
+     "presentation": "FACT_SUMMARY"
+    },
+    {
+     "id": "a-customer_pain",
+     "item": "CUSTOMER_PAIN",
+     "text": "旅の写真を本に残すには、写真集の編集に時間がかかる。Polarstepsは旅の記録から本の配置を自動で作り、その手間を減らした。旅行中の近況も、旅のリンクを共有すれば家族や友人にまとめて伝えられる。",
+     "basis": [
+      "f2",
+      "f7"
+     ],
+     "presentation": "FACT_SUMMARY"
+    },
+    {
+     "id": "a-channels",
+     "item": "CHANNELS",
+     "text": "利用者が他の旅行者にアプリを勧めることで広がった。家族や友人に旅を共有でき、公式サイトには、共有した相手もアプリを使い始めたという利用者の声がある。",
+     "basis": [
+      "f2",
+      "f12"
+     ],
+     "presentation": "FACT_SUMMARY"
+    },
+    {
+     "id": "a-capital_and_team",
+     "item": "CAPITAL_AND_TEAM",
+     "text": "NiekにJob、Koen、Maximilianoが加わって創業チームを組んだ。2016年3月17日に投資会社と報道会社から50万ユーロの調達を発表し、2019年1月16日には公表された調達額の累計が460万ユーロになった。",
+     "basis": [
+      "f4",
+      "f15",
+      "f16",
+      "m1",
+      "m5"
+     ],
+     "formula": "数字は出典に載っている値",
+     "presentation": "FACT_SUMMARY"
+    },
+    {
+     "id": "a-timeline",
+     "item": "TIMELINE",
+     "text": "2017年2月6日、Travel Bookを発売。2019年1月16日、登録利用者数が100万人を超えた。2025年には世界の利用者数が1,500万人となり、2026年3月27日に2,000万人への到達を発表した。",
+     "basis": [
+      "f6",
+      "m2",
+      "f14",
+      "m3",
+      "f18",
+      "m6",
+      "m7"
+     ],
+     "formula": "数字は出典に載っている値",
+     "presentation": "FACT_SUMMARY"
+    }
+   ],
+   "changedClaims": [
+    "f1",
+    "f2",
+    "f3",
+    "f4",
+    "f5",
+    "f6",
+    "f7",
+    "f8",
+    "f9",
+    "f10",
+    "f11",
+    "f12",
+    "f13",
+    "f14",
+    "f15",
+    "f16",
+    "f17",
+    "f18",
+    "f19",
+    "f20",
+    "f21",
+    "f22",
+    "m1",
+    "m2",
+    "m3",
+    "m5",
+    "m6",
+    "m7"
+   ],
+   "identity": {
+    "id": "ent_polarsteps_2b2970abd201",
+    "name": "Polarsteps",
+    "url": "https://www.polarsteps.com/",
+    "publishability": "PUBLISHABLE"
+   },
+   "caseHash": "526d53dd06af006c26b4a8afcaee03c7112b6187aa53887484405301e7e3a841",
+   "itemHashes": {
+    "fact:f1": "0ccbc25dbf35155f334f8d59fb9699c538ee285d5871d237bb4f92a75da58046",
+    "fact:f2": "189ace68fa0f3e443df15a0e150dea69c3456dc0642e0a7a711e9e9563b5dcab",
+    "fact:f3": "a55d158bcb0228b44234b8525bff237cef687a74bec99f99c4190d2bdb7b232f",
+    "fact:f4": "10bcece3d866aca8a99d93308faef82dd8e2993d0399f2b551683d71f55ae124",
+    "fact:f5": "e68237c713d7c8e449c4da5b8f6f672cda756314500b52da65e59d9cc3e39685",
+    "fact:f6": "fa2a890cdcabd7180d1fca67aee7b5ee731ff4cc9215884f140ef76d713b5972",
+    "fact:f7": "f562941b7dff661343a39f2e9d15e20693590924d72863c4bd7e793520232b29",
+    "fact:f8": "5a2ae01753d0eb1af272b042096e7a4222a072c3e26dffd86e30a29bfdebc14a",
+    "fact:f9": "6265af9710b929e602bbc988372a5dafdf8f295215f558a6296607348171c563",
+    "fact:f10": "fc9bc85e5636956535dd30e41bc8aa6b062b703fc45a6059d308e22dae795926",
+    "fact:f11": "382b310d8a53bda6f5c14191e1b13fa717e96810da9dfeda3e9c1f65563f8460",
+    "fact:f12": "8151ce6c294c602e6153a9453e6ad78a28554dbf4edeb57849937892ffbed431",
+    "fact:f13": "fc734c869f89cc1a9af40dc0d32570d46086b3e989e86f73ac16a844d19cf3e8",
+    "fact:f14": "2736c8af1ba01029e6df2854eeed957ec3070bcf49e632afd08feac5f1597747",
+    "fact:f15": "45556309cf14e09f26ce607c1fd03212ce840c30dfe655d66bad59da734afa01",
+    "fact:f16": "9ac8a9311778cdd2317fcb13f64d7f1f50d8f6686c360591ebcc780778b7d6fb",
+    "fact:f17": "2fbec9ab2b8afe789a4ab6ea6d363847e9691a20c82dd690a3783637508f8488",
+    "fact:f18": "94aabcad0396a2e7bb511d9d40cf24317bff780db7e8cf42c9a3ccb00c2503b2",
+    "fact:f19": "13cd23b85b8e387f1c4b31c9df8a1369388303a825553abbe6bb783b2256cd6e",
+    "fact:f20": "a0a8537584063fb4d6969f646d275732f556532b46c85bef0f01915c843477f6",
+    "fact:f21": "b51a7d52ea92a1883cd4fcbe7dcb5500736e12667e564f216938c89833c8b7d3",
+    "fact:f22": "4a14e110372d46b40c5b50dfb469e7d0296673c936ef3b7b4bc9f463ce9b59f5",
+    "metric:m1": "5b0f75799010bd7a6fdebb64d400d1000d4c56ee1cba5226d8d53ab693f93d2d",
+    "metric:m2": "8dc28805141ebcbae3d3fc00f0d514c84cf98a602e50ccb78c88f5b12cc3efeb",
+    "metric:m3": "9cfeb2a033438aa8dd209a90119417a38342fec4a37267fd44f7534eabb3c830",
+    "metric:m5": "6f056992956d50e4e65d9313718f843da5bd5b8d7f25e221e06c51b93bea51d7",
+    "metric:m6": "f39a2e22e2b007d520b05bfea12c12244d1541857e3c7a9a1593f5d8574f879e",
+    "metric:m7": "62f56bb972a7581b7d1f10bb933cca937acf9e06f30bf4ff05c0866ffd9ade10",
+    "analysis:a-headline": "0f84773ad300971e181ac23c54d6b3831ef09a40d349e6ba76d44c1b2193867e",
+    "analysis:a-story": "1e77a9cba2ca1df692f3ade3ff79f4ce7c0ff7d1e7181e40eb526c4d956aad0b",
+    "analysis:a-business_model": "fbf93ec1632e136fd823bf8aa3d8117bc2ada42b32618a72b477f9422af5ae3f",
+    "analysis:a-customer": "d795578b5c08317b7a552bfec50559ba8399ea4360d577eb63291907b9d3668c",
+    "analysis:a-customer_pain": "ddb502d45491c9a9d833989cfe46518695d840515bcb0b2f496b9d3f5f5afe57",
+    "analysis:a-channels": "a5c4adc66be7e66d42d3e73982f971f63fc67a7ae2d5f162fcd136651610fe30",
+    "analysis:a-capital_and_team": "48cc636b394f10283e5d052ff618f84fe4ac037d54775c4bd059b509f15a996a",
+    "analysis:a-timeline": "a4eb82a7ede2e85e21b2eff701d14a03f4eb0f180607d33d9187ad749596a0b8"
+   },
+   "review": [
+    "fact:f1",
+    "fact:f2",
+    "fact:f3",
+    "fact:f4",
+    "fact:f5",
+    "fact:f6",
+    "fact:f7",
+    "fact:f8",
+    "fact:f9",
+    "fact:f10",
+    "fact:f11",
+    "fact:f12",
+    "fact:f13",
+    "fact:f14",
+    "fact:f15",
+    "fact:f16",
+    "fact:f17",
+    "fact:f18",
+    "fact:f19",
+    "fact:f20",
+    "fact:f21",
+    "fact:f22",
+    "metric:m1",
+    "metric:m2",
+    "metric:m3",
+    "metric:m5",
+    "metric:m6",
+    "metric:m7",
+    "analysis:a-headline",
+    "analysis:a-story",
+    "analysis:a-business_model",
+    "analysis:a-customer",
+    "analysis:a-customer_pain",
+    "analysis:a-channels",
+    "analysis:a-capital_and_team",
+    "analysis:a-timeline"
+   ],
+   "reader": {
+    "sources": [
+     {
+      "id": "s2",
+      "url": "https://www.polarsteps.com/news/travel-tracking-app-polarsteps-raises-500-000-investment",
+      "publisher": "Polarsteps",
+      "publishedAt": "2016-03-17",
+      "checkedAt": "2026-10-09",
+      "kind": "OFFICIAL"
+     },
+     {
+      "id": "s3",
+      "url": "https://www.polarsteps.com/news/polarsteps-tracks-your-trip-and-turns-it-into-an-instant-photo-album",
+      "publisher": "Polarsteps",
+      "publishedAt": "2017-02-06",
+      "checkedAt": "2026-10-09",
+      "kind": "OFFICIAL"
+     },
+     {
+      "id": "s4",
+      "url": "https://www.polarsteps.com/news/polarsteps-hits-1-million-users-and-raises-3-million-in-funding",
+      "publisher": "Polarsteps",
+      "publishedAt": "2019-01-16",
+      "checkedAt": "2026-10-09",
+      "kind": "OFFICIAL"
+     },
+     {
+      "id": "s7",
+      "url": "https://www.polarsteps.com/news/from-dutch-startup-to-global-sensation-polarsteps-captures-international-headlines",
+      "publisher": "Polarsteps",
+      "publishedAt": "2025-06-06",
+      "checkedAt": "2026-10-09",
+      "kind": "OFFICIAL"
+     },
+     {
+      "id": "s8",
+      "url": "https://www.polarsteps.com/nl/news/20-million-travelers-and-counting-tech-success-story-polarsteps-celebrates-its-fast-growing-community",
+      "publisher": "Polarsteps",
+      "publishedAt": "2026-03-27",
+      "checkedAt": "2026-10-09",
+      "kind": "OFFICIAL"
+     },
+     {
+      "id": "s9",
+      "url": "https://www.polarsteps.com/",
+      "publisher": "Polarsteps",
+      "checkedAt": "2026-10-09",
+      "kind": "OFFICIAL"
+     },
+     {
+      "id": "s10",
+      "url": "https://www.polarsteps.com/plus",
+      "publisher": "Polarsteps",
+      "checkedAt": "2026-10-09",
+      "kind": "OFFICIAL"
+     },
+     {
+      "id": "s13",
+      "url": "https://www.polarsteps.com/about",
+      "publisher": "Polarsteps",
+      "checkedAt": "2026-10-09",
+      "kind": "OFFICIAL"
+     },
+     {
+      "id": "s15",
+      "url": "https://siliconcanals.com/polarsteps-travel-tracking-maximiliano-neustadt-interview/",
+      "publisher": "Silicon Canals",
+      "publishedAt": "2022-07-28",
+      "checkedAt": "2026-10-09",
+      "kind": "ARTICLE"
+     },
+     {
+      "id": "s17",
+      "url": "https://www.polarsteps.com/nl/news/polarsteps-launches-polarsteps-plus-a-new-subscription-for-its-most-dedicated-travelers",
+      "publisher": "Polarsteps",
+      "publishedAt": "2026-07-14",
+      "checkedAt": "2026-10-09",
+      "kind": "OFFICIAL"
+     },
+     {
+      "id": "s18",
+      "url": "https://www.polarsteps.com/stories/introducing-polarsteps-plus",
+      "publisher": "Polarsteps／Clare Jones",
+      "checkedAt": "2026-10-09",
+      "kind": "OFFICIAL"
+     }
+    ],
+    "facts": [
+     {
+      "id": "f1",
+      "kind": "DESCRIPTION",
+      "text": "Polarstepsは、旅行中に移動した経路を自動で地図に記録できるアプリだ。",
+      "sourceId": "s9",
+      "attribution": "OFFICIAL"
+     },
+     {
+      "id": "f2",
+      "kind": "DESCRIPTION",
+      "text": "旅行者は旅のリンクを共有すると、家族や友人に現在の様子をまとめて伝えられる。",
+      "sourceId": "s9",
+      "attribution": "OFFICIAL"
+     },
+     {
+      "id": "f3",
+      "kind": "OTHER",
+      "text": "旅行者はPolarstepsの旅の記録を、硬い表紙の紙の本にできる。",
+      "sourceId": "s9",
+      "attribution": "OFFICIAL"
+     },
+     {
+      "id": "f4",
+      "kind": "TEAM",
+      "text": "NiekにJob、Koen、Maximilianoが加わり、Polarstepsの創業チームができた。",
+      "sourceId": "s13",
+      "attribution": "OFFICIAL"
+     },
+     {
+      "id": "f5",
+      "kind": "FOUNDING",
+      "text": "PolarstepsはiPhone用の試用版アプリを公開した。",
+      "sourceId": "s2",
+      "statedAt": "2015-04",
+      "attribution": "OFFICIAL"
+     },
+     {
+      "id": "f6",
+      "kind": "EVENT",
+      "text": "Polarstepsは、旅の記録を紙の本にする商品Travel Bookを発売した。",
+      "sourceId": "s3",
+      "statedAt": "2017-02-06",
+      "attribution": "OFFICIAL"
+     },
+     {
+      "id": "f7",
+      "kind": "OTHER",
+      "text": "Travel Bookは旅の記録から本の配置を自動で作り、利用者が写真集の編集に時間をかける手間を減らした。",
+      "sourceId": "s3",
+      "attribution": "OFFICIAL"
+     },
+     {
+      "id": "f8",
+      "kind": "PRICING",
+      "text": "Travel Bookの発売時の料金は、硬い表紙の本で20ユーロからだった。",
+      "sourceId": "s3",
+      "attribution": "OFFICIAL"
+     },
+     {
+      "id": "f9",
+      "kind": "EVENT",
+      "text": "Polarstepsは利用者の要望を受けて本の販売機能を作り、この機能が事業の収入を支えるようになった。",
+      "sourceId": "s15",
+      "attribution": "ARTICLE"
+     },
+     {
+      "id": "f10",
+      "kind": "OTHER",
+      "text": "Polarstepsは、アプリ内の旅行案内を見た利用者が宿泊先などを予約すると、予約に応じた収入を受け取る。",
+      "sourceId": "s15",
+      "attribution": "ARTICLE"
+     },
+     {
+      "id": "f11",
+      "kind": "EVENT",
+      "text": "旅行がほぼ止まった時期にも、利用者はPolarstepsで過去の旅を振り返り、写真をTravel Booksにした。",
+      "sourceId": "s8",
+      "attribution": "OFFICIAL"
+     },
+     {
+      "id": "f12",
+      "kind": "CHANNEL",
+      "text": "Polarstepsは利用者が他の旅行者にアプリを勧めることで広がった。",
+      "sourceId": "s8",
+      "attribution": "OFFICIAL"
+     },
+     {
+      "id": "f13",
+      "kind": "EVENT",
+      "text": "Polarstepsは利用者の要望を受け、仲間と旅の記録を共同で作る機能を開発した。",
+      "sourceId": "s8",
+      "attribution": "OFFICIAL"
+     },
+     {
+      "id": "f14",
+      "kind": "OTHER",
+      "text": "Polarstepsの利用者数は100万人を超えた。",
+      "sourceId": "s4",
+      "attribution": "OFFICIAL"
+     },
+     {
+      "id": "f15",
+      "kind": "FUNDING",
+      "text": "Polarstepsは投資会社と報道会社から50万ユーロを調達したと発表した。",
+      "sourceId": "s2",
+      "attribution": "OFFICIAL"
+     },
+     {
+      "id": "f16",
+      "kind": "FUNDING",
+      "text": "Polarstepsが公表した調達額の累計は460万ユーロになった。",
+      "sourceId": "s4",
+      "attribution": "OFFICIAL"
+     },
+     {
+      "id": "f17",
+      "kind": "OTHER",
+      "text": "Polarstepsは旅行記の本を利用者に販売して収入を得ていた。",
+      "sourceId": "s4",
+      "statedAt": "2019-01-16",
+      "attribution": "OFFICIAL"
+     },
+     {
+      "id": "f18",
+      "kind": "OTHER",
+      "text": "Polarstepsの世界の利用者数は1,500万人になった。",
+      "sourceId": "s7",
+      "attribution": "OFFICIAL"
+     },
+     {
+      "id": "f19",
+      "kind": "OTHER",
+      "text": "Polarstepsの公式サイトは、世界の利用者数が2,200万人を超えていると案内している。",
+      "sourceId": "s9",
+      "attribution": "OFFICIAL"
+     },
+     {
+      "id": "f20",
+      "kind": "EVENT",
+      "text": "Polarstepsは追加機能を使える有料プランの提供を発表した。",
+      "sourceId": "s17",
+      "statedAt": "2026-07-14",
+      "attribution": "OFFICIAL"
+     },
+     {
+      "id": "f21",
+      "kind": "OTHER",
+      "text": "有料の追加機能は、長距離の登山などで地形や移動の詳しい記録を求める利用者のために作られた。",
+      "sourceId": "s18",
+      "attribution": "OFFICIAL"
+     },
+     {
+      "id": "f22",
+      "kind": "PRICING",
+      "text": "立体の地図や移動の詳しい記録を使える有料機能の料金は、月払いで8.99ユーロだ。",
+      "sourceId": "s10",
+      "attribution": "OFFICIAL"
+     }
+    ],
+    "metrics": [
+     {
+      "id": "m1",
+      "measure": "FUNDING",
+      "periodKind": "POINT",
+      "period": "2016-03-17",
+      "amount": 500000,
+      "currency": "EUR",
+      "origin": "SELF_REPORTED",
+      "basis": "Silver Point VenturesとTelegraaf Media Groepからの当該調達の公式発表時点。",
+      "label": "投資会社と報道会社からの調達額",
+      "sourceId": "s2",
+      "statedAt": "2016-03-17"
+     },
+     {
+      "id": "m2",
+      "measure": "PRICE",
+      "periodKind": "POINT",
+      "period": "2017-02-06",
+      "amount": 20,
+      "currency": "EUR",
+      "unit": "冊",
+      "origin": "SELF_REPORTED",
+      "basis": "硬い表紙の本の開始価格。現在の価格には使用しない。",
+      "label": "Travel Book発売時の最低価格",
+      "sourceId": "s3",
+      "statedAt": "2017-02-06"
+     },
+     {
+      "id": "m3",
+      "measure": "USERS",
+      "periodKind": "POINT",
+      "period": "2019-01-16",
+      "amount": 1000000,
+      "unit": "登録利用者",
+      "origin": "SELF_REPORTED",
+      "basis": "100万人を超えたとの発表。月間利用者数ではない。",
+      "label": "登録利用者数の到達した節目",
+      "sourceId": "s4",
+      "statedAt": "2019-01-16"
+     },
+     {
+      "id": "m5",
+      "measure": "FUNDING",
+      "periodKind": "CUMULATIVE",
+      "period": "2019-01-16",
+      "amount": 4600000,
+      "currency": "EUR",
+      "origin": "SELF_REPORTED",
+      "basis": "当該回の300万ユーロを含む創業以来の累計。各回の調達額と足し合わせない。",
+      "label": "公表された調達額の累計",
+      "sourceId": "s4",
+      "statedAt": "2019-01-16"
+     },
+     {
+      "id": "m6",
+      "measure": "USERS",
+      "periodKind": "POINT",
+      "period": "2025",
+      "amount": 15000000,
+      "unit": "利用者",
+      "origin": "SELF_REPORTED",
+      "basis": "世界の利用者数が1,500万人との発表。",
+      "label": "世界の利用者数",
+      "sourceId": "s7"
+     },
+     {
+      "id": "m7",
+      "measure": "USERS",
+      "periodKind": "POINT",
+      "period": "2026-03-27",
+      "amount": 20000000,
+      "unit": "利用者",
+      "origin": "SELF_REPORTED",
+      "basis": "同日に到達を発表。月間利用者数や本の購入者数ではない。",
+      "label": "世界の利用者数の到達した節目",
+      "sourceId": "s8",
+      "statedAt": "2026-03-27"
+     }
+    ],
+    "unknowns": [
+     "REVENUE",
+     "PROFIT",
+     "COST",
+     "TOOLS"
+    ],
+    "analysis": [
+     {
+      "id": "a-headline",
+      "item": "HEADLINE",
+      "text": "利用者の要望から旅の記録を紙の本にする機能を作り、本の販売を収入の柱にした、移動経路を自動で地図に残す旅行アプリ",
+      "basis": [
+       "f1",
+       "f3",
+       "f9",
+       "f17"
+      ],
+      "presentation": "FACT_SUMMARY"
+     },
+     {
+      "id": "a-story",
+      "item": "STORY",
+      "text": "Niekが大西洋を航海する際、家族や友人に居場所を伝える仕組みを作った。Job、Koen、Maximilianoが加わり、iPhone用の試用版を公開した。その後、利用者の要望に応えて旅の記録を紙の本にするTravel Bookを発売し、販売が収入の柱になった。旅行がほぼ止まった時期にも、利用者は過去の旅の写真を本にした。さらに、詳しい地形や移動の記録を求める旅行者向けに有料プランを加えた。",
+      "basis": [
+       "f4",
+       "f5",
+       "f6",
+       "f9",
+       "f11",
+       "f20",
+       "f21"
+      ],
+      "presentation": "FACT_SUMMARY"
+     },
+     {
+      "id": "a-business_model",
+      "item": "BUSINESS_MODEL",
+      "text": "旅行者がアプリに残した経路・写真・文章を硬い表紙の本にまとめ、その本を販売して代金を得る。詳しい地形や移動の記録を使いたい利用者からは、有料プランの利用料を受け取る。アプリ内の旅行案内を見た利用者が宿泊先などを予約した場合にも、予約に応じた収入を得る。",
+      "basis": [
+       "f3",
+       "f9",
+       "f10",
+       "f17",
+       "f20",
+       "f21",
+       "f22"
+      ],
+      "presentation": "FACT_SUMMARY"
+     },
+     {
+      "id": "a-customer",
+      "item": "CUSTOMER",
+      "text": "旅の写真や経路、出来事を紙の本として手元に残したい旅行者がTravel Bookを購入する。有料の追加機能は、長距離の登山などで地形や移動を詳しく記録したい旅行者向けだ。",
+      "basis": [
+       "f3",
+       "f17",
+       "f21"
+      ],
+      "presentation": "FACT_SUMMARY"
+     },
+     {
+      "id": "a-customer_pain",
+      "item": "CUSTOMER_PAIN",
+      "text": "旅の写真を本に残すには、写真集の編集に時間がかかる。Polarstepsは旅の記録から本の配置を自動で作り、その手間を減らした。旅行中の近況も、旅のリンクを共有すれば家族や友人にまとめて伝えられる。",
+      "basis": [
+       "f2",
+       "f7"
+      ],
+      "presentation": "FACT_SUMMARY"
+     },
+     {
+      "id": "a-channels",
+      "item": "CHANNELS",
+      "text": "利用者が他の旅行者にアプリを勧めることで広がった。家族や友人に旅を共有でき、公式サイトには、共有した相手もアプリを使い始めたという利用者の声がある。",
+      "basis": [
+       "f2",
+       "f12"
+      ],
+      "presentation": "FACT_SUMMARY"
+     },
+     {
+      "id": "a-capital_and_team",
+      "item": "CAPITAL_AND_TEAM",
+      "text": "NiekにJob、Koen、Maximilianoが加わって創業チームを組んだ。2016年3月17日に投資会社と報道会社から50万ユーロの調達を発表し、2019年1月16日には公表された調達額の累計が460万ユーロになった。",
+      "basis": [
+       "f4",
+       "f15",
+       "f16",
+       "m1",
+       "m5"
+      ],
+      "formula": "数字は出典に載っている値",
+      "presentation": "FACT_SUMMARY"
+     },
+     {
+      "id": "a-timeline",
+      "item": "TIMELINE",
+      "text": "2017年2月6日、Travel Bookを発売。2019年1月16日、登録利用者数が100万人を超えた。2025年には世界の利用者数が1,500万人となり、2026年3月27日に2,000万人への到達を発表した。",
+      "basis": [
+       "f6",
+       "m2",
+       "f14",
+       "m3",
+       "f18",
+       "m6",
+       "m7"
+      ],
+      "formula": "数字は出典に載っている値",
+      "presentation": "FACT_SUMMARY"
+     }
+    ],
+    "summaryFactId": "f2"
+   }
+  }
+ ]
+}

@@ -1,0 +1,6 @@
+$ --import tsx scripts/media/ensure-case-media.ts --ids-file /Volumes/SS/Worktrees/Make-Money/rewrite-27/data/pipeline/case-new/new-poc1/entities.ids.txt
+事例ID | 使ってよい画像 | 保留 | アイコン | 状態
+ent_polarsteps_2b2970abd201 | 0 | 0 | なし | 取得した
+ent_wildgrain_2b5aec41c733 | 0 | 0 | なし | 取得した
+使える画像なし：ent_polarsteps_2b2970abd201
+使える画像なし：ent_wildgrain_2b5aec41c733

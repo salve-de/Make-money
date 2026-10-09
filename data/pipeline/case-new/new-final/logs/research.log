@@ -1,0 +1,8 @@
+$ --import tsx scripts/reader-case/case-research.ts --ids cand_polarsteps_2b2970,cand_wildgrain_2b5aec --agent codex --repair-agent codex --codex-effort high --concurrency 2 --run-id new-final-research --redo
+[case:research] 対象 2 件: Polarsteps、Wildgrain
+
+調査記録を作った 2 件 / 見送り 0 件（1463.3秒）
+- 作成: Polarsteps → ent_polarsteps_2b2970abd201（1463.3秒、外れた項目 0）
+- 作成: Wildgrain → ent_wildgrain_2b5aec41c733（1463.3秒、外れた項目 0）
+次: pnpm case:run --ids-file /Volumes/SS/Worktrees/Make-Money/rewrite-27/data/pipeline/case-run/new-final-research/research.ids.txt
+{"runId":"new-final-research","recorded":["ent_polarsteps_2b2970abd201","ent_wildgrain_2b5aec41c733"],"skipped":[],"idsFile":"/Volumes/SS/Worktrees/Make-Money/rewrite-27/data/pipeline/case-run/new-final-research/research.ids.txt","seconds":1463.3}

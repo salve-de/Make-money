@@ -1,5 +1,6 @@
 import type { FinancialEntity, ViabilityStatus } from '@/shared/terminal';
-import { firstSentence, formatMetricAmount, metricMeasureLabel, metricEstimateLabel, pickListMetric, readerSummaryFact } from '@/shared/display-text';
+import { summaryLineOf } from '@/shared/list-lines';
+import { formatMetricAmount, metricMeasureLabel, metricEstimateLabel, pickListMetric, readerSummaryFact } from '@/shared/display-text';
 import type { ReaderCase } from '@/shared/reader-case';
 import { UI } from '@/shared/ui-strings';
 
@@ -282,7 +283,7 @@ export function deriveDiscoveryDataset(
         resultMetricId: result.metricId,
         reader: entity.reader,
         summaryFactId: readerSummaryFact(entity.reader)?.id ?? null,
-        summaryText: firstSentence(readerSummaryFact(entity.reader)?.text ?? ''),
+        summaryText: summaryLineOf(entity.reader) ?? '',
         resultEvidenceLabel: result.evidenceLabel,
         resultPeriod: result.period,
         resultSource: result.source,

@@ -35,16 +35,16 @@ describe('一覧と概要の1行の文末', () => {
   });
 });
 
-describe('caseLabels（事業の札が少ない事例は、事業の中身から付けた札で2〜3個にそろえる）', () => {
+describe('caseLabels（札は決まった言葉の一覧のタグだけ。古い経路は使わない）', () => {
   const tagline = 'APIの設計・テストと通信の変更を提供し、利用者単位で課金する';
   const labels = { hash: textFingerprint(tagline), labels: ['開発者向けツール', 'ブラウザ拡張'] };
-  it('札が0個・1個の事例を2〜3個にする。運営の印と重複は足さない', () => {
-    expect(caseLabels({ tags: [], tagline, reader: { display: { labels } } })).toEqual(['開発者向けツール', 'ブラウザ拡張']);
-    expect(caseLabels({ tags: ['収集事例'], tagline, reader: { display: { labels } } })).toEqual(['開発者向けツール', 'ブラウザ拡張']);
-    expect(caseLabels({ tags: ['ブラウザ拡張'], tagline, reader: { display: { labels } } })).toEqual(['ブラウザ拡張', '開発者向けツール']);
+  const tags = { field: '開発・IT', form: 'ソフト・アプリ', buyer: '開発者向け', features: [] };
+  it('タグがあれば、分野・事業の形・売る相手・特徴の順でそれだけを返す', () => {
+    expect(caseLabels({ reader: { display: { tags } } })).toEqual(['開発・IT', 'ソフト・アプリ', '開発者向け']);
+    expect(caseLabels({ reader: { display: { tags: { ...tags, features: ['AI'] } } } })).toEqual(['開発・IT', 'ソフト・アプリ', '開発者向け', 'AI']);
   });
-  it('事業の札が2個以上あれば足さない。tagline が変わっていたら使わない', () => {
-    expect(caseLabels({ tags: ['教材', 'デザイン'], tagline, reader: { display: { labels } } })).toEqual(['教材', 'デザイン']);
-    expect(caseLabels({ tags: [], tagline: `${tagline}。`, reader: { display: { labels } } })).toEqual([]);
+  it('タグが無い事例は、fact-lines の札があっても札を出さない', () => {
+    expect(caseLabels({ reader: { display: { labels } } })).toEqual([]);
+    expect(caseLabels({})).toEqual([]);
   });
 });

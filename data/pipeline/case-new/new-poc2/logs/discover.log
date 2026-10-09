@@ -1,0 +1,15 @@
+$ --import tsx scripts/reader-case/case-discover.ts --count 2 --agent codex --codex-effort high --run-id new-poc2-discover
+[case:discover] 照合先: 社名 11318 件・ドメイン 3693 件
+[case:discover] 第1回: あと2件。AI 2本で各3件まで探す（open・real）
+[case:discover] 第1回の結果: 提案6 → 新規で出典確認済み2 → 足した2（累計2/2）
+
+足した候補 2/2 件（169.8秒、1回で探した）
+- [80] Mid-Day Squares https://www.middaysquares.com/
+    たんぱく質入りチョコレートの製造販売で、創業者への取材記事に累計4,700万本超の販売と、事業の舞台裏を発信して客や小売店を集めた経緯がある。
+    出典: https://www.modernretail.co/marketing/how-using-social-media-to-show-the-good-the-bad-the-ugly-of-building-a-business-helped-mid-day-squares-reach-30m-in-revenue/
+- [65] Storage Scholars https://www.storagescholars.com/
+    大学生の荷物を休暇中に保管して新しい寮へ届ける事業で、創業者を取材した大学の公開資料に初年度売上1万8,000ドルと、寮での訪問営業から大学との提携へ広げた経緯がある。
+    出典: https://assets.wfu.edu/sites/544/2025/02/Print_Philanthropy-Report-2024.pdf https://www.storagescholars.com/about
+
+見送り 4 件: Ghost（重複: 同じ公式サイト（ghost.org）が既存の事例にある） / Costco（重複: 同じ公式サイト（costco.com）が既存の事例にある） / Warhammer（数字の出典を取得できず、引用を確かめられない） / Sloomoo Institute（数字の出典を取得できず、引用を確かめられない）
+{"runId":"new-poc2-discover","requested":2,"added":["cand_mid-day-squares_21b9a6","cand_storage-scholars_b39921"],"seconds":169.8}

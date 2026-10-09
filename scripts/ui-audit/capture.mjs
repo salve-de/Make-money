@@ -25,7 +25,7 @@ const VIEWPORTS = {
 
 let routes = [
   '/', '/?mode=SYNTHESIS',
-  '/discover', '/finder', '/build', '/execute',
+  '/finder', '/build', '/execute',
   '/marketplace', '/marketplace/new', '/marketplace/businesses', '/marketplace/businesses/new', '/marketplace/businesses/mine',
   '/partners', '/welcome', '/success',
   '/compare', '/alerts', '/verify', '/legal/tokushoho', '/legal/terms', '/legal/privacy',

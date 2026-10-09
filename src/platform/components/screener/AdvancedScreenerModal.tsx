@@ -3,9 +3,8 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { Check, RefreshCw, Search, X } from 'lucide-react';
 import { BusinessScale, MoatType } from '../../types/terminal';
-import type { FinancialEntity } from '@/shared/terminal';
-import { countScreenerMatches } from '../../model/entity-filter';
-import { CAPITAL_OPTIONS, MARGIN_OPTIONS, MOAT_OPTIONS, SCALE_OPTIONS, SCREENER_LABELS, TAG_MAX_COUNT, pickVisibleTags } from './screener-options';
+import { countFacetMatches, type FacetRow } from '../../model/entity-filter';
+import { CAPITAL_OPTIONS, MARGIN_OPTIONS, MOAT_OPTIONS, SCALE_OPTIONS, SCREENER_LABELS, TAG_AXES, selectionWithOnly } from './screener-options';
 
 interface AdvancedScreenerModalProps {
   /** 公開中の全事例（全件が手元にある時だけ）。1件も当たらないまとまりは出さない。 */
@@ -13,9 +12,8 @@ interface AdvancedScreenerModalProps {
   onClose: () => void;
   onApplyFilters: (filters: ScreenerFilterState) => void;
   /** 公開中の全事例（全件が手元にある時だけ）。各項目の件数に使う。 */
-  allEntities?: readonly FinancialEntity[];
-  availableTags?: string[];
-  tagCounts?: Record<string, number>;
+  /** 公開中の全件の件数用の最小の値。無い間は件数を出さない */
+  facets?: readonly FacetRow[];
   initialFilters?: ScreenerFilterState | null;
   /** 渡すと、スマホ幅（PC の上部検索が無い幅）で最上部に検索欄を出す。入力はすぐ一覧に反映される */
   searchQuery?: string;
@@ -46,9 +44,7 @@ export const AdvancedScreenerModal: React.FC<AdvancedScreenerModalProps> = ({
   isOpen,
   onClose,
   onApplyFilters,
-  allEntities,
-  availableTags = [],
-  tagCounts = {},
+  facets,
   initialFilters,
   searchQuery,
   onSearchChange,
@@ -58,18 +54,15 @@ export const AdvancedScreenerModal: React.FC<AdvancedScreenerModalProps> = ({
   const [maxCapital, setMaxCapital] = useState<number | null>(initialFilters?.maxCapital ?? null);
   const [moats, setMoats] = useState<MoatType[]>(initialFilters?.moats || []);
   const [selectedTags, setSelectedTags] = useState<string[]>(initialFilters?.selectedTags || []);
-  const [tagQuery, setTagQuery] = useState('');
-  const [tagsExpanded, setTagsExpanded] = useState(false);
   const [previousInputs, setPreviousInputs] = useState({ initialFilters, isOpen });
   const dialogRef = useRef<HTMLDivElement>(null);
   const closeButtonRef = useRef<HTMLButtonElement>(null);
   // 左の欄と同じ数え方。いま選んでいる他の条件はそのままで、その項目を選んだ時の件数を出す
   const staged = { scales, minMargin, maxCapital, moats, selectedTags };
   const countFor = (patch: Partial<ScreenerFilterState>): number | undefined =>
-    allEntities ? countScreenerMatches(allEntities, { ...staged, ...patch }) : undefined;
+    facets ? countFacetMatches(facets, { ...staged, ...patch }) : undefined;
   const countBadge = (count: number | undefined) =>
     count === undefined ? null : <span className="term-num shrink-0 text-xs text-term-label">{count}</span>;
-  const tagView = pickVisibleTags({ tags: availableTags, counts: tagCounts, selected: selectedTags, query: tagQuery, expanded: tagsExpanded });
 
   if (previousInputs.initialFilters !== initialFilters || previousInputs.isOpen !== isOpen) {
     setPreviousInputs({ initialFilters, isOpen });
@@ -312,54 +305,45 @@ export const AdvancedScreenerModal: React.FC<AdvancedScreenerModalProps> = ({
           </fieldset>
           )}
 
-          {availableTags.length > 0 && (
-            <fieldset className="space-y-3 pb-1">
+          {TAG_AXES.map((axis, index) => (
+            <fieldset key={axis.id} className={index === TAG_AXES.length - 1 ? 'space-y-2 pb-1' : fieldsetClass}>
               <legend className={`${legendClass} flex-wrap`}>
-                <span>{SCREENER_LABELS.tags} <span className={hintClass}>{SCREENER_LABELS.multiple}</span></span>
-                {selectedTags.length > 0 && (
+                <span>{axis.label} {axis.words.length > 1 && <span className={hintClass}>{SCREENER_LABELS.multiple}</span>}</span>
+                {index === 0 && selectedTags.length > 0 && (
                   <span className="term-num border border-term-accent px-2 py-0.5 text-xs text-term-accent">
                     {selectedTags.length}件選択中
                   </span>
                 )}
               </legend>
-              <input type="search" aria-label={SCREENER_LABELS.tagSearch} placeholder={`${SCREENER_LABELS.tagSearch}（${availableTags.length.toLocaleString()}件）`} value={tagQuery} onChange={(event) => setTagQuery(event.target.value)} className="h-11 w-full rounded-sm border border-term-line bg-term-bg px-3 text-[13px] text-term-fg-strong outline-none placeholder:text-term-dim focus:border-term-accent lg:h-8" />
-              <div className="flex flex-wrap gap-1.5 border border-term-line-soft p-1.5">
-                {tagView.shown.map((tag) => {
-                  const selected = selectedTags.includes(tag);
-                  const count = tagCounts[tag];
+              <div className="flex flex-wrap gap-1.5">
+                {axis.words.map((word) => {
+                  const selected = selectedTags.includes(word);
+                  const withWord = countFor({ selectedTags: selectionWithOnly(selectedTags, word) });
+                  const disabled = withWord === 0 && !selected;
                   return (
                     <button
-                      key={tag}
+                      key={word}
                       type="button"
                       aria-pressed={selected}
-                      onClick={() => toggleTag(tag)}
+                      disabled={disabled}
+                      title={disabled ? '該当する事例がありません' : word}
+                      onClick={() => toggleTag(word)}
                       className={`flex min-h-11 items-center gap-2 rounded-sm border px-2.5 py-1 text-[13px] focus-visible:outline-1 focus-visible:outline-term-accent lg:min-h-7 ${
                         selected
                           ? 'border-term-accent bg-term-select text-term-fg-strong'
-                          : 'border-term-line bg-transparent text-term-fg hover:bg-term-head'
+                          : disabled
+                            ? 'cursor-not-allowed border-term-line bg-transparent text-term-dim'
+                            : 'border-term-line bg-transparent text-term-fg hover:bg-term-head'
                       }`}
                     >
-                      <span>{tag}</span>
-                      {countBadge(count)}
+                      <span>{word}</span>
+                      {countBadge(withWord)}
                       {selected && <Check className="h-4 w-4 shrink-0 text-term-accent" aria-hidden="true" />}
                     </button>
                   );
                 })}
               </div>
-              {tagQuery && <p className="text-xs text-term-label">{tagView.matched.toLocaleString()}件が一致</p>}
-              {tagView.matched === 0 && <p className="text-xs text-term-label">一致する特徴はありません</p>}
-              {tagView.hidden > 0 && !tagQuery && !tagsExpanded && (
-                <button type="button" onClick={() => setTagsExpanded(true)} className="min-h-11 px-1 text-xs text-term-accent underline underline-offset-4 lg:min-h-7">
-                  ＋ もっと見る（残り{tagView.hidden.toLocaleString()}件）
-                </button>
-              )}
-              {tagView.hidden > 0 && (tagQuery || tagsExpanded) && (
-                <p className="text-xs text-term-label">他に{tagView.hidden.toLocaleString()}件あります。上の欄に語を入れて探してください（{TAG_MAX_COUNT}件まで表示）</p>
-              )}
-              {tagsExpanded && !tagQuery && (
-                <button type="button" onClick={() => setTagsExpanded(false)} className="min-h-11 px-1 text-xs text-term-muted underline underline-offset-4 lg:min-h-7">－ 表示を減らす</button>
-              )}
-              {selectedTags.length > 0 && (
+              {index === TAG_AXES.length - 1 && selectedTags.length > 0 && (
                 <button
                   type="button"
                   onClick={() => setSelectedTags([])}
@@ -369,7 +353,7 @@ export const AdvancedScreenerModal: React.FC<AdvancedScreenerModalProps> = ({
                 </button>
               )}
             </fieldset>
-          )}
+          ))}
         </div>
 
         <footer className="flex items-center justify-between gap-2 border-t border-term-line bg-term-head px-3 py-2">

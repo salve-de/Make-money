@@ -1,4 +1,5 @@
 import type { FinancialEntity, GridFilterOption } from '@/shared/terminal';
+import { axisOfWord, entityTagWords } from '@/shared/case-taxonomy';
 
 /** Minimal input contract: no React, network, modal or storage dependency. */
 export type FilterCandidate = Pick<FinancialEntity, 'id' | 'scale' | 'sector' | 'sectorBasis'> & {
@@ -86,6 +87,19 @@ export function matchesGridFilter(
   return predicates[filter](entity, bookmarks);
 }
 
+/**
+ * 決まった言葉の一覧（case-taxonomy）のタグの選び方。同じ軸の中は「どれか」、軸をまたぐと「全部」。
+ * 一覧にない言葉（古い保存条件に残った自由な言葉）は絞り込みに使わない。
+ */
+export function matchesTaxonomySelection(entityWords: readonly string[], selected: readonly string[]): boolean {
+  const byAxis = new Map<string, string[]>();
+  for (const word of selected) {
+    const axis = axisOfWord(word);
+    if (axis) byAxis.set(axis, [...(byAxis.get(axis) ?? []), word]);
+  }
+  return [...byAxis.values()].every((words) => words.some((word) => entityWords.includes(word)));
+}
+
 export interface CatalogFilters {
   filter: GridFilterOption;
   batch: string;
@@ -106,24 +120,59 @@ export function matchesCatalogQuery(entity: FinancialEntity, query: string, filt
       if (screen.minMargin > 0 && entity.pnl.operatingMargin < screen.minMargin) return false;
       if (screen.maxCapital !== null && (entity.operations.isCapitalUnconfirmed || entity.operations.initialCapitalRequired > screen.maxCapital)) return false;
       if (screen.moats.length && !screen.moats.includes(entity.strategy.moatType)) return false;
-      if (screen.selectedTags?.length && !screen.selectedTags.some((tag) => (entity.tags ?? []).includes(tag))) return false;
+      if (screen.selectedTags?.length && !matchesTaxonomySelection(entityTagWords(entity), screen.selectedTags)) return false;
     }
   }
   const normalized = query.trim().toLowerCase();
   if (!normalized) return true;
   return entity.id.toLowerCase().includes(normalized) ||
     entity.name.toLowerCase().replace(/\s+/g, '').includes(normalized.replace(/\s+/g, '')) ||
-    [entity.name, entity.ticker, entity.tagline, entity.founder, entity.strategy?.blindspot, ...(entity.tags ?? [])]
+    [entity.name, entity.ticker, entity.tagline, entity.founder, entity.strategy?.blindspot, ...(entity.tags ?? []), ...entityTagWords(entity)]
       .some((value) => value?.toLowerCase().includes(normalized));
 }
 
 /**
- * 絞り込み条件（screener）だけを当てた時に残る件数。左の絞り込み欄で、手元の事例が1件も当たらない条件を
- * 押せないようにするために使う（押すと必ず0件になる条件を並べない）。
+ * 件数を数えるための、事例ごとの最小の値。公開中の全件ぶんを /api/catalog/facets から最初に読み込み、
+ * 画面に読み込んだ件数（最初は20件）に関係なく、全件で絞り込みの件数を数える。
+ * capital は初期資金（円）。未確認なら null（資金の条件には当たらない）。
  */
+export interface FacetRow {
+  scale: string;
+  margin: number;
+  capital: number | null;
+  moat: string;
+  words: readonly string[];
+}
+
+export function facetRowOf(entity: Pick<FinancialEntity, 'scale' | 'pnl' | 'operations' | 'strategy' | 'reader'>): FacetRow {
+  return {
+    scale: entity.scale,
+    margin: entity.pnl.operatingMargin,
+    capital: entity.operations.isCapitalUnconfirmed ? null : entity.operations.initialCapitalRequired,
+    moat: entity.strategy.moatType,
+    words: entityTagWords(entity),
+  };
+}
+
+function facetRowMatches(row: FacetRow, screen: NonNullable<CatalogFilters['screener']>): boolean {
+  if (screen.scales.length && !screen.scales.includes(row.scale)) return false;
+  if (screen.minMargin > 0 && row.margin < screen.minMargin) return false;
+  if (screen.maxCapital !== null && (row.capital === null || row.capital > screen.maxCapital)) return false;
+  if (screen.moats.length && !screen.moats.includes(row.moat)) return false;
+  if (screen.selectedTags?.length && !matchesTaxonomySelection(row.words, screen.selectedTags)) return false;
+  return true;
+}
+
+/** 絞り込み条件（screener）だけを当てた時に残る件数。左の絞り込み欄と、スマホの絞り込みで、押すと必ず0件になる条件を押せなくするために使う。 */
+export function countFacetMatches(rows: readonly FacetRow[], screener: NonNullable<CatalogFilters['screener']>): number {
+  let count = 0;
+  for (const row of rows) if (facetRowMatches(row, screener)) count += 1;
+  return count;
+}
+
+/** 事例そのもの（手元に読み込んだ分）で数える版。 */
 export function countScreenerMatches(entities: readonly FinancialEntity[], screener: NonNullable<CatalogFilters['screener']>): number {
-  const filters: CatalogFilters = { filter: 'ALL', batch: 'ALL', tags: [], bookmarks: [], screener };
-  return entities.reduce((count, entity) => count + (matchesCatalogQuery(entity, '', filters) ? 1 : 0), 0);
+  return countFacetMatches(entities.map(facetRowOf), screener);
 }
 
 /** 絞り込みの4つのまとまりのうち、1件でも当たる選択肢を持つもの。全部の選択肢が0件になるまとまりは画面に出さない。 */

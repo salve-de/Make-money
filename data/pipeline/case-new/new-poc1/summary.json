@@ -1,0 +1,22 @@
+{
+ "runId": "new-poc1",
+ "passed": [],
+ "failures": [
+  {
+   "id": "ent_polarsteps_2b2970abd201",
+   "stage": "analyze",
+   "reason": "分析の入力が作られなかった（照合で残った事実が無い、または出典の本文が取れていない）"
+  },
+  {
+   "id": "ent_wildgrain_2b5aec41c733",
+   "stage": "analyze",
+   "reason": "分析の入力が作られなかった（照合で残った事実が無い、または出典の本文が取れていない）"
+  }
+ ],
+ "humanLook": [
+  "画像: 使える画像なし：ent_polarsteps_2b2970abd201",
+  "画像: 使える画像なし：ent_wildgrain_2b5aec41c733"
+ ],
+ "urls": {},
+ "ok": false
+}

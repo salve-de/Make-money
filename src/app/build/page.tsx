@@ -12,13 +12,6 @@ const BTN = 'inline-flex min-h-11 items-center border px-4 text-sm lg:min-h-8 lg
 const STEPS: { no: string; title: string; body: string; label: string; href: string; primary?: boolean }[] = [
   {
     no: '1',
-    title: '事例から探す',
-    body: '参考にする事例を、分野や規模から探して保存します。',
-    label: '事例を探す',
-    href: '/discover',
-  },
-  {
-    no: '2',
     title: '事業の案を決める',
     body: '保存した事例から事業の案を作ります。案を開くと、その案をもとに試作の画面づくりへ進めます。',
     label: '事業検討で案を作る',
@@ -26,14 +19,14 @@ const STEPS: { no: string; title: string; body: string; label: string; href: str
     primary: true,
   },
   {
-    no: '3',
+    no: '2',
     title: '出品する',
     body: '作ったサービスを市場に載せ、紹介ページを公開します。申込み・決済は各サービスのサイトで行います。',
     label: '出品する',
     href: '/marketplace/new',
   },
   {
-    no: '4',
+    no: '3',
     title: '市場で売る・広める',
     body: '市場に載っているサービスを見て、購入や紹介の動きを確かめます。',
     label: '市場を見る',
@@ -53,7 +46,7 @@ export default function BuildIndexPage() {
         <Suspense fallback={null}>
           <BuildMaterial />
         </Suspense>
-        <ol aria-label="作って出品するまでの4つの段階">
+        <ol aria-label="作って出品するまでの3つの段階">
           {STEPS.map((step) => (
             <li key={step.no} className="flex flex-col gap-2 border-b border-term-line px-3 py-3 sm:flex-row sm:items-center sm:gap-4">
               <span aria-hidden="true" className="term-num w-5 shrink-0 text-term-accent">{step.no}</span>

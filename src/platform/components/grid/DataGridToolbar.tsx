@@ -1,10 +1,9 @@
 'use client';
 
 import React from 'react';
-import Link from 'next/link';
 import { CompareTrayLink } from '@/platform/components/compare/CompareTrayLink';
 import { SaveSearchButton, type SavedSearchDraft } from './SaveSearchButton';
-import { Check, Compass, Layers, Search, SlidersHorizontal, X } from 'lucide-react';
+import { Check, Layers, Search, SlidersHorizontal, X } from 'lucide-react';
 import { ScreenerFilterState } from '../screener/AdvancedScreenerModal';
 import { KNOWN_INGEST_BATCHES } from '@/shared/terminal';
 
@@ -223,15 +222,6 @@ export const DataGridToolbar: React.FC<DataGridToolbarProps> = ({
           )}
 
           {savedSearchDraft && <SaveSearchButton draft={savedSearchDraft} />}
-          <Link
-            href="/discover"
-            prefetch={false}
-            title="分野や規模のしぼり込みで、事例を探す"
-            className={`${btn} ${btnOff} min-h-11 text-xs lg:min-h-7`}
-          >
-            <Compass aria-hidden="true" className="h-3.5 w-3.5" />
-            事例を探す
-          </Link>
           <CompareTrayLink />
 
           <p className="term-num ml-auto shrink-0 whitespace-nowrap text-xs text-term-label lg:sr-only" aria-live="polite">

@@ -1,0 +1,101 @@
+$ pnpm case-text:verify
+
+> make-money-app@0.1.0 case-text:verify /Volumes/SS/Worktrees/Make-Money/rewrite-27
+> node scripts/architecture/check-case-text-standard.mjs
+
+[case-text] 警告: 意味が取れない言い方 94件（直す経路: pnpm display:build --repair-only --reader）:
+記録の文 Candy Japan（ent_candy_japan_954236d663a8）の 出典を見る > 事業内容 原文: 意味が取れない言い方「流入」（業界語。読者がどこから来たかを言う）→ 〜から来た人／読者が来たサイト（規則 .claude/skills/natural-japanese/SKILL.md）
+記録の文 Candy Japan（ent_candy_japan_954236d663a8）の 出典を見る > 事業内容 原文: 不自然な言い回し「SAL」（説明のない英字の略語で、一般の読者には意味が通らない（例: GST、SSO、SLA、HN））→ 日本語で言い換える（GST→インドの消費税、HN→Hacker News）／読者がその欄で知りたい話でなければ消す
+記録の文 Churnkey（ent_churnkey_8d7f2b269c21）の 出典を見る > 補足 原文: 不自然な言い回し「VEED」（説明のない英字の略語で、一般の読者には意味が通らない（例: GST、SSO、SLA、HN））→ 日本語で言い換える（GST→インドの消費税、HN→Hacker News）／読者がその欄で知りたい話でなければ消す
+記録の文 Churnkey（ent_churnkey_8d7f2b269c21）の 出典を見る > 補足 原文: 不自然な言い回し「VEED」（説明のない英字の略語で、一般の読者には意味が通らない（例: GST、SSO、SLA、HN））→ 日本語で言い換える（GST→インドの消費税、HN→Hacker News）／読者がその欄で知りたい話でなければ消す
+記録の文 Churnkey（ent_churnkey_8d7f2b269c21）の 出典を見る > 補足 原文: 不自然な言い回し「VEED」（説明のない英字の略語で、一般の読者には意味が通らない（例: GST、SSO、SLA、HN））→ 日本語で言い換える（GST→インドの消費税、HN→Hacker News）／読者がその欄で知りたい話でなければ消す
+記録の文 Churnkey（ent_churnkey_8d7f2b269c21）の 出典を見る > 料金（料金の帯にも出る） 原文: 意味の通らないプラン名「Intelligence」（読む人が知りたいのは、いくらで何が使えるか。人数・回数・機能で言う）
+記録の文 Churnkey（ent_churnkey_8d7f2b269c21）の 出典を見る > 料金（料金の帯にも出る） 原文: 不自然な言い回し「MCP」（説明のない英字の略語で、一般の読者には意味が通らない（例: GST、SSO、SLA、HN））→ 日本語で言い換える（GST→インドの消費税、HN→Hacker News）／読者がその欄で知りたい話でなければ消す
+記録の文 Codementor（ent_codementor_ba692caa3db3）の 出典を見る > 補足 原文: 意味が取れない言い方「片側から」（何の片側か分からない）→ 教える側を先に集める（規則 .claude/skills/natural-japanese/SKILL.md）
+記録の文 Codementor（ent_codementor_ba692caa3db3）の 出典を見る > 出資・資金集め 原文: 不自然な言い回し「WI」（説明のない英字の略語で、一般の読者には意味が通らない（例: GST、SSO、SLA、HN））→ 日本語で言い換える（GST→インドの消費税、HN→Hacker News）／読者がその欄で知りたい話でなければ消す
+記録の文 Codementor（ent_codementor_ba692caa3db3）の 出典を見る > 料金（料金の帯にも出る） 原文: 料金に付帯条件「別途」（税・別料金・返金は読む人が料金で知りたい事ではない。消す）
+記録の文 Data Fetcher（ent_data_fetcher_8e6a5e22ce2a）の 出典を見る > 事業内容 原文: 意味が取れない言い方「流入」（業界語。読者がどこから来たかを言う）→ 〜から来た人／読者が来たサイト（規則 .claude/skills/natural-japanese/SKILL.md）
+記録の文 Data Fetcher（ent_data_fetcher_8e6a5e22ce2a）の 出典を見る > 事業内容 原文: 読む人に分かりにくい語「MRR」→ 月の定期売上（単なる月商と区別する）
+記録の文 Data Fetcher（ent_data_fetcher_8e6a5e22ce2a）の 出典を見る > 事業内容 原文: 読む人に分かりにくい語「MRR」→ 月の定期売上（単なる月商と区別する）
+記録の文 Data Fetcher（ent_data_fetcher_8e6a5e22ce2a）の 出典を見る > 事業内容 原文: 読む人に分かりにくい語「MRR」→ 月の定期売上（単なる月商と区別する）
+記録の文 Data Fetcher（ent_data_fetcher_8e6a5e22ce2a）の 冒頭の数字の帯 > PRICING 原文: 料金に付帯条件「返金」（税・別料金・返金は読む人が料金で知りたい事ではない。消す）
+記録の文 DNSimple（ent_dnsimple_c8560498b136）の 出典を見る > 事業内容 原文: 不自然な言い回し「DNS」（説明のない英字の略語で、一般の読者には意味が通らない（例: GST、SSO、SLA、HN））→ 日本語で言い換える（GST→インドの消費税、HN→Hacker News）／読者がその欄で知りたい話でなければ消す
+記録の文 DNSimple（ent_dnsimple_c8560498b136）の 出典を見る > 事業内容 原文: 不自然な言い回し「DNS」（説明のない英字の略語で、一般の読者には意味が通らない（例: GST、SSO、SLA、HN））→ 日本語で言い換える（GST→インドの消費税、HN→Hacker News）／読者がその欄で知りたい話でなければ消す
+記録の文 DNSimple（ent_dnsimple_c8560498b136）の 出典を見る > 起きたこと 原文: 不自然な言い回し「ALIAS」（説明のない英字の略語で、一般の読者には意味が通らない（例: GST、SSO、SLA、HN））→ 日本語で言い換える（GST→インドの消費税、HN→Hacker News）／読者がその欄で知りたい話でなければ消す
+記録の文 DNSimple（ent_dnsimple_c8560498b136）の 出典を見る > 起きたこと 原文: 不自然な言い回し「DNS」（説明のない英字の略語で、一般の読者には意味が通らない（例: GST、SSO、SLA、HN））→ 日本語で言い換える（GST→インドの消費税、HN→Hacker News）／読者がその欄で知りたい話でなければ消す
+記録の文 DNSimple（ent_dnsimple_c8560498b136）の 出典を見る > 料金（料金の帯にも出る） 原文: 不自然な言い回し「DNS」（説明のない英字の略語で、一般の読者には意味が通らない（例: GST、SSO、SLA、HN））→ 日本語で言い換える（GST→インドの消費税、HN→Hacker News）／読者がその欄で知りたい話でなければ消す
+記録の文 DNSimple（ent_dnsimple_c8560498b136）の 出典を見る > 事業内容 原文: 読む人に分かりにくい語「API」→ 他のソフトからこの機能を使うための接続口
+記録の文 DNSimple（ent_dnsimple_c8560498b136）の 出典を見る > 事業内容 原文: 不自然な言い回し「DNS」（説明のない英字の略語で、一般の読者には意味が通らない（例: GST、SSO、SLA、HN））→ 日本語で言い換える（GST→インドの消費税、HN→Hacker News）／読者がその欄で知りたい話でなければ消す
+記録の文 DNSimple（ent_dnsimple_c8560498b136）の 出典を見る > 事業内容 原文: 不自然な言い回し「DNS」（説明のない英字の略語で、一般の読者には意味が通らない（例: GST、SSO、SLA、HN））→ 日本語で言い換える（GST→インドの消費税、HN→Hacker News）／読者がその欄で知りたい話でなければ消す
+記録の文 DNSimple（ent_dnsimple_c8560498b136）の 出典を見る > 料金（料金の帯にも出る） 原文: 不自然な言い回し「ACH」（説明のない英字の略語で、一般の読者には意味が通らない（例: GST、SSO、SLA、HN））→ 日本語で言い換える（GST→インドの消費税、HN→Hacker News）／読者がその欄で知りたい話でなければ消す
+記録の文 DNSimple（ent_dnsimple_c8560498b136）の 出典を見る > 起きたこと 原文: 不自然な言い回し「DNS」（説明のない英字の略語で、一般の読者には意味が通らない（例: GST、SSO、SLA、HN））→ 日本語で言い換える（GST→インドの消費税、HN→Hacker News）／読者がその欄で知りたい話でなければ消す
+記録の文 DNSimple（ent_dnsimple_c8560498b136）の 出典を見る > 起きたこと 原文: 不自然な言い回し「DNS」（説明のない英字の略語で、一般の読者には意味が通らない（例: GST、SSO、SLA、HN））→ 日本語で言い換える（GST→インドの消費税、HN→Hacker News）／読者がその欄で知りたい話でなければ消す
+記録の文 DNSimple（ent_dnsimple_c8560498b136）の 出典を見る > 起きたこと 原文: 不自然な言い回し「UTC」（説明のない英字の略語で、一般の読者には意味が通らない（例: GST、SSO、SLA、HN））→ 日本語で言い換える（GST→インドの消費税、HN→Hacker News）／読者がその欄で知りたい話でなければ消す
+記録の文 DNSimple（ent_dnsimple_c8560498b136）の 出典を見る > 起きたこと 原文: 不自然な言い回し「DNS」（説明のない英字の略語で、一般の読者には意味が通らない（例: GST、SSO、SLA、HN））→ 日本語で言い換える（GST→インドの消費税、HN→Hacker News）／読者がその欄で知りたい話でなければ消す
+記録の文 DNSimple（ent_dnsimple_c8560498b136）の 出典を見る > 補足 原文: 不自然な言い回し「IP」（説明のない英字の略語で、一般の読者には意味が通らない（例: GST、SSO、SLA、HN））→ 日本語で言い換える（GST→インドの消費税、HN→Hacker News）／読者がその欄で知りたい話でなければ消す
+記録の文 DNSimple（ent_dnsimple_c8560498b136）の 出典を見る > 補足 原文: 不自然な言い回し「IP」（説明のない英字の略語で、一般の読者には意味が通らない（例: GST、SSO、SLA、HN））→ 日本語で言い換える（GST→インドの消費税、HN→Hacker News）／読者がその欄で知りたい話でなければ消す
+記録の文 DNSimple（ent_dnsimple_c8560498b136）の 出典を見る > 起きたこと 原文: 不自然な言い回し「GTT」（説明のない英字の略語で、一般の読者には意味が通らない（例: GST、SSO、SLA、HN））→ 日本語で言い換える（GST→インドの消費税、HN→Hacker News）／読者がその欄で知りたい話でなければ消す
+記録の文 DNSimple（ent_dnsimple_c8560498b136）の 出典を見る > 起きたこと 原文: 不自然な言い回し「RIPE」（説明のない英字の略語で、一般の読者には意味が通らない（例: GST、SSO、SLA、HN））→ 日本語で言い換える（GST→インドの消費税、HN→Hacker News）／読者がその欄で知りたい話でなければ消す
+記録の文 DNSimple（ent_dnsimple_c8560498b136）の 出典を見る > 起きたこと 原文: 読む人に分かりにくい語「API」→ 他のソフトからこの機能を使うための接続口
+記録の文 E-junkie（ent_ejunkie_7e9e46bd9643）の 出典を見る > チーム 原文: 不自然な言い回し「AWS」（説明のない英字の略語で、一般の読者には意味が通らない（例: GST、SSO、SLA、HN））→ 日本語で言い換える（GST→インドの消費税、HN→Hacker News）／読者がその欄で知りたい話でなければ消す
+記録の文 E-junkie（ent_ejunkie_7e9e46bd9643）の 計算の前提 > COMPETITION 原文: 「分からない・未確認」と言うだけの文は載せない（載せないのが正しい）
+記録の文 Geocodio（ent_geocodio_c64c0721d500）の 出典を見る > 補足 原文: 不自然な言い回し「USPS」（説明のない英字の略語で、一般の読者には意味が通らない（例: GST、SSO、SLA、HN））→ 日本語で言い換える（GST→インドの消費税、HN→Hacker News）／読者がその欄で知りたい話でなければ消す
+記録の文 Geocodio（ent_geocodio_c64c0721d500）の 出典を見る > 使っている技術 原文: 不自然な言い回し「PHP」（説明のない英字の略語で、一般の読者には意味が通らない（例: GST、SSO、SLA、HN））→ 日本語で言い換える（GST→インドの消費税、HN→Hacker News）／読者がその欄で知りたい話でなければ消す
+記録の文 Geocodio（ent_geocodio_c64c0721d500）の 出典を見る > 事業内容 原文: 不自然な言い回し「CSV」（説明のない英字の略語で、一般の読者には意味が通らない（例: GST、SSO、SLA、HN））→ 日本語で言い換える（GST→インドの消費税、HN→Hacker News）／読者がその欄で知りたい話でなければ消す
+記録の文 Geocodio（ent_geocodio_c64c0721d500）の 出典を見る > 事業内容 原文: 不自然な言い回し「TSV」（説明のない英字の略語で、一般の読者には意味が通らない（例: GST、SSO、SLA、HN））→ 日本語で言い換える（GST→インドの消費税、HN→Hacker News）／読者がその欄で知りたい話でなければ消す
+記録の文 HeyGen（ent_heygen_8f11a1）の 出典を見る > 起きたこと 原文: 読む人に分かりにくい語「ARR」→ 定期売上を1年分に換算した額（年間の実績とは区別する）
+記録の文 HeyGen（ent_heygen_8f11a1）の 出典を見る > 補足 原文: 「分からない・未確認」と言うだけの文は載せない（載せないのが正しい）
+記録の文 HeyGen（ent_heygen_8f11a1）の 出典を見る > 補足 原文: 読む人に分かりにくい語「ARR」→ 定期売上を1年分に換算した額（年間の実績とは区別する）
+記録の文 HeyGen（ent_heygen_8f11a1）の 出典を見る > 補足 原文: 意味が取れない言い方「機能を出荷」（ソフトの機能に「出荷」は直訳調）→ 新しい機能を出す／公開する（規則 .claude/skills/natural-japanese/SKILL.md）
+記録の文 HeyGen（ent_heygen_8f11a1）の 出典を見る > 出資・資金集め 原文: 「分からない・未確認」と言うだけの文は載せない（載せないのが正しい）
+記録の文 HeyGen（ent_heygen_8f11a1）の 計算の前提 > CAPITAL_AND_TEAM 原文: 読む人に分かりにくい語「ARR」→ 定期売上を1年分に換算した額（年間の実績とは区別する）
+記録の文 HostiFi（ent_hostifi_cf9ec73a42d2）の 出典を見る > 補足 原文: 不自然な言い回し「UISP」（説明のない英字の略語で、一般の読者には意味が通らない（例: GST、SSO、SLA、HN））→ 日本語で言い換える（GST→インドの消費税、HN→Hacker News）／読者がその欄で知りたい話でなければ消す
+記録の文 HostiFi（ent_hostifi_cf9ec73a42d2）の 出典を見る > 補足 原文: 不自然な言い回し「CSV」（説明のない英字の略語で、一般の読者には意味が通らない（例: GST、SSO、SLA、HN））→ 日本語で言い換える（GST→インドの消費税、HN→Hacker News）／読者がその欄で知りたい話でなければ消す
+記録の文 Indie Hackers（ent_indiehackers_6548833164b0）の 出典を見る > 使っている技術 原文: 不自然な言い回し「GPT」（説明のない英字の略語で、一般の読者には意味が通らない（例: GST、SSO、SLA、HN））→ 日本語で言い換える（GST→インドの消費税、HN→Hacker News）／読者がその欄で知りたい話でなければ消す
+記録の文 Indie Hackers（ent_indiehackers_6548833164b0）の 出典を見る > 料金（料金の帯にも出る） 原文: 意味の通らないプラン名「Indie Hackers Plus」（読む人が知りたいのは、いくらで何が使えるか。人数・回数・機能で言う）
+記録の文 Lunch Money（ent_lunch_money_be2eeb1f4fdf）の 出典を見る > 使っている技術 原文: 読む人に分かりにくい語「API」→ 他のソフトからこの機能を使うための接続口
+記録の文 Lunch Money（ent_lunch_money_be2eeb1f4fdf）の 出典を見る > 料金（料金の帯にも出る） 原文: 不自然な言い回し「US」（説明のない英字の略語で、一般の読者には意味が通らない（例: GST、SSO、SLA、HN））→ 日本語で言い換える（GST→インドの消費税、HN→Hacker News）／読者がその欄で知りたい話でなければ消す
+記録の文 Lunch Money（ent_lunch_money_be2eeb1f4fdf）の 出典を見る > 料金（料金の帯にも出る） 原文: 不自然な言い回し「US」（説明のない英字の略語で、一般の読者には意味が通らない（例: GST、SSO、SLA、HN））→ 日本語で言い換える（GST→インドの消費税、HN→Hacker News）／読者がその欄で知りたい話でなければ消す
+記録の文 Lunch Money（ent_lunch_money_be2eeb1f4fdf）の 出典を見る > 料金（料金の帯にも出る） 原文: 不自然な言い回し「US」（説明のない英字の略語で、一般の読者には意味が通らない（例: GST、SSO、SLA、HN））→ 日本語で言い換える（GST→インドの消費税、HN→Hacker News）／読者がその欄で知りたい話でなければ消す
+記録の文 Lunch Money（ent_lunch_money_be2eeb1f4fdf）の 出典を見る > 料金（料金の帯にも出る） 原文: 不自然な言い回し「CAD」（説明のない英字の略語で、一般の読者には意味が通らない（例: GST、SSO、SLA、HN））→ 日本語で言い換える（GST→インドの消費税、HN→Hacker News）／読者がその欄で知りたい話でなければ消す
+記録の文 Lunch Money（ent_lunch_money_be2eeb1f4fdf）の 出典を見る > 集客 原文: 不自然な言い回し「US」（説明のない英字の略語で、一般の読者には意味が通らない（例: GST、SSO、SLA、HN））→ 日本語で言い換える（GST→インドの消費税、HN→Hacker News）／読者がその欄で知りたい話でなければ消す
+記録の文 Lunch Money（ent_lunch_money_be2eeb1f4fdf）の 出典を見る > 補足 原文: 不自然な言い回し「CIBC」（説明のない英字の略語で、一般の読者には意味が通らない（例: GST、SSO、SLA、HN））→ 日本語で言い換える（GST→インドの消費税、HN→Hacker News）／読者がその欄で知りたい話でなければ消す
+記録の文 Lunch Money（ent_lunch_money_be2eeb1f4fdf）の 出典を見る > 補足 原文: 不自然な言い回し「BMO」（説明のない英字の略語で、一般の読者には意味が通らない（例: GST、SSO、SLA、HN））→ 日本語で言い換える（GST→インドの消費税、HN→Hacker News）／読者がその欄で知りたい話でなければ消す
+記録の文 Lunch Money（ent_lunch_money_be2eeb1f4fdf）の 出典を見る > 補足 原文: 不自然な言い回し「CIBC」（説明のない英字の略語で、一般の読者には意味が通らない（例: GST、SSO、SLA、HN））→ 日本語で言い換える（GST→インドの消費税、HN→Hacker News）／読者がその欄で知りたい話でなければ消す
+記録の文 NoteForms（旧 NotionForms）（ent_noteforms_003fcbdd14cf）の 出典を見る > 補足 原文: 不自然な言い回し「SAS」（説明のない英字の略語で、一般の読者には意味が通らない（例: GST、SSO、SLA、HN））→ 日本語で言い換える（GST→インドの消費税、HN→Hacker News）／読者がその欄で知りたい話でなければ消す
+記録の文 Practical Typography（ent_practicaltypographycom_e9aa6bc94ccf）の 出典を見る > 料金（料金の帯にも出る） 原文: 意味が取れない言い方「直接の支払い」（造語（direct payment の直訳）で、誰が誰に何のために払うのか分からない）→ 読者が作者に直接送るお金／作者への直接の送金（規則 .claude/skills/natural-japanese/SKILL.md）
+記録の文 Practical Typography（ent_practicaltypographycom_e9aa6bc94ccf）の 出典を見る > 料金（料金の帯にも出る） 原文: 意味の通らないプラン名「Lawyers」（読む人が知りたいのは、いくらで何が使えるか。人数・回数・機能で言う）
+記録の文 Practical Typography（ent_practicaltypographycom_e9aa6bc94ccf）の 出典を見る > 補足 原文: 意味が取れない言い方「直接の支払い」（造語（direct payment の直訳）で、誰が誰に何のために払うのか分からない）→ 読者が作者に直接送るお金／作者への直接の送金（規則 .claude/skills/natural-japanese/SKILL.md）
+記録の文 Quaderno（ent_quaderno_81236030d721）の 出典を見る > 補足 原文: 不自然な言い回し「SL」（説明のない英字の略語で、一般の読者には意味が通らない（例: GST、SSO、SLA、HN））→ 日本語で言い換える（GST→インドの消費税、HN→Hacker News）／読者がその欄で知りたい話でなければ消す
+記録の文 Quaderno（ent_quaderno_81236030d721）の 出典を見る > 料金（料金の帯にも出る） 原文: 料金に付帯条件「返金」（税・別料金・返金は読む人が料金で知りたい事ではない。消す）
+記録の文 Referral Rock（ent_referralrock_8c13d5ee4cfc）の 出典を見る > 補足 原文: 不自然な言い回し「HTML」（説明のない英字の略語で、一般の読者には意味が通らない（例: GST、SSO、SLA、HN））→ 日本語で言い換える（GST→インドの消費税、HN→Hacker News）／読者がその欄で知りたい話でなければ消す
+記録の文 Requestly（ent_requestly_28e9f2）の 出典を見る > 起きたこと 原文: 読む人に分かりにくい語「HTTP」→ ブラウザとサーバーの通信
+記録の文 Requestly（ent_requestly_28e9f2）の 出典を見る > 起きたこと 原文: 読む人に分かりにくい語「プロキシ」→ 通信を中継する仕組み
+記録の文 Requestly（ent_requestly_28e9f2）の 出典を見る > 起きたこと 原文: 不自然な言い回し「VPN」（説明のない英字の略語で、一般の読者には意味が通らない（例: GST、SSO、SLA、HN））→ 日本語で言い換える（GST→インドの消費税、HN→Hacker News）／読者がその欄で知りたい話でなければ消す
+記録の文 Requestly（ent_requestly_28e9f2）の 出典を見る > 起きたこと 原文: 読む人に分かりにくい語「API」→ 他のソフトからこの機能を使うための接続口
+記録の文 Requestly（ent_requestly_28e9f2）の 出典を見る > 起きたこと 原文: 読む人に分かりにくい語「バックエンド」→ サーバー側の処理や機能
+記録の文 Requestly（ent_requestly_28e9f2）の 出典を見る > 起きたこと 原文: 読む人に分かりにくい語「モック」→ 試験用の仮のデータや応答
+記録の文 Requestly（ent_requestly_28e9f2）の 出典を見る > 起きたこと 原文: 不自然な言い回し「SSO」（説明のない英字の略語で、一般の読者には意味が通らない（例: GST、SSO、SLA、HN））→ 日本語で言い換える（GST→インドの消費税、HN→Hacker News）／読者がその欄で知りたい話でなければ消す
+記録の文 Requestly（ent_requestly_28e9f2）の 出典を見る > 起きたこと 原文: 不自然な言い回し「SLA」（説明のない英字の略語で、一般の読者には意味が通らない（例: GST、SSO、SLA、HN））→ 日本語で言い換える（GST→インドの消費税、HN→Hacker News）／読者がその欄で知りたい話でなければ消す
+記録の文 Refactoring UI（ent_rfrcui_64e924ac）の 出典を見る > 補足 原文: 不自然な言い回し「TDD」（説明のない英字の略語で、一般の読者には意味が通らない（例: GST、SSO、SLA、HN））→ 日本語で言い換える（GST→インドの消費税、HN→Hacker News）／読者がその欄で知りたい話でなければ消す
+記録の文 Snipcart（ent_snipcart_9a1012111695）の 出典を見る > 補足 原文: 不自然な言い回し「HTML」（説明のない英字の略語で、一般の読者には意味が通らない（例: GST、SSO、SLA、HN））→ 日本語で言い換える（GST→インドの消費税、HN→Hacker News）／読者がその欄で知りたい話でなければ消す
+記録の文 Snipcart（ent_snipcart_9a1012111695）の 出典を見る > 創業 原文: 不自然な言い回し「ASP」（説明のない英字の略語で、一般の読者には意味が通らない（例: GST、SSO、SLA、HN））→ 日本語で言い換える（GST→インドの消費税、HN→Hacker News）／読者がその欄で知りたい話でなければ消す
+記録の文 StatusGator（ent_statusgator_316d3eb5edf6）の 出典を見る > 使っている技術 原文: 不自然な言い回し「AWS」（説明のない英字の略語で、一般の読者には意味が通らない（例: GST、SSO、SLA、HN））→ 日本語で言い換える（GST→インドの消費税、HN→Hacker News）／読者がその欄で知りたい話でなければ消す
+記録の文 StatusGator（ent_statusgator_316d3eb5edf6）の 出典を見る > 補足 原文: 不自然な言い回し「SOC」（説明のない英字の略語で、一般の読者には意味が通らない（例: GST、SSO、SLA、HN））→ 日本語で言い換える（GST→インドの消費税、HN→Hacker News）／読者がその欄で知りたい話でなければ消す
+記録の文 StatusGator（ent_statusgator_316d3eb5edf6）の 出典を見る > 補足 原文: 不自然な言い回し「SMS」（説明のない英字の略語で、一般の読者には意味が通らない（例: GST、SSO、SLA、HN））→ 日本語で言い換える（GST→インドの消費税、HN→Hacker News）／読者がその欄で知りたい話でなければ消す
+記録の文 Teamcamp（ent_teamcamp_ae0c21986c4d）の 出典を見る > 補足 原文: 読む人に分かりにくい語「MRR」→ 月の定期売上（単なる月商と区別する）
+記録の文 Teamcamp（ent_teamcamp_ae0c21986c4d）の 出典を見る > 補足 原文: 不自然な言い回し「NPS」（説明のない英字の略語で、一般の読者には意味が通らない（例: GST、SSO、SLA、HN））→ 日本語で言い換える（GST→インドの消費税、HN→Hacker News）／読者がその欄で知りたい話でなければ消す
+記録の文 Tuple（ent_tuple_20261007）の 出典を見る > 補足 原文: 不自然な言い回し「GTK」（説明のない英字の略語で、一般の読者には意味が通らない（例: GST、SSO、SLA、HN））→ 日本語で言い換える（GST→インドの消費税、HN→Hacker News）／読者がその欄で知りたい話でなければ消す
+記録の文 Typedream（ent_typedream_c02cf9d5426e）の 出典を見る > 料金（料金の帯にも出る） 原文: 料金に付帯条件「返金」（税・別料金・返金は読む人が料金で知りたい事ではない。消す）
+記録の文 Userlist（ent_userlist_a288fcf9f741）の 出典を見る > 起きたこと 原文: 読む人に分かりにくい語「SaaS」→ インターネット経由で使うソフト
+記録の文 WIP（ent_wip_5eef8a985270）の 出典を見る > 料金（料金の帯にも出る） 原文: 意味の通らないプラン名「Patronage」（読む人が知りたいのは、いくらで何が使えるか。人数・回数・機能で言う）
+分析欄 Candy Japan（ent_candy_japan_954236d663a8）の「手残り」（a-take_home） 原文: 日本語の誤り 「完全に」という絶対的な表現は過度に断定的である可能性があります。「多くの場合」などの表現を検討してください。（@textlint-ja/ai-writing/no-ai-hype-expressions）「本人の見積もりでは、4月は売上 USD 7,234（約108…」
+記録の文 Candy Japan（ent_candy_japan_954236d663a8）の 出典を見る > 事業内容 原文: 日本語の誤り 「完全に」という絶対的な表現は過度に断定的である可能性があります。「多くの場合」などの表現を検討してください。（@textlint-ja/ai-writing/no-ai-hype-expressions）「生活費を完全には賄えなくなり、別の事業案にも時間を割くと述べ…」
+記録の文 Candy Japan（ent_candy_japan_954236d663a8）の 冒頭の数字の帯 > TAKE_HOME 原文: 日本語の誤り 「完全に」という絶対的な表現は過度に断定的である可能性があります。「多くの場合」などの表現を検討してください。（@textlint-ja/ai-writing/no-ai-hype-expressions）「本人の見積もりでは、4月は売上 USD 7,234 から諸費…」
+記録の文 DNSimple（ent_dnsimple_c8560498b136）の 出典を見る > 起きたこと 原文: 日本語の誤り 「完全に」という絶対的な表現は過度に断定的である可能性があります。「多くの場合」などの表現を検討してください。（@textlint-ja/ai-writing/no-ai-hype-expressions）「自前防御を完全に担う資金・技能が足りないとし、外部DNS防御…」
+記録の文 Geocodio（ent_geocodio_c64c0721d500）の 出典を見る > 料金（料金の帯にも出る） 原文: 日本語の誤り 同じ接続詞（または）が連続して使われています。（no-doubled-conjunction）「Flex 350は月350,000単位で月325米ドルまたは…」
+記録の文 Indie Hackers（ent_indiehackers_6548833164b0）の 出典を見る > 集客 原文: 日本語の誤り 【dict5】 "開発を行う"は冗長な表現です。"開発する"など簡潔な表現にすると文章が明瞭になります。 解説: https://github.com/textlint-ja/textlint-rule-ja-no-redundant-expression#dict5（ja-no-redundant-expression）「初期にはメール、取材、開発を行い、取材を効率化した後は掲示板…」
+記録の文 StatusGator（ent_statusgator_316d3eb5edf6）の 出典を見る > 出資・資金集め 原文: 日本語の誤り 【dict5】 "調達を行う"は冗長な表現です。"調達する"など簡潔な表現にすると文章が明瞭になります。 解説: https://github.com/textlint-ja/textlint-rule-ja-no-redundant-expression#dict5（ja-no-redundant-expression）「2022年にTinySeedに参加し、最初で唯一の資金調達を…」
+記録の文 Teamcamp（ent_teamcamp_ae0c21986c4d）の 出典を見る > 料金（料金の帯にも出る） 原文: 日本語の誤り 一つの文で"、"を4つ以上使用しています（max-ten）「2025年10月7日の本人投稿は、買い切り999ドル（ユーザ…」
+記録の文 Userlist（ent_userlist_a288fcf9f741）の 出典を見る > 補足 原文: 日本語の誤り 【dict5】 "面談を行う"は冗長な表現です。"面談する"など簡潔な表現にすると文章が明瞭になります。 解説: https://github.com/textlint-ja/textlint-rule-ja-no-redundant-expression#dict5（ja-no-redundant-expression）「この支援は行動による顧客分類と、継続利用を促す10通のメール…」
+[case-text] OK

@@ -100810,5 +100810,179 @@
    "formula": "数字は出典に載っている値",
    "presentation": "FACT_SUMMARY"
   }
+ ],
+ "ent_polarsteps_2b2970abd201": [
+  {
+   "id": "a-headline",
+   "item": "HEADLINE",
+   "text": "利用者の要望から旅の記録を紙の本にする機能を作り、本の販売を収入の柱にした、移動経路を自動で地図に残す旅行アプリ",
+   "basis": [
+    "f1",
+    "f3",
+    "f9",
+    "f17"
+   ],
+   "presentation": "FACT_SUMMARY"
+  },
+  {
+   "id": "a-story",
+   "item": "STORY",
+   "text": "Niekが大西洋を航海する際、家族や友人に居場所を伝える仕組みを作った。Job、Koen、Maximilianoが加わり、iPhone用の試用版を公開した。その後、利用者の要望に応えて旅の記録を紙の本にするTravel Bookを発売し、販売が収入の柱になった。旅行がほぼ止まった時期にも、利用者は過去の旅の写真を本にした。さらに、詳しい地形や移動の記録を求める旅行者向けに有料プランを加えた。",
+   "basis": [
+    "f4",
+    "f5",
+    "f6",
+    "f9",
+    "f11",
+    "f20",
+    "f21"
+   ],
+   "presentation": "FACT_SUMMARY"
+  },
+  {
+   "id": "a-business_model",
+   "item": "BUSINESS_MODEL",
+   "text": "旅行者がアプリに残した経路・写真・文章を硬い表紙の本にまとめ、その本を販売して代金を得る。詳しい地形や移動の記録を使いたい利用者からは、有料プランの利用料を受け取る。アプリ内の旅行案内を見た利用者が宿泊先などを予約した場合にも、予約に応じた収入を得る。",
+   "basis": [
+    "f3",
+    "f9",
+    "f10",
+    "f17",
+    "f20",
+    "f21",
+    "f22"
+   ],
+   "presentation": "FACT_SUMMARY"
+  },
+  {
+   "id": "a-customer",
+   "item": "CUSTOMER",
+   "text": "旅の写真や経路、出来事を紙の本として手元に残したい旅行者がTravel Bookを購入する。有料の追加機能は、長距離の登山などで地形や移動を詳しく記録したい旅行者向けだ。",
+   "basis": [
+    "f3",
+    "f17",
+    "f21"
+   ],
+   "presentation": "FACT_SUMMARY"
+  },
+  {
+   "id": "a-customer_pain",
+   "item": "CUSTOMER_PAIN",
+   "text": "旅の写真を本に残すには、写真集の編集に時間がかかる。Polarstepsは旅の記録から本の配置を自動で作り、その手間を減らした。旅行中の近況も、旅のリンクを共有すれば家族や友人にまとめて伝えられる。",
+   "basis": [
+    "f2",
+    "f7"
+   ],
+   "presentation": "FACT_SUMMARY"
+  },
+  {
+   "id": "a-channels",
+   "item": "CHANNELS",
+   "text": "利用者が他の旅行者にアプリを勧めることで広がった。家族や友人に旅を共有でき、公式サイトには、共有した相手もアプリを使い始めたという利用者の声がある。",
+   "basis": [
+    "f2",
+    "f12"
+   ],
+   "presentation": "FACT_SUMMARY"
+  },
+  {
+   "id": "a-capital_and_team",
+   "item": "CAPITAL_AND_TEAM",
+   "text": "NiekにJob、Koen、Maximilianoが加わって創業チームを組んだ。2016年3月17日に投資会社と報道会社から50万ユーロの調達を発表し、2019年1月16日には公表された調達額の累計が460万ユーロになった。",
+   "basis": [
+    "f4",
+    "f15",
+    "f16",
+    "m1",
+    "m5"
+   ],
+   "presentation": "FACT_SUMMARY",
+   "formula": "数字は出典に載っている値"
+  },
+  {
+   "id": "a-timeline",
+   "item": "TIMELINE",
+   "text": "2017年2月6日、Travel Bookを発売。2019年1月16日、登録利用者数が100万人を超えた。2025年には世界の利用者数が1,500万人となり、2026年3月27日に2,000万人への到達を発表した。",
+   "basis": [
+    "f6",
+    "m2",
+    "f14",
+    "m3",
+    "f18",
+    "m6",
+    "m7"
+   ],
+   "presentation": "FACT_SUMMARY",
+   "formula": "数字は出典に載っている値"
+  }
+ ],
+ "ent_wildgrain_2b5aec41c733": [
+  {
+   "id": "a-headline",
+   "item": "HEADLINE",
+   "text": "市販の食品に満足できず、自宅でレシピを研究するところから始まった、解凍せずに焼けるパンや菓子を家庭に届ける定期便。",
+   "basis": [
+    "f1",
+    "f2",
+    "f6",
+    "f7"
+   ],
+   "presentation": "FACT_SUMMARY"
+  },
+  {
+   "id": "a-story",
+   "item": "STORY",
+   "text": "Johanna Hartzheimは、市販の食品に満足できず、自宅で作る食品のレシピを研究し、夫とWildgrainを始めた。創業当初のパンや菓子は自ら手作業で作っていた。その後、創業したソマービルに実店舗Wildgrain Bakehouseを開いた。",
+   "basis": [
+    "f6",
+    "f7",
+    "f9",
+    "f16"
+   ],
+   "presentation": "FACT_SUMMARY"
+  },
+  {
+   "id": "a-business_model",
+   "item": "BUSINESS_MODEL",
+   "text": "家庭向けにパンや菓子、生パスタを箱に詰めて定期配送し、会員から配送ごとに代金を受け取る。パンや菓子は冷凍で届き、客が自宅で焼いて仕上げる。独立したベーカリーと提携して商品を揃える。",
+   "basis": [
+    "f1",
+    "f2",
+    "f14"
+   ],
+   "presentation": "FACT_SUMMARY"
+  },
+  {
+   "id": "a-customer",
+   "item": "CUSTOMER",
+   "text": "家庭でパンや菓子、生パスタを食べる定期購入の会員。会員は15万人を超える。夏の間だけ配送を休む既存客もいる。",
+   "basis": [
+    "f1",
+    "f11",
+    "f15"
+   ],
+   "presentation": "FACT_SUMMARY",
+   "formula": "数字は出典に載っている値"
+  },
+  {
+   "id": "a-customer_pain",
+   "item": "CUSTOMER_PAIN",
+   "text": "パン生地を仕込んだり、解凍を待ったりせず、食べたいときに自宅で焼きたてを食べたい。Wildgrainのパンや菓子は、冷凍庫から出してそのまま焼ける。",
+   "basis": [
+    "f2"
+   ],
+   "presentation": "FACT_SUMMARY"
+  },
+  {
+   "id": "a-channels",
+   "item": "CHANNELS",
+   "text": "夏に配送を休む既存客の動きに合わせ、年明けに広告予算を増やす方針を取った。音声番組の広告と、インターネット経由で見るテレビの広告も試した。",
+   "basis": [
+    "f11",
+    "f12",
+    "f13"
+   ],
+   "presentation": "FACT_SUMMARY"
+  }
  ]
 }

@@ -1,8 +1,7 @@
 "use client";
 
-import React, { useState } from "react";
-import type { FinancialEntity } from "@/shared/terminal";
-import { countScreenerMatches } from "../../model/entity-filter";
+import React from "react";
+import { countFacetMatches, type FacetRow } from "../../model/entity-filter";
 import type { ScreenerFilterState } from "../screener/AdvancedScreenerModal";
 import {
   CAPITAL_OPTIONS,
@@ -10,8 +9,8 @@ import {
   MOAT_OPTIONS,
   SCALE_OPTIONS,
   SCREENER_LABELS,
-  TAG_MAX_COUNT,
-  pickVisibleTags,
+  TAG_AXES,
+  selectionWithOnly,
 } from "../screener/screener-options";
 
 /**
@@ -25,13 +24,10 @@ export interface LedgerFilterRailProps {
   resultCount: number;
   catalogTotal: number;
   /**
-   * 公開中の全事例（全件が手元に読めている時だけ渡す）。渡された時は、1件も当たらない条件を押せない表示にする。
-   * 一部しか読めていない時は渡さない（手元の分だけで「0件」と決めつけない）。
+   * 公開中の全件の、件数用の最小の値（/api/catalog/facets）。渡された時は件数を出し、1件も当たらない条件を押せない表示にする。
+   * まだ読めていない間は渡さない（手元の分だけで「0件」と決めつけない）。
    */
-  allEntities?: readonly FinancialEntity[];
-  /** 事例の特徴タグ（スマホの「絞り込み・検索」と同じ一覧と件数） */
-  availableTags?: string[];
-  tagCounts?: Record<string, number>;
+  facets?: readonly FacetRow[];
 }
 
 const EMPTY: ScreenerFilterState = {
@@ -115,16 +111,12 @@ function Row({
 export const LedgerFilterRail: React.FC<LedgerFilterRailProps> = ({
   filters,
   onChangeFilters,
-  allEntities,
-  availableTags = [],
-  tagCounts = {},
+  facets,
 }) => {
-  const [tagQuery, setTagQuery] = useState("");
-  const [tagsExpanded, setTagsExpanded] = useState(false);
   const current = filters ?? EMPTY;
-  // その条件を選んだ時の件数（今の他の条件はそのまま。同じ欄の条件は入れ替えて数える）。全件が手元にある時だけ出す
+  // その条件を選んだ時の件数（今の他の条件はそのまま。同じ欄の条件は入れ替えて数える）。公開中の全件で数える
   const countFor = (patch: Partial<ScreenerFilterState>): number | undefined =>
-    allEntities ? countScreenerMatches(allEntities, { ...current, ...patch }) : undefined;
+    facets ? countFacetMatches(facets, { ...current, ...patch }) : undefined;
   const update = (patch: Partial<ScreenerFilterState>) => {
     const next = { ...current, ...patch };
     onChangeFilters(isEmpty(next) ? null : next);
@@ -133,13 +125,6 @@ export const LedgerFilterRail: React.FC<LedgerFilterRailProps> = ({
     list.includes(value) ? list.filter((v) => v !== value) : [...list, value];
   const selectedTags = current.selectedTags ?? [];
   const optionCount = (patch: Partial<ScreenerFilterState>) => countFor(patch);
-  const tagView = pickVisibleTags({
-    tags: availableTags,
-    counts: tagCounts,
-    selected: selectedTags,
-    query: tagQuery,
-    expanded: tagsExpanded,
-  });
 
   // 選んでいる条件（欄を閉じていても見え、×で外せる）
   const applied: { key: string; label: string; remove: () => void }[] = [
@@ -242,66 +227,23 @@ export const LedgerFilterRail: React.FC<LedgerFilterRailProps> = ({
         ))}
       </Group>
 
-      {availableTags.length > 0 && (
-        <Group title={SCREENER_LABELS.tags}>
-          <div className="relative">
-            <input
-              type="search"
-              aria-label={SCREENER_LABELS.tagSearch}
-              placeholder={`${SCREENER_LABELS.tagSearch}（${availableTags.length.toLocaleString()}件）`}
-              value={tagQuery}
-              onChange={(event) => setTagQuery(event.target.value)}
-              className="[&::-webkit-search-cancel-button]:appearance-none h-7 w-full border-b border-term-line-soft bg-term-bg px-2.5 pr-7 text-xs text-term-fg-strong outline-none placeholder:text-term-dim focus:border-term-accent"
-            />
-            {tagQuery && (
-              <button
-                type="button"
-                onClick={() => setTagQuery("")}
-                aria-label="検索語を消去"
-                className="absolute right-0 top-0 h-7 w-7 text-term-muted hover:text-term-fg-strong"
-              >
-                ×
-              </button>
-            )}
-          </div>
-          {tagQuery && (
-            <p className="px-2.5 py-1 text-xs text-term-label">{tagView.matched.toLocaleString()}件が一致</p>
-          )}
-          {tagView.shown.map((tag) => (
-            <Row
-              key={tag}
-              label={tag}
-              count={tagCounts[tag]}
-              selected={selectedTags.includes(tag)}
-              onClick={() => update({ selectedTags: toggle(selectedTags, tag) })}
-            />
-          ))}
-          {tagView.matched === 0 && <p className="px-2.5 py-2 text-xs text-term-label">一致する特徴はありません</p>}
-          {tagView.hidden > 0 && !tagQuery && !tagsExpanded && (
-            <button
-              type="button"
-              onClick={() => setTagsExpanded(true)}
-              className="flex min-h-7 w-full items-center gap-1 px-2.5 text-left text-xs text-term-accent underline underline-offset-2 hover:bg-term-head"
-            >
-              ＋ もっと見る（残り{tagView.hidden.toLocaleString()}件）
-            </button>
-          )}
-          {tagView.hidden > 0 && (tagQuery || tagsExpanded) && (
-            <p className="px-2.5 py-2 text-xs text-term-label">
-              他に{tagView.hidden.toLocaleString()}件あります。上の欄に語を入れて探してください（{TAG_MAX_COUNT}件まで表示）
-            </p>
-          )}
-          {tagsExpanded && !tagQuery && (
-            <button
-              type="button"
-              onClick={() => setTagsExpanded(false)}
-              className="flex min-h-7 w-full items-center px-2.5 text-left text-xs text-term-muted underline underline-offset-2 hover:bg-term-head"
-            >
-              － 表示を減らす
-            </button>
-          )}
+      {TAG_AXES.map((axis) => (
+        <Group key={axis.id} title={axis.label}>
+          {axis.words.map((word) => {
+            const withWord = countFor({ selectedTags: selectionWithOnly(selectedTags, word) });
+            return (
+              <Row
+                key={word}
+                label={word}
+                count={withWord}
+                empty={withWord === 0}
+                selected={selectedTags.includes(word)}
+                onClick={() => update({ selectedTags: toggle(selectedTags, word) })}
+              />
+            );
+          })}
         </Group>
-      )}
+      ))}
     </aside>
   );
 };

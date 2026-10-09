@@ -200,7 +200,7 @@
   "kind": "labels",
   "targetId": "labels",
   "hash": "811c9dc5",
-  "text": "ゲーム、クラウドファンディング"
+  "text": "カードゲーム、クラウドファンディング"
  },
  {
   "entityId": "ent_candy_japan_954236d663a8",
@@ -2286,7 +2286,7 @@
   "kind": "labels",
   "targetId": "labels",
   "hash": "811c9dc5",
-  "text": "SaaS、サブスクリプション"
+  "text": "フォーム作成、Notion連携"
  },
  {
   "entityId": "ent_poolsuite_6d5ad6895563",
@@ -2643,7 +2643,7 @@
   "kind": "labels",
   "targetId": "labels",
   "hash": "811c9dc5",
-  "text": "SaaS、EC"
+  "text": "税の計算、請求書の発行"
  },
  {
   "entityId": "ent_referralrock_8c13d5ee4cfc",
@@ -2986,7 +2986,7 @@
   "kind": "labels",
   "targetId": "labels",
   "hash": "811c9dc5",
-  "text": "EC、開発者ツール"
+  "text": "通販の買い物かご、開発者向け"
  },
  {
   "entityId": "ent_statusgator_316d3eb5edf6",
@@ -3841,5 +3841,26 @@
   "targetId": "f22",
   "hash": "dc7b52ad",
   "text": "有料機能には、連続記録の保護、製品の登録数の上限解除、利用状況の詳細、広告の非表示、非公開の製品、外部の道具との連携などがある。"
+ },
+ {
+  "entityId": "ent_shipfast",
+  "kind": "labels",
+  "targetId": "labels",
+  "hash": "9642f226",
+  "text": "開発者向けコード、買い切り"
+ },
+ {
+  "entityId": "ent_geocodio_c64c0721d500",
+  "kind": "labels",
+  "targetId": "labels",
+  "hash": "49d07533",
+  "text": "住所の変換、API連携"
+ },
+ {
+  "entityId": "ent_statusgator_316d3eb5edf6",
+  "kind": "labels",
+  "targetId": "labels",
+  "hash": "c14e8c6c",
+  "text": "障害の監視、状況ページ"
  }
 ]

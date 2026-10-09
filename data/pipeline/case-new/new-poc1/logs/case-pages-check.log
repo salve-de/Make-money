@@ -1,0 +1,8 @@
+$ pnpm case-pages:check
+
+> make-money-app@0.1.0 case-pages:check /Volumes/SS/Worktrees/Make-Money/rewrite-27
+> node --import tsx scripts/case-pages/build.ts --check
+
+警告 ent_pinboard_dee894c32b25: 使ってよい画像もアイコンも0枚（node --import tsx scripts/media/ensure-case-media.ts --ids ent_pinboard_dee894c32b25）
+警告: 画像0枚の公開事例 1件
+検査 OK: 33件

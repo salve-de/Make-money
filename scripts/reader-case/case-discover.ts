@@ -14,6 +14,7 @@ import { dirname, join, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { makeCaller, mapPool, type Agent, type Caller } from './agent-call';
 import { fetchOne } from './fetch-sources';
+import { ownerContext } from './owner-context';
 import { buildDedupIndex, extractJson, priorityOf, readQueue, timed, toCandidate, updateCandidates, type Candidate, type CandidateSource, type RawCandidate } from './candidates-lib';
 import { sourcePolicy } from './source-policy';
 import { cachePath, MIN_TEXT, quoteInText } from './verify-lib';
@@ -62,8 +63,8 @@ export const defaultCheck: SourceChecker = async (url, quote) => {
   return quoteInText(quote, rec.text) ? 'ok' : 'missing';
 };
 
-function systemPrompt(root: string): string {
-  return readFileSync(join(root, 'scripts/reader-case/discover-prompt.md'), 'utf8');
+export function discoverSystem(root: string): string {
+  return readFileSync(join(root, 'scripts/reader-case/discover-prompt.md'), 'utf8') + ownerContext(root);
 }
 
 function userPrompt(angle: { id: string; text: string }, ask: number, avoid: readonly string[]): string {
@@ -79,7 +80,7 @@ export async function runDiscover(opt: DiscoverOptions, deps: DiscoverDeps): Pro
   const rejected: { name: string; reason: string }[] = [];
   const idx = buildDedupIndex(opt.root);
   log(`照合先: 社名 ${idx.size.names} 件・ドメイン ${idx.size.domains} 件`);
-  const system = systemPrompt(opt.root);
+  const system = discoverSystem(opt.root);
   const recentNames = readQueue(opt.root).slice(-120).map((c) => c.name);
   const avoid = [...recentNames];
   let rounds = 0;

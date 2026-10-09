@@ -1,0 +1,24 @@
+$ --import tsx scripts/reader-case/case-run.ts --ids-file /Volumes/SS/Worktrees/Make-Money/rewrite-27/data/pipeline/case-new/new-poc1/entities.ids.txt --agent codex --codex-effort medium --write-effort high --concurrency 2 --run-id new-poc1-run
+[case:run] fetch: 開始（2 件）
+[case:run] fetch: 1.2 秒、失敗 0 件
+[case:run] verify: 開始（2 件）
+[case:run] verify: 2.4 秒、失敗 0 件
+[case:run] source-check: 開始（2 件）
+[case:run] source-check: 1.3 秒、失敗 0 件
+[case:run] analyze: 開始（2 件）
+[case:run] analyze: 1.8 秒、失敗 2 件
+[case:run] audit: 対象の事例が残っていないので飛ばす
+[case:run] select: 対象の事例が残っていないので飛ばす
+[case:run] display: 対象の事例が残っていないので飛ばす
+[case:run] fact-lines: 対象の事例が残っていないので飛ばす
+[case:run] media: 対象の事例が残っていないので飛ばす
+[case:run] case-text: 対象の事例が残っていないので飛ばす
+[case:run] prepare: 対象の事例が残っていないので飛ばす
+実行 new-poc1-run: 全体 6.7 秒、通った事例 0 件、失敗 2 件
+  fetch            1.2 秒  対象 2 件  失敗 0 件
+  verify           2.4 秒  対象 2 件  失敗 0 件
+  source-check     1.3 秒  対象 2 件  失敗 0 件
+  analyze          1.8 秒  対象 2 件  失敗 2 件  （この段は通らなかった）
+失敗した事例と理由:
+  - ent_polarsteps_2b2970abd201  [analyze] 分析の入力が作られなかった（照合で残った事実が無い、または出典の本文が取れていない）
+  - ent_wildgrain_2b5aec41c733  [analyze] 分析の入力が作られなかった（照合で残った事実が無い、または出典の本文が取れていない）

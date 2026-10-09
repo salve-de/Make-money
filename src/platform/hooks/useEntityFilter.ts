@@ -191,16 +191,8 @@ export function useEntityFilter({ entities, searchQuery, onPersistApprovedId, on
     })();
   }, [token, user]);
 
-  const { availableTags, tagCounts, newlyCollectedCount } = useMemo(() => {
-    const counts: Record<string, number> = {};
-    entities.forEach((entity) => (entity.tags || []).forEach((tag) => { counts[tag] = (counts[tag] || 0) + 1; }));
-    const tags = Object.keys(counts).sort((a, b) => {
-      if (a === '収集事例') return -1;
-      if (b === '収集事例') return 1;
-      return counts[b] - counts[a];
-    });
-    return { availableTags: tags, tagCounts: counts, newlyCollectedCount: counts['収集事例'] || 0 };
-  }, [entities]);
+  // 「収集事例」は運営の印。絞り込みの言葉には出さない（タグの件数は、全件が手元にある時に画面側が数える）
+  const newlyCollectedCount = useMemo(() => entities.filter((entity) => (entity.tags || []).includes('収集事例')).length, [entities]);
 
   const batchCounts = useMemo(() => {
     const counts: Record<string, number> = {};
@@ -243,7 +235,7 @@ export function useEntityFilter({ entities, searchQuery, onPersistApprovedId, on
   return {
     currentFilter, setCurrentFilter, selectedBatch, setSelectedBatch,
     activeTags, setActiveTags, handleToggleTag, screenerFilters, setScreenerFilters,
-    bookmarkedIds, handleToggleBookmark, bookmarkSyncStatus, availableTags, tagCounts,
+    bookmarkedIds, handleToggleBookmark, bookmarkSyncStatus,
     newlyCollectedCount, batchCounts, filteredEntities, handleApproveEntity, handleApproveAllCollected, catalogFilters,
   };
 }

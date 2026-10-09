@@ -3,8 +3,9 @@
  *
  *   pnpm case:research --ids cand_a,cand_b      （候補ID。社名のスラッグでもよい）
  *   pnpm case:research --next 3                 （優先度の高い順に3件）
- *   オプション: --agent codex|claude（調べる役。既定 codex）  --model  --codex-effort
+ *   オプション: --agent codex|claude（調べる役。既定 codex）  --model  --codex-effort（既定 high。出典を広く探すため深く考えさせる）
  *              --repair-agent claude|codex（文の直し役。既定 claude の Sonnet）  --concurrency N（既定3）
+ *              --redo（取り込み済みの候補も調べ直す。案内は case:new --redo）
  *              --generation N（世代。省略時は取り込み済みの最大）  --no-apply（一覧に入れない）  --run-id
  *
  * 流れ: 予約（CLAIMED_TARGETS）→ 出典の取得 → 調べる役（web 検索あり）が調査記録の材料を返す
@@ -20,10 +21,13 @@ import { dirname, join, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { entityDomain } from '../pipeline/entity-identity.mjs';
 import { makeCaller, mapPool, pickAgent, type Agent, type Caller } from './agent-call';
+import { ownerContext } from './owner-context';
 import { buildDedupIndex, claimTarget, extractJson, slugify, timed, updateCandidates, type Candidate } from './candidates-lib';
 import { fetchOne } from './fetch-sources';
 import { cachePath, MIN_TEXT, quoteInText } from './verify-lib';
 import { makeExec, type Exec } from './case-run';
+import { taxonomyPromptText } from '../../src/shared/case-taxonomy';
+import { entryProblems, setCaseTags } from './case-tags-lib';
 
 const HERE = dirname(fileURLToPath(import.meta.url));
 const ROOT = resolve(HERE, '../..');
@@ -41,6 +45,8 @@ export interface ResearchOptions {
   concurrency: number;
   generation?: number;
   apply: boolean;
+  /** 取り込み済み（done）の候補も調べ直す。重複の確認は飛ばす（自分自身の事例が一覧にあるため）。呼び出し側が先に索引から外しておく（case:new --redo） */
+  redo?: boolean;
   /** 文の直しを何回まで頼むか（既定 1） */
   maxRepairs?: number;
   today?: string;
@@ -86,20 +92,24 @@ const APPENDIX = `
 - 数字は出典に書かれた物だけ。推測・換算・平均を事実にしない。分からないことは unknown に書く。
 - 事実の文の数字は、同じ事実の quote に同じ数字がそのまま入っている形にする（検査が機械で照らす）。引用は英語か日本語の表記（例 "$50 million"、"5000万円"）の箇所を優先する。ポルトガル語などの "R$ 50 milhões"・小数点がカンマの "79,90" は機械が数として読めず、その数字は外れる。同じ数字を英語・日本語で書いた別の出典や箇所があればそちらを使う。
 - 最終メッセージは JSON だけ（前置き・説明・コードフェンス無し）。形:
-{"name":"事業名","tagline":"何の事業かの1〜2文(日本語)","description":"2〜3文(日本語)","sector":"NICHE_SAAS など","scale":"SOLO など","founder":"名前か未確認","country":"国か未確認","architecturePattern":"どう売っているかの1文","tags":["..."],"foundedYear":2016,
+{"name":"事業名","tagline":"何の事業かの1〜2文(日本語)","description":"2〜3文(日本語)","sector":"NICHE_SAAS など","scale":"SOLO など","founder":"名前か未確認","country":"国か未確認","architecturePattern":"どう売っているかの1文","caseTags":{"field":"分野の言葉","form":"事業の形の言葉","buyer":"売る相手の言葉","features":[],"basis":"収集した文のどこから判断したかの短い説明"},"foundedYear":2016,
  "facts":[{"kind":"DESCRIPTION|PRICING|FOUNDING|TEAM|CHANNEL|TOOL|EVENT|EXIT|FUNDING|OTHER","text":"画面に出せる自然な日本語の1文","sourceUrl":"https://...","statedAt":"YYYY-MM か YYYY-MM-DD(任意)","quote":"原文の引用","numberKind":"数を含む事実は必須","asOf":"数を含む事実は必須"}],
  "metrics":[{"numberKind":"REVENUE など","amount":24,"currency":"USD","unit":"任意","label":"何の数字か","asOf":"YYYY など","periodKind":"期間の数字は必須","quote":"数字を含む原文の引用","sourceUrl":"https://...","origin":"SELF_REPORTED|ARTICLE|FILED|THIRD_PARTY","basis":"任意"}],
  "sources":[{"url":"https://...","publisher":"公式サイト など","sourceType":"official_website|official_blog|article|forum|filing","publicationDate":"YYYY-MM-DD か null","rights":{"loginFree":"yes|no|unconfirmed","noPaywall":"yes|no|unconfirmed","quoteTerms":"permits|prohibits|silent|unconfirmed","termsUrl":"規約ページの URL か null","note":"判断の根拠を1〜2文"}}],
  "unknown":["取れなかったこと"],"conflicts":["出典どうしの食い違い"]}
+- caseTags は下の「タグの一覧」にある言葉だけを、一字も変えずに使う（自由な言葉・足した言葉は検査で落ちる）。
 - sector は ${SECTORS.join(' / ')}、scale は ${SCALES.join(' / ')} のどれか。
-- 後の段（分析・リード）は、確かめられた事実だけを材料にする。「誰が・いつ・何をして・何が起きたか」が分かる具体的な行動と転機の事実（最初の客をどう得たか、何を変えて伸びたか、最初の1年の動き）を、数字の事実とは別に、できるだけ多く（目安10件以上）集める。製品の機能説明で件数を埋めない。
-- 先頭の事実は公式サイトを出典にした DESCRIPTION。創業(FOUNDING)と転機(EVENT/TEAM/CHANNEL/EXIT/FUNDING)の事実を必ず探す。見つからなければ unknown に書く。`;
+- 後の段（分析・リード）は、確かめられた事実だけを材料にする。「誰が・いつ・何をして・何が起きたか」が分かる具体的な行動と転機の事実（最初の客をどう得たか、何を変えて伸びたか、最初の1年の動き）を、数字の事実とは別に、できるだけ多く（目安15件以上。出典を広く探せば増える）集める。製品の機能説明で件数を埋めない。
+- 先頭の事実は公式サイトを出典にした DESCRIPTION。創業(FOUNDING)と転機(EVENT/TEAM/CHANNEL/EXIT/FUNDING)の事実を必ず探す。見つからなければ unknown に書く。
+
+## タグの一覧（caseTags の正本。src/shared/case-taxonomy.ts）
+${taxonomyPromptText()}`;
 
 /** 調べる役は空の作業場所で動くのでファイルを開けない。文の書き方の正本（natural-japanese）はここに貼って渡す */
 export function collectSystem(root: string): string {
   const skillFile = join(root, '.claude/skills/natural-japanese/SKILL.md');
   const skill = existsSync(skillFile) ? `\n\n## 文の書き方の正本（natural-japanese。上の指示で「必ず全部読む」とした物。ここに全文を貼る）\n${readFileSync(skillFile, 'utf8')}` : '';
-  return readFileSync(join(root, 'scripts/reader-case/collect-prompt.md'), 'utf8') + skill + APPENDIX;
+  return readFileSync(join(root, 'scripts/reader-case/collect-prompt.md'), 'utf8') + skill + APPENDIX + ownerContext(root);
 }
 
 function sourceBlock(texts: Map<string, string>): string {
@@ -117,6 +127,8 @@ export function collectUser(c: Candidate, texts: Map<string, string>, today: str
 export interface Compact {
   name?: string; tagline?: string; description?: string; sector?: string; scale?: string; founder?: string; country?: string;
   architecturePattern?: string; tags?: string[]; foundedYear?: number;
+  /** タグ（src/shared/case-taxonomy.ts の言葉の一覧から。分野・事業の形・売る相手は1つずつ、特徴は当てはまる時だけ）と、その判断の根拠 */
+  caseTags?: { field?: string; form?: string; buyer?: string; features?: string[]; basis?: string };
   facts?: Record<string, unknown>[]; metrics?: Record<string, unknown>[];
   sources?: { url?: string; publisher?: string; sourceType?: string; publicationDate?: string | null; rights?: Record<string, unknown> }[];
   unknown?: string[]; conflicts?: string[];
@@ -233,9 +245,9 @@ interface State { c: Candidate; texts: Map<string, string>; compact?: Compact; d
 const STALE_MS = 3 * 3600_000;
 export const pickable = (r: Candidate, nowMs = Date.now()): boolean => r.status === 'queued' || (r.status === 'researching' && nowMs - Date.parse(r.researchStartedAt ?? '') > STALE_MS);
 
-export function selectCandidates(rows: readonly Candidate[], ids: string[], next?: number): Candidate[] {
+export function selectCandidates(rows: readonly Candidate[], ids: string[], next?: number, redo = false): Candidate[] {
   if (ids.length) {
-    return ids.map((i) => rows.find((r) => r.id === i || r.name === i || r.id.startsWith(`cand_${slugify(i)}_`))).filter((r): r is Candidate => !!r && pickable(r));
+    return ids.map((i) => rows.find((r) => r.id === i || r.name === i || r.id.startsWith(`cand_${slugify(i)}_`))).filter((r): r is Candidate => !!r && (pickable(r) || (redo && r.status === 'done')));
   }
   return rows.filter((r) => pickable(r)).sort((a, b) => b.priority - a.priority || a.discoveredAt.localeCompare(b.discoveredAt)).slice(0, next ?? 1);
 }
@@ -250,7 +262,7 @@ export async function runResearch(opt: ResearchOptions, deps: ResearchDeps): Pro
   const T0 = now();
   // 別の命令が同じ候補を同時に選ばないよう、ロックの下で researching にして自分の物にする
   const picked = updateCandidates(opt.root, (fresh) => {
-    const mine = selectCandidates(fresh, opt.ids, opt.next);
+    const mine = selectCandidates(fresh, opt.ids, opt.next, opt.redo);
     for (const m of mine) { const row = fresh.find((r) => r.id === m.id)!; row.status = 'researching'; row.researchStartedAt = new Date().toISOString(); }
     return mine;
   });
@@ -267,7 +279,7 @@ export async function runResearch(opt: ResearchOptions, deps: ResearchDeps): Pro
   // 1. 重複と予約
   const idx = buildDedupIndex(opt.root, []);
   for (const s of states) {
-    const dup = idx.check(s.c.name, s.c.url);
+    const dup = opt.redo ? undefined : idx.check(s.c.name, s.c.url);
     // 予約の一覧に自分の名前がある場合（前の実行で予約した等）は見送らない: 既存の事例か取り込み待ちにある時だけ重複
     if (dup && !/予約の一覧/.test(dup)) { skip(s, `重複: ${dup}`); continue; }
     claimTarget(opt.root, s.c.name, s.c.url, `case-research-${opt.runId}`, today, idx); // ロックを取って一覧を読み直し、無い時だけ足す
@@ -304,7 +316,7 @@ export async function runResearch(opt: ResearchOptions, deps: ResearchDeps): Pro
   const serial = <T>(fn: () => Promise<T>): Promise<T> => { const p = chain.then(fn, fn); chain = p.catch(() => undefined); return p; };
   const importOne = async (s: State): Promise<void> => {
     const v = await verifyCompact(s.compact!, fetchText, s.texts);
-    s.compact = v.compact; s.dropped = v.dropped;
+    s.compact = v.compact; s.dropped = v.dropped; s.unconfirmedText = undefined;
     if (!hasSubstantialMetric(v.compact)) { skip(s, '数字の出典が残らない（引用が本文で確かめられる数字が無い）'); return; }
     const record = buildRecord(s.c, v.compact, today, v.dropped);
     s.recordFile = join(recDir, `${s.slug}.research.json`);
@@ -317,10 +329,15 @@ export async function runResearch(opt: ResearchOptions, deps: ResearchDeps): Pro
     const eid = String(record.id);
     const unconfirmed = rep.unconfirmedFacts?.[eid] ?? 0;
     if (rep.thinCases?.includes(eid)) { try { rmSync(s.additionFile, { force: true }); } catch { /* 無くてよい */ } skip(s, '創業も転機も出典で確認できず、薄い事例になる'); return; }
-    s.outcome = { candidateId: s.c.id, name: s.c.name, status: 'recorded', entityId: eid, additionName: s.slug, recordFile: s.recordFile, seconds: 0, unconfirmed };
+    // タグ（data/case-tags.json）。一覧の言葉でなければ書かず、取り込みで外れた項目と同じく直し役に返す（公開データの作成が、タグの無い事例を出さないため）
+    const tagProblems = entryProblems(v.compact.caseTags);
+    if (tagProblems.length === 0) { const t = v.compact.caseTags!; setCaseTags(opt.root, eid, { field: t.field!, form: t.form!, buyer: t.buyer!, features: t.features ?? [], basis: t.basis!.trim() }); }
+    s.outcome = { candidateId: s.c.id, name: s.c.name, status: 'recorded', entityId: eid, additionName: s.slug, recordFile: s.recordFile, seconds: 0, unconfirmed: unconfirmed + (tagProblems.length ? 1 : 0) };
+    if (tagProblems.length) s.unconfirmedText = JSON.stringify([{ where: 'caseTags', 理由: tagProblems, 直し方: ['タグの一覧の言葉だけで、分野・事業の形・売る相手を1つずつ選び直す'], 項目: v.compact.caseTags ?? null }], null, 1);
     if (unconfirmed > 0 && existsSync(s.additionFile)) {
       const add = JSON.parse(readFileSync(s.additionFile, 'utf8')) as { records: { record: { unconfirmedFacts?: { where: string; item: unknown; reasonLabels?: string[]; detail?: string[] }[] } }[] };
-      s.unconfirmedText = JSON.stringify((add.records[0]?.record.unconfirmedFacts ?? []).map((u) => ({ where: u.where, 理由: u.reasonLabels, 直し方: u.detail, 項目: u.item })), null, 1);
+      const factItems = (add.records[0]?.record.unconfirmedFacts ?? []).map((u) => ({ where: u.where, 理由: u.reasonLabels, 直し方: u.detail, 項目: u.item }));
+      s.unconfirmedText = JSON.stringify([...factItems, ...(s.unconfirmedText ? JSON.parse(s.unconfirmedText) as unknown[] : [])], null, 1);
     }
   };
   await timed(opt.root, opt.runId, 'research:import', live().length, async () => {
@@ -405,7 +422,7 @@ function parseArgs(argv: string[]) {
   const gen = val('--generation');
   if (gen !== undefined && !(Number.isInteger(Number(gen)) && Number(gen) >= 1)) throw new Error('--generation は1以上の整数');
   return {
-    ids, next, apply: !argv.includes('--no-apply'), generation: gen ? Number(gen) : undefined,
+    ids, next, apply: !argv.includes('--no-apply'), redo: argv.includes('--redo'), generation: gen ? Number(gen) : undefined,
     agent: (val('--agent') ?? 'codex') as Agent | 'auto', repairAgent: (val('--repair-agent') ?? 'claude') as Agent | 'auto',
     model: val('--model'), codexEffort: val('--codex-effort'), concurrency: Math.max(1, Number(val('--concurrency') ?? 3)),
     runId: val('--run-id') ?? `research-${new Date().toISOString().replace(/[-:T]/g, '').slice(0, 12)}`,
@@ -416,11 +433,11 @@ async function main(): Promise<number> {
   const a = parseArgs(process.argv.slice(2));
   const agent = a.agent === 'auto' ? pickAgent('auto') : a.agent;
   const repairAgent = a.repairAgent === 'auto' ? pickAgent('auto') : a.repairAgent;
-  const caller = makeCaller(agent, { model: a.model, codexEffort: a.codexEffort ?? 'medium', web: true, timeoutMs: 30 * 60_000 });
+  const caller = makeCaller(agent, { model: a.model, codexEffort: a.codexEffort ?? 'high', web: true, timeoutMs: 30 * 60_000 });
   // 文の直しは Sonnet（claude -p）。Opus は使わない
   const repairCaller = makeCaller(repairAgent, { model: repairAgent === 'claude' ? 'sonnet' : a.model });
   const exec = makeExec(ROOT, join(ROOT, 'data/pipeline/case-run', a.runId, 'logs'));
-  const s = await runResearch({ root: ROOT, ids: a.ids, next: a.next, runId: a.runId, concurrency: a.concurrency, generation: a.generation, apply: a.apply }, { caller, repairCaller, exec });
+  const s = await runResearch({ root: ROOT, ids: a.ids, next: a.next, runId: a.runId, concurrency: a.concurrency, generation: a.generation, apply: a.apply, redo: a.redo }, { caller, repairCaller, exec });
   const rec = s.outcomes.filter((o) => o.status === 'recorded');
   console.log(`\n調査記録を作った ${rec.length} 件 / 見送り ${s.outcomes.length - rec.length} 件（${s.seconds}秒）`);
   for (const o of s.outcomes) console.log(o.status === 'recorded' ? `- 作成: ${o.name} → ${o.entityId}（${o.seconds}秒、外れた項目 ${o.unconfirmed ?? 0}）` : `- 見送り: ${o.name} — ${o.reason}（${o.seconds}秒）`);

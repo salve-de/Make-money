@@ -17,6 +17,7 @@ import { basename, join } from 'node:path';
 import { argValue, loadEntities, loadReaders, readIdsFile } from './load-readers';
 import type { AnalysisFile } from './analysis-lib';
 import { readReflectState, withReflectedAnalysis } from './case-reflect';
+import { ownerContext } from './owner-context';
 import { VERDICTS_FILE, type VerdictsFile } from './verify-lib';
 import { loadPublicationInput, readPublicationAudits } from './publication-inputs';
 import { preparePublicationReader, publicationItemHashes, unauditedItems } from './publication-evaluation';
@@ -144,7 +145,7 @@ async function main() {
     console.log(JSON.stringify(summary));
     return;
   }
-  const system = `${readFileSync(AUDIT_PROMPT, 'utf8')}\n${DIFF_NOTE}`;
+  const system = `${readFileSync(AUDIT_PROMPT, 'utf8')}\n${DIFF_NOTE}${ownerContext('.')}`;
   mkdirSync('data/runner/inbox/audit', { recursive: true });
   mkdirSync('data/pipeline', { recursive: true });
   writeFileSync(pendingFile, `${tag}\n`);

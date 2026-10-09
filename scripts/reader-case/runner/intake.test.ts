@@ -97,6 +97,7 @@ test('case:discover: 数字の出典を取得できない候補は足さない',
 const compactFromKeygen = (): Compact => ({
   name: 'Keygen', tagline: keygen.tagline, description: keygen.description, sector: 'NICHE_SAAS', scale: 'SOLO', founder: keygen.founder, country: '未確認',
   architecturePattern: keygen.architecturePattern, tags: keygen.tags, foundedYear: 2016,
+  caseTags: { field: '開発・IT', form: 'ソフト・アプリ', buyer: '開発者向け', features: [], basis: '公式サイトの説明にある、開発者向けの使用許諾の管理サービス' },
   facts: keygen.facts.map((f: any) => ({ ...f })),
   metrics: [...keygen.metrics.map((m: any) => ({ ...m })), { numberKind: 'REVENUE', amount: 10000, currency: 'USD', periodKind: 'MONTH', label: '月間の継続収入', asOf: '2025', quote: 'we made $10k MRR in 2025', sourceUrl: 'https://keygen.sh/blog/revenue', origin: 'SELF_REPORTED' }],
   sources: keygen.reaudit.sources, unknown: ['売上・利益の金額は公表なし'], conflicts: [],
@@ -136,6 +137,9 @@ test('case:research: 記録を作り、add-entity-records に通り、一覧に�
   assert.equal(index[0].id, s.outcomes[0]!.entityId);
   assert.ok(existsSync(join(root, 'data/entity-additions/keygen.json')));
   assert.equal(readQueue(root)[0]!.status, 'done');
+  // タグは一覧の言葉で data/case-tags.json に入る
+  const tagsFile = JSON.parse(readFileSync(join(root, 'data/case-tags.json'), 'utf8'));
+  assert.equal(tagsFile[index[0].id].field, '開発・IT');
   assert.ok(s.idsFile && readFileSync(s.idsFile, 'utf8').includes(index[0].id));
   assert.match(readFileSync(join(root, 'data/CLAIMED_TARGETS.txt'), 'utf8'), /Keygen — keygen\.sh \[CLAIMED:case-research-r1/);
   const timing = readFileSync(join(root, 'data/pipeline/case-run.jsonl'), 'utf8');
@@ -156,6 +160,22 @@ test('case:research: 数字の出典が取れない・引用が本文に無い�
   assert.match(q.find((c) => c.name === 'Wrongquote')!.skipReason!, /本文に無い/);
   assert.ok(!existsSync(join(root, 'data/entity-additions')) || readFileSync(join(root, 'data/entities-index.json'), 'utf8').length > 0);
   assert.equal(s.idsFile, undefined);
+});
+
+test('case:research: タグが一覧の言葉でなければ書かず、直し役に返す。直ればタグが入る', async () => {
+  const root = setupRoot(); writeFileSync(join(root, 'data/entities-index.json'), '[]');
+  const [id] = queued(root, ['Keygen']);
+  const bad = compactFromKeygen();
+  bad.caseTags = { field: '内装のAI', form: 'ソフト・アプリ', buyer: '開発者向け', features: [], basis: 'x' };
+  const good = compactFromKeygen();
+  let calls = 0;
+  const caller: Caller = async () => ({ text: JSON.stringify(calls++ === 0 ? bad : good), seconds: 0 });
+  const body = bodyOf(good) + ' we made $10k MRR in 2025';
+  const s = await runResearch({ root, ids: [id!], runId: 'r2t', concurrency: 1, apply: true, today: '2026-10-08', log: () => {} }, { caller, exec: realExec(root), fetchText: async () => body });
+  assert.equal(s.outcomes[0]!.status, 'recorded', JSON.stringify(s.outcomes));
+  assert.equal(calls, 2);
+  const tagsFile = JSON.parse(readFileSync(join(root, 'data/case-tags.json'), 'utf8'));
+  assert.equal(tagsFile[s.outcomes[0]!.entityId!].field, '開発・IT');
 });
 
 test('case:research: AI が返した引用が本文に無い数字は外れ、数字が残らなければ見送り', async () => {

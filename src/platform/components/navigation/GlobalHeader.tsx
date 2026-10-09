@@ -110,7 +110,6 @@ export const GlobalHeader: React.FC<GlobalHeaderProps> = ({
   const menuItems = useMenuItems(bookmarkCount);
 
   const activeSection: GlobalNavSection = currentSection || (() => {
-    if (pathname?.startsWith('/discover')) return 'DISCOVER';
     if (pathname?.startsWith('/trends')) return 'TRENDS';
     if (pathname?.startsWith('/execute')) return 'EXECUTION';
     if (pathname?.startsWith('/marketplace/businesses')) return 'BUSINESSES';

@@ -1,7 +1,7 @@
 import { readFileSync } from 'node:fs';
 import { describe, expect, it } from 'vitest';
 import { CasePageSchema } from './case-page';
-import { checkCasePage, checkMarkdown, foreignWithoutYen, missingChapters, parseCasePage, parseRights } from '../../scripts/case-pages/lib';
+import { checkCasePage, checkMarkdown, foreignWithoutYen, heldSources, missingChapters, parseCasePage, parseRights } from '../../scripts/case-pages/lib';
 import { displayForEntity, type DisplaySourceFiles } from './reader-display';
 import { buildCasePageReader } from '../../scripts/case-pages/reader';
 import { ReaderCaseSchema } from './reader-case';
@@ -37,8 +37,7 @@ const MD = `# 題（試し書き）2026-10-08
 1. 公式サイト（料金）：https://example.com/
 2. 本人の振り返り（売上）：https://example.com/review
 
-- 円は1ドル＝150円の目安。
-- 未確認：原文の照合はまだ。
+- 1ドル＝150円で計算
 
 ## 権利の記録
 1. example.com：ログインなしで読めた／2026-10-08
@@ -55,7 +54,7 @@ describe('章ごとの文を読む', () => {
     ]);
     expect(page.timeline[1]).toEqual({ when: '流行後', what: '受付を止める。' });
     expect(page.sources[1]).toEqual({ no: 2, label: '本人の振り返り（売上）', url: 'https://example.com/review' });
-    expect(page.notes).toEqual(['円は1ドル＝150円の目安。', '未確認：原文の照合はまだ。']);
+    expect(page.notes).toEqual(['1ドル＝150円で計算']);
     expect(JSON.stringify(page)).not.toContain('試し書き');
     expect(CasePageSchema.safeParse(page).success).toBe(true);
   });
@@ -79,9 +78,18 @@ describe('軽い検査（4つ）', () => {
       expect(checkCasePage({ ...page, did: [bad] }).map((v) => v.rule)).toContain('polite');
     }
   });
-  it('一覧の1行は40字まで', () => {
-    expect(checkCasePage({ ...page, listLine: 'あ'.repeat(40) })).toEqual([]);
-    expect(checkCasePage({ ...page, listLine: 'あ'.repeat(41) }).map((v) => v.rule)).toEqual(['list-line-length']);
+  it('一覧の1行は字数の上限が無い', () => {
+    expect(checkCasePage({ ...page, listLine: '駄菓子'.repeat(40) + '定期便' })).toEqual([]);
+  });
+  it('一覧の1行は文の形を機械で決めない（推定・推測の語だけ見る）', () => {
+    expect(checkCasePage({ ...page, listLine: '駄菓子を海外へ送る。累計1.5億円の定期便' })).toEqual([]);
+    expect(checkCasePage({ ...page, listLine: '30分で作った道具が使われ、買収された' })).toEqual([]);
+    expect(checkCasePage({ ...page, listLine: '副業の30分で作った拡張機能で年約7,200万円' })).toEqual([]);
+    expect(checkCasePage({ ...page, listLine: '海外で駄菓子を売り累計1.5億円を得た創業者' })).toEqual([]);
+  });
+  it('一覧の1行に推定・推測の語を出さない', () => {
+    expect(checkCasePage({ ...page, listLine: '1人で回して年30億円（推定）' }).map((v) => v.rule)).toEqual(['list-line-estimate']);
+    expect(checkCasePage({ ...page, listLine: '1人で回して年30億円（推測）' }).map((v) => v.rule)).toEqual(['list-line-estimate']);
   });
   it('外貨の数字の直後に円の概算があるか', () => {
     expect(foreignWithoutYen('売上は25万ドルだった')).toEqual(['25万ドル']);
@@ -91,6 +99,16 @@ describe('軽い検査（4つ）', () => {
     expect(foreignWithoutYen('1.5億〜4.5億円（100万〜300万ドル）')).toEqual([]);
     expect(foreignWithoutYen('3万6千ドル（約540万円）と50ドル')).toEqual(['50ドル']);
     expect(foreignWithoutYen('日本円で3,000円')).toEqual([]);
+  });
+  it('調べた側のメモ（未確認・権利の記録など）が画面の章に入った文は止める', () => {
+    expect(checkMarkdown(MD.replace('駄菓子の定期便で累計1.5億円', '駄菓子の定期便で累計1.5億円')).violations).toEqual([]);
+    for (const w of ['未確認：売上は照合中。', '1ドル＝150円の目安。', '1ドル＝150円で計算した。', 'ログインなしで読めた。', '売上は約3万ドルと推定される（推定）。', '狙いだったとみられる（推測）。']) {
+      expect(checkMarkdown(MD.replace('- 掲示板に投稿した。', `- 掲示板に投稿した。${w}`)).violations.some((v) => v.rule === 'maker-memo'), w).toBe(true);
+    }
+  });
+  it('利用が保留・不可の出典を挙げた文は止める', () => {
+    expect(heldSources(page, { 'https://example.com/review/': { decision: 'held' }, 'https://example.com/': { decision: 'allowed' } }).map((v) => v.where)).toEqual(['出典2']);
+    expect(heldSources(page, {})).toEqual([]);
   });
   it('章が足りない・空・出典のリンクが無い文書は止める', () => {
     expect(missingChapters(MD)).toEqual([]);
@@ -104,15 +122,15 @@ describe('番号つき見出しと任意の章', () => {
   const md = readFileSync('data/case-pages/ent_button_shy_f1545f17d98e.md', 'utf8');
   it('見出しの番号を外して読み、無い章は空にする', () => {
     const page = parseCasePage(md);
-    expect(page.listLine).toBe('財布に入る18枚のカードゲームが、目標の67倍の支援を集めた');
+    expect(page.listLine).toBe('家族と友人で営む小さな出版社が作った、クラウドファンディングで1作に約2,000万円が集まったこともある、財布に入るほど小さなカードゲーム');
     expect(page.setbacks).toEqual([]);
     expect(page.secrets).toHaveLength(5);
     expect(page.sources.length).toBeGreaterThan(5);
     expect(page.sources[0].no).toBe(1);
   });
-  it('「つまずきと立て直し」は、この事例だけ任意', () => {
-    expect(checkMarkdown(md, 'ent_button_shy_f1545f17d98e').violations).toEqual([]);
-    expect(checkMarkdown(md, 'ent_other').violations.some((v) => v.rule === 'missing-chapter')).toBe(true);
+  it('「つまずきと立て直し」は無くてよいが、ほかの章が欠けると落ちる', () => {
+    expect(checkMarkdown(md).violations.filter((v) => !v.rule.startsWith('list-line'))).toEqual([]);
+    expect(checkMarkdown(md.replace('## 5. 料金', '## 5. 値段')).violations.some((v) => v.rule === 'missing-chapter')).toBe(true);
   });
   it('題の下の作業メモは画面の文に入らない', () => {
     expect(JSON.stringify(parseCasePage(md))).not.toContain('直した点');
@@ -138,7 +156,7 @@ describe('公開版への組み込み', () => {
     expect(built.length).toBeGreaterThan(0);
     for (const { entityId, page: p } of built) {
       const md = readFileSync(`data/case-pages/${entityId}.md`, 'utf8');
-      expect(checkMarkdown(md, entityId).violations, entityId).toEqual([]);
+      expect(checkMarkdown(md).violations, entityId).toEqual([]);
       expect(parseCasePage(md), entityId).toEqual(p);
     }
   });

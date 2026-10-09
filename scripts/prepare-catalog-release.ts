@@ -15,6 +15,7 @@ import { computeDossierContentHash, getDossierStoragePath, stringifyDeterministi
 import { deriveDiscoveryDataset } from '../src/features/discover';
 import { findTemplateViolations, MIN_REPEAT } from './architecture/template-prose-lib.mjs';
 import type { FinancialEntity } from '../src/shared/terminal';
+import type { ReaderDisplay } from '../src/shared/reader-case';
 import { evaluateForRelease, preparePublicationReader, withoutUnaudited } from './reader-case/publication-evaluation';
 import { loadPublicationInput, readPublicationAudits } from './reader-case/publication-inputs';
 import { checkWithdrawals, planRelease } from './reader-case/release-plan';
@@ -23,6 +24,8 @@ import { rightsOptions } from './reader-case/load-readers';
 import { withoutSuspendedSources } from './reader-case/source-policy';
 import { displayForEntity, DISPLAY_SOURCE_FILE_NAMES, type DisplaySourceFiles } from '../src/shared/reader-display';
 import { buildCasePageReader } from './case-pages/reader';
+import { textFingerprint } from '../src/shared/text-fingerprint';
+import { caseTagsProblems, type CaseTags } from '../src/shared/case-taxonomy';
 import { heldChapterRemovals, readHeld, withoutHeldClaims, withoutHeldDisplay, type HeldRemoval } from './reader-case/held-items';
 import { manifestObjectKey, type ReleasePointer } from '../src/shared/catalog-manifest';
 
@@ -85,6 +88,8 @@ try { analysisFile = JSON.parse(await readFile('data/reader-analysis.json', 'utf
 const reflectState = readReflectState();
 analysisFile = withReflectedAnalysis(analysisFile, reflectState);
 const displaySources = Object.fromEntries(await Promise.all(DISPLAY_SOURCE_FILE_NAMES.map(async (name) => [name, JSON.parse(await readFile(`data/${name}.json`, 'utf8').catch(() => '[]')) as unknown]))) as unknown as DisplaySourceFiles;
+// タグ（分野・事業の形・売る相手・特徴）。言葉の一覧は src/shared/case-taxonomy.ts、事例ごとの割り当ては data/case-tags.json
+const caseTags = JSON.parse(await readFile('data/case-tags.json', 'utf8').catch(() => '{}')) as Record<string, CaseTags>;
 casePageIds = new Set(((displaySources['case-pages'] ?? []) as Array<{ entityId: string }>).map((x) => x.entityId));
 const withheld = { imported: 0, audit: 0, evidence: 0, schemaInvalid: 0, thin: 0, noRawRecord: 0, unverified: 0, resource: 0, queued: 0 };
 // 事例ごとのスタンプ（画面に出すか・出さない理由）。捨てずに保存し、探し直しの対象にする
@@ -141,7 +146,16 @@ for (const entity of publishable) {
     // 原文照合で保留にした数値は、章ごとの文の事例でも出さない
     const heldFor = heldAll.filter((h) => h.entityId === entity.id);
     const base = verified && heldFor.length ? withoutHeldClaims(verified.reader, heldFor, (claimId) => verdicts[entity.id]?.[claimId]?.verdict === 'HELD').reader : verified?.reader;
-    const reader = buildCasePageReader(casePage, base);
+    // 札（data/fact-lines.json の labels）の指紋は、札を作った時の説明文（記録のまま）のもの。公開版の説明文は整え直されることがあるので、
+    // 記録のままの説明文と指紋が合う札は、公開版の説明文の指紋に付け替える（説明文が本当に変わった札は付け替えず、画面が使わない）
+    const storedLabels = displayForEntity(displaySources, entity.id)?.labels;
+    const rawTagline = String((rawRecord as { tagline?: unknown }).tagline ?? '').trim();
+    const labels = storedLabels && storedLabels.hash === textFingerprint(rawTagline) ? { ...storedLabels, hash: textFingerprint((entity.tagline ?? '').trim()) } : storedLabels;
+    // タグが一覧の言葉で付いていない事例は出さない（絞り込みから漏れるため）。割り当ては data/case-tags.json
+    const tagProblems = caseTagsProblems(caseTags[entity.id]);
+    if (tagProblems.length) { withheld.schemaInvalid++; stamp(entity.id, 'HOLD_SCHEMA', `タグが一覧どおりでない（${tagProblems[0]}）`); continue; }
+    const { field, form, buyer, features } = caseTags[entity.id];
+    const reader = buildCasePageReader(casePage, base, entity.temporal?.foundedYear, labels, { field, form, buyer, features } as NonNullable<ReaderDisplay['tags']>);
     if (validateReader(reader)) { withheld.schemaInvalid++; stamp(entity.id, 'HOLD_SCHEMA'); continue; }
     stamp(entity.id, 'SHOW', '章ごとの文（case-page）で公開');
     totals.facts += reader.facts.length;

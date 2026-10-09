@@ -70,5 +70,101 @@
    "NUMBER_NOT_IN_SOURCE"
   ],
   "heldAt": "2026-10-08"
+ },
+ {
+  "key": "ent_polarsteps_2b2970abd201|metric|m4",
+  "entityId": "ent_polarsteps_2b2970abd201",
+  "kind": "metric",
+  "id": "m4",
+  "text": "項目=FUNDING / 名前=投資会社主導の調達額 / 期間=2019-01-16(POINT) / 金額=3000000 EUR / 由来=SELF_REPORTED / 基準=INKEF Capitalが主導したシリーズAで300万ユーロを調達したとの発表。 / 記載日=2019-01-16",
+  "sourceUrl": "https://www.polarsteps.com/news/polarsteps-hits-1-million-users-and-raises-3-million-in-funding",
+  "reasons": [
+   "AMOUNT_NOT_IN_QUOTE"
+  ],
+  "heldAt": "2026-10-09"
+ },
+ {
+  "key": "ent_polarsteps_2b2970abd201|metric|m9",
+  "entityId": "ent_polarsteps_2b2970abd201",
+  "kind": "metric",
+  "id": "m9",
+  "text": "項目=PRICE / 名前=立体の地図や移動の詳しい記録を使える有料機能の月払い料金 / 期間=per month(MONTH) / 金額=8.99 EUR / 由来=SELF_REPORTED / 基準=Polarsteps Plusの公式表示価格。地域によって異なる。 / 記載日=2026-10",
+  "sourceUrl": "https://www.polarsteps.com/plus",
+  "reasons": [
+   "WHEN_NOT_CONFIRMED"
+  ],
+  "heldAt": "2026-10-09"
+ },
+ {
+  "key": "ent_polarsteps_2b2970abd201|metric|m10",
+  "entityId": "ent_polarsteps_2b2970abd201",
+  "kind": "metric",
+  "id": "m10",
+  "text": "項目=PRICE / 名前=立体の地図や移動の詳しい記録を使える有料機能の年払い料金 / 期間=per year(YEAR) / 金額=29.99 EUR / 由来=SELF_REPORTED / 基準=Polarsteps Plusの年払い表示価格。地域によって異なる。月払いと同じ機能に加え、Travel Booksの20%割引が付く。 / 記載日=2026-10",
+  "sourceUrl": "https://www.polarsteps.com/plus",
+  "reasons": [
+   "WHEN_NOT_CONFIRMED"
+  ],
+  "heldAt": "2026-10-09"
+ },
+ {
+  "key": "ent_wildgrain_2b5aec41c733|metric|m1",
+  "entityId": "ent_wildgrain_2b5aec41c733",
+  "kind": "metric",
+  "id": "m1",
+  "text": "項目=PRICE / 名前=Wildgrain Boxの月ごとの定期配送価格 / 期間=Every 1 month(MONTH) / 金額=89 USD / 由来=SELF_REPORTED / 基準=Wildgrain Boxの月ごとの定期配送の表示価格。 / 記載日=2026-10",
+  "sourceUrl": "https://wildgrain.com/products/box-free-croissants",
+  "reasons": [
+   "WHEN_NOT_CONFIRMED"
+  ],
+  "heldAt": "2026-10-09"
+ },
+ {
+  "key": "ent_polarsteps_2b2970abd201|metric|m4",
+  "entityId": "ent_polarsteps_2b2970abd201",
+  "kind": "metric",
+  "id": "m4",
+  "text": "項目=FUNDING / 名前=投資会社主導の調達額 / 期間=2019-01-16(POINT) / 金額=3000000 EUR / 由来=SELF_REPORTED / 基準=INKEF Capitalが主導したシリーズAで300万ユーロを調達したとの発表。 / 記載日=2019-01-16",
+  "sourceUrl": "https://www.polarsteps.com/news/polarsteps-hits-1-million-users-and-raises-3-million-in-funding",
+  "reasons": [
+   "AMOUNT_NOT_IN_QUOTE"
+  ],
+  "heldAt": "2026-10-09"
+ },
+ {
+  "key": "ent_polarsteps_2b2970abd201|metric|m9",
+  "entityId": "ent_polarsteps_2b2970abd201",
+  "kind": "metric",
+  "id": "m9",
+  "text": "項目=PRICE / 名前=立体の地図や移動の詳しい記録を使える有料機能の月払い料金 / 期間=per month(MONTH) / 金額=8.99 EUR / 由来=SELF_REPORTED / 基準=Polarsteps Plusの公式表示価格。地域によって異なる。 / 記載日=2026-10",
+  "sourceUrl": "https://www.polarsteps.com/plus",
+  "reasons": [
+   "WHEN_NOT_CONFIRMED"
+  ],
+  "heldAt": "2026-10-09"
+ },
+ {
+  "key": "ent_polarsteps_2b2970abd201|metric|m10",
+  "entityId": "ent_polarsteps_2b2970abd201",
+  "kind": "metric",
+  "id": "m10",
+  "text": "項目=PRICE / 名前=立体の地図や移動の詳しい記録を使える有料機能の年払い料金 / 期間=per year(YEAR) / 金額=29.99 EUR / 由来=SELF_REPORTED / 基準=Polarsteps Plusの年払い表示価格。地域によって異なる。月払いと同じ機能に加え、Travel Booksの20%割引が付く。 / 記載日=2026-10",
+  "sourceUrl": "https://www.polarsteps.com/plus",
+  "reasons": [
+   "WHEN_NOT_CONFIRMED"
+  ],
+  "heldAt": "2026-10-09"
+ },
+ {
+  "key": "ent_wildgrain_2b5aec41c733|metric|m1",
+  "entityId": "ent_wildgrain_2b5aec41c733",
+  "kind": "metric",
+  "id": "m1",
+  "text": "項目=PRICE / 名前=Wildgrain Boxの月ごとの定期配送価格 / 期間=Every 1 month(MONTH) / 金額=89 USD / 由来=SELF_REPORTED / 基準=Wildgrain Boxの月ごとの定期配送の表示価格。 / 記載日=2026-10",
+  "sourceUrl": "https://wildgrain.com/products/box-free-croissants",
+  "reasons": [
+   "WHEN_NOT_CONFIRMED"
+  ],
+  "heldAt": "2026-10-09"
  }
 ]

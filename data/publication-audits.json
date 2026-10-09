@@ -7390,5 +7390,314 @@
   ],
   "lastAudit": "data/audit/in-99999926100802341346921001.json",
   "baseAnalysisHash": "6413b276a8e1bd36e932b2572d9580667ce385cb479672ca9912e1060c650fda"
+ },
+ "ent_polarsteps_2b2970abd201": {
+  "version": 2,
+  "caseHash": "526d53dd06af006c26b4a8afcaee03c7112b6187aa53887484405301e7e3a841",
+  "items": {
+   "fact:f1": {
+    "hash": "0ccbc25dbf35155f334f8d59fb9699c538ee285d5871d237bb4f92a75da58046",
+    "by": "data/audit/in-99999926100906584028966001.json"
+   },
+   "fact:f2": {
+    "hash": "189ace68fa0f3e443df15a0e150dea69c3456dc0642e0a7a711e9e9563b5dcab",
+    "by": "data/audit/in-99999926100906584028966001.json"
+   },
+   "fact:f3": {
+    "hash": "a55d158bcb0228b44234b8525bff237cef687a74bec99f99c4190d2bdb7b232f",
+    "by": "data/audit/in-99999926100906584028966001.json"
+   },
+   "fact:f4": {
+    "hash": "10bcece3d866aca8a99d93308faef82dd8e2993d0399f2b551683d71f55ae124",
+    "by": "data/audit/in-99999926100906584028966001.json"
+   },
+   "fact:f5": {
+    "hash": "e68237c713d7c8e449c4da5b8f6f672cda756314500b52da65e59d9cc3e39685",
+    "by": "data/audit/in-99999926100906584028966001.json"
+   },
+   "fact:f6": {
+    "hash": "fa2a890cdcabd7180d1fca67aee7b5ee731ff4cc9215884f140ef76d713b5972",
+    "by": "data/audit/in-99999926100906584028966001.json"
+   },
+   "fact:f7": {
+    "hash": "f562941b7dff661343a39f2e9d15e20693590924d72863c4bd7e793520232b29",
+    "by": "data/audit/in-99999926100906584028966001.json"
+   },
+   "fact:f8": {
+    "hash": "5a2ae01753d0eb1af272b042096e7a4222a072c3e26dffd86e30a29bfdebc14a",
+    "by": "data/audit/in-99999926100906584028966001.json"
+   },
+   "fact:f9": {
+    "hash": "6265af9710b929e602bbc988372a5dafdf8f295215f558a6296607348171c563",
+    "by": "data/audit/in-99999926100906584028966001.json"
+   },
+   "fact:f10": {
+    "hash": "fc9bc85e5636956535dd30e41bc8aa6b062b703fc45a6059d308e22dae795926",
+    "by": "data/audit/in-99999926100906584028966001.json"
+   },
+   "fact:f11": {
+    "hash": "382b310d8a53bda6f5c14191e1b13fa717e96810da9dfeda3e9c1f65563f8460",
+    "by": "data/audit/in-99999926100906584028966001.json"
+   },
+   "fact:f12": {
+    "hash": "8151ce6c294c602e6153a9453e6ad78a28554dbf4edeb57849937892ffbed431",
+    "by": "data/audit/in-99999926100906584028966001.json"
+   },
+   "fact:f13": {
+    "hash": "fc734c869f89cc1a9af40dc0d32570d46086b3e989e86f73ac16a844d19cf3e8",
+    "by": "data/audit/in-99999926100906584028966001.json"
+   },
+   "fact:f14": {
+    "hash": "2736c8af1ba01029e6df2854eeed957ec3070bcf49e632afd08feac5f1597747",
+    "by": "data/audit/in-99999926100906584028966001.json"
+   },
+   "fact:f15": {
+    "hash": "45556309cf14e09f26ce607c1fd03212ce840c30dfe655d66bad59da734afa01",
+    "by": "data/audit/in-99999926100906584028966001.json"
+   },
+   "fact:f16": {
+    "hash": "9ac8a9311778cdd2317fcb13f64d7f1f50d8f6686c360591ebcc780778b7d6fb",
+    "by": "data/audit/in-99999926100906584028966001.json"
+   },
+   "fact:f17": {
+    "hash": "2fbec9ab2b8afe789a4ab6ea6d363847e9691a20c82dd690a3783637508f8488",
+    "by": "data/audit/in-99999926100906584028966001.json"
+   },
+   "fact:f18": {
+    "hash": "94aabcad0396a2e7bb511d9d40cf24317bff780db7e8cf42c9a3ccb00c2503b2",
+    "by": "data/audit/in-99999926100906584028966001.json"
+   },
+   "fact:f19": {
+    "hash": "13cd23b85b8e387f1c4b31c9df8a1369388303a825553abbe6bb783b2256cd6e",
+    "by": "data/audit/in-99999926100906584028966001.json"
+   },
+   "fact:f20": {
+    "hash": "a0a8537584063fb4d6969f646d275732f556532b46c85bef0f01915c843477f6",
+    "by": "data/audit/in-99999926100906584028966001.json"
+   },
+   "fact:f21": {
+    "hash": "b51a7d52ea92a1883cd4fcbe7dcb5500736e12667e564f216938c89833c8b7d3",
+    "by": "data/audit/in-99999926100906584028966001.json"
+   },
+   "fact:f22": {
+    "hash": "4a14e110372d46b40c5b50dfb469e7d0296673c936ef3b7b4bc9f463ce9b59f5",
+    "by": "data/audit/in-99999926100906584028966001.json"
+   },
+   "metric:m1": {
+    "hash": "5b0f75799010bd7a6fdebb64d400d1000d4c56ee1cba5226d8d53ab693f93d2d",
+    "by": "data/audit/in-99999926100906584028966001.json"
+   },
+   "metric:m2": {
+    "hash": "8dc28805141ebcbae3d3fc00f0d514c84cf98a602e50ccb78c88f5b12cc3efeb",
+    "by": "data/audit/in-99999926100906584028966001.json"
+   },
+   "metric:m3": {
+    "hash": "9cfeb2a033438aa8dd209a90119417a38342fec4a37267fd44f7534eabb3c830",
+    "by": "data/audit/in-99999926100906584028966001.json"
+   },
+   "metric:m5": {
+    "hash": "6f056992956d50e4e65d9313718f843da5bd5b8d7f25e221e06c51b93bea51d7",
+    "by": "data/audit/in-99999926100906584028966001.json"
+   },
+   "metric:m6": {
+    "hash": "f39a2e22e2b007d520b05bfea12c12244d1541857e3c7a9a1593f5d8574f879e",
+    "by": "data/audit/in-99999926100906584028966001.json"
+   },
+   "metric:m7": {
+    "hash": "62f56bb972a7581b7d1f10bb933cca937acf9e06f30bf4ff05c0866ffd9ade10",
+    "by": "data/audit/in-99999926100906584028966001.json"
+   },
+   "analysis:a-headline": {
+    "hash": "0f84773ad300971e181ac23c54d6b3831ef09a40d349e6ba76d44c1b2193867e",
+    "by": "data/audit/in-99999926100906584028966001.json",
+    "body": {
+     "text": "利用者の要望から旅の記録を紙の本にする機能を作り、本の販売を収入の柱にした、移動経路を自動で地図に残す旅行アプリ"
+    }
+   },
+   "analysis:a-story": {
+    "hash": "1e77a9cba2ca1df692f3ade3ff79f4ce7c0ff7d1e7181e40eb526c4d956aad0b",
+    "by": "data/audit/in-99999926100906584028966001.json",
+    "body": {
+     "text": "Niekが大西洋を航海する際、家族や友人に居場所を伝える仕組みを作った。Job、Koen、Maximilianoが加わり、iPhone用の試用版を公開した。その後、利用者の要望に応えて旅の記録を紙の本にするTravel Bookを発売し、販売が収入の柱になった。旅行がほぼ止まった時期にも、利用者は過去の旅の写真を本にした。さらに、詳しい地形や移動の記録を求める旅行者向けに有料プランを加えた。"
+    }
+   },
+   "analysis:a-business_model": {
+    "hash": "fbf93ec1632e136fd823bf8aa3d8117bc2ada42b32618a72b477f9422af5ae3f",
+    "by": "data/audit/in-99999926100906584028966001.json",
+    "body": {
+     "text": "旅行者がアプリに残した経路・写真・文章を硬い表紙の本にまとめ、その本を販売して代金を得る。詳しい地形や移動の記録を使いたい利用者からは、有料プランの利用料を受け取る。アプリ内の旅行案内を見た利用者が宿泊先などを予約した場合にも、予約に応じた収入を得る。"
+    }
+   },
+   "analysis:a-customer": {
+    "hash": "d795578b5c08317b7a552bfec50559ba8399ea4360d577eb63291907b9d3668c",
+    "by": "data/audit/in-99999926100906584028966001.json",
+    "body": {
+     "text": "旅の写真や経路、出来事を紙の本として手元に残したい旅行者がTravel Bookを購入する。有料の追加機能は、長距離の登山などで地形や移動を詳しく記録したい旅行者向けだ。"
+    }
+   },
+   "analysis:a-customer_pain": {
+    "hash": "ddb502d45491c9a9d833989cfe46518695d840515bcb0b2f496b9d3f5f5afe57",
+    "by": "data/audit/in-99999926100906584028966001.json",
+    "body": {
+     "text": "旅の写真を本に残すには、写真集の編集に時間がかかる。Polarstepsは旅の記録から本の配置を自動で作り、その手間を減らした。旅行中の近況も、旅のリンクを共有すれば家族や友人にまとめて伝えられる。"
+    }
+   },
+   "analysis:a-channels": {
+    "hash": "6d86fb5a83d5d8d360aac9a3c0ca5a8bcc7c954119bc9b2e1fbbbd2fce22bfc9",
+    "by": "data/audit/in-99999926100906584028966001.json",
+    "body": {
+     "text": "利用者が他の旅行者にアプリを勧めることで広がった。旅を共有された家族や友人が、アプリを使い始めた例もある。"
+    }
+   },
+   "analysis:a-capital_and_team": {
+    "hash": "48cc636b394f10283e5d052ff618f84fe4ac037d54775c4bd059b509f15a996a",
+    "by": "data/audit/in-99999926100906584028966001.json",
+    "body": {
+     "text": "NiekにJob、Koen、Maximilianoが加わって創業チームを組んだ。2016年3月17日に投資会社と報道会社から50万ユーロの調達を発表し、2019年1月16日には公表された調達額の累計が460万ユーロになった。",
+     "formula": "数字は出典に載っている値"
+    }
+   },
+   "analysis:a-timeline": {
+    "hash": "a4eb82a7ede2e85e21b2eff701d14a03f4eb0f180607d33d9187ad749596a0b8",
+    "by": "data/audit/in-99999926100906584028966001.json",
+    "body": {
+     "text": "2017年2月6日、Travel Bookを発売。2019年1月16日、登録利用者数が100万人を超えた。2025年には世界の利用者数が1,500万人となり、2026年3月27日に2,000万人への到達を発表した。",
+     "formula": "数字は出典に載っている値"
+    }
+   }
+  },
+  "audits": [
+   {
+    "inputFile": "data/audit/in-99999926100906584028966001.json",
+    "outputFile": "data/audit/out-99999926100906584028966001.json",
+    "inputFileHash": "c9474f200130fa59e8888f0897d53a4996bb70ccc7b23fa4c7a12cb57c611586",
+    "outputFileHash": "feb0670e5fe64674242ba23867f54630c773facaad12e199ea27b01d2a4b284d"
+   }
+  ],
+  "lastAudit": "data/audit/in-99999926100906584028966001.json",
+  "baseAnalysisHash": "b34fd02bd75364df0e465aadb92a265a858b6c86f658fe3a5b6ce936198ac42a"
+ },
+ "ent_wildgrain_2b5aec41c733": {
+  "version": 2,
+  "caseHash": "9d9eb9e69fdfc6d900b9df2e768ed6d0bd42c0ea56799e26de3df259c6ef7d0a",
+  "items": {
+   "fact:f1": {
+    "hash": "505e05fe3037634805c0ffc7ab44ca1f8b789a70da1158d5ae66d550073ae3d6",
+    "by": "data/audit/in-99999926100906584028966002.json"
+   },
+   "fact:f2": {
+    "hash": "21f5dd1d68cb2ede7ee9fac374d23d44e0228431415b9acce7ddfb3a050feced",
+    "by": "data/audit/in-99999926100906584028966002.json"
+   },
+   "fact:f3": {
+    "hash": "a4ae29d70d375d5453bd088868e8e1d74e20957ec24862a5b9ebd435e7320a5e",
+    "by": "data/audit/in-99999926100906584028966002.json"
+   },
+   "fact:f4": {
+    "hash": "e4ac06781c69606143db12173838d77471bf9dbc8b9b859a9d1f1ac3de43e40a",
+    "by": "data/audit/in-99999926100906584028966002.json"
+   },
+   "fact:f5": {
+    "hash": "2e38be667f6d7eeea80ad00d259655206335307e35aa1b4aba42db787c0f919d",
+    "by": "data/audit/in-99999926100906584028966002.json"
+   },
+   "fact:f6": {
+    "hash": "d73c1e2d1da8680a1941ad2e76da4f2dd5058dae2396e70ef770ef78090d5f99",
+    "by": "data/audit/in-99999926100906584028966002.json"
+   },
+   "fact:f7": {
+    "hash": "209c2888192526e96459d87263e8ed0662fac76c5ba06fc8d78c50a2053f6cdf",
+    "by": "data/audit/in-99999926100906584028966002.json"
+   },
+   "fact:f8": {
+    "hash": "9325679dab56625523b8ebacc913e6c5ab4ca4b3e2785862601797aaeee6bdbb",
+    "by": "data/audit/in-99999926100906584028966002.json"
+   },
+   "fact:f9": {
+    "hash": "3e9c203a91d1add248919b82d975b5ff8438ba0cf453cb57a7fb1c7b5e2ace20",
+    "by": "data/audit/in-99999926100906584028966002.json"
+   },
+   "fact:f10": {
+    "hash": "a0782d50d0745c0721425f2fdcfd177ba545bf7db0bb65ff405dbe11b2eb8499",
+    "by": "data/audit/in-99999926100906584028966002.json"
+   },
+   "fact:f11": {
+    "hash": "a987d66e7f3c9a155d82842b9c0a6f143436d8a8b065039e055f7c6ab9948f8f",
+    "by": "data/audit/in-99999926100906584028966002.json"
+   },
+   "fact:f12": {
+    "hash": "7fdfc6083936ea927438ecf706ebb1e370d1a8323b205bb95509ef76f5081853",
+    "by": "data/audit/in-99999926100906584028966002.json"
+   },
+   "fact:f13": {
+    "hash": "4844269e126b460e5a1b530973dd1d693fdf7403a7a06ba3bf3bf54889ab0030",
+    "by": "data/audit/in-99999926100906584028966002.json"
+   },
+   "fact:f14": {
+    "hash": "79a95a69a16c51cb3163698ec9a7ea3155d54b42c3d3f64b35e0fa0694a4caab",
+    "by": "data/audit/in-99999926100906584028966002.json"
+   },
+   "fact:f15": {
+    "hash": "94f154e4d44f7d9e21d598c46fbe49da8b56d2af4f233777de889063763e76df",
+    "by": "data/audit/in-99999926100906584028966002.json"
+   },
+   "fact:f16": {
+    "hash": "23adc9cdb4bff32bee9777da254082d57d536b1fe1d5076834b8791f7058e67c",
+    "by": "data/audit/in-99999926100906584028966002.json"
+   },
+   "analysis:a-headline": {
+    "hash": "10e7d67685ff0c37284ca17852f9e507bcffd52f83cfe6f09b2e21bc65d25cf4",
+    "by": "data/audit/in-99999926100906584028966002.json",
+    "body": {
+     "text": "市販の食品に満足できず、自宅でレシピを研究するところから始まった、解凍せずに焼けるパンや菓子を家庭に届ける定期便。"
+    }
+   },
+   "analysis:a-story": {
+    "hash": "c517c6b65bb245c1f2cb0af6a654325adea0a8cb2dae2df76f320ba2c10c92e6",
+    "by": "data/audit/in-99999926100906584028966002.json",
+    "body": {
+     "text": "Johanna Hartzheimは、市販の食品に満足できず、自宅で作る食品のレシピを研究し、夫とWildgrainを始めた。創業当初のパンや菓子は自ら手作業で作っていた。その後、創業したソマービルに実店舗Wildgrain Bakehouseを開いた。"
+    }
+   },
+   "analysis:a-business_model": {
+    "hash": "61c03e858932a4b79dbae027dc7d248002ef0f274f21ddff0d70203148e10173",
+    "by": "data/audit/in-99999926100906584028966002.json",
+    "body": {
+     "text": "家庭向けにパンや菓子、生パスタを箱に詰めて定期配送し、会員から配送ごとに代金を受け取る。パンや菓子は冷凍で届き、客が自宅で焼いて仕上げる。独立したベーカリーと提携して商品を揃える。"
+    }
+   },
+   "analysis:a-customer": {
+    "hash": "4f77160ecbf20670fa0873fb7681c19f7efc574f302e7635a4b8ef92fc9fc390",
+    "by": "data/audit/in-99999926100906584028966002.json",
+    "body": {
+     "text": "家庭でパンや菓子、生パスタを食べる定期購入の会員は15万人を超える。夏の間だけ配送を休む既存客もいる。",
+     "formula": "数字は出典に載っている値"
+    }
+   },
+   "analysis:a-customer_pain": {
+    "hash": "14d7eddf8412c3570f1ae726f3a2e2e58efbe22bfbdccb729bf5538a5bd6da25",
+    "by": "data/audit/in-99999926100906584028966002.json",
+    "body": {
+     "text": "パン生地を仕込んだり、解凍を待ったりせず、食べたいときに自宅で焼きたてを食べたい。Wildgrainのパンや菓子は、冷凍庫から出してそのまま焼ける。"
+    }
+   },
+   "analysis:a-channels": {
+    "hash": "425ab3b9e76455a805262d9373dbab0ee548e063eb7ae236d7b00870591381c1",
+    "by": "data/audit/in-99999926100906584028966002.json",
+    "body": {
+     "text": "夏に配送を休む既存客の動きに合わせ、年明けに広告予算を増やす方針を取った。音声番組の広告と、インターネット経由で見るテレビの広告も試した。"
+    }
+   }
+  },
+  "audits": [
+   {
+    "inputFile": "data/audit/in-99999926100906584028966002.json",
+    "outputFile": "data/audit/out-99999926100906584028966002.json",
+    "inputFileHash": "324f39e47123b24a64ac90528af69dfd69ee9ac9827fd5ec351e1c68ed973534",
+    "outputFileHash": "9b7975ef700839d44cf3eb0785e36739b8b4965fc7fb9c5871d47ba2a0539324"
+   }
+  ],
+  "lastAudit": "data/audit/in-99999926100906584028966002.json",
+  "baseAnalysisHash": "16427ce9fff3707460e52a557cfb70789032ca4c2bb7c0edaf853b6b50627ffc"
  }
 }

@@ -6,10 +6,13 @@
  *   pnpm case:run --ids a --publish      （最後に今の catalog:publish を呼ぶ。R2 への書き込みと本番反映は catalog:publish の中身に従う）
  *   オプション: --from <段>（その段から始める。段の名前は下）  --stall-minutes N（出力も CPU の動きも無いまま N 分で固まったとみなし、止めて1回やり直す。既定10。やり直しても固まればその件だけ失敗）  --concurrency N（同時に流す束・事例の数。既定4）  --agent claude|codex|auto  --model <型>  --codex-effort low|medium|high
  *              --run-id <名前>  --max-attempts N（束ごとの拒否の上限。既定3）
+ *              --display legacy（画面の文を古い形 list-lines.json 等で作る。既定は画面の正本 data/case-pages/<id>.md を scripts/case-write/run.ts で書く）
+ *              --rewrite-case-pages（正本が既にある事例も書き直す。既定は書き直さない）
+ *              --write-effort <深さ>（画面の正本を書く段へ渡す codex の深さ。他の段の --codex-effort とは別）
  *
  * 段（この順）:
  *   fetch 出典の取得 → verify 事実の照合 → source-check 原文照合 → analyze 分析 → audit 監査
- *   → select 仕上げ済みの選別 → display 画面の文 → case-text 文の検査 → prepare 公開データの作成 → publish（--publish の時だけ）
+ *   → select 仕上げ済みの選別 → display 画面の文 → media 画像の取得と自動判定（止めない） → case-text 文の検査 → prepare 公開データの作成 → publish（--publish の時だけ）
  * 照合・分析・監査は AI をその場で呼ぶ（runner/agent-run.ts）。終了コード 75 の待ち合わせは無い。
  * 束は事例ごと。1件が失敗しても他の件は止めず、失敗した件と理由は最後に一覧で出す。
  * 各段の所要時間は data/pipeline/case-run.jsonl に1行ずつ残す。
@@ -29,7 +32,7 @@ import { runStageWithAgent, type AgentStageOptions, type BundleOutcome } from '.
 const HERE = dirname(fileURLToPath(import.meta.url));
 export const ROOT = resolve(HERE, '../..');
 
-export const STAGE_ORDER = ['fetch', 'verify', 'source-check', 'analyze', 'audit', 'select', 'display', 'fact-lines', 'case-text', 'prepare', 'publish'] as const;
+export const STAGE_ORDER = ['fetch', 'verify', 'source-check', 'analyze', 'audit', 'select', 'display', 'fact-lines', 'media', 'case-text', 'prepare', 'publish'] as const;
 
 export interface ExecResult { code: number; stdout: string; stderr: string }
 /** 外の命令（node スクリプト・pnpm）を流す。試験では偽物に差し替える */
@@ -48,6 +51,15 @@ export interface CaseRunOptions {
   from?: string;
   /** build-display に渡す AI の指定 */
   agentArgs?: string[];
+  /** 画面の正本を書く段（case:write）に渡す codex の深さ。他の段の --codex-effort とは別 */
+  writeEffort?: string;
+  /**
+   * 画面の文の作り方。既定 'case-page': 画面の正本 data/case-pages/<id>.md を書く新しい流れ（scripts/case-write/run.ts → case-pages:build）。
+   * 'legacy': 古い形（list-lines.json など。build-display.ts と build-fact-lines.ts）。正本がある事例は画面で正本が勝つので、古い形は使われない。
+   */
+  display?: 'case-page' | 'legacy';
+  /** 正本（data/case-pages/<id>.md）が既にある事例も書き直す（既定は書き直さない。オーナーが直させた文を自動で上書きしない） */
+  rewriteCasePages?: boolean;
   log?: (text: string) => void;
 }
 export interface CaseRunDeps {
@@ -212,10 +224,26 @@ export async function runCases(opt: CaseRunOptions, deps: CaseRunDeps): Promise<
   });
 
   // 7. 画面の文。事例ごとに別の作業場所（--data-dir）で並列に作り、できた分だけを最後に1つずつ実ファイルへ反映する
+  /** 画面の正本を書く（新しい流れ）。書く→読む→プログラムの照合を通った文だけが data/case-pages/<id>.md に置かれ、case-pages:build で画面用に組む */
+  async function casePageDisplay(): Promise<Record<string, unknown>> {
+    const existing = [...alive].filter((id) => existsSync(join(root, 'data/case-pages', `${id}.md`)));
+    const todo = opt.rewriteCasePages ? [...alive] : [...alive].filter((id) => !existing.includes(id));
+    if (todo.length) {
+      const r = await deps.exec('display-case-write', node('scripts/case-write/run.ts', '--ids', todo.join(','), '--concurrency', String(Math.max(1, Math.min(opt.concurrency, 4))), ...(opt.agentArgs ?? []).filter((a, i, all) => a !== '--codex-effort' && all[i - 1] !== '--codex-effort'), ...(opt.writeEffort ? ['--codex-effort', opt.writeEffort] : [])));
+      for (const id of todo) {
+        if (!new RegExp(`^\\[case:write\\] ${id}: 合格`, 'm').test(r.stdout)) fail(id, 'display', `画面の正本を書けなかった、または照合に通らなかった。理由: data/pipeline/case-write.jsonl と data/pipeline/case-write-rejected/${id}.rejected.md`);
+      }
+    }
+    const b = await deps.exec('display-case-pages-build', ['pnpm', 'case-pages:build']);
+    if (b.code !== 0) failAll('display', `case-pages:build が通らなかった: ${(b.stderr || b.stdout).trim().split('\n').slice(-3).join(' / ').slice(0, 300)}`);
+    return { written: todo.length, keptExisting: opt.rewriteCasePages ? 0 : existing.length };
+  }
+
   await stage('display', async () => {
     const dirs = new Map<string, string>();
     const finished = new Set(readLines(join(root, 'data/catalog-finished-ids.txt')));
     for (const id of [...alive]) if (!finished.has(id)) fail(id, 'display', '仕上げ済み（data/catalog-finished-ids.txt）に無いので画面の文を作らない');
+    if ((opt.display ?? 'case-page') === 'case-page') return casePageDisplay();
     const ids = [...alive];
     let next = 0;
     const lane = async (): Promise<void> => {
@@ -250,9 +278,19 @@ export async function runCases(opt: CaseRunOptions, deps: CaseRunDeps): Promise<
   await stage('fact-lines', async () => {
     const ids = [...alive];
     if (!ids.length) return { skipped: '対象が無い' };
+    if ((opt.display ?? 'case-page') === 'case-page') return { skipped: '画面の正本（data/case-pages）が画面の文を持つので、古い形の言い直しは作らない' };
     const r = await deps.exec('fact-lines', node('scripts/reader-case/build-fact-lines.ts', '--ids', ids.join(','), '--concurrency', String(Math.max(1, Math.min(opt.concurrency, 4))), ...(opt.agentArgs ?? [])));
     if (r.code !== 0) for (const id of ids) fail(id, 'fact-lines', `記録の文の言い直しを作れなかった（終了コード ${r.code}）。理由: data/pipeline/fact-lines-failures.jsonl`);
     return { cases: ids.length };
+  });
+
+  // 7c. 画像の取得と自動判定（取得済みは取り直さない）。ここでは何があっても事例を外さない。保留は「人の目で見る」と出す。R2 へは自動で上げない
+  await stage('media', async () => {
+    const r = await deps.exec('media', node('scripts/media/ensure-case-media.ts', '--ids-file', idsFile('media', alive)));
+    const lines = r.stdout.split('\n').map((l) => l.trim());
+    for (const l of lines.filter((x) => /^(保留あり|使える画像なし|上げる命令)/.test(x) || x.includes(' | '))) log(`media: ${l}`);
+    if (r.code !== 0) log(`media: 画像の段が終了コード ${r.code} で終わった（事例は止めない）。理由: ${errorLine(r)}`);
+    return { held: lines.filter((l) => l.startsWith('保留あり')).length, noImage: lines.filter((l) => l.startsWith('使える画像なし')).length };
   });
 
   // 8. 文の検査（全件を対象にする検査なので、落ちたら理由を出して公開データの作成へ進まない）
@@ -333,6 +371,9 @@ function parseArgs(argv: string[]): CaseRunOptions & { agent?: string; model?: s
   return {
     root: ROOT, ids, concurrency: conc, publish: argv.includes('--publish'), allowNonMain: argv.includes('--allow-non-main'),
     from: val('--from'),
+    display: val('--display') === 'legacy' ? 'legacy' as const : 'case-page' as const,
+    rewriteCasePages: argv.includes('--rewrite-case-pages'),
+    writeEffort: val('--write-effort'),
     stallMinutes: Number(val('--stall-minutes') ?? 10),
     runId: val('--run-id') ?? new Date().toISOString().replace(/[-:]/g, '').slice(0, 15),
     maxAttempts: val('--max-attempts') ? Number(val('--max-attempts')) : undefined,

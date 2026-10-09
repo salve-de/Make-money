@@ -1,0 +1,6 @@
+$ pnpm case-tags:check
+
+> make-money-app@0.1.0 case-tags:check /Volumes/SS/Worktrees/Make-Money/rewrite-27
+> node --import tsx scripts/case-tags/check.ts
+
+タグの検査 OK: 公開する事例 33 件すべてに、一覧の言葉で分野・事業の形・売る相手が1つずつ付いています（版 1）

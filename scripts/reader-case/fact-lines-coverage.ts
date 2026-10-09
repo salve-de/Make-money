@@ -11,6 +11,7 @@ import { VERDICTS_FILE, type VerdictsFile } from './verify-lib';
 import { type AnalysisFile } from './analysis-lib';
 import { readReflectState, withReflectedAnalysis } from './case-reflect';
 import { textFingerprint } from '../../src/shared/text-fingerprint';
+import { OPERATOR_TAGS } from '../../src/shared/display-text';
 import { collectTargets, isPriceTarget } from './fact-lines-lib';
 
 const read = <T>(file: string): T => JSON.parse(readFileSync(file, 'utf8')) as T;
@@ -35,4 +36,4 @@ for (const id of ids) {
     targets: collectTargets(reader).map((t) => ({ key: t.key, kind: t.kind, targetId: t.targetId, where: t.where, original: t.original, hash: textFingerprint(t.original), price: isPriceTarget(t) })),
   });
 }
-console.log(JSON.stringify({ ids, missing, cases }));
+console.log(JSON.stringify({ ids, missing, cases, operatorTags: [...OPERATOR_TAGS] }));

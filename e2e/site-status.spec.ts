@@ -25,7 +25,8 @@ test('sitemap.xml は固定ページを含み、個人ページを含まない',
   const response = await request.get('/sitemap.xml');
   expect(response.status()).toBe(200);
   const body = await response.text();
-  expect(body).toContain('/discover');
+  expect(body).toContain('/welcome');
+  expect(body).not.toContain('/discover');
   expect(body).not.toContain('/alerts');
   expect(body).not.toContain('/maintenance');
 });

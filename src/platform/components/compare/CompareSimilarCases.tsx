@@ -4,7 +4,8 @@ import Link from 'next/link';
 import React, { useEffect, useState } from 'react';
 import type { FinancialEntity } from '@/shared/terminal';
 import { ListMetricCell, listMetricsOf } from '@/platform/components/grid/ReaderListCells';
-import { firstSentence, readerSummaryFact } from '@/shared/display-text';
+import { readerSummaryFact } from '@/shared/display-text';
+import { summaryLineOf } from '@/shared/list-lines';
 
 const LIST_LIMIT = 8;
 
@@ -39,7 +40,7 @@ function CaseList({ title, empty, rows, canAdd, onAdd }: {
               <li key={row.id} className="flex min-h-11 items-center gap-2 border-b border-term-line-soft px-2.5 py-1 text-[13px] lg:min-h-8">
                 <Link href={`/?entity=${encodeURIComponent(row.id)}`} className="min-w-0 flex-1" title={row.tagline || row.name}>
                   <span className="block truncate text-term-fg-strong hover:underline">{row.name}</span>
-                  {summary && <span className="block truncate text-xs text-term-muted">{firstSentence(summary.text)}</span>}
+                  {summary && <span className="block truncate text-xs text-term-muted">{summaryLineOf(row.reader)}</span>}
                 </Link>
                 <span className="term-num shrink-0 text-right text-xs">
                   <ListMetricCell metric={listMetricsOf(row.reader).main} expected={['REVENUE']} />

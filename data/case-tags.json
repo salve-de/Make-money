@@ -1,0 +1,251 @@
+{
+ "ent_button_shy_f1545f17d98e": {
+  "field": "ゲーム・娯楽",
+  "form": "物販・通販",
+  "buyer": "個人向け",
+  "features": [],
+  "basis": "小さなカードゲームを作って売る出版社"
+ },
+ "ent_candy_japan_954236d663a8": {
+  "field": "食品・飲食",
+  "form": "物販・通販",
+  "buyer": "個人向け",
+  "features": [],
+  "basis": "日本の駄菓子を詰めた箱の定期便"
+ },
+ "ent_churnkey_8d7f2b269c21": {
+  "field": "経理・決済",
+  "form": "ソフト・アプリ",
+  "buyer": "会社向け",
+  "features": [],
+  "basis": "定期課金の解約を防ぐ会社向けソフト"
+ },
+ "ent_codementor_ba692caa3db3": {
+  "field": "開発・IT",
+  "form": "仲介",
+  "buyer": "開発者向け",
+  "features": [],
+  "basis": "行き詰まった開発者と腕のある開発者を通話でつなぐ。会社にはフリーランスを紹介"
+ },
+ "ent_data_fetcher_8e6a5e22ce2a": {
+  "field": "仕事の効率化",
+  "form": "ソフト・アプリ",
+  "buyer": "会社向け",
+  "features": [],
+  "basis": "Airtableに他サービスの数字を自動で入れる追加機能"
+ },
+ "ent_dnsimple_c8560498b136": {
+  "field": "開発・IT",
+  "form": "ソフト・アプリ",
+  "buyer": "開発者向け",
+  "features": [],
+  "basis": "ドメインとDNSの管理サービス。開発者が使う"
+ },
+ "ent_ejunkie_7e9e46bd9643": {
+  "field": "ネット販売の支援",
+  "form": "ソフト・アプリ",
+  "buyer": "会社向け",
+  "features": [],
+  "basis": "電子商品や物の販売の買い物かごを提供する月額サービス"
+ },
+ "ent_geocodio_c64c0721d500": {
+  "field": "開発・IT",
+  "form": "ソフト・アプリ",
+  "buyer": "開発者向け",
+  "features": [],
+  "basis": "住所を座標に変えるAPI"
+ },
+ "ent_gorails_640d8f688451": {
+  "field": "開発・IT",
+  "form": "講座・教材",
+  "buyer": "開発者向け",
+  "features": [],
+  "basis": "Rails開発者が動画で学ぶ月額の講座サイト"
+ },
+ "ent_heygen_8f11a1": {
+  "field": "音楽・動画",
+  "form": "ソフト・アプリ",
+  "buyer": "会社向け",
+  "features": [
+   "AI"
+  ],
+  "basis": "文章を入れるとAIの人物が話す動画ができる月額サービス。売り物の中心がAIの出力"
+ },
+ "ent_hostifi_cf9ec73a42d2": {
+  "field": "開発・IT",
+  "form": "ソフト・アプリ",
+  "buyer": "会社向け",
+  "features": [],
+  "basis": "Wi-Fi設置業者向けの機器管理サーバーの月額サービス"
+ },
+ "ent_indiehackers_6548833164b0": {
+  "field": "起業・ビジネス",
+  "form": "メディア・広告",
+  "buyer": "個人向け",
+  "features": [],
+  "basis": "起業家の売上を載せるインタビューと掲示板を無料で読ませるサイト。会員制の有料課金ではなく読み物で人を集める形"
+ },
+ "ent_interior_ai_8db5ebe8d424": {
+  "field": "住まい・不動産",
+  "form": "ソフト・アプリ",
+  "buyer": "個人向け",
+  "features": [
+   "AI"
+  ],
+  "basis": "部屋の写真からAIが内装案を作るサービス"
+ },
+ "ent_lunch_money_be2eeb1f4fdf": {
+  "field": "家計・投資",
+  "form": "ソフト・アプリ",
+  "buyer": "個人向け",
+  "features": [],
+  "basis": "複数通貨を使う個人向けの家計簿アプリ"
+ },
+ "ent_memberful_0dff1f9c00fa": {
+  "field": "ネット販売の支援",
+  "form": "ソフト・アプリ",
+  "buyer": "会社向け",
+  "features": [],
+  "basis": "会員制サイトの課金を代行する月額サービス"
+ },
+ "ent_myoperator_49c393230a2d": {
+  "field": "集客・営業",
+  "form": "ソフト・アプリ",
+  "buyer": "会社向け",
+  "features": [],
+  "basis": "電話の振り分けを月額で使わせるサービス。使うのはインドの小さな店や会社"
+ },
+ "ent_noteforms_003fcbdd14cf": {
+  "field": "仕事の効率化",
+  "form": "ソフト・アプリ",
+  "buyer": "会社向け",
+  "features": [],
+  "basis": "Notionに回答が入る受付フォームを作るサービス"
+ },
+ "ent_pinboard_dee894c32b25": {
+  "field": "仕事の効率化",
+  "form": "ソフト・アプリ",
+  "buyer": "個人向け",
+  "features": [],
+  "basis": "ウェブページを保存して探せるブックマークサービス"
+ },
+ "ent_polarsteps_2b2970abd201": {
+  "field": "旅行・暮らし",
+  "form": "ソフト・アプリ",
+  "buyer": "個人向け",
+  "features": [],
+  "basis": "旅行者が旅の計画・記録・共有に使うアプリで、有料の追加機能も販売している。紙の旅行記の販売は別の収益源として記録した。AIは機能の一部なので特徴には付けていない。"
+ },
+ "ent_poolsuite_6d5ad6895563": {
+  "field": "音楽・動画",
+  "form": "メディア・広告",
+  "buyer": "個人向け",
+  "features": [],
+  "basis": "ラジオは無料。集まった客が日焼け止めの発売を支えた。有料会員が稼ぎの中心ではないのでメディア・広告"
+ },
+ "ent_practicaltypographycom_e9aa6bc94ccf": {
+  "field": "デザイン・制作",
+  "form": "デジタル商品",
+  "buyer": "個人向け",
+  "features": [],
+  "basis": "本は無料公開。1年目の収入は直接の支払いより自作フォントの購入が多い（450件対244件）ので、フォントを売る形"
+ },
+ "ent_quaderno_81236030d721": {
+  "field": "経理・決済",
+  "form": "ソフト・アプリ",
+  "buyer": "会社向け",
+  "features": [],
+  "basis": "ネット販売の税の計算・請求書のサービス"
+ },
+ "ent_referralrock_8c13d5ee4cfc": {
+  "field": "集客・営業",
+  "form": "ソフト・アプリ",
+  "buyer": "会社向け",
+  "features": [],
+  "basis": "紹介制度を運営する会社向けソフト"
+ },
+ "ent_requestly_28e9f2": {
+  "field": "開発・IT",
+  "form": "ソフト・アプリ",
+  "buyer": "開発者向け",
+  "features": [],
+  "basis": "ウェブ開発者が通信を書き換えて試すブラウザ拡張"
+ },
+ "ent_rfrcui_64e924ac": {
+  "field": "デザイン・制作",
+  "form": "講座・教材",
+  "buyer": "開発者向け",
+  "features": [],
+  "basis": "開発者向けの画面デザインの教本。動画と部品の付録つきで学ぶのが目的"
+ },
+ "ent_ship_30_for_30_f54113b59b9a": {
+  "field": "教育・学び",
+  "form": "講座・教材",
+  "buyer": "個人向け",
+  "features": [],
+  "basis": "30日間毎日書く文章のオンライン講座と会員の学び"
+ },
+ "ent_shipfast": {
+  "field": "開発・IT",
+  "form": "デジタル商品",
+  "buyer": "開発者向け",
+  "features": [],
+  "basis": "ログイン・課金などを入れたコード一式を買い切りで売る"
+ },
+ "ent_snipcart_9a1012111695": {
+  "field": "ネット販売の支援",
+  "form": "ソフト・アプリ",
+  "buyer": "開発者向け",
+  "features": [],
+  "basis": "開発者が自分のサイトに入れる買い物かごの部品サービス"
+ },
+ "ent_statusgator_316d3eb5edf6": {
+  "field": "開発・IT",
+  "form": "ソフト・アプリ",
+  "buyer": "開発者向け",
+  "features": [],
+  "basis": "他社サービスの障害を知らせる監視サービス"
+ },
+ "ent_teamcamp_ae0c21986c4d": {
+  "field": "仕事の効率化",
+  "form": "ソフト・アプリ",
+  "buyer": "会社向け",
+  "features": [],
+  "basis": "制作会社の案件・時間記録・請求をまとめる月額サービス"
+ },
+ "ent_tuple_20261007": {
+  "field": "開発・IT",
+  "form": "ソフト・アプリ",
+  "buyer": "開発者向け",
+  "features": [],
+  "basis": "離れた2人のプログラマーが画面を共有して書くアプリ"
+ },
+ "ent_typedream_c02cf9d5426e": {
+  "field": "デザイン・制作",
+  "form": "ソフト・アプリ",
+  "buyer": "会社向け",
+  "features": [],
+  "basis": "ホームページを作る月額サービス。使うのは文章や講座を売る作り手"
+ },
+ "ent_userlist_a288fcf9f741": {
+  "field": "集客・営業",
+  "form": "ソフト・アプリ",
+  "buyer": "会社向け",
+  "features": [],
+  "basis": "ソフトの会社向けのメール配信"
+ },
+ "ent_wildgrain_2b5aec41c733": {
+  "field": "食品・飲食",
+  "form": "物販・通販",
+  "buyer": "個人向け",
+  "features": [],
+  "basis": "家庭にパンや菓子、生パスタを定期配送するという公式説明と、地域の製造業者への委託を述べた創業者の取材に基づく。"
+ },
+ "ent_wip_5eef8a985270": {
+  "field": "起業・ビジネス",
+  "form": "会員・コミュニティ",
+  "buyer": "個人向け",
+  "features": [],
+  "basis": "一人で作る人が毎日の進捗を見せ合う招待制の会員の集まり"
+ }
+}

@@ -19,9 +19,9 @@ import {
   pickListMetric,
   pickProfitMetric,
   plainAnalysisText,
-  readerSummaryFact,
 } from '@/shared/display-text';
 import { ANALYSIS_LABELS } from '@/shared/ui-strings';
+import { summaryLineOf } from '@/shared/list-lines';
 import type { AnalysisItem, ReaderMetric } from '@/shared/reader-case';
 import { CompareSimilarCases } from './CompareSimilarCases';
 
@@ -64,8 +64,7 @@ const ROWS: { label: string; value: (entity: FinancialEntity) => React.ReactNode
   {
     label: '何の事業か',
     value: (e) => {
-      const fact = readerSummaryFact(e.reader);
-      return (fact ? firstSentence(fact.text) : '') || text(e.essence?.whatItDoes) || text(e.tagline) || null;
+      return summaryLineOf(e.reader) || text(e.essence?.whatItDoes) || text(e.tagline) || null;
     },
   },
   { label: '分野', value: (e) => sectorLabel(e) },

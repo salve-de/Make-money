@@ -3,8 +3,12 @@ import type { FinancialEntity } from '@/shared/terminal';
 import {
   GRID_FILTERS,
   collectedEntityIds,
+  countFacetMatches,
   countScreenerMatches,
+  facetRowOf,
+  matchesCatalogQuery,
   matchesGridFilter,
+  matchesTaxonomySelection,
   readEntityFilterQuery,
   type FilterCandidate,
 } from './entity-filter';
@@ -79,5 +83,51 @@ describe('絞り込み欄の0件判定', () => {
     expect(countScreenerMatches([unknown, solo], { ...none, scales: ['SOLO'] })).toBe(1);
     expect(countScreenerMatches([unknown, solo], { ...none, minMargin: 50 })).toBe(1);
     expect(countScreenerMatches([unknown, solo], { ...none, minMargin: 80 })).toBe(0);
+  });
+});
+
+describe('タグの絞り込み（決まった言葉の一覧）', () => {
+  const entityWith = (id: string, tags: { field: string; form: string; buyer: string; features: string[] }) => ({
+    ...candidate, id, name: id, tagline: '', tags: [], reader: { display: { tags } },
+  }) as unknown as FinancialEntity;
+  const a = entityWith('a', { field: '開発・IT', form: 'ソフト・アプリ', buyer: '開発者向け', features: [] });
+  const b = entityWith('b', { field: '開発・IT', form: '講座・教材', buyer: '個人向け', features: [] });
+  const c = entityWith('c', { field: '住まい・不動産', form: 'ソフト・アプリ', buyer: '個人向け', features: ['AI'] });
+  const pick = (selectedTags: string[]) => [a, b, c].filter((e) => matchesCatalogQuery(e, '', { filter: 'ALL', batch: 'ALL', tags: [], bookmarks: [], screener: { scales: [], minMargin: 0, maxCapital: null, moats: [], selectedTags } })).map((e) => e.id);
+  it('「開発・IT」を選ぶと、分野が開発・ITの事例だけが残る', () => {
+    expect(pick(['開発・IT'])).toEqual(['a', 'b']);
+  });
+  it('同じ軸の中で複数選ぶと「どれか」', () => {
+    expect(pick(['開発・IT', '住まい・不動産'])).toEqual(['a', 'b', 'c']);
+  });
+  it('軸をまたいで選ぶと「全部」', () => {
+    expect(pick(['開発・IT', 'ソフト・アプリ'])).toEqual(['a']);
+    expect(pick(['個人向け', 'AI'])).toEqual(['c']);
+    expect(pick(['講座・教材', 'AI'])).toEqual([]);
+  });
+  it('選ばなければ全部。一覧にない言葉（古い保存条件の自由な言葉）は絞り込みに使わない', () => {
+    expect(pick([])).toEqual(['a', 'b', 'c']);
+    expect(pick(['内装のAI'])).toEqual(['a', 'b', 'c']);
+    expect(matchesTaxonomySelection([], ['開発・IT'])).toBe(false);
+  });
+});
+
+describe('件数用の最小の値（全件の件数を最初から出す）', () => {
+  const base = { scale: 'SOLO', pnl: { operatingMargin: 60 }, operations: { initialCapitalRequired: 0, isCapitalUnconfirmed: false }, strategy: { moatType: 'SWITCHING_COST' }, reader: { display: { tags: { field: '開発・IT', form: 'ソフト・アプリ', buyer: '個人向け', features: ['定期課金'] } } } };
+  const none = { scales: [], minMargin: 0, maxCapital: null, moats: [] };
+  it('事例から最小の値を作り、未確認の初期資金は null にする', () => {
+    const row = facetRowOf(base as never);
+    expect(row).toMatchObject({ scale: 'SOLO', margin: 60, capital: 0, moat: 'SWITCHING_COST' });
+    expect(row.words).toContain('開発・IT');
+    expect(facetRowOf({ ...base, operations: { initialCapitalRequired: 0, isCapitalUnconfirmed: true } } as never).capital).toBeNull();
+  });
+  it('事例そのもので数えた件数と、最小の値で数えた件数が一致する', () => {
+    const entities = [base, { ...base, scale: 'ENTERPRISE', pnl: { operatingMargin: 20 } }] as never[];
+    const rows = (entities as never[]).map(facetRowOf);
+    for (const screener of [{ ...none, scales: ['SOLO'] }, { ...none, minMargin: 50 }, { ...none, maxCapital: 0 }, { ...none, selectedTags: ['開発・IT'] }, { ...none, selectedTags: ['健康・美容'] }]) {
+      expect(countFacetMatches(rows, screener)).toBe(countScreenerMatches(entities, screener));
+    }
+    expect(countFacetMatches(rows, { ...none, selectedTags: ['開発・IT'] })).toBe(2);
+    expect(countFacetMatches(rows, { ...none, selectedTags: ['健康・美容'] })).toBe(0);
   });
 });

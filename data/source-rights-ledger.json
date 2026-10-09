@@ -3,15 +3,84 @@
  "note": "出典の権利台帳（ドメインごと）。手で直してよい。使い方と手順は docs/architecture/RIGHTS_LEDGER.md。pnpm rights:where / rights:suspend / rights:review",
  "reviewAfterDays": 180,
  "domains": {
+  "1twente.nl": {
+   "siteName": "1Twente／Newsroom Enschede",
+   "siteUrl": "https://1twente.nl/",
+   "status": "suspended",
+   "statusReason": "3基準（ログイン不要・有料の壁なし・引用を禁じていない）を満たさないと判断。記録には残し、画面には出さない",
+   "statusChangedAt": "2026-10-09T15:55:04+09:00",
+   "decision": {
+    "decidedAt": "2026-10-09T15:55:04+09:00",
+    "decidedBy": "AI（集める段の自動判断、2026-10-09）",
+    "basis": "ai_judgment",
+    "policyIds": [],
+    "reviewUrls": [],
+    "displayTier": "unconfirmed",
+    "usage": "数字と事実だけを自分の言葉で書き、出典の名前・URL・日付を付ける。文章・画像は写さない（本人の発言は「本人申告」と表示）",
+    "checks": {
+     "loginFree": "yes",
+     "noPaywall": "yes",
+     "quoteTerms": "prohibits",
+     "note": "ログイン不要: 取得記録なし（未確認）。 有料の壁・規約の引用禁止条項: 未確認（確かめたら rights:review で更新する）。 AIの判断(2026-10-09): 元の記録では、本文はログインなしで読めたが、転載には事前の書面許可が必要と判断している。今回、提供本文を参照し、規約は再閲覧していない。"
+    },
+    "termsUrl": "https://www.1twente.nl/disclaimer",
+    "termsCheckedAt": null
+   },
+   "ownerWords": [
+    {
+     "at": "2026-10-08T00:00:00+09:00",
+     "text": "お前の方で大丈夫なやつを選んで出すんだよ",
+     "verbatim": true
+    },
+    {
+     "at": "2026-10-08T00:00:00+09:00",
+     "text": "それらも記録してね　権利関係",
+     "verbatim": true
+    },
+    {
+     "at": "2026-10-08T00:00:00+09:00",
+     "text": "あとで誰かに何か言われたら柔軟にできるように",
+     "verbatim": true
+    },
+    {
+     "at": "2026-10-08T00:00:00+09:00",
+     "text": "法的に変わったりしたらとかさ",
+     "verbatim": true
+    },
+    {
+     "at": "2026-10-08T00:00:00+09:00",
+     "text": "今後は絶対にそれも加味して集めるようにして、できるようにして",
+     "verbatim": true
+    }
+   ],
+   "evidence": {
+    "terms": null,
+    "sourcePages": []
+   },
+   "history": [
+    {
+     "at": "2026-10-09T15:50:24+09:00",
+     "by": "add-entity-records(--from-research)",
+     "action": "seed",
+     "reason": "集める段でAIが3基準で判断して記録（基準を満たさず使用停止）"
+    },
+    {
+     "at": "2026-10-09T15:55:04+09:00",
+     "by": "add-entity-records(--from-research)",
+     "action": "seed",
+     "reason": "AIの権利判断で更新（suspended→suspended。確認: ログイン不要=yes 有料の壁なし=yes 引用=prohibits）"
+    }
+   ]
+  },
   "80.lv": {
    "siteName": "80.lv",
    "siteUrl": "https://80.lv/",
    "status": "active",
    "statusReason": "使用中",
-   "statusChangedAt": "2026-10-08T16:33:11+09:00",
+   "statusChangedAt": "2026-10-09T00:02:36+09:00",
    "decision": {
-    "decidedAt": "2026-10-08T16:33:11+09:00",
-    "decidedBy": "AI（集める段の自動判断、2026-10-08）",
+    "decidedAt": "2026-10-09T00:02:36+09:00",
+    "decidedBy": "AI（集める段の自動判断、2026-10-09）",
     "basis": "ai_judgment",
     "policyIds": [],
     "reviewUrls": [],
@@ -21,7 +90,7 @@
      "loginFree": "yes",
      "noPaywall": "yes",
      "quoteTerms": "unconfirmed",
-     "note": "ログイン不要: 取得記録なし（未確認）。 有料の壁・規約の引用禁止条項: 未確認（確かめたら rights:review で更新する）。 AIの判断(2026-10-08): 章ごとの文の取り込み（ログインなしで読めた／有料の壁なし／利用規約は未確認／2026-10-08）"
+     "note": "ログイン不要: 取得記録なし（未確認）。 有料の壁・規約の引用禁止条項: 未確認（確かめたら rights:review で更新する）。 AIの判断(2026-10-09): 章ごとの文の取り込み（ログインなしで読めた／有料の壁なし／利用規約は未確認／2026-10-08）"
     },
     "termsUrl": null,
     "termsCheckedAt": null
@@ -61,6 +130,207 @@
     {
      "at": "2026-10-08T16:33:11+09:00",
      "by": "case-pages 取り込み",
+     "action": "seed",
+     "reason": "集める段でAIが3基準で判断して記録"
+    },
+    {
+     "at": "2026-10-09T00:02:36+09:00",
+     "by": "case-pages 取り込み",
+     "action": "seed",
+     "reason": "AIの権利判断で更新（active→active。確認: ログイン不要=yes 有料の壁なし=yes 引用=unconfirmed）"
+    }
+   ]
+  },
+  "abcmais.com": {
+   "siteName": "abc+",
+   "siteUrl": "https://abcmais.com/",
+   "status": "active",
+   "statusReason": "取り込み時に自動で記録（根拠は未確認）",
+   "statusChangedAt": "2026-10-09T15:55:05+09:00",
+   "decision": {
+    "decidedAt": "2026-10-09T15:55:05+09:00",
+    "decidedBy": "担当(2026-10-09)。根拠は未確認",
+    "basis": "unconfirmed",
+    "policyIds": [],
+    "reviewUrls": [],
+    "displayTier": "unconfirmed",
+    "usage": "数字と事実だけを自分の言葉で書き、出典の名前・URL・日付を付ける。文章・画像は写さない（本人の発言は「本人申告」と表示）",
+    "checks": {
+     "loginFree": "unconfirmed",
+     "noPaywall": "unconfirmed",
+     "quoteTerms": "unconfirmed",
+     "note": "ログイン不要: 取得記録なし（未確認）。 有料の壁・規約の引用禁止条項: 未確認（確かめたら rights:review で更新する）。"
+    },
+    "termsUrl": null,
+    "termsCheckedAt": null
+   },
+   "ownerWords": [
+    {
+     "at": "2026-10-08T00:00:00+09:00",
+     "text": "お前の方で大丈夫なやつを選んで出すんだよ",
+     "verbatim": true
+    },
+    {
+     "at": "2026-10-08T00:00:00+09:00",
+     "text": "それらも記録してね　権利関係",
+     "verbatim": true
+    },
+    {
+     "at": "2026-10-08T00:00:00+09:00",
+     "text": "あとで誰かに何か言われたら柔軟にできるように",
+     "verbatim": true
+    },
+    {
+     "at": "2026-10-08T00:00:00+09:00",
+     "text": "法的に変わったりしたらとかさ",
+     "verbatim": true
+    },
+    {
+     "at": "2026-10-08T00:00:00+09:00",
+     "text": "今後は絶対にそれも加味して集めるようにして、できるようにして",
+     "verbatim": true
+    }
+   ],
+   "evidence": {
+    "terms": null,
+    "sourcePages": []
+   },
+   "history": [
+    {
+     "at": "2026-10-09T15:55:05+09:00",
+     "by": "add-entity-records(--apply)",
+     "action": "seed",
+     "reason": "台帳に新しく記録（根拠は未確認）"
+    }
+   ]
+  },
+  "alternativeto.net": {
+   "siteName": "alternativeto.net",
+   "siteUrl": "https://alternativeto.net/",
+   "status": "active",
+   "statusReason": "使用中",
+   "statusChangedAt": "2026-10-09T00:02:36+09:00",
+   "decision": {
+    "decidedAt": "2026-10-09T00:02:36+09:00",
+    "decidedBy": "AI（集める段の自動判断、2026-10-09）",
+    "basis": "ai_judgment",
+    "policyIds": [],
+    "reviewUrls": [],
+    "displayTier": "unconfirmed",
+    "usage": "数字と事実だけを自分の言葉で書き、出典の名前・URL・日付を付ける。文章・画像は写さない（本人の発言は「本人申告」と表示）",
+    "checks": {
+     "loginFree": "yes",
+     "noPaywall": "yes",
+     "quoteTerms": "unconfirmed",
+     "note": "ログイン不要: 取得記録なし（未確認）。 有料の壁・規約の引用禁止条項: 未確認（確かめたら rights:review で更新する）。 AIの判断(2026-10-09): 章ごとの文の取り込み（ログインなしで読めた／有料の壁なし／利用規約は未確認／2026-10-08）"
+    },
+    "termsUrl": null,
+    "termsCheckedAt": null
+   },
+   "ownerWords": [
+    {
+     "at": "2026-10-08T00:00:00+09:00",
+     "text": "お前の方で大丈夫なやつを選んで出すんだよ",
+     "verbatim": true
+    },
+    {
+     "at": "2026-10-08T00:00:00+09:00",
+     "text": "それらも記録してね　権利関係",
+     "verbatim": true
+    },
+    {
+     "at": "2026-10-08T00:00:00+09:00",
+     "text": "あとで誰かに何か言われたら柔軟にできるように",
+     "verbatim": true
+    },
+    {
+     "at": "2026-10-08T00:00:00+09:00",
+     "text": "法的に変わったりしたらとかさ",
+     "verbatim": true
+    },
+    {
+     "at": "2026-10-08T00:00:00+09:00",
+     "text": "今後は絶対にそれも加味して集めるようにして、できるようにして",
+     "verbatim": true
+    }
+   ],
+   "evidence": {
+    "terms": null,
+    "sourcePages": []
+   },
+   "history": [
+    {
+     "at": "2026-10-08T17:49:16+09:00",
+     "by": "case-pages 取り込み",
+     "action": "seed",
+     "reason": "集める段でAIが3基準で判断して記録"
+    },
+    {
+     "at": "2026-10-09T00:02:36+09:00",
+     "by": "case-pages 取り込み",
+     "action": "seed",
+     "reason": "AIの権利判断で更新（active→active。確認: ログイン不要=yes 有料の壁なし=yes 引用=unconfirmed）"
+    }
+   ]
+  },
+  "apogeeagency.com": {
+   "siteName": "Apogee Agency",
+   "siteUrl": "https://apogeeagency.com/",
+   "status": "active",
+   "statusReason": "使用中",
+   "statusChangedAt": "2026-10-09T15:50:20+09:00",
+   "decision": {
+    "decidedAt": "2026-10-09T15:50:20+09:00",
+    "decidedBy": "AI（集める段の自動判断、2026-10-09）",
+    "basis": "ai_judgment",
+    "policyIds": [],
+    "reviewUrls": [],
+    "displayTier": "unconfirmed",
+    "usage": "数字と事実だけを自分の言葉で書き、出典の名前・URL・日付を付ける。文章・画像は写さない（本人の発言は「本人申告」と表示）",
+    "checks": {
+     "loginFree": "yes",
+     "noPaywall": "yes",
+     "quoteTerms": "unconfirmed",
+     "note": "ログイン不要: 取得記録なし（未確認）。 有料の壁・規約の引用禁止条項: 未確認（確かめたら rights:review で更新する）。 AIの判断(2026-10-09): 2026-10-09に公開PDFの本文をログインなしで取得できた。サイトと利用条件の案内を探したが、引用を定める規約は確認できなかった。"
+    },
+    "termsUrl": null,
+    "termsCheckedAt": null
+   },
+   "ownerWords": [
+    {
+     "at": "2026-10-08T00:00:00+09:00",
+     "text": "お前の方で大丈夫なやつを選んで出すんだよ",
+     "verbatim": true
+    },
+    {
+     "at": "2026-10-08T00:00:00+09:00",
+     "text": "それらも記録してね　権利関係",
+     "verbatim": true
+    },
+    {
+     "at": "2026-10-08T00:00:00+09:00",
+     "text": "あとで誰かに何か言われたら柔軟にできるように",
+     "verbatim": true
+    },
+    {
+     "at": "2026-10-08T00:00:00+09:00",
+     "text": "法的に変わったりしたらとかさ",
+     "verbatim": true
+    },
+    {
+     "at": "2026-10-08T00:00:00+09:00",
+     "text": "今後は絶対にそれも加味して集めるようにして、できるようにして",
+     "verbatim": true
+    }
+   ],
+   "evidence": {
+    "terms": null,
+    "sourcePages": []
+   },
+   "history": [
+    {
+     "at": "2026-10-09T15:50:20+09:00",
+     "by": "add-entity-records(--from-research)",
      "action": "seed",
      "reason": "集める段でAIが3基準で判断して記録"
     }
@@ -139,15 +409,15 @@
     }
    ]
   },
-  "atticusli.com": {
-   "siteName": "atticusli.com",
-   "siteUrl": "https://atticusli.com/",
+  "arc.dev": {
+   "siteName": "arc.dev",
+   "siteUrl": "https://arc.dev/",
    "status": "active",
    "statusReason": "使用中",
-   "statusChangedAt": "2026-10-08T16:33:11+09:00",
+   "statusChangedAt": "2026-10-09T00:02:36+09:00",
    "decision": {
-    "decidedAt": "2026-10-08T16:33:11+09:00",
-    "decidedBy": "AI（集める段の自動判断、2026-10-08）",
+    "decidedAt": "2026-10-09T00:02:36+09:00",
+    "decidedBy": "AI（集める段の自動判断、2026-10-09）",
     "basis": "ai_judgment",
     "policyIds": [],
     "reviewUrls": [],
@@ -157,7 +427,76 @@
      "loginFree": "yes",
      "noPaywall": "yes",
      "quoteTerms": "unconfirmed",
-     "note": "ログイン不要: 取得記録なし（未確認）。 有料の壁・規約の引用禁止条項: 未確認（確かめたら rights:review で更新する）。 AIの判断(2026-10-08): 章ごとの文の取り込み（ログインなしで読めた／有料の壁なし／利用規約は未確認／2026-10-08）"
+     "note": "ログイン不要: 取得記録なし（未確認）。 有料の壁・規約の引用禁止条項: 未確認（確かめたら rights:review で更新する）。 AIの判断(2026-10-09): 章ごとの文の取り込み（ログインなしで読めた／有料の壁なし／利用規約は未確認／2026-10-08）"
+    },
+    "termsUrl": null,
+    "termsCheckedAt": null
+   },
+   "ownerWords": [
+    {
+     "at": "2026-10-08T00:00:00+09:00",
+     "text": "お前の方で大丈夫なやつを選んで出すんだよ",
+     "verbatim": true
+    },
+    {
+     "at": "2026-10-08T00:00:00+09:00",
+     "text": "それらも記録してね　権利関係",
+     "verbatim": true
+    },
+    {
+     "at": "2026-10-08T00:00:00+09:00",
+     "text": "あとで誰かに何か言われたら柔軟にできるように",
+     "verbatim": true
+    },
+    {
+     "at": "2026-10-08T00:00:00+09:00",
+     "text": "法的に変わったりしたらとかさ",
+     "verbatim": true
+    },
+    {
+     "at": "2026-10-08T00:00:00+09:00",
+     "text": "今後は絶対にそれも加味して集めるようにして、できるようにして",
+     "verbatim": true
+    }
+   ],
+   "evidence": {
+    "terms": null,
+    "sourcePages": []
+   },
+   "history": [
+    {
+     "at": "2026-10-08T17:49:16+09:00",
+     "by": "case-pages 取り込み",
+     "action": "seed",
+     "reason": "集める段でAIが3基準で判断して記録"
+    },
+    {
+     "at": "2026-10-09T00:02:36+09:00",
+     "by": "case-pages 取り込み",
+     "action": "seed",
+     "reason": "AIの権利判断で更新（active→active。確認: ログイン不要=yes 有料の壁なし=yes 引用=unconfirmed）"
+    }
+   ]
+  },
+  "atticusli.com": {
+   "siteName": "atticusli.com",
+   "siteUrl": "https://atticusli.com/",
+   "status": "active",
+   "statusReason": "使用中",
+   "statusChangedAt": "2026-10-09T00:02:36+09:00",
+   "decision": {
+    "decidedAt": "2026-10-09T00:02:36+09:00",
+    "decidedBy": "AI（集める段の自動判断、2026-10-09）",
+    "basis": "ai_judgment",
+    "policyIds": [],
+    "reviewUrls": [],
+    "displayTier": "unconfirmed",
+    "usage": "数字と事実だけを自分の言葉で書き、出典の名前・URL・日付を付ける。文章・画像は写さない（本人の発言は「本人申告」と表示）",
+    "checks": {
+     "loginFree": "yes",
+     "noPaywall": "yes",
+     "quoteTerms": "unconfirmed",
+     "note": "ログイン不要: 取得記録なし（未確認）。 有料の壁・規約の引用禁止条項: 未確認（確かめたら rights:review で更新する）。 AIの判断(2026-10-09): 章ごとの文の取り込み（ログインなしで読めた／有料の壁なし／利用規約は未確認／2026-10-08）"
     },
     "termsUrl": null,
     "termsCheckedAt": null
@@ -199,6 +538,12 @@
      "by": "case-pages 取り込み",
      "action": "seed",
      "reason": "集める段でAIが3基準で判断して記録"
+    },
+    {
+     "at": "2026-10-09T00:02:36+09:00",
+     "by": "case-pages 取り込み",
+     "action": "seed",
+     "reason": "AIの権利判断で更新（active→active。確認: ログイン不要=yes 有料の壁なし=yes 引用=unconfirmed）"
     }
    ]
   },
@@ -286,6 +631,75 @@
     }
    ]
   },
+  "beautyindependent.com": {
+   "siteName": "beautyindependent.com",
+   "siteUrl": "https://beautyindependent.com/",
+   "status": "active",
+   "statusReason": "使用中",
+   "statusChangedAt": "2026-10-09T00:02:36+09:00",
+   "decision": {
+    "decidedAt": "2026-10-09T00:02:36+09:00",
+    "decidedBy": "AI（集める段の自動判断、2026-10-09）",
+    "basis": "ai_judgment",
+    "policyIds": [],
+    "reviewUrls": [],
+    "displayTier": "unconfirmed",
+    "usage": "数字と事実だけを自分の言葉で書き、出典の名前・URL・日付を付ける。文章・画像は写さない（本人の発言は「本人申告」と表示）",
+    "checks": {
+     "loginFree": "yes",
+     "noPaywall": "yes",
+     "quoteTerms": "unconfirmed",
+     "note": "ログイン不要: 取得記録なし（未確認）。 有料の壁・規約の引用禁止条項: 未確認（確かめたら rights:review で更新する）。 AIの判断(2026-10-09): 章ごとの文の取り込み（ログインなしで読めた／有料の壁なし／利用規約は未確認／2026-10-08） / 章ごとの文の取り込み（ログインなしで読めた／有料の壁なし／利用規約は未確認／2026-10-08）"
+    },
+    "termsUrl": null,
+    "termsCheckedAt": null
+   },
+   "ownerWords": [
+    {
+     "at": "2026-10-08T00:00:00+09:00",
+     "text": "お前の方で大丈夫なやつを選んで出すんだよ",
+     "verbatim": true
+    },
+    {
+     "at": "2026-10-08T00:00:00+09:00",
+     "text": "それらも記録してね　権利関係",
+     "verbatim": true
+    },
+    {
+     "at": "2026-10-08T00:00:00+09:00",
+     "text": "あとで誰かに何か言われたら柔軟にできるように",
+     "verbatim": true
+    },
+    {
+     "at": "2026-10-08T00:00:00+09:00",
+     "text": "法的に変わったりしたらとかさ",
+     "verbatim": true
+    },
+    {
+     "at": "2026-10-08T00:00:00+09:00",
+     "text": "今後は絶対にそれも加味して集めるようにして、できるようにして",
+     "verbatim": true
+    }
+   ],
+   "evidence": {
+    "terms": null,
+    "sourcePages": []
+   },
+   "history": [
+    {
+     "at": "2026-10-08T17:49:16+09:00",
+     "by": "case-pages 取り込み",
+     "action": "seed",
+     "reason": "集める段でAIが3基準で判断して記録"
+    },
+    {
+     "at": "2026-10-09T00:02:36+09:00",
+     "by": "case-pages 取り込み",
+     "action": "seed",
+     "reason": "AIの権利判断で更新（active→active。確認: ログイン不要=yes 有料の壁なし=yes 引用=unconfirmed）"
+    }
+   ]
+  },
   "beehiiv.com": {
    "siteName": "beehiiv（公式発表）",
    "siteUrl": "https://beehiiv.com/",
@@ -356,6 +770,213 @@
      "by": "担当(rights-ledger)",
      "action": "seed",
      "reason": "公開中の事例が使う出典として、既存の権利判断から台帳に記録"
+    }
+   ]
+  },
+  "betakit.com": {
+   "siteName": "betakit.com",
+   "siteUrl": "https://betakit.com/",
+   "status": "active",
+   "statusReason": "使用中",
+   "statusChangedAt": "2026-10-09T00:02:36+09:00",
+   "decision": {
+    "decidedAt": "2026-10-09T00:02:36+09:00",
+    "decidedBy": "AI（集める段の自動判断、2026-10-09）",
+    "basis": "ai_judgment",
+    "policyIds": [],
+    "reviewUrls": [],
+    "displayTier": "unconfirmed",
+    "usage": "数字と事実だけを自分の言葉で書き、出典の名前・URL・日付を付ける。文章・画像は写さない（本人の発言は「本人申告」と表示）",
+    "checks": {
+     "loginFree": "yes",
+     "noPaywall": "yes",
+     "quoteTerms": "unconfirmed",
+     "note": "ログイン不要: 取得記録なし（未確認）。 有料の壁・規約の引用禁止条項: 未確認（確かめたら rights:review で更新する）。 AIの判断(2026-10-09): 章ごとの文の取り込み（ログインなしで読めた／有料の壁なし／利用規約は未確認／2026-10-08）"
+    },
+    "termsUrl": null,
+    "termsCheckedAt": null
+   },
+   "ownerWords": [
+    {
+     "at": "2026-10-08T00:00:00+09:00",
+     "text": "お前の方で大丈夫なやつを選んで出すんだよ",
+     "verbatim": true
+    },
+    {
+     "at": "2026-10-08T00:00:00+09:00",
+     "text": "それらも記録してね　権利関係",
+     "verbatim": true
+    },
+    {
+     "at": "2026-10-08T00:00:00+09:00",
+     "text": "あとで誰かに何か言われたら柔軟にできるように",
+     "verbatim": true
+    },
+    {
+     "at": "2026-10-08T00:00:00+09:00",
+     "text": "法的に変わったりしたらとかさ",
+     "verbatim": true
+    },
+    {
+     "at": "2026-10-08T00:00:00+09:00",
+     "text": "今後は絶対にそれも加味して集めるようにして、できるようにして",
+     "verbatim": true
+    }
+   ],
+   "evidence": {
+    "terms": null,
+    "sourcePages": []
+   },
+   "history": [
+    {
+     "at": "2026-10-08T17:49:16+09:00",
+     "by": "case-pages 取り込み",
+     "action": "seed",
+     "reason": "集める段でAIが3基準で判断して記録"
+    },
+    {
+     "at": "2026-10-09T00:02:36+09:00",
+     "by": "case-pages 取り込み",
+     "action": "seed",
+     "reason": "AIの権利判断で更新（active→active。確認: ログイン不要=yes 有料の壁なし=yes 引用=unconfirmed）"
+    }
+   ]
+  },
+  "betterlaunch.co": {
+   "siteName": "betterlaunch.co",
+   "siteUrl": "https://betterlaunch.co/",
+   "status": "active",
+   "statusReason": "使用中",
+   "statusChangedAt": "2026-10-09T00:02:36+09:00",
+   "decision": {
+    "decidedAt": "2026-10-09T00:02:36+09:00",
+    "decidedBy": "AI（集める段の自動判断、2026-10-09）",
+    "basis": "ai_judgment",
+    "policyIds": [],
+    "reviewUrls": [],
+    "displayTier": "unconfirmed",
+    "usage": "数字と事実だけを自分の言葉で書き、出典の名前・URL・日付を付ける。文章・画像は写さない（本人の発言は「本人申告」と表示）",
+    "checks": {
+     "loginFree": "yes",
+     "noPaywall": "yes",
+     "quoteTerms": "unconfirmed",
+     "note": "ログイン不要: 取得記録なし（未確認）。 有料の壁・規約の引用禁止条項: 未確認（確かめたら rights:review で更新する）。 AIの判断(2026-10-09): 章ごとの文の取り込み（ログインなしで読めた／有料の壁なし／利用規約は未確認／2026-10-08）"
+    },
+    "termsUrl": null,
+    "termsCheckedAt": null
+   },
+   "ownerWords": [
+    {
+     "at": "2026-10-08T00:00:00+09:00",
+     "text": "お前の方で大丈夫なやつを選んで出すんだよ",
+     "verbatim": true
+    },
+    {
+     "at": "2026-10-08T00:00:00+09:00",
+     "text": "それらも記録してね　権利関係",
+     "verbatim": true
+    },
+    {
+     "at": "2026-10-08T00:00:00+09:00",
+     "text": "あとで誰かに何か言われたら柔軟にできるように",
+     "verbatim": true
+    },
+    {
+     "at": "2026-10-08T00:00:00+09:00",
+     "text": "法的に変わったりしたらとかさ",
+     "verbatim": true
+    },
+    {
+     "at": "2026-10-08T00:00:00+09:00",
+     "text": "今後は絶対にそれも加味して集めるようにして、できるようにして",
+     "verbatim": true
+    }
+   ],
+   "evidence": {
+    "terms": null,
+    "sourcePages": []
+   },
+   "history": [
+    {
+     "at": "2026-10-08T17:49:16+09:00",
+     "by": "case-pages 取り込み",
+     "action": "seed",
+     "reason": "集める段でAIが3基準で判断して記録"
+    },
+    {
+     "at": "2026-10-09T00:02:36+09:00",
+     "by": "case-pages 取り込み",
+     "action": "seed",
+     "reason": "AIの権利判断で更新（active→active。確認: ログイン不要=yes 有料の壁なし=yes 引用=unconfirmed）"
+    }
+   ]
+  },
+  "blog.google": {
+   "siteName": "Google／Pat Correa",
+   "siteUrl": "https://blog.google/",
+   "status": "active",
+   "statusReason": "使用中",
+   "statusChangedAt": "2026-10-09T15:55:04+09:00",
+   "decision": {
+    "decidedAt": "2026-10-09T15:55:04+09:00",
+    "decidedBy": "AI（集める段の自動判断、2026-10-09）",
+    "basis": "ai_judgment",
+    "policyIds": [],
+    "reviewUrls": [],
+    "displayTier": "unconfirmed",
+    "usage": "数字と事実だけを自分の言葉で書き、出典の名前・URL・日付を付ける。文章・画像は写さない（本人の発言は「本人申告」と表示）",
+    "checks": {
+     "loginFree": "yes",
+     "noPaywall": "yes",
+     "quoteTerms": "unconfirmed",
+     "note": "ログイン不要: 取得記録なし（未確認）。 有料の壁・規約の引用禁止条項: 未確認（確かめたら rights:review で更新する）。 AIの判断(2026-10-09): 元の記録では、本人の回答を含む全文をログインなしで読めたが、記事の引用に適用する個別条件は確定できなかった。今回、提供本文を参照した。"
+    },
+    "termsUrl": "https://policies.google.com/terms",
+    "termsCheckedAt": null
+   },
+   "ownerWords": [
+    {
+     "at": "2026-10-08T00:00:00+09:00",
+     "text": "お前の方で大丈夫なやつを選んで出すんだよ",
+     "verbatim": true
+    },
+    {
+     "at": "2026-10-08T00:00:00+09:00",
+     "text": "それらも記録してね　権利関係",
+     "verbatim": true
+    },
+    {
+     "at": "2026-10-08T00:00:00+09:00",
+     "text": "あとで誰かに何か言われたら柔軟にできるように",
+     "verbatim": true
+    },
+    {
+     "at": "2026-10-08T00:00:00+09:00",
+     "text": "法的に変わったりしたらとかさ",
+     "verbatim": true
+    },
+    {
+     "at": "2026-10-08T00:00:00+09:00",
+     "text": "今後は絶対にそれも加味して集めるようにして、できるようにして",
+     "verbatim": true
+    }
+   ],
+   "evidence": {
+    "terms": null,
+    "sourcePages": []
+   },
+   "history": [
+    {
+     "at": "2026-10-09T15:50:24+09:00",
+     "by": "add-entity-records(--from-research)",
+     "action": "seed",
+     "reason": "集める段でAIが3基準で判断して記録"
+    },
+    {
+     "at": "2026-10-09T15:55:04+09:00",
+     "by": "add-entity-records(--from-research)",
+     "action": "seed",
+     "reason": "AIの権利判断で更新（active→active。確認: ログイン不要=yes 有料の壁なし=yes 引用=unconfirmed）"
     }
    ]
   },
@@ -443,15 +1064,84 @@
     }
    ]
   },
+  "btw.media": {
+   "siteName": "btw.media",
+   "siteUrl": "https://btw.media/",
+   "status": "active",
+   "statusReason": "使用中",
+   "statusChangedAt": "2026-10-09T00:02:36+09:00",
+   "decision": {
+    "decidedAt": "2026-10-09T00:02:36+09:00",
+    "decidedBy": "AI（集める段の自動判断、2026-10-09）",
+    "basis": "ai_judgment",
+    "policyIds": [],
+    "reviewUrls": [],
+    "displayTier": "unconfirmed",
+    "usage": "数字と事実だけを自分の言葉で書き、出典の名前・URL・日付を付ける。文章・画像は写さない（本人の発言は「本人申告」と表示）",
+    "checks": {
+     "loginFree": "unconfirmed",
+     "noPaywall": "yes",
+     "quoteTerms": "unconfirmed",
+     "note": "ログイン不要: 取得記録なし（未確認）。 有料の壁・規約の引用禁止条項: 未確認（確かめたら rights:review で更新する）。 AIの判断(2026-10-09): 章ごとの文の取り込み（検索結果の要約で確認／有料の壁なし／利用規約は未確認／2026-10-08）"
+    },
+    "termsUrl": null,
+    "termsCheckedAt": null
+   },
+   "ownerWords": [
+    {
+     "at": "2026-10-08T00:00:00+09:00",
+     "text": "お前の方で大丈夫なやつを選んで出すんだよ",
+     "verbatim": true
+    },
+    {
+     "at": "2026-10-08T00:00:00+09:00",
+     "text": "それらも記録してね　権利関係",
+     "verbatim": true
+    },
+    {
+     "at": "2026-10-08T00:00:00+09:00",
+     "text": "あとで誰かに何か言われたら柔軟にできるように",
+     "verbatim": true
+    },
+    {
+     "at": "2026-10-08T00:00:00+09:00",
+     "text": "法的に変わったりしたらとかさ",
+     "verbatim": true
+    },
+    {
+     "at": "2026-10-08T00:00:00+09:00",
+     "text": "今後は絶対にそれも加味して集めるようにして、できるようにして",
+     "verbatim": true
+    }
+   ],
+   "evidence": {
+    "terms": null,
+    "sourcePages": []
+   },
+   "history": [
+    {
+     "at": "2026-10-08T17:49:16+09:00",
+     "by": "case-pages 取り込み",
+     "action": "seed",
+     "reason": "集める段でAIが3基準で判断して記録"
+    },
+    {
+     "at": "2026-10-09T00:02:36+09:00",
+     "by": "case-pages 取り込み",
+     "action": "seed",
+     "reason": "AIの権利判断で更新（active→active。確認: ログイン不要=unconfirmed 有料の壁なし=yes 引用=unconfirmed）"
+    }
+   ]
+  },
   "businessofbusiness.com": {
    "siteName": "businessofbusiness.com",
    "siteUrl": "https://businessofbusiness.com/",
    "status": "active",
    "statusReason": "使用中",
-   "statusChangedAt": "2026-10-08T16:33:11+09:00",
+   "statusChangedAt": "2026-10-09T00:02:36+09:00",
    "decision": {
-    "decidedAt": "2026-10-08T16:33:11+09:00",
-    "decidedBy": "AI（集める段の自動判断、2026-10-08）",
+    "decidedAt": "2026-10-09T00:02:36+09:00",
+    "decidedBy": "AI（集める段の自動判断、2026-10-09）",
     "basis": "ai_judgment",
     "policyIds": [],
     "reviewUrls": [],
@@ -461,7 +1151,7 @@
      "loginFree": "yes",
      "noPaywall": "yes",
      "quoteTerms": "unconfirmed",
-     "note": "ログイン不要: 取得記録なし（未確認）。 有料の壁・規約の引用禁止条項: 未確認（確かめたら rights:review で更新する）。 AIの判断(2026-10-08): 章ごとの文の取り込み（ログインなしで読めた／有料の壁なし／規約は未確認）"
+     "note": "ログイン不要: 取得記録なし（未確認）。 有料の壁・規約の引用禁止条項: 未確認（確かめたら rights:review で更新する）。 AIの判断(2026-10-09): 章ごとの文の取り込み（ログインなしで読めた／有料の壁なし／規約は未確認）"
     },
     "termsUrl": null,
     "termsCheckedAt": null
@@ -503,6 +1193,77 @@
      "by": "case-pages 取り込み",
      "action": "seed",
      "reason": "集める段でAIが3基準で判断して記録"
+    },
+    {
+     "at": "2026-10-09T00:02:36+09:00",
+     "by": "case-pages 取り込み",
+     "action": "seed",
+     "reason": "AIの権利判断で更新（active→active。確認: ログイン不要=yes 有料の壁なし=yes 引用=unconfirmed）"
+    }
+   ]
+  },
+  "businesswire.com": {
+   "siteName": "businesswire.com",
+   "siteUrl": "https://businesswire.com/",
+   "status": "active",
+   "statusReason": "使用中",
+   "statusChangedAt": "2026-10-08T17:49:16+09:00",
+   "decision": {
+    "decidedAt": "2026-09-29T09:00:00+09:00",
+    "decidedBy": "標準の権利規則（Universal Foundation の審査）／台帳への記録は担当(2026-10-08)",
+    "basis": "registry",
+    "policyIds": [
+     "rights.press-release-wires.v1"
+    ],
+    "reviewUrls": [],
+    "displayTier": "automatic",
+    "usage": "数字と事実だけを自分の言葉で書き、出典の名前・URL・日付を付ける。文章・画像は写さない（本人の発言は「本人申告」と表示）",
+    "checks": {
+     "loginFree": "unconfirmed",
+     "noPaywall": "unconfirmed",
+     "quoteTerms": "unconfirmed",
+     "note": "ログイン不要: 取得記録なし（未確認）。 有料の壁・規約の引用禁止条項: 未確認（確かめたら rights:review で更新する）。 AIの判断(2026-10-08): 章ごとの文の取り込み（検索結果の要約で確認／有料の壁なし／利用規約は未確認／2026-10-08） 標準の規則: rights.press-release-wires.v1"
+    },
+    "termsUrl": null,
+    "termsCheckedAt": null
+   },
+   "ownerWords": [
+    {
+     "at": "2026-10-08T00:00:00+09:00",
+     "text": "お前の方で大丈夫なやつを選んで出すんだよ",
+     "verbatim": true
+    },
+    {
+     "at": "2026-10-08T00:00:00+09:00",
+     "text": "それらも記録してね　権利関係",
+     "verbatim": true
+    },
+    {
+     "at": "2026-10-08T00:00:00+09:00",
+     "text": "あとで誰かに何か言われたら柔軟にできるように",
+     "verbatim": true
+    },
+    {
+     "at": "2026-10-08T00:00:00+09:00",
+     "text": "法的に変わったりしたらとかさ",
+     "verbatim": true
+    },
+    {
+     "at": "2026-10-08T00:00:00+09:00",
+     "text": "今後は絶対にそれも加味して集めるようにして、できるようにして",
+     "verbatim": true
+    }
+   ],
+   "evidence": {
+    "terms": null,
+    "sourcePages": []
+   },
+   "history": [
+    {
+     "at": "2026-10-08T17:49:16+09:00",
+     "by": "case-pages 取り込み",
+     "action": "seed",
+     "reason": "既存の権利判断から台帳に記録"
     }
    ]
   },
@@ -694,6 +1455,75 @@
     }
    ]
   },
+  "buzzsprout.com": {
+   "siteName": "A Product Market Fit Show／Pablo Srugo",
+   "siteUrl": "https://buzzsprout.com/",
+   "status": "active",
+   "statusReason": "使用中",
+   "statusChangedAt": "2026-10-09T15:55:04+09:00",
+   "decision": {
+    "decidedAt": "2026-10-09T15:55:04+09:00",
+    "decidedBy": "AI（集める段の自動判断、2026-10-09）",
+    "basis": "ai_judgment",
+    "policyIds": [],
+    "reviewUrls": [],
+    "displayTier": "unconfirmed",
+    "usage": "数字と事実だけを自分の言葉で書き、出典の名前・URL・日付を付ける。文章・画像は写さない（本人の発言は「本人申告」と表示）",
+    "checks": {
+     "loginFree": "yes",
+     "noPaywall": "yes",
+     "quoteTerms": "unconfirmed",
+     "note": "ログイン不要: 取得記録なし（未確認）。 有料の壁・規約の引用禁止条項: 未確認（確かめたら rights:review で更新する）。 AIの判断(2026-10-09): 元の記録では、本人の回答を含む文字起こしを読めたが、番組本文の第三者による引用条件は確定できなかった。今回の提供本文に無い後半の引用は元の記録を引き継いだ。"
+    },
+    "termsUrl": "https://www.buzzsprout.com/tos",
+    "termsCheckedAt": null
+   },
+   "ownerWords": [
+    {
+     "at": "2026-10-08T00:00:00+09:00",
+     "text": "お前の方で大丈夫なやつを選んで出すんだよ",
+     "verbatim": true
+    },
+    {
+     "at": "2026-10-08T00:00:00+09:00",
+     "text": "それらも記録してね　権利関係",
+     "verbatim": true
+    },
+    {
+     "at": "2026-10-08T00:00:00+09:00",
+     "text": "あとで誰かに何か言われたら柔軟にできるように",
+     "verbatim": true
+    },
+    {
+     "at": "2026-10-08T00:00:00+09:00",
+     "text": "法的に変わったりしたらとかさ",
+     "verbatim": true
+    },
+    {
+     "at": "2026-10-08T00:00:00+09:00",
+     "text": "今後は絶対にそれも加味して集めるようにして、できるようにして",
+     "verbatim": true
+    }
+   ],
+   "evidence": {
+    "terms": null,
+    "sourcePages": []
+   },
+   "history": [
+    {
+     "at": "2026-10-09T15:50:24+09:00",
+     "by": "add-entity-records(--from-research)",
+     "action": "seed",
+     "reason": "集める段でAIが3基準で判断して記録"
+    },
+    {
+     "at": "2026-10-09T15:55:04+09:00",
+     "by": "add-entity-records(--from-research)",
+     "action": "seed",
+     "reason": "AIの権利判断で更新（active→active。確認: ログイン不要=yes 有料の壁なし=yes 引用=unconfirmed）"
+    }
+   ]
+  },
   "callummcdonnell.substack.com": {
    "siteName": "callummcdonnell.substack.com",
    "siteUrl": "https://callummcdonnell.substack.com/",
@@ -756,6 +1586,75 @@
      "by": "case-pages 取り込み",
      "action": "seed",
      "reason": "既存の権利判断から台帳に記録"
+    }
+   ]
+  },
+  "calmfund.com": {
+   "siteName": "calmfund.com",
+   "siteUrl": "https://calmfund.com/",
+   "status": "active",
+   "statusReason": "使用中",
+   "statusChangedAt": "2026-10-09T00:02:36+09:00",
+   "decision": {
+    "decidedAt": "2026-10-09T00:02:36+09:00",
+    "decidedBy": "AI（集める段の自動判断、2026-10-09）",
+    "basis": "ai_judgment",
+    "policyIds": [],
+    "reviewUrls": [],
+    "displayTier": "unconfirmed",
+    "usage": "数字と事実だけを自分の言葉で書き、出典の名前・URL・日付を付ける。文章・画像は写さない（本人の発言は「本人申告」と表示）",
+    "checks": {
+     "loginFree": "unconfirmed",
+     "noPaywall": "unconfirmed",
+     "quoteTerms": "unconfirmed",
+     "note": "ログイン不要: 取得記録なし（未確認）。 有料の壁・規約の引用禁止条項: 未確認（確かめたら rights:review で更新する）。 AIの判断(2026-10-09): 章ごとの文の取り込み（本文は取得できず（404）、検索結果の要約のみ／未確認／未確認／2026-10-08）"
+    },
+    "termsUrl": null,
+    "termsCheckedAt": null
+   },
+   "ownerWords": [
+    {
+     "at": "2026-10-08T00:00:00+09:00",
+     "text": "お前の方で大丈夫なやつを選んで出すんだよ",
+     "verbatim": true
+    },
+    {
+     "at": "2026-10-08T00:00:00+09:00",
+     "text": "それらも記録してね　権利関係",
+     "verbatim": true
+    },
+    {
+     "at": "2026-10-08T00:00:00+09:00",
+     "text": "あとで誰かに何か言われたら柔軟にできるように",
+     "verbatim": true
+    },
+    {
+     "at": "2026-10-08T00:00:00+09:00",
+     "text": "法的に変わったりしたらとかさ",
+     "verbatim": true
+    },
+    {
+     "at": "2026-10-08T00:00:00+09:00",
+     "text": "今後は絶対にそれも加味して集めるようにして、できるようにして",
+     "verbatim": true
+    }
+   ],
+   "evidence": {
+    "terms": null,
+    "sourcePages": []
+   },
+   "history": [
+    {
+     "at": "2026-10-08T17:49:16+09:00",
+     "by": "case-pages 取り込み",
+     "action": "seed",
+     "reason": "集める段でAIが3基準で判断して記録"
+    },
+    {
+     "at": "2026-10-09T00:02:36+09:00",
+     "by": "case-pages 取り込み",
+     "action": "seed",
+     "reason": "AIの権利判断で更新（active→active。確認: ログイン不要=unconfirmed 有料の壁なし=unconfirmed 引用=unconfirmed）"
     }
    ]
   },
@@ -906,6 +1805,75 @@
      "by": "担当(rights-ledger)",
      "action": "seed",
      "reason": "公開中の事例が使う出典として、既存の権利判断から台帳に記録"
+    }
+   ]
+  },
+  "changelog.com": {
+   "siteName": "changelog.com",
+   "siteUrl": "https://changelog.com/",
+   "status": "active",
+   "statusReason": "使用中",
+   "statusChangedAt": "2026-10-09T00:02:36+09:00",
+   "decision": {
+    "decidedAt": "2026-10-09T00:02:36+09:00",
+    "decidedBy": "AI（集める段の自動判断、2026-10-09）",
+    "basis": "ai_judgment",
+    "policyIds": [],
+    "reviewUrls": [],
+    "displayTier": "unconfirmed",
+    "usage": "数字と事実だけを自分の言葉で書き、出典の名前・URL・日付を付ける。文章・画像は写さない（本人の発言は「本人申告」と表示）",
+    "checks": {
+     "loginFree": "yes",
+     "noPaywall": "yes",
+     "quoteTerms": "unconfirmed",
+     "note": "ログイン不要: 取得記録なし（未確認）。 有料の壁・規約の引用禁止条項: 未確認（確かめたら rights:review で更新する）。 AIの判断(2026-10-09): 章ごとの文の取り込み（ログインなしで読めた／有料の壁なし／利用規約は未確認／2026-10-08）"
+    },
+    "termsUrl": null,
+    "termsCheckedAt": null
+   },
+   "ownerWords": [
+    {
+     "at": "2026-10-08T00:00:00+09:00",
+     "text": "お前の方で大丈夫なやつを選んで出すんだよ",
+     "verbatim": true
+    },
+    {
+     "at": "2026-10-08T00:00:00+09:00",
+     "text": "それらも記録してね　権利関係",
+     "verbatim": true
+    },
+    {
+     "at": "2026-10-08T00:00:00+09:00",
+     "text": "あとで誰かに何か言われたら柔軟にできるように",
+     "verbatim": true
+    },
+    {
+     "at": "2026-10-08T00:00:00+09:00",
+     "text": "法的に変わったりしたらとかさ",
+     "verbatim": true
+    },
+    {
+     "at": "2026-10-08T00:00:00+09:00",
+     "text": "今後は絶対にそれも加味して集めるようにして、できるようにして",
+     "verbatim": true
+    }
+   ],
+   "evidence": {
+    "terms": null,
+    "sourcePages": []
+   },
+   "history": [
+    {
+     "at": "2026-10-08T17:49:16+09:00",
+     "by": "case-pages 取り込み",
+     "action": "seed",
+     "reason": "集める段でAIが3基準で判断して記録"
+    },
+    {
+     "at": "2026-10-09T00:02:36+09:00",
+     "by": "case-pages 取り込み",
+     "action": "seed",
+     "reason": "AIの権利判断で更新（active→active。確認: ログイン不要=yes 有料の壁なし=yes 引用=unconfirmed）"
     }
    ]
   },
@@ -1080,6 +2048,69 @@
     }
    ]
   },
+  "citybiz.co": {
+   "siteName": "citybiz",
+   "siteUrl": "https://citybiz.co/",
+   "status": "active",
+   "statusReason": "使用中",
+   "statusChangedAt": "2026-10-09T15:50:20+09:00",
+   "decision": {
+    "decidedAt": "2026-10-09T15:50:20+09:00",
+    "decidedBy": "AI（集める段の自動判断、2026-10-09）",
+    "basis": "ai_judgment",
+    "policyIds": [],
+    "reviewUrls": [],
+    "displayTier": "unconfirmed",
+    "usage": "数字と事実だけを自分の言葉で書き、出典の名前・URL・日付を付ける。文章・画像は写さない（本人の発言は「本人申告」と表示）",
+    "checks": {
+     "loginFree": "yes",
+     "noPaywall": "yes",
+     "quoteTerms": "silent",
+     "note": "ログイン不要: 取得記録なし（未確認）。 有料の壁・規約の引用禁止条項: 未確認（確かめたら rights:review で更新する）。 AIの判断(2026-10-09): 2026-10-09に記事本文をログインなしで無料閲覧できた。確認した規約は主に投稿・掲載依頼者向けで、読者による短い引用についての条項は見つからなかった。"
+    },
+    "termsUrl": "https://www.citybiz.co/terms-of-service/",
+    "termsCheckedAt": null
+   },
+   "ownerWords": [
+    {
+     "at": "2026-10-08T00:00:00+09:00",
+     "text": "お前の方で大丈夫なやつを選んで出すんだよ",
+     "verbatim": true
+    },
+    {
+     "at": "2026-10-08T00:00:00+09:00",
+     "text": "それらも記録してね　権利関係",
+     "verbatim": true
+    },
+    {
+     "at": "2026-10-08T00:00:00+09:00",
+     "text": "あとで誰かに何か言われたら柔軟にできるように",
+     "verbatim": true
+    },
+    {
+     "at": "2026-10-08T00:00:00+09:00",
+     "text": "法的に変わったりしたらとかさ",
+     "verbatim": true
+    },
+    {
+     "at": "2026-10-08T00:00:00+09:00",
+     "text": "今後は絶対にそれも加味して集めるようにして、できるようにして",
+     "verbatim": true
+    }
+   ],
+   "evidence": {
+    "terms": null,
+    "sourcePages": []
+   },
+   "history": [
+    {
+     "at": "2026-10-09T15:50:20+09:00",
+     "by": "add-entity-records(--from-research)",
+     "action": "seed",
+     "reason": "集める段でAIが3基準で判断して記録"
+    }
+   ]
+  },
   "codementor.io": {
    "siteName": "Codementor 公式サイト",
    "siteUrl": "https://codementor.io/",
@@ -1225,6 +2256,75 @@
     }
    ]
   },
+  "costbench.com": {
+   "siteName": "costbench.com",
+   "siteUrl": "https://costbench.com/",
+   "status": "active",
+   "statusReason": "使用中",
+   "statusChangedAt": "2026-10-09T00:02:36+09:00",
+   "decision": {
+    "decidedAt": "2026-10-09T00:02:36+09:00",
+    "decidedBy": "AI（集める段の自動判断、2026-10-09）",
+    "basis": "ai_judgment",
+    "policyIds": [],
+    "reviewUrls": [],
+    "displayTier": "unconfirmed",
+    "usage": "数字と事実だけを自分の言葉で書き、出典の名前・URL・日付を付ける。文章・画像は写さない（本人の発言は「本人申告」と表示）",
+    "checks": {
+     "loginFree": "yes",
+     "noPaywall": "yes",
+     "quoteTerms": "unconfirmed",
+     "note": "ログイン不要: 取得記録なし（未確認）。 有料の壁・規約の引用禁止条項: 未確認（確かめたら rights:review で更新する）。 AIの判断(2026-10-09): 章ごとの文の取り込み（ログインなしで読めた／有料の壁なし／利用規約は未確認／2026-10-08）"
+    },
+    "termsUrl": null,
+    "termsCheckedAt": null
+   },
+   "ownerWords": [
+    {
+     "at": "2026-10-08T00:00:00+09:00",
+     "text": "お前の方で大丈夫なやつを選んで出すんだよ",
+     "verbatim": true
+    },
+    {
+     "at": "2026-10-08T00:00:00+09:00",
+     "text": "それらも記録してね　権利関係",
+     "verbatim": true
+    },
+    {
+     "at": "2026-10-08T00:00:00+09:00",
+     "text": "あとで誰かに何か言われたら柔軟にできるように",
+     "verbatim": true
+    },
+    {
+     "at": "2026-10-08T00:00:00+09:00",
+     "text": "法的に変わったりしたらとかさ",
+     "verbatim": true
+    },
+    {
+     "at": "2026-10-08T00:00:00+09:00",
+     "text": "今後は絶対にそれも加味して集めるようにして、できるようにして",
+     "verbatim": true
+    }
+   ],
+   "evidence": {
+    "terms": null,
+    "sourcePages": []
+   },
+   "history": [
+    {
+     "at": "2026-10-08T17:49:16+09:00",
+     "by": "case-pages 取り込み",
+     "action": "seed",
+     "reason": "集める段でAIが3基準で判断して記録"
+    },
+    {
+     "at": "2026-10-09T00:02:36+09:00",
+     "by": "case-pages 取り込み",
+     "action": "seed",
+     "reason": "AIの権利判断で更新（active→active。確認: ログイン不要=yes 有料の壁なし=yes 引用=unconfirmed）"
+    }
+   ]
+  },
   "datafetcher.com": {
    "siteName": "Data Fetcher の公式紹介",
    "siteUrl": "https://datafetcher.com/",
@@ -1334,14 +2434,14 @@
    ]
   },
   "dev.to": {
-   "siteName": "DEV Community",
+   "siteName": "bizarro.dev.to",
    "siteUrl": "https://dev.to/",
    "status": "active",
    "statusReason": "使用中",
-   "statusChangedAt": "2026-10-08T16:33:11+09:00",
+   "statusChangedAt": "2026-10-09T00:02:36+09:00",
    "decision": {
-    "decidedAt": "2026-10-08T16:33:11+09:00",
-    "decidedBy": "AI（集める段の自動判断、2026-10-08）",
+    "decidedAt": "2026-10-09T00:02:36+09:00",
+    "decidedBy": "AI（集める段の自動判断、2026-10-09）",
     "basis": "ai_judgment",
     "policyIds": [],
     "reviewUrls": [],
@@ -1351,7 +2451,7 @@
      "loginFree": "yes",
      "noPaywall": "yes",
      "quoteTerms": "unconfirmed",
-     "note": "ログイン不要: 取得記録なし（未確認）。 有料の壁・規約の引用禁止条項: 未確認（確かめたら rights:review で更新する）。 AIの判断(2026-10-08): 章ごとの文の取り込み（ログインなしで読めた／有料の壁なし／利用規約は未確認／2026-10-08）"
+     "note": "ログイン不要: 取得記録なし（未確認）。 有料の壁・規約の引用禁止条項: 未確認（確かめたら rights:review で更新する）。 AIの判断(2026-10-09): 章ごとの文の取り込み（ログインなしで読めた／有料の壁なし／利用規約は未確認／2026-10-08） / 章ごとの文の取り込み（ログインなしで読めた／有料の壁なし／利用規約は未確認／2026-10-08） / 章ごとの文の取り込み（ログインなしで読めた／有料の壁なし／利用規約は未確認／2026-10-08）"
     },
     "termsUrl": null,
     "termsCheckedAt": null
@@ -1393,6 +2493,18 @@
      "by": "case-pages 取り込み",
      "action": "seed",
      "reason": "集める段でAIが3基準で判断して記録"
+    },
+    {
+     "at": "2026-10-08T17:49:16+09:00",
+     "by": "case-pages 取り込み",
+     "action": "seed",
+     "reason": "AIの権利判断で更新（active→active。確認: ログイン不要=yes 有料の壁なし=yes 引用=unconfirmed）"
+    },
+    {
+     "at": "2026-10-09T00:02:36+09:00",
+     "by": "case-pages 取り込み",
+     "action": "seed",
+     "reason": "AIの権利判断で更新（active→active。確認: ログイン不要=yes 有料の壁なし=yes 引用=unconfirmed）"
     }
    ]
   },
@@ -1574,6 +2686,69 @@
     }
    ]
   },
+  "dtcpod.simplecast.com": {
+   "siteName": "DTC Pod",
+   "siteUrl": "https://dtcpod.simplecast.com/",
+   "status": "active",
+   "statusReason": "使用中",
+   "statusChangedAt": "2026-10-09T15:50:20+09:00",
+   "decision": {
+    "decidedAt": "2026-10-09T15:50:20+09:00",
+    "decidedBy": "AI（集める段の自動判断、2026-10-09）",
+    "basis": "ai_judgment",
+    "policyIds": [],
+    "reviewUrls": [],
+    "displayTier": "unconfirmed",
+    "usage": "数字と事実だけを自分の言葉で書き、出典の名前・URL・日付を付ける。文章・画像は写さない（本人の発言は「本人申告」と表示）",
+    "checks": {
+     "loginFree": "yes",
+     "noPaywall": "yes",
+     "quoteTerms": "unconfirmed",
+     "note": "ログイン不要: 取得記録なし（未確認）。 有料の壁・規約の引用禁止条項: 未確認（確かめたら rights:review で更新する）。 AIの判断(2026-10-09): 2026-10-09に番組説明と章立てを無料閲覧できた。ページに引用条件の案内はなく、適用される引用規約は確認できなかった。"
+    },
+    "termsUrl": null,
+    "termsCheckedAt": null
+   },
+   "ownerWords": [
+    {
+     "at": "2026-10-08T00:00:00+09:00",
+     "text": "お前の方で大丈夫なやつを選んで出すんだよ",
+     "verbatim": true
+    },
+    {
+     "at": "2026-10-08T00:00:00+09:00",
+     "text": "それらも記録してね　権利関係",
+     "verbatim": true
+    },
+    {
+     "at": "2026-10-08T00:00:00+09:00",
+     "text": "あとで誰かに何か言われたら柔軟にできるように",
+     "verbatim": true
+    },
+    {
+     "at": "2026-10-08T00:00:00+09:00",
+     "text": "法的に変わったりしたらとかさ",
+     "verbatim": true
+    },
+    {
+     "at": "2026-10-08T00:00:00+09:00",
+     "text": "今後は絶対にそれも加味して集めるようにして、できるようにして",
+     "verbatim": true
+    }
+   ],
+   "evidence": {
+    "terms": null,
+    "sourcePages": []
+   },
+   "history": [
+    {
+     "at": "2026-10-09T15:50:20+09:00",
+     "by": "add-entity-records(--from-research)",
+     "action": "seed",
+     "reason": "集める段でAIが3基準で判断して記録"
+    }
+   ]
+  },
   "e-junkie.com": {
    "siteName": "公式サイト",
    "siteUrl": "https://e-junkie.com/",
@@ -1675,6 +2850,138 @@
     }
    ]
   },
+  "echai.ventures": {
+   "siteName": "echai.ventures",
+   "siteUrl": "https://echai.ventures/",
+   "status": "active",
+   "statusReason": "使用中",
+   "statusChangedAt": "2026-10-09T00:02:36+09:00",
+   "decision": {
+    "decidedAt": "2026-10-09T00:02:36+09:00",
+    "decidedBy": "AI（集める段の自動判断、2026-10-09）",
+    "basis": "ai_judgment",
+    "policyIds": [],
+    "reviewUrls": [],
+    "displayTier": "unconfirmed",
+    "usage": "数字と事実だけを自分の言葉で書き、出典の名前・URL・日付を付ける。文章・画像は写さない（本人の発言は「本人申告」と表示）",
+    "checks": {
+     "loginFree": "unconfirmed",
+     "noPaywall": "unconfirmed",
+     "quoteTerms": "unconfirmed",
+     "note": "ログイン不要: 取得記録なし（未確認）。 有料の壁・規約の引用禁止条項: 未確認（確かめたら rights:review で更新する）。 AIの判断(2026-10-09): 章ごとの文の取り込み（検索結果の要約のみ（本文は未取得）／未確認／未確認／2026-10-08）"
+    },
+    "termsUrl": null,
+    "termsCheckedAt": null
+   },
+   "ownerWords": [
+    {
+     "at": "2026-10-08T00:00:00+09:00",
+     "text": "お前の方で大丈夫なやつを選んで出すんだよ",
+     "verbatim": true
+    },
+    {
+     "at": "2026-10-08T00:00:00+09:00",
+     "text": "それらも記録してね　権利関係",
+     "verbatim": true
+    },
+    {
+     "at": "2026-10-08T00:00:00+09:00",
+     "text": "あとで誰かに何か言われたら柔軟にできるように",
+     "verbatim": true
+    },
+    {
+     "at": "2026-10-08T00:00:00+09:00",
+     "text": "法的に変わったりしたらとかさ",
+     "verbatim": true
+    },
+    {
+     "at": "2026-10-08T00:00:00+09:00",
+     "text": "今後は絶対にそれも加味して集めるようにして、できるようにして",
+     "verbatim": true
+    }
+   ],
+   "evidence": {
+    "terms": null,
+    "sourcePages": []
+   },
+   "history": [
+    {
+     "at": "2026-10-08T17:49:16+09:00",
+     "by": "case-pages 取り込み",
+     "action": "seed",
+     "reason": "集める段でAIが3基準で判断して記録"
+    },
+    {
+     "at": "2026-10-09T00:02:36+09:00",
+     "by": "case-pages 取り込み",
+     "action": "seed",
+     "reason": "AIの権利判断で更新（active→active。確認: ログイン不要=unconfirmed 有料の壁なし=unconfirmed 引用=unconfirmed）"
+    }
+   ]
+  },
+  "edibleboston.com": {
+   "siteName": "Edible Boston",
+   "siteUrl": "https://edibleboston.com/",
+   "status": "active",
+   "statusReason": "使用中",
+   "statusChangedAt": "2026-10-09T15:50:20+09:00",
+   "decision": {
+    "decidedAt": "2026-10-09T15:50:20+09:00",
+    "decidedBy": "AI（集める段の自動判断、2026-10-09）",
+    "basis": "ai_judgment",
+    "policyIds": [],
+    "reviewUrls": [],
+    "displayTier": "unconfirmed",
+    "usage": "数字と事実だけを自分の言葉で書き、出典の名前・URL・日付を付ける。文章・画像は写さない（本人の発言は「本人申告」と表示）",
+    "checks": {
+     "loginFree": "yes",
+     "noPaywall": "yes",
+     "quoteTerms": "unconfirmed",
+     "note": "ログイン不要: 取得記録なし（未確認）。 有料の壁・規約の引用禁止条項: 未確認（確かめたら rights:review で更新する）。 AIの判断(2026-10-09): 2026-10-09に記事本文をログインなしで無料閲覧できた。FAQの印刷・保存案内だけでは第三者による引用の条件を判断できず、利用規約は確認できなかった。"
+    },
+    "termsUrl": null,
+    "termsCheckedAt": null
+   },
+   "ownerWords": [
+    {
+     "at": "2026-10-08T00:00:00+09:00",
+     "text": "お前の方で大丈夫なやつを選んで出すんだよ",
+     "verbatim": true
+    },
+    {
+     "at": "2026-10-08T00:00:00+09:00",
+     "text": "それらも記録してね　権利関係",
+     "verbatim": true
+    },
+    {
+     "at": "2026-10-08T00:00:00+09:00",
+     "text": "あとで誰かに何か言われたら柔軟にできるように",
+     "verbatim": true
+    },
+    {
+     "at": "2026-10-08T00:00:00+09:00",
+     "text": "法的に変わったりしたらとかさ",
+     "verbatim": true
+    },
+    {
+     "at": "2026-10-08T00:00:00+09:00",
+     "text": "今後は絶対にそれも加味して集めるようにして、できるようにして",
+     "verbatim": true
+    }
+   ],
+   "evidence": {
+    "terms": null,
+    "sourcePages": []
+   },
+   "history": [
+    {
+     "at": "2026-10-09T15:50:20+09:00",
+     "by": "add-entity-records(--from-research)",
+     "action": "seed",
+     "reason": "集める段でAIが3基準で判断して記録"
+    }
+   ]
+  },
   "en.wikipedia.org": {
    "siteName": "Wikipedia",
    "siteUrl": "https://en.wikipedia.org/",
@@ -1745,6 +3052,270 @@
      "by": "担当(rights-ledger)",
      "action": "seed",
      "reason": "公開中の事例が使う出典として、既存の権利判断から台帳に記録"
+    }
+   ]
+  },
+  "entrackr.com": {
+   "siteName": "entrackr.com",
+   "siteUrl": "https://entrackr.com/",
+   "status": "active",
+   "statusReason": "使用中",
+   "statusChangedAt": "2026-10-09T00:02:36+09:00",
+   "decision": {
+    "decidedAt": "2026-10-09T00:02:36+09:00",
+    "decidedBy": "AI（集める段の自動判断、2026-10-09）",
+    "basis": "ai_judgment",
+    "policyIds": [],
+    "reviewUrls": [],
+    "displayTier": "unconfirmed",
+    "usage": "数字と事実だけを自分の言葉で書き、出典の名前・URL・日付を付ける。文章・画像は写さない（本人の発言は「本人申告」と表示）",
+    "checks": {
+     "loginFree": "yes",
+     "noPaywall": "yes",
+     "quoteTerms": "unconfirmed",
+     "note": "ログイン不要: 取得記録なし（未確認）。 有料の壁・規約の引用禁止条項: 未確認（確かめたら rights:review で更新する）。 AIの判断(2026-10-09): 章ごとの文の取り込み（ログインなしで読めた／有料の壁なし／利用規約は未確認／2026-10-08）"
+    },
+    "termsUrl": null,
+    "termsCheckedAt": null
+   },
+   "ownerWords": [
+    {
+     "at": "2026-10-08T00:00:00+09:00",
+     "text": "お前の方で大丈夫なやつを選んで出すんだよ",
+     "verbatim": true
+    },
+    {
+     "at": "2026-10-08T00:00:00+09:00",
+     "text": "それらも記録してね　権利関係",
+     "verbatim": true
+    },
+    {
+     "at": "2026-10-08T00:00:00+09:00",
+     "text": "あとで誰かに何か言われたら柔軟にできるように",
+     "verbatim": true
+    },
+    {
+     "at": "2026-10-08T00:00:00+09:00",
+     "text": "法的に変わったりしたらとかさ",
+     "verbatim": true
+    },
+    {
+     "at": "2026-10-08T00:00:00+09:00",
+     "text": "今後は絶対にそれも加味して集めるようにして、できるようにして",
+     "verbatim": true
+    }
+   ],
+   "evidence": {
+    "terms": null,
+    "sourcePages": []
+   },
+   "history": [
+    {
+     "at": "2026-10-08T17:49:16+09:00",
+     "by": "case-pages 取り込み",
+     "action": "seed",
+     "reason": "集める段でAIが3基準で判断して記録"
+    },
+    {
+     "at": "2026-10-09T00:02:36+09:00",
+     "by": "case-pages 取り込み",
+     "action": "seed",
+     "reason": "AIの権利判断で更新（active→active。確認: ログイン不要=yes 有料の壁なし=yes 引用=unconfirmed）"
+    }
+   ]
+  },
+  "entrepreneur.com": {
+   "siteName": "Entrepreneur",
+   "siteUrl": "https://entrepreneur.com/",
+   "status": "suspended",
+   "statusReason": "3基準（ログイン不要・有料の壁なし・引用を禁じていない）を満たさないと判断。記録には残し、画面には出さない",
+   "statusChangedAt": "2026-10-09T15:50:20+09:00",
+   "decision": {
+    "decidedAt": "2026-10-09T15:50:20+09:00",
+    "decidedBy": "AI（集める段の自動判断、2026-10-09）",
+    "basis": "ai_judgment",
+    "policyIds": [],
+    "reviewUrls": [],
+    "displayTier": "unconfirmed",
+    "usage": "数字と事実だけを自分の言葉で書き、出典の名前・URL・日付を付ける。文章・画像は写さない（本人の発言は「本人申告」と表示）",
+    "checks": {
+     "loginFree": "yes",
+     "noPaywall": "yes",
+     "quoteTerms": "prohibits",
+     "note": "ログイン不要: 取得記録なし（未確認）。 有料の壁・規約の引用禁止条項: 未確認（確かめたら rights:review で更新する）。 AIの判断(2026-10-09): 本文は無料で読めた。2026-10-09に記事の全部または一部の再利用に許可を求める方針を確認したため、この出典だけにある価格や試作の失敗は掲載用に採らなかった。"
+    },
+    "termsUrl": "https://www.entrepreneur.com/reprint-policy",
+    "termsCheckedAt": null
+   },
+   "ownerWords": [
+    {
+     "at": "2026-10-08T00:00:00+09:00",
+     "text": "お前の方で大丈夫なやつを選んで出すんだよ",
+     "verbatim": true
+    },
+    {
+     "at": "2026-10-08T00:00:00+09:00",
+     "text": "それらも記録してね　権利関係",
+     "verbatim": true
+    },
+    {
+     "at": "2026-10-08T00:00:00+09:00",
+     "text": "あとで誰かに何か言われたら柔軟にできるように",
+     "verbatim": true
+    },
+    {
+     "at": "2026-10-08T00:00:00+09:00",
+     "text": "法的に変わったりしたらとかさ",
+     "verbatim": true
+    },
+    {
+     "at": "2026-10-08T00:00:00+09:00",
+     "text": "今後は絶対にそれも加味して集めるようにして、できるようにして",
+     "verbatim": true
+    }
+   ],
+   "evidence": {
+    "terms": null,
+    "sourcePages": []
+   },
+   "history": [
+    {
+     "at": "2026-10-09T15:50:20+09:00",
+     "by": "add-entity-records(--from-research)",
+     "action": "seed",
+     "reason": "集める段でAIが3基準で判断して記録（基準を満たさず使用停止）"
+    }
+   ]
+  },
+  "eu-startups.com": {
+   "siteName": "EU-Startups／Antonio L. Escárzaga",
+   "siteUrl": "https://eu-startups.com/",
+   "status": "active",
+   "statusReason": "使用中",
+   "statusChangedAt": "2026-10-09T15:55:04+09:00",
+   "decision": {
+    "decidedAt": "2026-10-09T15:55:04+09:00",
+    "decidedBy": "AI（集める段の自動判断、2026-10-09）",
+    "basis": "ai_judgment",
+    "policyIds": [],
+    "reviewUrls": [],
+    "displayTier": "unconfirmed",
+    "usage": "数字と事実だけを自分の言葉で書き、出典の名前・URL・日付を付ける。文章・画像は写さない（本人の発言は「本人申告」と表示）",
+    "checks": {
+     "loginFree": "yes",
+     "noPaywall": "yes",
+     "quoteTerms": "unconfirmed",
+     "note": "ログイン不要: 取得記録なし（未確認）。 有料の壁・規約の引用禁止条項: 未確認（確かめたら rights:review で更新する）。 AIの判断(2026-10-09): 元の記録では、売上額を含む本文をログインなしで読めたが、引用条件の規約は確認できなかった。今回、提供本文を参照した。"
+    },
+    "termsUrl": null,
+    "termsCheckedAt": null
+   },
+   "ownerWords": [
+    {
+     "at": "2026-10-08T00:00:00+09:00",
+     "text": "お前の方で大丈夫なやつを選んで出すんだよ",
+     "verbatim": true
+    },
+    {
+     "at": "2026-10-08T00:00:00+09:00",
+     "text": "それらも記録してね　権利関係",
+     "verbatim": true
+    },
+    {
+     "at": "2026-10-08T00:00:00+09:00",
+     "text": "あとで誰かに何か言われたら柔軟にできるように",
+     "verbatim": true
+    },
+    {
+     "at": "2026-10-08T00:00:00+09:00",
+     "text": "法的に変わったりしたらとかさ",
+     "verbatim": true
+    },
+    {
+     "at": "2026-10-08T00:00:00+09:00",
+     "text": "今後は絶対にそれも加味して集めるようにして、できるようにして",
+     "verbatim": true
+    }
+   ],
+   "evidence": {
+    "terms": null,
+    "sourcePages": []
+   },
+   "history": [
+    {
+     "at": "2026-10-09T15:50:24+09:00",
+     "by": "add-entity-records(--from-research)",
+     "action": "seed",
+     "reason": "集める段でAIが3基準で判断して記録"
+    },
+    {
+     "at": "2026-10-09T15:55:04+09:00",
+     "by": "add-entity-records(--from-research)",
+     "action": "seed",
+     "reason": "AIの権利判断で更新（active→active。確認: ログイン不要=yes 有料の壁なし=yes 引用=unconfirmed）"
+    }
+   ]
+  },
+  "exame.com": {
+   "siteName": "Exame",
+   "siteUrl": "https://exame.com/",
+   "status": "active",
+   "statusReason": "取り込み時に自動で記録（根拠は未確認）",
+   "statusChangedAt": "2026-10-09T15:55:05+09:00",
+   "decision": {
+    "decidedAt": "2026-10-09T15:55:05+09:00",
+    "decidedBy": "担当(2026-10-09)。根拠は未確認",
+    "basis": "unconfirmed",
+    "policyIds": [],
+    "reviewUrls": [],
+    "displayTier": "unconfirmed",
+    "usage": "数字と事実だけを自分の言葉で書き、出典の名前・URL・日付を付ける。文章・画像は写さない（本人の発言は「本人申告」と表示）",
+    "checks": {
+     "loginFree": "unconfirmed",
+     "noPaywall": "unconfirmed",
+     "quoteTerms": "unconfirmed",
+     "note": "ログイン不要: 取得記録なし（未確認）。 有料の壁・規約の引用禁止条項: 未確認（確かめたら rights:review で更新する）。"
+    },
+    "termsUrl": null,
+    "termsCheckedAt": null
+   },
+   "ownerWords": [
+    {
+     "at": "2026-10-08T00:00:00+09:00",
+     "text": "お前の方で大丈夫なやつを選んで出すんだよ",
+     "verbatim": true
+    },
+    {
+     "at": "2026-10-08T00:00:00+09:00",
+     "text": "それらも記録してね　権利関係",
+     "verbatim": true
+    },
+    {
+     "at": "2026-10-08T00:00:00+09:00",
+     "text": "あとで誰かに何か言われたら柔軟にできるように",
+     "verbatim": true
+    },
+    {
+     "at": "2026-10-08T00:00:00+09:00",
+     "text": "法的に変わったりしたらとかさ",
+     "verbatim": true
+    },
+    {
+     "at": "2026-10-08T00:00:00+09:00",
+     "text": "今後は絶対にそれも加味して集めるようにして、できるようにして",
+     "verbatim": true
+    }
+   ],
+   "evidence": {
+    "terms": null,
+    "sourcePages": []
+   },
+   "history": [
+    {
+     "at": "2026-10-09T15:55:05+09:00",
+     "by": "add-entity-records(--apply)",
+     "action": "seed",
+     "reason": "台帳に新しく記録（根拠は未確認）"
     }
    ]
   },
@@ -1897,6 +3468,138 @@
     }
    ]
   },
+  "foodbusinessnews.net": {
+   "siteName": "Food Business News",
+   "siteUrl": "https://foodbusinessnews.net/",
+   "status": "suspended",
+   "statusReason": "3基準（ログイン不要・有料の壁なし・引用を禁じていない）を満たさないと判断。記録には残し、画面には出さない",
+   "statusChangedAt": "2026-10-09T15:50:20+09:00",
+   "decision": {
+    "decidedAt": "2026-10-09T15:50:20+09:00",
+    "decidedBy": "AI（集める段の自動判断、2026-10-09）",
+    "basis": "ai_judgment",
+    "policyIds": [],
+    "reviewUrls": [],
+    "displayTier": "unconfirmed",
+    "usage": "数字と事実だけを自分の言葉で書き、出典の名前・URL・日付を付ける。文章・画像は写さない（本人の発言は「本人申告」と表示）",
+    "checks": {
+     "loginFree": "yes",
+     "noPaywall": "yes",
+     "quoteTerms": "prohibits",
+     "note": "ログイン不要: 取得記録なし（未確認）。 有料の壁・規約の引用禁止条項: 未確認（確かめたら rights:review で更新する）。 AIの判断(2026-10-09): 記事本文は読めた。2026-10-09に自動取得と商用複製の制限を確認したため、追加取得を止め、独自の数値は掲載用の事実に採らなかった。"
+    },
+    "termsUrl": "https://www.foodbusinessnews.net/terms-of-use",
+    "termsCheckedAt": null
+   },
+   "ownerWords": [
+    {
+     "at": "2026-10-08T00:00:00+09:00",
+     "text": "お前の方で大丈夫なやつを選んで出すんだよ",
+     "verbatim": true
+    },
+    {
+     "at": "2026-10-08T00:00:00+09:00",
+     "text": "それらも記録してね　権利関係",
+     "verbatim": true
+    },
+    {
+     "at": "2026-10-08T00:00:00+09:00",
+     "text": "あとで誰かに何か言われたら柔軟にできるように",
+     "verbatim": true
+    },
+    {
+     "at": "2026-10-08T00:00:00+09:00",
+     "text": "法的に変わったりしたらとかさ",
+     "verbatim": true
+    },
+    {
+     "at": "2026-10-08T00:00:00+09:00",
+     "text": "今後は絶対にそれも加味して集めるようにして、できるようにして",
+     "verbatim": true
+    }
+   ],
+   "evidence": {
+    "terms": null,
+    "sourcePages": []
+   },
+   "history": [
+    {
+     "at": "2026-10-09T15:50:20+09:00",
+     "by": "add-entity-records(--from-research)",
+     "action": "seed",
+     "reason": "集める段でAIが3基準で判断して記録（基準を満たさず使用停止）"
+    }
+   ]
+  },
+  "fora.ie": {
+   "siteName": "fora.ie",
+   "siteUrl": "https://fora.ie/",
+   "status": "active",
+   "statusReason": "使用中",
+   "statusChangedAt": "2026-10-09T00:02:36+09:00",
+   "decision": {
+    "decidedAt": "2026-10-09T00:02:36+09:00",
+    "decidedBy": "AI（集める段の自動判断、2026-10-09）",
+    "basis": "ai_judgment",
+    "policyIds": [],
+    "reviewUrls": [],
+    "displayTier": "unconfirmed",
+    "usage": "数字と事実だけを自分の言葉で書き、出典の名前・URL・日付を付ける。文章・画像は写さない（本人の発言は「本人申告」と表示）",
+    "checks": {
+     "loginFree": "yes",
+     "noPaywall": "yes",
+     "quoteTerms": "unconfirmed",
+     "note": "ログイン不要: 取得記録なし（未確認）。 有料の壁・規約の引用禁止条項: 未確認（確かめたら rights:review で更新する）。 AIの判断(2026-10-09): 章ごとの文の取り込み（ログインなしで読めた／有料の壁なし／利用規約は未確認／2026-10-08）"
+    },
+    "termsUrl": null,
+    "termsCheckedAt": null
+   },
+   "ownerWords": [
+    {
+     "at": "2026-10-08T00:00:00+09:00",
+     "text": "お前の方で大丈夫なやつを選んで出すんだよ",
+     "verbatim": true
+    },
+    {
+     "at": "2026-10-08T00:00:00+09:00",
+     "text": "それらも記録してね　権利関係",
+     "verbatim": true
+    },
+    {
+     "at": "2026-10-08T00:00:00+09:00",
+     "text": "あとで誰かに何か言われたら柔軟にできるように",
+     "verbatim": true
+    },
+    {
+     "at": "2026-10-08T00:00:00+09:00",
+     "text": "法的に変わったりしたらとかさ",
+     "verbatim": true
+    },
+    {
+     "at": "2026-10-08T00:00:00+09:00",
+     "text": "今後は絶対にそれも加味して集めるようにして、できるようにして",
+     "verbatim": true
+    }
+   ],
+   "evidence": {
+    "terms": null,
+    "sourcePages": []
+   },
+   "history": [
+    {
+     "at": "2026-10-08T17:49:16+09:00",
+     "by": "case-pages 取り込み",
+     "action": "seed",
+     "reason": "集める段でAIが3基準で判断して記録"
+    },
+    {
+     "at": "2026-10-09T00:02:36+09:00",
+     "by": "case-pages 取り込み",
+     "action": "seed",
+     "reason": "AIの権利判断で更新（active→active。確認: ログイン不要=yes 有料の壁なし=yes 引用=unconfirmed）"
+    }
+   ]
+  },
   "foundersconfidential418.substack.com": {
    "siteName": "Ottoの執筆経験の公開記録",
    "siteUrl": "https://foundersconfidential418.substack.com/",
@@ -1967,6 +3670,207 @@
      "by": "担当(rights-ledger)",
      "action": "seed",
      "reason": "公開中の事例が使う出典として、既存の権利判断から台帳に記録"
+    }
+   ]
+  },
+  "fullstackradio.com": {
+   "siteName": "fullstackradio.com",
+   "siteUrl": "https://fullstackradio.com/",
+   "status": "active",
+   "statusReason": "使用中",
+   "statusChangedAt": "2026-10-09T00:02:36+09:00",
+   "decision": {
+    "decidedAt": "2026-10-09T00:02:36+09:00",
+    "decidedBy": "AI（集める段の自動判断、2026-10-09）",
+    "basis": "ai_judgment",
+    "policyIds": [],
+    "reviewUrls": [],
+    "displayTier": "unconfirmed",
+    "usage": "数字と事実だけを自分の言葉で書き、出典の名前・URL・日付を付ける。文章・画像は写さない（本人の発言は「本人申告」と表示）",
+    "checks": {
+     "loginFree": "yes",
+     "noPaywall": "yes",
+     "quoteTerms": "unconfirmed",
+     "note": "ログイン不要: 取得記録なし（未確認）。 有料の壁・規約の引用禁止条項: 未確認（確かめたら rights:review で更新する）。 AIの判断(2026-10-09): 章ごとの文の取り込み（ログインなしで読めた／有料の壁なし／利用規約は未確認／2026-10-08）"
+    },
+    "termsUrl": null,
+    "termsCheckedAt": null
+   },
+   "ownerWords": [
+    {
+     "at": "2026-10-08T00:00:00+09:00",
+     "text": "お前の方で大丈夫なやつを選んで出すんだよ",
+     "verbatim": true
+    },
+    {
+     "at": "2026-10-08T00:00:00+09:00",
+     "text": "それらも記録してね　権利関係",
+     "verbatim": true
+    },
+    {
+     "at": "2026-10-08T00:00:00+09:00",
+     "text": "あとで誰かに何か言われたら柔軟にできるように",
+     "verbatim": true
+    },
+    {
+     "at": "2026-10-08T00:00:00+09:00",
+     "text": "法的に変わったりしたらとかさ",
+     "verbatim": true
+    },
+    {
+     "at": "2026-10-08T00:00:00+09:00",
+     "text": "今後は絶対にそれも加味して集めるようにして、できるようにして",
+     "verbatim": true
+    }
+   ],
+   "evidence": {
+    "terms": null,
+    "sourcePages": []
+   },
+   "history": [
+    {
+     "at": "2026-10-08T17:49:16+09:00",
+     "by": "case-pages 取り込み",
+     "action": "seed",
+     "reason": "集める段でAIが3基準で判断して記録"
+    },
+    {
+     "at": "2026-10-09T00:02:36+09:00",
+     "by": "case-pages 取り込み",
+     "action": "seed",
+     "reason": "AIの権利判断で更新（active→active。確認: ログイン不要=yes 有料の壁なし=yes 引用=unconfirmed）"
+    }
+   ]
+  },
+  "garrettdimon.com": {
+   "siteName": "garrettdimon.com",
+   "siteUrl": "https://garrettdimon.com/",
+   "status": "active",
+   "statusReason": "使用中",
+   "statusChangedAt": "2026-10-09T00:02:36+09:00",
+   "decision": {
+    "decidedAt": "2026-10-09T00:02:36+09:00",
+    "decidedBy": "AI（集める段の自動判断、2026-10-09）",
+    "basis": "ai_judgment",
+    "policyIds": [],
+    "reviewUrls": [],
+    "displayTier": "unconfirmed",
+    "usage": "数字と事実だけを自分の言葉で書き、出典の名前・URL・日付を付ける。文章・画像は写さない（本人の発言は「本人申告」と表示）",
+    "checks": {
+     "loginFree": "yes",
+     "noPaywall": "yes",
+     "quoteTerms": "unconfirmed",
+     "note": "ログイン不要: 取得記録なし（未確認）。 有料の壁・規約の引用禁止条項: 未確認（確かめたら rights:review で更新する）。 AIの判断(2026-10-09): 章ごとの文の取り込み（ログインなしで読めた／有料の壁なし／利用規約は未確認／2026-10-08）"
+    },
+    "termsUrl": null,
+    "termsCheckedAt": null
+   },
+   "ownerWords": [
+    {
+     "at": "2026-10-08T00:00:00+09:00",
+     "text": "お前の方で大丈夫なやつを選んで出すんだよ",
+     "verbatim": true
+    },
+    {
+     "at": "2026-10-08T00:00:00+09:00",
+     "text": "それらも記録してね　権利関係",
+     "verbatim": true
+    },
+    {
+     "at": "2026-10-08T00:00:00+09:00",
+     "text": "あとで誰かに何か言われたら柔軟にできるように",
+     "verbatim": true
+    },
+    {
+     "at": "2026-10-08T00:00:00+09:00",
+     "text": "法的に変わったりしたらとかさ",
+     "verbatim": true
+    },
+    {
+     "at": "2026-10-08T00:00:00+09:00",
+     "text": "今後は絶対にそれも加味して集めるようにして、できるようにして",
+     "verbatim": true
+    }
+   ],
+   "evidence": {
+    "terms": null,
+    "sourcePages": []
+   },
+   "history": [
+    {
+     "at": "2026-10-08T17:49:16+09:00",
+     "by": "case-pages 取り込み",
+     "action": "seed",
+     "reason": "集める段でAIが3基準で判断して記録"
+    },
+    {
+     "at": "2026-10-09T00:02:36+09:00",
+     "by": "case-pages 取り込み",
+     "action": "seed",
+     "reason": "AIの権利判断で更新（active→active。確認: ログイン不要=yes 有料の壁なし=yes 引用=unconfirmed）"
+    }
+   ]
+  },
+  "gauchazh.clicrbs.com.br": {
+   "siteName": "GZH／RBS Conteúdo para Marcas（同社の広告記事）",
+   "siteUrl": "https://gauchazh.clicrbs.com.br/",
+   "status": "active",
+   "statusReason": "取り込み時に自動で記録（根拠は未確認）",
+   "statusChangedAt": "2026-10-09T15:55:05+09:00",
+   "decision": {
+    "decidedAt": "2026-10-09T15:55:05+09:00",
+    "decidedBy": "担当(2026-10-09)。根拠は未確認",
+    "basis": "unconfirmed",
+    "policyIds": [],
+    "reviewUrls": [],
+    "displayTier": "unconfirmed",
+    "usage": "数字と事実だけを自分の言葉で書き、出典の名前・URL・日付を付ける。文章・画像は写さない（本人の発言は「本人申告」と表示）",
+    "checks": {
+     "loginFree": "unconfirmed",
+     "noPaywall": "unconfirmed",
+     "quoteTerms": "unconfirmed",
+     "note": "ログイン不要: 取得記録なし（未確認）。 有料の壁・規約の引用禁止条項: 未確認（確かめたら rights:review で更新する）。"
+    },
+    "termsUrl": null,
+    "termsCheckedAt": null
+   },
+   "ownerWords": [
+    {
+     "at": "2026-10-08T00:00:00+09:00",
+     "text": "お前の方で大丈夫なやつを選んで出すんだよ",
+     "verbatim": true
+    },
+    {
+     "at": "2026-10-08T00:00:00+09:00",
+     "text": "それらも記録してね　権利関係",
+     "verbatim": true
+    },
+    {
+     "at": "2026-10-08T00:00:00+09:00",
+     "text": "あとで誰かに何か言われたら柔軟にできるように",
+     "verbatim": true
+    },
+    {
+     "at": "2026-10-08T00:00:00+09:00",
+     "text": "法的に変わったりしたらとかさ",
+     "verbatim": true
+    },
+    {
+     "at": "2026-10-08T00:00:00+09:00",
+     "text": "今後は絶対にそれも加味して集めるようにして、できるようにして",
+     "verbatim": true
+    }
+   ],
+   "evidence": {
+    "terms": null,
+    "sourcePages": []
+   },
+   "history": [
+    {
+     "at": "2026-10-09T15:55:05+09:00",
+     "by": "add-entity-records(--apply)",
+     "action": "seed",
+     "reason": "台帳に新しく記録（根拠は未確認）"
     }
    ]
   },
@@ -2106,25 +4010,159 @@
     }
    ]
   },
-  "getlatka.com": {
-   "siteName": "Latka",
-   "siteUrl": "https://getlatka.com/",
+  "getapp.co.uk": {
+   "siteName": "getapp.co.uk",
+   "siteUrl": "https://getapp.co.uk/",
    "status": "active",
    "statusReason": "使用中",
-   "statusChangedAt": "2026-10-08T16:33:11+09:00",
+   "statusChangedAt": "2026-10-09T00:02:36+09:00",
    "decision": {
-    "decidedAt": "2026-10-08T16:33:11+09:00",
-    "decidedBy": "AI（集める段の自動判断、2026-10-08）",
+    "decidedAt": "2026-10-09T00:02:36+09:00",
+    "decidedBy": "AI（集める段の自動判断、2026-10-09）",
     "basis": "ai_judgment",
     "policyIds": [],
     "reviewUrls": [],
     "displayTier": "unconfirmed",
     "usage": "数字と事実だけを自分の言葉で書き、出典の名前・URL・日付を付ける。文章・画像は写さない（本人の発言は「本人申告」と表示）",
     "checks": {
-     "loginFree": "yes",
+     "loginFree": "unconfirmed",
      "noPaywall": "unconfirmed",
      "quoteTerms": "unconfirmed",
-     "note": "ログイン不要: 取得記録なし（未確認）。 有料の壁・規約の引用禁止条項: 未確認（確かめたら rights:review で更新する）。 AIの判断(2026-10-08): 章ごとの文の取り込み（ログインなしで読めた／有料の壁なし（一部機能は会員向けの可能性）／利用規約は未確認／2026-10-08）"
+     "note": "ログイン不要: 取得記録なし（未確認）。 有料の壁・規約の引用禁止条項: 未確認（確かめたら rights:review で更新する）。 AIの判断(2026-10-09): 章ごとの文の取り込み（本文は読まず、検索結果の要約のみ参照／利用規約は未確認／2026-10-08）"
+    },
+    "termsUrl": null,
+    "termsCheckedAt": null
+   },
+   "ownerWords": [
+    {
+     "at": "2026-10-08T00:00:00+09:00",
+     "text": "お前の方で大丈夫なやつを選んで出すんだよ",
+     "verbatim": true
+    },
+    {
+     "at": "2026-10-08T00:00:00+09:00",
+     "text": "それらも記録してね　権利関係",
+     "verbatim": true
+    },
+    {
+     "at": "2026-10-08T00:00:00+09:00",
+     "text": "あとで誰かに何か言われたら柔軟にできるように",
+     "verbatim": true
+    },
+    {
+     "at": "2026-10-08T00:00:00+09:00",
+     "text": "法的に変わったりしたらとかさ",
+     "verbatim": true
+    },
+    {
+     "at": "2026-10-08T00:00:00+09:00",
+     "text": "今後は絶対にそれも加味して集めるようにして、できるようにして",
+     "verbatim": true
+    }
+   ],
+   "evidence": {
+    "terms": null,
+    "sourcePages": []
+   },
+   "history": [
+    {
+     "at": "2026-10-08T17:49:16+09:00",
+     "by": "case-pages 取り込み",
+     "action": "seed",
+     "reason": "集める段でAIが3基準で判断して記録"
+    },
+    {
+     "at": "2026-10-09T00:02:36+09:00",
+     "by": "case-pages 取り込み",
+     "action": "seed",
+     "reason": "AIの権利判断で更新（active→active。確認: ログイン不要=unconfirmed 有料の壁なし=unconfirmed 引用=unconfirmed）"
+    }
+   ]
+  },
+  "getenter.ai": {
+   "siteName": "Enter",
+   "siteUrl": "https://getenter.ai/",
+   "status": "active",
+   "statusReason": "使用中",
+   "statusChangedAt": "2026-10-09T15:55:05+09:00",
+   "decision": {
+    "decidedAt": "2026-09-29T09:00:00+09:00",
+    "decidedBy": "標準の権利規則（Universal Foundation の審査）／台帳への記録は担当(2026-10-09)",
+    "basis": "registry",
+    "policyIds": [
+     "rights.official-company-website.v1"
+    ],
+    "reviewUrls": [],
+    "displayTier": "automatic",
+    "usage": "数字と事実だけを自分の言葉で書き、出典の名前・URL・日付を付ける。文章・画像は写さない（本人の発言は「本人申告」と表示）",
+    "checks": {
+     "loginFree": "unconfirmed",
+     "noPaywall": "unconfirmed",
+     "quoteTerms": "unconfirmed",
+     "note": "ログイン不要: 取得記録なし（未確認）。 有料の壁・規約の引用禁止条項: 未確認（確かめたら rights:review で更新する）。 標準の規則: rights.official-company-website.v1"
+    },
+    "termsUrl": null,
+    "termsCheckedAt": null
+   },
+   "ownerWords": [
+    {
+     "at": "2026-10-08T00:00:00+09:00",
+     "text": "お前の方で大丈夫なやつを選んで出すんだよ",
+     "verbatim": true
+    },
+    {
+     "at": "2026-10-08T00:00:00+09:00",
+     "text": "それらも記録してね　権利関係",
+     "verbatim": true
+    },
+    {
+     "at": "2026-10-08T00:00:00+09:00",
+     "text": "あとで誰かに何か言われたら柔軟にできるように",
+     "verbatim": true
+    },
+    {
+     "at": "2026-10-08T00:00:00+09:00",
+     "text": "法的に変わったりしたらとかさ",
+     "verbatim": true
+    },
+    {
+     "at": "2026-10-08T00:00:00+09:00",
+     "text": "今後は絶対にそれも加味して集めるようにして、できるようにして",
+     "verbatim": true
+    }
+   ],
+   "evidence": {
+    "terms": null,
+    "sourcePages": []
+   },
+   "history": [
+    {
+     "at": "2026-10-09T15:55:05+09:00",
+     "by": "add-entity-records(--apply)",
+     "action": "seed",
+     "reason": "既存の権利判断から台帳に記録"
+    }
+   ]
+  },
+  "getlatka.com": {
+   "siteName": "getlatka.com",
+   "siteUrl": "https://getlatka.com/",
+   "status": "active",
+   "statusReason": "使用中",
+   "statusChangedAt": "2026-10-09T00:02:36+09:00",
+   "decision": {
+    "decidedAt": "2026-10-09T00:02:36+09:00",
+    "decidedBy": "AI（集める段の自動判断、2026-10-09）",
+    "basis": "ai_judgment",
+    "policyIds": [],
+    "reviewUrls": [],
+    "displayTier": "unconfirmed",
+    "usage": "数字と事実だけを自分の言葉で書き、出典の名前・URL・日付を付ける。文章・画像は写さない（本人の発言は「本人申告」と表示）",
+    "checks": {
+     "loginFree": "unconfirmed",
+     "noPaywall": "unconfirmed",
+     "quoteTerms": "unconfirmed",
+     "note": "ログイン不要: 取得記録なし（未確認）。 有料の壁・規約の引用禁止条項: 未確認（確かめたら rights:review で更新する）。 AIの判断(2026-10-09): 章ごとの文の取り込み（ログインなしで読めた／有料の壁なし／利用規約は未確認／2026-10-08） / 章ごとの文の取り込み（ログインなしで読めた／有料の壁なし／利用規約は未確認／2026-10-08） / 章ごとの文の取り込み（検索結果の要約のみ確認（ページ本体は未読）／未確認／未確認／2026-10-08） / 章ごとの文の取り込み（ログインなしで読めた（要約）／有料の壁なし／利用規約は未確認／2026-10-08） / 章ごとの文の取り込み（ログインなしで読めた／有料の壁なし（一部機能は会員向けの可能性）／利用規約は未確認／2026-10-08） / 章ごとの文の取り込み（ログインなしで読めた／有料の壁なし／利用規約は未確認／2026-10-08） / 章ごとの文の取り込み（ログインなしで読めた／有料の壁なし／利用規約は未確認／2026-10-08） / 章ごとの文の取り込み（ログインなしで読めた／有料の壁なし／利用規約は未確認／2026-10-08） / 章ごとの文の取り込み（ログインなしで読めた／有料の壁なし／利用規約は未確認／2026-10-08） / 章ごとの文の取り込み（ログインなしで読めた／有料の壁なし／利用規約は未確認／2026-10-08） / 章ごとの文の取り込み（ログインなしで読めた／有料の壁なし／利用規約は未確認／2026-10-08）"
     },
     "termsUrl": null,
     "termsCheckedAt": null
@@ -2166,6 +4204,152 @@
      "by": "case-pages 取り込み",
      "action": "seed",
      "reason": "集める段でAIが3基準で判断して記録"
+    },
+    {
+     "at": "2026-10-08T17:49:16+09:00",
+     "by": "case-pages 取り込み",
+     "action": "seed",
+     "reason": "AIの権利判断で更新（active→active。確認: ログイン不要=unconfirmed 有料の壁なし=unconfirmed 引用=unconfirmed）"
+    },
+    {
+     "at": "2026-10-09T00:02:36+09:00",
+     "by": "case-pages 取り込み",
+     "action": "seed",
+     "reason": "AIの権利判断で更新（active→active。確認: ログイン不要=unconfirmed 有料の壁なし=unconfirmed 引用=unconfirmed）"
+    }
+   ]
+  },
+  "github.com": {
+   "siteName": "github.com",
+   "siteUrl": "https://github.com/",
+   "status": "active",
+   "statusReason": "使用中",
+   "statusChangedAt": "2026-10-08T17:49:16+09:00",
+   "decision": {
+    "decidedAt": "2026-09-29T09:00:00+09:00",
+    "decidedBy": "標準の権利規則（Universal Foundation の審査）／台帳への記録は担当(2026-10-08)",
+    "basis": "registry",
+    "policyIds": [
+     "rights.github.v1"
+    ],
+    "reviewUrls": [],
+    "displayTier": "automatic",
+    "usage": "数字と事実だけを自分の言葉で書き、出典の名前・URL・日付を付ける。文章・画像は写さない（本人の発言は「本人申告」と表示）",
+    "checks": {
+     "loginFree": "unconfirmed",
+     "noPaywall": "unconfirmed",
+     "quoteTerms": "unconfirmed",
+     "note": "ログイン不要: 取得記録なし（未確認）。 有料の壁・規約の引用禁止条項: 未確認（確かめたら rights:review で更新する）。 AIの判断(2026-10-08): 章ごとの文の取り込み（ログインなしで読めた（公開 API）／有料の壁なし／利用規約は未確認／2026-10-08） 標準の規則: rights.github.v1"
+    },
+    "termsUrl": null,
+    "termsCheckedAt": null
+   },
+   "ownerWords": [
+    {
+     "at": "2026-10-08T00:00:00+09:00",
+     "text": "お前の方で大丈夫なやつを選んで出すんだよ",
+     "verbatim": true
+    },
+    {
+     "at": "2026-10-08T00:00:00+09:00",
+     "text": "それらも記録してね　権利関係",
+     "verbatim": true
+    },
+    {
+     "at": "2026-10-08T00:00:00+09:00",
+     "text": "あとで誰かに何か言われたら柔軟にできるように",
+     "verbatim": true
+    },
+    {
+     "at": "2026-10-08T00:00:00+09:00",
+     "text": "法的に変わったりしたらとかさ",
+     "verbatim": true
+    },
+    {
+     "at": "2026-10-08T00:00:00+09:00",
+     "text": "今後は絶対にそれも加味して集めるようにして、できるようにして",
+     "verbatim": true
+    }
+   ],
+   "evidence": {
+    "terms": null,
+    "sourcePages": []
+   },
+   "history": [
+    {
+     "at": "2026-10-08T17:49:16+09:00",
+     "by": "case-pages 取り込み",
+     "action": "seed",
+     "reason": "既存の権利判断から台帳に記録"
+    }
+   ]
+  },
+  "glossy.co": {
+   "siteName": "glossy.co",
+   "siteUrl": "https://glossy.co/",
+   "status": "active",
+   "statusReason": "使用中",
+   "statusChangedAt": "2026-10-09T00:02:36+09:00",
+   "decision": {
+    "decidedAt": "2026-10-09T00:02:36+09:00",
+    "decidedBy": "AI（集める段の自動判断、2026-10-09）",
+    "basis": "ai_judgment",
+    "policyIds": [],
+    "reviewUrls": [],
+    "displayTier": "unconfirmed",
+    "usage": "数字と事実だけを自分の言葉で書き、出典の名前・URL・日付を付ける。文章・画像は写さない（本人の発言は「本人申告」と表示）",
+    "checks": {
+     "loginFree": "yes",
+     "noPaywall": "yes",
+     "quoteTerms": "unconfirmed",
+     "note": "ログイン不要: 取得記録なし（未確認）。 有料の壁・規約の引用禁止条項: 未確認（確かめたら rights:review で更新する）。 AIの判断(2026-10-09): 章ごとの文の取り込み（ログインなしで読めた／有料の壁なし／利用規約は未確認／2026-10-08）"
+    },
+    "termsUrl": null,
+    "termsCheckedAt": null
+   },
+   "ownerWords": [
+    {
+     "at": "2026-10-08T00:00:00+09:00",
+     "text": "お前の方で大丈夫なやつを選んで出すんだよ",
+     "verbatim": true
+    },
+    {
+     "at": "2026-10-08T00:00:00+09:00",
+     "text": "それらも記録してね　権利関係",
+     "verbatim": true
+    },
+    {
+     "at": "2026-10-08T00:00:00+09:00",
+     "text": "あとで誰かに何か言われたら柔軟にできるように",
+     "verbatim": true
+    },
+    {
+     "at": "2026-10-08T00:00:00+09:00",
+     "text": "法的に変わったりしたらとかさ",
+     "verbatim": true
+    },
+    {
+     "at": "2026-10-08T00:00:00+09:00",
+     "text": "今後は絶対にそれも加味して集めるようにして、できるようにして",
+     "verbatim": true
+    }
+   ],
+   "evidence": {
+    "terms": null,
+    "sourcePages": []
+   },
+   "history": [
+    {
+     "at": "2026-10-08T17:49:16+09:00",
+     "by": "case-pages 取り込み",
+     "action": "seed",
+     "reason": "集める段でAIが3基準で判断して記録"
+    },
+    {
+     "at": "2026-10-09T00:02:36+09:00",
+     "by": "case-pages 取り込み",
+     "action": "seed",
+     "reason": "AIの権利判断で更新（active→active。確認: ログイン不要=yes 有料の壁なし=yes 引用=unconfirmed）"
     }
    ]
   },
@@ -2254,10 +4438,10 @@
    "siteUrl": "https://grahammann.net/",
    "status": "active",
    "statusReason": "使用中",
-   "statusChangedAt": "2026-10-08T16:33:11+09:00",
+   "statusChangedAt": "2026-10-09T00:02:36+09:00",
    "decision": {
-    "decidedAt": "2026-10-08T16:33:11+09:00",
-    "decidedBy": "AI（集める段の自動判断、2026-10-08）",
+    "decidedAt": "2026-10-09T00:02:36+09:00",
+    "decidedBy": "AI（集める段の自動判断、2026-10-09）",
     "basis": "ai_judgment",
     "policyIds": [],
     "reviewUrls": [],
@@ -2267,7 +4451,7 @@
      "loginFree": "yes",
      "noPaywall": "yes",
      "quoteTerms": "unconfirmed",
-     "note": "ログイン不要: 取得記録なし（未確認）。 有料の壁・規約の引用禁止条項: 未確認（確かめたら rights:review で更新する）。 AIの判断(2026-10-08): 章ごとの文の取り込み（ログインなしで読めた／有料の壁なし／規約は未確認）"
+     "note": "ログイン不要: 取得記録なし（未確認）。 有料の壁・規約の引用禁止条項: 未確認（確かめたら rights:review で更新する）。 AIの判断(2026-10-09): 章ごとの文の取り込み（ログインなしで読めた／有料の壁なし／規約は未確認）"
     },
     "termsUrl": null,
     "termsCheckedAt": null
@@ -2309,6 +4493,12 @@
      "by": "case-pages 取り込み",
      "action": "seed",
      "reason": "集める段でAIが3基準で判断して記録"
+    },
+    {
+     "at": "2026-10-09T00:02:36+09:00",
+     "by": "case-pages 取り込み",
+     "action": "seed",
+     "reason": "AIの権利判断で更新（active→active。確認: ログイン不要=yes 有料の壁なし=yes 引用=unconfirmed）"
     }
    ]
   },
@@ -2393,6 +4583,75 @@
      "by": "担当(rights:terms)",
      "action": "terms-snapshot",
      "reason": "規約ページの指紋を記録（4ab58f84、110737文字）"
+    }
+   ]
+  },
+  "hackernoon.com": {
+   "siteName": "hackernoon.com",
+   "siteUrl": "https://hackernoon.com/",
+   "status": "active",
+   "statusReason": "使用中",
+   "statusChangedAt": "2026-10-09T00:02:36+09:00",
+   "decision": {
+    "decidedAt": "2026-10-09T00:02:36+09:00",
+    "decidedBy": "AI（集める段の自動判断、2026-10-09）",
+    "basis": "ai_judgment",
+    "policyIds": [],
+    "reviewUrls": [],
+    "displayTier": "unconfirmed",
+    "usage": "数字と事実だけを自分の言葉で書き、出典の名前・URL・日付を付ける。文章・画像は写さない（本人の発言は「本人申告」と表示）",
+    "checks": {
+     "loginFree": "yes",
+     "noPaywall": "yes",
+     "quoteTerms": "unconfirmed",
+     "note": "ログイン不要: 取得記録なし（未確認）。 有料の壁・規約の引用禁止条項: 未確認（確かめたら rights:review で更新する）。 AIの判断(2026-10-09): 章ごとの文の取り込み（ログインなしで読めた／有料の壁なし／利用規約は未確認／2026-10-08）"
+    },
+    "termsUrl": null,
+    "termsCheckedAt": null
+   },
+   "ownerWords": [
+    {
+     "at": "2026-10-08T00:00:00+09:00",
+     "text": "お前の方で大丈夫なやつを選んで出すんだよ",
+     "verbatim": true
+    },
+    {
+     "at": "2026-10-08T00:00:00+09:00",
+     "text": "それらも記録してね　権利関係",
+     "verbatim": true
+    },
+    {
+     "at": "2026-10-08T00:00:00+09:00",
+     "text": "あとで誰かに何か言われたら柔軟にできるように",
+     "verbatim": true
+    },
+    {
+     "at": "2026-10-08T00:00:00+09:00",
+     "text": "法的に変わったりしたらとかさ",
+     "verbatim": true
+    },
+    {
+     "at": "2026-10-08T00:00:00+09:00",
+     "text": "今後は絶対にそれも加味して集めるようにして、できるようにして",
+     "verbatim": true
+    }
+   ],
+   "evidence": {
+    "terms": null,
+    "sourcePages": []
+   },
+   "history": [
+    {
+     "at": "2026-10-08T17:49:16+09:00",
+     "by": "case-pages 取り込み",
+     "action": "seed",
+     "reason": "集める段でAIが3基準で判断して記録"
+    },
+    {
+     "at": "2026-10-09T00:02:36+09:00",
+     "by": "case-pages 取り込み",
+     "action": "seed",
+     "reason": "AIの権利判断で更新（active→active。確認: ログイン不要=yes 有料の壁なし=yes 引用=unconfirmed）"
     }
    ]
   },
@@ -2671,6 +4930,335 @@
     }
    ]
   },
+  "hotelamore.substack.com": {
+   "siteName": "hotelamore.substack.com",
+   "siteUrl": "https://hotelamore.substack.com/",
+   "status": "active",
+   "statusReason": "使用中",
+   "statusChangedAt": "2026-10-08T17:49:16+09:00",
+   "decision": {
+    "decidedAt": "2026-09-29T09:00:00+09:00",
+    "decidedBy": "標準の権利規則（Universal Foundation の審査）／台帳への記録は担当(2026-10-08)",
+    "basis": "registry",
+    "policyIds": [
+     "rights.substack.v1"
+    ],
+    "reviewUrls": [],
+    "displayTier": "facts_only",
+    "usage": "数字と事実だけを自分の言葉で書き、出典の名前・URL・日付を付ける。文章・画像は写さない（本人の発言は「本人申告」と表示）",
+    "checks": {
+     "loginFree": "unconfirmed",
+     "noPaywall": "unconfirmed",
+     "quoteTerms": "unconfirmed",
+     "note": "ログイン不要: 取得記録なし（未確認）。 有料の壁・規約の引用禁止条項: 未確認（確かめたら rights:review で更新する）。 AIの判断(2026-10-08): 章ごとの文の取り込み（ログインなしで読めた／有料の壁なし／利用規約は未確認／2026-10-08） 標準の規則: rights.substack.v1"
+    },
+    "termsUrl": null,
+    "termsCheckedAt": null
+   },
+   "ownerWords": [
+    {
+     "at": "2026-10-08T00:00:00+09:00",
+     "text": "お前の方で大丈夫なやつを選んで出すんだよ",
+     "verbatim": true
+    },
+    {
+     "at": "2026-10-08T00:00:00+09:00",
+     "text": "それらも記録してね　権利関係",
+     "verbatim": true
+    },
+    {
+     "at": "2026-10-08T00:00:00+09:00",
+     "text": "あとで誰かに何か言われたら柔軟にできるように",
+     "verbatim": true
+    },
+    {
+     "at": "2026-10-08T00:00:00+09:00",
+     "text": "法的に変わったりしたらとかさ",
+     "verbatim": true
+    },
+    {
+     "at": "2026-10-08T00:00:00+09:00",
+     "text": "今後は絶対にそれも加味して集めるようにして、できるようにして",
+     "verbatim": true
+    }
+   ],
+   "evidence": {
+    "terms": null,
+    "sourcePages": []
+   },
+   "history": [
+    {
+     "at": "2026-10-08T17:49:16+09:00",
+     "by": "case-pages 取り込み",
+     "action": "seed",
+     "reason": "既存の権利判断から台帳に記録"
+    }
+   ]
+  },
+  "ilikekillnerds.com": {
+   "siteName": "ilikekillnerds.com",
+   "siteUrl": "https://ilikekillnerds.com/",
+   "status": "active",
+   "statusReason": "使用中",
+   "statusChangedAt": "2026-10-09T00:02:36+09:00",
+   "decision": {
+    "decidedAt": "2026-10-09T00:02:36+09:00",
+    "decidedBy": "AI（集める段の自動判断、2026-10-09）",
+    "basis": "ai_judgment",
+    "policyIds": [],
+    "reviewUrls": [],
+    "displayTier": "unconfirmed",
+    "usage": "数字と事実だけを自分の言葉で書き、出典の名前・URL・日付を付ける。文章・画像は写さない（本人の発言は「本人申告」と表示）",
+    "checks": {
+     "loginFree": "yes",
+     "noPaywall": "yes",
+     "quoteTerms": "unconfirmed",
+     "note": "ログイン不要: 取得記録なし（未確認）。 有料の壁・規約の引用禁止条項: 未確認（確かめたら rights:review で更新する）。 AIの判断(2026-10-09): 章ごとの文の取り込み（ログインなしで読めた／有料の壁なし／利用規約は未確認／2026-10-08）"
+    },
+    "termsUrl": null,
+    "termsCheckedAt": null
+   },
+   "ownerWords": [
+    {
+     "at": "2026-10-08T00:00:00+09:00",
+     "text": "お前の方で大丈夫なやつを選んで出すんだよ",
+     "verbatim": true
+    },
+    {
+     "at": "2026-10-08T00:00:00+09:00",
+     "text": "それらも記録してね　権利関係",
+     "verbatim": true
+    },
+    {
+     "at": "2026-10-08T00:00:00+09:00",
+     "text": "あとで誰かに何か言われたら柔軟にできるように",
+     "verbatim": true
+    },
+    {
+     "at": "2026-10-08T00:00:00+09:00",
+     "text": "法的に変わったりしたらとかさ",
+     "verbatim": true
+    },
+    {
+     "at": "2026-10-08T00:00:00+09:00",
+     "text": "今後は絶対にそれも加味して集めるようにして、できるようにして",
+     "verbatim": true
+    }
+   ],
+   "evidence": {
+    "terms": null,
+    "sourcePages": []
+   },
+   "history": [
+    {
+     "at": "2026-10-08T17:49:16+09:00",
+     "by": "case-pages 取り込み",
+     "action": "seed",
+     "reason": "集める段でAIが3基準で判断して記録"
+    },
+    {
+     "at": "2026-10-09T00:02:36+09:00",
+     "by": "case-pages 取り込み",
+     "action": "seed",
+     "reason": "AIの権利判断で更新（active→active。確認: ログイン不要=yes 有料の壁なし=yes 引用=unconfirmed）"
+    }
+   ]
+  },
+  "inc42.com": {
+   "siteName": "inc42.com",
+   "siteUrl": "https://inc42.com/",
+   "status": "active",
+   "statusReason": "使用中",
+   "statusChangedAt": "2026-10-09T00:02:36+09:00",
+   "decision": {
+    "decidedAt": "2026-10-09T00:02:36+09:00",
+    "decidedBy": "AI（集める段の自動判断、2026-10-09）",
+    "basis": "ai_judgment",
+    "policyIds": [],
+    "reviewUrls": [],
+    "displayTier": "unconfirmed",
+    "usage": "数字と事実だけを自分の言葉で書き、出典の名前・URL・日付を付ける。文章・画像は写さない（本人の発言は「本人申告」と表示）",
+    "checks": {
+     "loginFree": "yes",
+     "noPaywall": "yes",
+     "quoteTerms": "unconfirmed",
+     "note": "ログイン不要: 取得記録なし（未確認）。 有料の壁・規約の引用禁止条項: 未確認（確かめたら rights:review で更新する）。 AIの判断(2026-10-09): 章ごとの文の取り込み（ログインなしで読めた／有料の壁なし／利用規約は未確認／2026-10-08）"
+    },
+    "termsUrl": null,
+    "termsCheckedAt": null
+   },
+   "ownerWords": [
+    {
+     "at": "2026-10-08T00:00:00+09:00",
+     "text": "お前の方で大丈夫なやつを選んで出すんだよ",
+     "verbatim": true
+    },
+    {
+     "at": "2026-10-08T00:00:00+09:00",
+     "text": "それらも記録してね　権利関係",
+     "verbatim": true
+    },
+    {
+     "at": "2026-10-08T00:00:00+09:00",
+     "text": "あとで誰かに何か言われたら柔軟にできるように",
+     "verbatim": true
+    },
+    {
+     "at": "2026-10-08T00:00:00+09:00",
+     "text": "法的に変わったりしたらとかさ",
+     "verbatim": true
+    },
+    {
+     "at": "2026-10-08T00:00:00+09:00",
+     "text": "今後は絶対にそれも加味して集めるようにして、できるようにして",
+     "verbatim": true
+    }
+   ],
+   "evidence": {
+    "terms": null,
+    "sourcePages": []
+   },
+   "history": [
+    {
+     "at": "2026-10-08T17:49:16+09:00",
+     "by": "case-pages 取り込み",
+     "action": "seed",
+     "reason": "集める段でAIが3基準で判断して記録"
+    },
+    {
+     "at": "2026-10-09T00:02:36+09:00",
+     "by": "case-pages 取り込み",
+     "action": "seed",
+     "reason": "AIの権利判断で更新（active→active。確認: ログイン不要=yes 有料の壁なし=yes 引用=unconfirmed）"
+    }
+   ]
+  },
+  "indianexpress.com": {
+   "siteName": "The Indian Express",
+   "siteUrl": "https://indianexpress.com/",
+   "status": "active",
+   "statusReason": "取り込み時に自動で記録（根拠は未確認）",
+   "statusChangedAt": "2026-10-09T15:55:05+09:00",
+   "decision": {
+    "decidedAt": "2026-10-09T15:55:05+09:00",
+    "decidedBy": "担当(2026-10-09)。根拠は未確認",
+    "basis": "unconfirmed",
+    "policyIds": [],
+    "reviewUrls": [],
+    "displayTier": "unconfirmed",
+    "usage": "数字と事実だけを自分の言葉で書き、出典の名前・URL・日付を付ける。文章・画像は写さない（本人の発言は「本人申告」と表示）",
+    "checks": {
+     "loginFree": "unconfirmed",
+     "noPaywall": "unconfirmed",
+     "quoteTerms": "unconfirmed",
+     "note": "ログイン不要: 取得記録なし（未確認）。 有料の壁・規約の引用禁止条項: 未確認（確かめたら rights:review で更新する）。"
+    },
+    "termsUrl": null,
+    "termsCheckedAt": null
+   },
+   "ownerWords": [
+    {
+     "at": "2026-10-08T00:00:00+09:00",
+     "text": "お前の方で大丈夫なやつを選んで出すんだよ",
+     "verbatim": true
+    },
+    {
+     "at": "2026-10-08T00:00:00+09:00",
+     "text": "それらも記録してね　権利関係",
+     "verbatim": true
+    },
+    {
+     "at": "2026-10-08T00:00:00+09:00",
+     "text": "あとで誰かに何か言われたら柔軟にできるように",
+     "verbatim": true
+    },
+    {
+     "at": "2026-10-08T00:00:00+09:00",
+     "text": "法的に変わったりしたらとかさ",
+     "verbatim": true
+    },
+    {
+     "at": "2026-10-08T00:00:00+09:00",
+     "text": "今後は絶対にそれも加味して集めるようにして、できるようにして",
+     "verbatim": true
+    }
+   ],
+   "evidence": {
+    "terms": null,
+    "sourcePages": []
+   },
+   "history": [
+    {
+     "at": "2026-10-09T15:55:05+09:00",
+     "by": "add-entity-records(--apply)",
+     "action": "seed",
+     "reason": "台帳に新しく記録（根拠は未確認）"
+    }
+   ]
+  },
+  "indianretailer.com": {
+   "siteName": "Indian Retailer",
+   "siteUrl": "https://indianretailer.com/",
+   "status": "active",
+   "statusReason": "取り込み時に自動で記録（根拠は未確認）",
+   "statusChangedAt": "2026-10-09T15:55:05+09:00",
+   "decision": {
+    "decidedAt": "2026-10-09T15:55:05+09:00",
+    "decidedBy": "担当(2026-10-09)。根拠は未確認",
+    "basis": "unconfirmed",
+    "policyIds": [],
+    "reviewUrls": [],
+    "displayTier": "unconfirmed",
+    "usage": "数字と事実だけを自分の言葉で書き、出典の名前・URL・日付を付ける。文章・画像は写さない（本人の発言は「本人申告」と表示）",
+    "checks": {
+     "loginFree": "unconfirmed",
+     "noPaywall": "unconfirmed",
+     "quoteTerms": "unconfirmed",
+     "note": "ログイン不要: 取得記録なし（未確認）。 有料の壁・規約の引用禁止条項: 未確認（確かめたら rights:review で更新する）。"
+    },
+    "termsUrl": null,
+    "termsCheckedAt": null
+   },
+   "ownerWords": [
+    {
+     "at": "2026-10-08T00:00:00+09:00",
+     "text": "お前の方で大丈夫なやつを選んで出すんだよ",
+     "verbatim": true
+    },
+    {
+     "at": "2026-10-08T00:00:00+09:00",
+     "text": "それらも記録してね　権利関係",
+     "verbatim": true
+    },
+    {
+     "at": "2026-10-08T00:00:00+09:00",
+     "text": "あとで誰かに何か言われたら柔軟にできるように",
+     "verbatim": true
+    },
+    {
+     "at": "2026-10-08T00:00:00+09:00",
+     "text": "法的に変わったりしたらとかさ",
+     "verbatim": true
+    },
+    {
+     "at": "2026-10-08T00:00:00+09:00",
+     "text": "今後は絶対にそれも加味して集めるようにして、できるようにして",
+     "verbatim": true
+    }
+   ],
+   "evidence": {
+    "terms": null,
+    "sourcePages": []
+   },
+   "history": [
+    {
+     "at": "2026-10-09T15:55:05+09:00",
+     "by": "add-entity-records(--apply)",
+     "action": "seed",
+     "reason": "台帳に新しく記録（根拠は未確認）"
+    }
+   ]
+  },
   "indiehackers.com": {
    "siteName": "Indie Hackers（創業者の投稿）",
    "siteUrl": "https://indiehackers.com/",
@@ -2849,15 +5437,141 @@
     }
    ]
   },
+  "indulgexpress.com": {
+   "siteName": "Indulge / The New Indian Express",
+   "siteUrl": "https://indulgexpress.com/",
+   "status": "active",
+   "statusReason": "取り込み時に自動で記録（根拠は未確認）",
+   "statusChangedAt": "2026-10-09T15:55:05+09:00",
+   "decision": {
+    "decidedAt": "2026-10-09T15:55:05+09:00",
+    "decidedBy": "担当(2026-10-09)。根拠は未確認",
+    "basis": "unconfirmed",
+    "policyIds": [],
+    "reviewUrls": [],
+    "displayTier": "unconfirmed",
+    "usage": "数字と事実だけを自分の言葉で書き、出典の名前・URL・日付を付ける。文章・画像は写さない（本人の発言は「本人申告」と表示）",
+    "checks": {
+     "loginFree": "unconfirmed",
+     "noPaywall": "unconfirmed",
+     "quoteTerms": "unconfirmed",
+     "note": "ログイン不要: 取得記録なし（未確認）。 有料の壁・規約の引用禁止条項: 未確認（確かめたら rights:review で更新する）。"
+    },
+    "termsUrl": null,
+    "termsCheckedAt": null
+   },
+   "ownerWords": [
+    {
+     "at": "2026-10-08T00:00:00+09:00",
+     "text": "お前の方で大丈夫なやつを選んで出すんだよ",
+     "verbatim": true
+    },
+    {
+     "at": "2026-10-08T00:00:00+09:00",
+     "text": "それらも記録してね　権利関係",
+     "verbatim": true
+    },
+    {
+     "at": "2026-10-08T00:00:00+09:00",
+     "text": "あとで誰かに何か言われたら柔軟にできるように",
+     "verbatim": true
+    },
+    {
+     "at": "2026-10-08T00:00:00+09:00",
+     "text": "法的に変わったりしたらとかさ",
+     "verbatim": true
+    },
+    {
+     "at": "2026-10-08T00:00:00+09:00",
+     "text": "今後は絶対にそれも加味して集めるようにして、できるようにして",
+     "verbatim": true
+    }
+   ],
+   "evidence": {
+    "terms": null,
+    "sourcePages": []
+   },
+   "history": [
+    {
+     "at": "2026-10-09T15:55:05+09:00",
+     "by": "add-entity-records(--apply)",
+     "action": "seed",
+     "reason": "台帳に新しく記録（根拠は未確認）"
+    }
+   ]
+  },
+  "infomoney.com.br": {
+   "siteName": "Startups.com.br／Gabriela Del Carmen、掲載先InfoMoney",
+   "siteUrl": "https://infomoney.com.br/",
+   "status": "active",
+   "statusReason": "取り込み時に自動で記録（根拠は未確認）",
+   "statusChangedAt": "2026-10-09T15:55:05+09:00",
+   "decision": {
+    "decidedAt": "2026-10-09T15:55:05+09:00",
+    "decidedBy": "担当(2026-10-09)。根拠は未確認",
+    "basis": "unconfirmed",
+    "policyIds": [],
+    "reviewUrls": [],
+    "displayTier": "unconfirmed",
+    "usage": "数字と事実だけを自分の言葉で書き、出典の名前・URL・日付を付ける。文章・画像は写さない（本人の発言は「本人申告」と表示）",
+    "checks": {
+     "loginFree": "unconfirmed",
+     "noPaywall": "unconfirmed",
+     "quoteTerms": "unconfirmed",
+     "note": "ログイン不要: 取得記録なし（未確認）。 有料の壁・規約の引用禁止条項: 未確認（確かめたら rights:review で更新する）。"
+    },
+    "termsUrl": null,
+    "termsCheckedAt": null
+   },
+   "ownerWords": [
+    {
+     "at": "2026-10-08T00:00:00+09:00",
+     "text": "お前の方で大丈夫なやつを選んで出すんだよ",
+     "verbatim": true
+    },
+    {
+     "at": "2026-10-08T00:00:00+09:00",
+     "text": "それらも記録してね　権利関係",
+     "verbatim": true
+    },
+    {
+     "at": "2026-10-08T00:00:00+09:00",
+     "text": "あとで誰かに何か言われたら柔軟にできるように",
+     "verbatim": true
+    },
+    {
+     "at": "2026-10-08T00:00:00+09:00",
+     "text": "法的に変わったりしたらとかさ",
+     "verbatim": true
+    },
+    {
+     "at": "2026-10-08T00:00:00+09:00",
+     "text": "今後は絶対にそれも加味して集めるようにして、できるようにして",
+     "verbatim": true
+    }
+   ],
+   "evidence": {
+    "terms": null,
+    "sourcePages": []
+   },
+   "history": [
+    {
+     "at": "2026-10-09T15:55:05+09:00",
+     "by": "add-entity-records(--apply)",
+     "action": "seed",
+     "reason": "台帳に新しく記録（根拠は未確認）"
+    }
+   ]
+  },
   "interiorai.com": {
    "siteName": "interiorai.com",
    "siteUrl": "https://interiorai.com/",
    "status": "active",
    "statusReason": "使用中",
-   "statusChangedAt": "2026-10-08T16:33:11+09:00",
+   "statusChangedAt": "2026-10-09T00:02:36+09:00",
    "decision": {
-    "decidedAt": "2026-10-08T16:33:11+09:00",
-    "decidedBy": "AI（集める段の自動判断、2026-10-08）",
+    "decidedAt": "2026-10-09T00:02:36+09:00",
+    "decidedBy": "AI（集める段の自動判断、2026-10-09）",
     "basis": "ai_judgment",
     "policyIds": [],
     "reviewUrls": [],
@@ -2867,7 +5581,7 @@
      "loginFree": "yes",
      "noPaywall": "yes",
      "quoteTerms": "unconfirmed",
-     "note": "ログイン不要: 取得記録なし（未確認）。 有料の壁・規約の引用禁止条項: 未確認（確かめたら rights:review で更新する）。 AIの判断(2026-10-08): 章ごとの文の取り込み（ログインなしで読めた／有料の壁なし／利用規約は未確認／2026-10-08）"
+     "note": "ログイン不要: 取得記録なし（未確認）。 有料の壁・規約の引用禁止条項: 未確認（確かめたら rights:review で更新する）。 AIの判断(2026-10-09): 章ごとの文の取り込み（ログインなしで読めた／有料の壁なし／利用規約は未確認／2026-10-08）"
     },
     "termsUrl": null,
     "termsCheckedAt": null
@@ -2909,6 +5623,347 @@
      "by": "case-pages 取り込み",
      "action": "seed",
      "reason": "集める段でAIが3基準で判断して記録"
+    },
+    {
+     "at": "2026-10-09T00:02:36+09:00",
+     "by": "case-pages 取り込み",
+     "action": "seed",
+     "reason": "AIの権利判断で更新（active→active。確認: ログイン不要=yes 有料の壁なし=yes 引用=unconfirmed）"
+    }
+   ]
+  },
+  "jawapos.com": {
+   "siteName": "jawapos.com",
+   "siteUrl": "https://jawapos.com/",
+   "status": "active",
+   "statusReason": "使用中",
+   "statusChangedAt": "2026-10-09T00:02:36+09:00",
+   "decision": {
+    "decidedAt": "2026-10-09T00:02:36+09:00",
+    "decidedBy": "AI（集める段の自動判断、2026-10-09）",
+    "basis": "ai_judgment",
+    "policyIds": [],
+    "reviewUrls": [],
+    "displayTier": "unconfirmed",
+    "usage": "数字と事実だけを自分の言葉で書き、出典の名前・URL・日付を付ける。文章・画像は写さない（本人の発言は「本人申告」と表示）",
+    "checks": {
+     "loginFree": "unconfirmed",
+     "noPaywall": "unconfirmed",
+     "quoteTerms": "unconfirmed",
+     "note": "ログイン不要: 取得記録なし（未確認）。 有料の壁・規約の引用禁止条項: 未確認（確かめたら rights:review で更新する）。 AIの判断(2026-10-09): 章ごとの文の取り込み（検索結果で確認／本文は未読／利用規約は未確認／2026-10-08）"
+    },
+    "termsUrl": null,
+    "termsCheckedAt": null
+   },
+   "ownerWords": [
+    {
+     "at": "2026-10-08T00:00:00+09:00",
+     "text": "お前の方で大丈夫なやつを選んで出すんだよ",
+     "verbatim": true
+    },
+    {
+     "at": "2026-10-08T00:00:00+09:00",
+     "text": "それらも記録してね　権利関係",
+     "verbatim": true
+    },
+    {
+     "at": "2026-10-08T00:00:00+09:00",
+     "text": "あとで誰かに何か言われたら柔軟にできるように",
+     "verbatim": true
+    },
+    {
+     "at": "2026-10-08T00:00:00+09:00",
+     "text": "法的に変わったりしたらとかさ",
+     "verbatim": true
+    },
+    {
+     "at": "2026-10-08T00:00:00+09:00",
+     "text": "今後は絶対にそれも加味して集めるようにして、できるようにして",
+     "verbatim": true
+    }
+   ],
+   "evidence": {
+    "terms": null,
+    "sourcePages": []
+   },
+   "history": [
+    {
+     "at": "2026-10-08T17:49:16+09:00",
+     "by": "case-pages 取り込み",
+     "action": "seed",
+     "reason": "集める段でAIが3基準で判断して記録"
+    },
+    {
+     "at": "2026-10-09T00:02:36+09:00",
+     "by": "case-pages 取り込み",
+     "action": "seed",
+     "reason": "AIの権利判断で更新（active→active。確認: ログイン不要=unconfirmed 有料の壁なし=unconfirmed 引用=unconfirmed）"
+    }
+   ]
+  },
+  "jornaldoisirmaos.com.br": {
+   "siteName": "Jornal Dois Irmãos",
+   "siteUrl": "https://jornaldoisirmaos.com.br/",
+   "status": "active",
+   "statusReason": "取り込み時に自動で記録（根拠は未確認）",
+   "statusChangedAt": "2026-10-09T15:55:05+09:00",
+   "decision": {
+    "decidedAt": "2026-10-09T15:55:05+09:00",
+    "decidedBy": "担当(2026-10-09)。根拠は未確認",
+    "basis": "unconfirmed",
+    "policyIds": [],
+    "reviewUrls": [],
+    "displayTier": "unconfirmed",
+    "usage": "数字と事実だけを自分の言葉で書き、出典の名前・URL・日付を付ける。文章・画像は写さない（本人の発言は「本人申告」と表示）",
+    "checks": {
+     "loginFree": "unconfirmed",
+     "noPaywall": "unconfirmed",
+     "quoteTerms": "unconfirmed",
+     "note": "ログイン不要: 取得記録なし（未確認）。 有料の壁・規約の引用禁止条項: 未確認（確かめたら rights:review で更新する）。"
+    },
+    "termsUrl": null,
+    "termsCheckedAt": null
+   },
+   "ownerWords": [
+    {
+     "at": "2026-10-08T00:00:00+09:00",
+     "text": "お前の方で大丈夫なやつを選んで出すんだよ",
+     "verbatim": true
+    },
+    {
+     "at": "2026-10-08T00:00:00+09:00",
+     "text": "それらも記録してね　権利関係",
+     "verbatim": true
+    },
+    {
+     "at": "2026-10-08T00:00:00+09:00",
+     "text": "あとで誰かに何か言われたら柔軟にできるように",
+     "verbatim": true
+    },
+    {
+     "at": "2026-10-08T00:00:00+09:00",
+     "text": "法的に変わったりしたらとかさ",
+     "verbatim": true
+    },
+    {
+     "at": "2026-10-08T00:00:00+09:00",
+     "text": "今後は絶対にそれも加味して集めるようにして、できるようにして",
+     "verbatim": true
+    }
+   ],
+   "evidence": {
+    "terms": null,
+    "sourcePages": []
+   },
+   "history": [
+    {
+     "at": "2026-10-09T15:55:05+09:00",
+     "by": "add-entity-records(--apply)",
+     "action": "seed",
+     "reason": "台帳に新しく記録（根拠は未確認）"
+    }
+   ]
+  },
+  "keepgo.com": {
+   "siteName": "Keepgo",
+   "siteUrl": "https://keepgo.com/",
+   "status": "suspended",
+   "statusReason": "3基準（ログイン不要・有料の壁なし・引用を禁じていない）を満たさないと判断。記録には残し、画面には出さない",
+   "statusChangedAt": "2026-10-09T15:55:04+09:00",
+   "decision": {
+    "decidedAt": "2026-10-09T15:55:04+09:00",
+    "decidedBy": "AI（集める段の自動判断、2026-10-09）",
+    "basis": "ai_judgment",
+    "policyIds": [],
+    "reviewUrls": [],
+    "displayTier": "unconfirmed",
+    "usage": "数字と事実だけを自分の言葉で書き、出典の名前・URL・日付を付ける。文章・画像は写さない（本人の発言は「本人申告」と表示）",
+    "checks": {
+     "loginFree": "yes",
+     "noPaywall": "yes",
+     "quoteTerms": "prohibits",
+     "note": "ログイン不要: 取得記録なし（未確認）。 有料の壁・規約の引用禁止条項: 未確認（確かめたら rights:review で更新する）。 AIの判断(2026-10-09): 元の記録では、製品画面と直接URLを確認したが、規約が個人の一時的な閲覧以外の複製や公開表示を禁じるため掲載候補から外した。今回、ページと規約は再閲覧していない。"
+    },
+    "termsUrl": "https://www.keepgo.com/pages/terms-of-service",
+    "termsCheckedAt": null
+   },
+   "ownerWords": [
+    {
+     "at": "2026-10-08T00:00:00+09:00",
+     "text": "お前の方で大丈夫なやつを選んで出すんだよ",
+     "verbatim": true
+    },
+    {
+     "at": "2026-10-08T00:00:00+09:00",
+     "text": "それらも記録してね　権利関係",
+     "verbatim": true
+    },
+    {
+     "at": "2026-10-08T00:00:00+09:00",
+     "text": "あとで誰かに何か言われたら柔軟にできるように",
+     "verbatim": true
+    },
+    {
+     "at": "2026-10-08T00:00:00+09:00",
+     "text": "法的に変わったりしたらとかさ",
+     "verbatim": true
+    },
+    {
+     "at": "2026-10-08T00:00:00+09:00",
+     "text": "今後は絶対にそれも加味して集めるようにして、できるようにして",
+     "verbatim": true
+    }
+   ],
+   "evidence": {
+    "terms": null,
+    "sourcePages": []
+   },
+   "history": [
+    {
+     "at": "2026-10-09T15:50:24+09:00",
+     "by": "add-entity-records(--from-research)",
+     "action": "seed",
+     "reason": "集める段でAIが3基準で判断して記録（基準を満たさず使用停止）"
+    },
+    {
+     "at": "2026-10-09T15:55:04+09:00",
+     "by": "add-entity-records(--from-research)",
+     "action": "seed",
+     "reason": "AIの権利判断で更新（suspended→suspended。確認: ログイン不要=yes 有料の壁なし=yes 引用=prohibits）"
+    }
+   ]
+  },
+  "lilys.ai": {
+   "siteName": "lilys.ai",
+   "siteUrl": "https://lilys.ai/",
+   "status": "active",
+   "statusReason": "使用中",
+   "statusChangedAt": "2026-10-09T00:02:36+09:00",
+   "decision": {
+    "decidedAt": "2026-10-09T00:02:36+09:00",
+    "decidedBy": "AI（集める段の自動判断、2026-10-09）",
+    "basis": "ai_judgment",
+    "policyIds": [],
+    "reviewUrls": [],
+    "displayTier": "unconfirmed",
+    "usage": "数字と事実だけを自分の言葉で書き、出典の名前・URL・日付を付ける。文章・画像は写さない（本人の発言は「本人申告」と表示）",
+    "checks": {
+     "loginFree": "yes",
+     "noPaywall": "yes",
+     "quoteTerms": "unconfirmed",
+     "note": "ログイン不要: 取得記録なし（未確認）。 有料の壁・規約の引用禁止条項: 未確認（確かめたら rights:review で更新する）。 AIの判断(2026-10-09): 章ごとの文の取り込み（ログインなしで読めた／有料の壁なし／利用規約は未確認／2026-10-08）"
+    },
+    "termsUrl": null,
+    "termsCheckedAt": null
+   },
+   "ownerWords": [
+    {
+     "at": "2026-10-08T00:00:00+09:00",
+     "text": "お前の方で大丈夫なやつを選んで出すんだよ",
+     "verbatim": true
+    },
+    {
+     "at": "2026-10-08T00:00:00+09:00",
+     "text": "それらも記録してね　権利関係",
+     "verbatim": true
+    },
+    {
+     "at": "2026-10-08T00:00:00+09:00",
+     "text": "あとで誰かに何か言われたら柔軟にできるように",
+     "verbatim": true
+    },
+    {
+     "at": "2026-10-08T00:00:00+09:00",
+     "text": "法的に変わったりしたらとかさ",
+     "verbatim": true
+    },
+    {
+     "at": "2026-10-08T00:00:00+09:00",
+     "text": "今後は絶対にそれも加味して集めるようにして、できるようにして",
+     "verbatim": true
+    }
+   ],
+   "evidence": {
+    "terms": null,
+    "sourcePages": []
+   },
+   "history": [
+    {
+     "at": "2026-10-08T17:49:16+09:00",
+     "by": "case-pages 取り込み",
+     "action": "seed",
+     "reason": "集める段でAIが3基準で判断して記録"
+    },
+    {
+     "at": "2026-10-09T00:02:36+09:00",
+     "by": "case-pages 取り込み",
+     "action": "seed",
+     "reason": "AIの権利判断で更新（active→active。確認: ログイン不要=yes 有料の壁なし=yes 引用=unconfirmed）"
+    }
+   ]
+  },
+  "literaturaclassica.com.br": {
+   "siteName": "Clube de Literatura Clássica",
+   "siteUrl": "https://literaturaclassica.com.br/",
+   "status": "active",
+   "statusReason": "使用中",
+   "statusChangedAt": "2026-10-09T15:55:05+09:00",
+   "decision": {
+    "decidedAt": "2026-09-29T09:00:00+09:00",
+    "decidedBy": "標準の権利規則（Universal Foundation の審査）／台帳への記録は担当(2026-10-09)",
+    "basis": "registry",
+    "policyIds": [
+     "rights.official-company-website.v1"
+    ],
+    "reviewUrls": [],
+    "displayTier": "automatic",
+    "usage": "数字と事実だけを自分の言葉で書き、出典の名前・URL・日付を付ける。文章・画像は写さない（本人の発言は「本人申告」と表示）",
+    "checks": {
+     "loginFree": "unconfirmed",
+     "noPaywall": "unconfirmed",
+     "quoteTerms": "unconfirmed",
+     "note": "ログイン不要: 取得記録なし（未確認）。 有料の壁・規約の引用禁止条項: 未確認（確かめたら rights:review で更新する）。 標準の規則: rights.official-company-website.v1"
+    },
+    "termsUrl": null,
+    "termsCheckedAt": null
+   },
+   "ownerWords": [
+    {
+     "at": "2026-10-08T00:00:00+09:00",
+     "text": "お前の方で大丈夫なやつを選んで出すんだよ",
+     "verbatim": true
+    },
+    {
+     "at": "2026-10-08T00:00:00+09:00",
+     "text": "それらも記録してね　権利関係",
+     "verbatim": true
+    },
+    {
+     "at": "2026-10-08T00:00:00+09:00",
+     "text": "あとで誰かに何か言われたら柔軟にできるように",
+     "verbatim": true
+    },
+    {
+     "at": "2026-10-08T00:00:00+09:00",
+     "text": "法的に変わったりしたらとかさ",
+     "verbatim": true
+    },
+    {
+     "at": "2026-10-08T00:00:00+09:00",
+     "text": "今後は絶対にそれも加味して集めるようにして、できるようにして",
+     "verbatim": true
+    }
+   ],
+   "evidence": {
+    "terms": null,
+    "sourcePages": []
+   },
+   "history": [
+    {
+     "at": "2026-10-09T15:55:05+09:00",
+     "by": "add-entity-records(--apply)",
+     "action": "seed",
+     "reason": "既存の権利判断から台帳に記録"
     }
    ]
   },
@@ -3067,10 +6122,10 @@
    "siteUrl": "https://marclou.com/",
    "status": "active",
    "statusReason": "使用中",
-   "statusChangedAt": "2026-10-08T16:33:11+09:00",
+   "statusChangedAt": "2026-10-09T00:02:36+09:00",
    "decision": {
-    "decidedAt": "2026-10-08T16:33:11+09:00",
-    "decidedBy": "AI（集める段の自動判断、2026-10-08）",
+    "decidedAt": "2026-10-09T00:02:36+09:00",
+    "decidedBy": "AI（集める段の自動判断、2026-10-09）",
     "basis": "ai_judgment",
     "policyIds": [],
     "reviewUrls": [],
@@ -3080,7 +6135,7 @@
      "loginFree": "yes",
      "noPaywall": "yes",
      "quoteTerms": "unconfirmed",
-     "note": "ログイン不要: 取得記録なし（未確認）。 有料の壁・規約の引用禁止条項: 未確認（確かめたら rights:review で更新する）。 AIの判断(2026-10-08): 章ごとの文の取り込み（ログインなしで読めた／有料の壁なし／利用規約は未確認／2026-10-08） / 章ごとの文の取り込み（ログインなしで読めた／有料の壁なし／利用規約は未確認／2026-10-08）"
+     "note": "ログイン不要: 取得記録なし（未確認）。 有料の壁・規約の引用禁止条項: 未確認（確かめたら rights:review で更新する）。 AIの判断(2026-10-09): 章ごとの文の取り込み（ログインなしで読めた／有料の壁なし／利用規約は未確認／2026-10-08） / 章ごとの文の取り込み（ログインなしで読めた／有料の壁なし／利用規約は未確認／2026-10-08）"
     },
     "termsUrl": null,
     "termsCheckedAt": null
@@ -3122,6 +6177,12 @@
      "by": "case-pages 取り込み",
      "action": "seed",
      "reason": "集める段でAIが3基準で判断して記録"
+    },
+    {
+     "at": "2026-10-09T00:02:36+09:00",
+     "by": "case-pages 取り込み",
+     "action": "seed",
+     "reason": "AIの権利判断で更新（active→active。確認: ログイン不要=yes 有料の壁なし=yes 引用=unconfirmed）"
     }
    ]
   },
@@ -3206,6 +6267,75 @@
      "by": "担当(rights:terms)",
      "action": "terms-snapshot",
      "reason": "規約ページの指紋を記録（d887f7bb、6593文字）"
+    }
+   ]
+  },
+  "matthewbutterick.com": {
+   "siteName": "matthewbutterick.com",
+   "siteUrl": "https://matthewbutterick.com/",
+   "status": "active",
+   "statusReason": "使用中",
+   "statusChangedAt": "2026-10-09T00:02:36+09:00",
+   "decision": {
+    "decidedAt": "2026-10-09T00:02:36+09:00",
+    "decidedBy": "AI（集める段の自動判断、2026-10-09）",
+    "basis": "ai_judgment",
+    "policyIds": [],
+    "reviewUrls": [],
+    "displayTier": "unconfirmed",
+    "usage": "数字と事実だけを自分の言葉で書き、出典の名前・URL・日付を付ける。文章・画像は写さない（本人の発言は「本人申告」と表示）",
+    "checks": {
+     "loginFree": "unconfirmed",
+     "noPaywall": "yes",
+     "quoteTerms": "unconfirmed",
+     "note": "ログイン不要: 取得記録なし（未確認）。 有料の壁・規約の引用禁止条項: 未確認（確かめたら rights:review で更新する）。 AIの判断(2026-10-09): 章ごとの文の取り込み（検索結果の要約で確認／有料の壁なし／利用規約は未確認／2026-10-08）"
+    },
+    "termsUrl": null,
+    "termsCheckedAt": null
+   },
+   "ownerWords": [
+    {
+     "at": "2026-10-08T00:00:00+09:00",
+     "text": "お前の方で大丈夫なやつを選んで出すんだよ",
+     "verbatim": true
+    },
+    {
+     "at": "2026-10-08T00:00:00+09:00",
+     "text": "それらも記録してね　権利関係",
+     "verbatim": true
+    },
+    {
+     "at": "2026-10-08T00:00:00+09:00",
+     "text": "あとで誰かに何か言われたら柔軟にできるように",
+     "verbatim": true
+    },
+    {
+     "at": "2026-10-08T00:00:00+09:00",
+     "text": "法的に変わったりしたらとかさ",
+     "verbatim": true
+    },
+    {
+     "at": "2026-10-08T00:00:00+09:00",
+     "text": "今後は絶対にそれも加味して集めるようにして、できるようにして",
+     "verbatim": true
+    }
+   ],
+   "evidence": {
+    "terms": null,
+    "sourcePages": []
+   },
+   "history": [
+    {
+     "at": "2026-10-08T17:49:16+09:00",
+     "by": "case-pages 取り込み",
+     "action": "seed",
+     "reason": "集める段でAIが3基準で判断して記録"
+    },
+    {
+     "at": "2026-10-09T00:02:36+09:00",
+     "by": "case-pages 取り込み",
+     "action": "seed",
+     "reason": "AIの権利判断で更新（active→active。確認: ログイン不要=unconfirmed 有料の壁なし=yes 引用=unconfirmed）"
     }
    ]
   },
@@ -3359,6 +6489,69 @@
     }
    ]
   },
+  "michaelhingson.com": {
+   "siteName": "Michael Hingson／Unstoppable Mindset",
+   "siteUrl": "https://michaelhingson.com/",
+   "status": "active",
+   "statusReason": "使用中",
+   "statusChangedAt": "2026-10-09T15:50:20+09:00",
+   "decision": {
+    "decidedAt": "2026-10-09T15:50:20+09:00",
+    "decidedBy": "AI（集める段の自動判断、2026-10-09）",
+    "basis": "ai_judgment",
+    "policyIds": [],
+    "reviewUrls": [],
+    "displayTier": "unconfirmed",
+    "usage": "数字と事実だけを自分の言葉で書き、出典の名前・URL・日付を付ける。文章・画像は写さない（本人の発言は「本人申告」と表示）",
+    "checks": {
+     "loginFree": "yes",
+     "noPaywall": "yes",
+     "quoteTerms": "unconfirmed",
+     "note": "ログイン不要: 取得記録なし（未確認）。 有料の壁・規約の引用禁止条項: 未確認（確かめたら rights:review で更新する）。 AIの判断(2026-10-09): 2026-10-09に公開されたインタビューの書き起こしを無料閲覧できた。引用条件を定めた利用規約は確認できず、書き起こしには固有名詞などの誤記があるため、該当箇所の意味を他の出典とも照合した。"
+    },
+    "termsUrl": null,
+    "termsCheckedAt": null
+   },
+   "ownerWords": [
+    {
+     "at": "2026-10-08T00:00:00+09:00",
+     "text": "お前の方で大丈夫なやつを選んで出すんだよ",
+     "verbatim": true
+    },
+    {
+     "at": "2026-10-08T00:00:00+09:00",
+     "text": "それらも記録してね　権利関係",
+     "verbatim": true
+    },
+    {
+     "at": "2026-10-08T00:00:00+09:00",
+     "text": "あとで誰かに何か言われたら柔軟にできるように",
+     "verbatim": true
+    },
+    {
+     "at": "2026-10-08T00:00:00+09:00",
+     "text": "法的に変わったりしたらとかさ",
+     "verbatim": true
+    },
+    {
+     "at": "2026-10-08T00:00:00+09:00",
+     "text": "今後は絶対にそれも加味して集めるようにして、できるようにして",
+     "verbatim": true
+    }
+   ],
+   "evidence": {
+    "terms": null,
+    "sourcePages": []
+   },
+   "history": [
+    {
+     "at": "2026-10-09T15:50:20+09:00",
+     "by": "add-entity-records(--from-research)",
+     "action": "seed",
+     "reason": "集める段でAIが3基準で判断して記録"
+    }
+   ]
+  },
   "mixergy.com": {
    "siteName": "Mixergy（創業者へのインタビュー）",
    "siteUrl": "https://mixergy.com/",
@@ -3440,6 +6633,132 @@
      "by": "担当(rights:terms)",
      "action": "terms-snapshot",
      "reason": "規約ページの指紋を記録（3a8e266c、7984文字）"
+    }
+   ]
+  },
+  "modernretail.co": {
+   "siteName": "Modern Retail",
+   "siteUrl": "https://modernretail.co/",
+   "status": "active",
+   "statusReason": "使用中",
+   "statusChangedAt": "2026-10-09T15:50:20+09:00",
+   "decision": {
+    "decidedAt": "2026-10-09T15:50:20+09:00",
+    "decidedBy": "AI（集める段の自動判断、2026-10-09）",
+    "basis": "ai_judgment",
+    "policyIds": [],
+    "reviewUrls": [],
+    "displayTier": "unconfirmed",
+    "usage": "数字と事実だけを自分の言葉で書き、出典の名前・URL・日付を付ける。文章・画像は写さない（本人の発言は「本人申告」と表示）",
+    "checks": {
+     "loginFree": "yes",
+     "noPaywall": "yes",
+     "quoteTerms": "silent",
+     "note": "ログイン不要: 取得記録なし（未確認）。 有料の壁・規約の引用禁止条項: 未確認（確かめたら rights:review で更新する）。 AIの判断(2026-10-09): 2026-10-09にこの記事の本文を無料閲覧できた。確認した規約には権利の留保があるが、短い引用を明示的に許可または禁止する条項は見つからなかった。"
+    },
+    "termsUrl": "https://www.modernretail.co/terms-conditions/",
+    "termsCheckedAt": null
+   },
+   "ownerWords": [
+    {
+     "at": "2026-10-08T00:00:00+09:00",
+     "text": "お前の方で大丈夫なやつを選んで出すんだよ",
+     "verbatim": true
+    },
+    {
+     "at": "2026-10-08T00:00:00+09:00",
+     "text": "それらも記録してね　権利関係",
+     "verbatim": true
+    },
+    {
+     "at": "2026-10-08T00:00:00+09:00",
+     "text": "あとで誰かに何か言われたら柔軟にできるように",
+     "verbatim": true
+    },
+    {
+     "at": "2026-10-08T00:00:00+09:00",
+     "text": "法的に変わったりしたらとかさ",
+     "verbatim": true
+    },
+    {
+     "at": "2026-10-08T00:00:00+09:00",
+     "text": "今後は絶対にそれも加味して集めるようにして、できるようにして",
+     "verbatim": true
+    }
+   ],
+   "evidence": {
+    "terms": null,
+    "sourcePages": []
+   },
+   "history": [
+    {
+     "at": "2026-10-09T15:50:20+09:00",
+     "by": "add-entity-records(--from-research)",
+     "action": "seed",
+     "reason": "集める段でAIが3基準で判断して記録"
+    }
+   ]
+  },
+  "moneycontrol.com": {
+   "siteName": "Moneycontrol",
+   "siteUrl": "https://moneycontrol.com/",
+   "status": "active",
+   "statusReason": "取り込み時に自動で記録（根拠は未確認）",
+   "statusChangedAt": "2026-10-09T15:55:05+09:00",
+   "decision": {
+    "decidedAt": "2026-10-09T15:55:05+09:00",
+    "decidedBy": "担当(2026-10-09)。根拠は未確認",
+    "basis": "unconfirmed",
+    "policyIds": [],
+    "reviewUrls": [],
+    "displayTier": "unconfirmed",
+    "usage": "数字と事実だけを自分の言葉で書き、出典の名前・URL・日付を付ける。文章・画像は写さない（本人の発言は「本人申告」と表示）",
+    "checks": {
+     "loginFree": "unconfirmed",
+     "noPaywall": "unconfirmed",
+     "quoteTerms": "unconfirmed",
+     "note": "ログイン不要: 取得記録なし（未確認）。 有料の壁・規約の引用禁止条項: 未確認（確かめたら rights:review で更新する）。"
+    },
+    "termsUrl": null,
+    "termsCheckedAt": null
+   },
+   "ownerWords": [
+    {
+     "at": "2026-10-08T00:00:00+09:00",
+     "text": "お前の方で大丈夫なやつを選んで出すんだよ",
+     "verbatim": true
+    },
+    {
+     "at": "2026-10-08T00:00:00+09:00",
+     "text": "それらも記録してね　権利関係",
+     "verbatim": true
+    },
+    {
+     "at": "2026-10-08T00:00:00+09:00",
+     "text": "あとで誰かに何か言われたら柔軟にできるように",
+     "verbatim": true
+    },
+    {
+     "at": "2026-10-08T00:00:00+09:00",
+     "text": "法的に変わったりしたらとかさ",
+     "verbatim": true
+    },
+    {
+     "at": "2026-10-08T00:00:00+09:00",
+     "text": "今後は絶対にそれも加味して集めるようにして、できるようにして",
+     "verbatim": true
+    }
+   ],
+   "evidence": {
+    "terms": null,
+    "sourcePages": []
+   },
+   "history": [
+    {
+     "at": "2026-10-09T15:55:05+09:00",
+     "by": "add-entity-records(--apply)",
+     "action": "seed",
+     "reason": "台帳に新しく記録（根拠は未確認）"
     }
    ]
   },
@@ -3534,6 +6853,209 @@
      "by": "担当(rights-ledger)",
      "action": "seed",
      "reason": "公開中の事例が使う出典として、既存の権利判断から台帳に記録"
+    }
+   ]
+  },
+  "netsolutions.com": {
+   "siteName": "netsolutions.com",
+   "siteUrl": "https://netsolutions.com/",
+   "status": "active",
+   "statusReason": "使用中",
+   "statusChangedAt": "2026-10-09T00:02:36+09:00",
+   "decision": {
+    "decidedAt": "2026-10-09T00:02:36+09:00",
+    "decidedBy": "AI（集める段の自動判断、2026-10-09）",
+    "basis": "ai_judgment",
+    "policyIds": [],
+    "reviewUrls": [],
+    "displayTier": "unconfirmed",
+    "usage": "数字と事実だけを自分の言葉で書き、出典の名前・URL・日付を付ける。文章・画像は写さない（本人の発言は「本人申告」と表示）",
+    "checks": {
+     "loginFree": "yes",
+     "noPaywall": "yes",
+     "quoteTerms": "unconfirmed",
+     "note": "ログイン不要: 取得記録なし（未確認）。 有料の壁・規約の引用禁止条項: 未確認（確かめたら rights:review で更新する）。 AIの判断(2026-10-09): 章ごとの文の取り込み（ログインなしで読めた／有料の壁なし／利用規約は未確認／2026-10-08）"
+    },
+    "termsUrl": null,
+    "termsCheckedAt": null
+   },
+   "ownerWords": [
+    {
+     "at": "2026-10-08T00:00:00+09:00",
+     "text": "お前の方で大丈夫なやつを選んで出すんだよ",
+     "verbatim": true
+    },
+    {
+     "at": "2026-10-08T00:00:00+09:00",
+     "text": "それらも記録してね　権利関係",
+     "verbatim": true
+    },
+    {
+     "at": "2026-10-08T00:00:00+09:00",
+     "text": "あとで誰かに何か言われたら柔軟にできるように",
+     "verbatim": true
+    },
+    {
+     "at": "2026-10-08T00:00:00+09:00",
+     "text": "法的に変わったりしたらとかさ",
+     "verbatim": true
+    },
+    {
+     "at": "2026-10-08T00:00:00+09:00",
+     "text": "今後は絶対にそれも加味して集めるようにして、できるようにして",
+     "verbatim": true
+    }
+   ],
+   "evidence": {
+    "terms": null,
+    "sourcePages": []
+   },
+   "history": [
+    {
+     "at": "2026-10-08T17:49:16+09:00",
+     "by": "case-pages 取り込み",
+     "action": "seed",
+     "reason": "集める段でAIが3基準で判断して記録"
+    },
+    {
+     "at": "2026-10-09T00:02:36+09:00",
+     "by": "case-pages 取り込み",
+     "action": "seed",
+     "reason": "AIの権利判断で更新（active→active。確認: ログイン不要=yes 有料の壁なし=yes 引用=unconfirmed）"
+    }
+   ]
+  },
+  "news.crunchbase.com": {
+   "siteName": "news.crunchbase.com",
+   "siteUrl": "https://news.crunchbase.com/",
+   "status": "active",
+   "statusReason": "使用中",
+   "statusChangedAt": "2026-10-08T17:49:16+09:00",
+   "decision": {
+    "decidedAt": "2026-09-29T09:00:00+09:00",
+    "decidedBy": "標準の権利規則（Universal Foundation の審査）／台帳への記録は担当(2026-10-08)",
+    "basis": "registry",
+    "policyIds": [
+     "rights.crunchbase.v1"
+    ],
+    "reviewUrls": [],
+    "displayTier": "facts_only",
+    "usage": "数字と事実だけを自分の言葉で書き、出典の名前・URL・日付を付ける。文章・画像は写さない（本人の発言は「本人申告」と表示）",
+    "checks": {
+     "loginFree": "unconfirmed",
+     "noPaywall": "unconfirmed",
+     "quoteTerms": "unconfirmed",
+     "note": "ログイン不要: 取得記録なし（未確認）。 有料の壁・規約の引用禁止条項: 未確認（確かめたら rights:review で更新する）。 AIの判断(2026-10-08): 章ごとの文の取り込み（ログインなしで読めた／有料の壁なし／利用規約は未確認／2026-10-08） 標準の規則: rights.crunchbase.v1"
+    },
+    "termsUrl": null,
+    "termsCheckedAt": null
+   },
+   "ownerWords": [
+    {
+     "at": "2026-10-08T00:00:00+09:00",
+     "text": "お前の方で大丈夫なやつを選んで出すんだよ",
+     "verbatim": true
+    },
+    {
+     "at": "2026-10-08T00:00:00+09:00",
+     "text": "それらも記録してね　権利関係",
+     "verbatim": true
+    },
+    {
+     "at": "2026-10-08T00:00:00+09:00",
+     "text": "あとで誰かに何か言われたら柔軟にできるように",
+     "verbatim": true
+    },
+    {
+     "at": "2026-10-08T00:00:00+09:00",
+     "text": "法的に変わったりしたらとかさ",
+     "verbatim": true
+    },
+    {
+     "at": "2026-10-08T00:00:00+09:00",
+     "text": "今後は絶対にそれも加味して集めるようにして、できるようにして",
+     "verbatim": true
+    }
+   ],
+   "evidence": {
+    "terms": null,
+    "sourcePages": []
+   },
+   "history": [
+    {
+     "at": "2026-10-08T17:49:16+09:00",
+     "by": "case-pages 取り込み",
+     "action": "seed",
+     "reason": "既存の権利判断から台帳に記録"
+    }
+   ]
+  },
+  "news.ventureintelligence.com": {
+   "siteName": "news.ventureintelligence.com",
+   "siteUrl": "https://news.ventureintelligence.com/",
+   "status": "active",
+   "statusReason": "使用中",
+   "statusChangedAt": "2026-10-09T00:02:36+09:00",
+   "decision": {
+    "decidedAt": "2026-10-09T00:02:36+09:00",
+    "decidedBy": "AI（集める段の自動判断、2026-10-09）",
+    "basis": "ai_judgment",
+    "policyIds": [],
+    "reviewUrls": [],
+    "displayTier": "unconfirmed",
+    "usage": "数字と事実だけを自分の言葉で書き、出典の名前・URL・日付を付ける。文章・画像は写さない（本人の発言は「本人申告」と表示）",
+    "checks": {
+     "loginFree": "yes",
+     "noPaywall": "yes",
+     "quoteTerms": "unconfirmed",
+     "note": "ログイン不要: 取得記録なし（未確認）。 有料の壁・規約の引用禁止条項: 未確認（確かめたら rights:review で更新する）。 AIの判断(2026-10-09): 章ごとの文の取り込み（ログインなしで読めた／有料の壁なし／利用規約は未確認／2026-10-08）"
+    },
+    "termsUrl": null,
+    "termsCheckedAt": null
+   },
+   "ownerWords": [
+    {
+     "at": "2026-10-08T00:00:00+09:00",
+     "text": "お前の方で大丈夫なやつを選んで出すんだよ",
+     "verbatim": true
+    },
+    {
+     "at": "2026-10-08T00:00:00+09:00",
+     "text": "それらも記録してね　権利関係",
+     "verbatim": true
+    },
+    {
+     "at": "2026-10-08T00:00:00+09:00",
+     "text": "あとで誰かに何か言われたら柔軟にできるように",
+     "verbatim": true
+    },
+    {
+     "at": "2026-10-08T00:00:00+09:00",
+     "text": "法的に変わったりしたらとかさ",
+     "verbatim": true
+    },
+    {
+     "at": "2026-10-08T00:00:00+09:00",
+     "text": "今後は絶対にそれも加味して集めるようにして、できるようにして",
+     "verbatim": true
+    }
+   ],
+   "evidence": {
+    "terms": null,
+    "sourcePages": []
+   },
+   "history": [
+    {
+     "at": "2026-10-08T17:49:16+09:00",
+     "by": "case-pages 取り込み",
+     "action": "seed",
+     "reason": "集める段でAIが3基準で判断して記録"
+    },
+    {
+     "at": "2026-10-09T00:02:36+09:00",
+     "by": "case-pages 取り込み",
+     "action": "seed",
+     "reason": "AIの権利判断で更新（active→active。確認: ログイン不要=yes 有料の壁なし=yes 引用=unconfirmed）"
     }
    ]
   },
@@ -3767,78 +7289,15 @@
     }
    ]
   },
-  "pinboard.in": {
-   "siteName": "本人の8周年の記事",
-   "siteUrl": "https://pinboard.in/",
+  "om.co": {
+   "siteName": "om.co",
+   "siteUrl": "https://om.co/",
    "status": "active",
    "statusReason": "使用中",
-   "statusChangedAt": "2026-10-08T16:33:11+09:00",
+   "statusChangedAt": "2026-10-09T00:02:36+09:00",
    "decision": {
-    "decidedAt": "2026-10-08T16:33:11+09:00",
-    "decidedBy": "AI（集める段の自動判断、2026-10-08）",
-    "basis": "ai_judgment",
-    "policyIds": [],
-    "reviewUrls": [],
-    "displayTier": "unconfirmed",
-    "usage": "数字と事実だけを自分の言葉で書き、出典の名前・URL・日付を付ける。文章・画像は写さない（本人の発言は「本人申告」と表示）",
-    "checks": {
-     "loginFree": "unconfirmed",
-     "noPaywall": "yes",
-     "quoteTerms": "unconfirmed",
-     "note": "ログイン不要: 取得記録なし（未確認）。 有料の壁・規約の引用禁止条項: 未確認（確かめたら rights:review で更新する）。 AIの判断(2026-10-08): 章ごとの文の取り込み（ログインなしで読めた／有料の壁なし／引用禁止の記載は見当たらず（規約は未確認）。） / 章ごとの文の取り込み（ログインなし／有料の壁なし／規約は未確認。） / 章ごとの文の取り込み（ログインなし／有料の壁なし／規約は未確認。） / 章ごとの文の取り込み（ログインなし／有料の壁なし／規約は未確認。）"
-    },
-    "termsUrl": null,
-    "termsCheckedAt": null
-   },
-   "ownerWords": [
-    {
-     "at": "2026-10-08T00:00:00+09:00",
-     "text": "お前の方で大丈夫なやつを選んで出すんだよ",
-     "verbatim": true
-    },
-    {
-     "at": "2026-10-08T00:00:00+09:00",
-     "text": "それらも記録してね　権利関係",
-     "verbatim": true
-    },
-    {
-     "at": "2026-10-08T00:00:00+09:00",
-     "text": "あとで誰かに何か言われたら柔軟にできるように",
-     "verbatim": true
-    },
-    {
-     "at": "2026-10-08T00:00:00+09:00",
-     "text": "法的に変わったりしたらとかさ",
-     "verbatim": true
-    },
-    {
-     "at": "2026-10-08T00:00:00+09:00",
-     "text": "今後は絶対にそれも加味して集めるようにして、できるようにして",
-     "verbatim": true
-    }
-   ],
-   "evidence": {
-    "terms": null,
-    "sourcePages": []
-   },
-   "history": [
-    {
-     "at": "2026-10-08T16:33:11+09:00",
-     "by": "case-pages 取り込み",
-     "action": "seed",
-     "reason": "集める段でAIが3基準で判断して記録"
-    }
-   ]
-  },
-  "podcast.creatorscience.com": {
-   "siteName": "podcast.creatorscience.com",
-   "siteUrl": "https://podcast.creatorscience.com/",
-   "status": "active",
-   "statusReason": "使用中",
-   "statusChangedAt": "2026-10-08T16:33:11+09:00",
-   "decision": {
-    "decidedAt": "2026-10-08T16:33:11+09:00",
-    "decidedBy": "AI（集める段の自動判断、2026-10-08）",
+    "decidedAt": "2026-10-09T00:02:36+09:00",
+    "decidedBy": "AI（集める段の自動判断、2026-10-09）",
     "basis": "ai_judgment",
     "policyIds": [],
     "reviewUrls": [],
@@ -3848,7 +7307,145 @@
      "loginFree": "yes",
      "noPaywall": "yes",
      "quoteTerms": "unconfirmed",
-     "note": "ログイン不要: 取得記録なし（未確認）。 有料の壁・規約の引用禁止条項: 未確認（確かめたら rights:review で更新する）。 AIの判断(2026-10-08): 章ごとの文の取り込み（ログインなしで読めた／有料の壁なし／規約は未確認）"
+     "note": "ログイン不要: 取得記録なし（未確認）。 有料の壁・規約の引用禁止条項: 未確認（確かめたら rights:review で更新する）。 AIの判断(2026-10-09): 章ごとの文の取り込み（ログインなしで読めた／有料の壁なし／利用規約は未確認／2026-10-08）"
+    },
+    "termsUrl": null,
+    "termsCheckedAt": null
+   },
+   "ownerWords": [
+    {
+     "at": "2026-10-08T00:00:00+09:00",
+     "text": "お前の方で大丈夫なやつを選んで出すんだよ",
+     "verbatim": true
+    },
+    {
+     "at": "2026-10-08T00:00:00+09:00",
+     "text": "それらも記録してね　権利関係",
+     "verbatim": true
+    },
+    {
+     "at": "2026-10-08T00:00:00+09:00",
+     "text": "あとで誰かに何か言われたら柔軟にできるように",
+     "verbatim": true
+    },
+    {
+     "at": "2026-10-08T00:00:00+09:00",
+     "text": "法的に変わったりしたらとかさ",
+     "verbatim": true
+    },
+    {
+     "at": "2026-10-08T00:00:00+09:00",
+     "text": "今後は絶対にそれも加味して集めるようにして、できるようにして",
+     "verbatim": true
+    }
+   ],
+   "evidence": {
+    "terms": null,
+    "sourcePages": []
+   },
+   "history": [
+    {
+     "at": "2026-10-08T17:49:16+09:00",
+     "by": "case-pages 取り込み",
+     "action": "seed",
+     "reason": "集める段でAIが3基準で判断して記録"
+    },
+    {
+     "at": "2026-10-09T00:02:36+09:00",
+     "by": "case-pages 取り込み",
+     "action": "seed",
+     "reason": "AIの権利判断で更新（active→active。確認: ログイン不要=yes 有料の壁なし=yes 引用=unconfirmed）"
+    }
+   ]
+  },
+  "onepage-research.sliplane.app": {
+   "siteName": "onepage-research.sliplane.app",
+   "siteUrl": "https://onepage-research.sliplane.app/",
+   "status": "active",
+   "statusReason": "使用中",
+   "statusChangedAt": "2026-10-09T00:02:36+09:00",
+   "decision": {
+    "decidedAt": "2026-10-09T00:02:36+09:00",
+    "decidedBy": "AI（集める段の自動判断、2026-10-09）",
+    "basis": "ai_judgment",
+    "policyIds": [],
+    "reviewUrls": [],
+    "displayTier": "unconfirmed",
+    "usage": "数字と事実だけを自分の言葉で書き、出典の名前・URL・日付を付ける。文章・画像は写さない（本人の発言は「本人申告」と表示）",
+    "checks": {
+     "loginFree": "unconfirmed",
+     "noPaywall": "unconfirmed",
+     "quoteTerms": "unconfirmed",
+     "note": "ログイン不要: 取得記録なし（未確認）。 有料の壁・規約の引用禁止条項: 未確認（確かめたら rights:review で更新する）。 AIの判断(2026-10-09): 章ごとの文の取り込み（本文は読めず、検索結果の要約のみ／未確認／未確認／2026-10-08）"
+    },
+    "termsUrl": null,
+    "termsCheckedAt": null
+   },
+   "ownerWords": [
+    {
+     "at": "2026-10-08T00:00:00+09:00",
+     "text": "お前の方で大丈夫なやつを選んで出すんだよ",
+     "verbatim": true
+    },
+    {
+     "at": "2026-10-08T00:00:00+09:00",
+     "text": "それらも記録してね　権利関係",
+     "verbatim": true
+    },
+    {
+     "at": "2026-10-08T00:00:00+09:00",
+     "text": "あとで誰かに何か言われたら柔軟にできるように",
+     "verbatim": true
+    },
+    {
+     "at": "2026-10-08T00:00:00+09:00",
+     "text": "法的に変わったりしたらとかさ",
+     "verbatim": true
+    },
+    {
+     "at": "2026-10-08T00:00:00+09:00",
+     "text": "今後は絶対にそれも加味して集めるようにして、できるようにして",
+     "verbatim": true
+    }
+   ],
+   "evidence": {
+    "terms": null,
+    "sourcePages": []
+   },
+   "history": [
+    {
+     "at": "2026-10-08T17:49:16+09:00",
+     "by": "case-pages 取り込み",
+     "action": "seed",
+     "reason": "集める段でAIが3基準で判断して記録"
+    },
+    {
+     "at": "2026-10-09T00:02:36+09:00",
+     "by": "case-pages 取り込み",
+     "action": "seed",
+     "reason": "AIの権利判断で更新（active→active。確認: ログイン不要=unconfirmed 有料の壁なし=unconfirmed 引用=unconfirmed）"
+    }
+   ]
+  },
+  "pinboard.in": {
+   "siteName": "本人の8周年の記事",
+   "siteUrl": "https://pinboard.in/",
+   "status": "active",
+   "statusReason": "使用中",
+   "statusChangedAt": "2026-10-09T00:02:36+09:00",
+   "decision": {
+    "decidedAt": "2026-10-09T00:02:36+09:00",
+    "decidedBy": "AI（集める段の自動判断、2026-10-09）",
+    "basis": "ai_judgment",
+    "policyIds": [],
+    "reviewUrls": [],
+    "displayTier": "unconfirmed",
+    "usage": "数字と事実だけを自分の言葉で書き、出典の名前・URL・日付を付ける。文章・画像は写さない（本人の発言は「本人申告」と表示）",
+    "checks": {
+     "loginFree": "unconfirmed",
+     "noPaywall": "yes",
+     "quoteTerms": "unconfirmed",
+     "note": "ログイン不要: 取得記録なし（未確認）。 有料の壁・規約の引用禁止条項: 未確認（確かめたら rights:review で更新する）。 AIの判断(2026-10-09): 章ごとの文の取り込み（ログインなしで読めた／有料の壁なし／引用禁止の記載は見当たらず（規約は未確認）。） / 章ごとの文の取り込み（ログインなし／有料の壁なし／規約は未確認。） / 章ごとの文の取り込み（ログインなし／有料の壁なし／規約は未確認。） / 章ごとの文の取り込み（ログインなし／有料の壁なし／規約は未確認。）"
     },
     "termsUrl": null,
     "termsCheckedAt": null
@@ -3890,6 +7487,416 @@
      "by": "case-pages 取り込み",
      "action": "seed",
      "reason": "集める段でAIが3基準で判断して記録"
+    },
+    {
+     "at": "2026-10-09T00:02:36+09:00",
+     "by": "case-pages 取り込み",
+     "action": "seed",
+     "reason": "AIの権利判断で更新（active→active。確認: ログイン不要=unconfirmed 有料の壁なし=yes 引用=unconfirmed）"
+    }
+   ]
+  },
+  "pmf.show": {
+   "siteName": "The Product Market Fit Show",
+   "siteUrl": "https://pmf.show/",
+   "status": "active",
+   "statusReason": "使用中",
+   "statusChangedAt": "2026-10-09T15:55:04+09:00",
+   "decision": {
+    "decidedAt": "2026-10-09T15:55:04+09:00",
+    "decidedBy": "AI（集める段の自動判断、2026-10-09）",
+    "basis": "ai_judgment",
+    "policyIds": [],
+    "reviewUrls": [],
+    "displayTier": "unconfirmed",
+    "usage": "数字と事実だけを自分の言葉で書き、出典の名前・URL・日付を付ける。文章・画像は写さない（本人の発言は「本人申告」と表示）",
+    "checks": {
+     "loginFree": "yes",
+     "noPaywall": "yes",
+     "quoteTerms": "unconfirmed",
+     "note": "ログイン不要: 取得記録なし（未確認）。 有料の壁・規約の引用禁止条項: 未確認（確かめたら rights:review で更新する）。 AIの判断(2026-10-09): 元の記録では、要約記事をログインなしで読めたが、引用条件を定めた規約ページは確認できなかった。今回、提供本文を参照した。"
+    },
+    "termsUrl": null,
+    "termsCheckedAt": null
+   },
+   "ownerWords": [
+    {
+     "at": "2026-10-08T00:00:00+09:00",
+     "text": "お前の方で大丈夫なやつを選んで出すんだよ",
+     "verbatim": true
+    },
+    {
+     "at": "2026-10-08T00:00:00+09:00",
+     "text": "それらも記録してね　権利関係",
+     "verbatim": true
+    },
+    {
+     "at": "2026-10-08T00:00:00+09:00",
+     "text": "あとで誰かに何か言われたら柔軟にできるように",
+     "verbatim": true
+    },
+    {
+     "at": "2026-10-08T00:00:00+09:00",
+     "text": "法的に変わったりしたらとかさ",
+     "verbatim": true
+    },
+    {
+     "at": "2026-10-08T00:00:00+09:00",
+     "text": "今後は絶対にそれも加味して集めるようにして、できるようにして",
+     "verbatim": true
+    }
+   ],
+   "evidence": {
+    "terms": null,
+    "sourcePages": []
+   },
+   "history": [
+    {
+     "at": "2026-10-09T15:50:24+09:00",
+     "by": "add-entity-records(--from-research)",
+     "action": "seed",
+     "reason": "集める段でAIが3基準で判断して記録"
+    },
+    {
+     "at": "2026-10-09T15:55:04+09:00",
+     "by": "add-entity-records(--from-research)",
+     "action": "seed",
+     "reason": "AIの権利判断で更新（active→active。確認: ログイン不要=yes 有料の壁なし=yes 引用=unconfirmed）"
+    }
+   ]
+  },
+  "podcast.creatorscience.com": {
+   "siteName": "podcast.creatorscience.com",
+   "siteUrl": "https://podcast.creatorscience.com/",
+   "status": "active",
+   "statusReason": "使用中",
+   "statusChangedAt": "2026-10-09T00:02:36+09:00",
+   "decision": {
+    "decidedAt": "2026-10-09T00:02:36+09:00",
+    "decidedBy": "AI（集める段の自動判断、2026-10-09）",
+    "basis": "ai_judgment",
+    "policyIds": [],
+    "reviewUrls": [],
+    "displayTier": "unconfirmed",
+    "usage": "数字と事実だけを自分の言葉で書き、出典の名前・URL・日付を付ける。文章・画像は写さない（本人の発言は「本人申告」と表示）",
+    "checks": {
+     "loginFree": "yes",
+     "noPaywall": "yes",
+     "quoteTerms": "unconfirmed",
+     "note": "ログイン不要: 取得記録なし（未確認）。 有料の壁・規約の引用禁止条項: 未確認（確かめたら rights:review で更新する）。 AIの判断(2026-10-09): 章ごとの文の取り込み（ログインなしで読めた／有料の壁なし／規約は未確認）"
+    },
+    "termsUrl": null,
+    "termsCheckedAt": null
+   },
+   "ownerWords": [
+    {
+     "at": "2026-10-08T00:00:00+09:00",
+     "text": "お前の方で大丈夫なやつを選んで出すんだよ",
+     "verbatim": true
+    },
+    {
+     "at": "2026-10-08T00:00:00+09:00",
+     "text": "それらも記録してね　権利関係",
+     "verbatim": true
+    },
+    {
+     "at": "2026-10-08T00:00:00+09:00",
+     "text": "あとで誰かに何か言われたら柔軟にできるように",
+     "verbatim": true
+    },
+    {
+     "at": "2026-10-08T00:00:00+09:00",
+     "text": "法的に変わったりしたらとかさ",
+     "verbatim": true
+    },
+    {
+     "at": "2026-10-08T00:00:00+09:00",
+     "text": "今後は絶対にそれも加味して集めるようにして、できるようにして",
+     "verbatim": true
+    }
+   ],
+   "evidence": {
+    "terms": null,
+    "sourcePages": []
+   },
+   "history": [
+    {
+     "at": "2026-10-08T16:33:11+09:00",
+     "by": "case-pages 取り込み",
+     "action": "seed",
+     "reason": "集める段でAIが3基準で判断して記録"
+    },
+    {
+     "at": "2026-10-09T00:02:36+09:00",
+     "by": "case-pages 取り込み",
+     "action": "seed",
+     "reason": "AIの権利判断で更新（active→active。確認: ログイン不要=yes 有料の壁なし=yes 引用=unconfirmed）"
+    }
+   ]
+  },
+  "podcast.uprotterdam.com": {
+   "siteName": "Start to scale／Lars Crama",
+   "siteUrl": "https://podcast.uprotterdam.com/",
+   "status": "active",
+   "statusReason": "使用中",
+   "statusChangedAt": "2026-10-09T15:55:04+09:00",
+   "decision": {
+    "decidedAt": "2026-10-09T15:55:04+09:00",
+    "decidedBy": "AI（集める段の自動判断、2026-10-09）",
+    "basis": "ai_judgment",
+    "policyIds": [],
+    "reviewUrls": [],
+    "displayTier": "unconfirmed",
+    "usage": "数字と事実だけを自分の言葉で書き、出典の名前・URL・日付を付ける。文章・画像は写さない（本人の発言は「本人申告」と表示）",
+    "checks": {
+     "loginFree": "yes",
+     "noPaywall": "yes",
+     "quoteTerms": "unconfirmed",
+     "note": "ログイン不要: 取得記録なし（未確認）。 有料の壁・規約の引用禁止条項: 未確認（確かめたら rights:review で更新する）。 AIの判断(2026-10-09): 元の記録では、公開文字起こしを読めたが、番組独自の引用条件は確定できなかった。今回の提供本文は文字起こしの途中までで、後半の引用は元の記録を引き継いだ。"
+    },
+    "termsUrl": "https://www.buzzsprout.com/tos",
+    "termsCheckedAt": null
+   },
+   "ownerWords": [
+    {
+     "at": "2026-10-08T00:00:00+09:00",
+     "text": "お前の方で大丈夫なやつを選んで出すんだよ",
+     "verbatim": true
+    },
+    {
+     "at": "2026-10-08T00:00:00+09:00",
+     "text": "それらも記録してね　権利関係",
+     "verbatim": true
+    },
+    {
+     "at": "2026-10-08T00:00:00+09:00",
+     "text": "あとで誰かに何か言われたら柔軟にできるように",
+     "verbatim": true
+    },
+    {
+     "at": "2026-10-08T00:00:00+09:00",
+     "text": "法的に変わったりしたらとかさ",
+     "verbatim": true
+    },
+    {
+     "at": "2026-10-08T00:00:00+09:00",
+     "text": "今後は絶対にそれも加味して集めるようにして、できるようにして",
+     "verbatim": true
+    }
+   ],
+   "evidence": {
+    "terms": null,
+    "sourcePages": []
+   },
+   "history": [
+    {
+     "at": "2026-10-09T15:50:24+09:00",
+     "by": "add-entity-records(--from-research)",
+     "action": "seed",
+     "reason": "集める段でAIが3基準で判断して記録"
+    },
+    {
+     "at": "2026-10-09T15:55:04+09:00",
+     "by": "add-entity-records(--from-research)",
+     "action": "seed",
+     "reason": "AIの権利判断で更新（active→active。確認: ログイン不要=yes 有料の壁なし=yes 引用=unconfirmed）"
+    }
+   ]
+  },
+  "podtail.se": {
+   "siteName": "In The Money／Podtail",
+   "siteUrl": "https://podtail.se/",
+   "status": "active",
+   "statusReason": "使用中",
+   "statusChangedAt": "2026-10-09T15:50:20+09:00",
+   "decision": {
+    "decidedAt": "2026-10-09T15:50:20+09:00",
+    "decidedBy": "AI（集める段の自動判断、2026-10-09）",
+    "basis": "ai_judgment",
+    "policyIds": [],
+    "reviewUrls": [],
+    "displayTier": "unconfirmed",
+    "usage": "数字と事実だけを自分の言葉で書き、出典の名前・URL・日付を付ける。文章・画像は写さない（本人の発言は「本人申告」と表示）",
+    "checks": {
+     "loginFree": "yes",
+     "noPaywall": "yes",
+     "quoteTerms": "unconfirmed",
+     "note": "ログイン不要: 取得記録なし（未確認）。 有料の壁・規約の引用禁止条項: 未確認（確かめたら rights:review で更新する）。 AIの判断(2026-10-09): 2026-10-09に番組説明を無料閲覧できた。利用規約ページの本文は取得できず、別の著作権方針ページは削除申請の手続を述べるもので、引用の可否は判断できなかった。"
+    },
+    "termsUrl": "https://podtail.se/about/terms-of-service/",
+    "termsCheckedAt": null
+   },
+   "ownerWords": [
+    {
+     "at": "2026-10-08T00:00:00+09:00",
+     "text": "お前の方で大丈夫なやつを選んで出すんだよ",
+     "verbatim": true
+    },
+    {
+     "at": "2026-10-08T00:00:00+09:00",
+     "text": "それらも記録してね　権利関係",
+     "verbatim": true
+    },
+    {
+     "at": "2026-10-08T00:00:00+09:00",
+     "text": "あとで誰かに何か言われたら柔軟にできるように",
+     "verbatim": true
+    },
+    {
+     "at": "2026-10-08T00:00:00+09:00",
+     "text": "法的に変わったりしたらとかさ",
+     "verbatim": true
+    },
+    {
+     "at": "2026-10-08T00:00:00+09:00",
+     "text": "今後は絶対にそれも加味して集めるようにして、できるようにして",
+     "verbatim": true
+    }
+   ],
+   "evidence": {
+    "terms": null,
+    "sourcePages": []
+   },
+   "history": [
+    {
+     "at": "2026-10-09T15:50:20+09:00",
+     "by": "add-entity-records(--from-research)",
+     "action": "seed",
+     "reason": "集める段でAIが3基準で判断して記録"
+    }
+   ]
+  },
+  "polarsteps.com": {
+   "siteName": "Polarsteps",
+   "siteUrl": "https://polarsteps.com/",
+   "status": "active",
+   "statusReason": "使用中",
+   "statusChangedAt": "2026-10-09T15:50:24+09:00",
+   "decision": {
+    "decidedAt": "2026-09-29T09:00:00+09:00",
+    "decidedBy": "標準の権利規則（Universal Foundation の審査）／台帳への記録は担当(2026-10-09)",
+    "basis": "registry",
+    "policyIds": [
+     "rights.official-company-website.v1"
+    ],
+    "reviewUrls": [],
+    "displayTier": "automatic",
+    "usage": "数字と事実だけを自分の言葉で書き、出典の名前・URL・日付を付ける。文章・画像は写さない（本人の発言は「本人申告」と表示）",
+    "checks": {
+     "loginFree": "unconfirmed",
+     "noPaywall": "unconfirmed",
+     "quoteTerms": "unconfirmed",
+     "note": "ログイン不要: 取得記録なし（未確認）。 有料の壁・規約の引用禁止条項: 未確認（確かめたら rights:review で更新する）。 AIの判断(2026-10-09): 提供本文と公開ページを確認した。規約は非商用以外のコンテンツの複製・保存と自動巡回を制限しているため、利用許可済みとは扱わない。 / 創業物語はログインなしで読めた。サイト規約の複製・保存制限を記録した。 / 移転先の公式発表本文を読めた。サイト規約の複製・保存制限を記録した。 / 旧ニュースサイトでは本文を取得できなかったが、移転先の公式発表を読めた。サイト規約の複製・保存制限を記録した。 / 利用者数と調達額を含む発表本文を読めた。サイト規約の複製・保存制限を記録した。 / 依頼に提供された本文を利用した。記事本文の当時の数字と更新された会社紹介を分け、サイト規約の複製・保存制限を記録した。 / 到達した節目と創業以来の振り返りを読めた。サイト規約の複製・保存制限を記録した。 / 有料プラン提供開始の発表を読めた。サイト規約の複製・保存制限を記録した。 / 経営責任者による説明全文を読めた。表示されているのは編集日であり、初回公開日とは区別した。サイト規約の複製・保存制限を記録した。 / 無料機能と有料プランの料金をログインなしで読めた。サイト規約の複製・保存制限を記録した。 / 料金の決まりを説明する公開本文を読めた。製品サイトの規約を確認したが、別ホストのサポート記事への適用範囲は確定できなかった。 標準の規則: rights.official-company-website.v1"
+    },
+    "termsUrl": "https://www.polarsteps.com/legal/terms",
+    "termsCheckedAt": null
+   },
+   "ownerWords": [
+    {
+     "at": "2026-10-08T00:00:00+09:00",
+     "text": "お前の方で大丈夫なやつを選んで出すんだよ",
+     "verbatim": true
+    },
+    {
+     "at": "2026-10-08T00:00:00+09:00",
+     "text": "それらも記録してね　権利関係",
+     "verbatim": true
+    },
+    {
+     "at": "2026-10-08T00:00:00+09:00",
+     "text": "あとで誰かに何か言われたら柔軟にできるように",
+     "verbatim": true
+    },
+    {
+     "at": "2026-10-08T00:00:00+09:00",
+     "text": "法的に変わったりしたらとかさ",
+     "verbatim": true
+    },
+    {
+     "at": "2026-10-08T00:00:00+09:00",
+     "text": "今後は絶対にそれも加味して集めるようにして、できるようにして",
+     "verbatim": true
+    }
+   ],
+   "evidence": {
+    "terms": null,
+    "sourcePages": []
+   },
+   "history": [
+    {
+     "at": "2026-10-09T15:50:24+09:00",
+     "by": "add-entity-records(--from-research)",
+     "action": "seed",
+     "reason": "既存の権利判断から台帳に記録"
+    }
+   ]
+  },
+  "practicalfounders.com": {
+   "siteName": "practicalfounders.com",
+   "siteUrl": "https://practicalfounders.com/",
+   "status": "active",
+   "statusReason": "使用中",
+   "statusChangedAt": "2026-10-09T00:02:36+09:00",
+   "decision": {
+    "decidedAt": "2026-10-09T00:02:36+09:00",
+    "decidedBy": "AI（集める段の自動判断、2026-10-09）",
+    "basis": "ai_judgment",
+    "policyIds": [],
+    "reviewUrls": [],
+    "displayTier": "unconfirmed",
+    "usage": "数字と事実だけを自分の言葉で書き、出典の名前・URL・日付を付ける。文章・画像は写さない（本人の発言は「本人申告」と表示）",
+    "checks": {
+     "loginFree": "yes",
+     "noPaywall": "yes",
+     "quoteTerms": "unconfirmed",
+     "note": "ログイン不要: 取得記録なし（未確認）。 有料の壁・規約の引用禁止条項: 未確認（確かめたら rights:review で更新する）。 AIの判断(2026-10-09): 章ごとの文の取り込み（ログインなしで読めた／有料の壁なし／利用規約は未確認／2026-10-08）"
+    },
+    "termsUrl": null,
+    "termsCheckedAt": null
+   },
+   "ownerWords": [
+    {
+     "at": "2026-10-08T00:00:00+09:00",
+     "text": "お前の方で大丈夫なやつを選んで出すんだよ",
+     "verbatim": true
+    },
+    {
+     "at": "2026-10-08T00:00:00+09:00",
+     "text": "それらも記録してね　権利関係",
+     "verbatim": true
+    },
+    {
+     "at": "2026-10-08T00:00:00+09:00",
+     "text": "あとで誰かに何か言われたら柔軟にできるように",
+     "verbatim": true
+    },
+    {
+     "at": "2026-10-08T00:00:00+09:00",
+     "text": "法的に変わったりしたらとかさ",
+     "verbatim": true
+    },
+    {
+     "at": "2026-10-08T00:00:00+09:00",
+     "text": "今後は絶対にそれも加味して集めるようにして、できるようにして",
+     "verbatim": true
+    }
+   ],
+   "evidence": {
+    "terms": null,
+    "sourcePages": []
+   },
+   "history": [
+    {
+     "at": "2026-10-08T17:49:16+09:00",
+     "by": "case-pages 取り込み",
+     "action": "seed",
+     "reason": "集める段でAIが3基準で判断して記録"
+    },
+    {
+     "at": "2026-10-09T00:02:36+09:00",
+     "by": "case-pages 取り込み",
+     "action": "seed",
+     "reason": "AIの権利判断で更新（active→active。確認: ログイン不要=yes 有料の壁なし=yes 引用=unconfirmed）"
     }
    ]
   },
@@ -4200,6 +8207,75 @@
      "by": "担当(rights-ledger)",
      "action": "seed",
      "reason": "公開中の事例が使う出典として、既存の権利判断から台帳に記録"
+    }
+   ]
+  },
+  "ramenclub.transistor.fm": {
+   "siteName": "ramenclub.transistor.fm",
+   "siteUrl": "https://ramenclub.transistor.fm/",
+   "status": "active",
+   "statusReason": "使用中",
+   "statusChangedAt": "2026-10-09T00:02:36+09:00",
+   "decision": {
+    "decidedAt": "2026-10-09T00:02:36+09:00",
+    "decidedBy": "AI（集める段の自動判断、2026-10-09）",
+    "basis": "ai_judgment",
+    "policyIds": [],
+    "reviewUrls": [],
+    "displayTier": "unconfirmed",
+    "usage": "数字と事実だけを自分の言葉で書き、出典の名前・URL・日付を付ける。文章・画像は写さない（本人の発言は「本人申告」と表示）",
+    "checks": {
+     "loginFree": "yes",
+     "noPaywall": "yes",
+     "quoteTerms": "unconfirmed",
+     "note": "ログイン不要: 取得記録なし（未確認）。 有料の壁・規約の引用禁止条項: 未確認（確かめたら rights:review で更新する）。 AIの判断(2026-10-09): 章ごとの文の取り込み（ログインなしで読めた／有料の壁なし／利用規約は未確認／2026-10-08）"
+    },
+    "termsUrl": null,
+    "termsCheckedAt": null
+   },
+   "ownerWords": [
+    {
+     "at": "2026-10-08T00:00:00+09:00",
+     "text": "お前の方で大丈夫なやつを選んで出すんだよ",
+     "verbatim": true
+    },
+    {
+     "at": "2026-10-08T00:00:00+09:00",
+     "text": "それらも記録してね　権利関係",
+     "verbatim": true
+    },
+    {
+     "at": "2026-10-08T00:00:00+09:00",
+     "text": "あとで誰かに何か言われたら柔軟にできるように",
+     "verbatim": true
+    },
+    {
+     "at": "2026-10-08T00:00:00+09:00",
+     "text": "法的に変わったりしたらとかさ",
+     "verbatim": true
+    },
+    {
+     "at": "2026-10-08T00:00:00+09:00",
+     "text": "今後は絶対にそれも加味して集めるようにして、できるようにして",
+     "verbatim": true
+    }
+   ],
+   "evidence": {
+    "terms": null,
+    "sourcePages": []
+   },
+   "history": [
+    {
+     "at": "2026-10-08T17:49:16+09:00",
+     "by": "case-pages 取り込み",
+     "action": "seed",
+     "reason": "集める段でAIが3基準で判断して記録"
+    },
+    {
+     "at": "2026-10-09T00:02:36+09:00",
+     "by": "case-pages 取り込み",
+     "action": "seed",
+     "reason": "AIの権利判断で更新（active→active。確認: ログイン不要=yes 有料の壁なし=yes 引用=unconfirmed）"
     }
    ]
   },
@@ -4544,15 +8620,15 @@
     }
    ]
   },
-  "ship30for30.com": {
-   "siteName": "ship30for30.com",
-   "siteUrl": "https://ship30for30.com/",
+  "saas.group": {
+   "siteName": "saas.group",
+   "siteUrl": "https://saas.group/",
    "status": "active",
    "statusReason": "使用中",
-   "statusChangedAt": "2026-10-08T16:33:11+09:00",
+   "statusChangedAt": "2026-10-09T00:02:36+09:00",
    "decision": {
-    "decidedAt": "2026-10-08T16:33:11+09:00",
-    "decidedBy": "AI（集める段の自動判断、2026-10-08）",
+    "decidedAt": "2026-10-09T00:02:36+09:00",
+    "decidedBy": "AI（集める段の自動判断、2026-10-09）",
     "basis": "ai_judgment",
     "policyIds": [],
     "reviewUrls": [],
@@ -4562,7 +8638,145 @@
      "loginFree": "yes",
      "noPaywall": "yes",
      "quoteTerms": "unconfirmed",
-     "note": "ログイン不要: 取得記録なし（未確認）。 有料の壁・規約の引用禁止条項: 未確認（確かめたら rights:review で更新する）。 AIの判断(2026-10-08): 章ごとの文の取り込み（ログインなしで読めた／有料の壁なし／規約は未確認）"
+     "note": "ログイン不要: 取得記録なし（未確認）。 有料の壁・規約の引用禁止条項: 未確認（確かめたら rights:review で更新する）。 AIの判断(2026-10-09): 章ごとの文の取り込み（ログインなしで読めた／有料の壁なし／利用規約は未確認／2026-10-08） / 章ごとの文の取り込み（ログインなしで読めた／有料の壁なし／利用規約は未確認／2026-10-08）"
+    },
+    "termsUrl": null,
+    "termsCheckedAt": null
+   },
+   "ownerWords": [
+    {
+     "at": "2026-10-08T00:00:00+09:00",
+     "text": "お前の方で大丈夫なやつを選んで出すんだよ",
+     "verbatim": true
+    },
+    {
+     "at": "2026-10-08T00:00:00+09:00",
+     "text": "それらも記録してね　権利関係",
+     "verbatim": true
+    },
+    {
+     "at": "2026-10-08T00:00:00+09:00",
+     "text": "あとで誰かに何か言われたら柔軟にできるように",
+     "verbatim": true
+    },
+    {
+     "at": "2026-10-08T00:00:00+09:00",
+     "text": "法的に変わったりしたらとかさ",
+     "verbatim": true
+    },
+    {
+     "at": "2026-10-08T00:00:00+09:00",
+     "text": "今後は絶対にそれも加味して集めるようにして、できるようにして",
+     "verbatim": true
+    }
+   ],
+   "evidence": {
+    "terms": null,
+    "sourcePages": []
+   },
+   "history": [
+    {
+     "at": "2026-10-08T17:49:16+09:00",
+     "by": "case-pages 取り込み",
+     "action": "seed",
+     "reason": "集める段でAIが3基準で判断して記録"
+    },
+    {
+     "at": "2026-10-09T00:02:36+09:00",
+     "by": "case-pages 取り込み",
+     "action": "seed",
+     "reason": "AIの権利判断で更新（active→active。確認: ログイン不要=yes 有料の壁なし=yes 引用=unconfirmed）"
+    }
+   ]
+  },
+  "saastock.com": {
+   "siteName": "saastock.com",
+   "siteUrl": "https://saastock.com/",
+   "status": "active",
+   "statusReason": "使用中",
+   "statusChangedAt": "2026-10-09T00:02:36+09:00",
+   "decision": {
+    "decidedAt": "2026-10-09T00:02:36+09:00",
+    "decidedBy": "AI（集める段の自動判断、2026-10-09）",
+    "basis": "ai_judgment",
+    "policyIds": [],
+    "reviewUrls": [],
+    "displayTier": "unconfirmed",
+    "usage": "数字と事実だけを自分の言葉で書き、出典の名前・URL・日付を付ける。文章・画像は写さない（本人の発言は「本人申告」と表示）",
+    "checks": {
+     "loginFree": "yes",
+     "noPaywall": "yes",
+     "quoteTerms": "unconfirmed",
+     "note": "ログイン不要: 取得記録なし（未確認）。 有料の壁・規約の引用禁止条項: 未確認（確かめたら rights:review で更新する）。 AIの判断(2026-10-09): 章ごとの文の取り込み（ログインなしで読めた／有料の壁なし／利用規約は未確認／2026-10-08）"
+    },
+    "termsUrl": null,
+    "termsCheckedAt": null
+   },
+   "ownerWords": [
+    {
+     "at": "2026-10-08T00:00:00+09:00",
+     "text": "お前の方で大丈夫なやつを選んで出すんだよ",
+     "verbatim": true
+    },
+    {
+     "at": "2026-10-08T00:00:00+09:00",
+     "text": "それらも記録してね　権利関係",
+     "verbatim": true
+    },
+    {
+     "at": "2026-10-08T00:00:00+09:00",
+     "text": "あとで誰かに何か言われたら柔軟にできるように",
+     "verbatim": true
+    },
+    {
+     "at": "2026-10-08T00:00:00+09:00",
+     "text": "法的に変わったりしたらとかさ",
+     "verbatim": true
+    },
+    {
+     "at": "2026-10-08T00:00:00+09:00",
+     "text": "今後は絶対にそれも加味して集めるようにして、できるようにして",
+     "verbatim": true
+    }
+   ],
+   "evidence": {
+    "terms": null,
+    "sourcePages": []
+   },
+   "history": [
+    {
+     "at": "2026-10-08T17:49:16+09:00",
+     "by": "case-pages 取り込み",
+     "action": "seed",
+     "reason": "集める段でAIが3基準で判断して記録"
+    },
+    {
+     "at": "2026-10-09T00:02:36+09:00",
+     "by": "case-pages 取り込み",
+     "action": "seed",
+     "reason": "AIの権利判断で更新（active→active。確認: ログイン不要=yes 有料の壁なし=yes 引用=unconfirmed）"
+    }
+   ]
+  },
+  "ship30for30.com": {
+   "siteName": "ship30for30.com",
+   "siteUrl": "https://ship30for30.com/",
+   "status": "active",
+   "statusReason": "使用中",
+   "statusChangedAt": "2026-10-09T00:02:36+09:00",
+   "decision": {
+    "decidedAt": "2026-10-09T00:02:36+09:00",
+    "decidedBy": "AI（集める段の自動判断、2026-10-09）",
+    "basis": "ai_judgment",
+    "policyIds": [],
+    "reviewUrls": [],
+    "displayTier": "unconfirmed",
+    "usage": "数字と事実だけを自分の言葉で書き、出典の名前・URL・日付を付ける。文章・画像は写さない（本人の発言は「本人申告」と表示）",
+    "checks": {
+     "loginFree": "yes",
+     "noPaywall": "yes",
+     "quoteTerms": "unconfirmed",
+     "note": "ログイン不要: 取得記録なし（未確認）。 有料の壁・規約の引用禁止条項: 未確認（確かめたら rights:review で更新する）。 AIの判断(2026-10-09): 章ごとの文の取り込み（ログインなしで読めた／有料の壁なし／規約は未確認）"
     },
     "termsUrl": null,
     "termsCheckedAt": null
@@ -4604,6 +8818,12 @@
      "by": "case-pages 取り込み",
      "action": "seed",
      "reason": "集める段でAIが3基準で判断して記録"
+    },
+    {
+     "at": "2026-10-09T00:02:36+09:00",
+     "by": "case-pages 取り込み",
+     "action": "seed",
+     "reason": "AIの権利判断で更新（active→active。確認: ログイン不要=yes 有料の壁なし=yes 引用=unconfirmed）"
     }
    ]
   },
@@ -4612,10 +8832,10 @@
    "siteUrl": "https://shipfa.st/",
    "status": "active",
    "statusReason": "使用中",
-   "statusChangedAt": "2026-10-08T16:33:11+09:00",
+   "statusChangedAt": "2026-10-09T00:02:36+09:00",
    "decision": {
-    "decidedAt": "2026-10-08T16:33:11+09:00",
-    "decidedBy": "AI（集める段の自動判断、2026-10-08）",
+    "decidedAt": "2026-10-09T00:02:36+09:00",
+    "decidedBy": "AI（集める段の自動判断、2026-10-09）",
     "basis": "ai_judgment",
     "policyIds": [],
     "reviewUrls": [],
@@ -4625,7 +8845,7 @@
      "loginFree": "yes",
      "noPaywall": "yes",
      "quoteTerms": "unconfirmed",
-     "note": "ログイン不要: 取得記録なし（未確認）。 有料の壁・規約の引用禁止条項: 未確認（確かめたら rights:review で更新する）。 AIの判断(2026-10-08): 章ごとの文の取り込み（ログインなしで読めた／有料の壁なし／利用規約は未確認／2026-10-08）"
+     "note": "ログイン不要: 取得記録なし（未確認）。 有料の壁・規約の引用禁止条項: 未確認（確かめたら rights:review で更新する）。 AIの判断(2026-10-09): 章ごとの文の取り込み（ログインなしで読めた／有料の壁なし／利用規約は未確認／2026-10-08）"
     },
     "termsUrl": null,
     "termsCheckedAt": null
@@ -4667,6 +8887,144 @@
      "by": "case-pages 取り込み",
      "action": "seed",
      "reason": "集める段でAIが3基準で判断して記録"
+    },
+    {
+     "at": "2026-10-09T00:02:36+09:00",
+     "by": "case-pages 取り込み",
+     "action": "seed",
+     "reason": "AIの権利判断で更新（active→active。確認: ログイン不要=yes 有料の壁なし=yes 引用=unconfirmed）"
+    }
+   ]
+  },
+  "shop.indiaretailing.com": {
+   "siteName": "IMAGES Business of Fashion",
+   "siteUrl": "https://shop.indiaretailing.com/",
+   "status": "active",
+   "statusReason": "取り込み時に自動で記録（根拠は未確認）",
+   "statusChangedAt": "2026-10-09T15:55:05+09:00",
+   "decision": {
+    "decidedAt": "2026-10-09T15:55:05+09:00",
+    "decidedBy": "担当(2026-10-09)。根拠は未確認",
+    "basis": "unconfirmed",
+    "policyIds": [],
+    "reviewUrls": [],
+    "displayTier": "unconfirmed",
+    "usage": "数字と事実だけを自分の言葉で書き、出典の名前・URL・日付を付ける。文章・画像は写さない（本人の発言は「本人申告」と表示）",
+    "checks": {
+     "loginFree": "unconfirmed",
+     "noPaywall": "unconfirmed",
+     "quoteTerms": "unconfirmed",
+     "note": "ログイン不要: 取得記録なし（未確認）。 有料の壁・規約の引用禁止条項: 未確認（確かめたら rights:review で更新する）。"
+    },
+    "termsUrl": null,
+    "termsCheckedAt": null
+   },
+   "ownerWords": [
+    {
+     "at": "2026-10-08T00:00:00+09:00",
+     "text": "お前の方で大丈夫なやつを選んで出すんだよ",
+     "verbatim": true
+    },
+    {
+     "at": "2026-10-08T00:00:00+09:00",
+     "text": "それらも記録してね　権利関係",
+     "verbatim": true
+    },
+    {
+     "at": "2026-10-08T00:00:00+09:00",
+     "text": "あとで誰かに何か言われたら柔軟にできるように",
+     "verbatim": true
+    },
+    {
+     "at": "2026-10-08T00:00:00+09:00",
+     "text": "法的に変わったりしたらとかさ",
+     "verbatim": true
+    },
+    {
+     "at": "2026-10-08T00:00:00+09:00",
+     "text": "今後は絶対にそれも加味して集めるようにして、できるようにして",
+     "verbatim": true
+    }
+   ],
+   "evidence": {
+    "terms": null,
+    "sourcePages": []
+   },
+   "history": [
+    {
+     "at": "2026-10-09T15:55:05+09:00",
+     "by": "add-entity-records(--apply)",
+     "action": "seed",
+     "reason": "台帳に新しく記録（根拠は未確認）"
+    }
+   ]
+  },
+  "siliconcanals.com": {
+   "siteName": "Silicon Canals",
+   "siteUrl": "https://siliconcanals.com/",
+   "status": "active",
+   "statusReason": "使用中",
+   "statusChangedAt": "2026-10-09T15:55:04+09:00",
+   "decision": {
+    "decidedAt": "2026-10-09T15:55:04+09:00",
+    "decidedBy": "AI（集める段の自動判断、2026-10-09）",
+    "basis": "ai_judgment",
+    "policyIds": [],
+    "reviewUrls": [],
+    "displayTier": "unconfirmed",
+    "usage": "数字と事実だけを自分の言葉で書き、出典の名前・URL・日付を付ける。文章・画像は写さない（本人の発言は「本人申告」と表示）",
+    "checks": {
+     "loginFree": "yes",
+     "noPaywall": "yes",
+     "quoteTerms": "permits",
+     "note": "ログイン不要: 取得記録なし（未確認）。 有料の壁・規約の引用禁止条項: 未確認（確かめたら rights:review で更新する）。 AIの判断(2026-10-09): 元の記録では、取材全文を読め、規約は出典を正確に示す短い引用を法令の範囲内で認めていると判断している。今回、提供本文を参照し、規約は再閲覧していない。"
+    },
+    "termsUrl": "https://siliconcanals.com/terms-conditions/",
+    "termsCheckedAt": null
+   },
+   "ownerWords": [
+    {
+     "at": "2026-10-08T00:00:00+09:00",
+     "text": "お前の方で大丈夫なやつを選んで出すんだよ",
+     "verbatim": true
+    },
+    {
+     "at": "2026-10-08T00:00:00+09:00",
+     "text": "それらも記録してね　権利関係",
+     "verbatim": true
+    },
+    {
+     "at": "2026-10-08T00:00:00+09:00",
+     "text": "あとで誰かに何か言われたら柔軟にできるように",
+     "verbatim": true
+    },
+    {
+     "at": "2026-10-08T00:00:00+09:00",
+     "text": "法的に変わったりしたらとかさ",
+     "verbatim": true
+    },
+    {
+     "at": "2026-10-08T00:00:00+09:00",
+     "text": "今後は絶対にそれも加味して集めるようにして、できるようにして",
+     "verbatim": true
+    }
+   ],
+   "evidence": {
+    "terms": null,
+    "sourcePages": []
+   },
+   "history": [
+    {
+     "at": "2026-10-09T15:50:24+09:00",
+     "by": "add-entity-records(--from-research)",
+     "action": "seed",
+     "reason": "集める段でAIが3基準で判断して記録"
+    },
+    {
+     "at": "2026-10-09T15:55:04+09:00",
+     "by": "add-entity-records(--from-research)",
+     "action": "seed",
+     "reason": "AIの権利判断で更新（active→active。確認: ログイン不要=yes 有料の壁なし=yes 引用=permits）"
     }
    ]
   },
@@ -4799,6 +9157,140 @@
     }
    ]
   },
+  "snitch.com": {
+   "siteName": "SNITCH公式サイト",
+   "siteUrl": "https://snitch.com/",
+   "status": "active",
+   "statusReason": "使用中",
+   "statusChangedAt": "2026-10-09T15:55:05+09:00",
+   "decision": {
+    "decidedAt": "2026-09-29T09:00:00+09:00",
+    "decidedBy": "標準の権利規則（Universal Foundation の審査）／台帳への記録は担当(2026-10-09)",
+    "basis": "registry",
+    "policyIds": [
+     "rights.official-company-website.v1"
+    ],
+    "reviewUrls": [],
+    "displayTier": "automatic",
+    "usage": "数字と事実だけを自分の言葉で書き、出典の名前・URL・日付を付ける。文章・画像は写さない（本人の発言は「本人申告」と表示）",
+    "checks": {
+     "loginFree": "unconfirmed",
+     "noPaywall": "unconfirmed",
+     "quoteTerms": "unconfirmed",
+     "note": "ログイン不要: 取得記録なし（未確認）。 有料の壁・規約の引用禁止条項: 未確認（確かめたら rights:review で更新する）。 標準の規則: rights.official-company-website.v1"
+    },
+    "termsUrl": null,
+    "termsCheckedAt": null
+   },
+   "ownerWords": [
+    {
+     "at": "2026-10-08T00:00:00+09:00",
+     "text": "お前の方で大丈夫なやつを選んで出すんだよ",
+     "verbatim": true
+    },
+    {
+     "at": "2026-10-08T00:00:00+09:00",
+     "text": "それらも記録してね　権利関係",
+     "verbatim": true
+    },
+    {
+     "at": "2026-10-08T00:00:00+09:00",
+     "text": "あとで誰かに何か言われたら柔軟にできるように",
+     "verbatim": true
+    },
+    {
+     "at": "2026-10-08T00:00:00+09:00",
+     "text": "法的に変わったりしたらとかさ",
+     "verbatim": true
+    },
+    {
+     "at": "2026-10-08T00:00:00+09:00",
+     "text": "今後は絶対にそれも加味して集めるようにして、できるようにして",
+     "verbatim": true
+    }
+   ],
+   "evidence": {
+    "terms": null,
+    "sourcePages": []
+   },
+   "history": [
+    {
+     "at": "2026-10-09T15:55:05+09:00",
+     "by": "add-entity-records(--apply)",
+     "action": "seed",
+     "reason": "既存の権利判断から台帳に記録"
+    }
+   ]
+  },
+  "sourcify.com": {
+   "siteName": "sourcify.com",
+   "siteUrl": "https://sourcify.com/",
+   "status": "active",
+   "statusReason": "使用中",
+   "statusChangedAt": "2026-10-09T00:02:36+09:00",
+   "decision": {
+    "decidedAt": "2026-10-09T00:02:36+09:00",
+    "decidedBy": "AI（集める段の自動判断、2026-10-09）",
+    "basis": "ai_judgment",
+    "policyIds": [],
+    "reviewUrls": [],
+    "displayTier": "unconfirmed",
+    "usage": "数字と事実だけを自分の言葉で書き、出典の名前・URL・日付を付ける。文章・画像は写さない（本人の発言は「本人申告」と表示）",
+    "checks": {
+     "loginFree": "yes",
+     "noPaywall": "yes",
+     "quoteTerms": "unconfirmed",
+     "note": "ログイン不要: 取得記録なし（未確認）。 有料の壁・規約の引用禁止条項: 未確認（確かめたら rights:review で更新する）。 AIの判断(2026-10-09): 章ごとの文の取り込み（ログインなしで読めた／有料の壁なし／利用規約は未確認／2026-10-08）"
+    },
+    "termsUrl": null,
+    "termsCheckedAt": null
+   },
+   "ownerWords": [
+    {
+     "at": "2026-10-08T00:00:00+09:00",
+     "text": "お前の方で大丈夫なやつを選んで出すんだよ",
+     "verbatim": true
+    },
+    {
+     "at": "2026-10-08T00:00:00+09:00",
+     "text": "それらも記録してね　権利関係",
+     "verbatim": true
+    },
+    {
+     "at": "2026-10-08T00:00:00+09:00",
+     "text": "あとで誰かに何か言われたら柔軟にできるように",
+     "verbatim": true
+    },
+    {
+     "at": "2026-10-08T00:00:00+09:00",
+     "text": "法的に変わったりしたらとかさ",
+     "verbatim": true
+    },
+    {
+     "at": "2026-10-08T00:00:00+09:00",
+     "text": "今後は絶対にそれも加味して集めるようにして、できるようにして",
+     "verbatim": true
+    }
+   ],
+   "evidence": {
+    "terms": null,
+    "sourcePages": []
+   },
+   "history": [
+    {
+     "at": "2026-10-08T17:49:16+09:00",
+     "by": "case-pages 取り込み",
+     "action": "seed",
+     "reason": "集める段でAIが3基準で判断して記録"
+    },
+    {
+     "at": "2026-10-09T00:02:36+09:00",
+     "by": "case-pages 取り込み",
+     "action": "seed",
+     "reason": "AIの権利判断で更新（active→active。確認: ログイン不要=yes 有料の壁なし=yes 引用=unconfirmed）"
+    }
+   ]
+  },
   "starterstory.com": {
    "siteName": "Starter Story の2024年の追跡取材",
    "siteUrl": "https://starterstory.com/",
@@ -4883,6 +9375,138 @@
      "by": "担当(rights-ledger)",
      "action": "seed",
      "reason": "公開中の事例が使う出典として、既存の権利判断から台帳に記録"
+    }
+   ]
+  },
+  "startupmahakumbh.org": {
+   "siteName": "Startup Mahakumbh",
+   "siteUrl": "https://startupmahakumbh.org/",
+   "status": "active",
+   "statusReason": "取り込み時に自動で記録（根拠は未確認）",
+   "statusChangedAt": "2026-10-09T15:55:05+09:00",
+   "decision": {
+    "decidedAt": "2026-10-09T15:55:05+09:00",
+    "decidedBy": "担当(2026-10-09)。根拠は未確認",
+    "basis": "unconfirmed",
+    "policyIds": [],
+    "reviewUrls": [],
+    "displayTier": "unconfirmed",
+    "usage": "数字と事実だけを自分の言葉で書き、出典の名前・URL・日付を付ける。文章・画像は写さない（本人の発言は「本人申告」と表示）",
+    "checks": {
+     "loginFree": "unconfirmed",
+     "noPaywall": "unconfirmed",
+     "quoteTerms": "unconfirmed",
+     "note": "ログイン不要: 取得記録なし（未確認）。 有料の壁・規約の引用禁止条項: 未確認（確かめたら rights:review で更新する）。"
+    },
+    "termsUrl": null,
+    "termsCheckedAt": null
+   },
+   "ownerWords": [
+    {
+     "at": "2026-10-08T00:00:00+09:00",
+     "text": "お前の方で大丈夫なやつを選んで出すんだよ",
+     "verbatim": true
+    },
+    {
+     "at": "2026-10-08T00:00:00+09:00",
+     "text": "それらも記録してね　権利関係",
+     "verbatim": true
+    },
+    {
+     "at": "2026-10-08T00:00:00+09:00",
+     "text": "あとで誰かに何か言われたら柔軟にできるように",
+     "verbatim": true
+    },
+    {
+     "at": "2026-10-08T00:00:00+09:00",
+     "text": "法的に変わったりしたらとかさ",
+     "verbatim": true
+    },
+    {
+     "at": "2026-10-08T00:00:00+09:00",
+     "text": "今後は絶対にそれも加味して集めるようにして、できるようにして",
+     "verbatim": true
+    }
+   ],
+   "evidence": {
+    "terms": null,
+    "sourcePages": []
+   },
+   "history": [
+    {
+     "at": "2026-10-09T15:55:05+09:00",
+     "by": "add-entity-records(--apply)",
+     "action": "seed",
+     "reason": "台帳に新しく記録（根拠は未確認）"
+    }
+   ]
+  },
+  "startupsfortherestofus.com": {
+   "siteName": "startupsfortherestofus.com",
+   "siteUrl": "https://startupsfortherestofus.com/",
+   "status": "active",
+   "statusReason": "使用中",
+   "statusChangedAt": "2026-10-09T00:02:36+09:00",
+   "decision": {
+    "decidedAt": "2026-10-09T00:02:36+09:00",
+    "decidedBy": "AI（集める段の自動判断、2026-10-09）",
+    "basis": "ai_judgment",
+    "policyIds": [],
+    "reviewUrls": [],
+    "displayTier": "unconfirmed",
+    "usage": "数字と事実だけを自分の言葉で書き、出典の名前・URL・日付を付ける。文章・画像は写さない（本人の発言は「本人申告」と表示）",
+    "checks": {
+     "loginFree": "yes",
+     "noPaywall": "yes",
+     "quoteTerms": "unconfirmed",
+     "note": "ログイン不要: 取得記録なし（未確認）。 有料の壁・規約の引用禁止条項: 未確認（確かめたら rights:review で更新する）。 AIの判断(2026-10-09): 章ごとの文の取り込み（ログインなしで読めた／有料の壁なし／利用規約は未確認／2026-10-08） / 章ごとの文の取り込み（ログインなしで読めた／有料の壁なし／利用規約は未確認／2026-10-08） / 章ごとの文の取り込み（ログインなしで読めた／有料の壁なし／利用規約は未確認／2026-10-08） / 章ごとの文の取り込み（ログインなしで読めた／有料の壁なし／利用規約は未確認／2026-10-08） / 章ごとの文の取り込み（ログインなしで読めた／有料の壁なし／利用規約は未確認／2026-10-08） / 章ごとの文の取り込み（ログインなしで読めた／有料の壁なし／利用規約は未確認／2026-10-08）"
+    },
+    "termsUrl": null,
+    "termsCheckedAt": null
+   },
+   "ownerWords": [
+    {
+     "at": "2026-10-08T00:00:00+09:00",
+     "text": "お前の方で大丈夫なやつを選んで出すんだよ",
+     "verbatim": true
+    },
+    {
+     "at": "2026-10-08T00:00:00+09:00",
+     "text": "それらも記録してね　権利関係",
+     "verbatim": true
+    },
+    {
+     "at": "2026-10-08T00:00:00+09:00",
+     "text": "あとで誰かに何か言われたら柔軟にできるように",
+     "verbatim": true
+    },
+    {
+     "at": "2026-10-08T00:00:00+09:00",
+     "text": "法的に変わったりしたらとかさ",
+     "verbatim": true
+    },
+    {
+     "at": "2026-10-08T00:00:00+09:00",
+     "text": "今後は絶対にそれも加味して集めるようにして、できるようにして",
+     "verbatim": true
+    }
+   ],
+   "evidence": {
+    "terms": null,
+    "sourcePages": []
+   },
+   "history": [
+    {
+     "at": "2026-10-08T17:49:16+09:00",
+     "by": "case-pages 取り込み",
+     "action": "seed",
+     "reason": "集める段でAIが3基準で判断して記録"
+    },
+    {
+     "at": "2026-10-09T00:02:36+09:00",
+     "by": "case-pages 取り込み",
+     "action": "seed",
+     "reason": "AIの権利判断で更新（active→active。確認: ログイン不要=yes 有料の壁なし=yes 引用=unconfirmed）"
     }
    ]
   },
@@ -5015,15 +9639,78 @@
     }
    ]
   },
+  "tasteradio.com": {
+   "siteName": "Taste Radio／BevNET",
+   "siteUrl": "https://tasteradio.com/",
+   "status": "suspended",
+   "statusReason": "3基準（ログイン不要・有料の壁なし・引用を禁じていない）を満たさないと判断。記録には残し、画面には出さない",
+   "statusChangedAt": "2026-10-09T15:50:20+09:00",
+   "decision": {
+    "decidedAt": "2026-10-09T15:50:20+09:00",
+    "decidedBy": "AI（集める段の自動判断、2026-10-09）",
+    "basis": "ai_judgment",
+    "policyIds": [],
+    "reviewUrls": [],
+    "displayTier": "unconfirmed",
+    "usage": "数字と事実だけを自分の言葉で書き、出典の名前・URL・日付を付ける。文章・画像は写さない（本人の発言は「本人申告」と表示）",
+    "checks": {
+     "loginFree": "yes",
+     "noPaywall": "yes",
+     "quoteTerms": "prohibits",
+     "note": "ログイン不要: 取得記録なし（未確認）。 有料の壁・規約の引用禁止条項: 未確認（確かめたら rights:review で更新する）。 AIの判断(2026-10-09): 依頼本文に提供された記事と公開本文は読めた。2026-10-09に運営元の規約で自動取得やAI利用等の禁止を確認したため追加取得を止め、ここから残した売上は掲載用から除外する。"
+    },
+    "termsUrl": "https://www.bevnet.com/legal-terms/",
+    "termsCheckedAt": null
+   },
+   "ownerWords": [
+    {
+     "at": "2026-10-08T00:00:00+09:00",
+     "text": "お前の方で大丈夫なやつを選んで出すんだよ",
+     "verbatim": true
+    },
+    {
+     "at": "2026-10-08T00:00:00+09:00",
+     "text": "それらも記録してね　権利関係",
+     "verbatim": true
+    },
+    {
+     "at": "2026-10-08T00:00:00+09:00",
+     "text": "あとで誰かに何か言われたら柔軟にできるように",
+     "verbatim": true
+    },
+    {
+     "at": "2026-10-08T00:00:00+09:00",
+     "text": "法的に変わったりしたらとかさ",
+     "verbatim": true
+    },
+    {
+     "at": "2026-10-08T00:00:00+09:00",
+     "text": "今後は絶対にそれも加味して集めるようにして、できるようにして",
+     "verbatim": true
+    }
+   ],
+   "evidence": {
+    "terms": null,
+    "sourcePages": []
+   },
+   "history": [
+    {
+     "at": "2026-10-09T15:50:20+09:00",
+     "by": "add-entity-records(--from-research)",
+     "action": "seed",
+     "reason": "集める段でAIが3基準で判断して記録（基準を満たさず使用停止）"
+    }
+   ]
+  },
   "tbf.fm": {
    "siteName": "tbf.fm",
    "siteUrl": "https://tbf.fm/",
    "status": "active",
    "statusReason": "使用中",
-   "statusChangedAt": "2026-10-08T16:33:11+09:00",
+   "statusChangedAt": "2026-10-09T00:02:36+09:00",
    "decision": {
-    "decidedAt": "2026-10-08T16:33:11+09:00",
-    "decidedBy": "AI（集める段の自動判断、2026-10-08）",
+    "decidedAt": "2026-10-09T00:02:36+09:00",
+    "decidedBy": "AI（集める段の自動判断、2026-10-09）",
     "basis": "ai_judgment",
     "policyIds": [],
     "reviewUrls": [],
@@ -5033,7 +9720,7 @@
      "loginFree": "yes",
      "noPaywall": "yes",
      "quoteTerms": "unconfirmed",
-     "note": "ログイン不要: 取得記録なし（未確認）。 有料の壁・規約の引用禁止条項: 未確認（確かめたら rights:review で更新する）。 AIの判断(2026-10-08): 章ごとの文の取り込み（ログインなしで読めた／有料の壁なし／利用規約は未確認／2026-10-08）"
+     "note": "ログイン不要: 取得記録なし（未確認）。 有料の壁・規約の引用禁止条項: 未確認（確かめたら rights:review で更新する）。 AIの判断(2026-10-09): 章ごとの文の取り込み（ログインなしで読めた／有料の壁なし／利用規約は未確認／2026-10-08）"
     },
     "termsUrl": null,
     "termsCheckedAt": null
@@ -5075,6 +9762,12 @@
      "by": "case-pages 取り込み",
      "action": "seed",
      "reason": "集める段でAIが3基準で判断して記録"
+    },
+    {
+     "at": "2026-10-09T00:02:36+09:00",
+     "by": "case-pages 取り込み",
+     "action": "seed",
+     "reason": "AIの権利判断で更新（active→active。確認: ログイン不要=yes 有料の壁なし=yes 引用=unconfirmed）"
     }
    ]
   },
@@ -5165,6 +9858,75 @@
     }
    ]
   },
+  "tech.eu": {
+   "siteName": "tech.eu",
+   "siteUrl": "https://tech.eu/",
+   "status": "active",
+   "statusReason": "使用中",
+   "statusChangedAt": "2026-10-09T00:02:36+09:00",
+   "decision": {
+    "decidedAt": "2026-10-09T00:02:36+09:00",
+    "decidedBy": "AI（集める段の自動判断、2026-10-09）",
+    "basis": "ai_judgment",
+    "policyIds": [],
+    "reviewUrls": [],
+    "displayTier": "unconfirmed",
+    "usage": "数字と事実だけを自分の言葉で書き、出典の名前・URL・日付を付ける。文章・画像は写さない（本人の発言は「本人申告」と表示）",
+    "checks": {
+     "loginFree": "yes",
+     "noPaywall": "yes",
+     "quoteTerms": "unconfirmed",
+     "note": "ログイン不要: 取得記録なし（未確認）。 有料の壁・規約の引用禁止条項: 未確認（確かめたら rights:review で更新する）。 AIの判断(2026-10-09): 章ごとの文の取り込み（ログインなしで読めた／有料の壁なし／利用規約は未確認／2026-10-08）"
+    },
+    "termsUrl": null,
+    "termsCheckedAt": null
+   },
+   "ownerWords": [
+    {
+     "at": "2026-10-08T00:00:00+09:00",
+     "text": "お前の方で大丈夫なやつを選んで出すんだよ",
+     "verbatim": true
+    },
+    {
+     "at": "2026-10-08T00:00:00+09:00",
+     "text": "それらも記録してね　権利関係",
+     "verbatim": true
+    },
+    {
+     "at": "2026-10-08T00:00:00+09:00",
+     "text": "あとで誰かに何か言われたら柔軟にできるように",
+     "verbatim": true
+    },
+    {
+     "at": "2026-10-08T00:00:00+09:00",
+     "text": "法的に変わったりしたらとかさ",
+     "verbatim": true
+    },
+    {
+     "at": "2026-10-08T00:00:00+09:00",
+     "text": "今後は絶対にそれも加味して集めるようにして、できるようにして",
+     "verbatim": true
+    }
+   ],
+   "evidence": {
+    "terms": null,
+    "sourcePages": []
+   },
+   "history": [
+    {
+     "at": "2026-10-08T17:49:16+09:00",
+     "by": "case-pages 取り込み",
+     "action": "seed",
+     "reason": "集める段でAIが3基準で判断して記録"
+    },
+    {
+     "at": "2026-10-09T00:02:36+09:00",
+     "by": "case-pages 取り込み",
+     "action": "seed",
+     "reason": "AIの権利判断で更新（active→active。確認: ログイン不要=yes 有料の壁なし=yes 引用=unconfirmed）"
+    }
+   ]
+  },
   "techcrunch.com": {
    "siteName": "TechCrunch",
    "siteUrl": "https://techcrunch.com/",
@@ -5245,15 +10007,15 @@
     }
    ]
   },
-  "thebootstrappedfounder.com": {
-   "siteName": "thebootstrappedfounder.com",
-   "siteUrl": "https://thebootstrappedfounder.com/",
+  "techmonitor.ai": {
+   "siteName": "techmonitor.ai",
+   "siteUrl": "https://techmonitor.ai/",
    "status": "active",
    "statusReason": "使用中",
-   "statusChangedAt": "2026-10-08T16:33:11+09:00",
+   "statusChangedAt": "2026-10-09T00:02:36+09:00",
    "decision": {
-    "decidedAt": "2026-10-08T16:33:11+09:00",
-    "decidedBy": "AI（集める段の自動判断、2026-10-08）",
+    "decidedAt": "2026-10-09T00:02:36+09:00",
+    "decidedBy": "AI（集める段の自動判断、2026-10-09）",
     "basis": "ai_judgment",
     "policyIds": [],
     "reviewUrls": [],
@@ -5263,7 +10025,208 @@
      "loginFree": "yes",
      "noPaywall": "yes",
      "quoteTerms": "unconfirmed",
-     "note": "ログイン不要: 取得記録なし（未確認）。 有料の壁・規約の引用禁止条項: 未確認（確かめたら rights:review で更新する）。 AIの判断(2026-10-08): 章ごとの文の取り込み（ログインなしで読めた／有料の壁なし／規約は未確認）"
+     "note": "ログイン不要: 取得記録なし（未確認）。 有料の壁・規約の引用禁止条項: 未確認（確かめたら rights:review で更新する）。 AIの判断(2026-10-09): 章ごとの文の取り込み（ログインなしで読めた／有料の壁なし／利用規約は未確認／2026-10-08）"
+    },
+    "termsUrl": null,
+    "termsCheckedAt": null
+   },
+   "ownerWords": [
+    {
+     "at": "2026-10-08T00:00:00+09:00",
+     "text": "お前の方で大丈夫なやつを選んで出すんだよ",
+     "verbatim": true
+    },
+    {
+     "at": "2026-10-08T00:00:00+09:00",
+     "text": "それらも記録してね　権利関係",
+     "verbatim": true
+    },
+    {
+     "at": "2026-10-08T00:00:00+09:00",
+     "text": "あとで誰かに何か言われたら柔軟にできるように",
+     "verbatim": true
+    },
+    {
+     "at": "2026-10-08T00:00:00+09:00",
+     "text": "法的に変わったりしたらとかさ",
+     "verbatim": true
+    },
+    {
+     "at": "2026-10-08T00:00:00+09:00",
+     "text": "今後は絶対にそれも加味して集めるようにして、できるようにして",
+     "verbatim": true
+    }
+   ],
+   "evidence": {
+    "terms": null,
+    "sourcePages": []
+   },
+   "history": [
+    {
+     "at": "2026-10-08T17:49:16+09:00",
+     "by": "case-pages 取り込み",
+     "action": "seed",
+     "reason": "集める段でAIが3基準で判断して記録"
+    },
+    {
+     "at": "2026-10-09T00:02:36+09:00",
+     "by": "case-pages 取り込み",
+     "action": "seed",
+     "reason": "AIの権利判断で更新（active→active。確認: ログイン不要=yes 有料の壁なし=yes 引用=unconfirmed）"
+    }
+   ]
+  },
+  "techround.co.uk": {
+   "siteName": "TechRound",
+   "siteUrl": "https://techround.co.uk/",
+   "status": "active",
+   "statusReason": "使用中",
+   "statusChangedAt": "2026-10-09T15:55:04+09:00",
+   "decision": {
+    "decidedAt": "2026-10-09T15:55:04+09:00",
+    "decidedBy": "AI（集める段の自動判断、2026-10-09）",
+    "basis": "ai_judgment",
+    "policyIds": [],
+    "reviewUrls": [],
+    "displayTier": "unconfirmed",
+    "usage": "数字と事実だけを自分の言葉で書き、出典の名前・URL・日付を付ける。文章・画像は写さない（本人の発言は「本人申告」と表示）",
+    "checks": {
+     "loginFree": "yes",
+     "noPaywall": "yes",
+     "quoteTerms": "unconfirmed",
+     "note": "ログイン不要: 取得記録なし（未確認）。 有料の壁・規約の引用禁止条項: 未確認（確かめたら rights:review で更新する）。 AIの判断(2026-10-09): 元の記録では、経営交代と収益源を説明する本文を読めたが、引用条件の規約は確認できなかった。今回、提供本文を参照した。"
+    },
+    "termsUrl": null,
+    "termsCheckedAt": null
+   },
+   "ownerWords": [
+    {
+     "at": "2026-10-08T00:00:00+09:00",
+     "text": "お前の方で大丈夫なやつを選んで出すんだよ",
+     "verbatim": true
+    },
+    {
+     "at": "2026-10-08T00:00:00+09:00",
+     "text": "それらも記録してね　権利関係",
+     "verbatim": true
+    },
+    {
+     "at": "2026-10-08T00:00:00+09:00",
+     "text": "あとで誰かに何か言われたら柔軟にできるように",
+     "verbatim": true
+    },
+    {
+     "at": "2026-10-08T00:00:00+09:00",
+     "text": "法的に変わったりしたらとかさ",
+     "verbatim": true
+    },
+    {
+     "at": "2026-10-08T00:00:00+09:00",
+     "text": "今後は絶対にそれも加味して集めるようにして、できるようにして",
+     "verbatim": true
+    }
+   ],
+   "evidence": {
+    "terms": null,
+    "sourcePages": []
+   },
+   "history": [
+    {
+     "at": "2026-10-09T15:50:24+09:00",
+     "by": "add-entity-records(--from-research)",
+     "action": "seed",
+     "reason": "集める段でAIが3基準で判断して記録"
+    },
+    {
+     "at": "2026-10-09T15:55:04+09:00",
+     "by": "add-entity-records(--from-research)",
+     "action": "seed",
+     "reason": "AIの権利判断で更新（active→active。確認: ログイン不要=yes 有料の壁なし=yes 引用=unconfirmed）"
+    }
+   ]
+  },
+  "textileinsights.in": {
+   "siteName": "Textile Insights",
+   "siteUrl": "https://textileinsights.in/",
+   "status": "active",
+   "statusReason": "取り込み時に自動で記録（根拠は未確認）",
+   "statusChangedAt": "2026-10-09T15:55:05+09:00",
+   "decision": {
+    "decidedAt": "2026-10-09T15:55:05+09:00",
+    "decidedBy": "担当(2026-10-09)。根拠は未確認",
+    "basis": "unconfirmed",
+    "policyIds": [],
+    "reviewUrls": [],
+    "displayTier": "unconfirmed",
+    "usage": "数字と事実だけを自分の言葉で書き、出典の名前・URL・日付を付ける。文章・画像は写さない（本人の発言は「本人申告」と表示）",
+    "checks": {
+     "loginFree": "unconfirmed",
+     "noPaywall": "unconfirmed",
+     "quoteTerms": "unconfirmed",
+     "note": "ログイン不要: 取得記録なし（未確認）。 有料の壁・規約の引用禁止条項: 未確認（確かめたら rights:review で更新する）。"
+    },
+    "termsUrl": null,
+    "termsCheckedAt": null
+   },
+   "ownerWords": [
+    {
+     "at": "2026-10-08T00:00:00+09:00",
+     "text": "お前の方で大丈夫なやつを選んで出すんだよ",
+     "verbatim": true
+    },
+    {
+     "at": "2026-10-08T00:00:00+09:00",
+     "text": "それらも記録してね　権利関係",
+     "verbatim": true
+    },
+    {
+     "at": "2026-10-08T00:00:00+09:00",
+     "text": "あとで誰かに何か言われたら柔軟にできるように",
+     "verbatim": true
+    },
+    {
+     "at": "2026-10-08T00:00:00+09:00",
+     "text": "法的に変わったりしたらとかさ",
+     "verbatim": true
+    },
+    {
+     "at": "2026-10-08T00:00:00+09:00",
+     "text": "今後は絶対にそれも加味して集めるようにして、できるようにして",
+     "verbatim": true
+    }
+   ],
+   "evidence": {
+    "terms": null,
+    "sourcePages": []
+   },
+   "history": [
+    {
+     "at": "2026-10-09T15:55:05+09:00",
+     "by": "add-entity-records(--apply)",
+     "action": "seed",
+     "reason": "台帳に新しく記録（根拠は未確認）"
+    }
+   ]
+  },
+  "thebootstrappedfounder.com": {
+   "siteName": "thebootstrappedfounder.com",
+   "siteUrl": "https://thebootstrappedfounder.com/",
+   "status": "active",
+   "statusReason": "使用中",
+   "statusChangedAt": "2026-10-09T00:02:36+09:00",
+   "decision": {
+    "decidedAt": "2026-10-09T00:02:36+09:00",
+    "decidedBy": "AI（集める段の自動判断、2026-10-09）",
+    "basis": "ai_judgment",
+    "policyIds": [],
+    "reviewUrls": [],
+    "displayTier": "unconfirmed",
+    "usage": "数字と事実だけを自分の言葉で書き、出典の名前・URL・日付を付ける。文章・画像は写さない（本人の発言は「本人申告」と表示）",
+    "checks": {
+     "loginFree": "yes",
+     "noPaywall": "yes",
+     "quoteTerms": "unconfirmed",
+     "note": "ログイン不要: 取得記録なし（未確認）。 有料の壁・規約の引用禁止条項: 未確認（確かめたら rights:review で更新する）。 AIの判断(2026-10-09): 章ごとの文の取り込み（ログインなしで読めた／有料の壁なし／規約は未確認）"
     },
     "termsUrl": null,
     "termsCheckedAt": null
@@ -5305,6 +10268,12 @@
      "by": "case-pages 取り込み",
      "action": "seed",
      "reason": "集める段でAIが3基準で判断して記録"
+    },
+    {
+     "at": "2026-10-09T00:02:36+09:00",
+     "by": "case-pages 取り込み",
+     "action": "seed",
+     "reason": "AIの権利判断で更新（active→active。確認: ログイン不要=yes 有料の壁なし=yes 引用=unconfirmed）"
     }
    ]
   },
@@ -5313,10 +10282,10 @@
    "siteUrl": "https://thehistoryoftheweb.com/",
    "status": "active",
    "statusReason": "使用中",
-   "statusChangedAt": "2026-10-08T16:33:11+09:00",
+   "statusChangedAt": "2026-10-09T00:02:36+09:00",
    "decision": {
-    "decidedAt": "2026-10-08T16:33:11+09:00",
-    "decidedBy": "AI（集める段の自動判断、2026-10-08）",
+    "decidedAt": "2026-10-09T00:02:36+09:00",
+    "decidedBy": "AI（集める段の自動判断、2026-10-09）",
     "basis": "ai_judgment",
     "policyIds": [],
     "reviewUrls": [],
@@ -5326,7 +10295,7 @@
      "loginFree": "unconfirmed",
      "noPaywall": "unconfirmed",
      "quoteTerms": "unconfirmed",
-     "note": "ログイン不要: 取得記録なし（未確認）。 有料の壁・規約の引用禁止条項: 未確認（確かめたら rights:review で更新する）。 AIの判断(2026-10-08): 章ごとの文の取り込み（照合役の検索結果で確認。本文は自分では未読／規約は未確認。）"
+     "note": "ログイン不要: 取得記録なし（未確認）。 有料の壁・規約の引用禁止条項: 未確認（確かめたら rights:review で更新する）。 AIの判断(2026-10-09): 章ごとの文の取り込み（照合役の検索結果で確認。本文は自分では未読／規約は未確認。）"
     },
     "termsUrl": null,
     "termsCheckedAt": null
@@ -5368,6 +10337,345 @@
      "by": "case-pages 取り込み",
      "action": "seed",
      "reason": "集める段でAIが3基準で判断して記録"
+    },
+    {
+     "at": "2026-10-09T00:02:36+09:00",
+     "by": "case-pages 取り込み",
+     "action": "seed",
+     "reason": "AIの権利判断で更新（active→active。確認: ログイン不要=unconfirmed 有料の壁なし=unconfirmed 引用=unconfirmed）"
+    }
+   ]
+  },
+  "themarketingsage.com": {
+   "siteName": "The Marketing Sage／Jeff Slater",
+   "siteUrl": "https://themarketingsage.com/",
+   "status": "active",
+   "statusReason": "使用中",
+   "statusChangedAt": "2026-10-09T15:50:20+09:00",
+   "decision": {
+    "decidedAt": "2026-10-09T15:50:20+09:00",
+    "decidedBy": "AI（集める段の自動判断、2026-10-09）",
+    "basis": "ai_judgment",
+    "policyIds": [],
+    "reviewUrls": [],
+    "displayTier": "unconfirmed",
+    "usage": "数字と事実だけを自分の言葉で書き、出典の名前・URL・日付を付ける。文章・画像は写さない（本人の発言は「本人申告」と表示）",
+    "checks": {
+     "loginFree": "yes",
+     "noPaywall": "yes",
+     "quoteTerms": "unconfirmed",
+     "note": "ログイン不要: 取得記録なし（未確認）。 有料の壁・規約の引用禁止条項: 未確認（確かめたら rights:review で更新する）。 AIの判断(2026-10-09): 2026-10-09に本文を無料閲覧できた。プライバシー方針は確認したが、引用条件を定める利用規約は見つからなかった。"
+    },
+    "termsUrl": null,
+    "termsCheckedAt": null
+   },
+   "ownerWords": [
+    {
+     "at": "2026-10-08T00:00:00+09:00",
+     "text": "お前の方で大丈夫なやつを選んで出すんだよ",
+     "verbatim": true
+    },
+    {
+     "at": "2026-10-08T00:00:00+09:00",
+     "text": "それらも記録してね　権利関係",
+     "verbatim": true
+    },
+    {
+     "at": "2026-10-08T00:00:00+09:00",
+     "text": "あとで誰かに何か言われたら柔軟にできるように",
+     "verbatim": true
+    },
+    {
+     "at": "2026-10-08T00:00:00+09:00",
+     "text": "法的に変わったりしたらとかさ",
+     "verbatim": true
+    },
+    {
+     "at": "2026-10-08T00:00:00+09:00",
+     "text": "今後は絶対にそれも加味して集めるようにして、できるようにして",
+     "verbatim": true
+    }
+   ],
+   "evidence": {
+    "terms": null,
+    "sourcePages": []
+   },
+   "history": [
+    {
+     "at": "2026-10-09T15:50:20+09:00",
+     "by": "add-entity-records(--from-research)",
+     "action": "seed",
+     "reason": "集める段でAIが3基準で判断して記録"
+    }
+   ]
+  },
+  "thepitch.show": {
+   "siteName": "The Pitch",
+   "siteUrl": "https://thepitch.show/",
+   "status": "suspended",
+   "statusReason": "3基準（ログイン不要・有料の壁なし・引用を禁じていない）を満たさないと判断。記録には残し、画面には出さない",
+   "statusChangedAt": "2026-10-09T15:50:20+09:00",
+   "decision": {
+    "decidedAt": "2026-10-09T15:50:20+09:00",
+    "decidedBy": "AI（集める段の自動判断、2026-10-09）",
+    "basis": "ai_judgment",
+    "policyIds": [],
+    "reviewUrls": [],
+    "displayTier": "unconfirmed",
+    "usage": "数字と事実だけを自分の言葉で書き、出典の名前・URL・日付を付ける。文章・画像は写さない（本人の発言は「本人申告」と表示）",
+    "checks": {
+     "loginFree": "yes",
+     "noPaywall": "yes",
+     "quoteTerms": "prohibits",
+     "note": "ログイン不要: 取得記録なし（未確認）。 有料の壁・規約の引用禁止条項: 未確認（確かめたら rights:review で更新する）。 AIの判断(2026-10-09): 公開本文は読めた。2026-10-09に複製や商用利用を制限する規約を確認したため追加取得を止め、創業経緯は別の公開インタビューから採った。"
+    },
+    "termsUrl": "https://www.thepitch.show/terms",
+    "termsCheckedAt": null
+   },
+   "ownerWords": [
+    {
+     "at": "2026-10-08T00:00:00+09:00",
+     "text": "お前の方で大丈夫なやつを選んで出すんだよ",
+     "verbatim": true
+    },
+    {
+     "at": "2026-10-08T00:00:00+09:00",
+     "text": "それらも記録してね　権利関係",
+     "verbatim": true
+    },
+    {
+     "at": "2026-10-08T00:00:00+09:00",
+     "text": "あとで誰かに何か言われたら柔軟にできるように",
+     "verbatim": true
+    },
+    {
+     "at": "2026-10-08T00:00:00+09:00",
+     "text": "法的に変わったりしたらとかさ",
+     "verbatim": true
+    },
+    {
+     "at": "2026-10-08T00:00:00+09:00",
+     "text": "今後は絶対にそれも加味して集めるようにして、できるようにして",
+     "verbatim": true
+    }
+   ],
+   "evidence": {
+    "terms": null,
+    "sourcePages": []
+   },
+   "history": [
+    {
+     "at": "2026-10-09T15:50:20+09:00",
+     "by": "add-entity-records(--from-research)",
+     "action": "seed",
+     "reason": "集める段でAIが3基準で判断して記録（基準を満たさず使用停止）"
+    }
+   ]
+  },
+  "thepnr.com": {
+   "siteName": "thepnr.com",
+   "siteUrl": "https://thepnr.com/",
+   "status": "active",
+   "statusReason": "使用中",
+   "statusChangedAt": "2026-10-09T00:02:36+09:00",
+   "decision": {
+    "decidedAt": "2026-10-09T00:02:36+09:00",
+    "decidedBy": "AI（集める段の自動判断、2026-10-09）",
+    "basis": "ai_judgment",
+    "policyIds": [],
+    "reviewUrls": [],
+    "displayTier": "unconfirmed",
+    "usage": "数字と事実だけを自分の言葉で書き、出典の名前・URL・日付を付ける。文章・画像は写さない（本人の発言は「本人申告」と表示）",
+    "checks": {
+     "loginFree": "yes",
+     "noPaywall": "yes",
+     "quoteTerms": "unconfirmed",
+     "note": "ログイン不要: 取得記録なし（未確認）。 有料の壁・規約の引用禁止条項: 未確認（確かめたら rights:review で更新する）。 AIの判断(2026-10-09): 章ごとの文の取り込み（ログインなしで読めた／有料の壁なし／利用規約は未確認／2026-10-08）"
+    },
+    "termsUrl": null,
+    "termsCheckedAt": null
+   },
+   "ownerWords": [
+    {
+     "at": "2026-10-08T00:00:00+09:00",
+     "text": "お前の方で大丈夫なやつを選んで出すんだよ",
+     "verbatim": true
+    },
+    {
+     "at": "2026-10-08T00:00:00+09:00",
+     "text": "それらも記録してね　権利関係",
+     "verbatim": true
+    },
+    {
+     "at": "2026-10-08T00:00:00+09:00",
+     "text": "あとで誰かに何か言われたら柔軟にできるように",
+     "verbatim": true
+    },
+    {
+     "at": "2026-10-08T00:00:00+09:00",
+     "text": "法的に変わったりしたらとかさ",
+     "verbatim": true
+    },
+    {
+     "at": "2026-10-08T00:00:00+09:00",
+     "text": "今後は絶対にそれも加味して集めるようにして、できるようにして",
+     "verbatim": true
+    }
+   ],
+   "evidence": {
+    "terms": null,
+    "sourcePages": []
+   },
+   "history": [
+    {
+     "at": "2026-10-08T17:49:16+09:00",
+     "by": "case-pages 取り込み",
+     "action": "seed",
+     "reason": "集める段でAIが3基準で判断して記録"
+    },
+    {
+     "at": "2026-10-09T00:02:36+09:00",
+     "by": "case-pages 取り込み",
+     "action": "seed",
+     "reason": "AIの権利判断で更新（active→active。確認: ログイン不要=yes 有料の壁なし=yes 引用=unconfirmed）"
+    }
+   ]
+  },
+  "theygotacquired.com": {
+   "siteName": "theygotacquired.com",
+   "siteUrl": "https://theygotacquired.com/",
+   "status": "active",
+   "statusReason": "使用中",
+   "statusChangedAt": "2026-10-09T00:02:36+09:00",
+   "decision": {
+    "decidedAt": "2026-10-09T00:02:36+09:00",
+    "decidedBy": "AI（集める段の自動判断、2026-10-09）",
+    "basis": "ai_judgment",
+    "policyIds": [],
+    "reviewUrls": [],
+    "displayTier": "unconfirmed",
+    "usage": "数字と事実だけを自分の言葉で書き、出典の名前・URL・日付を付ける。文章・画像は写さない（本人の発言は「本人申告」と表示）",
+    "checks": {
+     "loginFree": "yes",
+     "noPaywall": "yes",
+     "quoteTerms": "unconfirmed",
+     "note": "ログイン不要: 取得記録なし（未確認）。 有料の壁・規約の引用禁止条項: 未確認（確かめたら rights:review で更新する）。 AIの判断(2026-10-09): 章ごとの文の取り込み（ログインなしで読めた／有料の壁なし／利用規約は未確認／2026-10-08）"
+    },
+    "termsUrl": null,
+    "termsCheckedAt": null
+   },
+   "ownerWords": [
+    {
+     "at": "2026-10-08T00:00:00+09:00",
+     "text": "お前の方で大丈夫なやつを選んで出すんだよ",
+     "verbatim": true
+    },
+    {
+     "at": "2026-10-08T00:00:00+09:00",
+     "text": "それらも記録してね　権利関係",
+     "verbatim": true
+    },
+    {
+     "at": "2026-10-08T00:00:00+09:00",
+     "text": "あとで誰かに何か言われたら柔軟にできるように",
+     "verbatim": true
+    },
+    {
+     "at": "2026-10-08T00:00:00+09:00",
+     "text": "法的に変わったりしたらとかさ",
+     "verbatim": true
+    },
+    {
+     "at": "2026-10-08T00:00:00+09:00",
+     "text": "今後は絶対にそれも加味して集めるようにして、できるようにして",
+     "verbatim": true
+    }
+   ],
+   "evidence": {
+    "terms": null,
+    "sourcePages": []
+   },
+   "history": [
+    {
+     "at": "2026-10-08T17:49:16+09:00",
+     "by": "case-pages 取り込み",
+     "action": "seed",
+     "reason": "集める段でAIが3基準で判断して記録"
+    },
+    {
+     "at": "2026-10-09T00:02:36+09:00",
+     "by": "case-pages 取り込み",
+     "action": "seed",
+     "reason": "AIの権利判断で更新（active→active。確認: ログイン不要=yes 有料の壁なし=yes 引用=unconfirmed）"
+    }
+   ]
+  },
+  "tighten.com": {
+   "siteName": "tighten.com",
+   "siteUrl": "https://tighten.com/",
+   "status": "active",
+   "statusReason": "使用中",
+   "statusChangedAt": "2026-10-09T00:02:36+09:00",
+   "decision": {
+    "decidedAt": "2026-10-09T00:02:36+09:00",
+    "decidedBy": "AI（集める段の自動判断、2026-10-09）",
+    "basis": "ai_judgment",
+    "policyIds": [],
+    "reviewUrls": [],
+    "displayTier": "unconfirmed",
+    "usage": "数字と事実だけを自分の言葉で書き、出典の名前・URL・日付を付ける。文章・画像は写さない（本人の発言は「本人申告」と表示）",
+    "checks": {
+     "loginFree": "yes",
+     "noPaywall": "yes",
+     "quoteTerms": "unconfirmed",
+     "note": "ログイン不要: 取得記録なし（未確認）。 有料の壁・規約の引用禁止条項: 未確認（確かめたら rights:review で更新する）。 AIの判断(2026-10-09): 章ごとの文の取り込み（ログインなしで読めた／有料の壁なし／利用規約は未確認／2026-10-08）"
+    },
+    "termsUrl": null,
+    "termsCheckedAt": null
+   },
+   "ownerWords": [
+    {
+     "at": "2026-10-08T00:00:00+09:00",
+     "text": "お前の方で大丈夫なやつを選んで出すんだよ",
+     "verbatim": true
+    },
+    {
+     "at": "2026-10-08T00:00:00+09:00",
+     "text": "それらも記録してね　権利関係",
+     "verbatim": true
+    },
+    {
+     "at": "2026-10-08T00:00:00+09:00",
+     "text": "あとで誰かに何か言われたら柔軟にできるように",
+     "verbatim": true
+    },
+    {
+     "at": "2026-10-08T00:00:00+09:00",
+     "text": "法的に変わったりしたらとかさ",
+     "verbatim": true
+    },
+    {
+     "at": "2026-10-08T00:00:00+09:00",
+     "text": "今後は絶対にそれも加味して集めるようにして、できるようにして",
+     "verbatim": true
+    }
+   ],
+   "evidence": {
+    "terms": null,
+    "sourcePages": []
+   },
+   "history": [
+    {
+     "at": "2026-10-08T17:49:16+09:00",
+     "by": "case-pages 取り込み",
+     "action": "seed",
+     "reason": "集める段でAIが3基準で判断して記録"
+    },
+    {
+     "at": "2026-10-09T00:02:36+09:00",
+     "by": "case-pages 取り込み",
+     "action": "seed",
+     "reason": "AIの権利判断で更新（active→active。確認: ログイン不要=yes 有料の壁なし=yes 引用=unconfirmed）"
     }
    ]
   },
@@ -5376,10 +10684,10 @@
    "siteUrl": "https://tooldirectory.ai/",
    "status": "active",
    "statusReason": "使用中",
-   "statusChangedAt": "2026-10-08T16:33:11+09:00",
+   "statusChangedAt": "2026-10-09T00:02:36+09:00",
    "decision": {
-    "decidedAt": "2026-10-08T16:33:11+09:00",
-    "decidedBy": "AI（集める段の自動判断、2026-10-08）",
+    "decidedAt": "2026-10-09T00:02:36+09:00",
+    "decidedBy": "AI（集める段の自動判断、2026-10-09）",
     "basis": "ai_judgment",
     "policyIds": [],
     "reviewUrls": [],
@@ -5389,7 +10697,7 @@
      "loginFree": "yes",
      "noPaywall": "yes",
      "quoteTerms": "unconfirmed",
-     "note": "ログイン不要: 取得記録なし（未確認）。 有料の壁・規約の引用禁止条項: 未確認（確かめたら rights:review で更新する）。 AIの判断(2026-10-08): 章ごとの文の取り込み（ログインなしで読めた／有料の壁なし／利用規約は未確認／2026-10-08）"
+     "note": "ログイン不要: 取得記録なし（未確認）。 有料の壁・規約の引用禁止条項: 未確認（確かめたら rights:review で更新する）。 AIの判断(2026-10-09): 章ごとの文の取り込み（ログインなしで読めた／有料の壁なし／利用規約は未確認／2026-10-08）"
     },
     "termsUrl": null,
     "termsCheckedAt": null
@@ -5431,6 +10739,12 @@
      "by": "case-pages 取り込み",
      "action": "seed",
      "reason": "集める段でAIが3基準で判断して記録"
+    },
+    {
+     "at": "2026-10-09T00:02:36+09:00",
+     "by": "case-pages 取り込み",
+     "action": "seed",
+     "reason": "AIの権利判断で更新（active→active。確認: ログイン不要=yes 有料の壁なし=yes 引用=unconfirmed）"
     }
    ]
   },
@@ -5439,10 +10753,10 @@
    "siteUrl": "https://trustmrr.com/",
    "status": "active",
    "statusReason": "使用中",
-   "statusChangedAt": "2026-10-08T16:33:11+09:00",
+   "statusChangedAt": "2026-10-09T00:02:36+09:00",
    "decision": {
-    "decidedAt": "2026-10-08T16:33:11+09:00",
-    "decidedBy": "AI（集める段の自動判断、2026-10-08）",
+    "decidedAt": "2026-10-09T00:02:36+09:00",
+    "decidedBy": "AI（集める段の自動判断、2026-10-09）",
     "basis": "ai_judgment",
     "policyIds": [],
     "reviewUrls": [],
@@ -5452,7 +10766,7 @@
      "loginFree": "yes",
      "noPaywall": "yes",
      "quoteTerms": "unconfirmed",
-     "note": "ログイン不要: 取得記録なし（未確認）。 有料の壁・規約の引用禁止条項: 未確認（確かめたら rights:review で更新する）。 AIの判断(2026-10-08): 章ごとの文の取り込み（ログインなしで読めた／有料の壁なし／利用規約は未確認／2026-10-08）"
+     "note": "ログイン不要: 取得記録なし（未確認）。 有料の壁・規約の引用禁止条項: 未確認（確かめたら rights:review で更新する）。 AIの判断(2026-10-09): 章ごとの文の取り込み（ログインなしで読めた／有料の壁なし／利用規約は未確認／2026-10-08）"
     },
     "termsUrl": null,
     "termsCheckedAt": null
@@ -5494,6 +10808,12 @@
      "by": "case-pages 取り込み",
      "action": "seed",
      "reason": "集める段でAIが3基準で判断して記録"
+    },
+    {
+     "at": "2026-10-09T00:02:36+09:00",
+     "by": "case-pages 取り込み",
+     "action": "seed",
+     "reason": "AIの権利判断で更新（active→active。確認: ログイン不要=yes 有料の壁なし=yes 引用=unconfirmed）"
     }
    ]
   },
@@ -5762,6 +11082,144 @@
     }
    ]
   },
+  "typefully.com": {
+   "siteName": "typefully.com",
+   "siteUrl": "https://typefully.com/",
+   "status": "active",
+   "statusReason": "使用中",
+   "statusChangedAt": "2026-10-09T00:02:36+09:00",
+   "decision": {
+    "decidedAt": "2026-10-09T00:02:36+09:00",
+    "decidedBy": "AI（集める段の自動判断、2026-10-09）",
+    "basis": "ai_judgment",
+    "policyIds": [],
+    "reviewUrls": [],
+    "displayTier": "unconfirmed",
+    "usage": "数字と事実だけを自分の言葉で書き、出典の名前・URL・日付を付ける。文章・画像は写さない（本人の発言は「本人申告」と表示）",
+    "checks": {
+     "loginFree": "unconfirmed",
+     "noPaywall": "unconfirmed",
+     "quoteTerms": "unconfirmed",
+     "note": "ログイン不要: 取得記録なし（未確認）。 有料の壁・規約の引用禁止条項: 未確認（確かめたら rights:review で更新する）。 AIの判断(2026-10-09): 章ごとの文の取り込み（検索結果の題のみ（本文は未取得）／未確認／未確認／2026-10-08）"
+    },
+    "termsUrl": null,
+    "termsCheckedAt": null
+   },
+   "ownerWords": [
+    {
+     "at": "2026-10-08T00:00:00+09:00",
+     "text": "お前の方で大丈夫なやつを選んで出すんだよ",
+     "verbatim": true
+    },
+    {
+     "at": "2026-10-08T00:00:00+09:00",
+     "text": "それらも記録してね　権利関係",
+     "verbatim": true
+    },
+    {
+     "at": "2026-10-08T00:00:00+09:00",
+     "text": "あとで誰かに何か言われたら柔軟にできるように",
+     "verbatim": true
+    },
+    {
+     "at": "2026-10-08T00:00:00+09:00",
+     "text": "法的に変わったりしたらとかさ",
+     "verbatim": true
+    },
+    {
+     "at": "2026-10-08T00:00:00+09:00",
+     "text": "今後は絶対にそれも加味して集めるようにして、できるようにして",
+     "verbatim": true
+    }
+   ],
+   "evidence": {
+    "terms": null,
+    "sourcePages": []
+   },
+   "history": [
+    {
+     "at": "2026-10-08T17:49:16+09:00",
+     "by": "case-pages 取り込み",
+     "action": "seed",
+     "reason": "集める段でAIが3基準で判断して記録"
+    },
+    {
+     "at": "2026-10-09T00:02:36+09:00",
+     "by": "case-pages 取り込み",
+     "action": "seed",
+     "reason": "AIの権利判断で更新（active→active。確認: ログイン不要=unconfirmed 有料の壁なし=unconfirmed 引用=unconfirmed）"
+    }
+   ]
+  },
+  "upstartsmedia.com": {
+   "siteName": "upstartsmedia.com",
+   "siteUrl": "https://upstartsmedia.com/",
+   "status": "active",
+   "statusReason": "使用中",
+   "statusChangedAt": "2026-10-09T00:02:36+09:00",
+   "decision": {
+    "decidedAt": "2026-10-09T00:02:36+09:00",
+    "decidedBy": "AI（集める段の自動判断、2026-10-09）",
+    "basis": "ai_judgment",
+    "policyIds": [],
+    "reviewUrls": [],
+    "displayTier": "unconfirmed",
+    "usage": "数字と事実だけを自分の言葉で書き、出典の名前・URL・日付を付ける。文章・画像は写さない（本人の発言は「本人申告」と表示）",
+    "checks": {
+     "loginFree": "yes",
+     "noPaywall": "yes",
+     "quoteTerms": "unconfirmed",
+     "note": "ログイン不要: 取得記録なし（未確認）。 有料の壁・規約の引用禁止条項: 未確認（確かめたら rights:review で更新する）。 AIの判断(2026-10-09): 章ごとの文の取り込み（ログインなしで読めた／有料の壁なし／利用規約は未確認／2026-10-08）"
+    },
+    "termsUrl": null,
+    "termsCheckedAt": null
+   },
+   "ownerWords": [
+    {
+     "at": "2026-10-08T00:00:00+09:00",
+     "text": "お前の方で大丈夫なやつを選んで出すんだよ",
+     "verbatim": true
+    },
+    {
+     "at": "2026-10-08T00:00:00+09:00",
+     "text": "それらも記録してね　権利関係",
+     "verbatim": true
+    },
+    {
+     "at": "2026-10-08T00:00:00+09:00",
+     "text": "あとで誰かに何か言われたら柔軟にできるように",
+     "verbatim": true
+    },
+    {
+     "at": "2026-10-08T00:00:00+09:00",
+     "text": "法的に変わったりしたらとかさ",
+     "verbatim": true
+    },
+    {
+     "at": "2026-10-08T00:00:00+09:00",
+     "text": "今後は絶対にそれも加味して集めるようにして、できるようにして",
+     "verbatim": true
+    }
+   ],
+   "evidence": {
+    "terms": null,
+    "sourcePages": []
+   },
+   "history": [
+    {
+     "at": "2026-10-08T17:49:16+09:00",
+     "by": "case-pages 取り込み",
+     "action": "seed",
+     "reason": "集める段でAIが3基準で判断して記録"
+    },
+    {
+     "at": "2026-10-09T00:02:36+09:00",
+     "by": "case-pages 取り込み",
+     "action": "seed",
+     "reason": "AIの権利判断で更新（active→active。確認: ログイン不要=yes 有料の壁なし=yes 引用=unconfirmed）"
+    }
+   ]
+  },
   "userlist.com": {
    "siteName": "Userlist（公式紹介）",
    "siteUrl": "https://userlist.com/",
@@ -5919,6 +11377,347 @@
     }
    ]
   },
+  "vacation.inc": {
+   "siteName": "vacation.inc",
+   "siteUrl": "https://vacation.inc/",
+   "status": "active",
+   "statusReason": "使用中",
+   "statusChangedAt": "2026-10-09T00:02:36+09:00",
+   "decision": {
+    "decidedAt": "2026-10-09T00:02:36+09:00",
+    "decidedBy": "AI（集める段の自動判断、2026-10-09）",
+    "basis": "ai_judgment",
+    "policyIds": [],
+    "reviewUrls": [],
+    "displayTier": "unconfirmed",
+    "usage": "数字と事実だけを自分の言葉で書き、出典の名前・URL・日付を付ける。文章・画像は写さない（本人の発言は「本人申告」と表示）",
+    "checks": {
+     "loginFree": "yes",
+     "noPaywall": "yes",
+     "quoteTerms": "unconfirmed",
+     "note": "ログイン不要: 取得記録なし（未確認）。 有料の壁・規約の引用禁止条項: 未確認（確かめたら rights:review で更新する）。 AIの判断(2026-10-09): 章ごとの文の取り込み（ログインなしで読めた／有料の壁なし／利用規約は未確認／2026-10-08）"
+    },
+    "termsUrl": null,
+    "termsCheckedAt": null
+   },
+   "ownerWords": [
+    {
+     "at": "2026-10-08T00:00:00+09:00",
+     "text": "お前の方で大丈夫なやつを選んで出すんだよ",
+     "verbatim": true
+    },
+    {
+     "at": "2026-10-08T00:00:00+09:00",
+     "text": "それらも記録してね　権利関係",
+     "verbatim": true
+    },
+    {
+     "at": "2026-10-08T00:00:00+09:00",
+     "text": "あとで誰かに何か言われたら柔軟にできるように",
+     "verbatim": true
+    },
+    {
+     "at": "2026-10-08T00:00:00+09:00",
+     "text": "法的に変わったりしたらとかさ",
+     "verbatim": true
+    },
+    {
+     "at": "2026-10-08T00:00:00+09:00",
+     "text": "今後は絶対にそれも加味して集めるようにして、できるようにして",
+     "verbatim": true
+    }
+   ],
+   "evidence": {
+    "terms": null,
+    "sourcePages": []
+   },
+   "history": [
+    {
+     "at": "2026-10-08T17:49:16+09:00",
+     "by": "case-pages 取り込み",
+     "action": "seed",
+     "reason": "集める段でAIが3基準で判断して記録"
+    },
+    {
+     "at": "2026-10-09T00:02:36+09:00",
+     "by": "case-pages 取り込み",
+     "action": "seed",
+     "reason": "AIの権利判断で更新（active→active。確認: ログイン不要=yes 有料の壁なし=yes 引用=unconfirmed）"
+    }
+   ]
+  },
+  "venturebeat.com": {
+   "siteName": "venturebeat.com",
+   "siteUrl": "https://venturebeat.com/",
+   "status": "active",
+   "statusReason": "使用中",
+   "statusChangedAt": "2026-10-09T00:02:36+09:00",
+   "decision": {
+    "decidedAt": "2026-10-09T00:02:36+09:00",
+    "decidedBy": "AI（集める段の自動判断、2026-10-09）",
+    "basis": "ai_judgment",
+    "policyIds": [],
+    "reviewUrls": [],
+    "displayTier": "unconfirmed",
+    "usage": "数字と事実だけを自分の言葉で書き、出典の名前・URL・日付を付ける。文章・画像は写さない（本人の発言は「本人申告」と表示）",
+    "checks": {
+     "loginFree": "unconfirmed",
+     "noPaywall": "unconfirmed",
+     "quoteTerms": "unconfirmed",
+     "note": "ログイン不要: 取得記録なし（未確認）。 有料の壁・規約の引用禁止条項: 未確認（確かめたら rights:review で更新する）。 AIの判断(2026-10-09): 章ごとの文の取り込み（ログインなしで読めた／有料の壁なし／利用規約は未確認／2026-10-08） / 章ごとの文の取り込み（検索結果で確認／本文は未読／利用規約は未確認／2026-10-08）"
+    },
+    "termsUrl": null,
+    "termsCheckedAt": null
+   },
+   "ownerWords": [
+    {
+     "at": "2026-10-08T00:00:00+09:00",
+     "text": "お前の方で大丈夫なやつを選んで出すんだよ",
+     "verbatim": true
+    },
+    {
+     "at": "2026-10-08T00:00:00+09:00",
+     "text": "それらも記録してね　権利関係",
+     "verbatim": true
+    },
+    {
+     "at": "2026-10-08T00:00:00+09:00",
+     "text": "あとで誰かに何か言われたら柔軟にできるように",
+     "verbatim": true
+    },
+    {
+     "at": "2026-10-08T00:00:00+09:00",
+     "text": "法的に変わったりしたらとかさ",
+     "verbatim": true
+    },
+    {
+     "at": "2026-10-08T00:00:00+09:00",
+     "text": "今後は絶対にそれも加味して集めるようにして、できるようにして",
+     "verbatim": true
+    }
+   ],
+   "evidence": {
+    "terms": null,
+    "sourcePages": []
+   },
+   "history": [
+    {
+     "at": "2026-10-08T17:49:16+09:00",
+     "by": "case-pages 取り込み",
+     "action": "seed",
+     "reason": "集める段でAIが3基準で判断して記録"
+    },
+    {
+     "at": "2026-10-09T00:02:36+09:00",
+     "by": "case-pages 取り込み",
+     "action": "seed",
+     "reason": "AIの権利判断で更新（active→active。確認: ログイン不要=unconfirmed 有料の壁なし=unconfirmed 引用=unconfirmed）"
+    }
+   ]
+  },
+  "videohighlight.com": {
+   "siteName": "videohighlight.com",
+   "siteUrl": "https://videohighlight.com/",
+   "status": "active",
+   "statusReason": "使用中",
+   "statusChangedAt": "2026-10-09T00:02:36+09:00",
+   "decision": {
+    "decidedAt": "2026-10-09T00:02:36+09:00",
+    "decidedBy": "AI（集める段の自動判断、2026-10-09）",
+    "basis": "ai_judgment",
+    "policyIds": [],
+    "reviewUrls": [],
+    "displayTier": "unconfirmed",
+    "usage": "数字と事実だけを自分の言葉で書き、出典の名前・URL・日付を付ける。文章・画像は写さない（本人の発言は「本人申告」と表示）",
+    "checks": {
+     "loginFree": "yes",
+     "noPaywall": "yes",
+     "quoteTerms": "unconfirmed",
+     "note": "ログイン不要: 取得記録なし（未確認）。 有料の壁・規約の引用禁止条項: 未確認（確かめたら rights:review で更新する）。 AIの判断(2026-10-09): 章ごとの文の取り込み（ログインなしで読めた／有料の壁なし／利用規約は未確認／2026-10-08）"
+    },
+    "termsUrl": null,
+    "termsCheckedAt": null
+   },
+   "ownerWords": [
+    {
+     "at": "2026-10-08T00:00:00+09:00",
+     "text": "お前の方で大丈夫なやつを選んで出すんだよ",
+     "verbatim": true
+    },
+    {
+     "at": "2026-10-08T00:00:00+09:00",
+     "text": "それらも記録してね　権利関係",
+     "verbatim": true
+    },
+    {
+     "at": "2026-10-08T00:00:00+09:00",
+     "text": "あとで誰かに何か言われたら柔軟にできるように",
+     "verbatim": true
+    },
+    {
+     "at": "2026-10-08T00:00:00+09:00",
+     "text": "法的に変わったりしたらとかさ",
+     "verbatim": true
+    },
+    {
+     "at": "2026-10-08T00:00:00+09:00",
+     "text": "今後は絶対にそれも加味して集めるようにして、できるようにして",
+     "verbatim": true
+    }
+   ],
+   "evidence": {
+    "terms": null,
+    "sourcePages": []
+   },
+   "history": [
+    {
+     "at": "2026-10-08T17:49:16+09:00",
+     "by": "case-pages 取り込み",
+     "action": "seed",
+     "reason": "集める段でAIが3基準で判断して記録"
+    },
+    {
+     "at": "2026-10-09T00:02:36+09:00",
+     "by": "case-pages 取り込み",
+     "action": "seed",
+     "reason": "AIの権利判断で更新（active→active。確認: ログイン不要=yes 有料の壁なし=yes 引用=unconfirmed）"
+    }
+   ]
+  },
+  "web.archive.org": {
+   "siteName": "web.archive.org（indiehackers.com の保存版）",
+   "siteUrl": "https://web.archive.org/",
+   "status": "active",
+   "statusReason": "使用中",
+   "statusChangedAt": "2026-10-09T00:02:36+09:00",
+   "decision": {
+    "decidedAt": "2026-10-09T00:02:36+09:00",
+    "decidedBy": "AI（集める段の自動判断、2026-10-09）",
+    "basis": "ai_judgment",
+    "policyIds": [],
+    "reviewUrls": [],
+    "displayTier": "unconfirmed",
+    "usage": "数字と事実だけを自分の言葉で書き、出典の名前・URL・日付を付ける。文章・画像は写さない（本人の発言は「本人申告」と表示）",
+    "checks": {
+     "loginFree": "yes",
+     "noPaywall": "yes",
+     "quoteTerms": "unconfirmed",
+     "note": "ログイン不要: 取得記録なし（未確認）。 有料の壁・規約の引用禁止条項: 未確認（確かめたら rights:review で更新する）。 AIの判断(2026-10-09): 章ごとの文の取り込み（ログインなしで読めた／有料の壁なし／利用規約は未確認／2026-10-08）"
+    },
+    "termsUrl": null,
+    "termsCheckedAt": null
+   },
+   "ownerWords": [
+    {
+     "at": "2026-10-08T00:00:00+09:00",
+     "text": "お前の方で大丈夫なやつを選んで出すんだよ",
+     "verbatim": true
+    },
+    {
+     "at": "2026-10-08T00:00:00+09:00",
+     "text": "それらも記録してね　権利関係",
+     "verbatim": true
+    },
+    {
+     "at": "2026-10-08T00:00:00+09:00",
+     "text": "あとで誰かに何か言われたら柔軟にできるように",
+     "verbatim": true
+    },
+    {
+     "at": "2026-10-08T00:00:00+09:00",
+     "text": "法的に変わったりしたらとかさ",
+     "verbatim": true
+    },
+    {
+     "at": "2026-10-08T00:00:00+09:00",
+     "text": "今後は絶対にそれも加味して集めるようにして、できるようにして",
+     "verbatim": true
+    }
+   ],
+   "evidence": {
+    "terms": null,
+    "sourcePages": []
+   },
+   "history": [
+    {
+     "at": "2026-10-08T17:51:40+09:00",
+     "by": "case-pages 取り込み",
+     "action": "seed",
+     "reason": "集める段でAIが3基準で判断して記録"
+    },
+    {
+     "at": "2026-10-09T00:02:36+09:00",
+     "by": "case-pages 取り込み",
+     "action": "seed",
+     "reason": "AIの権利判断で更新（active→active。確認: ログイン不要=yes 有料の壁なし=yes 引用=unconfirmed）"
+    }
+   ]
+  },
+  "wildgrain.com": {
+   "siteName": "Wildgrain",
+   "siteUrl": "https://wildgrain.com/",
+   "status": "active",
+   "statusReason": "使用中",
+   "statusChangedAt": "2026-10-09T15:50:20+09:00",
+   "decision": {
+    "decidedAt": "2026-09-29T09:00:00+09:00",
+    "decidedBy": "標準の権利規則（Universal Foundation の審査）／台帳への記録は担当(2026-10-09)",
+    "basis": "registry",
+    "policyIds": [
+     "rights.official-company-website.v1"
+    ],
+    "reviewUrls": [],
+    "displayTier": "automatic",
+    "usage": "数字と事実だけを自分の言葉で書き、出典の名前・URL・日付を付ける。文章・画像は写さない（本人の発言は「本人申告」と表示）",
+    "checks": {
+     "loginFree": "unconfirmed",
+     "noPaywall": "unconfirmed",
+     "quoteTerms": "unconfirmed",
+     "note": "ログイン不要: 取得記録なし（未確認）。 有料の壁・規約の引用禁止条項: 未確認（確かめたら rights:review で更新する）。 標準の規則: rights.official-company-website.v1"
+    },
+    "termsUrl": null,
+    "termsCheckedAt": null
+   },
+   "ownerWords": [
+    {
+     "at": "2026-10-08T00:00:00+09:00",
+     "text": "お前の方で大丈夫なやつを選んで出すんだよ",
+     "verbatim": true
+    },
+    {
+     "at": "2026-10-08T00:00:00+09:00",
+     "text": "それらも記録してね　権利関係",
+     "verbatim": true
+    },
+    {
+     "at": "2026-10-08T00:00:00+09:00",
+     "text": "あとで誰かに何か言われたら柔軟にできるように",
+     "verbatim": true
+    },
+    {
+     "at": "2026-10-08T00:00:00+09:00",
+     "text": "法的に変わったりしたらとかさ",
+     "verbatim": true
+    },
+    {
+     "at": "2026-10-08T00:00:00+09:00",
+     "text": "今後は絶対にそれも加味して集めるようにして、できるようにして",
+     "verbatim": true
+    }
+   ],
+   "evidence": {
+    "terms": null,
+    "sourcePages": []
+   },
+   "history": [
+    {
+     "at": "2026-10-09T15:50:20+09:00",
+     "by": "add-entity-records(--from-research)",
+     "action": "seed",
+     "reason": "既存の権利判断から台帳に記録"
+    }
+   ]
+  },
   "wip.co": {
    "siteName": "WIP公式トップページ",
    "siteUrl": "https://wip.co/",
@@ -6048,15 +11847,80 @@
     }
    ]
   },
-  "yespress.io": {
-   "siteName": "YesPress",
-   "siteUrl": "https://yespress.io/",
+  "x.com": {
+   "siteName": "x.com/adamwathan/status/1289702466754211842",
+   "siteUrl": "https://x.com/",
    "status": "active",
    "statusReason": "使用中",
-   "statusChangedAt": "2026-10-08T16:33:11+09:00",
+   "statusChangedAt": "2026-10-08T17:49:16+09:00",
    "decision": {
-    "decidedAt": "2026-10-08T16:33:11+09:00",
-    "decidedBy": "AI（集める段の自動判断、2026-10-08）",
+    "decidedAt": "2026-09-29T09:00:00+09:00",
+    "decidedBy": "標準の権利規則（Universal Foundation の審査）／台帳への記録は担当(2026-10-08)",
+    "basis": "registry",
+    "policyIds": [
+     "rights.x-twitter.v1"
+    ],
+    "reviewUrls": [],
+    "displayTier": "facts_only",
+    "usage": "数字と事実だけを自分の言葉で書き、出典の名前・URL・日付を付ける。文章・画像は写さない（本人の発言は「本人申告」と表示）",
+    "checks": {
+     "loginFree": "unconfirmed",
+     "noPaywall": "unconfirmed",
+     "quoteTerms": "unconfirmed",
+     "note": "ログイン不要: 取得記録なし（未確認）。 有料の壁・規約の引用禁止条項: 未確認（確かめたら rights:review で更新する）。 AIの判断(2026-10-08): 章ごとの文の取り込み（検索結果の要約のみ確認（ページ本体は402で未読）／未確認／未確認／2026-10-08） 標準の規則: rights.x-twitter.v1"
+    },
+    "termsUrl": null,
+    "termsCheckedAt": null
+   },
+   "ownerWords": [
+    {
+     "at": "2026-10-08T00:00:00+09:00",
+     "text": "お前の方で大丈夫なやつを選んで出すんだよ",
+     "verbatim": true
+    },
+    {
+     "at": "2026-10-08T00:00:00+09:00",
+     "text": "それらも記録してね　権利関係",
+     "verbatim": true
+    },
+    {
+     "at": "2026-10-08T00:00:00+09:00",
+     "text": "あとで誰かに何か言われたら柔軟にできるように",
+     "verbatim": true
+    },
+    {
+     "at": "2026-10-08T00:00:00+09:00",
+     "text": "法的に変わったりしたらとかさ",
+     "verbatim": true
+    },
+    {
+     "at": "2026-10-08T00:00:00+09:00",
+     "text": "今後は絶対にそれも加味して集めるようにして、できるようにして",
+     "verbatim": true
+    }
+   ],
+   "evidence": {
+    "terms": null,
+    "sourcePages": []
+   },
+   "history": [
+    {
+     "at": "2026-10-08T17:49:16+09:00",
+     "by": "case-pages 取り込み",
+     "action": "seed",
+     "reason": "既存の権利判断から台帳に記録"
+    }
+   ]
+  },
+  "ycombinator.com": {
+   "siteName": "ycombinator.com",
+   "siteUrl": "https://ycombinator.com/",
+   "status": "active",
+   "statusReason": "使用中",
+   "statusChangedAt": "2026-10-09T00:02:36+09:00",
+   "decision": {
+    "decidedAt": "2026-10-09T00:02:36+09:00",
+    "decidedBy": "AI（集める段の自動判断、2026-10-09）",
     "basis": "ai_judgment",
     "policyIds": [],
     "reviewUrls": [],
@@ -6066,7 +11930,82 @@
      "loginFree": "yes",
      "noPaywall": "yes",
      "quoteTerms": "unconfirmed",
-     "note": "ログイン不要: 取得記録なし（未確認）。 有料の壁・規約の引用禁止条項: 未確認（確かめたら rights:review で更新する）。 AIの判断(2026-10-08): 章ごとの文の取り込み（ログインなしで読めた／有料の壁なし／利用規約は未確認／2026-10-08）"
+     "note": "ログイン不要: 取得記録なし（未確認）。 有料の壁・規約の引用禁止条項: 未確認（確かめたら rights:review で更新する）。 AIの判断(2026-10-09): 章ごとの文の取り込み（ログインなしで読めた／有料の壁なし／利用規約は未確認／2026-10-08）"
+    },
+    "termsUrl": null,
+    "termsCheckedAt": null
+   },
+   "ownerWords": [
+    {
+     "at": "2026-10-08T00:00:00+09:00",
+     "text": "お前の方で大丈夫なやつを選んで出すんだよ",
+     "verbatim": true
+    },
+    {
+     "at": "2026-10-08T00:00:00+09:00",
+     "text": "それらも記録してね　権利関係",
+     "verbatim": true
+    },
+    {
+     "at": "2026-10-08T00:00:00+09:00",
+     "text": "あとで誰かに何か言われたら柔軟にできるように",
+     "verbatim": true
+    },
+    {
+     "at": "2026-10-08T00:00:00+09:00",
+     "text": "法的に変わったりしたらとかさ",
+     "verbatim": true
+    },
+    {
+     "at": "2026-10-08T00:00:00+09:00",
+     "text": "今後は絶対にそれも加味して集めるようにして、できるようにして",
+     "verbatim": true
+    }
+   ],
+   "evidence": {
+    "terms": null,
+    "sourcePages": []
+   },
+   "history": [
+    {
+     "at": "2026-10-08T17:49:16+09:00",
+     "by": "case-pages 取り込み",
+     "action": "seed",
+     "reason": "集める段でAIが3基準で判断して記録"
+    },
+    {
+     "at": "2026-10-08T18:09:24+09:00",
+     "by": "case-pages 取り込み",
+     "action": "seed",
+     "reason": "AIの権利判断で更新（active→active。確認: ログイン不要=yes 有料の壁なし=yes 引用=unconfirmed）"
+    },
+    {
+     "at": "2026-10-09T00:02:36+09:00",
+     "by": "case-pages 取り込み",
+     "action": "seed",
+     "reason": "AIの権利判断で更新（active→active。確認: ログイン不要=yes 有料の壁なし=yes 引用=unconfirmed）"
+    }
+   ]
+  },
+  "yespress.io": {
+   "siteName": "YesPress",
+   "siteUrl": "https://yespress.io/",
+   "status": "active",
+   "statusReason": "使用中",
+   "statusChangedAt": "2026-10-09T00:02:36+09:00",
+   "decision": {
+    "decidedAt": "2026-10-09T00:02:36+09:00",
+    "decidedBy": "AI（集める段の自動判断、2026-10-09）",
+    "basis": "ai_judgment",
+    "policyIds": [],
+    "reviewUrls": [],
+    "displayTier": "unconfirmed",
+    "usage": "数字と事実だけを自分の言葉で書き、出典の名前・URL・日付を付ける。文章・画像は写さない（本人の発言は「本人申告」と表示）",
+    "checks": {
+     "loginFree": "yes",
+     "noPaywall": "yes",
+     "quoteTerms": "unconfirmed",
+     "note": "ログイン不要: 取得記録なし（未確認）。 有料の壁・規約の引用禁止条項: 未確認（確かめたら rights:review で更新する）。 AIの判断(2026-10-09): 章ごとの文の取り込み（ログインなしで読めた／有料の壁なし／利用規約は未確認／2026-10-08）"
     },
     "termsUrl": null,
     "termsCheckedAt": null
@@ -6108,6 +12047,81 @@
      "by": "case-pages 取り込み",
      "action": "seed",
      "reason": "集める段でAIが3基準で判断して記録"
+    },
+    {
+     "at": "2026-10-09T00:02:36+09:00",
+     "by": "case-pages 取り込み",
+     "action": "seed",
+     "reason": "AIの権利判断で更新（active→active。確認: ログイン不要=yes 有料の壁なし=yes 引用=unconfirmed）"
+    }
+   ]
+  },
+  "yourstory.com": {
+   "siteName": "yourstory.com",
+   "siteUrl": "https://yourstory.com/",
+   "status": "active",
+   "statusReason": "使用中",
+   "statusChangedAt": "2026-10-09T00:02:36+09:00",
+   "decision": {
+    "decidedAt": "2026-10-09T00:02:36+09:00",
+    "decidedBy": "AI（集める段の自動判断、2026-10-09）",
+    "basis": "ai_judgment",
+    "policyIds": [],
+    "reviewUrls": [],
+    "displayTier": "unconfirmed",
+    "usage": "数字と事実だけを自分の言葉で書き、出典の名前・URL・日付を付ける。文章・画像は写さない（本人の発言は「本人申告」と表示）",
+    "checks": {
+     "loginFree": "unconfirmed",
+     "noPaywall": "unconfirmed",
+     "quoteTerms": "unconfirmed",
+     "note": "ログイン不要: 取得記録なし（未確認）。 有料の壁・規約の引用禁止条項: 未確認（確かめたら rights:review で更新する）。 AIの判断(2026-10-09): 章ごとの文の取り込み（検索結果の要約のみ確認（ページ本体は未読）／未確認／未確認／2026-10-08）"
+    },
+    "termsUrl": null,
+    "termsCheckedAt": null
+   },
+   "ownerWords": [
+    {
+     "at": "2026-10-08T00:00:00+09:00",
+     "text": "お前の方で大丈夫なやつを選んで出すんだよ",
+     "verbatim": true
+    },
+    {
+     "at": "2026-10-08T00:00:00+09:00",
+     "text": "それらも記録してね　権利関係",
+     "verbatim": true
+    },
+    {
+     "at": "2026-10-08T00:00:00+09:00",
+     "text": "あとで誰かに何か言われたら柔軟にできるように",
+     "verbatim": true
+    },
+    {
+     "at": "2026-10-08T00:00:00+09:00",
+     "text": "法的に変わったりしたらとかさ",
+     "verbatim": true
+    },
+    {
+     "at": "2026-10-08T00:00:00+09:00",
+     "text": "今後は絶対にそれも加味して集めるようにして、できるようにして",
+     "verbatim": true
+    }
+   ],
+   "evidence": {
+    "terms": null,
+    "sourcePages": []
+   },
+   "history": [
+    {
+     "at": "2026-10-08T17:49:16+09:00",
+     "by": "case-pages 取り込み",
+     "action": "seed",
+     "reason": "集める段でAIが3基準で判断して記録"
+    },
+    {
+     "at": "2026-10-09T00:02:36+09:00",
+     "by": "case-pages 取り込み",
+     "action": "seed",
+     "reason": "AIの権利判断で更新（active→active。確認: ログイン不要=unconfirmed 有料の壁なし=unconfirmed 引用=unconfirmed）"
     }
    ]
   }

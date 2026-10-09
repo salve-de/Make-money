@@ -13,8 +13,8 @@ describe('siteUrl', () => {
     vi.stubEnv('NEXT_PUBLIC_SITE_URL', ' https://example.com/foo/?a=1#b ');
     expect(siteUrl()).toBe('https://example.com');
     expect(isSiteUrlConfigured()).toBe(true);
-    expect(absoluteUrl('/discover')).toBe('https://example.com/discover');
-    expect(absoluteUrl('discover')).toBe('https://example.com/discover');
+    expect(absoluteUrl('/welcome')).toBe('https://example.com/welcome');
+    expect(absoluteUrl('welcome')).toBe('https://example.com/welcome');
   });
   it('http/https 以外と解釈できない値は無効', () => {
     expect(normalizeSiteUrl('javascript:alert(1)')).toBeNull();
