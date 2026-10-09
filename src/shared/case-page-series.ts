@@ -60,7 +60,7 @@ export function parseWhen(when: string): { x: number; hasMonth: boolean } | null
 export function kindOf(when: string, what: string): SeriesKind | null {
   const head = what.split(/（約?[0-9]/)[0]; // 円の括弧より前の言い回しだけで見る
   if (/累計/.test(head)) return 'cumulative';
-  if (/月(?:の(?:売上|継続収入|定期売上))?は?[0-9]/.test(head)) return 'monthly';
+  if (/月(?:の(?:売上|継続収入|定期売上))?[はが]?[0-9]/.test(head)) return 'monthly';
   if (/集め/.test(what)) return 'campaign';
   if (/利益/.test(head)) return 'profit';
   if (/年(?:間)?の(?:売上|継続収入|定期売上)/.test(head)) return 'annual';

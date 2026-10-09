@@ -1,3 +1,5 @@
+> **2026-10-09 決まった画面の形（今後ずっと守る）**: 画面を変える前に [`docs/design/DECIDED_UI.md`](./docs/design/DECIDED_UI.md) を読む。ここにある形を変える時は、作る前にオーナーに聞く。守れているかは試験（`pnpm decided-ui:verify`、lint に組み込み済み）で止まる。
+
 > **2026-10-07 長期運用のルール（今後ずっと守る）**: 集める層と画面の層は別。集める時は画面を意識するが整形しない。画面の層は自動で作り、品質は各段階の検査に組み込み、新規事例は一発で通す。画面の文は必ず「読む人」向け。詳細は [`docs/OWNER_INTENT.md`](./docs/OWNER_INTENT.md) 19章、全体の手順は [`docs/COLLECT_TO_UI.md`](./docs/COLLECT_TO_UI.md)。
 
 > **2026-10-07 事例の文の書き方（今後ずっと守る）**: 詳細・一覧に出る文は「見出し＝答えの1行＋補足」、外貨は円換算の概算つき、同じ数字は1か所だけ。基準は [`docs/CASE_TEXT_STANDARD.md`](./docs/CASE_TEXT_STANDARD.md)、守れているかは `pnpm case-text:verify`（lint に組み込み済み）。事例の文を書く前に必ず読む。

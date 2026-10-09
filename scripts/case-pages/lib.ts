@@ -18,6 +18,8 @@ export const CHAPTER_HEADS = {
 const RIGHTS_HEAD = '権利の記録';
 /** 任意の章。1行1本「- 払う側 → 受け取る側：何の代金・いくら」 */
 export const FLOW_HEAD = 'お金の流れ';
+/** 任意の章。1行1個「- ラベル：値｜補足」（補足の後ろに「｜棒」を付けると、募集ごとの額の小さな棒を添える） */
+export const KEY_NUMBERS_HEAD = '主な数字';
 
 /** 作業メモの行（「メモ：」「作業メモ」「※」「TODO」で始まる行、引用、コメント） */
 const MEMO_LINE = /^\s*(?:>|<!--|※|(?:作業)?メモ[:：]|TODO|（作業メモ)/;
@@ -101,6 +103,14 @@ export function parseFlows(lines: string[]): NonNullable<CasePage['flows']> {
   });
 }
 
+/** 主な数字の章。形に合わない行は value が空のまま返し、検査で見つける */
+export function parseKeyNumbers(lines: string[]): NonNullable<CasePage['keyNumbers']> {
+  return bullets(lines).map((b) => {
+    const m = b.match(/^([^：]+)：([^｜]+)｜([^｜]+)(?:｜(棒))?$/);
+    return m ? { label: m[1].trim(), value: m[2].trim(), note: m[3].trim(), ...(m[4] ? { bars: true } : {}) } : { label: b, value: '', note: '' };
+  });
+}
+
 export function parseCasePage(md: string): CasePage {
   const s = sections(md);
   const get = (name: string) => s.get(name) ?? [];
@@ -116,6 +126,7 @@ export function parseCasePage(md: string): CasePage {
     sources,
     notes,
     ...(get(FLOW_HEAD).some((l) => l.trim()) ? { flows: parseFlows(get(FLOW_HEAD)) } : {}),
+    ...(get(KEY_NUMBERS_HEAD).some((l) => l.trim()) ? { keyNumbers: parseKeyNumbers(get(KEY_NUMBERS_HEAD)) } : {}),
   };
   return CasePageSchema.parse(page);
 }
@@ -134,13 +145,14 @@ export function parseRights(md: string): CasePageRight[] {
 
 // ---- 軽い検査（4つだけ） ----
 
-export interface Violation { rule: 'polite' | 'yen-after-foreign' | 'missing-chapter' | 'held-source' | 'list-line-estimate' | 'maker-memo' | 'flow-format' | 'flow-amount'; where: string; detail: string }
+export interface Violation { rule: 'polite' | 'yen-after-foreign' | 'missing-chapter' | 'held-source' | 'list-line-estimate' | 'maker-memo' | 'flow-format' | 'flow-amount' | 'key-number'; where: string; detail: string }
 
 /** 一覧の1行に出さない語（推定の数字は嘘になりうるので出さない。文の良し悪しは機械で決めない） */
 const LIST_LINE_ESTIMATE = /推定|推測/g;
 const POLITE = /(です|ます|ました|でした)。/g;
 // 数字（「3万6千」「1.8千」「1,793」「250,000」）＋外貨の単位
-const FOREIGN = /(?:[0-9０-９][0-9０-９,，.]*(?:[万千億百])?)\s*(?:ドル|ユーロ|ポンド|ルピー)|[$＄]\s*[0-9０-９]/g;
+// 「9万5,000米ドル」「100 USドル」のように、ドルの前に国の名が付く書き方も外貨として拾う
+const FOREIGN = /(?:[0-9０-９][0-9０-９,，.]*(?:[万千億百])?)\s*(?:(?:米|US|ＵＳ|豪|カナダ|香港|シンガポール)\s*)?(?:ドル|ユーロ|ポンド|ルピー)|[$＄]\s*[0-9０-９]/g;
 // 「1,500ドル弱（約22万円弱）」のように、額と円の概算のあいだに「弱・強・超・ほど」が入る書き方も許す
 const YEN_APPROX = /^\s*(?:弱|強|超|ほど|前後)?\s*[（(]\s*約[^）)]*円/;
 
@@ -202,8 +214,27 @@ export function checkFlows(page: CasePage): Violation[] {
   return v;
 }
 
+/** 主な数字の数字（ラベル・補足を含む）が、同じページの本文に無ければ作った数字とみなす */
+export function checkKeyNumbers(page: CasePage): Violation[] {
+  const v: Violation[] = [];
+  const rest = [
+    page.listLine, page.overview,
+    ...page.secrets.flatMap((x) => [x.head, x.body]),
+    ...page.did, ...page.setbacks, ...page.pricing,
+    ...page.timeline.flatMap((x) => [x.when, x.what]),
+    ...page.notes,
+  ].join('\n').replace(/\s/g, '');
+  (page.keyNumbers ?? []).forEach((k, i) => {
+    if (!k.value) { v.push({ rule: 'key-number', where: `主な数字${i + 1}`, detail: `「- ラベル：値｜補足」の形にする（${k.label.slice(0, 30)}）` }); return; }
+    for (const m of `${k.value}｜${k.note}`.matchAll(/[0-9][0-9,]*(?:\.[0-9]+)?(?:万|億|千)?/g)) {
+      if (!rest.includes(m[0])) v.push({ rule: 'key-number', where: `主な数字${i + 1}`, detail: `「${m[0]}」が同じページの本文に無い。本文にある数字だけ使う` });
+    }
+  });
+  return v;
+}
+
 export function checkCasePage(page: CasePage): Violation[] {
-  const v: Violation[] = [...checkFlows(page)];
+  const v: Violation[] = [...checkFlows(page), ...checkKeyNumbers(page)];
   for (const { where, text } of bodyLines(page)) {
     for (const m of text.matchAll(POLITE)) v.push({ rule: 'polite', where, detail: `「${m[0]}」は常体に直す` });
     for (const miss of foreignWithoutYen(text)) v.push({ rule: 'yen-after-foreign', where, detail: `「${miss}」の直後に円の概算（約…円）が要る` });

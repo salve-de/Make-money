@@ -21,6 +21,8 @@ export const CasePageSchema = z.object({
   notes: z.array(z.string().min(1)),
   /** お金の流れ（払う側→受け取る側・何の代金かといくら）。本文にある事実だけ。章が無い事例では付けない */
   flows: z.array(z.object({ from: z.string().min(1), to: z.string().min(1), label: z.string().min(1) })).optional(),
+  /** 概要の下の「主な数字」の帯（3つ前後）。数字は本文にある物だけ。bars=true の数字には、募集ごとの額の小さな棒を添える */
+  keyNumbers: z.array(z.object({ label: z.string().min(1), value: z.string().min(1), note: z.string().min(1), bars: z.boolean().optional() })).optional(),
 });
 export type CasePage = z.infer<typeof CasePageSchema>;
 
@@ -38,5 +40,6 @@ export function casePageTexts(page: CasePage): string[] {
     ...page.sources.flatMap((x) => [String(x.no), x.label, host(x.url)]),
     ...page.notes,
     ...(page.flows ?? []).flatMap((x) => [x.from, x.to, x.label]),
+    ...(page.keyNumbers ?? []).flatMap((x) => [x.label, x.value, x.note]),
   ].map((t) => t.trim()).filter(Boolean);
 }

@@ -33,6 +33,7 @@ describe('円の額と日付の取り出し', () => {
     expect(kindOf('2018年', '累計の売上が100万ドル（約1.5億円）超。')).toBe('cumulative');
     expect(kindOf('2024年', '営業利益は推定で年22.8万ドル（約3,400万円）。')).toBe('profit');
     expect(kindOf('2019年7月', '約50人に試験版。')).toBeNull();
+    expect(kindOf('2022年9月', '月の定期売上が1万ドル（約150万円）に届く。')).toBe('monthly');
   });
 });
 
@@ -54,6 +55,11 @@ describe('5件の稼ぎの推移', () => {
   });
   it('Geocodio: 月の売上も累計も1点だけなので図は出ない', () => {
     expect(seriesOf('geocodio')).toEqual([]);
+  });
+  it('Data Fetcher: 月の定期売上が3点（最後は推定）', () => {
+    const s = seriesOf('data_fetcher');
+    expect(s.map((x) => x.kind)).toEqual(['monthly']);
+    expect(s[0].points.map((p) => [p.yen, p.estimated])).toEqual([[975_000, false], [1_500_000, false], [3_450_000, true]]);
   });
   it('StatusGator: 月の売上が5点、年間の継続収入は1点なので月の売上だけ', () => {
     const s = seriesOf('statusgator');

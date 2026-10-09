@@ -476,12 +476,62 @@ export function SectionGap() {
   return <div aria-hidden="true" className="h-3 border-b border-term-line bg-term-bg" />;
 }
 
+/** 大きな図（お金の流れ・稼ぎの推移）の章は、見本の確認中は出さない。コードは残す。 */
+const SHOW_CASE_CHARTS = false;
+
+/** 「約2,018万円」「月約272万円」を、前の語・数・単位に分ける（数だけ大きく、あとは小さく灰色に出す） */
+function splitValue(value: string): { pre: string; num: string; unit: string } {
+  const m = value.match(/^(\D*?)([0-9][0-9,]*(?:\.[0-9]+)?)(.*)$/);
+  return m ? { pre: m[1], num: m[2], unit: m[3] } : { pre: '', num: value, unit: '' };
+}
+
+/** 募集ごとの額の小さな棒（ラベル無し。最大の1本だけ白、ほかは灰）。読み上げ用の文は付ける */
+function MiniBars({ yens }: { yens: number[] }) {
+  const max = Math.max(...yens);
+  const man = (y: number) => `約${Math.round(y / 10000).toLocaleString('ja-JP')}万円`;
+  return (
+    <div role="img" aria-label={`募集ごとの額: ${yens.map(man).join('、')}`} className="flex h-6 w-[120px] shrink-0 items-end gap-2">
+      {yens.map((y, i) => (
+        <span key={i} className={`block flex-1 ${y === max ? 'bg-term-fg-strong' : 'bg-term-dim'}`} style={{ height: `${Math.max(3, Math.round((y / max) * 24))}px` }} />
+      ))}
+    </div>
+  );
+}
+
+/** 主な数字の帯。ラベル → 大きな数字 → 補足1行。枠や角丸は使わず、細い区切り線だけ。 */
+function KeyNumbers({ page }: { page: CasePage }) {
+  const items = page.keyNumbers ?? [];
+  if (items.length === 0) return null;
+  const campaign = earningsSeriesFor(page.timeline).find((x) => x.kind === 'campaign')?.points.map((p) => p.yen) ?? [];
+  return (
+    <dl data-case-page="key-numbers" className="m-0 grid grid-cols-1 divide-y divide-term-line border-y border-term-line sm:grid-cols-3 sm:divide-x sm:divide-y-0">
+      {items.map((k) => {
+        const { pre, num, unit } = splitValue(k.value);
+        return (
+          <div key={k.label} className="min-w-0 px-2.5 py-3 sm:px-3">
+            <dt className="text-xs text-term-label">{k.label}</dt>
+            <dd className="m-0 mt-1.5 flex flex-wrap items-end justify-between gap-x-3 gap-y-1">
+              <span className="term-num leading-none text-term-fg-strong">
+                {pre && <span className="mr-0.5 text-sm font-normal text-term-sub">{pre}</span>}
+                <span className="text-[24px] font-semibold">{num}</span>
+                {unit && <span className="ml-0.5 text-sm font-normal text-term-sub">{unit}</span>}
+              </span>
+              {k.bars && campaign.length >= 2 && <MiniBars yens={campaign} />}
+            </dd>
+            <p className="mt-1.5 text-xs leading-snug text-term-sub [overflow-wrap:anywhere]">{k.note}</p>
+          </div>
+        );
+      })}
+    </dl>
+  );
+}
+
 /**
  * 章ごとの文（case-page）がある事例の詳細。概要 → 成功の秘訣 → 実際にやったこと → つまずきと立て直し → 料金 → 時間順の流れ → 数字と出典。
  * 古い章（誰に売っているか・金はどう回っているか など）は出さない。文は書いたとおりに出す（円の概算も文に入っている）。
  */
 export function CasePageView({ page, media }: { page: CasePage; media?: React.ReactNode }) {
-  const hasEarnings = earningsSeriesFor(page.timeline).length > 0;
+  const hasEarnings = SHOW_CASE_CHARTS && earningsSeriesFor(page.timeline).length > 0;
   const list = (items: string[]) => (
     <ul className="grid grid-cols-1 gap-2">
       {items.map((t) => (
@@ -497,6 +547,7 @@ export function CasePageView({ page, media }: { page: CasePage; media?: React.Re
         <p className="mt-2 text-sm leading-relaxed text-term-fg [overflow-wrap:anywhere]">{page.overview}</p>
       </div>
       {media}
+      <KeyNumbers page={page} />
       <SectionGap />
       <Fold id="section-group-secret" title={UI.GROUP_SECRET} defaultOpen>
         <ol className="grid grid-cols-1 gap-3">
@@ -514,7 +565,7 @@ export function CasePageView({ page, media }: { page: CasePage; media?: React.Re
       <Fold id="section-chapter-practice" title={UI.CHAPTER_PRACTICE} defaultOpen>{list(page.did)}</Fold>
       {page.setbacks.length > 0 && <Fold id="section-chapter-turning" title={UI.CHAPTER_TURNING} defaultOpen>{list(page.setbacks)}</Fold>}
       <Fold id="section-chapter-price" title={UI.CASE_PAGE_PRICE} defaultOpen>{list(page.pricing)}</Fold>
-      {page.flows && page.flows.length > 0 && <Fold id="section-chapter-money-flow" title={UI.CASE_PAGE_MONEY_FLOW} defaultOpen><MoneyFlow flows={page.flows} /></Fold>}
+      {SHOW_CASE_CHARTS && page.flows && page.flows.length > 0 && <Fold id="section-chapter-money-flow" title={UI.CASE_PAGE_MONEY_FLOW} defaultOpen><MoneyFlow flows={page.flows} about={`${page.listLine}\n${page.overview}`} /></Fold>}
       {hasEarnings && <Fold id="section-chapter-earnings" title={UI.CASE_PAGE_EARNINGS} defaultOpen><EarningsCharts timeline={page.timeline} /></Fold>}
       <Fold id="section-chapter-timeline" title={UI.CHAPTER_TIMELINE} defaultOpen>
         <ul className="grid grid-cols-1 gap-2">

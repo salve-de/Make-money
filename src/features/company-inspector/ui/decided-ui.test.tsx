@@ -1,0 +1,194 @@
+import { readFileSync } from 'node:fs';
+import { join } from 'node:path';
+import React from 'react';
+import { renderToStaticMarkup } from 'react-dom/server';
+import { describe, expect, it } from 'vitest';
+
+import { PRIMARY_NAV_ITEMS } from '@/platform/components/navigation/navigationItems';
+import { formatYen } from '@/platform/utils/moneyDisplay';
+import { baremetrics } from '@/shared/__fixtures__/reader-samples';
+import { CasePageSchema, type CasePage } from '@/shared/case-page';
+import { seriesFor as earningsSeriesFor } from '@/shared/case-page-series';
+import { pickGalleryAssets, type PublicMediaAsset } from '@/shared/media-display';
+import type { ReaderCase } from '@/shared/reader-case';
+import { EntityMediaGalleryView } from './EntityMediaGallery';
+import { ReaderLedger } from './ReaderDetail';
+
+/**
+ * 決まった画面の形を守る試験。台帳は docs/design/DECIDED_UI.md（D-01〜D-14）。
+ * 試験名の先頭の「D-xx」が台帳の件。形を変える時は、先にオーナーに聞き、台帳の該当の件にOKを書いてから、この試験を直す。
+ * 試験だけを弱めて通さない。
+ */
+
+const ROOT = process.cwd();
+const read = (file: string) => readFileSync(join(ROOT, file), 'utf8');
+
+/** 見本の正本データ（Button Shy）。章・年表・お金の流れ・稼ぎの推移の材料が揃っている */
+function buttonShyPage(): CasePage {
+  const list = JSON.parse(read('data/case-pages.json')) as Array<{ entityId: string; page: unknown }>;
+  const hit = list.find((x) => x.entityId === 'ent_button_shy_f1545f17d98e');
+  if (!hit) throw new Error('data/case-pages.json に Button Shy が無い');
+  return CasePageSchema.parse(hit.page);
+}
+
+function asset(kind: PublicMediaAsset['kind'], suffix: string): PublicMediaAsset {
+  return {
+    assetId: `ma_${suffix.padEnd(24, '0')}`,
+    kind,
+    url: `https://assets.example.com/media/ent_button_shy/${suffix}.png`,
+    contentType: 'image/png',
+    width: 1200,
+    height: 630,
+    attribution: '出典: Button Shy 公式サイト',
+    sourcePageUrl: 'https://www.buttonshy.com/',
+    retrievedAt: '2026-09-29T00:38:11.808Z',
+  };
+}
+
+const gallery = (assets: PublicMediaAsset[]) => <EntityMediaGalleryView entityName="Button Shy" assets={assets} />;
+const readerWith = (page: CasePage): ReaderCase => ({ ...baremetrics, display: { casePage: page } }) as ReaderCase;
+const render = (page: CasePage, media?: React.ReactNode) => renderToStaticMarkup(<ReaderLedger reader={readerWith(page)} media={media} />);
+
+describe('D-01 端末型のトークン', () => {
+  it('D-01 トークンの値が TERMINAL_UI.md の表と globals.css で一致する', () => {
+    const css = read('src/app/globals.css');
+    const rows = read('docs/design/TERMINAL_UI.md').split('\n').filter((l) => /^\|\s*[^|]+\|\s*`term-/.test(l));
+    expect(rows.length).toBeGreaterThan(10);
+    let checked = 0;
+    for (const row of rows) {
+      const cells = row.split('|').map((c) => c.trim());
+      const tokens = [...(cells[2] ?? '').matchAll(/`(term-[a-z-]+)`/g)].map((m) => m[1]);
+      const values = [...(cells[3] ?? '').matchAll(/#[0-9a-fA-F]{6}/g)].map((m) => m[0].toLowerCase());
+      expect(tokens.length, row).toBe(values.length);
+      tokens.forEach((token, i) => {
+        const m = css.match(new RegExp(`--${token}:\\s*(#[0-9a-fA-F]{6})`));
+        expect(m, `${token} が globals.css に無い`).not.toBeNull();
+        expect(m![1].toLowerCase(), token).toBe(values[i]);
+        checked += 1;
+      });
+    }
+    expect(checked).toBeGreaterThanOrEqual(18);
+  });
+});
+
+describe('D-04 下のメニュー', () => {
+  it('D-04 下のメニューは5つで、M&A の入口は無い', () => {
+    expect(PRIMARY_NAV_ITEMS.map((x) => x.label)).toEqual(['事例', '傾向', '事業検討', '作る', '市場']);
+    expect(PRIMARY_NAV_ITEMS.some((x) => /M&A|売買|仲介/.test(x.label))).toBe(false);
+  });
+});
+
+describe('D-05 / D-08 事例の章と時間順の流れ', () => {
+  const page = buttonShyPage();
+  const html = render(page);
+
+  it('D-05 Button Shy の正本データで、決めた章が決めた順に出る', () => {
+    // つまずきの章は、材料がある事例だけ出す（材料が無ければ章ごと出さない）
+    const titles = ['成功の秘訣', '実際にやったこと', ...(page.setbacks.length > 0 ? ['つまずきと立て直し'] : []), '料金', '時間順の流れ', '数字と出典'];
+    const at = titles.map((t) => html.indexOf(`>${t}<`));
+    expect(at.every((i) => i >= 0), `出ない章がある: ${titles.filter((_, i) => at[i] < 0).join('、')}`).toBe(true);
+    expect([...at].sort((a, b) => a - b)).toEqual(at);
+    expect(html.indexOf(page.overview.slice(0, 12))).toBeGreaterThanOrEqual(0);
+    expect(html.indexOf(page.overview.slice(0, 12))).toBeLessThan(at[0]);
+  });
+
+  it('D-08 時間順の流れは、時期と出来事の行で出る', () => {
+    const start = html.indexOf('id="section-chapter-timeline"');
+    expect(start).toBeGreaterThanOrEqual(0);
+    const next = html.indexOf('id="section-chapter-numbers"', start);
+    const block = html.slice(start, next);
+    expect(block).toContain('grid-cols-[6.5rem_minmax(0,1fr)]');
+    let from = 0;
+    for (const { when, what } of page.timeline) {
+      const i = block.indexOf(what.slice(0, 10), from);
+      expect(i, `${when} の行が順番どおりに出ない`).toBeGreaterThanOrEqual(from);
+      expect(block).toContain(when);
+      from = i;
+    }
+    // 図やグラフにしない
+    expect(block).not.toMatch(/<svg|<canvas|echarts/i);
+  });
+});
+
+describe('D-06 画像は左右の矢印の欄（EntityMediaGalleryView）', () => {
+  const page = buttonShyPage();
+  const shots = [asset('screenshot_product', 'a'), asset('screenshot_product', 'b'), asset('screenshot_home', 'c')];
+
+  it('D-06 事例ページは画像の欄（EntityMediaGalleryView）を概要の直下に出す', () => {
+    const html = render(page, gallery(shots));
+    const overview = html.indexOf('data-case-page="overview"');
+    const media = html.indexOf('data-testid="media-gallery"');
+    const secrets = html.indexOf('>成功の秘訣<');
+    expect(media).toBeGreaterThan(overview);
+    expect(media).toBeLessThan(secrets);
+    expect((html.match(/data-testid="media-gallery-image"/g) ?? []).length).toBe(3);
+    // 横一列の送り（縦に積む・1枚を横に置く枠ではない）
+    expect(html).toContain('overflow-x-auto');
+    expect(html).toContain('snap-x');
+  });
+
+  it('D-06 画像の欄は左右の矢印で送れる', () => {
+    const src = read('src/features/company-inspector/ui/EntityMediaGallery.tsx');
+    expect(src).toContain('UI.GALLERY_PREV');
+    expect(src).toContain('UI.GALLERY_NEXT');
+    expect(src).toContain('scrollBy');
+    // 事例ページに実際に渡している経路: CompanyInspectorPane → ReaderLedger(media) → CasePageView(media)
+    expect(read('src/features/company-inspector/CompanyInspectorPane.tsx')).toMatch(/media=\{<EntityMediaGallery\b/);
+    expect(read('src/features/company-inspector/ui/ReaderDetail.tsx')).toMatch(/<CasePageView\b[^>]*\bmedia=\{media\}/);
+  });
+
+  it('D-06 CasePageView は自前の画像を持たない', () => {
+    const none = render(page);
+    expect(none).not.toContain('<img');
+    expect(none).not.toContain('data-testid="media-gallery"');
+    const view = read('src/features/company-inspector/ui/ReaderOverview.tsx');
+    const body = view.slice(view.indexOf('export function CasePageView'));
+    expect(body).not.toMatch(/<img\b|next\/image|<Image\b|<picture\b/);
+    // 渡された media をそのまま出す
+    expect(render(page, <p data-marker="m">差し込み</p>)).toContain('data-marker="m"');
+  });
+});
+
+describe('D-07 画像の中身', () => {
+  it('D-07 画像は製品画面を先にし、OG画像とファビコンは欄に入れない', () => {
+    const picked = pickGalleryAssets([asset('og_image', 'o'), asset('favicon', 'f'), asset('screenshot_product', 'p'), asset('store_screenshot', 's')]);
+    expect(picked.map((x) => x.kind)).toEqual(['store_screenshot', 'screenshot_product']);
+    const html = renderToStaticMarkup(gallery(picked));
+    expect(html).toContain('href="https://www.buttonshy.com/"');
+    expect(html).not.toMatch(/download|拡大/);
+  });
+});
+
+describe('D-09 大きな図は出さない', () => {
+  it('D-09 流れ・推移の材料があっても、大きな図の章は出ない', () => {
+    const base = buttonShyPage();
+    const withMaterial: CasePage = {
+      ...base,
+      flows: base.flows?.length ? base.flows : [{ from: '客', to: 'Button Shy', label: '1本15ドル（約2,300円）' }],
+    };
+    // 材料が本当にあることを確かめる（無ければ、この試験は何も守らない）
+    expect(earningsSeriesFor(withMaterial.timeline).length).toBeGreaterThan(0);
+    expect(withMaterial.flows!.length).toBeGreaterThan(0);
+    const html = render(withMaterial);
+    for (const gone of ['section-chapter-money-flow', 'section-chapter-earnings', 'お金の流れ', '稼ぎの推移']) expect(html).not.toContain(gone);
+    expect(html).not.toMatch(/<svg|<canvas|role="img"/);
+  });
+});
+
+describe('D-10 入れないと決めた章', () => {
+  it('D-10 入れないと決めた章の見出しは出ない', () => {
+    const html = render(buttonShyPage());
+    for (const gone of ['自分にもできるか', '今も通用するか', '今も通じるか', '持ち札', '追い風', '数字が本物か', '続くか', '共通原則', '同じ型の事例']) {
+      expect(html, gone).not.toContain(gone);
+    }
+  });
+});
+
+describe('D-12 金額の表記', () => {
+  it('D-12 金額は 万円・億円 で書き、推定は「約」を付ける', () => {
+    expect(formatYen(1_500_000)).toBe('150万円');
+    expect(formatYen(16_200_000)).toBe('1,620万円');
+    expect(formatYen(150_000_000)).toBe('1.5億円');
+    expect(formatYen(1_500_000, { approx: true })).toBe('約150万円');
+  });
+});

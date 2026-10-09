@@ -3,7 +3,7 @@ import { mkdirSync, mkdtempSync, writeFileSync } from 'node:fs';
 import { tmpdir } from 'node:os';
 import { join } from 'node:path';
 import { test } from 'node:test';
-import { OWNER_CONTEXT_HEADING, ownerContext } from '../owner-context';
+import { DECIDED_UI_FILE, OWNER_CONTEXT_HEADING, ownerContext } from '../owner-context';
 
 const tmp = (): string => { const r = mkdtempSync(join(tmpdir(), 'owner-ctx-')); mkdirSync(join(r, 'docs/owner'), { recursive: true }); return r; };
 
@@ -26,4 +26,13 @@ test('ownerContext: 両方あれば両方入る', () => {
   writeFileSync(join(r, 'docs/owner/OWNER_DIALOGUE_LOG.md'), 'B本文');
   const s = ownerContext(r);
   assert.ok(s.includes('A本文') && s.includes('B本文'));
+});
+
+test('ownerContext: 決まった画面の形の台帳（DECIDED_UI）が既定で入り、実物のファイルがある', () => {
+  const r = tmp();
+  mkdirSync(join(r, 'docs/design'), { recursive: true });
+  writeFileSync(join(r, DECIDED_UI_FILE), '台帳の本文');
+  assert.ok(ownerContext(r).includes('台帳の本文'));
+  // 実際のリポジトリに台帳がある（消えたら担当への指示から外れてしまう）
+  assert.ok(ownerContext(process.cwd()).includes('決まった画面の形の台帳'));
 });
