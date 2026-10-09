@@ -70,6 +70,29 @@ test('verifyDraft: 出典に無い数字・年、渡していない出典、本�
   assert.ok(rules.includes('unknown-source'));
 });
 
+test('verifyDraft: 外貨の後ろの円の幅（約6,000〜2万2,500円）は出典の数字として照らさない', () => {
+  const v = verifyDraft(page({ did: '2019年に公開し、2021年の売上は12万ドル（約1,500万〜2,000万円）だった。' }), input);
+  assert.deepEqual(v.filter((x) => x.rule === 'number-not-in-sources'), []);
+  // 外貨に付いていない数は今までどおり照らす
+  assert.ok(verifyDraft(page({ did: '2019年に客が約6,000〜2万人になった。' }), input).some((x) => x.rule === 'number-not-in-sources'));
+});
+
+test('verifyDraft: 本文に円の稼ぎの数字があるのに、一覧の1行に円の額が無ければ拾う', () => {
+  const v = verifyDraft(page({ list: '2019年に公開した小さな店' }), input);
+  assert.ok(v.some((x) => x.rule === 'lead-no-amount'));
+  assert.ok(!verifyDraft(page(), input).some((x) => x.rule === 'lead-no-amount'));
+});
+
+test('writeCase: 1行から稼ぎの数字が抜けた時は、安い直し役でなく書く段へ返す', async () => {
+  const seen: string[] = [];
+  const caller: Caller = async (req) => { seen.push(`良い:${req.label}`); return { text: seen.length === 1 ? page({ list: '2019年に公開した小さな店' }) : page(), seconds: 0 }; };
+  const replies = ['## 出典に無い事実\nなし\n\n## 使えない1行の候補\nなし', page({ list: '2019年に公開した小さな店' })];
+  const cheap: Caller = async (req) => { seen.push(`安い:${req.label}`); return { text: replies.shift()!, seconds: 0 }; };
+  const r = await writeCase(input, caller, { root: ROOT, cheap, maxRepairs: 1 });
+  assert.deepEqual(seen, ['良い:ent_x 書く', '安い:ent_x 事実を照らす', '安い:ent_x 読む', '良い:ent_x 直す1']);
+  assert.equal(r.ok, true);
+});
+
 test('verifyDraft: 一覧の1行の推定語は今の正本の検査と同じく拾う', () => {
   assert.ok(verifyDraft(page({ list: '年12万ドル（約1,800万円）と推定される店' }), input).some((x) => x.rule === 'list-line-estimate'));
 });
@@ -79,13 +102,14 @@ test('extractMarkdown: 前置きと囲みを外し、最初の「# 」から返�
   assert.equal(extractMarkdown('前置き\n# B\nx'), '# B\nx\n');
 });
 
-test('writeCase: 書く→読む→照らす。合わなければ書く担当へ返し、直れば合格', async () => {
+test('writeCase: 書く→事実を照らす→読む→照合。合わなければ直しに返し、直れば合格', async () => {
   const seen: string[] = [];
   const replies = [page({ did: '2015年に公開した。' }), page({ did: '2015年に公開した。' }), page({ did: '2015年に公開した。' }), page()];
   const caller: Caller = async (req) => { seen.push(req.label); return { text: replies.shift()!, seconds: 0, costUsd: 0.1 }; };
   const r = await writeCase(input, caller, { root: ROOT, maxRepairs: 2 });
   assert.equal(r.ok, true);
   assert.deepEqual(seen, ['ent_x 書く', 'ent_x 事実を照らす', 'ent_x 読む', 'ent_x 直す1']);
+  assert.equal(r.steps.length, 4);
   assert.equal(r.calls, 4);
 });
 
@@ -123,17 +147,39 @@ test('splitNotes: 「調べた側のメモ」の章を本文から切り離す�
   assert.equal(splitNotes('# B\n').notes, '');
 });
 
-test('writeCase: 1行の候補を2回書かせて6つにし、選ぶ担当が選んだ1行に差し替え、候補の章は本文に残さない', async () => {
-  const withCandidates = `${page()}\n## 一覧の1行の候補\n- 候補A\n- 候補B\n- 候補C\n`;
-  const seen: string[] = [];
-  const users: string[] = [];
-  const replies = [withCandidates, withCandidates, withCandidates, '- 候補D\n- 候補E\n- 候補F\n- 候補G', '選びました。\n「2019年に公開し、年12万ドル（約1,800万円）を売る店」'];
-  const caller: Caller = async (req) => { seen.push(req.label); users.push(req.user); return { text: replies.shift()!, seconds: 0 }; };
-  const r = await writeCase(input, caller, { root: ROOT, maxRepairs: 0 });
-  assert.deepEqual(seen, ['ent_x 書く', 'ent_x 事実を照らす', 'ent_x 読む', 'ent_x 1行の候補を足す', 'ent_x 1行を選ぶ']);
-  assert.ok(users[4].includes('- 候補A') && users[4].includes('- 候補F') && !users[4].includes('候補G'));
-  assert.ok(r.md.includes('## 一覧の1行\n2019年に公開し、年12万ドル（約1,800万円）を売る店\n'));
-  assert.ok(!r.md.includes('候補A'));
-  assert.equal(r.leadPick?.chosen, '2019年に公開し、年12万ドル（約1,800万円）を売る店');
+test('writeCase: 1行は書く段が決め、読む段が変えても戻す。照らす段は一覧だけを返し、それを読む段に渡す', async () => {
+  const written = `${page()}\n## 一覧の1行の候補\n- 2019年に公開し、年12万ドル（約1,800万円）を売る小さな店\n- 候補B\n- 候補C\n- 候補D\n- 候補E\n- 候補F\n`;
+  const good: Array<{ label: string; system: string }> = [];
+  const cheapSeen: Array<{ label: string; user: string }> = [];
+  const caller: Caller = async (req) => { good.push({ label: req.label, system: req.system }); return { text: written, seconds: 0, costUsd: 0.2 }; };
+  const replies = ['## 出典に無い事実\n- 「台所で作った」：出典に無い\n\n## 使えない1行の候補\nなし', page({ list: '読む段が勝手に変えた1行' })];
+  const cheap: Caller = async (req) => { cheapSeen.push({ label: req.label, user: req.user }); return { text: replies.shift()!, seconds: 0, costUsd: 0.01 }; };
+  const r = await writeCase(input, caller, { root: ROOT, cheap, maxRepairs: 0 });
+  assert.deepEqual(good.map((x) => x.label), ['ent_x 書く']);
+  assert.deepEqual(cheapSeen.map((x) => x.label), ['ent_x 事実を照らす', 'ent_x 読む']);
+  // 長いやりとりの記録は貼らない（費用の大半になるため）
+  assert.ok(!good[0]!.system.includes('### docs/owner/OWNER_DIALOGUE_LOG.md') && good[0]!.system.includes('### docs/owner/LEAD_LINE_SHEET.md'));
+  assert.ok(cheapSeen[0]!.user.includes('6. 候補F'));
+  assert.ok(cheapSeen[1]!.user.includes('「台所で作った」'));
+  assert.ok(r.md.includes('## 一覧の1行\n2019年に公開し、年12万ドル（約1,800万円）を売る小さな店\n'));
+  assert.ok(!r.md.includes('候補B'));
+  assert.equal(r.costUsd, 0.22);
   assert.equal(r.ok, true);
+});
+
+test('writeCase: 照らす段が書く段の1行を使えないとしたら、使える候補の先頭に替える', async () => {
+  const written = `${page()}\n## 一覧の1行の候補\n- 2019年に公開し、年12万ドル（約1,800万円）を売る小さな店\n- 2019年に公開し、年12万ドル（約1,800万円）を売る店\n`;
+  const caller: Caller = async () => ({ text: written, seconds: 0 });
+  const replies = ['## 出典に無い事実\nなし\n\n## 使えない1行の候補\n1', page()];
+  const cheap: Caller = async () => ({ text: replies.shift()!, seconds: 0 });
+  const r = await writeCase(input, caller, { root: ROOT, cheap, maxRepairs: 0 });
+  assert.equal(r.leadPick?.chosen, '2019年に公開し、年12万ドル（約1,800万円）を売る店');
+  assert.ok(r.md.includes('## 一覧の1行\n2019年に公開し、年12万ドル（約1,800万円）を売る店\n'));
+});
+
+test('照合: 「米ドル」「USドル」も外貨として拾い、円が無ければ止める', async () => {
+  const { foreignWithoutYen } = await import('../../case-pages/lib');
+  assert.deepEqual(foreignWithoutYen('2,661人から約95,000米ドルを集めた'), ['95,000米ドル']);
+  assert.deepEqual(foreignWithoutYen('100 USドルの物'), ['100 USドル']);
+  assert.deepEqual(foreignWithoutYen('9万5,245米ドル（約1,430万円）を集めた'), []);
 });

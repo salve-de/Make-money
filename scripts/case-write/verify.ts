@@ -9,7 +9,7 @@ import { checkMarkdown, heldSources, bodyLines, type Violation as PageViolation 
 import { claimNumbers, sourceNumbers } from '../reader-case/number-parse';
 import type { CaseInput } from './input';
 
-export interface WriteViolation { rule: PageViolation['rule'] | 'unknown-source' | 'number-not-in-sources' | 'year-not-in-sources' | 'yen-off'; where: string; detail: string }
+export interface WriteViolation { rule: PageViolation['rule'] | 'unknown-source' | 'number-not-in-sources' | 'year-not-in-sources' | 'yen-off' | 'lead-no-amount'; where: string; detail: string }
 
 const LABELED = /推測|推定|計算|概算/;
 const LOOSE = /約|超|弱|強|ほど|前後|近く|余り|あまり|以上|以下|未満/;
@@ -27,7 +27,7 @@ export function jaAmount(s: string): number {
 /** 「1.6万ドル（約2,400万円）」の組を拾い、円の概算がドル×150 の 0.7〜1.4 倍に入らない物を返す */
 export function yenOff(line: string): string[] {
   const out: string[] = [];
-  const re = /(?<![\d.,千万億])([\d.,]+(?:[千万億][\d.,]*)*)\s*ドル(?:弱|強|超|ほど|前後)?\s*[（(]\s*約\s*([\d.,]+(?:[千万億][\d.,]*)*)\s*円/g;
+  const re = /(?<![\d.,千万億])([\d.,]+(?:[千万億][\d.,]*)*)\s*(?:(?:米|US|ＵＳ)\s*)?ドル(?:弱|強|超|ほど|前後)?\s*[（(]\s*約\s*([\d.,]+(?:[千万億][\d.,]*)*)\s*円/g;
   for (const m of line.matchAll(re)) {
     const usd = jaAmount(m[1]);
     const yen = jaAmount(m[2]);
@@ -36,6 +36,23 @@ export function yenOff(line: string): string[] {
     if (r < 0.7 || r > 1.4) out.push(`${m[0]}）は1ドル＝${USD_JPY}円の概算 約${Math.round(usd * USD_JPY).toLocaleString()}円 と合わない`);
   }
   return out;
+}
+
+const YEN_AFTER_FOREIGN = /(?<=(?:ドル|ユーロ|ポンド|ルピー|ペソ|フラン|ウォン)(?:弱|強|超|ほど|前後)?\s*)[（(]\s*約[^）)]*?円[）)]/g;
+
+/** 円の額（「約510万円」「1,430万円」「2.2億円」） */
+const YEN_AMOUNT = /[\d.,]+\s*[万億千]?\s*円/;
+/** 稼ぎを表す語（売上・収入・集めた額など） */
+const EARNING = /売上|売り上げ|収入|集め|稼|利益|営業利益|月商|年商|購読料/;
+
+/**
+ * 本文に円の稼ぎの数字があるのに、一覧の1行に円の額が無い（1行から稼ぎの数字が抜けた）。
+ * 1行の文の良し悪しは見ず、数字が抜けたことだけを拾う
+ */
+export function leadMissingAmount(page: { listLine: string }, lines: Array<{ where: string; text: string }>): WriteViolation[] {
+  if (YEN_AMOUNT.test(page.listLine)) return [];
+  const hit = lines.filter((l) => l.where !== '一覧の1行').flatMap((l) => l.text.split(/(?<=。)/)).find((t) => YEN_AMOUNT.test(t) && EARNING.test(t) && !LABELED.test(t));
+  return hit ? [{ rule: 'lead-no-amount', where: '一覧の1行', detail: `本文に稼ぎの数字（${hit.trim().slice(0, 50)}）があるのに、一覧の1行に円の額が無い。いちばん規模が伝わる確かめた稼ぎの数字を、円の概算つきで1行に入れる` }] : [];
 }
 
 export function verifyDraft(md: string, input: CaseInput, rights: Record<string, { decision?: string }> = {}): WriteViolation[] {
@@ -56,12 +73,14 @@ export function verifyDraft(md: string, input: CaseInput, rights: Record<string,
   const years = new Set((corpus.match(/(?<!\d)(?:19|20)\d{2}(?!\d)/g) ?? []));
   const near = (v: number, tol: number) => pool.some((p) => p !== 0 && Math.abs(v - p) / Math.abs(p) <= tol);
 
+  out.push(...leadMissingAmount(page, bodyLines(page)));
   for (const { where, text } of bodyLines(page)) {
     for (const y of yenOff(text)) out.push({ rule: 'yen-off', where, detail: y });
     // 文ごとに見る（印の付いた文だけを外す）
     for (const sentence of text.split(/(?<=。)/)) {
       if (LABELED.test(sentence)) continue;
-      const { numbers, years: ys } = claimNumbers(sentence);
+      // 外貨の後ろの円の概算（「40〜150ドル（約6,000〜2万2,500円）」の幅も）は出典の数字でないので照らさない（換算は yenOff が見る）
+      const { numbers, years: ys } = claimNumbers(sentence.replace(YEN_AFTER_FOREIGN, ''));
       const tol = LOOSE.test(sentence) ? 0.05 : 0.01;
       for (const n of numbers) if (!near(n, tol)) out.push({ rule: 'number-not-in-sources', where, detail: `「${n.toLocaleString()}」が出典の本文にも集めた事実にも見当たらない（文: ${sentence.trim().slice(0, 60)}）。出典の数字に直すか、計算・推測なら文に「（推測）」等の印を付ける` });
       for (const y of ys) if (!years.has(y)) out.push({ rule: 'year-not-in-sources', where, detail: `${y}年が出典の本文にも集めた事実にも見当たらない（文: ${sentence.trim().slice(0, 60)}）` });

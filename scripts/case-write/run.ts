@@ -3,17 +3,20 @@
  *
  *   pnpm case:write --ids a,b                    （data/case-pages/<id>.md に書く。そのあと pnpm case-pages:build）
  *   pnpm case:write --ids a --out-dir docs/owner/trial --blind   （試し: 正本を上書きせず、見本からその事例の答えを隠す）
- *   オプション: --agent claude|codex|auto  --model <型>  --max-repairs N（既定2）  --concurrency N（既定2）
+ *   オプション: --agent claude|codex|auto  --model <書く段の型>（claude の既定 opus）
+ *              --cheap-agent codex|claude（事実を照らす段と照合の直し。既定 codex）  --cheap-model <型>（claude なら既定 haiku）
+ *              --read-agent claude|codex（読む段。既定 claude）  --read-model <型>（claude なら既定 haiku）  --codex-effort <深さ>
+ *              --max-repairs N（既定1）  --concurrency N（既定2）
  *              --cache-dir <別の作業場所>（出典の本文の写しを探す場所。何度でも）  --no-fetch（写しが無い出典を取りに行かない）
  *              正本以外へ書く時（試し）は、取ってきた出典の本文を data/source-cache.trial に残す（本番の写し data/source-cache は証拠の照合が読むので増やさない）
  *
- * 段（1件ごと）:
- *   1. 書く: 事例まるごとを1回で（write-prompt.md ＋ 見本 Candy Japan ＋ オーナーとのやりとり ＋ 集めた事実と出典の本文）
- *   1b. 事実を照らす: 別の呼び出しが、出来事・場所・やり方まで出典の本文と照らし、出典に無い物を外す（fact-prompt.md）
- *   2. 読む: 別の呼び出しが、前提ゼロの読む人として見本と並べて読み、見劣りする所だけ直す（事実は足さない。read-prompt.md）
- *   2b. 1行を選ぶ: 書く段が出した一覧の1行の候補3つから、別の呼び出しが見本と並べて1つを選ぶか直す（select-prompt.md）
- *   3. 照らす: プログラムが、全章・です／ます・円概算・推定語・使えない出典・出典に無い数字と年・円の換算違いを見る（verify.ts）
- *      合わなければ、書く担当へ違反の一覧を返して直させ、もう一度照らす（上限 --max-repairs 回。超えたらその件は書き出さない）
+ * 段（1件ごと。claude 側の費用は1件0.4〜0.6ドル（書く段の opus がほぼ全部）。毎回貼る資料は、段ごとに要る物だけを渡す）:
+ *   1. 書く（良いAI。既定 claude の opus）: 事例まるごとと一覧の1行の候補6つを出し、同じ呼び出しの中で見本と照らして1行を決める（write-prompt.md ＋ 見本 Candy Japan ＋ STEP_FILES ＋ 集めた事実と出典の本文）
+ *   2. 事実を照らす（安いAI。既定 codex）: 文は返さず、出典に無い事実の一覧と、使えない1行の候補の番号だけを返す（fact-prompt.md。見本は付けない）
+ *      決めた1行が使えないとされた時だけ、使える候補の先頭に替える
+ *   3. 読む（安いAI。既定 claude の haiku）: 前提ゼロの読む人として読み直し、2の一覧の事実を外す。1行には触らない（read-prompt.md ＋ 見本 ＋ READ_FILES）
+ *   4. 照らす: プログラムが、全章・です／ます・円概算・推定語・使えない出典・出典に無い数字と年・円の換算違いを見る（verify.ts）
+ *      合わなければ、安いAI（既定 codex）へ（1行から稼ぎの数字が抜けた時だけ書く段へ）違反の一覧を返して直させ、もう一度照らす（上限 --max-repairs 回。超えたらその件は書き出さない）
  * 書き出した後の case-pages:build / check と公開は呼び出し側（case-run の display 段、または人）が行う。
  * 各件の時間・呼び出し回数・費用は <out-dir>/_case-write.jsonl（既定の出力先なら data/pipeline/case-write.jsonl）に残す。
  */
@@ -22,7 +25,7 @@ import { dirname, join, resolve } from 'node:path';
 import { fileURLToPath, pathToFileURL } from 'node:url';
 import { makeCaller, mapPool, pickAgent, type Agent, type Caller } from '../reader-case/agent-call';
 import { fetchOne } from '../reader-case/fetch-sources';
-import { ownerContext } from '../reader-case/owner-context';
+import { DECIDED_UI_FILE, ownerContext } from '../reader-case/owner-context';
 import { buildInput, renderInput, type CaseInput, type Fetcher } from './input';
 import { verifyDraft, type WriteViolation } from './verify';
 
@@ -35,10 +38,14 @@ export interface WriteOptions {
   /** 見本から隠す事例名（試し用） */
   hideNames?: string[];
   maxRepairs?: number;
+  /** 事実を照らす・照合の直しに使う安いAI（無ければ caller と同じ） */
+  cheap?: Caller;
+  /** 読む段のAI（無ければ cheap と同じ）。codex では文が訳文調になったので、既定は claude の haiku */
+  readerCaller?: Caller;
   rights?: Record<string, { decision?: string }>;
   log?: (t: string) => void;
 }
-export interface WriteResult { id: string; ok: boolean; md: string; /** 一覧の1行の候補と選んだ1行 */ leadPick?: { candidates: string; chosen: string }; /** 調べた側のメモ（画面に出さない） */ notes: string; calls: number; seconds: number; costUsd: number; rounds: Array<{ step: string; violations: number }>; violations: WriteViolation[] }
+export interface WriteResult { id: string; ok: boolean; md: string; /** 一覧の1行の候補と選んだ1行 */ leadPick?: { candidates: string; chosen: string }; /** 調べた側のメモ（画面に出さない） */ notes: string; calls: number; seconds: number; costUsd: number; /** 呼び出しごとの費用と量 */ steps: Array<{ step: string; costUsd: number; inputTokens?: number; outputTokens?: number }>; rounds: Array<{ step: string; violations: number }>; violations: WriteViolation[] }
 
 /** AI の返事から markdown だけを取り出す（囲みや前置きが付いても、最初の「# 」の行から） */
 export function extractMarkdown(text: string): string {
@@ -48,10 +55,15 @@ export function extractMarkdown(text: string): string {
   return `${(i >= 0 ? body.slice(i) : body).trim()}\n`;
 }
 
-function systemPrompt(root: string, file: string, hideNames: string[]): string {
+/** 書く段と読む段に貼るオーナーの資料（根っこ・1行の見本・概要の見本）。長いやりとりの記録は貼らない */
+export const STEP_FILES = ['docs/owner/READER_EYE.md', 'docs/owner/LEAD_LINE_SHEET.md', 'docs/owner/OVERVIEW_SHEET.md', DECIDED_UI_FILE] as const;
+/** 読む段に貼る資料（1行に触らないので、1行の見本の紙は貼らない） */
+export const READ_FILES = ['docs/owner/READER_EYE.md', 'docs/owner/OVERVIEW_SHEET.md', DECIDED_UI_FILE] as const;
+
+function systemPrompt(root: string, file: string, hideNames: string[], files: readonly string[]): string {
   const base = readFileSync(join(HERE, file), 'utf8');
   const example = existsSync(join(root, EXAMPLE_FILE)) ? readFileSync(join(root, EXAMPLE_FILE), 'utf8') : '';
-  return `${base}\n\n## 見本（オーナー承認済み。この形と同じくらい良い文にする）\n\n${example}${ownerContext(root, { hideNames })}`;
+  return `${base}\n\n## 見本（オーナー承認済み。この形と同じくらい良い文にする）\n\n${example}${files.length ? ownerContext(root, { hideNames, files }) : ''}`;
 }
 
 export const NOTES_HEAD = '調べた側のメモ';
@@ -88,56 +100,76 @@ export function extractLine(text: string): string {
 
 export const formatViolations = (v: WriteViolation[]) => v.map((x) => `- [${x.where}] ${x.detail}`).join('\n');
 
+/** 一覧の1行の章の中身 */
+export const leadOf = (md: string) => splitSection(md, '一覧の1行').body.split('\n')[0]?.trim() ?? '';
+
+/** 事実を照らす段の返事から、出典に無い事実の一覧と、使えない1行の候補の番号を取り出す */
+export function parseFactReport(text: string): { missing: string; badCandidates: number[] } {
+  const missing = splitSection(text, '出典に無い事実').body;
+  const bad = splitSection(text, '使えない1行の候補').body;
+  return { missing: /^なし。?$/.test(missing.trim()) ? '' : missing.trim(), badCandidates: /^なし/.test(bad.trim()) ? [] : (bad.match(/\d+/g) ?? []).map(Number) };
+}
+
+/** 候補の章（「- 」の行）を配列に */
+export const candidateLines = (body: string) => body.split('\n').map((l) => l.trim()).filter((l) => /^(?:[-・*]|\d+[.．)])\s*\S/.test(l)).map((l) => l.replace(/^(?:[-・*]|\d+[.．)])\s*/, ''));
+
 export async function writeCase(input: CaseInput, caller: Caller, opt: WriteOptions): Promise<WriteResult> {
   const hide = opt.hideNames ?? [];
-  const writer = systemPrompt(opt.root, 'write-prompt.md', hide);
-  const reader = systemPrompt(opt.root, 'read-prompt.md', hide);
-  const selector = systemPrompt(opt.root, 'select-prompt.md', hide);
-  // 事実を照らす段は文の良し悪しを見ないので、見本とオーナー資料は付けない（入力を小さくする）
+  // 費用の大半は、毎回貼る資料の長さ。段ごとに要る物だけを渡す（やりとりの記録 OWNER_DIALOGUE_LOG は長いので渡さない）
+  const writer = systemPrompt(opt.root, 'write-prompt.md', hide, STEP_FILES);
+  // 読む段は1行に触らないので、1行の見本の紙は渡さない
+  const reader = systemPrompt(opt.root, 'read-prompt.md', hide, READ_FILES);
+  // 照合の差し戻しは数字・円の直しだけなので、見本の資料は付けない
+  const repairer = systemPrompt(opt.root, 'write-prompt.md', hide, []);
+  // 事実を照らす段は文の良し悪しを見ないので、見本とオーナー資料は付けない
   const factChecker = readFileSync(join(HERE, 'fact-prompt.md'), 'utf8');
-  let leadPick: { candidates: string; chosen: string } | undefined;
+  const cheap = opt.cheap ?? caller;
   const material = renderInput(input);
   const started = Date.now();
-  let calls = 0; let cost = 0;
-  const ask = async (system: string, user: string, label: string) => {
-    calls++;
-    const r = await caller({ system, user, label: `${input.id} ${label}` });
+  let cost = 0;
+  const steps: WriteResult['steps'] = [];
+  const askRaw = async (who: Caller, system: string, user: string, label: string) => {
+    const r = await who({ system, user, label: `${input.id} ${label}` });
     cost += r.costUsd ?? 0;
-    return extractMarkdown(r.text);
+    steps.push({ step: label, costUsd: Number((r.costUsd ?? 0).toFixed(4)), inputTokens: r.tokens?.input, outputTokens: r.tokens?.output });
+    return r.text;
   };
+  const ask = async (who: Caller, system: string, user: string, label: string) => extractMarkdown(await askRaw(who, system, user, label));
   const rounds: WriteResult['rounds'] = [];
   const notesParts: string[] = [];
   const keepNotes = (text: string) => { const x = splitNotes(text); if (x.notes) notesParts.push(x.notes); return x.page; };
-  let md = keepNotes(await ask(writer, `${material}\n\n---\nこの事例の画面の文を、指示の形で事例まるごと書く。`, '書く'));
-  rounds.push({ step: '書く', violations: verifyDraft(splitSection(md, CANDIDATES_HEAD).page, input, opt.rights).length });
-  // 事実を照らす: 書いた者とは別の呼び出しが、出来事・場所・やり方まで出典の本文と照らし、出典に無い物を外す
-  md = keepNotes(await ask(factChecker, `${material}\n\n---\n## 照らす事例の文\n\n${md}`, '事実を照らす'));
-  // 読む: 前提ゼロの読む人として全文を読み直す
-  md = keepNotes(await ask(reader, `## 読み直す事例の文\n\n${md}`, '読む'));
-  // 1行を選ぶ: 候補3つから、見本と並べて1つを選ぶか直す
-  const cut = splitSection(md, CANDIDATES_HEAD);
-  md = cut.page;
-  if (cut.body) {
-    const dropped = notesParts.join('\n').split('\n').filter((l) => l.includes('外した')).join('\n') || 'なし';
-    // 揺れを抑える: 書く担当にもう一度、切り口を変えた候補を3つ書かせ、6つから選ぶ
-    const more = (await ask(writer, `## 事例の文（照らして読み直した後）\n\n${md}\n\n## もう出ている一覧の1行の候補\n${cut.body}\n\n## 出典で確かめられず外した事実（1行に使わない）\n${dropped}\n\n一覧の1行の候補だけを、上と違う切り口で新しく3つ書く。使う事実は上の事例の文にある物だけ。「- 」で1行ずつ、3行だけを返す。`, '1行の候補を足す'))
-      .split('\n').map((l) => l.trim()).filter((l) => /^[-・*]\s*\S/.test(l)).slice(0, 3).map((l) => `- ${l.replace(/^[-・*]\s*/, '')}`);
-    const candidates = [cut.body.trim(), ...more].filter(Boolean).join('\n');
-    calls++;
-    const r = await caller({ system: selector, user: `## 事例の文（候補を除く）\n\n${md}\n\n## 一覧の1行の候補\n${candidates}\n\n## 出典で確かめられず外した事実（1行に使わない）\n${dropped}\n\n1行だけを返す。`, label: `${input.id} 1行を選ぶ` });
-    cost += r.costUsd ?? 0;
-    const lead = extractLine(r.text);
-    if (lead) { md = replaceLead(md, lead); leadPick = { candidates, chosen: lead }; }
+  // 1. 書く（良いAI）: 本文と一覧の1行の候補6つを出し、同じ呼び出しの中で見本と照らして1行を決める
+  const written = keepNotes(await ask(caller, writer, `${material}\n\n---\nこの事例の画面の文を、指示の形で事例まるごと書く。`, '書く'));
+  const cut = splitSection(written, CANDIDATES_HEAD);
+  let md = cut.page;
+  rounds.push({ step: '書く', violations: verifyDraft(md, input, opt.rights).length });
+  const candidates = candidateLines(cut.body);
+  // 2. 事実を照らす（安いAI）: 文は返させず、出典に無い事実の一覧と、使えない候補の番号だけを返させる
+  const report = parseFactReport(await askRaw(cheap, factChecker, `${material}\n\n---\n## 照らす事例の文\n\n${md}\n\n## 一覧の1行の候補\n${candidates.map((c, i) => `${i + 1}. ${c}`).join('\n') || 'なし'}`, '事実を照らす'));
+  if (report.missing) notesParts.push(`- 出典で確かめられず外した（事実を照らす段の一覧）：\n${report.missing}`);
+  // 1行は書く段が決めた物。照らす段が使えないとした時だけ、使える候補の先頭に替える
+  let lead = leadOf(md);
+  const bad = new Set(report.badCandidates.map((n) => candidates[n - 1]).filter(Boolean));
+  if (bad.has(lead) || (report.missing && report.missing.split('\n').some((l) => { const q = l.match(/「([^」]{4,})」/)?.[1]; return q && lead.includes(q); }))) {
+    const next = candidates.find((c) => !bad.has(c) && c !== lead);
+    if (next) { notesParts.push(`- 一覧の1行を替えた：「${lead}」は出典に無い事実を含むため、候補「${next}」にした`); lead = next; md = replaceLead(md, lead); }
   }
+  // 3. 読む（安いAI）: 前提ゼロの読む人として読み直し、出典に無い事実を外す。1行には触らせない
+  md = splitSection(keepNotes(await ask(opt.readerCaller ?? cheap, reader, `## 読み直す事例の文\n\n${md}\n\n## 出典に無い事実（本文から外す）\n${report.missing || 'なし'}`, '読む')), CANDIDATES_HEAD).page;
+  md = replaceLead(md, lead);
+  const leadPick = candidates.length ? { candidates: candidates.map((c) => `- ${c}`).join('\n'), chosen: lead } : undefined;
   let v = verifyDraft(md, input, opt.rights);
   rounds.push({ step: '読む', violations: v.length });
-  for (let i = 0; i < (opt.maxRepairs ?? 2) && v.length > 0; i++) {
-    opt.log?.(`${input.id}: 照合で ${v.length} 件合わない。書く担当へ返す（${i + 1}回目）`);
-    md = splitSection(keepNotes(await ask(writer, `${material}\n\n---\n## 前に書いた事例の文\n\n${md}\n\n## プログラムの照合で合わなかった所（ここだけを直し、他の文は変えない。直せない数字は文ごと外すか「（推測）」の印を付ける）\n${formatViolations(v)}\n\n直した後の全体を、指示の形で返す（一覧の1行の候補の章は要らない）。`, `直す${i + 1}`)), CANDIDATES_HEAD).page;
+  // 4. 照合に合わなければ差し戻す（安いAI、既定1回まで）
+  for (let i = 0; i < (opt.maxRepairs ?? 1) && v.length > 0; i++) {
+    opt.log?.(`${input.id}: 照合で ${v.length} 件合わない。直しに返す（${i + 1}回目）`);
+    // 1行から稼ぎの数字が抜けた時は、1行を決めた書く段へ返す（安い直し役に1行を書かせない）
+    const toWriter = v.some((x) => x.rule === 'lead-no-amount');
+    md = splitSection(keepNotes(await ask(toWriter ? caller : cheap, toWriter ? writer : repairer, `${material}\n\n---\n## 前に書いた事例の文\n\n${md}\n\n## プログラムの照合で合わなかった所（ここだけを直し、他の文は1文字も変えない。直せない数字は文ごと外すか「（推測）」の印を付ける）\n${formatViolations(v)}\n\n直した後の全体を、指示の形で返す（一覧の1行の候補の章は要らない）。`, `直す${i + 1}`)), CANDIDATES_HEAD).page;
     v = verifyDraft(md, input, opt.rights);
     rounds.push({ step: `直す${i + 1}`, violations: v.length });
   }
-  return { id: input.id, ok: v.length === 0, md, leadPick, notes: [...new Set(notesParts)].join('\n\n'), calls, seconds: Math.round((Date.now() - started) / 1000), costUsd: Number(cost.toFixed(3)), rounds, violations: v };
+  return { id: input.id, ok: v.length === 0, md, leadPick, notes: [...new Set(notesParts)].join('\n\n'), calls: steps.length, seconds: Math.round((Date.now() - started) / 1000), costUsd: Number(cost.toFixed(3)), steps, rounds, violations: v };
 }
 
 /**
@@ -171,19 +203,27 @@ async function main() {
   const defaultOut = outDir === resolve(ROOT, 'data/case-pages');
   const blind = process.argv.includes('--blind');
   const agent = pickAgent((arg('--agent') as Agent | 'auto' | undefined) ?? 'auto', console.log);
-  const caller = makeCaller(agent, { model: arg('--model') });
+  // 費用: 書く1回だけを良いAI、残りは安いAIにする。claude は1回限りの呼び出しなので指示の写しを残さない
+  // 書く段は質を優先して opus（2026-10-09 に sonnet・codex・opus を比べて決めた。費用は契約の使用量）
+  const caller = makeCaller(agent, { model: arg('--model') ?? (agent === 'claude' ? 'opus' : undefined), codexEffort: arg('--codex-effort'), noCache: true, plainText: true });
+  // 事実を照らす段と照合の直しは、既定で codex（ChatGPT の契約の範囲で動き、claude の費用がかからない）
+  const cheapAgent = (arg('--cheap-agent') as Agent | undefined) ?? 'codex';
+  const cheap = makeCaller(cheapAgent, { model: arg('--cheap-model') ?? (cheapAgent === 'claude' ? 'haiku' : undefined), codexEffort: arg('--codex-effort'), noCache: true, plainText: true });
+  // 読む段は、codex だと文が訳文調になった（2026-10-09 の試し）ので、既定は claude の haiku
+  const readAgent = (arg('--read-agent') as Agent | undefined) ?? 'claude';
+  const readerCaller = makeCaller(readAgent, { model: arg('--read-model') ?? (readAgent === 'claude' ? 'haiku' : undefined), codexEffort: arg('--codex-effort'), noCache: true, plainText: true });
   const fetcher: Fetcher | undefined = process.argv.includes('--no-fetch') ? undefined : fetchOne;
   const rightsFile = join(ROOT, 'data/catalog-source-rights.json');
   const rights = existsSync(rightsFile) ? JSON.parse(readFileSync(rightsFile, 'utf8')) as Record<string, { decision?: string }> : {};
   const logFile = defaultOut ? join(ROOT, 'data/pipeline/case-write.jsonl') : join(outDir, '_case-write.jsonl');
   mkdirSync(outDir, { recursive: true }); mkdirSync(dirname(logFile), { recursive: true });
   const concurrency = Number(arg('--concurrency') ?? 2);
-  const maxRepairs = Number(arg('--max-repairs') ?? 2);
+  const maxRepairs = Number(arg('--max-repairs') ?? 1);
   let failed = 0;
   await mapPool(ids, concurrency, async (id) => {
     try {
       const input = await buildInput(ROOT, id, { cacheDirs: args('--cache-dir'), fetcher, writeCacheDir: defaultOut ? undefined : 'data/source-cache.trial' });
-      const r = await writeCase(input, caller, { root: ROOT, hideNames: blind ? blindKeys(ROOT, id, input.name) : [], maxRepairs, rights, log: (t) => console.log(`[case:write] ${t}`) });
+      const r = await writeCase(input, caller, { root: ROOT, hideNames: blind ? blindKeys(ROOT, id, input.name) : [], maxRepairs, cheap, readerCaller, rights, log: (t) => console.log(`[case:write] ${t}`) });
       // 照合に通らなかった文は正本の場所に置かない（case-pages:build が拾わないように、別の場所へ）
       const rejectDir = defaultOut ? join(ROOT, 'data/pipeline/case-write-rejected') : outDir;
       mkdirSync(rejectDir, { recursive: true });
@@ -192,8 +232,8 @@ async function main() {
       // 調べた側のメモは画面の正本に入れず、別の記録に残す（既定: docs/owner/research-notes/<id>.md、試し: <out-dir>/research-notes/<id>.md）
       const notesDir = defaultOut ? join(ROOT, 'docs/owner/research-notes') : join(outDir, 'research-notes');
       mkdirSync(notesDir, { recursive: true });
-      writeFileSync(join(notesDir, `${id}.md`), `# ${input.name}：調べた側のメモ（画面に出さない）\n\n${r.notes || 'なし'}\n\n## 一覧の1行の候補と選んだ1行\n${r.leadPick ? `${r.leadPick.candidates}\n\n選んだ1行：${r.leadPick.chosen}` : 'なし'}\n\n## 照合の記録\n${r.rounds.map((x) => `- ${x.step}：合わない所 ${x.violations}件`).join('\n')}\n`);
-      appendFileSync(logFile, `${JSON.stringify({ at: new Date().toISOString(), agent, ...r, md: undefined, notes: undefined, leadPick: r.leadPick?.chosen, violations: r.violations.slice(0, 20) })}\n`);
+      writeFileSync(join(notesDir, `${id}.md`), `# ${input.name}：調べた側のメモ（画面に出さない）\n\n${r.notes || 'なし'}\n\n## 一覧の1行の候補と選んだ1行\n${r.leadPick ? `${r.leadPick.candidates}\n\n選んだ1行：${r.leadPick.chosen}` : 'なし'}\n\n## 照合の記録\n${r.rounds.map((x) => `- ${x.step}：合わない所 ${x.violations}件`).join('\n')}\n\n## 呼び出しごとの費用\n${r.steps.map((x) => `- ${x.step}：$${x.costUsd}（入力 ${x.inputTokens ?? '?'}・出力 ${x.outputTokens ?? '?'}）`).join('\n')}\n`);
+      appendFileSync(logFile, `${JSON.stringify({ at: new Date().toISOString(), agent, cheapAgent, readAgent, ...r, md: undefined, notes: undefined, leadPick: r.leadPick?.chosen, violations: r.violations.slice(0, 20) })}\n`);
       console.log(`[case:write] ${id}: ${r.ok ? '合格' : `不合格（${r.violations.length}件）`} ${r.seconds}秒 呼び出し${r.calls}回 $${r.costUsd} → ${file}`);
       if (!r.ok) failed++;
     } catch (e) {

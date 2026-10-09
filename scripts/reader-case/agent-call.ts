@@ -32,6 +32,13 @@ export interface AgentOptions {
    * claude は WebSearch / WebFetch だけを許す（コマンド実行・ファイル操作は無し）。codex は `--search`（読み取り専用の場所のまま）。
    */
   web?: boolean;
+  /**
+   * claude の1回限りの呼び出しで、指示の写しを残さない（DISABLE_PROMPT_CACHING=1）。
+   * 同じ指示を続けて使わない呼び出しでは、写しを作る分（1時間の写しは入力の2倍の値段）だけ高くなるので切る。
+   */
+  noCache?: boolean;
+  /** codex に JSON でなく、指示の形（markdown など）で返させる */
+  plainText?: boolean;
 }
 
 /** items を最大 limit 本まで同時に流す。結果は入力と同じ順。fn が投げた失敗は呼び側で扱う（ここでは止めない） */
@@ -71,9 +78,9 @@ function cpuSeconds(pid: number | undefined): number | null {
  * 子を流す。入力は書き込んだらすぐ閉じる（入力待ちで固まらない）。
  * 出力（stdout/stderr）も CPU 時間の増加も idleMs の間まったく無ければ、固まったとみなして止める。
  */
-export function run(cmd: string, args: string[], input: string, cwd: string, w: WatchOptions): Promise<Run> {
+export function run(cmd: string, args: string[], input: string, cwd: string, w: WatchOptions, env?: NodeJS.ProcessEnv): Promise<Run> {
   return new Promise((resolve, reject) => {
-    const child = spawn(cmd, args, { cwd, stdio: ['pipe', 'pipe', 'pipe'] });
+    const child = spawn(cmd, args, { cwd, stdio: ['pipe', 'pipe', 'pipe'], ...(env ? { env } : {}) });
     let stdout = ''; let stderr = ''; let timedOut = false; let stalled = false;
     let lastActive = Date.now(); let lastCpu = -1;
     const started = Date.now();
@@ -117,7 +124,7 @@ async function callOnce(agent: Agent, opt: AgentOptions, watch: WatchOptions, { 
     try {
       if (agent === 'claude') {
         const args = ['-p', '--output-format', 'json', '--tools', opt.web ? 'WebSearch,WebFetch' : '', '--safe-mode', '--strict-mcp-config', '--no-session-persistence', '--system-prompt', system, ...(opt.model ? ['--model', opt.model] : [])];
-        const r = await run('claude', args, user, empty, watch);
+        const r = await run('claude', args, user, empty, watch, opt.noCache ? { ...process.env, DISABLE_PROMPT_CACHING: '1' } : undefined);
         if (r.stalled) throw new StallError(`claude が固まった（${label}）`);
         if (r.timedOut) throw new Error(`claude が時間切れ（${label}）`);
         let j: { is_error?: boolean; result?: string; total_cost_usd?: number; usage?: { input_tokens?: number; output_tokens?: number; cache_read_input_tokens?: number; cache_creation_input_tokens?: number } } = {};
@@ -129,7 +136,7 @@ async function callOnce(agent: Agent, opt: AgentOptions, watch: WatchOptions, { 
       const outFile = join(empty, 'out.txt');
       writeFileSync(join(empty, '.keep'), '');
       const args = [...(opt.web ? ['--search'] : []), 'exec', '--skip-git-repo-check', '--ephemeral', '-s', 'read-only', '-o', outFile, '--json', '-C', empty, ...(opt.model ? ['-m', opt.model] : []), ...(opt.codexEffort ? ['-c', `model_reasoning_effort=${opt.codexEffort}`] : []), '-'];
-      const r = await run('codex', args, `${system}\n\n${user}\n\n${opt.web ? 'web の検索と閲覧は使ってよい。コマンド実行・ファイル作成はしない。最後に、指定の形の JSON だけを返す。' : 'ツールやコマンドは使わず、指定の形の JSON だけを返す。'}`, empty, watch);
+      const r = await run('codex', args, `${system}\n\n${user}\n\n${opt.web ? 'web の検索と閲覧は使ってよい。コマンド実行・ファイル作成はしない。最後に、指定の形の JSON だけを返す。' : (opt.plainText ? 'ツールやコマンドは使わず、指示の形で返す。' : 'ツールやコマンドは使わず、指定の形の JSON だけを返す。')}`, empty, watch);
       if (r.stalled) throw new StallError(`codex が固まった（${label}）`);
       if (r.timedOut) throw new Error(`codex が時間切れ（${label}）`);
       if (r.status !== 0 || !existsSync(outFile)) throw new Error(`codex が失敗（${label}）: ${(r.stderr || r.stdout).slice(-300)}`);
