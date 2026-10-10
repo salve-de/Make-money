@@ -1,0 +1,26 @@
+{
+  "pro_tax_excluded": 2709.090909090909,
+  "pro_payment_and_billing_fees": 128.14,
+  "pro_contribution_before_shared_costs": 2080.950909090909,
+  "annual_monthly_contribution": 1650.7924242424242,
+  "topup_contribution_excluding_shared_costs": 660.4,
+  "example_v0pro_usd": 0.135,
+  "example_v0pro_jpy_at150": 20.25,
+  "break_even_pro_for_100k_fixed": 48.05495389782468,
+  "paid_users_for_1m_profit_200k_cost": 576.6594467738962,
+  "max_free_grant_at_1percent_paid": 15000.0,
+  "free_grant_3percent_paid": 5000.0,
+  "assumptions": {
+    "consumer_price_jpy_tax_inclusive": 2980,
+    "tax_for_example": 0.1,
+    "stripe_card_fee": 0.036,
+    "stripe_billing_fee": 0.007,
+    "included_ai_cost_ceiling_per_month_jpy": 300,
+    "other_per_member_variable_budget_jpy_not_measured": 200,
+    "free_initial_ai_cost_ceiling_jpy": 150,
+    "example_usd_jpy_assumption_not_current_fx": 150,
+    "v0pro_input_usd_per_million_last_canonical_page": 3,
+    "v0pro_output_usd_per_million_last_canonical_page": 15,
+    "v0_source_version_note": "Search and canonical page rates differed. Example uses final canonical page rates; verify actual contracted API model before launch. Not a full app-development cost."
+  }
+}
