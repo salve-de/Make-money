@@ -4,6 +4,8 @@
 
 **最新のプロダクト要件は [MAKEMONEY_FINAL_PRODUCT_REQUIREMENTS_20261009.md](MAKEMONEY_FINAL_PRODUCT_REQUIREMENTS_20261009.md)。そこに至った経緯と採用理由は [PRODUCT_DECISIONS_20261009.md](PRODUCT_DECISIONS_20261009.md)。**
 
+**2026-10-10追加：制作・公開・自動掲載・作品追跡・権利・責任A/B/C・継続収益と将来ロイヤリティについての全対話MECE台帳は [MAKEMONEY_OCT10_COMPLETE_MECE.md](MAKEMONEY_OCT10_COMPLETE_MECE.md)。** この台帳は未検証事項を含む補足で、10/09の4入口・会費・初期取引手数料10%などを無断変更しない。
+
 この入口は [OWNER_INTENT.md](OWNER_INTENT.md) から委任されたプロダクト機能・導線・実装境界の正本として維持する。データの保存、事実と推論、権利、安全性は既存の正本も参照する。
 
 ## 1. 読む順序
@@ -11,6 +13,7 @@
 | 文書 | 何が書かれているか |
 |---|---|
 | [最終要件定義](MAKEMONEY_FINAL_PRODUCT_REQUIREMENTS_20261009.md) | 事業、4入口、各機能、無料／有料、価格、制作、販売、技術、原価、リリースと受入条件 |
+| [2026-10-10全対話 MECE 台帳](MAKEMONEY_OCT10_COMPLETE_MECE.md) | 外部AI制作・本人所有公開・作品の追跡/自動掲載、収益と将来ロイヤリティ、A/B/C責任、未決事項と合格条件 |
 | [経緯・理由・旧仕様との関係](PRODUCT_DECISIONS_20261009.md) | オーナーの訂正、検討した案、採用理由、変更しない部分、原稿の同一性、再開地点 |
 | [採算計算JSON](MAKEMONEY_UNIT_ECONOMICS_20261009.json) | 計算結果と入力仮定。実売上や本番原価の記録ではない |
 | [KPI・先行する外部調査](BUSINESS_GOALS_KPI_RESEARCH.md) | 月次事業利益を最上位とする指標の定義、測定の考え方、外部根拠 |
