@@ -1,0 +1,37 @@
+{
+  "version": 1,
+  "purpose": "Verification performed while archiving this conversation, separate from historical UI tests",
+  "verified_archive_commit": "725c549768976a914657480fae00d43b8fd36497",
+  "remote_readback": {
+    "restore_script_git_blob": "430b5f94cf3cbb1c9348ae3886ac60f056a7d98c",
+    "artifact_manifest_git_blob": "575449b4852319042d059763007239ae170191c9",
+    "parts_git_blobs": ["118675cac56a7bcd8fb844b45dc4c196ffb0a80d", "295283b48edac84c7151d81b2a9286f638e389a4", "23a631dc253617098937d6836df5f217383f268a", "ab1fedc84284385f2771bcf101de2ebc28f3bd52"],
+    "parts_sizes": [8192, 8192, 8192, 6460],
+    "method": "Read GitHub file contents for script and manifest; read branch-pinned contents listing for all binary parts; compare Git blob IDs and sizes with locally hashed uploaded bytes"
+  },
+  "executed_checks": {
+    "local_restore_script_matches_remote_git_blob": true,
+    "local_parts_match_remote_git_blobs": true,
+    "restore_exact_html": true,
+    "restored_html_bytes": 135398,
+    "restored_html_sha256": "4223e734aa3ab9744441ec52985372383efa33203b436ed388a33befa444c036",
+    "restored_html_equals_delivered_html": true,
+    "existing_output_refused": true,
+    "corrupted_part_refused": true,
+    "isolated_original_source_rebuild_equals_delivered": true,
+    "full_backup_zip_integrity": true,
+    "font_files_in_original_packages": 0
+  },
+  "not_performed": ["New browser UI test run", "New user research", "New full external source or license audit", "Production deployment", "main merge", "Collection or rights gate changes", "Charges or external contracts"],
+  "full_backup": {
+    "filename": "MAKEMONEY_Chat_Handoff_20261011_Full_Backup.zip",
+    "bytes": 17363839,
+    "sha256": "00d1a39454229710f14151fb1bf20a45a40fc62b3720d9dab1904190b007d940",
+    "github_bytes": false,
+    "delivered_separately": true,
+    "original_html_files": 7,
+    "original_package_and_audit_zips": 8,
+    "inner_file_inventory": "FULL_BACKUP_INVENTORY.json inside the backup contains sizes and SHA-256 for files within all original ZIPs",
+    "clarification": "GitHub ARTIFACT_MANIFEST lists major HTML, ZIP and restoration parts; full old HTML/PNG/ZIP bytes and the detailed inner-file inventory are in the separate backup"
+  }
+}
