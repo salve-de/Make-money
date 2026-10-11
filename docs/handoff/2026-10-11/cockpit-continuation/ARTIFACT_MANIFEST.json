@@ -1,0 +1,54 @@
+{
+  "manifest_version": 1,
+  "conversation_date": "2026-10-11",
+  "repository": "salve-de/Make-money",
+  "branch": "docs/makemoney-20261011-full-chat-handoff",
+  "approval_state": "LATEST_MOCK_NOT_OWNER_ACCEPTED",
+  "scope": {
+    "native_github_records": "README and 01-07: all visible discussion topics, 19 user messages, mock evolution, audit, research and unresolved work",
+    "latest_html_bytes": "Stored in Git as four lossless XZ parts; includes the original embedded CSS, JavaScript and JSON",
+    "older_html_bytes": "Not stored in this GitHub continuation; names, sizes, hashes, content and rejection history recorded",
+    "original_zip_and_png_bytes": "Not stored in this GitHub continuation; hashes recorded and full originals included in the separately delivered local backup",
+    "verbatim_transcript": "19 visible user messages only; assistant responses are reconstructed topic/history records, not a complete raw assistant/tool transcript",
+    "external_research": "Historical source references; not a new comprehensive recheck of all source pages or contracts"
+  },
+  "latest_html": {
+    "filename": "MAKEMONEY_Monitor_V2_20261011.html",
+    "bytes": 135398,
+    "sha256": "4223e734aa3ab9744441ec52985372383efa33203b436ed388a33befa444c036",
+    "storage": "lossless_xz_split",
+    "compressed_bytes": 31036,
+    "compressed_sha256": "4ff848cc85658d1f8ed5873866a94d60e6b4aa3f0c8f29f14da2f024a37bd5ed",
+    "restore_script": "restore_monitor_v2.py",
+    "parts": [
+      {"path": "artifacts/monitor-v2.html.xz.part01", "bytes": 8192, "sha256": "4589508934bdda332ba8c958d8d619b7ae6ee9071684afbe410b9d477386d979", "git_blob_sha": "118675cac56a7bcd8fb844b45dc4c196ffb0a80d"},
+      {"path": "artifacts/monitor-v2.html.xz.part02", "bytes": 8192, "sha256": "37c946f301d77b390fa02c03612413eb3326b4e5e0ca35395f63664b68e74107", "git_blob_sha": "295283b48edac84c7151d81b2a9286f638e389a4"},
+      {"path": "artifacts/monitor-v2.html.xz.part03", "bytes": 8192, "sha256": "b068e58c746490d5dcbf5801c947ef803ca18957daee65b171019332c1e541ba", "git_blob_sha": "23a631dc253617098937d6836df5f217383f268a"},
+      {"path": "artifacts/monitor-v2.html.xz.part04", "bytes": 6460, "sha256": "2e945e041b86545724f38ff27bb258503d77a27c39fef5ee2855aacfa84d6163", "git_blob_sha": "ab1fedc84284385f2771bcf101de2ebc28f3bd52"}
+    ],
+    "data_counts": {"observations": 31, "topics": 9, "market_sources": 9, "all_source_records": 25, "cases": 14, "patterns": 6, "ideas": 5, "comparison_groups": 11},
+    "verification_at_archive_time": {"delivered_equals_zip_html": true, "isolated_source_rebuild_equals_delivered": true, "new_ui_test_run": false},
+    "prior_qa_report": {"browser": "Chromium", "method": "set_content of generated local HTML; no network navigation", "passed": 654, "failed": 0, "viewport_widths": [360, 390, 768, 1024, 1280, 1440, 1920], "scope": "Historical package report, not a new test run or user-value evidence"},
+    "unverified": ["file:// direct launch", "Safari and iPhone hardware", "persistence after closing browser", "cross-device sync", "full accessibility audit", "commercial automated collection and redistribution", "real user comprehension, retention and payment"]
+  },
+  "delivered_html_inventory": [
+    {"filename": "MAKEMONEY_Trends_20261011.html", "bytes": 128398, "sha256": "546fc801ba71a8b86d1f2860c2c58472ce7cff33a05307aca906dc29291179dd", "state": "REJECTED_DETAIL_FIRST", "github_bytes": false},
+    {"filename": "MAKEMONEY_Trends_FINAL_20261011.html", "bytes": 77429, "sha256": "56681b41d3b74b915cecd2db5d8fe81671d7dce657c07663ed5921b00f88fb78", "state": "REJECTED_EMPTY_CATEGORIES", "github_bytes": false},
+    {"filename": "MAKEMONEY_Trends_Rethink_20261011.html", "bytes": 91826, "sha256": "d19e966bc1dab2a548628ba10c6e3270a46712a4959873e2ba0ec50b015919f7", "state": "REJECTED_TOPIC_REPORTS_FIRST", "github_bytes": false},
+    {"filename": "MAKEMONEY_Overview_20261011.html", "bytes": 111846, "sha256": "8ada30072ce37c0ee1445e7c73da362bd625e08b7e5e2597f7e56134e8f01ccb", "state": "REJECTED_MATRIX_AS_VALUE", "github_bytes": false},
+    {"filename": "MAKEMONEY_Trends_Complete_20261011.html", "bytes": 104985, "sha256": "1694de9ae8c3cab36cfcde7ed1c067b3a5f02106d0092150fee31dce77858357", "state": "REJECTED_EDITORIAL_NOT_COCKPIT", "github_bytes": false},
+    {"filename": "MAKEMONEY_Cockpit_20261011.html", "bytes": 116768, "sha256": "e5352c33d04b9771c682c2223f2e6d46a4d6b89778de5d1632d6efebbf01ef9a", "state": "REVISED_AFTER_AUDIT", "github_bytes": false},
+    {"filename": "MAKEMONEY_Monitor_V2_20261011.html", "bytes": 135398, "sha256": "4223e734aa3ab9744441ec52985372383efa33203b436ed388a33befa444c036", "state": "LATEST_NOT_ACCEPTED", "github_bytes": true}
+  ],
+  "original_zip_inventory": [
+    {"filename": "MAKEMONEY_Trends_20261011_Package.zip", "bytes": 2660000, "sha256": "b6ab94d4d03615a88bd65fb8c26066299f81ccc764dcec1bec8143b32f1c8d81", "files": 22, "github_bytes": false},
+    {"filename": "MAKEMONEY_Trends_FINAL_20261011_Package.zip", "bytes": 1530174, "sha256": "c4fd204abeee56be25aa0c4b268473388493be764a6ee17b8b22d4a5ec1fc8a7", "files": 16, "github_bytes": false},
+    {"filename": "MAKEMONEY_Trends_Rethink_20261011_Package.zip", "bytes": 1802084, "sha256": "37114f79e231119c7f753f0c5e66b93059549d20a9c7be663cd9728fe3fac804", "files": 21, "github_bytes": false},
+    {"filename": "MAKEMONEY_Overview_20261011_Package.zip", "bytes": 2332633, "sha256": "9b4a94bd2cce09fb0927e004bf6da8dfc4ce11b52b3f77e9b06988c49bb422df", "files": 32, "github_bytes": false},
+    {"filename": "MAKEMONEY_Trends_Complete_20261011_Package.zip", "bytes": 3458788, "sha256": "5d9a4599e5cf58f574be61d35c82ba0ca9dbea4e5dadc31e914795621f064054", "files": 34, "github_bytes": false},
+    {"filename": "MAKEMONEY_Cockpit_20261011_Package.zip", "bytes": 2057026, "sha256": "c792c72f31efa7e18b3d79cbdf0daa5975c0baa64503acc7b4cc95b859a109fa", "files": 22, "github_bytes": false},
+    {"filename": "MAKEMONEY_Cockpit_Audit_20261011.zip", "bytes": 1362915, "sha256": "12b3f284ad6154d74d9096fab0008fa17f75d6badc8f56089c9f913ba3987b57", "files": 11, "github_bytes": false},
+    {"filename": "MAKEMONEY_Monitor_V2_20261011_Package.zip", "bytes": 1344129, "sha256": "659c2255688dafec51b9faca5efd9670acdee891a021750f9b4840b49a214036", "files": 22, "github_bytes": false}
+  ],
+  "full_backup": {"filename": "MAKEMONEY_Chat_Handoff_20261011_Full_Backup.zip", "delivery": "conversation_attachment", "github_bytes": false, "contents": "Seven delivered HTML originals, eight package/audit ZIP originals, archive inventory and verification metadata"}
+}
