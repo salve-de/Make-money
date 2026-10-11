@@ -22,7 +22,7 @@
 |不採用の履歴|個別レポート先行、抽象カテゴリ、需要×収益方式マトリクス、横断記事を並べただけの入口。いずれも理由を残す|
 |最新の成果物|`MAKEMONEY_Monitor_V2_20261011.html`。独立した静的モック。**オーナーの最終受入はまだない**|
 |V2で実装されたと報告された操作|同一対象の連動、共通フィルタ、該当なし、スマホの結果表示、追跡・確認済み・メモ、保存ファイルの読み書き|
-|今回の保存作業で確認したこと|配布HTMLとZIP内HTMLの一致、ソースからの再ビルド同一性、データ件数、既存QA記録の存在。新たな利用者試験ではない|
+|今回の保存作業で確認したこと|配布HTMLとZIP内HTMLの一致、ソースからの再ビルド同一性、データ件数、既存QA記録の存在、GitHub保存パーツの識別と復元試験。新たな利用者試験ではない|
 |未実装・未実証|実データの定期取得、Google Trends接続、API契約、商用再配信、外部AI、通知、課金、認証同期、Safari/iPhone実機、実利用・継続課金・採算|
 |「最終」「完全」「最高」|過去の依頼・ファイル名・アシスタント表現。UI採用、最適性、商用契約、本番反映を証明しない|
 
@@ -35,7 +35,8 @@
 5. [05_RESEARCH_DATA_AND_RIGHTS.md](05_RESEARCH_DATA_AND_RIGHTS.md)：競合・UX・市場データ・商用取得/表示の論点。調査履歴と現在の許諾を分離。
 6. [06_CURRENT_STATE_AND_NEXT_WORK.md](06_CURRENT_STATE_AND_NEXT_WORK.md)：GitHub・実装の現在地、受入条件、作業順、禁止操作。
 7. [07_VISIBLE_USER_MESSAGES.md](07_VISIBLE_USER_MESSAGES.md)：今回参照できるユーザー発言19件。アシスタントの解釈と原発言を照合する。
-8. [ARTIFACT_MANIFEST.json](ARTIFACT_MANIFEST.json)：回収できた原本・アーカイブ内ファイルのサイズ、SHA-256、保存方法。
+8. [ARTIFACT_MANIFEST.json](ARTIFACT_MANIFEST.json)：主要な配布HTML・ZIP・GitHub復元パーツのサイズ、SHA-256、保存範囲。元ZIP内全ファイルの詳しい一覧は別途バックアップの`FULL_BACKUP_INVENTORY.json`にある。
+9. [最新HTMLの復元方法](artifacts/README.md)と[保存検証記録](ARCHIVE_VERIFICATION.json)：GitHubにある4部品から原本を復元し、同一性を確かめる。
 
 ## 4. 最新モックの識別
 
@@ -46,6 +47,12 @@
 - データ：31観測、9分野、9市場資料、25出典レコード全体、14参考事業、6共通構造、5応用案、11比較グループ。
 - 31観測は31の独立調査ではない。複数の指標を同じ資料から抽出している。
 - 保存済みQA：Chromium、7画面幅、654アサーション通過、失敗0。`set_content`描画による当時の機械試験の記録であり、654人の試験・Safari適合・ユーザー価値の証明ではない。
+
+最新HTMLは、埋込CSS・JavaScript・JSONを含む全バイト列をGitHubへ可逆圧縮保存した。保存ブランチを取得後、以下で独立したディレクトリへ復元できる（Python標準ライブラリのみ、通信・本番書込なし）。
+
+```sh
+python3 docs/handoff/2026-10-11/cockpit-continuation/restore_monitor_v2.py --output ./restored-monitor-v2
+```
 
 ## 5. 再開時の指示
 
@@ -58,3 +65,5 @@
 本リポジトリの取得時のvisibilityは`public`。GitHubへの記録は公開リポジトリ内の記録であり、元のモック文書の「非公開レビュー用」という表現で非公開になるわけではない。今回の依頼はGitHubへの記録であり、MAKEMONEY本番公開や第三者データの商用再配信を承認したものではない。
 
 実際にGitHubへ保存した内容と、原寸画像・元ZIPなどの識別台帳のみを残した内容は、アーティファクト台帳で区別する。sandboxリンクの永続性を前提にしない。
+
+旧6版のHTML、原寸画面PNG、元ZIPの全バイト列はGitHub未格納。今回回収できた7版のHTML＋8本の元ZIPをまとめた`MAKEMONEY_Chat_Handoff_20261011_Full_Backup.zip`は別途会話へ配布し、サイズ・ハッシュは保存検証記録に記載する。
