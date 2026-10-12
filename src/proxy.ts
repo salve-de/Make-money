@@ -14,6 +14,9 @@ function maintenanceResponse(request: NextRequest): NextResponse | null {
   return NextResponse.rewrite(new URL('/maintenance', request.url), { status: 503, headers });
 }
 
+/** 2026-10-09 に「事例を探す」(/discover) を廃止。古い URL は（クエリも捨てて）一覧へ 308 で送る。 */
+const DISCOVER_PATH = /^\/discover(?:\/|$)/;
+
 const previewPath = /^\/api\/build\/preview\/([^/]+)(?:\/|$)/;
 
 /**
@@ -24,6 +27,9 @@ const previewPath = /^\/api\/build\/preview\/([^/]+)(?:\/|$)/;
 export function proxy(request: NextRequest) {
   const maintenance = maintenanceResponse(request);
   if (maintenance) return maintenance;
+  if (DISCOVER_PATH.test(request.nextUrl.pathname)) {
+    return NextResponse.redirect(new URL('/', request.url), 308);
+  }
   const referer = request.headers.get('referer');
   if (!referer || !URL.canParse(referer)) return NextResponse.next();
 

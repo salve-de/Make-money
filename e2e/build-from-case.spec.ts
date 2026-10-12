@@ -1,18 +1,16 @@
 import { expect, test } from '@playwright/test';
 import { readFileSync } from 'node:fs';
+import { buildHref } from '../src/platform/model/build-material';
 import { PRIMARY } from './reader-fixture';
 
 // 公開件数は目録から読む（事例が増えるたびに直さなくて済むように）
 const PUBLISHED_COUNT = (JSON.parse(readFileSync('data/catalog-release.json', 'utf8')) as { publishedCount: number }).publishedCount;
 
-// 手元で起動済みのサーバー向け（BASE_URL）。事例 → 「これで作る」→ 材料として表示 → 事業検討の開始、と一覧の見出し。
+// 手元で起動済みのサーバー向け（BASE_URL）。事例の材料ページ（buildHref の URL）→ 材料として表示 → 事業検討の開始、と一覧の見出し。
 
-test('「これで作る」で事例が材料として /build に出て、事業検討に事例が渡る', async ({ page }) => {
-  await page.goto(`/?entity=${PRIMARY.id}`);
-  const make = page.getByRole('link', { name: new RegExp(`${PRIMARY.name}をもとに事業を作る`) }).filter({ visible: true }).first();
-  await expect(make).toHaveAttribute('href', `/build?case=${PRIMARY.id}`);
-  await make.click();
-
+test('事例が材料として /build に出て、事業検討に事例が渡る', async ({ page }) => {
+  // 事例画面からの入口は無くなったので、buildHref が返す URL を直接開く
+  await page.goto(buildHref(PRIMARY.id));
   await expect(page).toHaveURL(new RegExp(`/build\\?case=${PRIMARY.id}`));
   const material = page.getByTestId('build-material');
   await expect(material).toContainText(PRIMARY.name);

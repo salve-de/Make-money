@@ -1,13 +1,7 @@
 import { expect, type Page } from '@playwright/test';
 
-/** Use the visible product controls; keep persistence assertions in each test. */
-export async function openNotes(page: Page) {
-  await page.getByRole('button', { name: 'メモ', exact: true }).click();
-  await expect(page.locator('#section-notes textarea')).toBeVisible();
-}
-
+/** 画面の部品を実際に操作して事例を選ぶ（保存の確認は各テストで行う）。 */
 export async function selectCompany(page: Page, name: string) {
-  const notesWereOpen = await page.locator('#section-notes textarea').isVisible();
   const search = page.getByPlaceholder(/会社名・事業/).first();
   const previousQuery = await search.inputValue();
   // The grid is virtualized: a company outside its rendered window has no DOM row.
@@ -18,5 +12,4 @@ export async function selectCompany(page: Page, name: string) {
   await row.click();
   await expect(page.getByRole('heading', { level: 2, name, exact: true })).toBeVisible();
   await search.fill(previousQuery);
-  if (notesWereOpen) await openNotes(page);
 }

@@ -20,7 +20,6 @@ import { GlobalCommandPalette } from '../command/GlobalCommandPalette';
 import { AdvancedScreenerModal } from '../screener/AdvancedScreenerModal';
 import { LedgerLoadState } from '../grid/LedgerLoadState';
 import { LedgerFilterRail } from '../grid/LedgerFilterRail';
-import { TerminalStatusBar } from './TerminalStatusBar';
 import { useLedgerKeyboard } from '../../hooks/useLedgerKeyboard';
 import { closeEntityParam, dropQueryParam, openEntityParam, openLedgerEntityUrl, positionLabel } from '../../utils/entityUrl';
 import { preferDetail } from '@/shared/dossier-authority';
@@ -70,7 +69,6 @@ export const TerminalShell: React.FC<{
   // 3. 複合フィルタリング・集計・承認フック
   const {
     currentFilter,
-    setCurrentFilter,
     selectedBatch,
     setSelectedBatch,
     activeTags,
@@ -191,11 +189,6 @@ export const TerminalShell: React.FC<{
         {...(workspaceMode === 'LEDGER' ? { searchValue: searchQuery, onSearchChange: setSearchQuery } : {})}
         bookmarkCount={bookmarkedIds.size}
         bookmarkSyncStatus={bookmarkSyncStatus}
-        onSelectBookmark={() => {
-          selectWorkspaceMode('LEDGER');
-          setCurrentFilter((prev) => (prev === 'BOOKMARKED' ? 'ALL' : 'BOOKMARKED'));
-        }}
-        isBookmarkActive={workspaceMode === 'LEDGER' && currentFilter === 'BOOKMARKED'}
       />
 
       <GuestCarryOverNotice />
@@ -298,8 +291,6 @@ export const TerminalShell: React.FC<{
           </div>
         )}
       </main>
-
-      {workspaceMode === 'LEDGER' && <TerminalStatusBar shownCount={filteredEntities.length} totalCount={catalogTotal ?? filteredEntities.length} updatedAt={null} />}
 
       {/* ⌘K グローバル検索モーダル */}
       <GlobalCommandPalette

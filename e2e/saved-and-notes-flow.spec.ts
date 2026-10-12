@@ -1,6 +1,6 @@
 import { expect, test, type Page } from '@playwright/test';
 
-// 保存・メモ・比較・保存条件の通し確認（未ログイン）。
+// 保存・比較・保存条件の通し確認（未ログイン）。
 // 開発サーバーに向けるときは E2E_BASE_URL=http://127.0.0.1:3130 を指定する（未指定なら playwright.config.ts の baseURL）。
 const baseURL = process.env.E2E_BASE_URL;
 if (baseURL) test.use({ baseURL });
@@ -24,7 +24,7 @@ const WIDTHS: { label: string; width: number; height: number }[] = [
 ];
 
 for (const viewport of WIDTHS) {
-  test(`${viewport.label}：事例の保存→再読み込みで残る→メモ→保存した条件へ（未ログイン）`, async ({ page }) => {
+  test(`${viewport.label}：事例の保存→再読み込みで残る→保存した条件へ（未ログイン）`, async ({ page }) => {
     await page.setViewportSize({ width: viewport.width, height: viewport.height });
     const [target] = await firstCases(page, 1);
     await page.goto(`/?entity=${encodeURIComponent(target.id)}`, { waitUntil: 'domcontentloaded' });
@@ -37,15 +37,6 @@ for (const viewport of WIDTHS) {
     await page.reload({ waitUntil: 'domcontentloaded' });
     await expect(page.getByRole('button', { name: `${target.name}の保存を解除` }).first()).toBeVisible({ timeout: 120_000 });
     await shoot(page, `${viewport.label}-2-saved-after-reload`);
-
-    await page.getByRole('tab', { name: 'メモ' }).or(page.getByRole('button', { name: 'メモ', exact: true })).first().click();
-    const memo = page.getByRole('textbox').last();
-    await memo.fill('比較用のメモ（e2e）');
-    await expect.poll(() => page.evaluate(() => window.localStorage.getItem('make_money_analyst_notes_v1'))).toContain('比較用のメモ');
-    await shoot(page, `${viewport.label}-3-memo`);
-    await page.reload({ waitUntil: 'domcontentloaded' });
-    await page.getByRole('tab', { name: 'メモ' }).or(page.getByRole('button', { name: 'メモ', exact: true })).first().click();
-    await expect(page.getByRole('textbox').last()).toHaveValue('比較用のメモ（e2e）', { timeout: 120_000 });
 
     await page.goto('/alerts', { waitUntil: 'domcontentloaded' });
     await expect(page.getByText('検索条件を保存して、新着をメールで受け取れます')).toBeVisible({ timeout: 120_000 });

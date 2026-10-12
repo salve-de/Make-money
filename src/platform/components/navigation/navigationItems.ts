@@ -2,7 +2,6 @@ import { Bookmark, BellRing, CircleUserRound, GitCompareArrows, Handshake, Packa
 
 export type GlobalNavSection =
   | 'LEDGER'
-  | 'DISCOVER'
   | 'TRENDS'
   | 'SYNTHESIS'
   | 'BUILDER'
@@ -42,7 +41,6 @@ export const PRIMARY_NAV_ITEMS: NavItem[] = [
  * 発見は事例の中、実行計画は作る、事業の売買は市場の中の画面として扱う（入口は出さず、直接のURLだけ残す）。
  */
 export const TAB_OF_SECTION: Partial<Record<GlobalNavSection, GlobalNavSection>> = {
-  DISCOVER: 'LEDGER',
   COMPARE: 'LEDGER',
   EXECUTION: 'BUILDER',
   BUSINESSES: 'MARKETPLACE',
@@ -128,7 +126,6 @@ export const LEGAL_LINKS = [
 /** スマホのヘッダーに出す、いま開いている画面の名前 */
 export const SECTION_TITLES: Record<GlobalNavSection, string> = {
   LEDGER: '事例',
-  DISCOVER: '事例を探す',
   TRENDS: '傾向',
   SYNTHESIS: '事業検討',
   BUILDER: '作る',

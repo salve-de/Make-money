@@ -1,9 +1,9 @@
 import { test, expect } from '@playwright/test';
 
-// 詳細画面（概要・数値 / メモの2タブ）が、事例ごとに「中身」か「準備中」を正直に出すことを確かめる。
+// 詳細画面（概要・数値）が、事例ごとに「中身」か「準備中」を正直に出すことを確かめる。
 // - 公開目録の10件（published = true）: 出典つきの事実・推測を出す。数値の欄は、数値が1件でもある事例だけ出る（Teamcamp は無い）。
 // - 目録に無い事例: 「この事例は公開していません。」だけ。名前も詳細も出ない。
-// どちらも、内部の用語は画面に出ず、メモ欄は使える。
+// どちらも、内部の用語は画面に出ない。
 // [id, 名前, 公開しているか, 数値の欄が出るか]
 const entities = [
   ['ent_gorails_640d8f688451', 'GoRails', true, true],
@@ -63,8 +63,6 @@ for (const [id, name, published, hasMetrics] of entities) {
     for (const phrase of INTERNAL_PHRASES) {
       await expect(page.locator('body')).not.toContainText(phrase);
     }
-    await page.getByRole('button', { name: 'メモ', exact: true }).click();
-    await expect(page.locator('#section-notes textarea')).toHaveCount(1);
     expect(errors).toEqual([]);
   });
 }

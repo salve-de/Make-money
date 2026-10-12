@@ -5,8 +5,7 @@ import React, { useEffect, useRef, useState } from 'react';
 
 import { UI, uiFormat } from '@/shared/ui-strings';
 import { buildInspectorModel } from './model/inspector-model';
-import type { CompanyInspectorPaneProps, InspectorMainTab, InspectorViewMode } from './model/section-props';
-import { AnalystNotes } from './ui/AnalystNotes';
+import type { CompanyInspectorPaneProps, InspectorViewMode } from './model/section-props';
 import { CompanyHeader } from './ui/CompanyHeader';
 import { EntityMediaGallery } from './ui/EntityMediaGallery';
 import { ReaderLedger } from './ui/ReaderDetail';
@@ -36,7 +35,6 @@ export const CompanyInspectorPane: React.FC<CompanyInspectorPaneProps> = ({
 }) => {
   const scrollContainerRef = useRef<HTMLDivElement>(null);
   const [isScrolled, setIsScrolled] = useState(false);
-  const [mainTab, setMainTab] = useState<InspectorMainTab>('LEDGER');
   const [viewMode, setViewMode] = useState<InspectorViewMode>('ALL');
   const searchParams = useSearchParams();
   const targetSection = searchParams?.get('section');
@@ -98,8 +96,6 @@ export const CompanyInspectorPane: React.FC<CompanyInspectorPaneProps> = ({
     scrollToSection,
     viewMode,
     setViewMode,
-    mainTab,
-    setMainTab,
     isBookmarked,
     onToggleBookmark,
     positionLabel,
@@ -119,19 +115,13 @@ export const CompanyInspectorPane: React.FC<CompanyInspectorPaneProps> = ({
         className="relative flex-1 overflow-y-auto bg-term-bg pb-[env(safe-area-inset-bottom)] font-sans text-[13px] scroll-smooth [scrollbar-gutter:stable] [scrollbar-width:thin]"
       >
         {/* entity.reader の事実・数値・出典と、推測の印つきの推論、運営者が決済確認した売上を描く */}
-        {mainTab === 'LEDGER' ? (
-          <>
-            <ReaderLedger
-              reader={entity.reader}
-              detailState={detailState}
-              onRetry={onRetryDetail}
-              media={<EntityMediaGallery entityId={entity.id} entityName={entity.name} isHazardMode={Boolean(sectionProps.isHazardMode)} />}
-            />
-            <VerifiedRevenueSection entityId={entity.id} />
-          </>
-        ) : (
-          <AnalystNotes {...sectionProps} />
-        )}
+        <ReaderLedger
+          reader={entity.reader}
+          detailState={detailState}
+          onRetry={onRetryDetail}
+          media={<EntityMediaGallery entityId={entity.id} entityName={entity.name} isHazardMode={Boolean(sectionProps.isHazardMode)} />}
+        />
+        <VerifiedRevenueSection entityId={entity.id} />
       </div>
 
     </aside>
