@@ -1,0 +1,660 @@
+{
+ "schema": "make-money.case-article.v2",
+ "entityId": "ent_flightradar24_83377cd2e700",
+ "name": "Flightradar24",
+ "revision": "r1",
+ "reviewState": "ready_for_review",
+ "generation": 5,
+ "basedOn": {
+  "packageId": "mm-flightradar24-20261012-r1",
+  "submissionSha256": "156673ee2525d1888668cbdf30e87d678db76c09026493fca8acf61b8a40b132"
+ },
+ "listLine": "飛行機の位置を世界中から集めて見せ、16か月で売上約98億円",
+ "headline": "世界中の協力者が集めた航空機データを、Boeingにも供給する事業へ",
+ "lead": "飛行機を地図で追う閲覧サービスに加え、広告・有料会員・法人向けデータ提供で収益を得る。",
+ "sources": [
+  {
+   "no": 1,
+   "label": "Flightradar24 / About Flightradar24 / 公開日不明",
+   "url": "https://www.flightradar24.com/about/"
+  },
+  {
+   "no": 2,
+   "label": "Flightradar24 / Subscription plans / 公開日不明",
+   "url": "https://www.flightradar24.com/premium/"
+  },
+  {
+   "no": 3,
+   "label": "Flightradar24 / How it works / 公開日不明",
+   "url": "https://www.flightradar24.com/how-it-works/"
+  },
+  {
+   "no": 4,
+   "label": "Flightradar24 / Become a contributor / 公開日不明",
+   "url": "https://www.flightradar24.com/add-coverage"
+  },
+  {
+   "no": 5,
+   "label": "Flightradar24 / Share your ADS-B data / 公開日不明",
+   "url": "https://www.flightradar24.com/share-your-data"
+  },
+  {
+   "no": 6,
+   "label": "Google for Publishers / Flightradar24 / Mats Lidgren / 2023",
+   "url": "https://www.google.com/ads/publisher/stories/flightradar24/"
+  },
+  {
+   "no": 7,
+   "label": "Flightradar24 / Flight Data Services to Boeing / 2025-12-22",
+   "url": "https://www.flightradar24.com/blog/b2b/flightradar24-to-supply-flight-data-services-to-boeing/"
+  },
+  {
+   "no": 8,
+   "label": "Allabolag / Flightradar24 AB Bokslut / 公開日不明",
+   "url": "https://www.allabolag.se/bokslut/flightradar24-ab/stockholm/internet-konsulter-operat%C3%B6rer/2K3LY99I5YFHL"
+  },
+  {
+   "no": 9,
+   "label": "Flightradar24 / SPAR19 traffic surge and service impact / 2022-08-02",
+   "url": "https://www.flightradar24.com/blog/flight-tracking-news/special-aircraft-tracking/spar19-becomes-the-most-tracked-flight-of-all-time/"
+  }
+ ],
+ "sourceKeys": {
+  "1": "about",
+  "2": "premium",
+  "3": "how",
+  "4": "contribute",
+  "5": "share",
+  "6": "google",
+  "7": "boeing",
+  "8": "accounts",
+  "9": "outage"
+ },
+ "kpis": [
+  {
+   "label": "純売上高",
+   "value": "7億353万SEK",
+   "yen": "約98億円",
+   "period": "2024年9月〜2025年12月：16か月",
+   "recordKeys": [
+    "r19",
+    "r24"
+   ]
+  },
+  {
+   "label": "営業利益",
+   "value": "4億6,015万SEK",
+   "yen": "約64億円",
+   "period": "同期間",
+   "recordKeys": [
+    "r20",
+    "r24"
+   ]
+  },
+  {
+   "label": "法人向けデータ",
+   "value": "Boeing",
+   "period": "2025年12月契約発表",
+   "recordKeys": [
+    "r15"
+   ]
+  }
+ ],
+ "topics": [
+  {
+   "id": "overview",
+   "lead": {
+    "text": "飛行機の位置を地図で見せるとともに、同じ情報を航空会社やメーカーの業務向けにも提供する。",
+    "cites": [],
+    "recordKeys": [
+     "r1",
+     "r11",
+     "r26"
+    ]
+   },
+   "blocks": [
+    {
+     "type": "facts",
+     "variant": "text",
+     "rows": [
+      {
+       "label": "利用者向け",
+       "text": "便名・機材・航跡を地図で確認できる。",
+       "cites": [
+        1,
+        3,
+        7
+       ],
+       "recordKeys": [
+        "r1"
+       ]
+      },
+      {
+       "label": "データ源",
+       "text": "各地の受信者が集める航空機の信号に、衛星などの情報を組み合わせる。",
+       "cites": [
+        1,
+        3,
+        7
+       ],
+       "recordKeys": [
+        "r5",
+        "r6"
+       ]
+      },
+      {
+       "label": "法人向け",
+       "text": "航空会社・メーカー等へ、現在・過去の飛行データを提供。",
+       "cites": [
+        1,
+        3,
+        7
+       ],
+       "recordKeys": [
+        "r11",
+        "r15"
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "mechanism",
+   "lead": {
+    "text": "各地の受信協力者に閲覧特典を返し、自社だけでは整備できない広域の観測網を作った。",
+    "cites": [],
+    "recordKeys": [
+     "r7",
+     "a1"
+    ]
+   },
+   "blocks": [
+    {
+     "type": "steps",
+     "items": [
+      {
+       "title": "受信",
+       "text": "航空機の信号を各地の参加者が受信機で受け取る。",
+       "cites": [
+        3,
+        4,
+        5
+       ],
+       "recordKeys": [
+        "r5",
+        "r9"
+       ]
+      },
+      {
+       "title": "送信",
+       "text": "位置情報などをサービスへ提供。自前の機材利用・機材提供への応募も可能。",
+       "cites": [
+        3,
+        4,
+        5
+       ],
+       "recordKeys": [
+        "r9",
+        "rel1"
+       ]
+      },
+      {
+       "title": "還元",
+       "text": "協力者にはContributor向けの追加閲覧機能を無償提供。",
+       "cites": [
+        3,
+        4,
+        5
+       ],
+       "recordKeys": [
+        "r7",
+        "r8"
+       ]
+      }
+     ]
+    },
+    {
+     "type": "figure",
+     "figureId": "fr24-data"
+    },
+    {
+     "type": "paragraph",
+     "tone": "note",
+     "text": "地上受信だけでなく、MLAT、衛星、レーダーなどの情報も組み合わせて便や機材に結び付ける。",
+     "cites": [
+      3
+     ],
+     "recordKeys": [
+      "r6"
+     ]
+    },
+    {
+     "type": "subheading",
+     "text": "データ品質を維持する仕事"
+    },
+    {
+     "type": "facts",
+     "variant": "text",
+     "rows": [
+      {
+       "label": "参加の理由",
+       "text": "データ提供者に閲覧特典を返し、継続参加の動機を作る。",
+       "cites": [
+        3,
+        4,
+        5
+       ],
+       "recordKeys": [
+        "r7",
+        "a1"
+       ]
+      },
+      {
+       "label": "会社の仕事",
+       "text": "受信データを利用可能な品質に整え、個人には地図、法人には業務用データとして提供。",
+       "cites": [
+        3,
+        4,
+        5,
+        2,
+        7
+       ],
+       "recordKeys": [
+        "a3",
+        "a2",
+        "r6"
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "revenue",
+   "lead": {
+    "text": "一般利用者向けの有料機能、広告、法人向けのデータ契約という異なる収入源を持つ。",
+    "cites": [],
+    "recordKeys": [
+     "r11",
+     "a2"
+    ]
+   },
+   "blocks": [
+    {
+     "type": "rates",
+     "caption": "お金を払う相手 / 何にお金を払うか",
+     "rows": [
+      {
+       "label": "広告主",
+       "value": "無料で地図を見る人へ広告を届ける",
+       "cites": [
+        2,
+        6,
+        7
+       ],
+       "recordKeys": [
+        "r12",
+        "rel4",
+        "r11"
+       ]
+      },
+      {
+       "label": "個人の有料会員",
+       "value": "詳細情報、履歴、追加の閲覧機能を使う",
+       "cites": [
+        2,
+        6,
+        7
+       ],
+       "recordKeys": [
+        "r13",
+        "rel3"
+       ]
+      },
+      {
+       "label": "企業",
+       "value": "自社の分析や業務で使う現在・過去のフライトデータを受け取る",
+       "cites": [
+        2,
+        6,
+        7
+       ],
+       "recordKeys": [
+        "r11",
+        "rel5",
+        "r15"
+       ]
+      }
+     ]
+    },
+    {
+     "type": "figure",
+     "figureId": "fr24-revenues"
+    },
+    {
+     "type": "paragraph",
+     "tone": "note",
+     "text": "2025年12月にはBoeingへ現在と過去のフライトデータを供給する契約を発表。機材性能・整備分析での利用を想定。",
+     "cites": [
+      7
+     ],
+     "recordKeys": [
+      "r15",
+      "r26"
+     ]
+    },
+    {
+     "type": "subheading",
+     "text": "16か月決算の実績"
+    },
+    {
+     "type": "facts",
+     "variant": "text",
+     "rows": [
+      {
+       "label": "対象期間",
+       "text": "2024年9月〜2025年12月の16か月間。",
+       "cites": [
+        8
+       ],
+       "recordKeys": [
+        "r24",
+        "r19"
+       ]
+      },
+      {
+       "label": "純売上高",
+       "text": "約7億353万スウェーデンクローナ（約98億円）。",
+       "cites": [
+        8
+       ],
+       "recordKeys": [
+        "r19"
+       ]
+      },
+      {
+       "label": "営業利益",
+       "text": "約4億6,015万スウェーデンクローナ（約64億円）。",
+       "cites": [
+        8
+       ],
+       "recordKeys": [
+        "r20"
+       ]
+      },
+      {
+       "label": "企業向け契約",
+       "text": "Boeingへフライトデータを供給。一般向け地図とは用途が異なる。",
+       "cites": [
+        2,
+        7
+       ],
+       "recordKeys": [
+        "r15",
+        "r26"
+       ]
+      }
+     ]
+    },
+    {
+     "type": "paragraph",
+     "tone": "note",
+     "text": "上記決算値は企業情報データベースの掲載値。前期12か月と単純な前年比較はできない。",
+     "cites": [
+      8
+     ],
+     "recordKeys": [
+      "r18",
+      "r24",
+      "r23"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "acquisition",
+   "lead": {
+    "text": "航空券比較サイトの機能として始まり、火山噴火による欠航時の関心の高まりで広く知られた。",
+    "cites": [],
+    "recordKeys": [
+     "r2",
+     "r4"
+    ]
+   },
+   "blocks": [
+    {
+     "type": "steps",
+     "items": [
+      {
+       "title": "2006年",
+       "text": "創業者2人が、航空券比較サイトへ航空機の位置表示を追加。",
+       "cites": [
+        1
+       ],
+       "recordKeys": [
+        "r2"
+       ]
+      },
+      {
+       "title": "2009年",
+       "text": "外部の受信者からのデータも受け入れる。",
+       "cites": [
+        1
+       ],
+       "recordKeys": [
+        "r3"
+       ]
+      },
+      {
+       "title": "2010年",
+       "text": "アイスランド火山噴火で航空便が乱れ、空の状況を知る手段として注目された。",
+       "cites": [
+        1
+       ],
+       "recordKeys": [
+        "r4"
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "operations",
+   "lead": {
+    "text": "各地から届く信号を照合し、個人向けの地図と法人向けのデータとして更新し続ける。",
+    "cites": [],
+    "recordKeys": [
+     "r6",
+     "a3"
+    ]
+   },
+   "blocks": [
+    {
+     "type": "facts",
+     "variant": "text",
+     "rows": [
+      {
+       "label": "データ整備",
+       "text": "欠けた信号を補い、複数の情報源を照合して便・機材の情報と結び付ける。",
+       "cites": [
+        3,
+        4,
+        5
+       ],
+       "recordKeys": [
+        "r6",
+        "a3"
+       ]
+      },
+      {
+       "label": "配信",
+       "text": "個人向け画面と企業向けAPIでは、利用条件・提供方法が違う。",
+       "cites": [
+        3,
+        4,
+        5
+       ],
+       "recordKeys": [
+        "r14",
+        "a2"
+       ]
+      },
+      {
+       "label": "アクセス集中",
+       "text": "2022年8月、特定便へのアクセス集中時に待合室を設け、有料会員を優先した。",
+       "cites": [
+        9
+       ],
+       "recordKeys": [
+        "r16",
+        "r17"
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "history",
+   "lead": {
+    "text": "2006年の航空券比較サイトから発展し、2025年にはBoeingへのデータ供給契約を発表した。",
+    "cites": [],
+    "recordKeys": [
+     "r2",
+     "r15"
+    ]
+   },
+   "blocks": [
+    {
+     "type": "timeline",
+     "items": [
+      {
+       "when": "2006年",
+       "text": "航空券比較サイトで航空機の位置表示を開始",
+       "cites": [],
+       "recordKeys": [
+        "r2"
+       ]
+      },
+      {
+       "when": "2009年",
+       "text": "外部の受信者からのデータ提供を受け入れる",
+       "cites": [],
+       "recordKeys": [
+        "r3"
+       ]
+      },
+      {
+       "when": "2010年",
+       "text": "アイスランド火山噴火で注目を集める",
+       "cites": [],
+       "recordKeys": [
+        "r4"
+       ]
+      },
+      {
+       "when": "2024年",
+       "text": "外部利用向けAPIを展開",
+       "cites": [],
+       "recordKeys": [
+        "r27"
+       ]
+      },
+      {
+       "when": "2025年12月",
+       "text": "Boeingへのフライトデータ供給を発表",
+       "cites": [],
+       "recordKeys": [
+        "r15"
+       ]
+      }
+     ]
+    }
+   ]
+  }
+ ],
+ "figures": [
+  {
+   "id": "fr24-data",
+   "file": "fr24-data.svg",
+   "alt": "世界中の受信者とデータを集める。原版の横長図解。",
+   "width": 1040,
+   "height": 530
+  },
+  {
+   "id": "fr24-revenues",
+   "file": "fr24-revenues.svg",
+   "alt": "同じデータを、目的の異なる相手へ提供。原版の横長図解。",
+   "width": 1040,
+   "height": 530
+  }
+ ],
+ "editorialChanges": [
+  {
+   "kind": "yen-added",
+   "where": "全体（本文・数字の帯・料金の表・決算の表）",
+   "text": "外貨の数字に円の概算を足した（4か所）。7億353万SEK→約98億円、4億6,015万SEK→約64億円、約7億353万スウェーデンクローナ→約98億円、約4億6,015万スウェーデンクローナ→約64億円",
+   "reason": "円の概算を添える決まり（docs/CASE_TEXT_STANDARD.md）。為替は1ドル=150円、1ユーロ=165円、1ポンド=195円、1SEK=14円",
+   "recordKeys": []
+  },
+  {
+   "kind": "other",
+   "where": "一覧の1行（listLine）",
+   "text": "飛行機の位置を世界中から集めて見せ、16か月で売上約98億円",
+   "reason": "指揮が決めた一覧の1行を設定した（見本の文ではない）",
+   "recordKeys": []
+  },
+  {
+   "kind": "not-in-article",
+   "where": "規模",
+   "text": "2025年12月の会社発表でADS-B受信機ネットワークは55,000台超。",
+   "reason": "見本の文に入っていない",
+   "recordKeys": [
+    "r10"
+   ]
+  },
+  {
+   "kind": "not-in-article",
+   "where": "決算",
+   "text": "2024年8月期（12か月）の純売上高は4億1,794万3,000SEK、営業利益は2億7,207万1,000SEK。16か月決算とは期間が違い、単純な前年比にしない。",
+   "reason": "見本の文に入っていない",
+   "recordKeys": [
+    "r21",
+    "r22",
+    "r24"
+   ]
+  },
+  {
+   "kind": "not-in-article",
+   "where": "料金",
+   "text": "公式料金表のプランと請求頻度は読めたが、現在の金額（個人プラン・API単価）は確定できていない。",
+   "reason": "見本の文に入っていない。金額は未確認",
+   "recordKeys": [
+    "r25",
+    "u2"
+   ]
+  },
+  {
+   "kind": "not-in-article",
+   "where": "集客",
+   "text": "2006年に既存の航空券比較サイトから始めたため、完全な白紙の集客基盤からの出発ではない。",
+   "reason": "見本の文に入っていない",
+   "recordKeys": [
+    "r28"
+   ]
+  },
+  {
+   "kind": "not-in-article",
+   "where": "未確認",
+   "text": "最初の有料契約者・初期契約額・広告獲得費、署名済み決算原本、2026年実績、売上の広告・購読・法人別内訳、初期費用、機材維持費、現在の詳細なチーム人数とインフラ構成は確認できていない。",
+   "reason": "調査の未確認欄",
+   "recordKeys": [
+    "u1",
+    "u3",
+    "u4"
+   ]
+  }
+ ]
+}

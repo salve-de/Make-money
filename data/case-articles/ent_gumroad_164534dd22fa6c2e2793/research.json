@@ -1,0 +1,4968 @@
+{
+  "schema_version": "make-money.collection-submission.v1",
+  "requirements_version": "1.1.0",
+  "package_id": "mm-gumroad-20261012-r1",
+  "is_test_data": false,
+  "collector": {
+    "name": "ChatGPT",
+    "agent_version": "GPT-6",
+    "capabilities": [
+      "web",
+      "code",
+      "file"
+    ]
+  },
+  "created_at": "2026-10-12T06:05:00Z",
+  "base": {
+    "app_commit": "faa4c5e504c3ecb7fddd21039321bb407df7e400",
+    "foundation_commit": null,
+    "prior_package_id": null,
+    "prior_submission_sha256": null
+  },
+  "scope": {
+    "purpose": "case",
+    "tier": "ENRICHED",
+    "declaration": "本文と根拠記録を同時に収集・執筆した調査草稿。出典別権利審査・別担当独立監査・本番反映は未完了。",
+    "coverage": [
+      {
+        "domain": "identity",
+        "status": "attempted_unavailable",
+        "attempts": [
+          "一次情報・提出書類・公式資料を確認"
+        ],
+        "record_keys": [],
+        "note": "当該領域の固有の十分な根拠を確認できず、公開本文は設けていない。"
+      },
+      {
+        "domain": "people",
+        "status": "found",
+        "attempts": [
+          "https://sahillavingia.com/reflecting",
+          "https://www.sec.gov/Archives/edgar/data/1532978/000153297826000003/formc-ar.pdf"
+        ],
+        "record_keys": [
+          "r17",
+          "r18"
+        ],
+        "note": "確認できた範囲を収録。未確認は推計で埋めない。"
+      },
+      {
+        "domain": "product",
+        "status": "found",
+        "attempts": [
+          "https://sahillavingia.com/reflecting",
+          "https://www.sec.gov/Archives/edgar/data/1532978/000153297826000003/formc-ar.pdf",
+          "https://gumroad.com/pricing"
+        ],
+        "record_keys": [
+          "r24",
+          "r25",
+          "r26",
+          "r27",
+          "r28"
+        ],
+        "note": "確認できた範囲を収録。未確認は推計で埋めない。"
+      },
+      {
+        "domain": "customer_and_demand",
+        "status": "found",
+        "attempts": [
+          "https://gumroad.com/pricing",
+          "https://sahillavingia.com/reflecting"
+        ],
+        "record_keys": [
+          "r29",
+          "r30",
+          "r31",
+          "r32",
+          "r33",
+          "r34"
+        ],
+        "note": "確認できた範囲を収録。未確認は推計で埋めない。"
+      },
+      {
+        "domain": "pricing",
+        "status": "attempted_unavailable",
+        "attempts": [
+          "一次情報・提出書類・公式資料を確認"
+        ],
+        "record_keys": [],
+        "note": "当該領域の固有の十分な根拠を確認できず、公開本文は設けていない。"
+      },
+      {
+        "domain": "money_and_economics",
+        "status": "found",
+        "attempts": [
+          "https://gumroad.com/pricing",
+          "https://gumroad.com/help/article/66-gumroads-fees",
+          "https://www.sec.gov/Archives/edgar/data/1532978/000153297826000003/formc-ar.pdf"
+        ],
+        "record_keys": [
+          "r1",
+          "r2",
+          "r3",
+          "r4",
+          "r5",
+          "r6",
+          "r7",
+          "r8",
+          "r9",
+          "r10",
+          "r11",
+          "r12",
+          "r13",
+          "r14",
+          "r15",
+          "r16",
+          "r20",
+          "r21",
+          "r22",
+          "r23",
+          "r35",
+          "r36",
+          "r37",
+          "r38",
+          "r39",
+          "r40",
+          "r41",
+          "r42",
+          "r43",
+          "r44",
+          "r45"
+        ],
+        "note": "確認できた範囲を収録。未確認は推計で埋めない。"
+      },
+      {
+        "domain": "distribution",
+        "status": "found",
+        "attempts": [
+          "https://sahillavingia.com/reflecting",
+          "https://www.wired.com/story/he-wanted-unicorn-got-sustainable-business/",
+          "https://gumroad.com/pricing",
+          "https://gumroad.com/blog/p/how-lifemathmoney-made-1m-on-gumroad"
+        ],
+        "record_keys": [
+          "r19",
+          "r46",
+          "r47",
+          "r48",
+          "r49"
+        ],
+        "note": "確認できた範囲を収録。未確認は推計で埋めない。"
+      },
+      {
+        "domain": "operations",
+        "status": "found",
+        "attempts": [
+          "https://www.sec.gov/Archives/edgar/data/1532978/000153297826000003/formc-ar.pdf",
+          "https://gumroad.com/pricing",
+          "https://gumroad.com/help/article/66-gumroads-fees",
+          "https://sahillavingia.com/reflecting"
+        ],
+        "record_keys": [
+          "r50",
+          "r51",
+          "r52",
+          "r53",
+          "r54",
+          "r55"
+        ],
+        "note": "確認できた範囲を収録。未確認は推計で埋めない。"
+      },
+      {
+        "domain": "technology",
+        "status": "attempted_unavailable",
+        "attempts": [
+          "一次情報・提出書類・公式資料を確認"
+        ],
+        "record_keys": [],
+        "note": "当該領域の固有の十分な根拠を確認できず、公開本文は設けていない。"
+      },
+      {
+        "domain": "competition_and_market",
+        "status": "attempted_unavailable",
+        "attempts": [
+          "一次情報・提出書類・公式資料を確認"
+        ],
+        "record_keys": [],
+        "note": "当該領域の固有の十分な根拠を確認できず、公開本文は設けていない。"
+      },
+      {
+        "domain": "timeline_and_outcomes",
+        "status": "found",
+        "attempts": [
+          "https://sahillavingia.com/reflecting",
+          "https://www.sec.gov/Archives/edgar/data/1532978/000153297826000003/formc-ar.pdf",
+          "https://gumroad.com/pricing",
+          "https://www.wired.com/story/he-wanted-unicorn-got-sustainable-business/"
+        ],
+        "record_keys": [
+          "r56",
+          "r57",
+          "r58",
+          "r59",
+          "r60",
+          "r61",
+          "r62",
+          "r63",
+          "r64",
+          "r65",
+          "r66"
+        ],
+        "note": "確認できた範囲を収録。未確認は推計で埋めない。"
+      },
+      {
+        "domain": "provenance_rights_and_uncertainty",
+        "status": "found",
+        "attempts": [
+          "https://sahillavingia.com/reflecting",
+          "https://www.sec.gov/Archives/edgar/data/1532978/000153297826000003/formc-ar.pdf",
+          "https://gumroad.com/pricing"
+        ],
+        "record_keys": [],
+        "note": "当該領域の固有の十分な根拠を確認できず、公開本文は設けていない。"
+      }
+    ]
+  },
+  "entities": [
+    {
+      "key": "business",
+      "name": "Gumroad",
+      "kind": "organization",
+      "official_url": "https://gumroad.com/",
+      "aliases": [],
+      "app_entity_id": null,
+      "foundation_entity_id": null,
+      "country": "米国",
+      "status": "公式ページで事業提供を確認"
+    }
+  ],
+  "primary_entity_key": "business",
+  "sources": [
+    {
+      "key": "src-g1",
+      "url": "https://sahillavingia.com/reflecting",
+      "title": "創業・資金調達・人員削減・黒字化の創業者記録",
+      "publisher": "Sahil Lavingia",
+      "language": "en",
+      "kind": "founder",
+      "published_time": {
+        "value": "2019-02-07",
+        "end": null,
+        "precision": "day",
+        "original": "2019-02-07"
+      },
+      "retrieved_at": "2026-10-12T05:30:00Z",
+      "source_family_key": "gumroad-sahil-lavingia",
+      "access_state": "read",
+      "incentive_context": "当事者の広報・事業説明・本人回顧。数値をそのまま第三者が監査したことを意味しない。",
+      "rights": {
+        "fetch": {
+          "decision": "pending",
+          "basis": "unknown",
+          "reference": null,
+          "reviewed_at": null,
+          "note": "出典の商用・有料配信・保存/再配信条件について最終の権利審査は未実施。この記事では短い独自日本語説明に限り、外部画像は複製していない。"
+        },
+        "private_evidence_storage": {
+          "decision": "pending",
+          "basis": "unknown",
+          "reference": null,
+          "reviewed_at": null,
+          "note": "出典の商用・有料配信・保存/再配信条件について最終の権利審査は未実施。この記事では短い独自日本語説明に限り、外部画像は複製していない。"
+        },
+        "internal_analysis": {
+          "decision": "pending",
+          "basis": "unknown",
+          "reference": null,
+          "reviewed_at": null,
+          "note": "出典の商用・有料配信・保存/再配信条件について最終の権利審査は未実施。この記事では短い独自日本語説明に限り、外部画像は複製していない。"
+        },
+        "factual_paraphrase_display": {
+          "decision": "pending",
+          "basis": "unknown",
+          "reference": null,
+          "reviewed_at": null,
+          "note": "出典の商用・有料配信・保存/再配信条件について最終の権利審査は未実施。この記事では短い独自日本語説明に限り、外部画像は複製していない。"
+        },
+        "paid_member_display": {
+          "decision": "pending",
+          "basis": "unknown",
+          "reference": null,
+          "reviewed_at": null,
+          "note": "出典の商用・有料配信・保存/再配信条件について最終の権利審査は未実施。この記事では短い独自日本語説明に限り、外部画像は複製していない。"
+        },
+        "redistribution": {
+          "decision": "pending",
+          "basis": "unknown",
+          "reference": null,
+          "reviewed_at": null,
+          "note": "出典の商用・有料配信・保存/再配信条件について最終の権利審査は未実施。この記事では短い独自日本語説明に限り、外部画像は複製していない。"
+        },
+        "media_display": {
+          "decision": "pending",
+          "basis": "unknown",
+          "reference": null,
+          "reviewed_at": null,
+          "note": "出典の商用・有料配信・保存/再配信条件について最終の権利審査は未実施。この記事では短い独自日本語説明に限り、外部画像は複製していない。"
+        }
+      }
+    },
+    {
+      "key": "src-g2",
+      "url": "https://www.sec.gov/Archives/edgar/data/1532978/000153297826000003/formc-ar.pdf",
+      "title": "2025年度Form C-AR（2024年比較）",
+      "publisher": "U.S. SEC / Gumroad, Inc.",
+      "language": "en",
+      "kind": "filing",
+      "published_time": {
+        "value": "2026-04-08",
+        "end": null,
+        "precision": "day",
+        "original": "2026-04-08"
+      },
+      "retrieved_at": "2026-10-12T05:30:00Z",
+      "source_family_key": "gumroad-u.s.-sec-/-gumroad,-inc.",
+      "access_state": "read",
+      "incentive_context": "公的提出/独立報道。提出者・報道機関の記載内容を別途照合して扱う。",
+      "rights": {
+        "fetch": {
+          "decision": "pending",
+          "basis": "unknown",
+          "reference": null,
+          "reviewed_at": null,
+          "note": "出典の商用・有料配信・保存/再配信条件について最終の権利審査は未実施。この記事では短い独自日本語説明に限り、外部画像は複製していない。"
+        },
+        "private_evidence_storage": {
+          "decision": "pending",
+          "basis": "unknown",
+          "reference": null,
+          "reviewed_at": null,
+          "note": "出典の商用・有料配信・保存/再配信条件について最終の権利審査は未実施。この記事では短い独自日本語説明に限り、外部画像は複製していない。"
+        },
+        "internal_analysis": {
+          "decision": "pending",
+          "basis": "unknown",
+          "reference": null,
+          "reviewed_at": null,
+          "note": "出典の商用・有料配信・保存/再配信条件について最終の権利審査は未実施。この記事では短い独自日本語説明に限り、外部画像は複製していない。"
+        },
+        "factual_paraphrase_display": {
+          "decision": "pending",
+          "basis": "unknown",
+          "reference": null,
+          "reviewed_at": null,
+          "note": "出典の商用・有料配信・保存/再配信条件について最終の権利審査は未実施。この記事では短い独自日本語説明に限り、外部画像は複製していない。"
+        },
+        "paid_member_display": {
+          "decision": "pending",
+          "basis": "unknown",
+          "reference": null,
+          "reviewed_at": null,
+          "note": "出典の商用・有料配信・保存/再配信条件について最終の権利審査は未実施。この記事では短い独自日本語説明に限り、外部画像は複製していない。"
+        },
+        "redistribution": {
+          "decision": "pending",
+          "basis": "unknown",
+          "reference": null,
+          "reviewed_at": null,
+          "note": "出典の商用・有料配信・保存/再配信条件について最終の権利審査は未実施。この記事では短い独自日本語説明に限り、外部画像は複製していない。"
+        },
+        "media_display": {
+          "decision": "pending",
+          "basis": "unknown",
+          "reference": null,
+          "reviewed_at": null,
+          "note": "出典の商用・有料配信・保存/再配信条件について最終の権利審査は未実施。この記事では短い独自日本語説明に限り、外部画像は複製していない。"
+        }
+      }
+    },
+    {
+      "key": "src-g3",
+      "url": "https://gumroad.com/pricing",
+      "title": "公式料金・Discover手数料・決済・税務対応",
+      "publisher": "Gumroad",
+      "language": "en",
+      "kind": "official",
+      "published_time": {
+        "value": null,
+        "end": null,
+        "precision": "unknown",
+        "original": null
+      },
+      "retrieved_at": "2026-10-12T05:30:00Z",
+      "source_family_key": "gumroad-gumroad",
+      "access_state": "read",
+      "incentive_context": "当事者の広報・事業説明・本人回顧。数値をそのまま第三者が監査したことを意味しない。",
+      "rights": {
+        "fetch": {
+          "decision": "pending",
+          "basis": "unknown",
+          "reference": null,
+          "reviewed_at": null,
+          "note": "出典の商用・有料配信・保存/再配信条件について最終の権利審査は未実施。この記事では短い独自日本語説明に限り、外部画像は複製していない。"
+        },
+        "private_evidence_storage": {
+          "decision": "pending",
+          "basis": "unknown",
+          "reference": null,
+          "reviewed_at": null,
+          "note": "出典の商用・有料配信・保存/再配信条件について最終の権利審査は未実施。この記事では短い独自日本語説明に限り、外部画像は複製していない。"
+        },
+        "internal_analysis": {
+          "decision": "pending",
+          "basis": "unknown",
+          "reference": null,
+          "reviewed_at": null,
+          "note": "出典の商用・有料配信・保存/再配信条件について最終の権利審査は未実施。この記事では短い独自日本語説明に限り、外部画像は複製していない。"
+        },
+        "factual_paraphrase_display": {
+          "decision": "pending",
+          "basis": "unknown",
+          "reference": null,
+          "reviewed_at": null,
+          "note": "出典の商用・有料配信・保存/再配信条件について最終の権利審査は未実施。この記事では短い独自日本語説明に限り、外部画像は複製していない。"
+        },
+        "paid_member_display": {
+          "decision": "pending",
+          "basis": "unknown",
+          "reference": null,
+          "reviewed_at": null,
+          "note": "出典の商用・有料配信・保存/再配信条件について最終の権利審査は未実施。この記事では短い独自日本語説明に限り、外部画像は複製していない。"
+        },
+        "redistribution": {
+          "decision": "pending",
+          "basis": "unknown",
+          "reference": null,
+          "reviewed_at": null,
+          "note": "出典の商用・有料配信・保存/再配信条件について最終の権利審査は未実施。この記事では短い独自日本語説明に限り、外部画像は複製していない。"
+        },
+        "media_display": {
+          "decision": "pending",
+          "basis": "unknown",
+          "reference": null,
+          "reviewed_at": null,
+          "note": "出典の商用・有料配信・保存/再配信条件について最終の権利審査は未実施。この記事では短い独自日本語説明に限り、外部画像は複製していない。"
+        }
+      }
+    },
+    {
+      "key": "src-g4",
+      "url": "https://gumroad.com/pricing",
+      "title": "販売商品・支払い・販売者向け機能",
+      "publisher": "Gumroad",
+      "language": "en",
+      "kind": "official",
+      "published_time": {
+        "value": null,
+        "end": null,
+        "precision": "unknown",
+        "original": null
+      },
+      "retrieved_at": "2026-10-12T05:30:00Z",
+      "source_family_key": "gumroad-gumroad",
+      "access_state": "read",
+      "incentive_context": "当事者の広報・事業説明・本人回顧。数値をそのまま第三者が監査したことを意味しない。",
+      "rights": {
+        "fetch": {
+          "decision": "pending",
+          "basis": "unknown",
+          "reference": null,
+          "reviewed_at": null,
+          "note": "出典の商用・有料配信・保存/再配信条件について最終の権利審査は未実施。この記事では短い独自日本語説明に限り、外部画像は複製していない。"
+        },
+        "private_evidence_storage": {
+          "decision": "pending",
+          "basis": "unknown",
+          "reference": null,
+          "reviewed_at": null,
+          "note": "出典の商用・有料配信・保存/再配信条件について最終の権利審査は未実施。この記事では短い独自日本語説明に限り、外部画像は複製していない。"
+        },
+        "internal_analysis": {
+          "decision": "pending",
+          "basis": "unknown",
+          "reference": null,
+          "reviewed_at": null,
+          "note": "出典の商用・有料配信・保存/再配信条件について最終の権利審査は未実施。この記事では短い独自日本語説明に限り、外部画像は複製していない。"
+        },
+        "factual_paraphrase_display": {
+          "decision": "pending",
+          "basis": "unknown",
+          "reference": null,
+          "reviewed_at": null,
+          "note": "出典の商用・有料配信・保存/再配信条件について最終の権利審査は未実施。この記事では短い独自日本語説明に限り、外部画像は複製していない。"
+        },
+        "paid_member_display": {
+          "decision": "pending",
+          "basis": "unknown",
+          "reference": null,
+          "reviewed_at": null,
+          "note": "出典の商用・有料配信・保存/再配信条件について最終の権利審査は未実施。この記事では短い独自日本語説明に限り、外部画像は複製していない。"
+        },
+        "redistribution": {
+          "decision": "pending",
+          "basis": "unknown",
+          "reference": null,
+          "reviewed_at": null,
+          "note": "出典の商用・有料配信・保存/再配信条件について最終の権利審査は未実施。この記事では短い独自日本語説明に限り、外部画像は複製していない。"
+        },
+        "media_display": {
+          "decision": "pending",
+          "basis": "unknown",
+          "reference": null,
+          "reviewed_at": null,
+          "note": "出典の商用・有料配信・保存/再配信条件について最終の権利審査は未実施。この記事では短い独自日本語説明に限り、外部画像は複製していない。"
+        }
+      }
+    },
+    {
+      "key": "src-g5",
+      "url": "https://gumroad.com/help/article/66-gumroads-fees",
+      "title": "手数料の条件と割引しきい値",
+      "publisher": "Gumroad",
+      "language": "en",
+      "kind": "official",
+      "published_time": {
+        "value": null,
+        "end": null,
+        "precision": "unknown",
+        "original": null
+      },
+      "retrieved_at": "2026-10-12T05:30:00Z",
+      "source_family_key": "gumroad-gumroad",
+      "access_state": "snippet_only",
+      "incentive_context": "当事者の広報・事業説明・本人回顧。数値をそのまま第三者が監査したことを意味しない。",
+      "rights": {
+        "fetch": {
+          "decision": "pending",
+          "basis": "unknown",
+          "reference": null,
+          "reviewed_at": null,
+          "note": "出典の商用・有料配信・保存/再配信条件について最終の権利審査は未実施。この記事では短い独自日本語説明に限り、外部画像は複製していない。"
+        },
+        "private_evidence_storage": {
+          "decision": "pending",
+          "basis": "unknown",
+          "reference": null,
+          "reviewed_at": null,
+          "note": "出典の商用・有料配信・保存/再配信条件について最終の権利審査は未実施。この記事では短い独自日本語説明に限り、外部画像は複製していない。"
+        },
+        "internal_analysis": {
+          "decision": "pending",
+          "basis": "unknown",
+          "reference": null,
+          "reviewed_at": null,
+          "note": "出典の商用・有料配信・保存/再配信条件について最終の権利審査は未実施。この記事では短い独自日本語説明に限り、外部画像は複製していない。"
+        },
+        "factual_paraphrase_display": {
+          "decision": "pending",
+          "basis": "unknown",
+          "reference": null,
+          "reviewed_at": null,
+          "note": "出典の商用・有料配信・保存/再配信条件について最終の権利審査は未実施。この記事では短い独自日本語説明に限り、外部画像は複製していない。"
+        },
+        "paid_member_display": {
+          "decision": "pending",
+          "basis": "unknown",
+          "reference": null,
+          "reviewed_at": null,
+          "note": "出典の商用・有料配信・保存/再配信条件について最終の権利審査は未実施。この記事では短い独自日本語説明に限り、外部画像は複製していない。"
+        },
+        "redistribution": {
+          "decision": "pending",
+          "basis": "unknown",
+          "reference": null,
+          "reviewed_at": null,
+          "note": "出典の商用・有料配信・保存/再配信条件について最終の権利審査は未実施。この記事では短い独自日本語説明に限り、外部画像は複製していない。"
+        },
+        "media_display": {
+          "decision": "pending",
+          "basis": "unknown",
+          "reference": null,
+          "reviewed_at": null,
+          "note": "出典の商用・有料配信・保存/再配信条件について最終の権利審査は未実施。この記事では短い独自日本語説明に限り、外部画像は複製していない。"
+        }
+      }
+    },
+    {
+      "key": "src-g6",
+      "url": "https://www.wired.com/story/he-wanted-unicorn-got-sustainable-business/",
+      "title": "Gumroadの創業者と成長路線の転換",
+      "publisher": "WIRED",
+      "language": "en",
+      "kind": "independent_reporting",
+      "published_time": {
+        "value": "2020",
+        "end": null,
+        "precision": "year",
+        "original": "2020"
+      },
+      "retrieved_at": "2026-10-12T05:30:00Z",
+      "source_family_key": "gumroad-wired",
+      "access_state": "snippet_only",
+      "incentive_context": "公的提出/独立報道。提出者・報道機関の記載内容を別途照合して扱う。",
+      "rights": {
+        "fetch": {
+          "decision": "pending",
+          "basis": "unknown",
+          "reference": null,
+          "reviewed_at": null,
+          "note": "出典の商用・有料配信・保存/再配信条件について最終の権利審査は未実施。この記事では短い独自日本語説明に限り、外部画像は複製していない。"
+        },
+        "private_evidence_storage": {
+          "decision": "pending",
+          "basis": "unknown",
+          "reference": null,
+          "reviewed_at": null,
+          "note": "出典の商用・有料配信・保存/再配信条件について最終の権利審査は未実施。この記事では短い独自日本語説明に限り、外部画像は複製していない。"
+        },
+        "internal_analysis": {
+          "decision": "pending",
+          "basis": "unknown",
+          "reference": null,
+          "reviewed_at": null,
+          "note": "出典の商用・有料配信・保存/再配信条件について最終の権利審査は未実施。この記事では短い独自日本語説明に限り、外部画像は複製していない。"
+        },
+        "factual_paraphrase_display": {
+          "decision": "pending",
+          "basis": "unknown",
+          "reference": null,
+          "reviewed_at": null,
+          "note": "出典の商用・有料配信・保存/再配信条件について最終の権利審査は未実施。この記事では短い独自日本語説明に限り、外部画像は複製していない。"
+        },
+        "paid_member_display": {
+          "decision": "pending",
+          "basis": "unknown",
+          "reference": null,
+          "reviewed_at": null,
+          "note": "出典の商用・有料配信・保存/再配信条件について最終の権利審査は未実施。この記事では短い独自日本語説明に限り、外部画像は複製していない。"
+        },
+        "redistribution": {
+          "decision": "pending",
+          "basis": "unknown",
+          "reference": null,
+          "reviewed_at": null,
+          "note": "出典の商用・有料配信・保存/再配信条件について最終の権利審査は未実施。この記事では短い独自日本語説明に限り、外部画像は複製していない。"
+        },
+        "media_display": {
+          "decision": "pending",
+          "basis": "unknown",
+          "reference": null,
+          "reviewed_at": null,
+          "note": "出典の商用・有料配信・保存/再配信条件について最終の権利審査は未実施。この記事では短い独自日本語説明に限り、外部画像は複製していない。"
+        }
+      }
+    },
+    {
+      "key": "src-g7",
+      "url": "https://gumroad.com/blog/p/how-lifemathmoney-made-1m-on-gumroad",
+      "title": "既存ファンを持つ販売者の事例",
+      "publisher": "Gumroad",
+      "language": "en",
+      "kind": "official",
+      "published_time": {
+        "value": "2025-01-14",
+        "end": null,
+        "precision": "day",
+        "original": "2025-01-14"
+      },
+      "retrieved_at": "2026-10-12T05:30:00Z",
+      "source_family_key": "gumroad-gumroad",
+      "access_state": "read",
+      "incentive_context": "当事者の広報・事業説明・本人回顧。数値をそのまま第三者が監査したことを意味しない。",
+      "rights": {
+        "fetch": {
+          "decision": "pending",
+          "basis": "unknown",
+          "reference": null,
+          "reviewed_at": null,
+          "note": "出典の商用・有料配信・保存/再配信条件について最終の権利審査は未実施。この記事では短い独自日本語説明に限り、外部画像は複製していない。"
+        },
+        "private_evidence_storage": {
+          "decision": "pending",
+          "basis": "unknown",
+          "reference": null,
+          "reviewed_at": null,
+          "note": "出典の商用・有料配信・保存/再配信条件について最終の権利審査は未実施。この記事では短い独自日本語説明に限り、外部画像は複製していない。"
+        },
+        "internal_analysis": {
+          "decision": "pending",
+          "basis": "unknown",
+          "reference": null,
+          "reviewed_at": null,
+          "note": "出典の商用・有料配信・保存/再配信条件について最終の権利審査は未実施。この記事では短い独自日本語説明に限り、外部画像は複製していない。"
+        },
+        "factual_paraphrase_display": {
+          "decision": "pending",
+          "basis": "unknown",
+          "reference": null,
+          "reviewed_at": null,
+          "note": "出典の商用・有料配信・保存/再配信条件について最終の権利審査は未実施。この記事では短い独自日本語説明に限り、外部画像は複製していない。"
+        },
+        "paid_member_display": {
+          "decision": "pending",
+          "basis": "unknown",
+          "reference": null,
+          "reviewed_at": null,
+          "note": "出典の商用・有料配信・保存/再配信条件について最終の権利審査は未実施。この記事では短い独自日本語説明に限り、外部画像は複製していない。"
+        },
+        "redistribution": {
+          "decision": "pending",
+          "basis": "unknown",
+          "reference": null,
+          "reviewed_at": null,
+          "note": "出典の商用・有料配信・保存/再配信条件について最終の権利審査は未実施。この記事では短い独自日本語説明に限り、外部画像は複製していない。"
+        },
+        "media_display": {
+          "decision": "pending",
+          "basis": "unknown",
+          "reference": null,
+          "reviewed_at": null,
+          "note": "出典の商用・有料配信・保存/再配信条件について最終の権利審査は未実施。この記事では短い独自日本語説明に限り、外部画像は複製していない。"
+        }
+      }
+    }
+  ],
+  "evidence": [
+    {
+      "key": "ev-g1",
+      "source_key": "src-g1",
+      "locator": "創業・資金調達・人員削減・黒字化の創業者記録",
+      "short_quote": null,
+      "context": "原典の該当記事・表を確認：創業・資金調達・人員削減・黒字化の創業者記録。出典にない利益・費用・動機・効果を推測で補完しない。",
+      "capture_path": null,
+      "capture_sha256": null,
+      "method": "web_read"
+    },
+    {
+      "key": "ev-g2",
+      "source_key": "src-g2",
+      "locator": "Gumroad Form C-AR, p.3 / p.22–24",
+      "short_quote": null,
+      "context": "原典の該当記事・表を確認：2025年度Form C-AR（2024年比較）。出典にない利益・費用・動機・効果を推測で補完しない。",
+      "capture_path": null,
+      "capture_sha256": null,
+      "method": "document"
+    },
+    {
+      "key": "ev-g3",
+      "source_key": "src-g3",
+      "locator": "公式料金・Discover手数料・決済・税務対応",
+      "short_quote": null,
+      "context": "原典の該当記事・表を確認：公式料金・Discover手数料・決済・税務対応。出典にない利益・費用・動機・効果を推測で補完しない。",
+      "capture_path": null,
+      "capture_sha256": null,
+      "method": "web_read"
+    },
+    {
+      "key": "ev-g4",
+      "source_key": "src-g4",
+      "locator": "販売商品・支払い・販売者向け機能",
+      "short_quote": null,
+      "context": "原典の該当記事・表を確認：販売商品・支払い・販売者向け機能。出典にない利益・費用・動機・効果を推測で補完しない。",
+      "capture_path": null,
+      "capture_sha256": null,
+      "method": "web_read"
+    },
+    {
+      "key": "ev-g5",
+      "source_key": "src-g5",
+      "locator": "手数料の条件と割引しきい値",
+      "short_quote": null,
+      "context": "原典の該当記事・表を確認：手数料の条件と割引しきい値。出典にない利益・費用・動機・効果を推測で補完しない。",
+      "capture_path": null,
+      "capture_sha256": null,
+      "method": "web_read"
+    },
+    {
+      "key": "ev-g6",
+      "source_key": "src-g6",
+      "locator": "Gumroadの創業者と成長路線の転換",
+      "short_quote": null,
+      "context": "原典の該当記事・表を確認：Gumroadの創業者と成長路線の転換。出典にない利益・費用・動機・効果を推測で補完しない。",
+      "capture_path": null,
+      "capture_sha256": null,
+      "method": "web_read"
+    },
+    {
+      "key": "ev-g7",
+      "source_key": "src-g7",
+      "locator": "既存ファンを持つ販売者の事例",
+      "short_quote": null,
+      "context": "原典の該当記事・表を確認：既存ファンを持つ販売者の事例。出典にない利益・費用・動機・効果を推測で補完しない。",
+      "capture_path": null,
+      "capture_sha256": null,
+      "method": "web_read"
+    },
+    {
+      "key": "ev-metric-r1",
+      "source_key": "src-g2",
+      "locator": "Form C-AR 2025/2024 comparative Statement of Operations",
+      "short_quote": null,
+      "context": "2024年のGumroad, Inc.全社売上: 18,951,308.03 USD; 対象期間：2024, 数値の種類：REVENUE。",
+      "capture_path": null,
+      "capture_sha256": null,
+      "method": "document"
+    },
+    {
+      "key": "ev-metric-r2",
+      "source_key": "src-g2",
+      "locator": "Form C-AR 2025/2024 comparative Statement of Operations",
+      "short_quote": null,
+      "context": "2025年のGumroad, Inc.全社売上: 17,785,730.09 USD; 対象期間：2025, 数値の種類：REVENUE。",
+      "capture_path": null,
+      "capture_sha256": null,
+      "method": "document"
+    },
+    {
+      "key": "ev-metric-r3",
+      "source_key": "src-g2",
+      "locator": "Form C-AR 2025/2024 comparative Statement of Operations",
+      "short_quote": null,
+      "context": "2024年の売上原価: 5,923,421.2 USD; 対象期間：2024, 数値の種類：COGS。",
+      "capture_path": null,
+      "capture_sha256": null,
+      "method": "document"
+    },
+    {
+      "key": "ev-metric-r4",
+      "source_key": "src-g2",
+      "locator": "Form C-AR 2025/2024 comparative Statement of Operations",
+      "short_quote": null,
+      "context": "2025年の売上原価: 6,078,822.25 USD; 対象期間：2025, 数値の種類：COGS。",
+      "capture_path": null,
+      "capture_sha256": null,
+      "method": "document"
+    },
+    {
+      "key": "ev-metric-r5",
+      "source_key": "src-g2",
+      "locator": "Form C-AR 2025/2024 comparative Statement of Operations",
+      "short_quote": null,
+      "context": "2024年の純利益: 4,290,423.04 USD; 対象期間：2024, 数値の種類：NET_PROFIT。",
+      "capture_path": null,
+      "capture_sha256": null,
+      "method": "document"
+    },
+    {
+      "key": "ev-metric-r6",
+      "source_key": "src-g2",
+      "locator": "Form C-AR 2025/2024 comparative Statement of Operations",
+      "short_quote": null,
+      "context": "2025年の純利益: 3,792,179.17 USD; 対象期間：2025, 数値の種類：NET_PROFIT。",
+      "capture_path": null,
+      "capture_sha256": null,
+      "method": "document"
+    },
+    {
+      "key": "ev-metric-r7",
+      "source_key": "src-g2",
+      "locator": "Form C-AR 2025/2024 comparative Statement of Operations",
+      "short_quote": null,
+      "context": "2025年のStripe手数料（報告書記載）: 4,397,600.77 USD; 対象期間：2025, 数値の種類：PAYMENT_COST。",
+      "capture_path": null,
+      "capture_sha256": null,
+      "method": "document"
+    },
+    {
+      "key": "ev-metric-r8",
+      "source_key": "src-g2",
+      "locator": "Form C-AR 2025/2024 comparative Statement of Operations",
+      "short_quote": null,
+      "context": "2025年のホスティング等（報告書記載）: 916,610.76 USD; 対象期間：2025, 数値の種類：HOSTING_COST。",
+      "capture_path": null,
+      "capture_sha256": null,
+      "method": "document"
+    },
+    {
+      "key": "ev-metric-r9",
+      "source_key": "src-g2",
+      "locator": "Form C-AR 2025/2024 comparative Statement of Operations",
+      "short_quote": null,
+      "context": "2025年の専門サービス費: 1,374,468.59 USD; 対象期間：2025, 数値の種類：PROFESSIONAL_SERVICES。",
+      "capture_path": null,
+      "capture_sha256": null,
+      "method": "document"
+    },
+    {
+      "key": "ev-metric-r10",
+      "source_key": "src-g2",
+      "locator": "Form C-AR 2025/2024 comparative Statement of Operations",
+      "short_quote": null,
+      "context": "2025年の製品開発費: 1,936,072.2 USD; 対象期間：2025, 数値の種類：PRODUCT_DEV。",
+      "capture_path": null,
+      "capture_sha256": null,
+      "method": "document"
+    },
+    {
+      "key": "ev-metric-r11",
+      "source_key": "src-g1",
+      "locator": "Official price, usage and operating terms",
+      "short_quote": null,
+      "context": "2015年6月の月次売上: 89,000 USD; 対象期間：2015-06, 数値の種類：REVENUE。",
+      "capture_path": null,
+      "capture_sha256": null,
+      "method": "web_read"
+    },
+    {
+      "key": "ev-metric-r12",
+      "source_key": "src-g1",
+      "locator": "Official price, usage and operating terms",
+      "short_quote": null,
+      "context": "2015年6月の月次最終損益: -351,000 USD; 対象期間：2015-06, 数値の種類：NET_PROFIT。",
+      "capture_path": null,
+      "capture_sha256": null,
+      "method": "web_read"
+    },
+    {
+      "key": "ev-metric-r13",
+      "source_key": "src-g1",
+      "locator": "Official price, usage and operating terms",
+      "short_quote": null,
+      "context": "2015年6月の月次営業費用: 364,000 USD; 対象期間：2015-06, 数値の種類：OPERATING_EXPENSES。",
+      "capture_path": null,
+      "capture_sha256": null,
+      "method": "web_read"
+    },
+    {
+      "key": "ev-metric-r14",
+      "source_key": "src-g1",
+      "locator": "Official price, usage and operating terms",
+      "short_quote": null,
+      "context": "2016年6月の月次売上: 176,000 USD; 対象期間：2016-06, 数値の種類：REVENUE。",
+      "capture_path": null,
+      "capture_sha256": null,
+      "method": "web_read"
+    },
+    {
+      "key": "ev-metric-r15",
+      "source_key": "src-g1",
+      "locator": "Official price, usage and operating terms",
+      "short_quote": null,
+      "context": "2016年6月の月次最終損益: 10,000 USD; 対象期間：2016-06, 数値の種類：NET_PROFIT。",
+      "capture_path": null,
+      "capture_sha256": null,
+      "method": "web_read"
+    },
+    {
+      "key": "ev-metric-r16",
+      "source_key": "src-g1",
+      "locator": "Official price, usage and operating terms",
+      "short_quote": null,
+      "context": "2016年6月の月次営業費用: 32,000 USD; 対象期間：2016-06, 数値の種類：OPERATING_EXPENSES。",
+      "capture_path": null,
+      "capture_sha256": null,
+      "method": "web_read"
+    },
+    {
+      "key": "ev-metric-r17",
+      "source_key": "src-g1",
+      "locator": "Official price, usage and operating terms",
+      "short_quote": null,
+      "context": "2015年頃の最大チーム人数: 20 people; 対象期間：2015, 数値の種類：TEAM。",
+      "capture_path": null,
+      "capture_sha256": null,
+      "method": "web_read"
+    },
+    {
+      "key": "ev-metric-r18",
+      "source_key": "src-g1",
+      "locator": "Official price, usage and operating terms",
+      "short_quote": null,
+      "context": "2015年以降の縮小後のチーム人数: 5 people; 対象期間：2016, 数値の種類：TEAM。",
+      "capture_path": null,
+      "capture_sha256": null,
+      "method": "web_read"
+    },
+    {
+      "key": "ev-metric-r19",
+      "source_key": "src-g1",
+      "locator": "Official price, usage and operating terms",
+      "short_quote": null,
+      "context": "2011年のHacker News初日訪問数（5.2万超）: 52,000 views; 対象期間：2011, 数値の種類：TRAFFIC。",
+      "capture_path": null,
+      "capture_sha256": null,
+      "method": "web_read"
+    },
+    {
+      "key": "ev-metric-r20",
+      "source_key": "src-g3",
+      "locator": "Official price, usage and operating terms",
+      "short_quote": null,
+      "context": "直接販売の基本手数料率: 10 percent; 対象期間：2026-10, 数値の種類：FEE_RATE。",
+      "capture_path": null,
+      "capture_sha256": null,
+      "method": "web_read"
+    },
+    {
+      "key": "ev-metric-r21",
+      "source_key": "src-g3",
+      "locator": "Official price, usage and operating terms",
+      "short_quote": null,
+      "context": "Discover経由の手数料率: 30 percent; 対象期間：2026-10, 数値の種類：FEE_RATE。",
+      "capture_path": null,
+      "capture_sha256": null,
+      "method": "web_read"
+    },
+    {
+      "key": "ev-metric-r22",
+      "source_key": "src-g3",
+      "locator": "Official price, usage and operating terms",
+      "short_quote": null,
+      "context": "直接販売1取引あたりの固定手数料: 0.5 USD; 対象期間：2026-10, 数値の種類：FIXED_FEE。",
+      "capture_path": null,
+      "capture_sha256": null,
+      "method": "web_read"
+    },
+    {
+      "key": "ev-metric-r23",
+      "source_key": "src-g2",
+      "locator": "Form C-AR 2025/2024 comparative Statement of Operations",
+      "short_quote": null,
+      "context": "2025年報告書のSmall Bets関連売上（会社全体の収益の一部）: 249,346.32 USD; 対象期間：2025, 数値の種類：REVENUE。",
+      "capture_path": null,
+      "capture_sha256": null,
+      "method": "document"
+    }
+  ],
+  "records": [
+    {
+      "key": "r1",
+      "kind": "metric",
+      "domain": "money_and_economics",
+      "subject_keys": [
+        "business"
+      ],
+      "text": "2024年のGumroad, Inc.全社売上：18,951,308.03 USD",
+      "origin": "observed",
+      "verification": "SUPPORTED",
+      "evidence_keys": [
+        "ev-metric-r1"
+      ],
+      "basis_record_keys": [],
+      "time": {
+        "value": "2024",
+        "end": null,
+        "precision": "year",
+        "original": "2024"
+      },
+      "metric": {
+        "measure": "REVENUE",
+        "definition": "2024年のGumroad, Inc.全社売上",
+        "value": 18951308.03,
+        "lower": null,
+        "upper": null,
+        "operator": "exact",
+        "currency": "USD",
+        "unit": "USD",
+        "period_kind": "year",
+        "scope": "Gumroad（全社）",
+        "denominator": null,
+        "original_label": "2024年のGumroad, Inc.全社売上"
+      },
+      "relationship": null,
+      "computation": null,
+      "attributes": {},
+      "notes": ""
+    },
+    {
+      "key": "r2",
+      "kind": "metric",
+      "domain": "money_and_economics",
+      "subject_keys": [
+        "business"
+      ],
+      "text": "2025年のGumroad, Inc.全社売上：17,785,730.09 USD",
+      "origin": "observed",
+      "verification": "SUPPORTED",
+      "evidence_keys": [
+        "ev-metric-r2"
+      ],
+      "basis_record_keys": [],
+      "time": {
+        "value": "2025",
+        "end": null,
+        "precision": "year",
+        "original": "2025"
+      },
+      "metric": {
+        "measure": "REVENUE",
+        "definition": "2025年のGumroad, Inc.全社売上",
+        "value": 17785730.09,
+        "lower": null,
+        "upper": null,
+        "operator": "exact",
+        "currency": "USD",
+        "unit": "USD",
+        "period_kind": "year",
+        "scope": "Gumroad（全社）",
+        "denominator": null,
+        "original_label": "2025年のGumroad, Inc.全社売上"
+      },
+      "relationship": null,
+      "computation": null,
+      "attributes": {},
+      "notes": ""
+    },
+    {
+      "key": "r3",
+      "kind": "metric",
+      "domain": "money_and_economics",
+      "subject_keys": [
+        "business"
+      ],
+      "text": "2024年の売上原価：5,923,421.2 USD",
+      "origin": "observed",
+      "verification": "SUPPORTED",
+      "evidence_keys": [
+        "ev-metric-r3"
+      ],
+      "basis_record_keys": [],
+      "time": {
+        "value": "2024",
+        "end": null,
+        "precision": "year",
+        "original": "2024"
+      },
+      "metric": {
+        "measure": "COGS",
+        "definition": "2024年の売上原価",
+        "value": 5923421.2,
+        "lower": null,
+        "upper": null,
+        "operator": "exact",
+        "currency": "USD",
+        "unit": "USD",
+        "period_kind": "year",
+        "scope": "Gumroad（全社）",
+        "denominator": null,
+        "original_label": "2024年の売上原価"
+      },
+      "relationship": null,
+      "computation": null,
+      "attributes": {},
+      "notes": ""
+    },
+    {
+      "key": "r4",
+      "kind": "metric",
+      "domain": "money_and_economics",
+      "subject_keys": [
+        "business"
+      ],
+      "text": "2025年の売上原価：6,078,822.25 USD",
+      "origin": "observed",
+      "verification": "SUPPORTED",
+      "evidence_keys": [
+        "ev-metric-r4"
+      ],
+      "basis_record_keys": [],
+      "time": {
+        "value": "2025",
+        "end": null,
+        "precision": "year",
+        "original": "2025"
+      },
+      "metric": {
+        "measure": "COGS",
+        "definition": "2025年の売上原価",
+        "value": 6078822.25,
+        "lower": null,
+        "upper": null,
+        "operator": "exact",
+        "currency": "USD",
+        "unit": "USD",
+        "period_kind": "year",
+        "scope": "Gumroad（全社）",
+        "denominator": null,
+        "original_label": "2025年の売上原価"
+      },
+      "relationship": null,
+      "computation": null,
+      "attributes": {},
+      "notes": ""
+    },
+    {
+      "key": "r5",
+      "kind": "metric",
+      "domain": "money_and_economics",
+      "subject_keys": [
+        "business"
+      ],
+      "text": "2024年の純利益：4,290,423.04 USD",
+      "origin": "observed",
+      "verification": "SUPPORTED",
+      "evidence_keys": [
+        "ev-metric-r5"
+      ],
+      "basis_record_keys": [],
+      "time": {
+        "value": "2024",
+        "end": null,
+        "precision": "year",
+        "original": "2024"
+      },
+      "metric": {
+        "measure": "NET_PROFIT",
+        "definition": "2024年の純利益",
+        "value": 4290423.04,
+        "lower": null,
+        "upper": null,
+        "operator": "exact",
+        "currency": "USD",
+        "unit": "USD",
+        "period_kind": "year",
+        "scope": "Gumroad（全社）",
+        "denominator": null,
+        "original_label": "2024年の純利益"
+      },
+      "relationship": null,
+      "computation": null,
+      "attributes": {},
+      "notes": ""
+    },
+    {
+      "key": "r6",
+      "kind": "metric",
+      "domain": "money_and_economics",
+      "subject_keys": [
+        "business"
+      ],
+      "text": "2025年の純利益：3,792,179.17 USD",
+      "origin": "observed",
+      "verification": "SUPPORTED",
+      "evidence_keys": [
+        "ev-metric-r6"
+      ],
+      "basis_record_keys": [],
+      "time": {
+        "value": "2025",
+        "end": null,
+        "precision": "year",
+        "original": "2025"
+      },
+      "metric": {
+        "measure": "NET_PROFIT",
+        "definition": "2025年の純利益",
+        "value": 3792179.17,
+        "lower": null,
+        "upper": null,
+        "operator": "exact",
+        "currency": "USD",
+        "unit": "USD",
+        "period_kind": "year",
+        "scope": "Gumroad（全社）",
+        "denominator": null,
+        "original_label": "2025年の純利益"
+      },
+      "relationship": null,
+      "computation": null,
+      "attributes": {},
+      "notes": ""
+    },
+    {
+      "key": "r7",
+      "kind": "metric",
+      "domain": "money_and_economics",
+      "subject_keys": [
+        "business"
+      ],
+      "text": "2025年のStripe手数料（報告書記載）：4,397,600.77 USD",
+      "origin": "observed",
+      "verification": "SUPPORTED",
+      "evidence_keys": [
+        "ev-metric-r7"
+      ],
+      "basis_record_keys": [],
+      "time": {
+        "value": "2025",
+        "end": null,
+        "precision": "year",
+        "original": "2025"
+      },
+      "metric": {
+        "measure": "PAYMENT_COST",
+        "definition": "2025年のStripe手数料（報告書記載）",
+        "value": 4397600.77,
+        "lower": null,
+        "upper": null,
+        "operator": "exact",
+        "currency": "USD",
+        "unit": "USD",
+        "period_kind": "year",
+        "scope": "Gumroad",
+        "denominator": null,
+        "original_label": "2025年のStripe手数料（報告書記載）"
+      },
+      "relationship": null,
+      "computation": null,
+      "attributes": {},
+      "notes": ""
+    },
+    {
+      "key": "r8",
+      "kind": "metric",
+      "domain": "money_and_economics",
+      "subject_keys": [
+        "business"
+      ],
+      "text": "2025年のホスティング等（報告書記載）：916,610.76 USD",
+      "origin": "observed",
+      "verification": "SUPPORTED",
+      "evidence_keys": [
+        "ev-metric-r8"
+      ],
+      "basis_record_keys": [],
+      "time": {
+        "value": "2025",
+        "end": null,
+        "precision": "year",
+        "original": "2025"
+      },
+      "metric": {
+        "measure": "HOSTING_COST",
+        "definition": "2025年のホスティング等（報告書記載）",
+        "value": 916610.76,
+        "lower": null,
+        "upper": null,
+        "operator": "exact",
+        "currency": "USD",
+        "unit": "USD",
+        "period_kind": "year",
+        "scope": "Gumroad",
+        "denominator": null,
+        "original_label": "2025年のホスティング等（報告書記載）"
+      },
+      "relationship": null,
+      "computation": null,
+      "attributes": {},
+      "notes": ""
+    },
+    {
+      "key": "r9",
+      "kind": "metric",
+      "domain": "money_and_economics",
+      "subject_keys": [
+        "business"
+      ],
+      "text": "2025年の専門サービス費：1,374,468.59 USD",
+      "origin": "observed",
+      "verification": "SUPPORTED",
+      "evidence_keys": [
+        "ev-metric-r9"
+      ],
+      "basis_record_keys": [],
+      "time": {
+        "value": "2025",
+        "end": null,
+        "precision": "year",
+        "original": "2025"
+      },
+      "metric": {
+        "measure": "PROFESSIONAL_SERVICES",
+        "definition": "2025年の専門サービス費",
+        "value": 1374468.59,
+        "lower": null,
+        "upper": null,
+        "operator": "exact",
+        "currency": "USD",
+        "unit": "USD",
+        "period_kind": "year",
+        "scope": "Gumroad",
+        "denominator": null,
+        "original_label": "2025年の専門サービス費"
+      },
+      "relationship": null,
+      "computation": null,
+      "attributes": {},
+      "notes": ""
+    },
+    {
+      "key": "r10",
+      "kind": "metric",
+      "domain": "money_and_economics",
+      "subject_keys": [
+        "business"
+      ],
+      "text": "2025年の製品開発費：1,936,072.2 USD",
+      "origin": "observed",
+      "verification": "SUPPORTED",
+      "evidence_keys": [
+        "ev-metric-r10"
+      ],
+      "basis_record_keys": [],
+      "time": {
+        "value": "2025",
+        "end": null,
+        "precision": "year",
+        "original": "2025"
+      },
+      "metric": {
+        "measure": "PRODUCT_DEV",
+        "definition": "2025年の製品開発費",
+        "value": 1936072.2,
+        "lower": null,
+        "upper": null,
+        "operator": "exact",
+        "currency": "USD",
+        "unit": "USD",
+        "period_kind": "year",
+        "scope": "Gumroad",
+        "denominator": null,
+        "original_label": "2025年の製品開発費"
+      },
+      "relationship": null,
+      "computation": null,
+      "attributes": {},
+      "notes": ""
+    },
+    {
+      "key": "r11",
+      "kind": "metric",
+      "domain": "money_and_economics",
+      "subject_keys": [
+        "business"
+      ],
+      "text": "2015年6月の月次売上：89,000 USD",
+      "origin": "reported",
+      "verification": "SUPPORTED",
+      "evidence_keys": [
+        "ev-metric-r11"
+      ],
+      "basis_record_keys": [],
+      "time": {
+        "value": "2015-06",
+        "end": null,
+        "precision": "month",
+        "original": "2015-06"
+      },
+      "metric": {
+        "measure": "REVENUE",
+        "definition": "2015年6月の月次売上",
+        "value": 89000,
+        "lower": null,
+        "upper": null,
+        "operator": "exact",
+        "currency": "USD",
+        "unit": "USD",
+        "period_kind": "month",
+        "scope": "Gumroad（全社）",
+        "denominator": null,
+        "original_label": "2015年6月の月次売上"
+      },
+      "relationship": null,
+      "computation": null,
+      "attributes": {},
+      "notes": ""
+    },
+    {
+      "key": "r12",
+      "kind": "metric",
+      "domain": "money_and_economics",
+      "subject_keys": [
+        "business"
+      ],
+      "text": "2015年6月の月次最終損益：-351,000 USD",
+      "origin": "reported",
+      "verification": "SUPPORTED",
+      "evidence_keys": [
+        "ev-metric-r12"
+      ],
+      "basis_record_keys": [],
+      "time": {
+        "value": "2015-06",
+        "end": null,
+        "precision": "month",
+        "original": "2015-06"
+      },
+      "metric": {
+        "measure": "NET_PROFIT",
+        "definition": "2015年6月の月次最終損益",
+        "value": -351000,
+        "lower": null,
+        "upper": null,
+        "operator": "exact",
+        "currency": "USD",
+        "unit": "USD",
+        "period_kind": "month",
+        "scope": "Gumroad（全社）",
+        "denominator": null,
+        "original_label": "2015年6月の月次最終損益"
+      },
+      "relationship": null,
+      "computation": null,
+      "attributes": {},
+      "notes": ""
+    },
+    {
+      "key": "r13",
+      "kind": "metric",
+      "domain": "money_and_economics",
+      "subject_keys": [
+        "business"
+      ],
+      "text": "2015年6月の月次営業費用：364,000 USD",
+      "origin": "reported",
+      "verification": "SUPPORTED",
+      "evidence_keys": [
+        "ev-metric-r13"
+      ],
+      "basis_record_keys": [],
+      "time": {
+        "value": "2015-06",
+        "end": null,
+        "precision": "month",
+        "original": "2015-06"
+      },
+      "metric": {
+        "measure": "OPERATING_EXPENSES",
+        "definition": "2015年6月の月次営業費用",
+        "value": 364000,
+        "lower": null,
+        "upper": null,
+        "operator": "exact",
+        "currency": "USD",
+        "unit": "USD",
+        "period_kind": "month",
+        "scope": "Gumroad",
+        "denominator": null,
+        "original_label": "2015年6月の月次営業費用"
+      },
+      "relationship": null,
+      "computation": null,
+      "attributes": {},
+      "notes": ""
+    },
+    {
+      "key": "r14",
+      "kind": "metric",
+      "domain": "money_and_economics",
+      "subject_keys": [
+        "business"
+      ],
+      "text": "2016年6月の月次売上：176,000 USD",
+      "origin": "reported",
+      "verification": "SUPPORTED",
+      "evidence_keys": [
+        "ev-metric-r14"
+      ],
+      "basis_record_keys": [],
+      "time": {
+        "value": "2016-06",
+        "end": null,
+        "precision": "month",
+        "original": "2016-06"
+      },
+      "metric": {
+        "measure": "REVENUE",
+        "definition": "2016年6月の月次売上",
+        "value": 176000,
+        "lower": null,
+        "upper": null,
+        "operator": "exact",
+        "currency": "USD",
+        "unit": "USD",
+        "period_kind": "month",
+        "scope": "Gumroad（全社）",
+        "denominator": null,
+        "original_label": "2016年6月の月次売上"
+      },
+      "relationship": null,
+      "computation": null,
+      "attributes": {},
+      "notes": ""
+    },
+    {
+      "key": "r15",
+      "kind": "metric",
+      "domain": "money_and_economics",
+      "subject_keys": [
+        "business"
+      ],
+      "text": "2016年6月の月次最終損益：10,000 USD",
+      "origin": "reported",
+      "verification": "SUPPORTED",
+      "evidence_keys": [
+        "ev-metric-r15"
+      ],
+      "basis_record_keys": [],
+      "time": {
+        "value": "2016-06",
+        "end": null,
+        "precision": "month",
+        "original": "2016-06"
+      },
+      "metric": {
+        "measure": "NET_PROFIT",
+        "definition": "2016年6月の月次最終損益",
+        "value": 10000,
+        "lower": null,
+        "upper": null,
+        "operator": "exact",
+        "currency": "USD",
+        "unit": "USD",
+        "period_kind": "month",
+        "scope": "Gumroad（全社）",
+        "denominator": null,
+        "original_label": "2016年6月の月次最終損益"
+      },
+      "relationship": null,
+      "computation": null,
+      "attributes": {},
+      "notes": ""
+    },
+    {
+      "key": "r16",
+      "kind": "metric",
+      "domain": "money_and_economics",
+      "subject_keys": [
+        "business"
+      ],
+      "text": "2016年6月の月次営業費用：32,000 USD",
+      "origin": "reported",
+      "verification": "SUPPORTED",
+      "evidence_keys": [
+        "ev-metric-r16"
+      ],
+      "basis_record_keys": [],
+      "time": {
+        "value": "2016-06",
+        "end": null,
+        "precision": "month",
+        "original": "2016-06"
+      },
+      "metric": {
+        "measure": "OPERATING_EXPENSES",
+        "definition": "2016年6月の月次営業費用",
+        "value": 32000,
+        "lower": null,
+        "upper": null,
+        "operator": "exact",
+        "currency": "USD",
+        "unit": "USD",
+        "period_kind": "month",
+        "scope": "Gumroad",
+        "denominator": null,
+        "original_label": "2016年6月の月次営業費用"
+      },
+      "relationship": null,
+      "computation": null,
+      "attributes": {},
+      "notes": ""
+    },
+    {
+      "key": "r17",
+      "kind": "metric",
+      "domain": "people",
+      "subject_keys": [
+        "business"
+      ],
+      "text": "2015年頃の最大チーム人数：20",
+      "origin": "reported",
+      "verification": "SUPPORTED",
+      "evidence_keys": [
+        "ev-metric-r17"
+      ],
+      "basis_record_keys": [],
+      "time": {
+        "value": "2015",
+        "end": null,
+        "precision": "year",
+        "original": "2015"
+      },
+      "metric": {
+        "measure": "TEAM",
+        "definition": "2015年頃の最大チーム人数",
+        "value": 20,
+        "lower": null,
+        "upper": null,
+        "operator": "exact",
+        "currency": null,
+        "unit": "people",
+        "period_kind": "point",
+        "scope": "Gumroad",
+        "denominator": null,
+        "original_label": "2015年頃の最大チーム人数"
+      },
+      "relationship": null,
+      "computation": null,
+      "attributes": {},
+      "notes": ""
+    },
+    {
+      "key": "r18",
+      "kind": "metric",
+      "domain": "people",
+      "subject_keys": [
+        "business"
+      ],
+      "text": "2015年以降の縮小後のチーム人数：5",
+      "origin": "reported",
+      "verification": "SUPPORTED",
+      "evidence_keys": [
+        "ev-metric-r18"
+      ],
+      "basis_record_keys": [],
+      "time": {
+        "value": "2016",
+        "end": null,
+        "precision": "year",
+        "original": "2016"
+      },
+      "metric": {
+        "measure": "TEAM",
+        "definition": "2015年以降の縮小後のチーム人数",
+        "value": 5,
+        "lower": null,
+        "upper": null,
+        "operator": "exact",
+        "currency": null,
+        "unit": "people",
+        "period_kind": "point",
+        "scope": "Gumroad",
+        "denominator": null,
+        "original_label": "2015年以降の縮小後のチーム人数"
+      },
+      "relationship": null,
+      "computation": null,
+      "attributes": {},
+      "notes": ""
+    },
+    {
+      "key": "r19",
+      "kind": "metric",
+      "domain": "distribution",
+      "subject_keys": [
+        "business"
+      ],
+      "text": "2011年のHacker News初日訪問数（5.2万超）：52,000",
+      "origin": "reported",
+      "verification": "SUPPORTED",
+      "evidence_keys": [
+        "ev-metric-r19"
+      ],
+      "basis_record_keys": [],
+      "time": {
+        "value": "2011",
+        "end": null,
+        "precision": "year",
+        "original": "2011"
+      },
+      "metric": {
+        "measure": "TRAFFIC",
+        "definition": "2011年のHacker News初日訪問数（5.2万超）",
+        "value": 52000,
+        "lower": null,
+        "upper": null,
+        "operator": "gt",
+        "currency": null,
+        "unit": "views",
+        "period_kind": "point",
+        "scope": "Gumroad",
+        "denominator": null,
+        "original_label": "2011年のHacker News初日訪問数（5.2万超）"
+      },
+      "relationship": null,
+      "computation": null,
+      "attributes": {},
+      "notes": ""
+    },
+    {
+      "key": "r20",
+      "kind": "metric",
+      "domain": "money_and_economics",
+      "subject_keys": [
+        "business"
+      ],
+      "text": "直接販売の基本手数料率：10",
+      "origin": "observed",
+      "verification": "SUPPORTED",
+      "evidence_keys": [
+        "ev-metric-r20"
+      ],
+      "basis_record_keys": [],
+      "time": {
+        "value": "2026-10",
+        "end": null,
+        "precision": "month",
+        "original": "2026-10"
+      },
+      "metric": {
+        "measure": "FEE_RATE",
+        "definition": "直接販売の基本手数料率",
+        "value": 10,
+        "lower": null,
+        "upper": null,
+        "operator": "exact",
+        "currency": null,
+        "unit": "percent",
+        "period_kind": "point",
+        "scope": "Gumroad",
+        "denominator": null,
+        "original_label": "直接販売の基本手数料率"
+      },
+      "relationship": null,
+      "computation": null,
+      "attributes": {},
+      "notes": ""
+    },
+    {
+      "key": "r21",
+      "kind": "metric",
+      "domain": "money_and_economics",
+      "subject_keys": [
+        "business"
+      ],
+      "text": "Discover経由の手数料率：30",
+      "origin": "observed",
+      "verification": "SUPPORTED",
+      "evidence_keys": [
+        "ev-metric-r21"
+      ],
+      "basis_record_keys": [],
+      "time": {
+        "value": "2026-10",
+        "end": null,
+        "precision": "month",
+        "original": "2026-10"
+      },
+      "metric": {
+        "measure": "FEE_RATE",
+        "definition": "Discover経由の手数料率",
+        "value": 30,
+        "lower": null,
+        "upper": null,
+        "operator": "exact",
+        "currency": null,
+        "unit": "percent",
+        "period_kind": "point",
+        "scope": "Gumroad",
+        "denominator": null,
+        "original_label": "Discover経由の手数料率"
+      },
+      "relationship": null,
+      "computation": null,
+      "attributes": {},
+      "notes": ""
+    },
+    {
+      "key": "r22",
+      "kind": "metric",
+      "domain": "money_and_economics",
+      "subject_keys": [
+        "business"
+      ],
+      "text": "直接販売1取引あたりの固定手数料：0.5 USD",
+      "origin": "observed",
+      "verification": "SUPPORTED",
+      "evidence_keys": [
+        "ev-metric-r22"
+      ],
+      "basis_record_keys": [],
+      "time": {
+        "value": "2026-10",
+        "end": null,
+        "precision": "month",
+        "original": "2026-10"
+      },
+      "metric": {
+        "measure": "FIXED_FEE",
+        "definition": "直接販売1取引あたりの固定手数料",
+        "value": 0.5,
+        "lower": null,
+        "upper": null,
+        "operator": "exact",
+        "currency": "USD",
+        "unit": "USD",
+        "period_kind": "point",
+        "scope": "Gumroad",
+        "denominator": null,
+        "original_label": "直接販売1取引あたりの固定手数料"
+      },
+      "relationship": null,
+      "computation": null,
+      "attributes": {},
+      "notes": ""
+    },
+    {
+      "key": "r23",
+      "kind": "metric",
+      "domain": "money_and_economics",
+      "subject_keys": [
+        "business"
+      ],
+      "text": "2025年報告書のSmall Bets関連売上（会社全体の収益の一部）：249,346.32 USD",
+      "origin": "observed",
+      "verification": "SUPPORTED",
+      "evidence_keys": [
+        "ev-metric-r23"
+      ],
+      "basis_record_keys": [],
+      "time": {
+        "value": "2025",
+        "end": null,
+        "precision": "year",
+        "original": "2025"
+      },
+      "metric": {
+        "measure": "REVENUE",
+        "definition": "2025年報告書のSmall Bets関連売上（会社全体の収益の一部）",
+        "value": 249346.32,
+        "lower": null,
+        "upper": null,
+        "operator": "exact",
+        "currency": "USD",
+        "unit": "USD",
+        "period_kind": "year",
+        "scope": "Gumroad（全社）",
+        "denominator": null,
+        "original_label": "2025年報告書のSmall Bets関連売上（会社全体の収益の一部）"
+      },
+      "relationship": null,
+      "computation": null,
+      "attributes": {},
+      "notes": ""
+    },
+    {
+      "key": "r24",
+      "kind": "fact",
+      "domain": "product",
+      "subject_keys": [
+        "business"
+      ],
+      "text": "売る人：電子書籍、デザイン素材、講座、音楽、ソフトウェア、会員向けコンテンツを販売するクリエイター。",
+      "origin": "reported",
+      "verification": "SUPPORTED",
+      "evidence_keys": [
+        "ev-g1",
+        "ev-g2"
+      ],
+      "basis_record_keys": [],
+      "time": {
+        "value": null,
+        "end": null,
+        "precision": "unknown",
+        "original": null
+      },
+      "metric": null,
+      "relationship": null,
+      "computation": null,
+      "attributes": {
+        "citation_refs": [
+          "G1",
+          "G2"
+        ],
+        "explicit_source_citation": false,
+        "original_md_text": "売る人：電子書籍、デザイン素材、講座、音楽、ソフトウェア、会員向けコンテンツを販売するクリエイター。"
+      },
+      "notes": ""
+    },
+    {
+      "key": "r25",
+      "kind": "fact",
+      "domain": "product",
+      "subject_keys": [
+        "business"
+      ],
+      "text": "買う人：クリエイターがSNSやメールなどから案内するファンや顧客。",
+      "origin": "reported",
+      "verification": "SUPPORTED",
+      "evidence_keys": [
+        "ev-g1",
+        "ev-g2"
+      ],
+      "basis_record_keys": [],
+      "time": {
+        "value": null,
+        "end": null,
+        "precision": "unknown",
+        "original": null
+      },
+      "metric": null,
+      "relationship": null,
+      "computation": null,
+      "attributes": {
+        "citation_refs": [
+          "G1",
+          "G2"
+        ],
+        "explicit_source_citation": false,
+        "original_md_text": "買う人：クリエイターがSNSやメールなどから案内するファンや顧客。"
+      },
+      "notes": ""
+    },
+    {
+      "key": "r26",
+      "kind": "fact",
+      "domain": "product",
+      "subject_keys": [
+        "business"
+      ],
+      "text": "Gumroadの仕事：商品ページ、注文・決済、デジタル商品の配布、一定の税務対応、販売者への支払処理。",
+      "origin": "reported",
+      "verification": "SUPPORTED",
+      "evidence_keys": [
+        "ev-g1",
+        "ev-g2"
+      ],
+      "basis_record_keys": [],
+      "time": {
+        "value": null,
+        "end": null,
+        "precision": "unknown",
+        "original": null
+      },
+      "metric": null,
+      "relationship": null,
+      "computation": null,
+      "attributes": {
+        "citation_refs": [
+          "G1",
+          "G2"
+        ],
+        "explicit_source_citation": false,
+        "original_md_text": "Gumroadの仕事：商品ページ、注文・決済、デジタル商品の配布、一定の税務対応、販売者への支払処理。"
+      },
+      "notes": ""
+    },
+    {
+      "key": "r27",
+      "kind": "fact",
+      "domain": "product",
+      "subject_keys": [
+        "business"
+      ],
+      "text": "Gumroadの収入：月額の基本料金ではなく、成立した販売から受け取る手数料。",
+      "origin": "reported",
+      "verification": "SUPPORTED",
+      "evidence_keys": [
+        "ev-g1",
+        "ev-g2"
+      ],
+      "basis_record_keys": [],
+      "time": {
+        "value": null,
+        "end": null,
+        "precision": "unknown",
+        "original": null
+      },
+      "metric": null,
+      "relationship": null,
+      "computation": null,
+      "attributes": {
+        "citation_refs": [
+          "G1",
+          "G2"
+        ],
+        "explicit_source_citation": false,
+        "original_md_text": "Gumroadの収入：月額の基本料金ではなく、成立した販売から受け取る手数料。"
+      },
+      "notes": ""
+    },
+    {
+      "key": "r28",
+      "kind": "fact",
+      "domain": "product",
+      "subject_keys": [
+        "business"
+      ],
+      "text": "最初は「単品のデジタル商品を売るのに本格的なネットショップが必要なのか」という疑問から始まった。現在は商品を見つけてもらえるDiscoverにも手数料を設定し、支払いや販売者向けの仕組みを運営している。",
+      "origin": "reported",
+      "verification": "SUPPORTED",
+      "evidence_keys": [
+        "ev-g1",
+        "ev-g3",
+        "ev-g4"
+      ],
+      "basis_record_keys": [],
+      "time": {
+        "value": null,
+        "end": null,
+        "precision": "unknown",
+        "original": null
+      },
+      "metric": null,
+      "relationship": null,
+      "computation": null,
+      "attributes": {
+        "citation_refs": [
+          "G1",
+          "G3",
+          "G4"
+        ],
+        "explicit_source_citation": true,
+        "original_md_text": "最初は「単品のデジタル商品を売るのに本格的なネットショップが必要なのか」という疑問から始まった。現在は商品を見つけてもらえるDiscoverにも手数料を設定し、支払いや販売者向けの仕組みを運営している。[G1][G3][G4]"
+      },
+      "notes": ""
+    },
+    {
+      "key": "r29",
+      "kind": "fact",
+      "domain": "customer_and_demand",
+      "subject_keys": [
+        "business"
+      ],
+      "text": "クリエイターが商品を登録し、価格と販売ページを設定する。",
+      "origin": "reported",
+      "verification": "SUPPORTED",
+      "evidence_keys": [
+        "ev-g3",
+        "ev-g4"
+      ],
+      "basis_record_keys": [],
+      "time": {
+        "value": null,
+        "end": null,
+        "precision": "unknown",
+        "original": null
+      },
+      "metric": null,
+      "relationship": null,
+      "computation": null,
+      "attributes": {
+        "citation_refs": [
+          "G3",
+          "G4"
+        ],
+        "explicit_source_citation": false,
+        "original_md_text": "クリエイターが商品を登録し、価格と販売ページを設定する。"
+      },
+      "notes": ""
+    },
+    {
+      "key": "r30",
+      "kind": "fact",
+      "domain": "customer_and_demand",
+      "subject_keys": [
+        "business"
+      ],
+      "text": "SNS、ブログ、メールなどでリンクを配布する。購入者はその場で支払う。",
+      "origin": "reported",
+      "verification": "SUPPORTED",
+      "evidence_keys": [
+        "ev-g3",
+        "ev-g4"
+      ],
+      "basis_record_keys": [],
+      "time": {
+        "value": null,
+        "end": null,
+        "precision": "unknown",
+        "original": null
+      },
+      "metric": null,
+      "relationship": null,
+      "computation": null,
+      "attributes": {
+        "citation_refs": [
+          "G3",
+          "G4"
+        ],
+        "explicit_source_citation": false,
+        "original_md_text": "SNS、ブログ、メールなどでリンクを配布する。購入者はその場で支払う。"
+      },
+      "notes": ""
+    },
+    {
+      "key": "r31",
+      "kind": "fact",
+      "domain": "customer_and_demand",
+      "subject_keys": [
+        "business"
+      ],
+      "text": "Gumroadが決済・注文・コンテンツへのアクセスを処理し、手数料を差し引いた金額を販売者へ送る。",
+      "origin": "reported",
+      "verification": "SUPPORTED",
+      "evidence_keys": [
+        "ev-g3",
+        "ev-g4"
+      ],
+      "basis_record_keys": [],
+      "time": {
+        "value": null,
+        "end": null,
+        "precision": "unknown",
+        "original": null
+      },
+      "metric": null,
+      "relationship": null,
+      "computation": null,
+      "attributes": {
+        "citation_refs": [
+          "G3",
+          "G4"
+        ],
+        "explicit_source_citation": false,
+        "original_md_text": "Gumroadが決済・注文・コンテンツへのアクセスを処理し、手数料を差し引いた金額を販売者へ送る。"
+      },
+      "notes": ""
+    },
+    {
+      "key": "r32",
+      "kind": "fact",
+      "domain": "customer_and_demand",
+      "subject_keys": [
+        "business"
+      ],
+      "text": "Discover経由の購入では、商品を探す顧客との出会いもGumroadが提供する。",
+      "origin": "reported",
+      "verification": "SUPPORTED",
+      "evidence_keys": [
+        "ev-g3",
+        "ev-g4"
+      ],
+      "basis_record_keys": [],
+      "time": {
+        "value": null,
+        "end": null,
+        "precision": "unknown",
+        "original": null
+      },
+      "metric": null,
+      "relationship": null,
+      "computation": null,
+      "attributes": {
+        "citation_refs": [
+          "G3",
+          "G4"
+        ],
+        "explicit_source_citation": true,
+        "original_md_text": "Discover経由の購入では、商品を探す顧客との出会いもGumroadが提供する。[G3][G4]"
+      },
+      "notes": ""
+    },
+    {
+      "key": "r33",
+      "kind": "analysis",
+      "domain": "customer_and_demand",
+      "subject_keys": [
+        "business"
+      ],
+      "text": "販売者は、商品そのものと顧客から選ばれる理由を用意する必要がある。一方、Gumroadは多数の販売者に共通する決済や購入手続きを一つのサービスとして提供する。商品の売れ行きと、共通インフラとしての処理能力が収入を左右する構造だ。",
+      "origin": "inferred",
+      "verification": "SUPPORTED",
+      "evidence_keys": [
+        "ev-g1",
+        "ev-g3"
+      ],
+      "basis_record_keys": [],
+      "time": {
+        "value": null,
+        "end": null,
+        "precision": "unknown",
+        "original": null
+      },
+      "metric": null,
+      "relationship": null,
+      "computation": null,
+      "attributes": {
+        "citation_refs": [
+          "G1",
+          "G3"
+        ],
+        "explicit_source_citation": true,
+        "original_md_text": "販売者は、商品そのものと顧客から選ばれる理由を用意する必要がある。一方、Gumroadは多数の販売者に共通する決済や購入手続きを一つのサービスとして提供する。商品の売れ行きと、共通インフラとしての処理能力が収入を左右する構造だ。[G1][G3]"
+      },
+      "notes": "資料を踏まえた構造分析。直接の発言・財務数値として断定しない。"
+    },
+    {
+      "key": "r34",
+      "kind": "fact",
+      "domain": "customer_and_demand",
+      "subject_keys": [
+        "business"
+      ],
+      "text": "現在の公式料金は、販売者自身が集客した注文と、GumroadのDiscoverから生まれた注文で異なる。前者は販売場所と決済の提供、後者には新規顧客を見つけてもらう機能も含むためだ。",
+      "origin": "reported",
+      "verification": "SUPPORTED",
+      "evidence_keys": [
+        "ev-g3"
+      ],
+      "basis_record_keys": [],
+      "time": {
+        "value": null,
+        "end": null,
+        "precision": "unknown",
+        "original": null
+      },
+      "metric": null,
+      "relationship": null,
+      "computation": null,
+      "attributes": {
+        "citation_refs": [
+          "G3"
+        ],
+        "explicit_source_citation": true,
+        "original_md_text": "現在の公式料金は、販売者自身が集客した注文と、GumroadのDiscoverから生まれた注文で異なる。前者は販売場所と決済の提供、後者には新規顧客を見つけてもらう機能も含むためだ。[G3]"
+      },
+      "notes": ""
+    },
+    {
+      "key": "r35",
+      "kind": "fact",
+      "domain": "money_and_economics",
+      "subject_keys": [
+        "business"
+      ],
+      "text": "2026年10月に確認した公式料金：",
+      "origin": "reported",
+      "verification": "SUPPORTED",
+      "evidence_keys": [
+        "ev-g3",
+        "ev-g5"
+      ],
+      "basis_record_keys": [],
+      "time": {
+        "value": null,
+        "end": null,
+        "precision": "unknown",
+        "original": null
+      },
+      "metric": null,
+      "relationship": null,
+      "computation": null,
+      "attributes": {
+        "citation_refs": [
+          "G3",
+          "G5"
+        ],
+        "explicit_source_citation": true,
+        "original_md_text": "2026年10月に確認した公式料金：[G3][G5]"
+      },
+      "notes": ""
+    },
+    {
+      "key": "r36",
+      "kind": "fact",
+      "domain": "money_and_economics",
+      "subject_keys": [
+        "business"
+      ],
+      "text": "販売者が顧客を連れてきた直接販売 | 販売額の10％＋0.50ドル／件 | カード処理費（例：2.9％＋0.30ドル）は別途発生",
+      "origin": "reported",
+      "verification": "SUPPORTED",
+      "evidence_keys": [
+        "ev-g3",
+        "ev-g5"
+      ],
+      "basis_record_keys": [],
+      "time": {
+        "value": null,
+        "end": null,
+        "precision": "unknown",
+        "original": null
+      },
+      "metric": null,
+      "relationship": null,
+      "computation": null,
+      "attributes": {
+        "citation_refs": [
+          "G3",
+          "G5"
+        ],
+        "explicit_source_citation": false,
+        "original_md_text": "販売者が顧客を連れてきた直接販売 | 販売額の10％＋0.50ドル／件 | カード処理費（例：2.9％＋0.30ドル）は別途発生"
+      },
+      "notes": ""
+    },
+    {
+      "key": "r37",
+      "kind": "fact",
+      "domain": "money_and_economics",
+      "subject_keys": [
+        "business"
+      ],
+      "text": "Gumroad Discover経由の販売 | 販売額の30％／件 | 決済処理費を含む案内",
+      "origin": "reported",
+      "verification": "SUPPORTED",
+      "evidence_keys": [
+        "ev-g3",
+        "ev-g5"
+      ],
+      "basis_record_keys": [],
+      "time": {
+        "value": null,
+        "end": null,
+        "precision": "unknown",
+        "original": null
+      },
+      "metric": null,
+      "relationship": null,
+      "computation": null,
+      "attributes": {
+        "citation_refs": [
+          "G3",
+          "G5"
+        ],
+        "explicit_source_citation": false,
+        "original_md_text": "Gumroad Discover経由の販売 | 販売額の30％／件 | 決済処理費を含む案内"
+      },
+      "notes": ""
+    },
+    {
+      "key": "r38",
+      "kind": "fact",
+      "domain": "money_and_economics",
+      "subject_keys": [
+        "business"
+      ],
+      "text": "一定の大口直接販売 | 5％＋0.50ドル／件 | 当月の有料販売額が2万ドルに達した後の新規直接販売に適用。月初にリセット",
+      "origin": "reported",
+      "verification": "SUPPORTED",
+      "evidence_keys": [
+        "ev-g3",
+        "ev-g5"
+      ],
+      "basis_record_keys": [],
+      "time": {
+        "value": null,
+        "end": null,
+        "precision": "unknown",
+        "original": null
+      },
+      "metric": null,
+      "relationship": null,
+      "computation": null,
+      "attributes": {
+        "citation_refs": [
+          "G3",
+          "G5"
+        ],
+        "explicit_source_citation": false,
+        "original_md_text": "一定の大口直接販売 | 5％＋0.50ドル／件 | 当月の有料販売額が2万ドルに達した後の新規直接販売に適用。月初にリセット"
+      },
+      "notes": ""
+    },
+    {
+      "key": "r39",
+      "kind": "fact",
+      "domain": "money_and_economics",
+      "subject_keys": [
+        "business"
+      ],
+      "text": "毎月の固定利用料はなく、販売がない月にも利用料を請求する設計ではない。2025年1月からは販売取引の税金を取り扱うMerchant of Recordとしての仕組みを導入し、プラットフォーム側の責任範囲が拡大した。",
+      "origin": "reported",
+      "verification": "SUPPORTED",
+      "evidence_keys": [
+        "ev-g3",
+        "ev-g5"
+      ],
+      "basis_record_keys": [],
+      "time": {
+        "value": null,
+        "end": null,
+        "precision": "unknown",
+        "original": null
+      },
+      "metric": null,
+      "relationship": null,
+      "computation": null,
+      "attributes": {
+        "citation_refs": [
+          "G3",
+          "G5"
+        ],
+        "explicit_source_citation": true,
+        "original_md_text": "毎月の固定利用料はなく、販売がない月にも利用料を請求する設計ではない。2025年1月からは販売取引の税金を取り扱うMerchant of Recordとしての仕組みを導入し、プラットフォーム側の責任範囲が拡大した。[G3][G5]"
+      },
+      "notes": ""
+    },
+    {
+      "key": "r40",
+      "kind": "fact",
+      "domain": "money_and_economics",
+      "subject_keys": [
+        "business"
+      ],
+      "text": "売上 | 18,951,308ドル | 17,785,730ドル",
+      "origin": "reported",
+      "verification": "SUPPORTED",
+      "evidence_keys": [
+        "ev-g3",
+        "ev-g5"
+      ],
+      "basis_record_keys": [],
+      "time": {
+        "value": null,
+        "end": null,
+        "precision": "unknown",
+        "original": null
+      },
+      "metric": null,
+      "relationship": null,
+      "computation": null,
+      "attributes": {
+        "citation_refs": [
+          "G3",
+          "G5"
+        ],
+        "explicit_source_citation": false,
+        "original_md_text": "売上 | 18,951,308ドル | 17,785,730ドル"
+      },
+      "notes": ""
+    },
+    {
+      "key": "r41",
+      "kind": "fact",
+      "domain": "money_and_economics",
+      "subject_keys": [
+        "business"
+      ],
+      "text": "売上原価 | 5,923,421ドル | 6,078,822ドル",
+      "origin": "reported",
+      "verification": "SUPPORTED",
+      "evidence_keys": [
+        "ev-g3",
+        "ev-g5"
+      ],
+      "basis_record_keys": [],
+      "time": {
+        "value": null,
+        "end": null,
+        "precision": "unknown",
+        "original": null
+      },
+      "metric": null,
+      "relationship": null,
+      "computation": null,
+      "attributes": {
+        "citation_refs": [
+          "G3",
+          "G5"
+        ],
+        "explicit_source_citation": false,
+        "original_md_text": "売上原価 | 5,923,421ドル | 6,078,822ドル"
+      },
+      "notes": ""
+    },
+    {
+      "key": "r42",
+      "kind": "fact",
+      "domain": "money_and_economics",
+      "subject_keys": [
+        "business"
+      ],
+      "text": "売上総利益 | 13,027,887ドル | 11,706,908ドル",
+      "origin": "reported",
+      "verification": "SUPPORTED",
+      "evidence_keys": [
+        "ev-g3",
+        "ev-g5"
+      ],
+      "basis_record_keys": [],
+      "time": {
+        "value": null,
+        "end": null,
+        "precision": "unknown",
+        "original": null
+      },
+      "metric": null,
+      "relationship": null,
+      "computation": null,
+      "attributes": {
+        "citation_refs": [
+          "G3",
+          "G5"
+        ],
+        "explicit_source_citation": false,
+        "original_md_text": "売上総利益 | 13,027,887ドル | 11,706,908ドル"
+      },
+      "notes": ""
+    },
+    {
+      "key": "r43",
+      "kind": "fact",
+      "domain": "money_and_economics",
+      "subject_keys": [
+        "business"
+      ],
+      "text": "純利益 | 4,290,423ドル | 3,792,179ドル",
+      "origin": "reported",
+      "verification": "SUPPORTED",
+      "evidence_keys": [
+        "ev-g3",
+        "ev-g5"
+      ],
+      "basis_record_keys": [],
+      "time": {
+        "value": null,
+        "end": null,
+        "precision": "unknown",
+        "original": null
+      },
+      "metric": null,
+      "relationship": null,
+      "computation": null,
+      "attributes": {
+        "citation_refs": [
+          "G3",
+          "G5"
+        ],
+        "explicit_source_citation": false,
+        "original_md_text": "純利益 | 4,290,423ドル | 3,792,179ドル"
+      },
+      "notes": ""
+    },
+    {
+      "key": "r44",
+      "kind": "fact",
+      "domain": "money_and_economics",
+      "subject_keys": [
+        "business"
+      ],
+      "text": "この数字は2026年4月8日提出のGumroad, Inc.の年次報告に掲載された値で、2025年1〜12月の実績。2025年の売上は前年より低い。同じ資料には関連サービスによる収益も含まれるため、売上すべてをGumroadの販売手数料だけと見なさない。",
+      "origin": "reported",
+      "verification": "SUPPORTED",
+      "evidence_keys": [
+        "ev-g2"
+      ],
+      "basis_record_keys": [],
+      "time": {
+        "value": null,
+        "end": null,
+        "precision": "unknown",
+        "original": null
+      },
+      "metric": null,
+      "relationship": null,
+      "computation": null,
+      "attributes": {
+        "citation_refs": [
+          "G2"
+        ],
+        "explicit_source_citation": true,
+        "original_md_text": "この数字は2026年4月8日提出のGumroad, Inc.の年次報告に掲載された値で、2025年1〜12月の実績。2025年の売上は前年より低い。同じ資料には関連サービスによる収益も含まれるため、売上すべてをGumroadの販売手数料だけと見なさない。[G2]"
+      },
+      "notes": ""
+    },
+    {
+      "key": "r45",
+      "kind": "fact",
+      "domain": "money_and_economics",
+      "subject_keys": [
+        "business"
+      ],
+      "text": "費用の中身もある程度見える。2025年の売上原価にはStripeの販売処理費約440万ドル、ホスティング・制作関連約92万ドルなどが含まれる。また、専門サービス費は約137万ドル、製品開発費は約194万ドル。これは外注や開発を含む会計上の費用で、公開ページの「従業員が少ない」だけを見て手間のない事業だとは判断できない。",
+      "origin": "reported",
+      "verification": "SUPPORTED",
+      "evidence_keys": [
+        "ev-g2"
+      ],
+      "basis_record_keys": [],
+      "time": {
+        "value": null,
+        "end": null,
+        "precision": "unknown",
+        "original": null
+      },
+      "metric": null,
+      "relationship": null,
+      "computation": null,
+      "attributes": {
+        "citation_refs": [
+          "G2"
+        ],
+        "explicit_source_citation": true,
+        "original_md_text": "費用の中身もある程度見える。2025年の売上原価にはStripeの販売処理費約440万ドル、ホスティング・制作関連約92万ドルなどが含まれる。また、専門サービス費は約137万ドル、製品開発費は約194万ドル。これは外注や開発を含む会計上の費用で、公開ページの「従業員が少ない」だけを見て手間のない事業だとは判断できない。[G2]"
+      },
+      "notes": ""
+    },
+    {
+      "key": "r46",
+      "kind": "fact",
+      "domain": "distribution",
+      "subject_keys": [
+        "business"
+      ],
+      "text": "創業者Sahil Lavingiaは、2011年に思いついたアイデアを週末に試作し、月曜朝にHacker Newsへ公開した。初日のサイト訪問は本人の回顧で5万2,000人超。その時点で既にPinterestの初期社員として製品開発の経験があった。",
+      "origin": "reported",
+      "verification": "SUPPORTED",
+      "evidence_keys": [
+        "ev-g1",
+        "ev-g6"
+      ],
+      "basis_record_keys": [],
+      "time": {
+        "value": null,
+        "end": null,
+        "precision": "unknown",
+        "original": null
+      },
+      "metric": null,
+      "relationship": null,
+      "computation": null,
+      "attributes": {
+        "citation_refs": [
+          "G1",
+          "G6"
+        ],
+        "explicit_source_citation": true,
+        "original_md_text": "創業者Sahil Lavingiaは、2011年に思いついたアイデアを週末に試作し、月曜朝にHacker Newsへ公開した。初日のサイト訪問は本人の回顧で5万2,000人超。その時点で既にPinterestの初期社員として製品開発の経験があった。[G1][G6]"
+      },
+      "notes": ""
+    },
+    {
+      "key": "r47",
+      "kind": "analysis",
+      "domain": "distribution",
+      "subject_keys": [
+        "business"
+      ],
+      "text": "重要なのは、「5万2,000人が購入した」わけではないことだ。記録されているのは初日の訪問で、最初の購入者や契約率はこの回顧からは確定できない。商品をすぐ試せる形で技術コミュニティに提示したことが初期認知の起点になった。",
+      "origin": "inferred",
+      "verification": "SUPPORTED",
+      "evidence_keys": [
+        "ev-g1"
+      ],
+      "basis_record_keys": [],
+      "time": {
+        "value": null,
+        "end": null,
+        "precision": "unknown",
+        "original": null
+      },
+      "metric": null,
+      "relationship": null,
+      "computation": null,
+      "attributes": {
+        "citation_refs": [
+          "G1"
+        ],
+        "explicit_source_citation": true,
+        "original_md_text": "重要なのは、「5万2,000人が購入した」わけではないことだ。記録されているのは初日の訪問で、最初の購入者や契約率はこの回顧からは確定できない。商品をすぐ試せる形で技術コミュニティに提示したことが初期認知の起点になった。[G1]"
+      },
+      "notes": "資料を踏まえた構造分析。直接の発言・財務数値として断定しない。"
+    },
+    {
+      "key": "r48",
+      "kind": "fact",
+      "domain": "distribution",
+      "subject_keys": [
+        "business"
+      ],
+      "text": "Gumroadの販売モデルでは、クリエイターが既存のSNSフォロワーやメール購読者へ自分の商品リンクを配布する。販売者が増えても、Gumroad自身がすべての購入者を広告で集める必要はない。一方、商品を持たない人や顧客との接点がない人にとって、Gumroadへ登録するだけで販売が成立するわけでもない。",
+      "origin": "reported",
+      "verification": "SUPPORTED",
+      "evidence_keys": [
+        "ev-g3",
+        "ev-g7"
+      ],
+      "basis_record_keys": [],
+      "time": {
+        "value": null,
+        "end": null,
+        "precision": "unknown",
+        "original": null
+      },
+      "metric": null,
+      "relationship": null,
+      "computation": null,
+      "attributes": {
+        "citation_refs": [
+          "G3",
+          "G7"
+        ],
+        "explicit_source_citation": true,
+        "original_md_text": "Gumroadの販売モデルでは、クリエイターが既存のSNSフォロワーやメール購読者へ自分の商品リンクを配布する。販売者が増えても、Gumroad自身がすべての購入者を広告で集める必要はない。一方、商品を持たない人や顧客との接点がない人にとって、Gumroadへ登録するだけで販売が成立するわけでもない。[G3][G7]"
+      },
+      "notes": ""
+    },
+    {
+      "key": "r49",
+      "kind": "fact",
+      "domain": "distribution",
+      "subject_keys": [
+        "business"
+      ],
+      "text": "2011年の初期露出と、現在のDiscover経由の発見は別の販売経路だ。両者を同じ「口コミで伸びた」という一言で片付けない。",
+      "origin": "reported",
+      "verification": "SUPPORTED",
+      "evidence_keys": [
+        "ev-g1",
+        "ev-g3"
+      ],
+      "basis_record_keys": [],
+      "time": {
+        "value": null,
+        "end": null,
+        "precision": "unknown",
+        "original": null
+      },
+      "metric": null,
+      "relationship": null,
+      "computation": null,
+      "attributes": {
+        "citation_refs": [
+          "G1",
+          "G3"
+        ],
+        "explicit_source_citation": true,
+        "original_md_text": "2011年の初期露出と、現在のDiscover経由の発見は別の販売経路だ。両者を同じ「口コミで伸びた」という一言で片付けない。[G1][G3]"
+      },
+      "notes": ""
+    },
+    {
+      "key": "r50",
+      "kind": "fact",
+      "domain": "operations",
+      "subject_keys": [
+        "business"
+      ],
+      "text": "購入を処理する：決済手段を提供し、注文を確定させる。Stripeなどの決済処理費が発生する。",
+      "origin": "reported",
+      "verification": "SUPPORTED",
+      "evidence_keys": [
+        "ev-g2",
+        "ev-g3",
+        "ev-g5"
+      ],
+      "basis_record_keys": [],
+      "time": {
+        "value": null,
+        "end": null,
+        "precision": "unknown",
+        "original": null
+      },
+      "metric": null,
+      "relationship": null,
+      "computation": null,
+      "attributes": {
+        "citation_refs": [
+          "G2",
+          "G3",
+          "G5"
+        ],
+        "explicit_source_citation": false,
+        "original_md_text": "購入を処理する：決済手段を提供し、注文を確定させる。Stripeなどの決済処理費が発生する。"
+      },
+      "notes": ""
+    },
+    {
+      "key": "r51",
+      "kind": "fact",
+      "domain": "operations",
+      "subject_keys": [
+        "business"
+      ],
+      "text": "データや商品を届ける：デジタル商品へのアクセス、購読や会員向け販売を扱う。",
+      "origin": "reported",
+      "verification": "SUPPORTED",
+      "evidence_keys": [
+        "ev-g2",
+        "ev-g3",
+        "ev-g5"
+      ],
+      "basis_record_keys": [],
+      "time": {
+        "value": null,
+        "end": null,
+        "precision": "unknown",
+        "original": null
+      },
+      "metric": null,
+      "relationship": null,
+      "computation": null,
+      "attributes": {
+        "citation_refs": [
+          "G2",
+          "G3",
+          "G5"
+        ],
+        "explicit_source_citation": false,
+        "original_md_text": "データや商品を届ける：デジタル商品へのアクセス、購読や会員向け販売を扱う。"
+      },
+      "notes": ""
+    },
+    {
+      "key": "r52",
+      "kind": "fact",
+      "domain": "operations",
+      "subject_keys": [
+        "business"
+      ],
+      "text": "販売者へ払う：国・決済方式ごとに支払手段や条件を整備する。",
+      "origin": "reported",
+      "verification": "SUPPORTED",
+      "evidence_keys": [
+        "ev-g2",
+        "ev-g3",
+        "ev-g5"
+      ],
+      "basis_record_keys": [],
+      "time": {
+        "value": null,
+        "end": null,
+        "precision": "unknown",
+        "original": null
+      },
+      "metric": null,
+      "relationship": null,
+      "computation": null,
+      "attributes": {
+        "citation_refs": [
+          "G2",
+          "G3",
+          "G5"
+        ],
+        "explicit_source_citation": false,
+        "original_md_text": "販売者へ払う：国・決済方式ごとに支払手段や条件を整備する。"
+      },
+      "notes": ""
+    },
+    {
+      "key": "r53",
+      "kind": "fact",
+      "domain": "operations",
+      "subject_keys": [
+        "business"
+      ],
+      "text": "税務やトラブルに対応する：2025年から販売者に代わって販売税を取り扱う仕組みを導入。ただし販売者本人の全税務義務が消えるわけではない。",
+      "origin": "reported",
+      "verification": "SUPPORTED",
+      "evidence_keys": [
+        "ev-g2",
+        "ev-g3",
+        "ev-g5"
+      ],
+      "basis_record_keys": [],
+      "time": {
+        "value": null,
+        "end": null,
+        "precision": "unknown",
+        "original": null
+      },
+      "metric": null,
+      "relationship": null,
+      "computation": null,
+      "attributes": {
+        "citation_refs": [
+          "G2",
+          "G3",
+          "G5"
+        ],
+        "explicit_source_citation": true,
+        "original_md_text": "税務やトラブルに対応する：2025年から販売者に代わって販売税を取り扱う仕組みを導入。ただし販売者本人の全税務義務が消えるわけではない。[G2][G3][G5]"
+      },
+      "notes": ""
+    },
+    {
+      "key": "r54",
+      "kind": "fact",
+      "domain": "operations",
+      "subject_keys": [
+        "business"
+      ],
+      "text": "2025年の提出資料では、決済に関連する費用だけで数百万ドルに上る。デジタル商品を売る画面は簡単でも、取引が増えるほど決済費、返品、不正対策、コンプライアンス、顧客サポートの重要性が高まる。",
+      "origin": "reported",
+      "verification": "SUPPORTED",
+      "evidence_keys": [
+        "ev-g2"
+      ],
+      "basis_record_keys": [],
+      "time": {
+        "value": null,
+        "end": null,
+        "precision": "unknown",
+        "original": null
+      },
+      "metric": null,
+      "relationship": null,
+      "computation": null,
+      "attributes": {
+        "citation_refs": [
+          "G2"
+        ],
+        "explicit_source_citation": true,
+        "original_md_text": "2025年の提出資料では、決済に関連する費用だけで数百万ドルに上る。デジタル商品を売る画面は簡単でも、取引が増えるほど決済費、返品、不正対策、コンプライアンス、顧客サポートの重要性が高まる。[G2]"
+      },
+      "notes": ""
+    },
+    {
+      "key": "r55",
+      "kind": "fact",
+      "domain": "operations",
+      "subject_keys": [
+        "business"
+      ],
+      "text": "Sahilの回顧では2015年頃に20人いた組織を5人に減らし、月2万5,000ドルのオフィスを解約しようとした。さらにその後は本人が日々の問い合わせやバグ対応を引き受け、元社員の助けも借りた。この時期を「1人で自動的に儲かっていた」と説明するのは間違いだ。",
+      "origin": "reported",
+      "verification": "SUPPORTED",
+      "evidence_keys": [
+        "ev-g1"
+      ],
+      "basis_record_keys": [],
+      "time": {
+        "value": null,
+        "end": null,
+        "precision": "unknown",
+        "original": null
+      },
+      "metric": null,
+      "relationship": null,
+      "computation": null,
+      "attributes": {
+        "citation_refs": [
+          "G1"
+        ],
+        "explicit_source_citation": true,
+        "original_md_text": "Sahilの回顧では2015年頃に20人いた組織を5人に減らし、月2万5,000ドルのオフィスを解約しようとした。さらにその後は本人が日々の問い合わせやバグ対応を引き受け、元社員の助けも借りた。この時期を「1人で自動的に儲かっていた」と説明するのは間違いだ。[G1]"
+      },
+      "notes": ""
+    },
+    {
+      "key": "r56",
+      "kind": "fact",
+      "domain": "timeline_and_outcomes",
+      "subject_keys": [
+        "business"
+      ],
+      "text": "2015年6月（月間）：売上89,000ドル、粗利益17,000ドル、営業費用364,000ドル、最終損益はマイナス351,000ドル。創業者が目指した追加の大型資金調達は成立せず、大幅なコスト削減に向かった。",
+      "origin": "reported",
+      "verification": "SUPPORTED",
+      "evidence_keys": [
+        "ev-g1"
+      ],
+      "basis_record_keys": [],
+      "time": {
+        "value": null,
+        "end": null,
+        "precision": "unknown",
+        "original": null
+      },
+      "metric": null,
+      "relationship": null,
+      "computation": null,
+      "attributes": {
+        "citation_refs": [
+          "G1"
+        ],
+        "explicit_source_citation": true,
+        "original_md_text": "2015年6月（月間）：売上89,000ドル、粗利益17,000ドル、営業費用364,000ドル、最終損益はマイナス351,000ドル。創業者が目指した追加の大型資金調達は成立せず、大幅なコスト削減に向かった。[G1]"
+      },
+      "notes": ""
+    },
+    {
+      "key": "r57",
+      "kind": "fact",
+      "domain": "timeline_and_outcomes",
+      "subject_keys": [
+        "business"
+      ],
+      "text": "2016年6月（月間）：売上176,000ドル、粗利益42,000ドル、営業費用32,000ドル、最終損益はプラス10,000ドル。売上拡大だけでなく、固定費を大幅に減らしたことで黒字化した。",
+      "origin": "reported",
+      "verification": "SUPPORTED",
+      "evidence_keys": [
+        "ev-g1"
+      ],
+      "basis_record_keys": [],
+      "time": {
+        "value": null,
+        "end": null,
+        "precision": "unknown",
+        "original": null
+      },
+      "metric": null,
+      "relationship": null,
+      "computation": null,
+      "attributes": {
+        "citation_refs": [
+          "G1"
+        ],
+        "explicit_source_citation": true,
+        "original_md_text": "2016年6月（月間）：売上176,000ドル、粗利益42,000ドル、営業費用32,000ドル、最終損益はプラス10,000ドル。売上拡大だけでなく、固定費を大幅に減らしたことで黒字化した。[G1]"
+      },
+      "notes": ""
+    },
+    {
+      "key": "r58",
+      "kind": "fact",
+      "domain": "timeline_and_outcomes",
+      "subject_keys": [
+        "business"
+      ],
+      "text": "2011年 | 週末に試作、Hacker Newsへ公開 | 初期認知を獲得し外部資金調達へ",
+      "origin": "reported",
+      "verification": "SUPPORTED",
+      "evidence_keys": [
+        "ev-g1"
+      ],
+      "basis_record_keys": [],
+      "time": {
+        "value": null,
+        "end": null,
+        "precision": "unknown",
+        "original": null
+      },
+      "metric": null,
+      "relationship": null,
+      "computation": null,
+      "attributes": {
+        "citation_refs": [
+          "G1"
+        ],
+        "explicit_source_citation": false,
+        "original_md_text": "2011年 | 週末に試作、Hacker Newsへ公開 | 初期認知を獲得し外部資金調達へ"
+      },
+      "notes": ""
+    },
+    {
+      "key": "r59",
+      "kind": "fact",
+      "domain": "timeline_and_outcomes",
+      "subject_keys": [
+        "business"
+      ],
+      "text": "2012年 | 追加で700万ドル調達 | 事業拡大、人員・オフィス固定費が増える",
+      "origin": "reported",
+      "verification": "SUPPORTED",
+      "evidence_keys": [
+        "ev-g1"
+      ],
+      "basis_record_keys": [],
+      "time": {
+        "value": null,
+        "end": null,
+        "precision": "unknown",
+        "original": null
+      },
+      "metric": null,
+      "relationship": null,
+      "computation": null,
+      "attributes": {
+        "citation_refs": [
+          "G1"
+        ],
+        "explicit_source_citation": false,
+        "original_md_text": "2012年 | 追加で700万ドル調達 | 事業拡大、人員・オフィス固定費が増える"
+      },
+      "notes": ""
+    },
+    {
+      "key": "r60",
+      "kind": "fact",
+      "domain": "timeline_and_outcomes",
+      "subject_keys": [
+        "business"
+      ],
+      "text": "2015年 | 成長鈍化、75％の人員を削減 | 資金調達型の急拡大路線を縮小",
+      "origin": "reported",
+      "verification": "SUPPORTED",
+      "evidence_keys": [
+        "ev-g1"
+      ],
+      "basis_record_keys": [],
+      "time": {
+        "value": null,
+        "end": null,
+        "precision": "unknown",
+        "original": null
+      },
+      "metric": null,
+      "relationship": null,
+      "computation": null,
+      "attributes": {
+        "citation_refs": [
+          "G1"
+        ],
+        "explicit_source_citation": false,
+        "original_md_text": "2015年 | 成長鈍化、75％の人員を削減 | 資金調達型の急拡大路線を縮小"
+      },
+      "notes": ""
+    },
+    {
+      "key": "r61",
+      "kind": "fact",
+      "domain": "timeline_and_outcomes",
+      "subject_keys": [
+        "business"
+      ],
+      "text": "2016年 | 月次で黒字化 | 少人数・低固定費の運営へ移行",
+      "origin": "reported",
+      "verification": "SUPPORTED",
+      "evidence_keys": [
+        "ev-g1"
+      ],
+      "basis_record_keys": [],
+      "time": {
+        "value": null,
+        "end": null,
+        "precision": "unknown",
+        "original": null
+      },
+      "metric": null,
+      "relationship": null,
+      "computation": null,
+      "attributes": {
+        "citation_refs": [
+          "G1"
+        ],
+        "explicit_source_citation": false,
+        "original_md_text": "2016年 | 月次で黒字化 | 少人数・低固定費の運営へ移行"
+      },
+      "notes": ""
+    },
+    {
+      "key": "r62",
+      "kind": "fact",
+      "domain": "timeline_and_outcomes",
+      "subject_keys": [
+        "business"
+      ],
+      "text": "2017年 | 主要投資家から持分買戻しの提案 | 経営の自由度を高める転機",
+      "origin": "reported",
+      "verification": "SUPPORTED",
+      "evidence_keys": [
+        "ev-g1"
+      ],
+      "basis_record_keys": [],
+      "time": {
+        "value": null,
+        "end": null,
+        "precision": "unknown",
+        "original": null
+      },
+      "metric": null,
+      "relationship": null,
+      "computation": null,
+      "attributes": {
+        "citation_refs": [
+          "G1"
+        ],
+        "explicit_source_citation": false,
+        "original_md_text": "2017年 | 主要投資家から持分買戻しの提案 | 経営の自由度を高める転機"
+      },
+      "notes": ""
+    },
+    {
+      "key": "r63",
+      "kind": "fact",
+      "domain": "timeline_and_outcomes",
+      "subject_keys": [
+        "business"
+      ],
+      "text": "2018年 | 創業者が財務指標を公開 | 運営者と販売者への透明性を高める",
+      "origin": "reported",
+      "verification": "SUPPORTED",
+      "evidence_keys": [
+        "ev-g1"
+      ],
+      "basis_record_keys": [],
+      "time": {
+        "value": null,
+        "end": null,
+        "precision": "unknown",
+        "original": null
+      },
+      "metric": null,
+      "relationship": null,
+      "computation": null,
+      "attributes": {
+        "citation_refs": [
+          "G1"
+        ],
+        "explicit_source_citation": false,
+        "original_md_text": "2018年 | 創業者が財務指標を公開 | 運営者と販売者への透明性を高める"
+      },
+      "notes": ""
+    },
+    {
+      "key": "r64",
+      "kind": "fact",
+      "domain": "timeline_and_outcomes",
+      "subject_keys": [
+        "business"
+      ],
+      "text": "2025年 | 会社全体で売上1,779万ドル・純利益379万ドル | 継続して利益を計上。ただし売上・利益とも前年割れ",
+      "origin": "reported",
+      "verification": "SUPPORTED",
+      "evidence_keys": [
+        "ev-g1"
+      ],
+      "basis_record_keys": [],
+      "time": {
+        "value": null,
+        "end": null,
+        "precision": "unknown",
+        "original": null
+      },
+      "metric": null,
+      "relationship": null,
+      "computation": null,
+      "attributes": {
+        "citation_refs": [
+          "G1"
+        ],
+        "explicit_source_citation": false,
+        "original_md_text": "2025年 | 会社全体で売上1,779万ドル・純利益379万ドル | 継続して利益を計上。ただし売上・利益とも前年割れ"
+      },
+      "notes": ""
+    },
+    {
+      "key": "r65",
+      "kind": "analysis",
+      "domain": "timeline_and_outcomes",
+      "subject_keys": [
+        "business"
+      ],
+      "text": "創業者の2019年の回顧は、多くの利用者がいても、投資家が期待する成長速度と会社の費用構造が合わなければ存続の危機になることを示している。単なる「失敗から学んだ」という教訓ではなく、営業費用を月36.4万ドルから3.2万ドルへ減らした実際の転換である。",
+      "origin": "inferred",
+      "verification": "SUPPORTED",
+      "evidence_keys": [
+        "ev-g1",
+        "ev-g2"
+      ],
+      "basis_record_keys": [],
+      "time": {
+        "value": null,
+        "end": null,
+        "precision": "unknown",
+        "original": null
+      },
+      "metric": null,
+      "relationship": null,
+      "computation": null,
+      "attributes": {
+        "citation_refs": [
+          "G1",
+          "G2"
+        ],
+        "explicit_source_citation": true,
+        "original_md_text": "創業者の2019年の回顧は、多くの利用者がいても、投資家が期待する成長速度と会社の費用構造が合わなければ存続の危機になることを示している。単なる「失敗から学んだ」という教訓ではなく、営業費用を月36.4万ドルから3.2万ドルへ減らした実際の転換である。[G1][G2]"
+      },
+      "notes": "資料を踏まえた構造分析。直接の発言・財務数値として断定しない。"
+    },
+    {
+      "key": "r66",
+      "kind": "fact",
+      "domain": "timeline_and_outcomes",
+      "subject_keys": [
+        "business"
+      ],
+      "text": "SahilにはPinterest初期社員としての開発経験があり、Hacker Newsで試作品を紹介できる環境もあった。また、Gumroadに商品を出す販売者は自ら買い手を集める必要がある。つまり、Gumroadが売ったのは万能の集客ではなく、販売者が持つ需要を決済につなげる道具と、新たな買い手との発見経路である。",
+      "origin": "reported",
+      "verification": "SUPPORTED",
+      "evidence_keys": [
+        "ev-g1",
+        "ev-g3",
+        "ev-g6"
+      ],
+      "basis_record_keys": [],
+      "time": {
+        "value": null,
+        "end": null,
+        "precision": "unknown",
+        "original": null
+      },
+      "metric": null,
+      "relationship": null,
+      "computation": null,
+      "attributes": {
+        "citation_refs": [
+          "G1",
+          "G3",
+          "G6"
+        ],
+        "explicit_source_citation": true,
+        "original_md_text": "SahilにはPinterest初期社員としての開発経験があり、Hacker Newsで試作品を紹介できる環境もあった。また、Gumroadに商品を出す販売者は自ら買い手を集める必要がある。つまり、Gumroadが売ったのは万能の集客ではなく、販売者が持つ需要を決済につなげる道具と、新たな買い手との発見経路である。[G1][G3][G6]"
+      },
+      "notes": ""
+    }
+  ],
+  "article_state": "ready_for_review",
+  "article": {
+    "language": "ja",
+    "title": "Gumroad｜クリエイターの販売と決済を引き受け、売れた取引から手数料を得る",
+    "list_line": "作り手がデジタル商品を販売できるページと決済・配布機能を提供。売上が生まれた取引から料金を受け取る。2025年の会社全体の売上は約1,779万ドル、純利益は約379万ドルだった。",
+    "headline_record_keys": [
+      "r1",
+      "r2",
+      "r3"
+    ],
+    "overview": [
+      {
+        "text": "・売る人：電子書籍、デザイン素材、講座、音楽、ソフトウェア、会員向けコンテンツを販売するクリエイター。",
+        "record_keys": [
+          "r24"
+        ],
+        "interpretation": false
+      },
+      {
+        "text": "・買う人：クリエイターがSNSやメールなどから案内するファンや顧客。",
+        "record_keys": [
+          "r25"
+        ],
+        "interpretation": false
+      },
+      {
+        "text": "・Gumroadの仕事：商品ページ、注文・決済、デジタル商品の配布、一定の税務対応、販売者への支払処理。",
+        "record_keys": [
+          "r26"
+        ],
+        "interpretation": false
+      },
+      {
+        "text": "・Gumroadの収入：月額の基本料金ではなく、成立した販売から受け取る手数料。",
+        "record_keys": [
+          "r27"
+        ],
+        "interpretation": false
+      },
+      {
+        "text": "最初は「単品のデジタル商品を売るのに本格的なネットショップが必要なのか」という疑問から始まった。現在は商品を見つけてもらえるDiscoverにも手数料を設定し、支払いや販売者向けの仕組みを運営している。",
+        "record_keys": [
+          "r28"
+        ],
+        "interpretation": false
+      }
+    ],
+    "key_record_keys": [
+      "r1",
+      "r2",
+      "r3",
+      "r4",
+      "r5",
+      "r6",
+      "r7",
+      "r8",
+      "r9",
+      "r10",
+      "r11",
+      "r12"
+    ],
+    "gallery_visual_keys": [
+      "gumroad-flow",
+      "gumroad-results"
+    ],
+    "sections": [
+      {
+        "id": "insight",
+        "title": "仕組み",
+        "lead": null,
+        "blocks": [
+          {
+            "key": "b2",
+            "type": "text",
+            "title": "作り手は作品と販売リンクを用意し、Gumroadが購入処理を引き受ける",
+            "record_keys": [
+              "r29",
+              "r30",
+              "r31",
+              "r32",
+              "r33"
+            ],
+            "paragraphs": [
+              {
+                "text": "1. クリエイターが商品を登録し、価格と販売ページを設定する。",
+                "record_keys": [
+                  "r29"
+                ],
+                "interpretation": false
+              },
+              {
+                "text": "2. SNS、ブログ、メールなどでリンクを配布する。購入者はその場で支払う。",
+                "record_keys": [
+                  "r30"
+                ],
+                "interpretation": false
+              },
+              {
+                "text": "3. Gumroadが決済・注文・コンテンツへのアクセスを処理し、手数料を差し引いた金額を販売者へ送る。",
+                "record_keys": [
+                  "r31"
+                ],
+                "interpretation": false
+              },
+              {
+                "text": "4. Discover経由の購入では、商品を探す顧客との出会いもGumroadが提供する。",
+                "record_keys": [
+                  "r32"
+                ],
+                "interpretation": false
+              },
+              {
+                "text": "販売者は、商品そのものと顧客から選ばれる理由を用意する必要がある。一方、Gumroadは多数の販売者に共通する決済や購入手続きを一つのサービスとして提供する。商品の売れ行きと、共通インフラとしての処理能力が収入を左右する構造だ。",
+                "record_keys": [
+                  "r33"
+                ],
+                "interpretation": true
+              }
+            ]
+          },
+          {
+            "key": "b3",
+            "type": "visual",
+            "title": null,
+            "record_keys": [
+              "r1",
+              "r2"
+            ],
+            "visual_key": "gumroad-flow",
+            "caption": {
+              "text": "Gumroadの取引・手数料の仕組み",
+              "record_keys": [
+                "r1",
+                "r2"
+              ],
+              "interpretation": false
+            }
+          },
+          {
+            "key": "b4",
+            "type": "text",
+            "title": "顧客を連れてくる販売と、マーケット内で見つけてもらう販売を分けている",
+            "record_keys": [
+              "r34"
+            ],
+            "paragraphs": [
+              {
+                "text": "現在の公式料金は、販売者自身が集客した注文と、GumroadのDiscoverから生まれた注文で異なる。前者は販売場所と決済の提供、後者には新規顧客を見つけてもらう機能も含むためだ。",
+                "record_keys": [
+                  "r34"
+                ],
+                "interpretation": false
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "money",
+        "title": "お金",
+        "lead": null,
+        "blocks": [
+          {
+            "key": "b5",
+            "type": "text",
+            "title": "直販では販売額の10％＋50セント、Discover経由では30％を受け取る",
+            "record_keys": [
+              "r35"
+            ],
+            "paragraphs": [
+              {
+                "text": "2026年10月に確認した公式料金：",
+                "record_keys": [
+                  "r35"
+                ],
+                "interpretation": false
+              }
+            ]
+          },
+          {
+            "key": "b6",
+            "type": "table",
+            "title": null,
+            "record_keys": [
+              "r36",
+              "r38",
+              "r37"
+            ],
+            "columns": [
+              "売れ方",
+              "Gumroad側の料金",
+              "重要な条件"
+            ],
+            "rows": [
+              [
+                {
+                  "text": "販売者が顧客を連れてきた直接販売",
+                  "record_keys": [
+                    "r36"
+                  ],
+                  "interpretation": false
+                },
+                {
+                  "text": "販売額の10％＋0.50ドル／件",
+                  "record_keys": [
+                    "r36"
+                  ],
+                  "interpretation": false
+                },
+                {
+                  "text": "カード処理費（例：2.9％＋0.30ドル）は別途発生",
+                  "record_keys": [
+                    "r36"
+                  ],
+                  "interpretation": false
+                }
+              ],
+              [
+                {
+                  "text": "Gumroad Discover経由の販売",
+                  "record_keys": [
+                    "r37"
+                  ],
+                  "interpretation": false
+                },
+                {
+                  "text": "販売額の30％／件",
+                  "record_keys": [
+                    "r37"
+                  ],
+                  "interpretation": false
+                },
+                {
+                  "text": "決済処理費を含む案内",
+                  "record_keys": [
+                    "r37"
+                  ],
+                  "interpretation": false
+                }
+              ],
+              [
+                {
+                  "text": "一定の大口直接販売",
+                  "record_keys": [
+                    "r38"
+                  ],
+                  "interpretation": false
+                },
+                {
+                  "text": "5％＋0.50ドル／件",
+                  "record_keys": [
+                    "r38"
+                  ],
+                  "interpretation": false
+                },
+                {
+                  "text": "当月の有料販売額が2万ドルに達した後の新規直接販売に適用。月初にリセット",
+                  "record_keys": [
+                    "r38"
+                  ],
+                  "interpretation": false
+                }
+              ]
+            ],
+            "caption": null
+          },
+          {
+            "key": "b7",
+            "type": "text",
+            "title": null,
+            "record_keys": [
+              "r39"
+            ],
+            "paragraphs": [
+              {
+                "text": "毎月の固定利用料はなく、販売がない月にも利用料を請求する設計ではない。2025年1月からは販売取引の税金を取り扱うMerchant of Recordとしての仕組みを導入し、プラットフォーム側の責任範囲が拡大した。",
+                "record_keys": [
+                  "r39"
+                ],
+                "interpretation": false
+              }
+            ]
+          },
+          {
+            "key": "b8",
+            "type": "table",
+            "title": "2025年の純利益は379万ドル。売上の約3分の2が粗利益として残った",
+            "record_keys": [
+              "r40",
+              "r42",
+              "r43",
+              "r41"
+            ],
+            "columns": [
+              "会社の年間実績",
+              "2024年",
+              "2025年"
+            ],
+            "rows": [
+              [
+                {
+                  "text": "売上",
+                  "record_keys": [
+                    "r40"
+                  ],
+                  "interpretation": false
+                },
+                {
+                  "text": "18,951,308ドル",
+                  "record_keys": [
+                    "r40"
+                  ],
+                  "interpretation": false
+                },
+                {
+                  "text": "17,785,730ドル",
+                  "record_keys": [
+                    "r40"
+                  ],
+                  "interpretation": false
+                }
+              ],
+              [
+                {
+                  "text": "売上原価",
+                  "record_keys": [
+                    "r41"
+                  ],
+                  "interpretation": false
+                },
+                {
+                  "text": "5,923,421ドル",
+                  "record_keys": [
+                    "r41"
+                  ],
+                  "interpretation": false
+                },
+                {
+                  "text": "6,078,822ドル",
+                  "record_keys": [
+                    "r41"
+                  ],
+                  "interpretation": false
+                }
+              ],
+              [
+                {
+                  "text": "売上総利益",
+                  "record_keys": [
+                    "r42"
+                  ],
+                  "interpretation": false
+                },
+                {
+                  "text": "13,027,887ドル",
+                  "record_keys": [
+                    "r42"
+                  ],
+                  "interpretation": false
+                },
+                {
+                  "text": "11,706,908ドル",
+                  "record_keys": [
+                    "r42"
+                  ],
+                  "interpretation": false
+                }
+              ],
+              [
+                {
+                  "text": "純利益",
+                  "record_keys": [
+                    "r43"
+                  ],
+                  "interpretation": false
+                },
+                {
+                  "text": "4,290,423ドル",
+                  "record_keys": [
+                    "r43"
+                  ],
+                  "interpretation": false
+                },
+                {
+                  "text": "3,792,179ドル",
+                  "record_keys": [
+                    "r43"
+                  ],
+                  "interpretation": false
+                }
+              ]
+            ],
+            "caption": null
+          },
+          {
+            "key": "b9",
+            "type": "text",
+            "title": null,
+            "record_keys": [
+              "r44"
+            ],
+            "paragraphs": [
+              {
+                "text": "この数字は2026年4月8日提出のGumroad, Inc.の年次報告に掲載された値で、2025年1〜12月の実績。2025年の売上は前年より低い。同じ資料には関連サービスによる収益も含まれるため、売上すべてをGumroadの販売手数料だけと見なさない。",
+                "record_keys": [
+                  "r44"
+                ],
+                "interpretation": false
+              }
+            ]
+          },
+          {
+            "key": "b10",
+            "type": "visual",
+            "title": null,
+            "record_keys": [
+              "r1",
+              "r2"
+            ],
+            "visual_key": "gumroad-results",
+            "caption": {
+              "text": "Gumroadの2024年と2025年の実績",
+              "record_keys": [
+                "r1",
+                "r2"
+              ],
+              "interpretation": false
+            }
+          },
+          {
+            "key": "b11",
+            "type": "text",
+            "title": null,
+            "record_keys": [
+              "r45"
+            ],
+            "paragraphs": [
+              {
+                "text": "費用の中身もある程度見える。2025年の売上原価にはStripeの販売処理費約440万ドル、ホスティング・制作関連約92万ドルなどが含まれる。また、専門サービス費は約137万ドル、製品開発費は約194万ドル。これは外注や開発を含む会計上の費用で、公開ページの「従業員が少ない」だけを見て手間のない事業だとは判断できない。",
+                "record_keys": [
+                  "r45"
+                ],
+                "interpretation": false
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "acquisition",
+        "title": "集客",
+        "lead": null,
+        "blocks": [
+          {
+            "key": "b12",
+            "type": "text",
+            "title": "最初の5万2,000人超の訪問は、Hacker Newsへの投稿から生まれた",
+            "record_keys": [
+              "r46",
+              "r47"
+            ],
+            "paragraphs": [
+              {
+                "text": "創業者Sahil Lavingiaは、2011年に思いついたアイデアを週末に試作し、月曜朝にHacker Newsへ公開した。初日のサイト訪問は本人の回顧で5万2,000人超。その時点で既にPinterestの初期社員として製品開発の経験があった。",
+                "record_keys": [
+                  "r46"
+                ],
+                "interpretation": false
+              },
+              {
+                "text": "重要なのは、「5万2,000人が購入した」わけではないことだ。記録されているのは初日の訪問で、最初の購入者や契約率はこの回顧からは確定できない。商品をすぐ試せる形で技術コミュニティに提示したことが初期認知の起点になった。",
+                "record_keys": [
+                  "r47"
+                ],
+                "interpretation": true
+              }
+            ]
+          },
+          {
+            "key": "b13",
+            "type": "text",
+            "title": "販売者が自分の顧客を呼ぶことで、サイトの販売が増える",
+            "record_keys": [
+              "r48",
+              "r49"
+            ],
+            "paragraphs": [
+              {
+                "text": "Gumroadの販売モデルでは、クリエイターが既存のSNSフォロワーやメール購読者へ自分の商品リンクを配布する。販売者が増えても、Gumroad自身がすべての購入者を広告で集める必要はない。一方、商品を持たない人や顧客との接点がない人にとって、Gumroadへ登録するだけで販売が成立するわけでもない。",
+                "record_keys": [
+                  "r48"
+                ],
+                "interpretation": false
+              },
+              {
+                "text": "2011年の初期露出と、現在のDiscover経由の発見は別の販売経路だ。両者を同じ「口コミで伸びた」という一言で片付けない。",
+                "record_keys": [
+                  "r49"
+                ],
+                "interpretation": false
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "operations",
+        "title": "運営",
+        "lead": null,
+        "blocks": [
+          {
+            "key": "b14",
+            "type": "text",
+            "title": "決済、販売者への支払い、税務・不正対応までが運営の仕事になる",
+            "record_keys": [
+              "r50",
+              "r51",
+              "r52",
+              "r53",
+              "r54"
+            ],
+            "paragraphs": [
+              {
+                "text": "・購入を処理する：決済手段を提供し、注文を確定させる。Stripeなどの決済処理費が発生する。",
+                "record_keys": [
+                  "r50"
+                ],
+                "interpretation": false
+              },
+              {
+                "text": "・データや商品を届ける：デジタル商品へのアクセス、購読や会員向け販売を扱う。",
+                "record_keys": [
+                  "r51"
+                ],
+                "interpretation": false
+              },
+              {
+                "text": "・販売者へ払う：国・決済方式ごとに支払手段や条件を整備する。",
+                "record_keys": [
+                  "r52"
+                ],
+                "interpretation": false
+              },
+              {
+                "text": "・税務やトラブルに対応する：2025年から販売者に代わって販売税を取り扱う仕組みを導入。ただし販売者本人の全税務義務が消えるわけではない。",
+                "record_keys": [
+                  "r53"
+                ],
+                "interpretation": false
+              },
+              {
+                "text": "2025年の提出資料では、決済に関連する費用だけで数百万ドルに上る。デジタル商品を売る画面は簡単でも、取引が増えるほど決済費、返品、不正対策、コンプライアンス、顧客サポートの重要性が高まる。",
+                "record_keys": [
+                  "r54"
+                ],
+                "interpretation": false
+              }
+            ]
+          },
+          {
+            "key": "b15",
+            "type": "text",
+            "title": "黒字化のため、組織と固定費を大きく縮めた",
+            "record_keys": [
+              "r55"
+            ],
+            "paragraphs": [
+              {
+                "text": "Sahilの回顧では2015年頃に20人いた組織を5人に減らし、月2万5,000ドルのオフィスを解約しようとした。さらにその後は本人が日々の問い合わせやバグ対応を引き受け、元社員の助けも借りた。この時期を「1人で自動的に儲かっていた」と説明するのは間違いだ。",
+                "record_keys": [
+                  "r55"
+                ],
+                "interpretation": false
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "history",
+        "title": "経緯",
+        "lead": null,
+        "blocks": [
+          {
+            "key": "b16",
+            "type": "text",
+            "title": "売上が伸びても赤字が膨らみ、75％の人員削減を経て黒字化した",
+            "record_keys": [
+              "r56",
+              "r57"
+            ],
+            "paragraphs": [
+              {
+                "text": "2015年6月（月間）：売上89,000ドル、粗利益17,000ドル、営業費用364,000ドル、最終損益はマイナス351,000ドル。創業者が目指した追加の大型資金調達は成立せず、大幅なコスト削減に向かった。",
+                "record_keys": [
+                  "r56"
+                ],
+                "interpretation": false
+              },
+              {
+                "text": "2016年6月（月間）：売上176,000ドル、粗利益42,000ドル、営業費用32,000ドル、最終損益はプラス10,000ドル。売上拡大だけでなく、固定費を大幅に減らしたことで黒字化した。",
+                "record_keys": [
+                  "r57"
+                ],
+                "interpretation": false
+              }
+            ]
+          },
+          {
+            "key": "b17",
+            "type": "table",
+            "title": null,
+            "record_keys": [
+              "r60",
+              "r64",
+              "r63",
+              "r62",
+              "r61",
+              "r58",
+              "r59"
+            ],
+            "columns": [
+              "転機",
+              "起きたこと",
+              "事業への影響"
+            ],
+            "rows": [
+              [
+                {
+                  "text": "2011年",
+                  "record_keys": [
+                    "r58"
+                  ],
+                  "interpretation": false
+                },
+                {
+                  "text": "週末に試作、Hacker Newsへ公開",
+                  "record_keys": [
+                    "r58"
+                  ],
+                  "interpretation": false
+                },
+                {
+                  "text": "初期認知を獲得し外部資金調達へ",
+                  "record_keys": [
+                    "r58"
+                  ],
+                  "interpretation": false
+                }
+              ],
+              [
+                {
+                  "text": "2012年",
+                  "record_keys": [
+                    "r59"
+                  ],
+                  "interpretation": false
+                },
+                {
+                  "text": "追加で700万ドル調達",
+                  "record_keys": [
+                    "r59"
+                  ],
+                  "interpretation": false
+                },
+                {
+                  "text": "事業拡大、人員・オフィス固定費が増える",
+                  "record_keys": [
+                    "r59"
+                  ],
+                  "interpretation": false
+                }
+              ],
+              [
+                {
+                  "text": "2015年",
+                  "record_keys": [
+                    "r60"
+                  ],
+                  "interpretation": false
+                },
+                {
+                  "text": "成長鈍化、75％の人員を削減",
+                  "record_keys": [
+                    "r60"
+                  ],
+                  "interpretation": false
+                },
+                {
+                  "text": "資金調達型の急拡大路線を縮小",
+                  "record_keys": [
+                    "r60"
+                  ],
+                  "interpretation": false
+                }
+              ],
+              [
+                {
+                  "text": "2016年",
+                  "record_keys": [
+                    "r61"
+                  ],
+                  "interpretation": false
+                },
+                {
+                  "text": "月次で黒字化",
+                  "record_keys": [
+                    "r61"
+                  ],
+                  "interpretation": false
+                },
+                {
+                  "text": "少人数・低固定費の運営へ移行",
+                  "record_keys": [
+                    "r61"
+                  ],
+                  "interpretation": false
+                }
+              ],
+              [
+                {
+                  "text": "2017年",
+                  "record_keys": [
+                    "r62"
+                  ],
+                  "interpretation": false
+                },
+                {
+                  "text": "主要投資家から持分買戻しの提案",
+                  "record_keys": [
+                    "r62"
+                  ],
+                  "interpretation": false
+                },
+                {
+                  "text": "経営の自由度を高める転機",
+                  "record_keys": [
+                    "r62"
+                  ],
+                  "interpretation": false
+                }
+              ],
+              [
+                {
+                  "text": "2018年",
+                  "record_keys": [
+                    "r63"
+                  ],
+                  "interpretation": false
+                },
+                {
+                  "text": "創業者が財務指標を公開",
+                  "record_keys": [
+                    "r63"
+                  ],
+                  "interpretation": false
+                },
+                {
+                  "text": "運営者と販売者への透明性を高める",
+                  "record_keys": [
+                    "r63"
+                  ],
+                  "interpretation": false
+                }
+              ],
+              [
+                {
+                  "text": "2025年",
+                  "record_keys": [
+                    "r64"
+                  ],
+                  "interpretation": false
+                },
+                {
+                  "text": "会社全体で売上1,779万ドル・純利益379万ドル",
+                  "record_keys": [
+                    "r64"
+                  ],
+                  "interpretation": false
+                },
+                {
+                  "text": "継続して利益を計上。ただし売上・利益とも前年割れ",
+                  "record_keys": [
+                    "r64"
+                  ],
+                  "interpretation": false
+                }
+              ]
+            ],
+            "caption": null
+          },
+          {
+            "key": "b18",
+            "type": "text",
+            "title": null,
+            "record_keys": [
+              "r65"
+            ],
+            "paragraphs": [
+              {
+                "text": "創業者の2019年の回顧は、多くの利用者がいても、投資家が期待する成長速度と会社の費用構造が合わなければ存続の危機になることを示している。単なる「失敗から学んだ」という教訓ではなく、営業費用を月36.4万ドルから3.2万ドルへ減らした実際の転換である。",
+                "record_keys": [
+                  "r65"
+                ],
+                "interpretation": true
+              }
+            ]
+          },
+          {
+            "key": "b19",
+            "type": "text",
+            "title": "成功の前提には、創業者の経験と販売者側の既存顧客があった",
+            "record_keys": [
+              "r66"
+            ],
+            "paragraphs": [
+              {
+                "text": "SahilにはPinterest初期社員としての開発経験があり、Hacker Newsで試作品を紹介できる環境もあった。また、Gumroadに商品を出す販売者は自ら買い手を集める必要がある。つまり、Gumroadが売ったのは万能の集客ではなく、販売者が持つ需要を決済につなげる道具と、新たな買い手との発見経路である。",
+                "record_keys": [
+                  "r66"
+                ],
+                "interpretation": false
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "sources",
+        "title": "出典",
+        "lead": null,
+        "blocks": [
+          {
+            "key": "b20",
+            "type": "text",
+            "title": "一次資料と決算資料",
+            "record_keys": [
+              "r1"
+            ],
+            "paragraphs": [
+              {
+                "text": "Sahil Lavingia｜創業・資金調達・人員削減・黒字化の創業者記録：https://sahillavingia.com/reflecting",
+                "record_keys": [
+                  "r1"
+                ],
+                "interpretation": false
+              },
+              {
+                "text": "U.S. SEC / Gumroad, Inc.｜2025年度Form C-AR（2024年比較）：https://www.sec.gov/Archives/edgar/data/1532978/000153297826000003/formc-ar.pdf",
+                "record_keys": [
+                  "r1"
+                ],
+                "interpretation": false
+              },
+              {
+                "text": "Gumroad｜公式料金・Discover手数料・決済・税務対応：https://gumroad.com/pricing",
+                "record_keys": [
+                  "r1"
+                ],
+                "interpretation": false
+              },
+              {
+                "text": "Gumroad｜販売商品・支払い・販売者向け機能：https://gumroad.com/pricing",
+                "record_keys": [
+                  "r1"
+                ],
+                "interpretation": false
+              },
+              {
+                "text": "Gumroad｜手数料の条件と割引しきい値：https://gumroad.com/help/article/66-gumroads-fees",
+                "record_keys": [
+                  "r1"
+                ],
+                "interpretation": false
+              },
+              {
+                "text": "WIRED｜Gumroadの創業者と成長路線の転換：https://www.wired.com/story/he-wanted-unicorn-got-sustainable-business/",
+                "record_keys": [
+                  "r1"
+                ],
+                "interpretation": false
+              },
+              {
+                "text": "Gumroad｜既存ファンを持つ販売者の事例：https://gumroad.com/blog/p/how-lifemathmoney-made-1m-on-gumroad",
+                "record_keys": [
+                  "r1"
+                ],
+                "interpretation": false
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "excluded_sections": []
+  },
+  "visuals": [
+    {
+      "key": "gumroad-flow",
+      "kind": "diagram",
+      "state": "reviewed",
+      "question": "この事例の収益/成長の仕組みを具体的な実測/工程で説明する",
+      "subject_keys": [
+        "business"
+      ],
+      "record_keys": [
+        "r1",
+        "r23"
+      ],
+      "brief": "独自作成のベクター図。外部画像の転用なし。数値と出来事は原典の該当資料に対応。",
+      "caption": {
+        "text": "事例の取引/収益を元の記録に基づいて描いた図",
+        "record_keys": [
+          "r1",
+          "r23"
+        ],
+        "interpretation": false
+      },
+      "alt": "gumroad flowの図解",
+      "variants": [
+        {
+          "path": "media/gumroad-flow.svg",
+          "content_type": "image/svg+xml",
+          "width": 1120,
+          "height": 470,
+          "role": "wide"
+        },
+        {
+          "path": "media/gumroad-flow.png",
+          "content_type": "image/png",
+          "width": 1120,
+          "height": 470,
+          "role": "wide"
+        }
+      ],
+      "production": {
+        "producer": "ChatGPT",
+        "tool_version": "svgwrite 1.4 + CairoSVG",
+        "created_at": "2026-10-12T06:05:00Z",
+        "input_source_keys": [
+          "src-g1",
+          "src-g2"
+        ],
+        "rights_review": {
+          "decision": "allowed",
+          "basis": "policy",
+          "reference": "Independent original schematic/vector; no third-party media copied",
+          "reviewed_at": "2026-10-12T06:05:00Z",
+          "note": "汎用の図形と独自のテキストで製作。第三者写真は含まない。"
+        },
+        "visual_review": "PASS"
+      }
+    },
+    {
+      "key": "gumroad-results",
+      "kind": "generated_chart",
+      "state": "reviewed",
+      "question": "この事例の収益/成長の仕組みを具体的な実測/工程で説明する",
+      "subject_keys": [
+        "business"
+      ],
+      "record_keys": [
+        "r1",
+        "r23"
+      ],
+      "brief": "独自作成のベクター図。外部画像の転用なし。数値と出来事は原典の該当資料に対応。",
+      "caption": {
+        "text": "事例の取引/収益を元の記録に基づいて描いた図",
+        "record_keys": [
+          "r1",
+          "r23"
+        ],
+        "interpretation": false
+      },
+      "alt": "gumroad resultsの図解",
+      "variants": [
+        {
+          "path": "media/gumroad-results.svg",
+          "content_type": "image/svg+xml",
+          "width": 1120,
+          "height": 470,
+          "role": "wide"
+        },
+        {
+          "path": "media/gumroad-results.png",
+          "content_type": "image/png",
+          "width": 1120,
+          "height": 470,
+          "role": "wide"
+        }
+      ],
+      "production": {
+        "producer": "ChatGPT",
+        "tool_version": "svgwrite 1.4 + CairoSVG",
+        "created_at": "2026-10-12T06:05:00Z",
+        "input_source_keys": [
+          "src-g1",
+          "src-g2"
+        ],
+        "rights_review": {
+          "decision": "allowed",
+          "basis": "policy",
+          "reference": "Independent original schematic/vector; no third-party media copied",
+          "reviewed_at": "2026-10-12T06:05:00Z",
+          "note": "汎用の図形と独自のテキストで製作。第三者写真は含まない。"
+        },
+        "visual_review": "PASS"
+      }
+    }
+  ],
+  "topic_links": [
+    {
+      "kind": "pattern",
+      "target_id": null,
+      "candidate_title": "販売者が顧客を連れてくる取引手数料型プラットフォーム",
+      "relation": "analogy",
+      "record_keys": [
+        "r1",
+        "r2"
+      ],
+      "reason": "事例固有の観測から得た比較対象の候補。市場全体の成長や一般的な成功因果を実証したわけではない。"
+    }
+  ],
+  "dispositions": [
+    {
+      "record_key": "r1",
+      "destinations": [
+        "article",
+        "trend"
+      ],
+      "note": "出典・対象・期間を併記し、他社の数字へ推計転用しない。"
+    },
+    {
+      "record_key": "r2",
+      "destinations": [
+        "article",
+        "trend"
+      ],
+      "note": "出典・対象・期間を併記し、他社の数字へ推計転用しない。"
+    },
+    {
+      "record_key": "r3",
+      "destinations": [
+        "article",
+        "trend"
+      ],
+      "note": "出典・対象・期間を併記し、他社の数字へ推計転用しない。"
+    },
+    {
+      "record_key": "r4",
+      "destinations": [
+        "article",
+        "trend"
+      ],
+      "note": "出典・対象・期間を併記し、他社の数字へ推計転用しない。"
+    },
+    {
+      "record_key": "r5",
+      "destinations": [
+        "article",
+        "trend"
+      ],
+      "note": "出典・対象・期間を併記し、他社の数字へ推計転用しない。"
+    },
+    {
+      "record_key": "r6",
+      "destinations": [
+        "article",
+        "trend"
+      ],
+      "note": "出典・対象・期間を併記し、他社の数字へ推計転用しない。"
+    },
+    {
+      "record_key": "r7",
+      "destinations": [
+        "article",
+        "trend"
+      ],
+      "note": "出典・対象・期間を併記し、他社の数字へ推計転用しない。"
+    },
+    {
+      "record_key": "r8",
+      "destinations": [
+        "article",
+        "trend"
+      ],
+      "note": "出典・対象・期間を併記し、他社の数字へ推計転用しない。"
+    },
+    {
+      "record_key": "r9",
+      "destinations": [
+        "article",
+        "trend"
+      ],
+      "note": "出典・対象・期間を併記し、他社の数字へ推計転用しない。"
+    },
+    {
+      "record_key": "r10",
+      "destinations": [
+        "article",
+        "trend"
+      ],
+      "note": "出典・対象・期間を併記し、他社の数字へ推計転用しない。"
+    },
+    {
+      "record_key": "r11",
+      "destinations": [
+        "article",
+        "trend"
+      ],
+      "note": "出典・対象・期間を併記し、他社の数字へ推計転用しない。"
+    },
+    {
+      "record_key": "r12",
+      "destinations": [
+        "article",
+        "trend"
+      ],
+      "note": "出典・対象・期間を併記し、他社の数字へ推計転用しない。"
+    },
+    {
+      "record_key": "r13",
+      "destinations": [
+        "article",
+        "trend"
+      ],
+      "note": "出典・対象・期間を併記し、他社の数字へ推計転用しない。"
+    },
+    {
+      "record_key": "r14",
+      "destinations": [
+        "article",
+        "trend"
+      ],
+      "note": "出典・対象・期間を併記し、他社の数字へ推計転用しない。"
+    },
+    {
+      "record_key": "r15",
+      "destinations": [
+        "article",
+        "trend"
+      ],
+      "note": "出典・対象・期間を併記し、他社の数字へ推計転用しない。"
+    },
+    {
+      "record_key": "r16",
+      "destinations": [
+        "article",
+        "trend"
+      ],
+      "note": "出典・対象・期間を併記し、他社の数字へ推計転用しない。"
+    },
+    {
+      "record_key": "r17",
+      "destinations": [
+        "article",
+        "trend"
+      ],
+      "note": "出典・対象・期間を併記し、他社の数字へ推計転用しない。"
+    },
+    {
+      "record_key": "r18",
+      "destinations": [
+        "article",
+        "trend"
+      ],
+      "note": "出典・対象・期間を併記し、他社の数字へ推計転用しない。"
+    },
+    {
+      "record_key": "r19",
+      "destinations": [
+        "article",
+        "trend"
+      ],
+      "note": "出典・対象・期間を併記し、他社の数字へ推計転用しない。"
+    },
+    {
+      "record_key": "r20",
+      "destinations": [
+        "article",
+        "trend"
+      ],
+      "note": "出典・対象・期間を併記し、他社の数字へ推計転用しない。"
+    },
+    {
+      "record_key": "r21",
+      "destinations": [
+        "article",
+        "trend"
+      ],
+      "note": "出典・対象・期間を併記し、他社の数字へ推計転用しない。"
+    },
+    {
+      "record_key": "r22",
+      "destinations": [
+        "article",
+        "trend"
+      ],
+      "note": "出典・対象・期間を併記し、他社の数字へ推計転用しない。"
+    },
+    {
+      "record_key": "r23",
+      "destinations": [
+        "article",
+        "trend"
+      ],
+      "note": "出典・対象・期間を併記し、他社の数字へ推計転用しない。"
+    },
+    {
+      "record_key": "r24",
+      "destinations": [
+        "article",
+        "internal"
+      ],
+      "note": "出典・対象・期間を併記し、他社の数字へ推計転用しない。"
+    },
+    {
+      "record_key": "r25",
+      "destinations": [
+        "article",
+        "internal"
+      ],
+      "note": "出典・対象・期間を併記し、他社の数字へ推計転用しない。"
+    },
+    {
+      "record_key": "r26",
+      "destinations": [
+        "article",
+        "internal"
+      ],
+      "note": "出典・対象・期間を併記し、他社の数字へ推計転用しない。"
+    },
+    {
+      "record_key": "r27",
+      "destinations": [
+        "article",
+        "internal"
+      ],
+      "note": "出典・対象・期間を併記し、他社の数字へ推計転用しない。"
+    },
+    {
+      "record_key": "r28",
+      "destinations": [
+        "article",
+        "internal"
+      ],
+      "note": "出典・対象・期間を併記し、他社の数字へ推計転用しない。"
+    },
+    {
+      "record_key": "r29",
+      "destinations": [
+        "article",
+        "internal"
+      ],
+      "note": "出典・対象・期間を併記し、他社の数字へ推計転用しない。"
+    },
+    {
+      "record_key": "r30",
+      "destinations": [
+        "article",
+        "internal"
+      ],
+      "note": "出典・対象・期間を併記し、他社の数字へ推計転用しない。"
+    },
+    {
+      "record_key": "r31",
+      "destinations": [
+        "article",
+        "internal"
+      ],
+      "note": "出典・対象・期間を併記し、他社の数字へ推計転用しない。"
+    },
+    {
+      "record_key": "r32",
+      "destinations": [
+        "article",
+        "internal"
+      ],
+      "note": "出典・対象・期間を併記し、他社の数字へ推計転用しない。"
+    },
+    {
+      "record_key": "r33",
+      "destinations": [
+        "article",
+        "internal"
+      ],
+      "note": "出典・対象・期間を併記し、他社の数字へ推計転用しない。"
+    },
+    {
+      "record_key": "r34",
+      "destinations": [
+        "article",
+        "internal"
+      ],
+      "note": "出典・対象・期間を併記し、他社の数字へ推計転用しない。"
+    },
+    {
+      "record_key": "r35",
+      "destinations": [
+        "article",
+        "internal"
+      ],
+      "note": "出典・対象・期間を併記し、他社の数字へ推計転用しない。"
+    },
+    {
+      "record_key": "r36",
+      "destinations": [
+        "article",
+        "internal"
+      ],
+      "note": "出典・対象・期間を併記し、他社の数字へ推計転用しない。"
+    },
+    {
+      "record_key": "r37",
+      "destinations": [
+        "article",
+        "internal"
+      ],
+      "note": "出典・対象・期間を併記し、他社の数字へ推計転用しない。"
+    },
+    {
+      "record_key": "r38",
+      "destinations": [
+        "article",
+        "internal"
+      ],
+      "note": "出典・対象・期間を併記し、他社の数字へ推計転用しない。"
+    },
+    {
+      "record_key": "r39",
+      "destinations": [
+        "article",
+        "internal"
+      ],
+      "note": "出典・対象・期間を併記し、他社の数字へ推計転用しない。"
+    },
+    {
+      "record_key": "r40",
+      "destinations": [
+        "article",
+        "internal"
+      ],
+      "note": "出典・対象・期間を併記し、他社の数字へ推計転用しない。"
+    },
+    {
+      "record_key": "r41",
+      "destinations": [
+        "article",
+        "internal"
+      ],
+      "note": "出典・対象・期間を併記し、他社の数字へ推計転用しない。"
+    },
+    {
+      "record_key": "r42",
+      "destinations": [
+        "article",
+        "internal"
+      ],
+      "note": "出典・対象・期間を併記し、他社の数字へ推計転用しない。"
+    },
+    {
+      "record_key": "r43",
+      "destinations": [
+        "article",
+        "internal"
+      ],
+      "note": "出典・対象・期間を併記し、他社の数字へ推計転用しない。"
+    },
+    {
+      "record_key": "r44",
+      "destinations": [
+        "article",
+        "internal"
+      ],
+      "note": "出典・対象・期間を併記し、他社の数字へ推計転用しない。"
+    },
+    {
+      "record_key": "r45",
+      "destinations": [
+        "article",
+        "internal"
+      ],
+      "note": "出典・対象・期間を併記し、他社の数字へ推計転用しない。"
+    },
+    {
+      "record_key": "r46",
+      "destinations": [
+        "article",
+        "internal"
+      ],
+      "note": "出典・対象・期間を併記し、他社の数字へ推計転用しない。"
+    },
+    {
+      "record_key": "r47",
+      "destinations": [
+        "article",
+        "internal"
+      ],
+      "note": "出典・対象・期間を併記し、他社の数字へ推計転用しない。"
+    },
+    {
+      "record_key": "r48",
+      "destinations": [
+        "article",
+        "internal"
+      ],
+      "note": "出典・対象・期間を併記し、他社の数字へ推計転用しない。"
+    },
+    {
+      "record_key": "r49",
+      "destinations": [
+        "article",
+        "internal"
+      ],
+      "note": "出典・対象・期間を併記し、他社の数字へ推計転用しない。"
+    },
+    {
+      "record_key": "r50",
+      "destinations": [
+        "article",
+        "internal"
+      ],
+      "note": "出典・対象・期間を併記し、他社の数字へ推計転用しない。"
+    },
+    {
+      "record_key": "r51",
+      "destinations": [
+        "article",
+        "internal"
+      ],
+      "note": "出典・対象・期間を併記し、他社の数字へ推計転用しない。"
+    },
+    {
+      "record_key": "r52",
+      "destinations": [
+        "article",
+        "internal"
+      ],
+      "note": "出典・対象・期間を併記し、他社の数字へ推計転用しない。"
+    },
+    {
+      "record_key": "r53",
+      "destinations": [
+        "article",
+        "internal"
+      ],
+      "note": "出典・対象・期間を併記し、他社の数字へ推計転用しない。"
+    },
+    {
+      "record_key": "r54",
+      "destinations": [
+        "article",
+        "internal"
+      ],
+      "note": "出典・対象・期間を併記し、他社の数字へ推計転用しない。"
+    },
+    {
+      "record_key": "r55",
+      "destinations": [
+        "article",
+        "internal"
+      ],
+      "note": "出典・対象・期間を併記し、他社の数字へ推計転用しない。"
+    },
+    {
+      "record_key": "r56",
+      "destinations": [
+        "article",
+        "internal"
+      ],
+      "note": "出典・対象・期間を併記し、他社の数字へ推計転用しない。"
+    },
+    {
+      "record_key": "r57",
+      "destinations": [
+        "article",
+        "internal"
+      ],
+      "note": "出典・対象・期間を併記し、他社の数字へ推計転用しない。"
+    },
+    {
+      "record_key": "r58",
+      "destinations": [
+        "article",
+        "internal"
+      ],
+      "note": "出典・対象・期間を併記し、他社の数字へ推計転用しない。"
+    },
+    {
+      "record_key": "r59",
+      "destinations": [
+        "article",
+        "internal"
+      ],
+      "note": "出典・対象・期間を併記し、他社の数字へ推計転用しない。"
+    },
+    {
+      "record_key": "r60",
+      "destinations": [
+        "article",
+        "internal"
+      ],
+      "note": "出典・対象・期間を併記し、他社の数字へ推計転用しない。"
+    },
+    {
+      "record_key": "r61",
+      "destinations": [
+        "article",
+        "internal"
+      ],
+      "note": "出典・対象・期間を併記し、他社の数字へ推計転用しない。"
+    },
+    {
+      "record_key": "r62",
+      "destinations": [
+        "article",
+        "internal"
+      ],
+      "note": "出典・対象・期間を併記し、他社の数字へ推計転用しない。"
+    },
+    {
+      "record_key": "r63",
+      "destinations": [
+        "article",
+        "internal"
+      ],
+      "note": "出典・対象・期間を併記し、他社の数字へ推計転用しない。"
+    },
+    {
+      "record_key": "r64",
+      "destinations": [
+        "article",
+        "internal"
+      ],
+      "note": "出典・対象・期間を併記し、他社の数字へ推計転用しない。"
+    },
+    {
+      "record_key": "r65",
+      "destinations": [
+        "article",
+        "internal"
+      ],
+      "note": "出典・対象・期間を併記し、他社の数字へ推計転用しない。"
+    },
+    {
+      "record_key": "r66",
+      "destinations": [
+        "article",
+        "internal"
+      ],
+      "note": "出典・対象・期間を併記し、他社の数字へ推計転用しない。"
+    }
+  ],
+  "handoff": {
+    "delivery": "prepared",
+    "article_change_policy": "preserve_authored_text",
+    "r2_write_authorized": false,
+    "publication_authorized": false,
+    "remaining_work": [
+      "別担当による事実・原典の独立監査",
+      "出典・画像の商用掲載権の最終審査",
+      "現行Foundation/R2 schemaへのアダプターの作成と検査",
+      "公開目録/API/実ブラウザの本番統合検証"
+    ],
+    "checks": [
+      {
+        "name": "same_agent_article_source_review",
+        "status": "PASS",
+        "by": "ChatGPT",
+        "note": "本文の金額・年月・定義を調査担当が一次資料と照合。独立監査ではない。"
+      },
+      {
+        "name": "same_agent_visual_review",
+        "status": "PASS",
+        "by": "ChatGPT",
+        "note": "元のSVG/PNG 4点の表示・重なりを目視確認。"
+      },
+      {
+        "name": "independent_evidence_review",
+        "status": "NOT_RUN",
+        "by": null,
+        "note": "別担当の独立原典監査は未実施"
+      },
+      {
+        "name": "commercial_rights_review",
+        "status": "NOT_RUN",
+        "by": null,
+        "note": "権利最終審査は未実施"
+      },
+      {
+        "name": "application_import",
+        "status": "NOT_RUN",
+        "by": null,
+        "note": "R2/API/UI投入なし"
+      }
+    ]
+  }
+}

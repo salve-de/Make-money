@@ -1,0 +1,753 @@
+{
+ "schema": "make-money.case-article.v2",
+ "entityId": "ent_plausible",
+ "name": "Plausible Analytics",
+ "revision": "r1",
+ "reviewState": "ready_for_review",
+ "generation": 5,
+ "basedOn": {
+  "packageId": "mm-plausible-20261012-r1",
+  "submissionSha256": "85d7598e59ae8120e65393d137c107c876866642abc7e46e4d20ccdf6c3999ff"
+ },
+ "listLine": "クッキーなしのアクセス解析を4人で運営し、年約1.5億円の継続収益",
+ "headline": "無料のGoogle Analyticsに挑み、4人で年100万ドル（約1億5,000万円）の継続収益を達成",
+ "lead": "プライバシー重視の有料アクセス解析。数字は2022年時点の年換算継続収益。",
+ "sources": [
+  {
+   "no": 1,
+   "label": "Plausible公式：サービス概要と料金表示（2026年10月12日閲覧）",
+   "url": "https://plausible.io/"
+  },
+  {
+   "no": 2,
+   "label": "Plausible公式：2018〜2022年の創業・集客・収益記録（2022年6月22日公開）",
+   "url": "https://plausible.io/blog/open-source-saas"
+  },
+  {
+   "no": 3,
+   "label": "Plausible公式：会社概要、顧客数・収益源・チーム（2026年10月12日閲覧）",
+   "url": "https://plausible.io/about"
+  },
+  {
+   "no": 4,
+   "label": "Plausible公式：オープンソース提供と支援費用（2020年）",
+   "url": "https://plausible.io/blog/building-open-source"
+  },
+  {
+   "no": 5,
+   "label": "Plausible公式：Community Edition導入（2024年）",
+   "url": "https://plausible.io/blog/community-edition"
+  },
+  {
+   "no": 6,
+   "label": "Plausible公式：プランと従量条件（2026年9月29日更新）",
+   "url": "https://plausible.io/docs/subscription-plans"
+  },
+  {
+   "no": 7,
+   "label": "Plausible公式：2020年の集客拡大の詳細（2021年10月25日）",
+   "url": "https://plausible.io/blog/bootstrapping-saas"
+  },
+  {
+   "no": 8,
+   "label": "Plausible公式：広告なしで獲得した初期ユーザー（2020年7月31日）",
+   "url": "https://plausible.io/blog/startup-marketing"
+  },
+  {
+   "no": 9,
+   "label": "Plausible公式：月次継続収益1万ドルまでの仕事（2021年1月28日）",
+   "url": "https://plausible.io/blog/growing-saas-mrr"
+  }
+ ],
+ "sourceKeys": {
+  "1": "src-p1",
+  "2": "src-p2",
+  "3": "src-p3",
+  "4": "src-p4",
+  "5": "src-p5",
+  "6": "src-p6",
+  "7": "src-p7",
+  "8": "src-p8",
+  "9": "src-p9"
+ },
+ "kpis": [
+  {
+   "label": "年換算継続収益",
+   "value": "100万ドル",
+   "yen": "約1億5,000万円",
+   "period": "2022年6月",
+   "recordKeys": [
+    "r36",
+    "r56"
+   ]
+  },
+  {
+   "label": "月次継続収益",
+   "value": "83,637ドル",
+   "yen": "約1,250万円",
+   "period": "2022年6月",
+   "recordKeys": [
+    "r5",
+    "r36"
+   ]
+  },
+  {
+   "label": "当時のチーム",
+   "value": "4人",
+   "period": "2022年",
+   "recordKeys": [
+    "r7"
+   ]
+  }
+ ],
+ "topics": [
+  {
+   "id": "overview",
+   "lead": {
+    "text": "訪問数や流入元を一画面で確認できる、プライバシー重視の有料アクセス解析を提供する。",
+    "cites": [],
+    "recordKeys": [
+     "r16",
+     "r17",
+     "r18"
+    ]
+   },
+   "blocks": [
+    {
+     "type": "facts",
+     "variant": "text",
+     "rows": [
+      {
+       "label": "提供",
+       "text": "訪問数、流入元、人気ページ、目標達成を一つの画面に表示。",
+       "cites": [],
+       "recordKeys": [
+        "r16"
+       ]
+      },
+      {
+       "label": "顧客",
+       "text": "サイト運営者、制作会社、企業のマーケティング担当者。",
+       "cites": [],
+       "recordKeys": [
+        "r17"
+       ]
+      },
+      {
+       "label": "課金",
+       "text": "サイト数・ページビュー・チーム機能などに応じた定期契約。",
+       "cites": [],
+       "recordKeys": [
+        "r18"
+       ]
+      },
+      {
+       "label": "特徴",
+       "text": "シンプルな画面、クッキーを使わない計測、欧州でのデータ管理、ソース公開。",
+       "cites": [
+        1,
+        3
+       ],
+       "recordKeys": [
+        "r19"
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "mechanism",
+   "lead": {
+    "text": "ソースコードは公開し、設定・更新・障害対応まで引き受けるクラウド版に料金を設定した。",
+    "cites": [],
+    "recordKeys": [
+     "r24",
+     "r51",
+     "r25"
+    ]
+   },
+   "blocks": [
+    {
+     "type": "list",
+     "ordered": true,
+     "items": [
+      {
+       "lead": "サイト運営者が計測する",
+       "text": "設定したページへの訪問や広告・検索からの流入を集計する。",
+       "cites": [],
+       "recordKeys": [
+        "r20"
+       ]
+      },
+      {
+       "lead": "Plausibleが表示する",
+       "text": "誰が訪問したかを追跡する代わりに、サイト運営に使う集計値を見せる。",
+       "cites": [],
+       "recordKeys": [
+        "r21"
+       ]
+      },
+      {
+       "lead": "運営者が判断する",
+       "text": "どのページや流入経路が役立っているかを確認し、サイト改善に使う。",
+       "cites": [],
+       "recordKeys": [
+        "r22"
+       ]
+      }
+     ]
+    },
+    {
+     "type": "paragraph",
+     "tone": "body",
+     "text": "無料のGoogle Analyticsよりも、設定・解釈の簡単さと追跡への配慮を重視する利用者を狙った。",
+     "cites": [
+      1,
+      3
+     ],
+     "recordKeys": [
+      "r23"
+     ]
+    },
+    {
+     "type": "subheading",
+     "text": "クラウドと自己運用版の違い"
+    },
+    {
+     "type": "paragraph",
+     "tone": "body",
+     "text": "ソースコードは公開。一方、公式クラウドでは更新・監視・障害対応・サポートを引き受け、その手間に料金を設定する。",
+     "cites": [
+      3,
+      4
+     ],
+     "recordKeys": [
+      "r24"
+     ]
+    },
+    {
+     "type": "paragraph",
+     "tone": "body",
+     "text": "2020年、無料での無制限サポートを見直し、MITからAGPLへライセンス変更。2024年にはコミュニティ版と公式クラウドの役割を整理した。",
+     "cites": [
+      4,
+      5
+     ],
+     "recordKeys": [
+      "r25"
+     ]
+    },
+    {
+     "type": "figure",
+     "figureId": "plausible-model"
+    }
+   ]
+  },
+  {
+   "id": "revenue",
+   "lead": {
+    "text": "月額契約を少しずつ積み上げ、2022年には年換算100万ドル（約1億5,000万円）の継続収益に到達した。",
+    "cites": [],
+    "recordKeys": [
+     "r36",
+     "r56"
+    ]
+   },
+   "blocks": [
+    {
+     "type": "paragraph",
+     "tone": "body",
+     "text": "2026年10月に確認した公式料金（月間1万ページビューの表示例、米ドル、月払い）：",
+     "cites": [
+      6
+     ],
+     "recordKeys": [
+      "r26"
+     ]
+    },
+    {
+     "type": "rates",
+     "caption": "プラン / 月額 / 課金対象と使い方",
+     "rows": [
+      {
+       "label": "Starter",
+       "value": "9ドル",
+       "yen": "約1,350円",
+       "note": "原則1サイト。個人・小規模のサイト計測",
+       "cites": [],
+       "recordKeys": [
+        "r27",
+        "r10"
+       ]
+      },
+      {
+       "label": "Growth",
+       "value": "14ドル",
+       "yen": "約2,100円",
+       "note": "複数サイト、共有画面、チーム向け機能",
+       "cites": [],
+       "recordKeys": [
+        "r28",
+        "r11"
+       ]
+      },
+      {
+       "label": "Business",
+       "value": "19ドル",
+       "yen": "約2,850円",
+       "note": "より多くのサイト、訪問経路・販売成果の分析、API利用",
+       "cites": [],
+       "recordKeys": [
+        "r29",
+        "r12"
+       ]
+      },
+      {
+       "label": "Enterprise",
+       "value": "個別見積り",
+       "note": "大規模計測、企業認証、個別要件",
+       "cites": [],
+       "recordKeys": [
+        "r30"
+       ]
+      }
+     ]
+    },
+    {
+     "type": "paragraph",
+     "tone": "body",
+     "text": "カード登録不要の30日試用。課金量はページビューとイベント数で決まり、上限を2か月続けて超えた場合にプラン変更を案内する。",
+     "cites": [
+      6
+     ],
+     "recordKeys": [
+      "r31"
+     ]
+    },
+    {
+     "type": "subheading",
+     "text": "継続収益の推移"
+    },
+    {
+     "type": "timeline",
+     "items": [
+      {
+       "when": "2019年5月",
+       "title": "MRR 64ドル（約9,600円）",
+       "text": "60人のベータ利用者の一部が有料化",
+       "cites": [],
+       "recordKeys": [
+        "r32",
+        "r1"
+       ]
+      },
+      {
+       "when": "2020年3月",
+       "title": "MRR 433ドル（約6万5,000円）",
+       "text": "マーケティング担当が参加、2人体制",
+       "cites": [],
+       "recordKeys": [
+        "r33",
+        "r2"
+       ]
+      },
+      {
+       "when": "2020年12月",
+       "title": "MRR 8,999ドル（約135万円）",
+       "text": "ブログ・検索・紹介を積み上げた",
+       "cites": [],
+       "recordKeys": [
+        "r34",
+        "r3"
+       ]
+      },
+      {
+       "when": "2021年10月",
+       "title": "MRR 42,624ドル（約640万円）",
+       "text": "年換算継続収益約50万ドル（約7,500万円）の段階",
+       "cites": [],
+       "recordKeys": [
+        "r35",
+        "r4"
+       ]
+      },
+      {
+       "when": "2022年6月",
+       "title": "MRR 83,637ドル（約1,250万円）",
+       "text": "年換算継続収益100万ドル（約1億5,000万円）超",
+       "cites": [],
+       "recordKeys": [
+        "r36",
+        "r5"
+       ]
+      }
+     ]
+    },
+    {
+     "type": "figure",
+     "figureId": "plausible-mrr"
+    },
+    {
+     "type": "paragraph",
+     "tone": "body",
+     "text": "2021年1月、MRRが約1.1万ドル（約165万円）に達して費用を賄えるように。それまでに創業者2人の貯蓄は合計5万ドル（約750万円）超減っていた。",
+     "cites": [
+      2
+     ],
+     "recordKeys": [
+      "r38",
+      "r15"
+     ]
+    },
+    {
+     "type": "paragraph",
+     "tone": "body",
+     "text": "会社は自己資金による黒字運営と購読料収入を公表。",
+     "cites": [
+      3
+     ],
+     "recordKeys": [
+      "r39"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "acquisition",
+   "lead": {
+    "text": "Google Analyticsの使いにくさを扱う記事が読まれ、無料体験から有料契約へつながった。",
+    "cites": [],
+    "recordKeys": [
+     "r43",
+     "r44",
+     "r45"
+    ]
+   },
+   "blocks": [
+    {
+     "type": "list",
+     "ordered": false,
+     "items": [
+      {
+       "lead": "2019年1月",
+       "text": "Indie Hackersでベータ版を公開し、開発の進み具合を発信。",
+       "cites": [],
+       "recordKeys": [
+        "r40"
+       ]
+      },
+      {
+       "lead": "2019年5月",
+       "text": "ベータ利用者60人のうち一部が有料契約へ移行。月次継続収益64ドル（約9,600円）。",
+       "cites": [],
+       "recordKeys": [
+        "r41"
+       ]
+      },
+      {
+       "lead": "2020年3月",
+       "text": "Markoが合流。製品の呼び方、サイト構成、Google Analyticsとの違いを伝える文章を整理。",
+       "cites": [],
+       "recordKeys": [
+        "r42"
+       ]
+      },
+      {
+       "lead": "2020年4月",
+       "text": "Google Analyticsをやめる理由を説明する記事を公開し、Hacker Newsで紹介された。数日間で5万件超の閲覧、公開後1週間で新規無料体験166件を獲得したと報告。",
+       "cites": [
+        2,
+        7
+       ],
+       "recordKeys": [
+        "r43",
+        "r13",
+        "r14"
+       ]
+      }
+     ]
+    },
+    {
+     "type": "paragraph",
+     "tone": "body",
+     "text": "記事の話題化で訪問と無料体験が先に増え、その後に一部が有料契約へ進んだ。",
+     "cites": [
+      2
+     ],
+     "recordKeys": [
+      "r44",
+      "r41"
+     ]
+    },
+    {
+     "type": "subheading",
+     "text": "記事とコミュニティでの接点"
+    },
+    {
+     "type": "paragraph",
+     "tone": "body",
+     "text": "MarkoはHacker News・Reddit・SNSで質問に直接返信し、比較記事を継続制作。2020年5月には外部掲載から1日で無料体験94件を得た。",
+     "cites": [
+      2,
+      8
+     ],
+     "recordKeys": [
+      "r45"
+     ]
+    },
+    {
+     "type": "paragraph",
+     "tone": "body",
+     "text": "2020年8月のProduct Hunt公開は初日1,000訪問超・無料体験15件。数日後には1日20訪問未満となり、継続流入は記事と検索が担った。",
+     "cites": [
+      2
+     ],
+     "recordKeys": [
+      "r46"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "operations",
+   "lead": {
+    "text": "開発・発信・サポートを分担し、利用増に合わせて集計基盤を強化した。",
+    "cites": [],
+    "recordKeys": [
+     "r47",
+     "r48",
+     "r49"
+    ]
+   },
+   "blocks": [
+    {
+     "type": "list",
+     "ordered": false,
+     "items": [
+      {
+       "text": "開発担当のUkuは製品開発・機能改善を担い、2020年からMarkoが記事制作、利用者対応、コミュニティ運営を引き受けた。",
+       "cites": [],
+       "recordKeys": [
+        "r47"
+       ]
+      },
+      {
+       "text": "2020年6月には、顧客が増えて集計画面が遅くなったため、集計データベースをPostgreSQLからClickHouseに移行した。",
+       "cites": [],
+       "recordKeys": [
+        "r48"
+       ]
+      },
+      {
+       "text": "2021年には問い合わせ増加に対応してヘルプ記事を整え、技術サポートを補う人材も加えた。顧客対応を完全な無人化にはしていない。",
+       "cites": [
+        2,
+        9
+       ],
+       "recordKeys": [
+        "r49"
+       ]
+      }
+     ]
+    },
+    {
+     "type": "paragraph",
+     "tone": "body",
+     "text": "2022年は4人で月10億ページビュー超を処理と発表。2026年10月の会社紹介ではチーム10人、有料顧客2万1,000超。",
+     "cites": [
+      2,
+      3
+     ],
+     "recordKeys": [
+      "r50",
+      "r7",
+      "r8",
+      "r9"
+     ]
+    },
+    {
+     "type": "subheading",
+     "text": "サポートの提供範囲"
+    },
+    {
+     "type": "paragraph",
+     "tone": "body",
+     "text": "クラウド契約には運用・更新・サポートを提供。自社運用版のすべての個別環境を無償で支援するわけではない。",
+     "cites": [
+      4
+     ],
+     "recordKeys": [
+      "r51",
+      "r25"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "history",
+   "lead": {
+    "text": "最初の約1年間は売上が伸び悩んだが、記事・紹介・プライバシーへの関心が成長の転機になった。",
+    "cites": [],
+    "recordKeys": [
+     "r52",
+     "r53",
+     "r54",
+     "r56"
+    ]
+   },
+   "blocks": [
+    {
+     "type": "timeline",
+     "items": [
+      {
+       "when": "2018年12月",
+       "text": "Google Analyticsの導入を頼まれたUkuが、もっと単純な代替手段を作り始める。",
+       "cites": [],
+       "recordKeys": [
+        "r52"
+       ]
+      },
+      {
+       "when": "2019年",
+       "text": "ベータ版公開・課金開始。開発公開と小規模コミュニティが初期の顧客接点。",
+       "cites": [],
+       "recordKeys": [
+        "r53"
+       ]
+      },
+      {
+       "when": "2020年前半",
+       "text": "マーケティング担当を迎え、訴求を明確化。記事経由の大きな流入を獲得し、無料体験が増える。",
+       "cites": [],
+       "recordKeys": [
+        "r54"
+       ]
+      },
+      {
+       "when": "2020年後半",
+       "text": "負荷増加への対応、ライセンス変更、サポート範囲の整理。",
+       "cites": [],
+       "recordKeys": [
+        "r55"
+       ]
+      },
+      {
+       "when": "2021〜2022年",
+       "text": "検索流入、顧客紹介、プライバシー規制への関心の高まりを背景に成長。2022年に年換算継続収益100万ドル（約1億5,000万円）へ到達。",
+       "cites": [],
+       "recordKeys": [
+        "r56"
+       ]
+      },
+      {
+       "when": "2024年以降",
+       "text": "自己運用版をコミュニティ版として整理し、現在も有料クラウドを中心に運営。",
+       "cites": [
+        2,
+        3,
+        5
+       ],
+       "recordKeys": [
+        "r57"
+       ]
+      }
+     ]
+    }
+   ]
+  }
+ ],
+ "figures": [
+  {
+   "id": "plausible-model",
+   "file": "plausible-model.svg",
+   "alt": "Plausibleの事業構造",
+   "width": 1120,
+   "height": 470
+  },
+  {
+   "id": "plausible-mrr",
+   "file": "plausible-mrr.svg",
+   "alt": "MRRの公表推移",
+   "width": 1120,
+   "height": 470
+  }
+ ],
+ "editorialChanges": [
+  {
+   "kind": "yen-added",
+   "where": "全体（本文・数字の帯・料金の表・決算の表）",
+   "text": "外貨の数字に円の概算を足した（18か所）。100万ドル→約1億5,000万円、83,637ドル→約1,250万円、9ドル→約1,350円、14ドル→約2,100円、19ドル→約2,850円、64ドル→約9,600円、433ドル→約6万5,000円、8,999ドル→約135万円、42,624ドル→約640万円、約50万ドル→約7,500万円、約1.1万ドル→約165万円、5万ドル→約750万円",
+   "reason": "円の概算を添える決まり（docs/CASE_TEXT_STANDARD.md）。為替は1ドル=150円、1ユーロ=165円、1ポンド=195円、1SEK=14円",
+   "recordKeys": []
+  },
+  {
+   "kind": "withheld",
+   "where": "history / ブロック2（subheading）",
+   "text": "成長を支えた外部環境",
+   "reason": "小見出しだけが残るため（直後の文を外すのに合わせる）",
+   "recordKeys": []
+  },
+  {
+   "kind": "withheld",
+   "where": "history / ブロック3（paragraph）",
+   "text": "顧客の不満と無料の比較対象が明確で、すぐ試せる製品があった。Google Analyticsの変更やプライバシー規制も当時の追い風だった。",
+   "reason": "「追い風」など根拠のない抽象的な評価だけの文",
+   "recordKeys": [
+    "r58"
+   ]
+  },
+  {
+   "kind": "other",
+   "where": "一覧の1行（listLine）",
+   "text": "クッキーなしのアクセス解析を4人で運営し、年約1.5億円の継続収益",
+   "reason": "指揮が決めた一覧の1行を設定した（見本の文ではない）",
+   "recordKeys": []
+  },
+  {
+   "kind": "not-in-article",
+   "where": "規模",
+   "text": "2022年6月の有料顧客は7,000超。",
+   "reason": "見本の文に入っていない",
+   "recordKeys": [
+    "r6"
+   ]
+  },
+  {
+   "kind": "not-in-article",
+   "where": "数字の読み方",
+   "text": "MRRは各時点の月額継続契約の規模でARRはその年換算。実際の年間売上や年間利益ではない。",
+   "reason": "見本の文に入っていない（注記）",
+   "recordKeys": [
+    "r37"
+   ]
+  },
+  {
+   "kind": "not-in-article",
+   "where": "成功の読み方",
+   "text": "いま同じ時期・同じ競争条件で参入できる保証はない（外した「追い風」の文と同じ記録）。",
+   "reason": "見本の文に入っていない",
+   "recordKeys": [
+    "r58"
+   ]
+  },
+  {
+   "kind": "not-in-article",
+   "where": "損益",
+   "text": "最新の利益額、営業利益率、創業者の受取額は公表資料から確定できていない。",
+   "reason": "見本の文の「利益額は示されていない」と同じ内容",
+   "recordKeys": [
+    "r39"
+   ]
+  },
+  {
+   "kind": "withheld",
+   "where": "お金 / 「会社は自己資金による黒字運営と購読料収入を公表。」の直後",
+   "text": "直近の利益額は示されていない。",
+   "reason": "分からないことの断り書きだけの文は読む人の画面に出さない（docs/CASE_TEXT_STANDARD.md）。調査の記録には残す。",
+   "recordKeys": [
+    "r39"
+   ]
+  }
+ ]
+}

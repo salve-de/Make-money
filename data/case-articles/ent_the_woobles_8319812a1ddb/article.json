@@ -1,0 +1,646 @@
+{
+ "schema": "make-money.case-article.v2",
+ "entityId": "ent_the_woobles_8319812a1ddb",
+ "name": "The Woobles",
+ "revision": "r1",
+ "reviewState": "ready_for_review",
+ "generation": 5,
+ "basedOn": {
+  "packageId": "mm-woobles-20261012-r1",
+  "submissionSha256": "8ca84099cdba33c167687d6e25725664390640e9798f2afa6581637019cdcc96"
+ },
+ "listLine": "初心者でも完成できる編み物キットを売り、累計約8億円",
+ "headline": "難しい「編み始め」を済ませた初心者向けキットで、累計売上530万ドル（約8億円）",
+ "lead": "毛糸・道具・作り方動画を一式にして販売。530万ドル（約8億円）は2022年に紹介された販売開始以来の累計。",
+ "sources": [
+  {
+   "no": 1,
+   "label": "The Woobles / Pierre the Penguin Crochet Kit / 公開日不明",
+   "url": "https://thewoobles.com/products/penguin-crochet-kit"
+  },
+  {
+   "no": 2,
+   "label": "The Woobles / Help Center / 公開日不明",
+   "url": "https://help.thewoobles.com/en-US"
+  },
+  {
+   "no": 3,
+   "label": "Inc. / How the Woobles Founders Taught Half a Million People to Crochet / 2024-08-12",
+   "url": "https://www.inc.com/marina-khidekel/how-woobles-founders-taught-half-a-million-people-how-to-crochet.html"
+  },
+  {
+   "no": 4,
+   "label": "The Woobles / Our Story / 公開日不明",
+   "url": "https://thewoobles.com/pages/our-story"
+  },
+  {
+   "no": 5,
+   "label": "Shopify / How The Woobles scaled with Shopify / 公開日不明",
+   "url": "https://www.shopify.com/case-studies/the-woobles"
+  },
+  {
+   "no": 6,
+   "label": "The News & Observer / Did an Apex startup outmaneuver the sharks? / 2022-10-01",
+   "url": "https://www.newsobserver.com/news/business/article266666896.html"
+  },
+  {
+   "no": 7,
+   "label": "Cary Magazine / Women of Western Wake: Justine Tiu / 2025-09-02",
+   "url": "https://www.carymagazine.com/features/women-of-western-wake-justine-tiu/"
+  },
+  {
+   "no": 8,
+   "label": "The Woobles / PR Newswire / The Woobles on Shark Tank / 2022-10-03",
+   "url": "https://www.prnewswire.com/news-releases/the-woobles-crochets-its-way-to-a-deal-for-450-000-on-abcs-shark-tank-301638709.html"
+  }
+ ],
+ "sourceKeys": {
+  "1": "product",
+  "2": "help",
+  "3": "inc",
+  "4": "story",
+  "5": "shopify",
+  "6": "news",
+  "7": "cary",
+  "8": "press"
+ },
+ "kpis": [
+  {
+   "label": "累計売上",
+   "value": "530万ドル",
+   "yen": "約8億円",
+   "period": "販売開始〜2022年",
+   "recordKeys": [
+    "r10"
+   ]
+  },
+  {
+   "label": "初心者向けキット",
+   "value": "30ドル",
+   "yen": "約4,500円",
+   "period": "ペンギン「Pierre」",
+   "recordKeys": [
+    "r3"
+   ]
+  },
+  {
+   "label": "販売開始",
+   "value": "2020年",
+   "period": "Etsy",
+   "recordKeys": [
+    "r9",
+    "r12",
+    "r10"
+   ]
+  }
+ ],
+ "topics": [
+  {
+   "id": "overview",
+   "lead": {
+    "text": "初心者が動物のぬいぐるみを自分で編み上げられるよう、材料と動画をセットで販売する。",
+    "cites": [],
+    "recordKeys": [
+     "r1",
+     "r2",
+     "a1"
+    ]
+   },
+   "blocks": [
+    {
+     "type": "facts",
+     "variant": "text",
+     "rows": [
+      {
+       "label": "商品",
+       "text": "動物のぬいぐるみを自分で編むための材料と、作品専用の動画。",
+       "cites": [
+        1,
+        2,
+        4
+       ],
+       "recordKeys": [
+        "r1",
+        "r2",
+        "r5"
+       ]
+      },
+      {
+       "label": "購入理由",
+       "text": "完成品ではなく、「初めてでも作り終えられる体験」を買う。",
+       "cites": [
+        1,
+        2,
+        4
+       ],
+       "recordKeys": [
+        "a1",
+        "r8"
+       ]
+      },
+      {
+       "label": "代表価格",
+       "text": "ペンギンの初心者用キットは30ドル（約4,500円）。",
+       "cites": [
+        1
+       ],
+       "recordKeys": [
+        "r3"
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "mechanism",
+   "lead": {
+    "text": "つまずきやすい最初の輪だけを作っておき、作品を完成させる楽しさは購入者に残した。",
+    "cites": [],
+    "recordKeys": [
+     "r7",
+     "a1",
+     "r8"
+    ]
+   },
+   "blocks": [
+    {
+     "type": "facts",
+     "variant": "text",
+     "rows": [
+      {
+       "label": "観察",
+       "text": "初心者は完成までの工程より、最初の輪づくりで手が止まりやすかった。",
+       "cites": [
+        3,
+        4
+       ],
+       "recordKeys": [
+        "r6",
+        "r7"
+       ]
+      },
+      {
+       "label": "工夫",
+       "text": "編み始めを済ませた部品、裂けにくい糸、作品別の動画、左右の利き手に応じた説明をセットにした。",
+       "cites": [
+        3,
+        4
+       ],
+       "recordKeys": [
+        "r7",
+        "r4",
+        "r2"
+       ]
+      }
+     ]
+    },
+    {
+     "type": "figure",
+     "figureId": "woobles-learning"
+    },
+    {
+     "type": "paragraph",
+     "tone": "note",
+     "text": "材料選びや動画探しの負担を減らしつつ、自分で編み上げる体験は残す。",
+     "cites": [
+      1,
+      2,
+      3,
+      4
+     ],
+     "recordKeys": [
+      "a1",
+      "r5"
+     ]
+    },
+    {
+     "type": "subheading",
+     "text": "キャラクター商品の開発"
+    },
+    {
+     "type": "steps",
+     "items": [
+      {
+       "title": "要望",
+       "text": "購入者からキャラクター作品の希望が寄せられた。",
+       "cites": [
+        1,
+        3
+       ],
+       "recordKeys": [
+        "r15"
+       ]
+      },
+      {
+       "title": "交渉",
+       "text": "創業者が2022年にライセンス展示会へ出向き、権利者と交渉。",
+       "cites": [
+        1,
+        3
+       ],
+       "recordKeys": [
+        "r15"
+       ]
+      },
+      {
+       "title": "展開",
+       "text": "Pac-Manなどとのコラボへ。教材と材料の基本形式を使いながら作品を追加。",
+       "cites": [
+        1,
+        3
+       ],
+       "recordKeys": [
+        "r15",
+        "r16",
+        "a2"
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "revenue",
+   "lead": {
+    "text": "キット単位の販売が基本で、2022年までに累計530万ドル（約8億円）の売上を得た。",
+    "cites": [],
+    "recordKeys": [
+     "r10",
+     "r1"
+    ]
+   },
+   "blocks": [
+    {
+     "type": "rates",
+     "caption": "売っているもの / 顧客が受け取るもの",
+     "rows": [
+      {
+       "label": "初心者向けキット",
+       "value": "毛糸・道具など作品に必要な材料と、対応する作り方動画",
+       "cites": [],
+       "recordKeys": [
+        "r2",
+        "r1"
+       ]
+      },
+      {
+       "label": "コラボキット",
+       "value": "人気キャラクターを自分の手で作るための材料と教材",
+       "cites": [],
+       "recordKeys": [
+        "r15",
+        "r16"
+       ]
+      },
+      {
+       "label": "追加の材料や関連商品",
+       "value": "作り直したい人、別の作品にも挑戦したい人向けの商品",
+       "cites": [],
+       "recordKeys": [
+        "r5"
+       ]
+      }
+     ]
+    },
+    {
+     "type": "facts",
+     "variant": "text",
+     "rows": [
+      {
+       "label": "売り方",
+       "text": "購入者がキット単位で支払う。ペンギンキットは30ドル（約4,500円）。",
+       "cites": [
+        1,
+        2,
+        6
+       ],
+       "recordKeys": [
+        "r3",
+        "r1"
+       ]
+      },
+      {
+       "label": "実績",
+       "text": "2022年に紹介された530万ドル（約8億円）は、販売開始からの累計売上。",
+       "cites": [
+        1,
+        2,
+        6
+       ],
+       "recordKeys": [
+        "r10"
+       ]
+      },
+      {
+       "label": "費用",
+       "text": "材料、教材制作、梱包、発送、問い合わせ対応。注文増に伴って作業も増える。",
+       "cites": [
+        2,
+        3,
+        7
+       ],
+       "recordKeys": [
+        "r18",
+        "r2",
+        "r5"
+       ]
+      }
+     ]
+    },
+    {
+     "type": "figure",
+     "figureId": "woobles-exchange"
+    }
+   ]
+  },
+  {
+   "id": "acquisition",
+   "lead": {
+    "text": "Etsyで売り始めて顧客の反応を見ながら、自社サイト・広告・小売店へ販路を広げた。",
+    "cites": [],
+    "recordKeys": [
+     "r12",
+     "r13",
+     "r14"
+    ]
+   },
+   "blocks": [
+    {
+     "type": "steps",
+     "items": [
+      {
+       "title": "Etsy",
+       "text": "2020年に販売開始。既存の売り場で購入者の反応を確認。",
+       "cites": [
+        3,
+        5
+       ],
+       "recordKeys": [
+        "r12"
+       ]
+      },
+      {
+       "title": "自社サイトと広告",
+       "text": "顧客の反応を踏まえて自社ECへ進み、Facebook広告も活用。",
+       "cites": [
+        3,
+        5
+       ],
+       "recordKeys": [
+        "r12",
+        "r13"
+       ]
+      },
+      {
+       "title": "小売店",
+       "text": "店頭向けの包装やまとまった数量の供給体制を用意した。",
+       "cites": [
+        3,
+        5
+       ],
+       "recordKeys": [
+        "r14"
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "operations",
+   "lead": {
+    "text": "最初の2年間は追加社員を雇わず、家族の組立・梱包作業も使って出荷を支えた。",
+    "cites": [],
+    "recordKeys": [
+     "r17",
+     "r18"
+    ]
+   },
+   "blocks": [
+    {
+     "type": "facts",
+     "variant": "text",
+     "rows": [
+      {
+       "label": "初期",
+       "text": "最初の2年間は追加社員を雇わず、家族も材料の組立・梱包を手伝った。",
+       "cites": [
+        3,
+        5,
+        7
+       ],
+       "recordKeys": [
+        "r17",
+        "r18"
+       ]
+      },
+      {
+       "label": "サイト",
+       "text": "WooCommerceの速度や不具合対応が負担になり、Shopifyへ移行。",
+       "cites": [
+        5,
+        7
+       ],
+       "recordKeys": [
+        "r22",
+        "r23"
+       ]
+      },
+      {
+       "label": "拡大後",
+       "text": "2025年の取材では中国で製造、米国Durhamから出荷、従業員50人と紹介。",
+       "cites": [
+        5,
+        7
+       ],
+       "recordKeys": [
+        "r20",
+        "r21"
+       ]
+      }
+     ]
+    },
+    {
+     "type": "subheading",
+     "text": "初心者がつまずく箇所の観察"
+    },
+    {
+     "type": "facts",
+     "variant": "text",
+     "rows": [
+      {
+       "label": "必要だったこと",
+       "text": "編み始めのどこで手が止まるかを観察し、その工程を商品側で解消。",
+       "cites": [
+        3,
+        4
+       ],
+       "recordKeys": [
+        "r6",
+        "r7"
+       ]
+      },
+      {
+       "label": "残した価値",
+       "text": "自分で作る楽しさは代行しない。材料・教材・達成体験を一式にする。",
+       "cites": [
+        1,
+        2,
+        4
+       ],
+       "recordKeys": [
+        "a1",
+        "r8"
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "history",
+   "lead": {
+    "text": "2020年のEtsy販売から始まり、キャラクターライセンス商品や小売店への展開につなげた。",
+    "cites": [],
+    "recordKeys": [
+     "r9",
+     "r12",
+     "r15"
+    ]
+   },
+   "blocks": [
+    {
+     "type": "timeline",
+     "items": [
+      {
+       "when": "2020年",
+       "text": "Etsyで初心者向け手芸キットの販売を開始",
+       "cites": [],
+       "recordKeys": [
+        "r9",
+        "r12"
+       ]
+      },
+      {
+       "when": "2022年",
+       "text": "Shark Tankで累計売上530万ドル（約8億円）を紹介",
+       "cites": [],
+       "recordKeys": [
+        "r10",
+        "r27"
+       ]
+      },
+      {
+       "when": "2022年",
+       "text": "Pac-Manなどライセンス商品の交渉を進める",
+       "cites": [],
+       "recordKeys": [
+        "r15"
+       ]
+      },
+      {
+       "when": "2025年",
+       "text": "製造・出荷の分業体制と従業員50人が報道される",
+       "cites": [],
+       "recordKeys": [
+        "r20",
+        "r21"
+       ]
+      }
+     ]
+    }
+   ]
+  }
+ ],
+ "figures": [
+  {
+   "id": "woobles-learning",
+   "file": "woobles-learning.svg",
+   "alt": "初めての人が完成できる設計。原版の横長図解。",
+   "width": 1040,
+   "height": 530
+  },
+  {
+   "id": "woobles-exchange",
+   "file": "woobles-exchange.svg",
+   "alt": "材料ではなく、完成までの体験をセットで販売。原版の横長図解。",
+   "width": 1040,
+   "height": 530
+  }
+ ],
+ "editorialChanges": [
+  {
+   "kind": "yen-added",
+   "where": "全体（本文・数字の帯・料金の表・決算の表）",
+   "text": "外貨の数字に円の概算を足した（9か所）。530万ドル→約8億円、30ドル→約4,500円",
+   "reason": "円の概算を添える決まり（docs/CASE_TEXT_STANDARD.md）。為替は1ドル=150円、1ユーロ=165円、1ポンド=195円、1SEK=14円",
+   "recordKeys": []
+  },
+  {
+   "kind": "other",
+   "where": "一覧の1行（listLine）",
+   "text": "初心者でも完成できる編み物キットを売り、累計約8億円",
+   "reason": "指揮が決めた一覧の1行を設定した（見本の文ではない）",
+   "recordKeys": []
+  },
+  {
+   "kind": "not-in-article",
+   "where": "資金",
+   "text": "Shark Tankでは45万ドルと株式6%の提案に合意したと会社が発表した。ただし契約・入金はこの発表だけでは確定しない。後日の投資不成立に触れる検索結果はあったが、該当取材の本文は取得できていない。",
+   "reason": "見本の文に入っていない。合意と発表されたが契約・入金は別",
+   "recordKeys": [
+    "r11",
+    "u3"
+   ]
+  },
+  {
+   "kind": "not-in-article",
+   "where": "初期",
+   "text": "初期の材料への支出は200米ドルと2025年の取材記事にある。",
+   "reason": "見本の文に入っていない",
+   "recordKeys": [
+    "r19"
+   ]
+  },
+  {
+   "kind": "not-in-article",
+   "where": "運営",
+   "text": "セット販売の在庫管理にShopify Bundlesを使い、構成商品の在庫を同期させている。",
+   "reason": "見本の文に入っていない",
+   "recordKeys": [
+    "r24"
+   ]
+  },
+  {
+   "kind": "not-in-article",
+   "where": "返品・評判",
+   "text": "FAQは返品を受取後14日とし、元の送料・返送送料の条件を設ける。商品ページには動画の速度や説明との相性に不満を述べるレビューもある。",
+   "reason": "見本の文に入っていない",
+   "recordKeys": [
+    "r25",
+    "r26"
+   ]
+  },
+  {
+   "kind": "not-in-article",
+   "where": "数字の扱い",
+   "text": "Caryの「500万ドルの事業」は売上の期間・評価額の区別がなく収益指標に使っていない。累計学習者は商品ページで100万人超、FAQ等に以前の50万人も残るが、差から成長率を作っていない。",
+   "reason": "見本の文に入っていない（採用基準の注記）",
+   "recordKeys": [
+    "r28",
+    "r29"
+   ]
+  },
+  {
+   "kind": "not-in-article",
+   "where": "未確認",
+   "text": "現在の年商・利益・キット別原価・ライセンス料率・返品率・広告獲得費、最初の購入者と初回売上は確認できていない。",
+   "reason": "調査の未確認欄",
+   "recordKeys": [
+    "u1",
+    "u2"
+   ]
+  }
+ ]
+}

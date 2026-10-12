@@ -1,0 +1,636 @@
+{
+ "schema": "make-money.case-article.v2",
+ "entityId": "ent_tally_827f1b",
+ "name": "Tally",
+ "revision": "r1",
+ "reviewState": "ready_for_review",
+ "generation": 5,
+ "basedOn": {
+  "packageId": "mm-tally-20261012-r1",
+  "submissionSha256": "b220fb4389c31d42a2bd02365e205be717d49f7fc8f8b179cc82955b71b10475"
+ },
+ "listLine": "無料のフォーム作成を10人で運営し、月約7,500万円の継続収益",
+ "headline": "無料フォームが次の利用者を呼び、10人のチームで月50万ドル（約7,500万円）の継続収益に",
+ "lead": "問い合わせ・申込フォームを無料で作成。独自ドメインやチーム管理を有料化（2026年9月時点）。",
+ "sources": [
+  {
+   "no": 1,
+   "label": "Tally / How we grew Tally to $4M ARR, fully bootstrapped / 2025-10-15",
+   "url": "https://blog.tally.so/how-we-grew-tally-to-4m-arr-fully-bootstrapped/"
+  },
+  {
+   "no": 2,
+   "label": "Tally / Pricing / 公開日不明",
+   "url": "https://tally.so/pricing"
+  },
+  {
+   "no": 3,
+   "label": "Tally / Fair Use Policy / 公開日不明",
+   "url": "https://tally.so/help/fair-use-policy"
+  },
+  {
+   "no": 4,
+   "label": "Tally / Tally Pro / 公開日不明",
+   "url": "https://tally.so/help/tally-pro"
+  },
+  {
+   "no": 5,
+   "label": "Tally / 6 years in, $6 million far / 2026-09-22",
+   "url": "https://blog.tally.so/6-years-in-6-million-far/"
+  },
+  {
+   "no": 6,
+   "label": "Tally / Tally Business / 公開日不明",
+   "url": "https://tally.so/help/tally-business"
+  },
+  {
+   "no": 7,
+   "label": "Tally / Bootstrapping our SaaS from $10K to $20K MRR / 2022-06-16",
+   "url": "https://blog.tally.so/bootstrapping-our-saas-from-10k-to-20k-mrr/"
+  },
+  {
+   "no": 8,
+   "label": "Tally / Year 1: bootstrapping to 11K users and $5K MRR / 公開日不明",
+   "url": "https://blog.tally.so/year-1-how-we-bootstrapped-tally-to-11k-users-and-5k-mrr/"
+  },
+  {
+   "no": 9,
+   "label": "Tally / How we ended up building a no-code tool / 2021-04-08",
+   "url": "https://blog.tally.so/how-we-quit-our-jobs-to-work-on-our-startup-lost-half-of-our-clients-decided-to-pivot-and-ended-up-building-a-no-code-tool/"
+  }
+ ],
+ "sourceKeys": {
+  "1": "strategy",
+  "2": "pricing",
+  "3": "fair",
+  "4": "pro",
+  "5": "six",
+  "6": "businessplan",
+  "7": "cost",
+  "8": "year1",
+  "9": "origin"
+ },
+ "kpis": [
+  {
+   "label": "月次継続収益",
+   "value": "50.1万ドル",
+   "yen": "約7,500万円",
+   "period": "2026年9月",
+   "recordKeys": [
+    "r10"
+   ]
+  },
+  {
+   "label": "Proプラン",
+   "value": "29ドル/月",
+   "yen": "約4,350円",
+   "period": "組織単位",
+   "recordKeys": [
+    "r5"
+   ]
+  },
+  {
+   "label": "チーム規模",
+   "value": "10人",
+   "period": "2026年9月",
+   "recordKeys": [
+    "r13"
+   ]
+  }
+ ],
+ "topics": [
+  {
+   "id": "overview",
+   "lead": {
+    "text": "申込・アンケート用フォームを無料で公開でき、業務で必要な管理機能に料金を設定している。",
+    "cites": [],
+    "recordKeys": [
+     "r1",
+     "r2",
+     "r4",
+     "r9"
+    ]
+   },
+   "blocks": [
+    {
+     "type": "facts",
+     "variant": "text",
+     "rows": [
+      {
+       "label": "提供",
+       "text": "問い合わせ・申込・アンケート用フォーム。文章を書くように作成し、URL共有やサイト埋め込みができる。",
+       "cites": [
+        1,
+        2
+       ],
+       "recordKeys": [
+        "r1"
+       ]
+      },
+      {
+       "label": "無料",
+       "text": "フォームを作り、回答を集められる。利用開始時の支払いは不要。",
+       "cites": [
+        1,
+        2
+       ],
+       "recordKeys": [
+        "r1",
+        "r2"
+       ]
+      },
+      {
+       "label": "有料",
+       "text": "自社ドメイン、サービス名の非表示、チーム管理、回答データの細かな管理。",
+       "cites": [
+        4,
+        6
+       ],
+       "recordKeys": [
+        "r4",
+        "r9"
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "mechanism",
+   "lead": {
+    "text": "フォームが配られるたびにサービス名も届き、回答者が新たな利用者になる入口を作っている。",
+    "cites": [],
+    "recordKeys": [
+     "r3",
+     "a1"
+    ]
+   },
+   "blocks": [
+    {
+     "type": "paragraph",
+     "tone": "note",
+     "text": "利用者が作ったフォームを顧客へ送ると、回答者にもサービス名が届く。その一部が次の作成者になる。",
+     "cites": [
+      5,
+      7
+     ],
+     "recordKeys": [
+      "r3",
+      "a1"
+     ]
+    },
+    {
+     "type": "figure",
+     "figureId": "tally-loop"
+    },
+    {
+     "type": "facts",
+     "variant": "text",
+     "rows": [
+      {
+       "label": "広がる理由",
+       "text": "無料フォーム自体が外部へ配られる成果物なので、利用がそのまま認知につながる。",
+       "cites": [
+        2,
+        5,
+        7
+       ],
+       "recordKeys": [
+        "a1",
+        "r3"
+       ]
+      },
+      {
+       "label": "有料化の入口",
+       "text": "顧客に見せる画面のブランド統一や社内管理が必要になると、企業は有料機能を検討する。",
+       "cites": [
+        4,
+        6
+       ],
+       "recordKeys": [
+        "a2",
+        "r4",
+        "r9"
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "revenue",
+   "lead": {
+    "text": "無料利用で広げ、独自ドメイン・ブランド表示の削除・管理機能を使う組織から月額料金を得る。",
+    "cites": [],
+    "recordKeys": [
+     "r4",
+     "r9",
+     "a2"
+    ]
+   },
+   "blocks": [
+    {
+     "type": "rates",
+     "caption": "プラン / 料金 / 主な使い方",
+     "rows": [
+      {
+       "label": "Free",
+       "value": "無料",
+       "note": "フォームを作って回答を集める",
+       "cites": [],
+       "recordKeys": [
+        "r2"
+       ]
+      },
+      {
+       "label": "Pro",
+       "value": "月29ドル／年290ドル",
+       "yen": "月約4,350円／年約4万3,500円",
+       "note": "Tally表示を消す、独自ドメイン、共同管理",
+       "cites": [],
+       "recordKeys": [
+        "r4",
+        "r5",
+        "r6"
+       ]
+      },
+      {
+       "label": "Business",
+       "value": "月89ドル／年890ドル",
+       "yen": "月約1万3,400円／年約13万4,000円",
+       "note": "Proの機能に加え、回答の保存期間などを管理",
+       "cites": [],
+       "recordKeys": [
+        "r7",
+        "r8",
+        "r9"
+       ]
+      }
+     ]
+    },
+    {
+     "type": "paragraph",
+     "tone": "note",
+     "text": "ProとBusinessは組織単位の契約。大きな利用量には別条件もある。",
+     "cites": [
+      2,
+      3,
+      4,
+      6
+     ],
+     "recordKeys": [
+      "r2",
+      "r25",
+      "r26",
+      "rel1"
+     ]
+    },
+    {
+     "type": "figure",
+     "figureId": "tally-plans"
+    },
+    {
+     "type": "facts",
+     "variant": "text",
+     "rows": [
+      {
+       "label": "月次継続収益",
+       "text": "約50万1,000ドル（約7,500万円）（2026年9月、創業者発表）。",
+       "cites": [
+        5,
+        7
+       ],
+       "recordKeys": [
+        "r10"
+       ]
+      },
+      {
+       "label": "チーム",
+       "text": "2022年は創業者2人。2026年9月には10人。",
+       "cites": [
+        5,
+        7
+       ],
+       "recordKeys": [
+        "r13",
+        "r19"
+       ]
+      }
+     ]
+    },
+    {
+     "type": "subheading",
+     "text": "収益が成立する条件"
+    },
+    {
+     "type": "facts",
+     "variant": "text",
+     "rows": [
+      {
+       "label": "集客",
+       "text": "フォーム、予約ページ、公開レポートのように、成果物が第三者へ届くこと。",
+       "cites": [
+        2,
+        5,
+        7
+       ],
+       "recordKeys": [
+        "a1",
+        "r3"
+       ]
+      },
+      {
+       "label": "課金",
+       "text": "仕事でブランド統一・共同管理が必要になったとき、支払う理由が生まれること。",
+       "cites": [
+        4,
+        6
+       ],
+       "recordKeys": [
+        "a2",
+        "r4",
+        "r9"
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "acquisition",
+   "lead": {
+    "text": "初期は創業者自身が一人ずつ利用者に声を掛け、その後はフォーム経由の紹介やAI経由の発見が広がった。",
+    "cites": [],
+    "recordKeys": [
+     "r16",
+     "r27",
+     "r28",
+     "r3"
+    ]
+   },
+   "blocks": [
+    {
+     "type": "steps",
+     "items": [
+      {
+       "title": "事業転換",
+       "text": "旅行関連の事業がコロナ禍で苦しくなり、日常的なフォーム作成の不満から新製品へ。創業者2人で開始。",
+       "cites": [
+        9
+       ],
+       "recordKeys": [
+        "r14",
+        "r15",
+        "r34"
+       ]
+      },
+      {
+       "title": "最初の利用者",
+       "text": "知人に試してもらい、Product HuntやTwitterで利用候補に一人ずつ連絡。反応を受けて改良。",
+       "cites": [
+        7,
+        8
+       ],
+       "recordKeys": [
+        "r16"
+       ]
+      },
+      {
+       "title": "一般公開",
+       "text": "2021年3月にProduct Huntで公開。2020年10月のMRRは64ドル（約9,600円）だった。",
+       "cites": [
+        7,
+        8
+       ],
+       "recordKeys": [
+        "r18",
+        "r17"
+       ]
+      }
+     ]
+    },
+    {
+     "type": "paragraph",
+     "tone": "note",
+     "text": "2026年9月には、新規利用者の43％がAIアシスタント経由で知ったと創業者が報告。",
+     "cites": [
+      5
+     ],
+     "recordKeys": [
+      "r27"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "operations",
+   "lead": {
+    "text": "利用者の増加に合わせ、問い合わせ対応・製品改善・情報管理の体制を整えた。",
+    "cites": [],
+    "recordKeys": [
+     "r19",
+     "r20",
+     "r29"
+    ]
+   },
+   "blocks": [
+    {
+     "type": "facts",
+     "variant": "text",
+     "rows": [
+      {
+       "label": "顧客対応",
+       "text": "2022年はMarieが問い合わせを受け、技術的な問題をFilipへ引き継いだ。頻出質問はヘルプへ追加。",
+       "cites": [
+        7
+       ],
+       "recordKeys": [
+        "r20"
+       ]
+      },
+      {
+       "label": "機能改善",
+       "text": "問い合わせを製品改善の材料にもしていた。",
+       "cites": [
+        7
+       ],
+       "recordKeys": []
+      },
+      {
+       "label": "情報管理",
+       "text": "2026年8月、社内分析ツールMetabase経由でメールアドレスとハッシュ化パスワードが流出。会社はフォーム回答へのアクセスはなかったと説明し、分析基盤を再構築。",
+       "cites": [
+        5
+       ],
+       "recordKeys": [
+        "r29",
+        "r30"
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "history",
+   "lead": {
+    "text": "旅行関連の事業からフォーム作成へ転換し、6年ほどで月50万ドル（約7,500万円）規模の継続収益へ成長した。",
+    "cites": [],
+    "recordKeys": [
+     "r15",
+     "r10"
+    ]
+   },
+   "blocks": [
+    {
+     "type": "timeline",
+     "items": [
+      {
+       "when": "2020",
+       "text": "旅行関連事業からフォーム作成サービスへ転換",
+       "cites": [],
+       "recordKeys": [
+        "r15"
+       ]
+      },
+      {
+       "when": "2021年3月",
+       "text": "Product Huntで公開",
+       "cites": [],
+       "recordKeys": [
+        "r18"
+       ]
+      },
+      {
+       "when": "2022年",
+       "text": "創業者2人で運営し、顧客サポートにも多くの時間を投入",
+       "cites": [],
+       "recordKeys": [
+        "r19",
+        "r37"
+       ]
+      },
+      {
+       "when": "2026年9月",
+       "text": "MRR約50万1,000ドル（約7,500万円）・チーム10人と発表",
+       "cites": [],
+       "recordKeys": [
+        "r10",
+        "r13"
+       ]
+      }
+     ]
+    }
+   ]
+  }
+ ],
+ "figures": [
+  {
+   "id": "tally-loop",
+   "file": "tally-loop.svg",
+   "alt": "無料フォームが利用者を連れてくる。原版の横長図解。",
+   "width": 1040,
+   "height": 530
+  },
+  {
+   "id": "tally-plans",
+   "file": "tally-plans.svg",
+   "alt": "無料を広く、業務向け機能を有料に。原版の横長図解。",
+   "width": 1040,
+   "height": 530
+  }
+ ],
+ "editorialChanges": [
+  {
+   "kind": "yen-added",
+   "where": "全体（本文・数字の帯・料金の表・決算の表）",
+   "text": "外貨の数字に円の概算を足した（11か所）。50万ドル→約7,500万円、50.1万ドル→約7,500万円、29ドル→約4,350円、290ドル→約4万3,500円、89ドル→約1万3,400円、890ドル→約13万4,000円、約50万1,000ドル→約7,500万円、64ドル→約9,600円",
+   "reason": "円の概算を添える決まり（docs/CASE_TEXT_STANDARD.md）。為替は1ドル=150円、1ユーロ=165円、1ポンド=195円、1SEK=14円",
+   "recordKeys": []
+  },
+  {
+   "kind": "other",
+   "where": "一覧の1行（listLine）",
+   "text": "無料のフォーム作成を10人で運営し、月約7,500万円の継続収益",
+   "reason": "指揮が決めた一覧の1行を設定した（見本の文ではない）",
+   "recordKeys": []
+  },
+  {
+   "kind": "unlinked",
+   "where": "4/blocks/0/rows/1",
+   "text": "機能改善 問い合わせを製品改善の材料にもしていた。",
+   "reason": "見本の文に対応する調査の記録が見つからない（見本側の整理・推測の文）",
+   "recordKeys": []
+  },
+  {
+   "kind": "not-in-article",
+   "where": "規模",
+   "text": "2026年9月時点でARRが600万米ドルを超え、利用者は250万人と創業者が報告（利用者の活動の定義は不明）。",
+   "reason": "見本の文に入っていない",
+   "recordKeys": [
+    "r11",
+    "r12"
+   ]
+  },
+  {
+   "kind": "not-in-article",
+   "where": "損益",
+   "text": "2022年6月時点で利用者の購読料で黒字運営と説明しているが、利益額は記事にない。費用表（給与・税・単発購入を含まない月次ソフトウェア費用）にはGoogle Cloud月600ユーロ、Stripe手数料月836ユーロがある。",
+   "reason": "見本の文に入っていない。利益額は未確認",
+   "recordKeys": [
+    "r21",
+    "r22",
+    "r23",
+    "r24"
+   ]
+  },
+  {
+   "kind": "not-in-article",
+   "where": "規模（2022年）",
+   "text": "2022年6月16日の記事でMRRは20,700米ドル、有料顧客は775人。",
+   "reason": "見本の文に入っていない",
+   "recordKeys": [
+    "r35",
+    "r36"
+   ]
+  },
+  {
+   "kind": "not-in-article",
+   "where": "集客",
+   "text": "2026年9月の記事は、口コミとフォーム表示からの登録の約1%が最終的に有料化すると述べる。",
+   "reason": "見本の文に入っていない",
+   "recordKeys": [
+    "r38"
+   ]
+  },
+  {
+   "kind": "not-in-article",
+   "where": "会社",
+   "text": "本社はベルギーのGhent。外部投資ではなく顧客からの収入を基に運営していると公表。",
+   "reason": "見本の文に入っていない",
+   "recordKeys": [
+    "r31"
+   ]
+  },
+  {
+   "kind": "not-in-article",
+   "where": "データの扱い",
+   "text": "公式料金ページはユーロ表示で月・年の切替がある。調査ではヘルプのUSD価格を採用し、異なる通貨・請求条件を同じ価格として合成していない。創業者の記事は初期の月別利用者数に食い違いがあり、人数の初期推移は使っていない。",
+   "reason": "見本の文に入っていない（採用基準の注記）",
+   "recordKeys": [
+    "r32",
+    "r33"
+   ]
+  },
+  {
+   "kind": "not-in-article",
+   "where": "未確認",
+   "text": "現在の利益額・給与・インフラ全費用・創業者の手取り、最初の有料顧客の個人は確認できていない。",
+   "reason": "調査の未確認欄",
+   "recordKeys": [
+    "u1",
+    "u2"
+   ]
+  }
+ ]
+}

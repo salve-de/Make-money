@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:ev="http://www.w3.org/2001/xml-events" xmlns:xlink="http://www.w3.org/1999/xlink" baseProfile="full" height="470" version="1.1" viewBox="0 0 1120 470" width="1120">
+  <defs/>
+  <rect fill="#0d1015" height="100%" width="100%" x="0" y="0"/>
+  <text fill="#f0f2f4" font-family="Noto Sans CJK JP, sans-serif" font-size="26" font-weight="600" x="40" y="52">無料のコードと、有料の運営サービスは別の商品</text>
+  <text fill="#8895a3" font-family="Noto Sans CJK JP, sans-serif" font-size="14" font-weight="400" x="40" y="86">顧客の費用負担・運用作業・集客のつながり</text>
+  <rect fill="#171b22" height="145" rx="9" ry="9" stroke="#343c46" stroke-width="1.1" width="248" x="40" y="123"/>
+  <text fill="#f0f2f4" font-family="Noto Sans CJK JP, sans-serif" font-size="20" font-weight="600" x="58" y="159">サイト運営者</text>
+  <text fill="#b7c0c9" font-family="Noto Sans CJK JP, sans-serif" font-size="15" font-weight="400" x="58" y="195">訪問経路を把握したい</text>
+  <text fill="#b7c0c9" font-family="Noto Sans CJK JP, sans-serif" font-size="15" font-weight="400" x="58" y="221">複雑な設定・追跡を減らす</text>
+  <rect fill="#171b22" height="145" rx="9" ry="9" stroke="#343c46" stroke-width="1.1" width="248" x="322" y="123"/>
+  <text fill="#f0f2f4" font-family="Noto Sans CJK JP, sans-serif" font-size="20" font-weight="600" x="340" y="159">Plausible Cloud</text>
+  <text fill="#b7c0c9" font-family="Noto Sans CJK JP, sans-serif" font-size="15" font-weight="400" x="340" y="195">計測・集計・画面表示</text>
+  <text fill="#b7c0c9" font-family="Noto Sans CJK JP, sans-serif" font-size="15" font-weight="400" x="340" y="221">更新とインフラを維持</text>
+  <rect fill="#171b22" height="145" rx="9" ry="9" stroke="#343c46" stroke-width="1.1" width="248" x="604" y="123"/>
+  <text fill="#f0f2f4" font-family="Noto Sans CJK JP, sans-serif" font-size="20" font-weight="600" x="622" y="159">月額契約</text>
+  <text fill="#b7c0c9" font-family="Noto Sans CJK JP, sans-serif" font-size="15" font-weight="400" x="622" y="195">計測量とプランで課金</text>
+  <text fill="#b7c0c9" font-family="Noto Sans CJK JP, sans-serif" font-size="15" font-weight="400" x="622" y="221">運営費・開発費を賄う</text>
+  <line stroke="#eeab58" stroke-width="2.1" x1="287" x2="319" y1="194" y2="194"/>
+  <polygon fill="#eeab58" points="319,194 309.9955289764732,198.3496553411123 309.9955289764732,189.6503446588877"/>
+  <line stroke="#eeab58" stroke-width="2.1" x1="569" x2="601" y1="194" y2="194"/>
+  <polygon fill="#eeab58" points="601,194 591.9955289764732,198.3496553411123 591.9955289764732,189.6503446588877"/>
+  <rect fill="#202632" height="145" rx="9" ry="9" stroke="#343c46" stroke-width="1.1" width="190" x="886" y="123"/>
+  <text fill="#f0f2f4" font-family="Noto Sans CJK JP, sans-serif" font-size="20" font-weight="600" x="905" y="159">公開コード</text>
+  <text fill="#b7c0c9" font-family="Noto Sans CJK JP, sans-serif" font-size="15" font-weight="400" x="905" y="194">自社サーバーで</text>
+  <text fill="#b7c0c9" font-family="Noto Sans CJK JP, sans-serif" font-size="15" font-weight="400" x="905" y="221">運用できる版</text>
+  <text fill="#8895a3" font-family="Noto Sans CJK JP, sans-serif" font-size="14" font-weight="400" x="888" y="290">自社運用の選択肢</text>
+  <rect fill="#202632" height="111" rx="9" ry="9" stroke="#343c46" stroke-width="1.1" width="1036" x="40" y="303"/>
+  <text fill="#f0f2f4" font-family="Noto Sans CJK JP, sans-serif" font-size="19" font-weight="600" x="60" y="341">成長を支えた実作業</text>
+  <text fill="#79acc8" font-family="Noto Sans CJK JP, sans-serif" font-size="16" font-weight="600" x="60" y="373">2019 コミュニティ発信</text>
+  <text fill="#8895a3" font-family="Noto Sans CJK JP, sans-serif" font-size="16" font-weight="400" x="280" y="373">→</text>
+  <text fill="#79acc8" font-family="Noto Sans CJK JP, sans-serif" font-size="16" font-weight="600" x="320" y="373">2020 比較記事・Hacker News</text>
+  <text fill="#8895a3" font-family="Noto Sans CJK JP, sans-serif" font-size="16" font-weight="400" x="592" y="373">→</text>
+  <text fill="#79acc8" font-family="Noto Sans CJK JP, sans-serif" font-size="16" font-weight="600" x="632" y="373">検索・紹介と無料体験</text>
+  <text fill="#8895a3" font-family="Noto Sans CJK JP, sans-serif" font-size="16" font-weight="400" x="838" y="373">→</text>
+  <text fill="#9dc29f" font-family="Noto Sans CJK JP, sans-serif" font-size="16" font-weight="600" x="872" y="373">有料契約</text>
+</svg>

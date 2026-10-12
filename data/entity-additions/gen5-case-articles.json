@@ -1,0 +1,449 @@
+{
+ "version": 1,
+ "source": {
+  "manifest": "data/case-articles/*/article.json",
+  "manifestSha256": "19f5d29d7c373417b5bd444d0300098dccc73d09f5c0a5749734724984ccbac4",
+  "artifactsDir": "",
+  "collectedAt": "2026-10-12T00:00:00.000Z",
+  "generation": 5
+ },
+ "records": [
+  {
+   "id": "ent_flightradar24_83377cd2e700",
+   "provenance": {
+    "detailsHash": "c67b15c2b2af33921d2079d24b0b87c70c14690c53ac9c31728d10eb8e6cd99c",
+    "artifactSha256": "f4fd7a420c5d2962894685145bb54de6ceee62998ebf517a04734595bdca103e"
+   },
+   "record": {
+    "id": "ent_flightradar24_83377cd2e700",
+    "ticker": "FLIGHTRADAR24",
+    "name": "Flightradar24",
+    "tagline": "飛行機の位置を世界中から集めて見せ、16か月で売上約98億円",
+    "description": "飛行機を地図で追う閲覧サービスに加え、広告・有料会員・法人向けデータ提供で収益を得る。",
+    "sector": "UNKNOWN",
+    "scale": "UNKNOWN",
+    "founder": "未確認",
+    "country": "スウェーデン",
+    "url": "https://www.flightradar24.com/about/",
+    "officialUrl": "https://www.flightradar24.com/",
+    "verifiedBadge": false,
+    "growthRateYoY": 0,
+    "architecturePattern": "",
+    "pipelineStack": "",
+    "targetPainWallet": "",
+    "tags": [
+     "収集事例"
+    ],
+    "pnl": {
+     "monthlyRevenue": 0,
+     "cogs": 0,
+     "grossProfit": 0,
+     "grossMargin": 0,
+     "operatingExpenses": {
+      "serverAndApi": 0,
+      "advertising": 0,
+      "subcontracting": 0,
+      "toolsAndSaaS": 0,
+      "other": 0
+     },
+     "operatingProfit": 0,
+     "operatingMargin": 0,
+     "estimatedAnnualNetProfit": 0,
+     "isRevenueUnconfirmed": true,
+     "isOperatingProfitUnconfirmed": true,
+     "isMarginUnconfirmed": true,
+     "isGrossProfitUnconfirmed": true,
+     "isGrossMarginUnconfirmed": true,
+     "isCogsUnconfirmed": true,
+     "isCostsUnconfirmed": true,
+     "isNetProfitUnconfirmed": true,
+     "financialStatus": "UNAVAILABLE",
+     "dataSnapshotPeriod": "各事実の対象期間を参照。現在の完全な損益は未確認",
+     "revenueLabel": "",
+     "sourceDoc": "https://www.flightradar24.com/about/"
+    },
+    "operations": {
+     "teamSize": 0,
+     "weeklyHours": 0,
+     "initialCapitalRequired": 0,
+     "automationLevel": 0,
+     "primaryChannels": [],
+     "toolStack": [],
+     "isTeamSizeUnconfirmed": true,
+     "isWeeklyHoursUnconfirmed": true,
+     "isCapitalUnconfirmed": true,
+     "isAutomationUnconfirmed": true
+    },
+    "strategy": {
+     "moatType": "UNKNOWN",
+     "blindspot": "",
+     "moatDescription": "",
+     "secretInsight": "",
+     "initialTraction": [],
+     "actionPlaybook": [],
+     "coldOutreachTemplate": "",
+     "incumbentDilemma": ""
+    },
+    "evidenceCards": [
+     {
+      "id": "ent_flightradar24_83377cd2e700-S1",
+      "type": "UNKNOWN_AUDIT",
+      "title": "出典1：Flightradar24 / About Flightradar24 / 公開",
+      "badge": "出典",
+      "evidenceStatus": "REPORTED",
+      "punchline": "出典の所在。数字の読み方は事例の画面の注記に従う",
+      "details": [
+       "URL：https://www.flightradar24.com/about/",
+       "確認日：2026-10-12"
+      ],
+      "url": "https://www.flightradar24.com/about/",
+      "sourceNote": "公開部分を読み、事実を自分の言葉で書いた。本文・画像は転載しない",
+      "sourceClass": "INDEPENDENT_SECONDARY"
+     },
+     {
+      "id": "ent_flightradar24_83377cd2e700-S2",
+      "type": "UNKNOWN_AUDIT",
+      "title": "出典2：Flightradar24 / Subscription plans / 公開日",
+      "badge": "出典",
+      "evidenceStatus": "REPORTED",
+      "punchline": "出典の所在。数字の読み方は事例の画面の注記に従う",
+      "details": [
+       "URL：https://www.flightradar24.com/premium/",
+       "確認日：2026-10-12"
+      ],
+      "url": "https://www.flightradar24.com/premium/",
+      "sourceNote": "公開部分を読み、事実を自分の言葉で書いた。本文・画像は転載しない",
+      "sourceClass": "INDEPENDENT_SECONDARY"
+     },
+     {
+      "id": "ent_flightradar24_83377cd2e700-S3",
+      "type": "UNKNOWN_AUDIT",
+      "title": "出典3：Flightradar24 / How it works / 公開日不明",
+      "badge": "出典",
+      "evidenceStatus": "REPORTED",
+      "punchline": "出典の所在。数字の読み方は事例の画面の注記に従う",
+      "details": [
+       "URL：https://www.flightradar24.com/how-it-works/",
+       "確認日：2026-10-12"
+      ],
+      "url": "https://www.flightradar24.com/how-it-works/",
+      "sourceNote": "公開部分を読み、事実を自分の言葉で書いた。本文・画像は転載しない",
+      "sourceClass": "INDEPENDENT_SECONDARY"
+     },
+     {
+      "id": "ent_flightradar24_83377cd2e700-S4",
+      "type": "UNKNOWN_AUDIT",
+      "title": "出典4：Flightradar24 / Become a contributor / 公",
+      "badge": "出典",
+      "evidenceStatus": "REPORTED",
+      "punchline": "出典の所在。数字の読み方は事例の画面の注記に従う",
+      "details": [
+       "URL：https://www.flightradar24.com/add-coverage",
+       "確認日：2026-10-12"
+      ],
+      "url": "https://www.flightradar24.com/add-coverage",
+      "sourceNote": "公開部分を読み、事実を自分の言葉で書いた。本文・画像は転載しない",
+      "sourceClass": "INDEPENDENT_SECONDARY"
+     },
+     {
+      "id": "ent_flightradar24_83377cd2e700-S5",
+      "type": "UNKNOWN_AUDIT",
+      "title": "出典5：Flightradar24 / Share your ADS-B data / ",
+      "badge": "出典",
+      "evidenceStatus": "REPORTED",
+      "punchline": "出典の所在。数字の読み方は事例の画面の注記に従う",
+      "details": [
+       "URL：https://www.flightradar24.com/share-your-data",
+       "確認日：2026-10-12"
+      ],
+      "url": "https://www.flightradar24.com/share-your-data",
+      "sourceNote": "公開部分を読み、事実を自分の言葉で書いた。本文・画像は転載しない",
+      "sourceClass": "INDEPENDENT_SECONDARY"
+     },
+     {
+      "id": "ent_flightradar24_83377cd2e700-S6",
+      "type": "UNKNOWN_AUDIT",
+      "title": "出典6：Google for Publishers / Flightradar24 / ",
+      "badge": "出典",
+      "evidenceStatus": "REPORTED",
+      "punchline": "出典の所在。数字の読み方は事例の画面の注記に従う",
+      "details": [
+       "URL：https://www.google.com/ads/publisher/stories/flightradar24/",
+       "確認日：2026-10-12"
+      ],
+      "url": "https://www.google.com/ads/publisher/stories/flightradar24/",
+      "sourceNote": "公開部分を読み、事実を自分の言葉で書いた。本文・画像は転載しない",
+      "sourceClass": "INDEPENDENT_SECONDARY"
+     },
+     {
+      "id": "ent_flightradar24_83377cd2e700-S7",
+      "type": "UNKNOWN_AUDIT",
+      "title": "出典7：Flightradar24 / Flight Data Services to ",
+      "badge": "出典",
+      "evidenceStatus": "REPORTED",
+      "punchline": "出典の所在。数字の読み方は事例の画面の注記に従う",
+      "details": [
+       "URL：https://www.flightradar24.com/blog/b2b/flightradar24-to-supply-flight-data-services-to-boeing/",
+       "確認日：2026-10-12"
+      ],
+      "url": "https://www.flightradar24.com/blog/b2b/flightradar24-to-supply-flight-data-services-to-boeing/",
+      "sourceNote": "公開部分を読み、事実を自分の言葉で書いた。本文・画像は転載しない",
+      "sourceClass": "INDEPENDENT_SECONDARY"
+     },
+     {
+      "id": "ent_flightradar24_83377cd2e700-S8",
+      "type": "UNKNOWN_AUDIT",
+      "title": "出典8：Allabolag / Flightradar24 AB Bokslut / 公",
+      "badge": "出典",
+      "evidenceStatus": "REPORTED",
+      "punchline": "出典の所在。数字の読み方は事例の画面の注記に従う",
+      "details": [
+       "URL：https://www.allabolag.se/bokslut/flightradar24-ab/stockholm/internet-konsulter-operat%C3%B6rer/2K3LY99I5YFHL",
+       "確認日：2026-10-12"
+      ],
+      "url": "https://www.allabolag.se/bokslut/flightradar24-ab/stockholm/internet-konsulter-operat%C3%B6rer/2K3LY99I5YFHL",
+      "sourceNote": "公開部分を読み、事実を自分の言葉で書いた。本文・画像は転載しない",
+      "sourceClass": "INDEPENDENT_SECONDARY"
+     },
+     {
+      "id": "ent_flightradar24_83377cd2e700-S9",
+      "type": "UNKNOWN_AUDIT",
+      "title": "出典9：Flightradar24 / SPAR19 traffic surge and",
+      "badge": "出典",
+      "evidenceStatus": "REPORTED",
+      "punchline": "出典の所在。数字の読み方は事例の画面の注記に従う",
+      "details": [
+       "URL：https://www.flightradar24.com/blog/flight-tracking-news/special-aircraft-tracking/spar19-becomes-the-most-tracked-flight-of-all-time/",
+       "確認日：2026-10-12"
+      ],
+      "url": "https://www.flightradar24.com/blog/flight-tracking-news/special-aircraft-tracking/spar19-becomes-the-most-tracked-flight-of-all-time/",
+      "sourceNote": "公開部分を読み、事実を自分の言葉で書いた。本文・画像は転載しない",
+      "sourceClass": "INDEPENDENT_SECONDARY"
+     }
+    ],
+    "observationsStream": [],
+    "observations": [],
+    "claimBindings": [],
+    "publishability": "PARTIAL",
+    "batchId": "gen5_case_articles_20261012",
+    "financialStatus": "UNAVAILABLE",
+    "incumbentDilemma": "",
+    "blindspot": "",
+    "moatDescription": "",
+    "unknownsNotes": [],
+    "isGrowthUnconfirmed": true
+   }
+  },
+  {
+   "id": "ent_the_woobles_8319812a1ddb",
+   "provenance": {
+    "detailsHash": "dadd4cd2cc80d22cace9110ac7ffc9b335ba25846451d54ca277c1592e1d1550",
+    "artifactSha256": "3b0ddedfc46862b0e679ae7931f18c86eadd1e4c59e3b37b85f39bb4c07d3ae5"
+   },
+   "record": {
+    "id": "ent_the_woobles_8319812a1ddb",
+    "ticker": "THEWOOBLES",
+    "name": "The Woobles",
+    "tagline": "初心者でも完成できる編み物キットを売り、累計約8億円",
+    "description": "毛糸・道具・作り方動画を一式にして販売。530万ドル（約8億円）は2022年に紹介された販売開始以来の累計。",
+    "sector": "UNKNOWN",
+    "scale": "UNKNOWN",
+    "founder": "未確認",
+    "country": "アメリカ",
+    "url": "https://thewoobles.com/products/penguin-crochet-kit",
+    "officialUrl": "https://thewoobles.com/",
+    "verifiedBadge": false,
+    "growthRateYoY": 0,
+    "architecturePattern": "",
+    "pipelineStack": "",
+    "targetPainWallet": "",
+    "tags": [
+     "収集事例"
+    ],
+    "pnl": {
+     "monthlyRevenue": 0,
+     "cogs": 0,
+     "grossProfit": 0,
+     "grossMargin": 0,
+     "operatingExpenses": {
+      "serverAndApi": 0,
+      "advertising": 0,
+      "subcontracting": 0,
+      "toolsAndSaaS": 0,
+      "other": 0
+     },
+     "operatingProfit": 0,
+     "operatingMargin": 0,
+     "estimatedAnnualNetProfit": 0,
+     "isRevenueUnconfirmed": true,
+     "isOperatingProfitUnconfirmed": true,
+     "isMarginUnconfirmed": true,
+     "isGrossProfitUnconfirmed": true,
+     "isGrossMarginUnconfirmed": true,
+     "isCogsUnconfirmed": true,
+     "isCostsUnconfirmed": true,
+     "isNetProfitUnconfirmed": true,
+     "financialStatus": "UNAVAILABLE",
+     "dataSnapshotPeriod": "各事実の対象期間を参照。現在の完全な損益は未確認",
+     "revenueLabel": "",
+     "sourceDoc": "https://thewoobles.com/products/penguin-crochet-kit"
+    },
+    "operations": {
+     "teamSize": 0,
+     "weeklyHours": 0,
+     "initialCapitalRequired": 0,
+     "automationLevel": 0,
+     "primaryChannels": [],
+     "toolStack": [],
+     "isTeamSizeUnconfirmed": true,
+     "isWeeklyHoursUnconfirmed": true,
+     "isCapitalUnconfirmed": true,
+     "isAutomationUnconfirmed": true
+    },
+    "strategy": {
+     "moatType": "UNKNOWN",
+     "blindspot": "",
+     "moatDescription": "",
+     "secretInsight": "",
+     "initialTraction": [],
+     "actionPlaybook": [],
+     "coldOutreachTemplate": "",
+     "incumbentDilemma": ""
+    },
+    "evidenceCards": [
+     {
+      "id": "ent_the_woobles_8319812a1ddb-S1",
+      "type": "UNKNOWN_AUDIT",
+      "title": "出典1：The Woobles / Pierre the Penguin Crochet",
+      "badge": "出典",
+      "evidenceStatus": "REPORTED",
+      "punchline": "出典の所在。数字の読み方は事例の画面の注記に従う",
+      "details": [
+       "URL：https://thewoobles.com/products/penguin-crochet-kit",
+       "確認日：2026-10-12"
+      ],
+      "url": "https://thewoobles.com/products/penguin-crochet-kit",
+      "sourceNote": "公開部分を読み、事実を自分の言葉で書いた。本文・画像は転載しない",
+      "sourceClass": "INDEPENDENT_SECONDARY"
+     },
+     {
+      "id": "ent_the_woobles_8319812a1ddb-S2",
+      "type": "UNKNOWN_AUDIT",
+      "title": "出典2：The Woobles / Help Center / 公開日不明",
+      "badge": "出典",
+      "evidenceStatus": "REPORTED",
+      "punchline": "出典の所在。数字の読み方は事例の画面の注記に従う",
+      "details": [
+       "URL：https://help.thewoobles.com/en-US",
+       "確認日：2026-10-12"
+      ],
+      "url": "https://help.thewoobles.com/en-US",
+      "sourceNote": "公開部分を読み、事実を自分の言葉で書いた。本文・画像は転載しない",
+      "sourceClass": "INDEPENDENT_SECONDARY"
+     },
+     {
+      "id": "ent_the_woobles_8319812a1ddb-S3",
+      "type": "UNKNOWN_AUDIT",
+      "title": "出典3：Inc. / How the Woobles Founders Taught H",
+      "badge": "出典",
+      "evidenceStatus": "REPORTED",
+      "punchline": "出典の所在。数字の読み方は事例の画面の注記に従う",
+      "details": [
+       "URL：https://www.inc.com/marina-khidekel/how-woobles-founders-taught-half-a-million-people-how-to-crochet.html",
+       "確認日：2026-10-12"
+      ],
+      "url": "https://www.inc.com/marina-khidekel/how-woobles-founders-taught-half-a-million-people-how-to-crochet.html",
+      "sourceNote": "公開部分を読み、事実を自分の言葉で書いた。本文・画像は転載しない",
+      "sourceClass": "INDEPENDENT_SECONDARY"
+     },
+     {
+      "id": "ent_the_woobles_8319812a1ddb-S4",
+      "type": "UNKNOWN_AUDIT",
+      "title": "出典4：The Woobles / Our Story / 公開日不明",
+      "badge": "出典",
+      "evidenceStatus": "REPORTED",
+      "punchline": "出典の所在。数字の読み方は事例の画面の注記に従う",
+      "details": [
+       "URL：https://thewoobles.com/pages/our-story",
+       "確認日：2026-10-12"
+      ],
+      "url": "https://thewoobles.com/pages/our-story",
+      "sourceNote": "公開部分を読み、事実を自分の言葉で書いた。本文・画像は転載しない",
+      "sourceClass": "INDEPENDENT_SECONDARY"
+     },
+     {
+      "id": "ent_the_woobles_8319812a1ddb-S5",
+      "type": "UNKNOWN_AUDIT",
+      "title": "出典5：Shopify / How The Woobles scaled with Sh",
+      "badge": "出典",
+      "evidenceStatus": "REPORTED",
+      "punchline": "出典の所在。数字の読み方は事例の画面の注記に従う",
+      "details": [
+       "URL：https://www.shopify.com/case-studies/the-woobles",
+       "確認日：2026-10-12"
+      ],
+      "url": "https://www.shopify.com/case-studies/the-woobles",
+      "sourceNote": "公開部分を読み、事実を自分の言葉で書いた。本文・画像は転載しない",
+      "sourceClass": "INDEPENDENT_SECONDARY"
+     },
+     {
+      "id": "ent_the_woobles_8319812a1ddb-S6",
+      "type": "UNKNOWN_AUDIT",
+      "title": "出典6：The News & Observer / Did an Apex startu",
+      "badge": "出典",
+      "evidenceStatus": "REPORTED",
+      "punchline": "出典の所在。数字の読み方は事例の画面の注記に従う",
+      "details": [
+       "URL：https://www.newsobserver.com/news/business/article266666896.html",
+       "確認日：2026-10-12"
+      ],
+      "url": "https://www.newsobserver.com/news/business/article266666896.html",
+      "sourceNote": "公開部分を読み、事実を自分の言葉で書いた。本文・画像は転載しない",
+      "sourceClass": "INDEPENDENT_SECONDARY"
+     },
+     {
+      "id": "ent_the_woobles_8319812a1ddb-S7",
+      "type": "UNKNOWN_AUDIT",
+      "title": "出典7：Cary Magazine / Women of Western Wake: J",
+      "badge": "出典",
+      "evidenceStatus": "REPORTED",
+      "punchline": "出典の所在。数字の読み方は事例の画面の注記に従う",
+      "details": [
+       "URL：https://www.carymagazine.com/features/women-of-western-wake-justine-tiu/",
+       "確認日：2026-10-12"
+      ],
+      "url": "https://www.carymagazine.com/features/women-of-western-wake-justine-tiu/",
+      "sourceNote": "公開部分を読み、事実を自分の言葉で書いた。本文・画像は転載しない",
+      "sourceClass": "INDEPENDENT_SECONDARY"
+     },
+     {
+      "id": "ent_the_woobles_8319812a1ddb-S8",
+      "type": "UNKNOWN_AUDIT",
+      "title": "出典8：The Woobles / PR Newswire / The Woobles ",
+      "badge": "出典",
+      "evidenceStatus": "REPORTED",
+      "punchline": "出典の所在。数字の読み方は事例の画面の注記に従う",
+      "details": [
+       "URL：https://www.prnewswire.com/news-releases/the-woobles-crochets-its-way-to-a-deal-for-450-000-on-abcs-shark-tank-301638709.html",
+       "確認日：2026-10-12"
+      ],
+      "url": "https://www.prnewswire.com/news-releases/the-woobles-crochets-its-way-to-a-deal-for-450-000-on-abcs-shark-tank-301638709.html",
+      "sourceNote": "公開部分を読み、事実を自分の言葉で書いた。本文・画像は転載しない",
+      "sourceClass": "INDEPENDENT_SECONDARY"
+     }
+    ],
+    "observationsStream": [],
+    "observations": [],
+    "claimBindings": [],
+    "publishability": "PARTIAL",
+    "batchId": "gen5_case_articles_20261012",
+    "financialStatus": "UNAVAILABLE",
+    "incumbentDilemma": "",
+    "blindspot": "",
+    "moatDescription": "",
+    "unknownsNotes": [],
+    "isGrowthUnconfirmed": true
+   }
+  }
+ ]
+}

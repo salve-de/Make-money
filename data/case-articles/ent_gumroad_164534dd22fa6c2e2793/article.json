@@ -1,0 +1,788 @@
+{
+ "schema": "make-money.case-article.v2",
+ "entityId": "ent_gumroad_164534dd22fa6c2e2793",
+ "name": "Gumroad",
+ "revision": "r1",
+ "reviewState": "ready_for_review",
+ "generation": 5,
+ "basedOn": {
+  "packageId": "mm-gumroad-20261012-r1",
+  "submissionSha256": "4abb6a232e8bfe13ac972519c698a39060be6e8c84eadfe5fabe3106fa374ab0"
+ },
+ "listLine": "作り手がデジタル商品を売る場を提供し、年間の売上は約27億円",
+ "headline": "電子書籍や教材の販売を代行する手数料事業を立て直し、2025年に純利益379万ドル（約5億7,000万円）",
+ "lead": "商品ページ・決済・配布を引き受けるサービス。2015年には人員を20人から5人へ縮小した。",
+ "sources": [
+  {
+   "no": 1,
+   "label": "創業者Sahil Lavingia：Gumroadの創業・人員削減・黒字化・財務公開（2019年2月7日公開）",
+   "url": "https://sahillavingia.com/reflecting"
+  },
+  {
+   "no": 2,
+   "label": "米SEC：Gumroad, Inc. 2025年Form C-AR（2024・2025年比較表を含む）（2026年4月8日提出）",
+   "url": "https://www.sec.gov/Archives/edgar/data/1532978/000153297826000003/formc-ar.pdf"
+  },
+  {
+   "no": 3,
+   "label": "Gumroad公式：現行料金とDiscoverの手数料（2026年10月12日閲覧）",
+   "url": "https://gumroad.com/pricing"
+  },
+  {
+   "no": 4,
+   "label": "Gumroad公式：販売できる商品、会員商品、出金方法（2026年10月12日閲覧）",
+   "url": "https://gumroad.com/pricing"
+  },
+  {
+   "no": 5,
+   "label": "Gumroad公式ヘルプ：決済手数料・月2万ドルの大口条件（2026年10月12日閲覧）",
+   "url": "https://gumroad.com/help/article/66-gumroads-fees"
+  },
+  {
+   "no": 6,
+   "label": "WIRED：創業者の初期経験とプロダクトの着想（2020年）",
+   "url": "https://www.wired.com/story/he-wanted-unicorn-got-sustainable-business/"
+  },
+  {
+   "no": 7,
+   "label": "Gumroad公式：クリエイターの集客・販売実例（2025年1月14日）",
+   "url": "https://gumroad.com/blog/p/how-lifemathmoney-made-1m-on-gumroad"
+  }
+ ],
+ "sourceKeys": {
+  "1": "src-g1",
+  "2": "src-g2",
+  "3": "src-g4",
+  "4": "src-g4",
+  "5": "src-g5",
+  "6": "src-g6",
+  "7": "src-g7"
+ },
+ "kpis": [
+  {
+   "label": "売上高",
+   "value": "約1,779万ドル",
+   "yen": "約26億7,000万円",
+   "period": "2025年：会社全体",
+   "recordKeys": [
+    "r2"
+   ]
+  },
+  {
+   "label": "純利益",
+   "value": "約379万ドル",
+   "yen": "約5億7,000万円",
+   "period": "2025年：会社全体",
+   "recordKeys": [
+    "r6"
+   ]
+  },
+  {
+   "label": "収益方式",
+   "value": "取引手数料",
+   "period": "購入成立ごと",
+   "recordKeys": [
+    "r27"
+   ]
+  }
+ ],
+ "topics": [
+  {
+   "id": "overview",
+   "lead": {
+    "text": "クリエイターの商品販売ページ・決済・配布を引き受け、売れた取引から手数料を得る。",
+    "cites": [],
+    "recordKeys": [
+     "r26",
+     "r27"
+    ]
+   },
+   "blocks": [
+    {
+     "type": "facts",
+     "variant": "text",
+     "rows": [
+      {
+       "label": "販売者",
+       "text": "電子書籍・教材・素材・音楽・ソフトなどを売るクリエイター。",
+       "cites": [],
+       "recordKeys": [
+        "r24"
+       ]
+      },
+      {
+       "label": "購入者",
+       "text": "SNSやメールから訪れる、クリエイターのファンや顧客。",
+       "cites": [],
+       "recordKeys": [
+        "r25"
+       ]
+      },
+      {
+       "label": "提供",
+       "text": "商品ページ、決済、デジタル商品の配布、出金と一部の税務対応。",
+       "cites": [],
+       "recordKeys": [
+        "r26"
+       ]
+      },
+      {
+       "label": "課金",
+       "text": "月額基本料ではなく、販売成立時の手数料。Discover経由の販売にも対応。",
+       "cites": [
+        1,
+        3,
+        4
+       ],
+       "recordKeys": [
+        "r27",
+        "r21",
+        "r20"
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "mechanism",
+   "lead": {
+    "text": "販売者が作品と顧客を持ち込み、決済や納品を代行することで取引ごとの手数料を得る。",
+    "cites": [],
+    "recordKeys": [
+     "r26",
+     "r27",
+     "r33"
+    ]
+   },
+   "blocks": [
+    {
+     "type": "list",
+     "ordered": true,
+     "items": [
+      {
+       "text": "クリエイターが商品を登録し、価格と販売ページを設定する。",
+       "cites": [],
+       "recordKeys": [
+        "r29"
+       ]
+      },
+      {
+       "text": "SNS、ブログ、メールなどでリンクを配布する。購入者はその場で支払う。",
+       "cites": [],
+       "recordKeys": [
+        "r30"
+       ]
+      },
+      {
+       "text": "Gumroadが決済・注文・コンテンツへのアクセスを処理し、手数料を差し引いた金額を販売者へ送る。",
+       "cites": [],
+       "recordKeys": [
+        "r31"
+       ]
+      },
+      {
+       "text": "Discover経由の購入では、商品を探す顧客との出会いもGumroadが提供する。",
+       "cites": [
+        3,
+        4
+       ],
+       "recordKeys": [
+        "r32"
+       ]
+      }
+     ]
+    },
+    {
+     "type": "paragraph",
+     "tone": "body",
+     "text": "販売者が商品と顧客を持ち込み、決済・納品という共通作業をGumroadが引き受ける。取引が増えるほど手数料収入も増える。",
+     "cites": [
+      1,
+      3
+     ],
+     "recordKeys": [
+      "r33",
+      "r27"
+     ]
+    },
+    {
+     "type": "figure",
+     "figureId": "gumroad-flow"
+    },
+    {
+     "type": "subheading",
+     "text": "直販と商品発見の二つの経路"
+    },
+    {
+     "type": "paragraph",
+     "tone": "body",
+     "text": "販売者が連れてきた顧客への直接販売と、Discoverで見つけてもらう販売では、提供する集客機能が異なる。",
+     "cites": [
+      3
+     ],
+     "recordKeys": [
+      "r34"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "revenue",
+   "lead": {
+    "text": "直接販売とDiscover経由で手数料率を分け、2025年には会社全体で純利益約379万ドル（約5億7,000万円）を計上した。",
+    "cites": [],
+    "recordKeys": [
+     "r20",
+     "r21",
+     "r6"
+    ]
+   },
+   "blocks": [
+    {
+     "type": "paragraph",
+     "tone": "body",
+     "text": "2026年10月に確認した公式料金：",
+     "cites": [
+      3,
+      5
+     ],
+     "recordKeys": [
+      "r35"
+     ]
+    },
+    {
+     "type": "rates",
+     "caption": "売れ方 / Gumroad側の料金 / 重要な条件",
+     "rows": [
+      {
+       "label": "販売者が顧客を連れてきた直接販売",
+       "value": "販売額の10％＋0.50ドル／件",
+       "yen": "販売額の10％＋約75円／件",
+       "note": "カード処理費（例：2.9％＋0.30ドル（約45円））は別途発生",
+       "cites": [],
+       "recordKeys": [
+        "r36",
+        "r20",
+        "r22"
+       ]
+      },
+      {
+       "label": "Gumroad Discover経由の販売",
+       "value": "販売額の30％／件",
+       "note": "決済処理費を含む案内",
+       "cites": [],
+       "recordKeys": [
+        "r37",
+        "r21"
+       ]
+      },
+      {
+       "label": "一定の大口直接販売",
+       "value": "5％＋0.50ドル／件",
+       "yen": "5％＋約75円／件",
+       "note": "当月の有料販売額が2万ドル（約300万円）に達した後の新規直接販売に適用。月初にリセット",
+       "cites": [],
+       "recordKeys": [
+        "r38"
+       ]
+      }
+     ]
+    },
+    {
+     "type": "paragraph",
+     "tone": "body",
+     "text": "月額基本料はなし。2025年からはMerchant of Recordとして販売税の処理にも対応し、運営側の責任範囲が広がった。",
+     "cites": [
+      3,
+      5
+     ],
+     "recordKeys": [
+      "r39"
+     ]
+    },
+    {
+     "type": "subheading",
+     "text": "2024〜2025年の決算"
+    },
+    {
+     "type": "table",
+     "columns": [
+      "会社の年間実績",
+      "2024年",
+      "2025年"
+     ],
+     "rows": [
+      {
+       "label": "売上",
+       "cells": [
+        {
+         "text": "18,951,308ドル",
+         "yen": "約28億4,000万円"
+        },
+        {
+         "text": "17,785,730ドル",
+         "yen": "約26億7,000万円"
+        }
+       ],
+       "cites": [],
+       "recordKeys": [
+        "r40",
+        "r1",
+        "r2"
+       ]
+      },
+      {
+       "label": "売上原価",
+       "cells": [
+        {
+         "text": "5,923,421ドル",
+         "yen": "約8億9,000万円"
+        },
+        {
+         "text": "6,078,822ドル",
+         "yen": "約9億1,000万円"
+        }
+       ],
+       "cites": [],
+       "recordKeys": [
+        "r41",
+        "r3",
+        "r4"
+       ]
+      },
+      {
+       "label": "売上総利益",
+       "cells": [
+        {
+         "text": "13,027,887ドル",
+         "yen": "約19億5,000万円"
+        },
+        {
+         "text": "11,706,908ドル",
+         "yen": "約17億6,000万円"
+        }
+       ],
+       "cites": [],
+       "recordKeys": [
+        "r42"
+       ]
+      },
+      {
+       "label": "純利益",
+       "cells": [
+        {
+         "text": "4,290,423ドル",
+         "yen": "約6億4,000万円"
+        },
+        {
+         "text": "3,792,179ドル",
+         "yen": "約5億7,000万円"
+        }
+       ],
+       "cites": [],
+       "recordKeys": [
+        "r43",
+        "r5",
+        "r6"
+       ]
+      }
+     ]
+    },
+    {
+     "type": "paragraph",
+     "tone": "body",
+     "text": "米SECへ2026年4月に提出した2025年1〜12月の会社全体の実績。売上は前年を下回り、関連サービスの売上も含む。",
+     "cites": [
+      2
+     ],
+     "recordKeys": [
+      "r44"
+     ]
+    },
+    {
+     "type": "figure",
+     "figureId": "gumroad-results"
+    },
+    {
+     "type": "facts",
+     "variant": "amount",
+     "rows": [
+      {
+       "label": "決済処理",
+       "text": "約440万ドル（約6億6,000万円）",
+       "cites": [],
+       "recordKeys": [
+        "r7"
+       ]
+      },
+      {
+       "label": "ホスティング・制作関連",
+       "text": "約92万ドル（約1億3,800万円）",
+       "cites": [],
+       "recordKeys": [
+        "r8"
+       ]
+      },
+      {
+       "label": "専門サービス",
+       "text": "約137万ドル（約2億600万円）",
+       "cites": [],
+       "recordKeys": [
+        "r9"
+       ]
+      },
+      {
+       "label": "製品開発",
+       "text": "約194万ドル（約2億9,000万円）",
+       "cites": [],
+       "recordKeys": [
+        "r10"
+       ]
+      }
+     ]
+    },
+    {
+     "type": "paragraph",
+     "tone": "note",
+     "text": "2025年の主な費用内訳。",
+     "cites": [
+      2
+     ],
+     "recordKeys": [
+      "r45"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "acquisition",
+   "lead": {
+    "text": "初期はHacker Newsへの公開で注目され、販売開始後はクリエイター自身の発信も購入者を呼び込んだ。",
+    "cites": [],
+    "recordKeys": [
+     "r46",
+     "r48"
+    ]
+   },
+   "blocks": [
+    {
+     "type": "paragraph",
+     "tone": "body",
+     "text": "2011年、Pinterest初期社員のSahilが週末に試作してHacker Newsへ公開。初日の訪問は本人の回顧で5万2,000人超。",
+     "cites": [
+      1,
+      6
+     ],
+     "recordKeys": [
+      "r46",
+      "r19",
+      "r47"
+     ]
+    },
+    {
+     "type": "subheading",
+     "text": "販売者が購入者を連れてくる構造"
+    },
+    {
+     "type": "paragraph",
+     "tone": "body",
+     "text": "販売者自身がSNSやメールで買い手を呼び込む。プラットフォームへ登録するだけで商品が売れるわけではない。",
+     "cites": [
+      3,
+      7
+     ],
+     "recordKeys": [
+      "r48"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "operations",
+   "lead": {
+    "text": "決済・配布・出金・税務対応を担い、赤字期には人員と固定費を大きく減らした。",
+    "cites": [],
+    "recordKeys": [
+     "r26",
+     "r55",
+     "r54"
+    ]
+   },
+   "blocks": [
+    {
+     "type": "list",
+     "ordered": false,
+     "items": [
+      {
+       "lead": "購入を処理する",
+       "text": "決済手段を提供し、注文を確定させる。Stripeなどの決済処理費が発生する。",
+       "cites": [],
+       "recordKeys": [
+        "r50"
+       ]
+      },
+      {
+       "lead": "データや商品を届ける",
+       "text": "デジタル商品へのアクセス、購読や会員向け販売を扱う。",
+       "cites": [],
+       "recordKeys": [
+        "r51"
+       ]
+      },
+      {
+       "lead": "販売者へ払う",
+       "text": "国・決済方式ごとに支払手段や条件を整備する。",
+       "cites": [],
+       "recordKeys": [
+        "r52"
+       ]
+      },
+      {
+       "lead": "税務やトラブルに対応する",
+       "text": "2025年から販売者に代わって販売税を取り扱う仕組みを導入。ただし販売者本人の全税務義務が消えるわけではない。",
+       "cites": [
+        2,
+        3,
+        5
+       ],
+       "recordKeys": [
+        "r53"
+       ]
+      }
+     ]
+    },
+    {
+     "type": "paragraph",
+     "tone": "body",
+     "text": "取引量が増えると決済費だけでなく、返金・不正対応・サポート・法令対応も必要になる。",
+     "cites": [
+      2
+     ],
+     "recordKeys": [
+      "r54"
+     ]
+    },
+    {
+     "type": "subheading",
+     "text": "人員・固定費の見直し"
+    },
+    {
+     "type": "paragraph",
+     "tone": "body",
+     "text": "2015年頃、組織を20人から5人に縮小し、月2万5,000ドル（約375万円）のオフィスも見直した。創業者自身が問い合わせや不具合対応を担い、元社員の助けも借りた。",
+     "cites": [
+      1
+     ],
+     "recordKeys": [
+      "r55",
+      "r17",
+      "r18"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "history",
+   "lead": {
+    "text": "2015年に月間35万ドル（約5,200万円）規模の赤字を記録した後、人員・固定費を削減して翌年に月次黒字化した。",
+    "cites": [],
+    "recordKeys": [
+     "r12",
+     "r13",
+     "r16",
+     "r15",
+     "r65"
+    ]
+   },
+   "blocks": [
+    {
+     "type": "paragraph",
+     "tone": "body",
+     "text": "2015年6月（月間）：売上89,000ドル（約1,340万円）、粗利益17,000ドル（約255万円）、営業費用364,000ドル（約5,500万円）、最終損益はマイナス351,000ドル（約5,300万円）。創業者が目指した追加の大型資金調達は成立せず、大幅なコスト削減に向かった。",
+     "cites": [
+      1
+     ],
+     "recordKeys": [
+      "r56",
+      "r11",
+      "r12",
+      "r13"
+     ]
+    },
+    {
+     "type": "paragraph",
+     "tone": "body",
+     "text": "2016年6月（月間）：売上176,000ドル（約2,640万円）、粗利益42,000ドル（約630万円）、営業費用32,000ドル（約480万円）、最終損益はプラス10,000ドル（約150万円）。売上拡大だけでなく、固定費を大幅に減らしたことで黒字化した。",
+     "cites": [
+      1
+     ],
+     "recordKeys": [
+      "r57",
+      "r14",
+      "r15",
+      "r16"
+     ]
+    },
+    {
+     "type": "timeline",
+     "items": [
+      {
+       "when": "2011年",
+       "title": "週末に試作、Hacker Newsへ公開",
+       "text": "初期認知を獲得し外部資金調達へ",
+       "cites": [],
+       "recordKeys": [
+        "r58"
+       ]
+      },
+      {
+       "when": "2012年",
+       "title": "追加で700万ドル（約10億5,000万円）調達",
+       "text": "事業拡大、人員・オフィス固定費が増える",
+       "cites": [],
+       "recordKeys": [
+        "r59"
+       ]
+      },
+      {
+       "when": "2015年",
+       "title": "成長鈍化、75％の人員を削減",
+       "text": "資金調達型の急拡大路線を縮小",
+       "cites": [],
+       "recordKeys": [
+        "r60"
+       ]
+      },
+      {
+       "when": "2016年",
+       "title": "月次で黒字化",
+       "text": "少人数・低固定費の運営へ移行",
+       "cites": [],
+       "recordKeys": [
+        "r61"
+       ]
+      },
+      {
+       "when": "2017年",
+       "title": "主要投資家から持分買戻しの提案",
+       "text": "経営の自由度を高める転機",
+       "cites": [],
+       "recordKeys": [
+        "r62"
+       ]
+      },
+      {
+       "when": "2018年",
+       "title": "創業者が財務指標を公開",
+       "text": "運営者と販売者への透明性を高める",
+       "cites": [],
+       "recordKeys": [
+        "r63"
+       ]
+      },
+      {
+       "when": "2025年",
+       "title": "会社全体で売上1,779万ドル（約26億7,000万円）・純利益379万ドル（約5億7,000万円）",
+       "text": "継続して利益を計上。ただし売上・利益とも前年割れ",
+       "cites": [],
+       "recordKeys": [
+        "r64"
+       ]
+      }
+     ]
+    },
+    {
+     "type": "paragraph",
+     "tone": "body",
+     "text": "売上増だけでなく、月間営業費用を36.4万ドル（約5,500万円）から3.2万ドル（約480万円）へ削減したことが黒字化を支えた。",
+     "cites": [
+      1,
+      2
+     ],
+     "recordKeys": [
+      "r65"
+     ]
+    },
+    {
+     "type": "subheading",
+     "text": "創業者と販売者が持っていた資源"
+    },
+    {
+     "type": "paragraph",
+     "tone": "body",
+     "text": "創業者にはPinterestでの開発経験とHacker Newsへの発信経路があった。販売者側も、自分の商品と買い手との接点を必要とする。",
+     "cites": [
+      1,
+      3,
+      6
+     ],
+     "recordKeys": [
+      "r66",
+      "r46"
+     ]
+    }
+   ]
+  }
+ ],
+ "figures": [
+  {
+   "id": "gumroad-flow",
+   "file": "gumroad-flow.svg",
+   "alt": "Gumroadの取引・手数料の仕組み",
+   "width": 1120,
+   "height": 470
+  },
+  {
+   "id": "gumroad-results",
+   "file": "gumroad-results.svg",
+   "alt": "Gumroadの2024年と2025年の実績",
+   "width": 1120,
+   "height": 470
+  }
+ ],
+ "editorialChanges": [
+  {
+   "kind": "yen-added",
+   "where": "全体（本文・数字の帯・料金の表・決算の表）",
+   "text": "外貨の数字に円の概算を足した（35か所）。379万ドル→約5億7,000万円、約1,779万ドル→約26億7,000万円、約379万ドル→約5億7,000万円、0.50ドル→約75円、0.30ドル→約45円、2万ドル→約300万円、18,951,308ドル→約28億4,000万円、17,785,730ドル→約26億7,000万円、5,923,421ドル→約8億9,000万円、6,078,822ドル→約9億1,000万円、13,027,887ドル→約19億5,000万円、11,706,908ドル→約17億6,000万円、4,290,423ドル→約6億4,000万円、3,792,179ドル→約5億7,000万円、約440万ドル→約6億6,000万円、約92万ドル→約1億3,800万円、約137万ドル→約2億600万円、約194万ドル→約2億9,000万円、2万5,000ドル→約375万円、35万ドル→約5,200万円、89,000ドル→約1,340万円、17,000ドル→約255万円、364,000ドル→約5,500万円、351,000ドル→約5,300万円、176,000ドル→約2,640万円、42,000ドル→約630万円、32,000ドル→約480万円、10,000ドル→約150万円、700万ドル→約10億5,000万円、1,779万ドル→約26億7,000万円、36.4万ドル→約5,500万円、3.2万ドル→約480万円",
+   "reason": "円の概算を添える決まり（docs/CASE_TEXT_STANDARD.md）。為替は1ドル=150円、1ユーロ=165円、1ポンド=195円、1SEK=14円",
+   "recordKeys": []
+  },
+  {
+   "kind": "other",
+   "where": "一覧の1行（listLine）",
+   "text": "作り手がデジタル商品を売る場を提供し、年間の売上は約27億円",
+   "reason": "指揮が決めた一覧の1行を設定した（見本の文ではない）",
+   "recordKeys": []
+  },
+  {
+   "kind": "not-in-article",
+   "where": "売上の内訳",
+   "text": "2025年報告書のSmall Bets関連売上は249,346ドルで、会社全体の収益の一部。",
+   "reason": "見本の文に入っていない",
+   "recordKeys": [
+    "r23"
+   ]
+  },
+  {
+   "kind": "not-in-article",
+   "where": "起こり",
+   "text": "最初は「単品のデジタル商品を売るのに本格的なネットショップが必要なのか」という疑問から始まった。",
+   "reason": "見本の文に入っていない",
+   "recordKeys": [
+    "r28"
+   ]
+  },
+  {
+   "kind": "not-in-article",
+   "where": "数字の読み方",
+   "text": "初日の5万2,000人は訪問で、購入者数ではない。最初の購入者や契約率は回顧から確定できない。2011年の初期露出と現在のDiscover経由の発見は別の販売経路で、同じ「口コミ」にまとめない。",
+   "reason": "見本の文に入っていない（注記）",
+   "recordKeys": [
+    "r47",
+    "r49"
+   ]
+  }
+ ]
+}

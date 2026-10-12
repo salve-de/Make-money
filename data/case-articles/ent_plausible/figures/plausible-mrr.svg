@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:ev="http://www.w3.org/2001/xml-events" xmlns:xlink="http://www.w3.org/1999/xlink" baseProfile="full" height="470" version="1.1" viewBox="0 0 1120 470" width="1120">
+  <defs/>
+  <rect fill="#0d1015" height="100%" width="100%" x="0" y="0"/>
+  <text fill="#f0f2f4" font-family="Noto Sans CJK JP, sans-serif" font-size="26" font-weight="600" x="40" y="52">MRR：2019年から2022年までの公表値</text>
+  <text fill="#8895a3" font-family="Noto Sans CJK JP, sans-serif" font-size="14" font-weight="400" x="40" y="86">比較可能な月次継続収益の値だけを抜粋</text>
+  <line stroke="#343c46" stroke-width="1" x1="80" x2="1030" y1="356.0" y2="356.0"/>
+  <text fill="#8895a3" font-family="Noto Sans CJK JP, sans-serif" font-size="13" font-weight="400" text-anchor="end" x="68" y="361.0">$0</text>
+  <line stroke="#343c46" stroke-width="1" x1="80" x2="1030" y1="282.6666666666667" y2="282.6666666666667"/>
+  <text fill="#8895a3" font-family="Noto Sans CJK JP, sans-serif" font-size="13" font-weight="400" text-anchor="end" x="68" y="287.6666666666667">$30k</text>
+  <line stroke="#343c46" stroke-width="1" x1="80" x2="1030" y1="209.33333333333334" y2="209.33333333333334"/>
+  <text fill="#8895a3" font-family="Noto Sans CJK JP, sans-serif" font-size="13" font-weight="400" text-anchor="end" x="68" y="214.33333333333334">$60k</text>
+  <line stroke="#343c46" stroke-width="1" x1="80" x2="1030" y1="136.0" y2="136.0"/>
+  <text fill="#8895a3" font-family="Noto Sans CJK JP, sans-serif" font-size="13" font-weight="400" text-anchor="end" x="68" y="141.0">$90k</text>
+  <rect fill="#79acc8" height="0.15644444444444444" width="95" x="120" y="355.84355555555555"/>
+  <text fill="#f0f2f4" font-family="Noto Sans CJK JP, sans-serif" font-size="16" font-weight="600" text-anchor="middle" x="168" y="346.84355555555555">$64</text>
+  <text fill="#b7c0c9" font-family="Noto Sans CJK JP, sans-serif" font-size="14" font-weight="400" text-anchor="middle" x="168" y="383">2019/05</text>
+  <rect fill="#79acc8" height="1.0584444444444445" width="95" x="314" y="354.94155555555557"/>
+  <text fill="#f0f2f4" font-family="Noto Sans CJK JP, sans-serif" font-size="16" font-weight="600" text-anchor="middle" x="362" y="345.94155555555557">$433</text>
+  <text fill="#b7c0c9" font-family="Noto Sans CJK JP, sans-serif" font-size="14" font-weight="400" text-anchor="middle" x="362" y="383">2020/03</text>
+  <rect fill="#79acc8" height="21.997555555555557" width="95" x="508" y="334.00244444444445"/>
+  <text fill="#f0f2f4" font-family="Noto Sans CJK JP, sans-serif" font-size="16" font-weight="600" text-anchor="middle" x="556" y="325.00244444444445">$8,999</text>
+  <text fill="#b7c0c9" font-family="Noto Sans CJK JP, sans-serif" font-size="14" font-weight="400" text-anchor="middle" x="556" y="383">2020/12</text>
+  <rect fill="#79acc8" height="104.19200000000001" width="95" x="702" y="251.808"/>
+  <text fill="#f0f2f4" font-family="Noto Sans CJK JP, sans-serif" font-size="16" font-weight="600" text-anchor="middle" x="750" y="242.808">$42,624</text>
+  <text fill="#b7c0c9" font-family="Noto Sans CJK JP, sans-serif" font-size="14" font-weight="400" text-anchor="middle" x="750" y="383">2021/10</text>
+  <rect fill="#79acc8" height="204.446" width="95" x="896" y="151.554"/>
+  <text fill="#f0f2f4" font-family="Noto Sans CJK JP, sans-serif" font-size="16" font-weight="600" text-anchor="middle" x="944" y="142.554">$83,637</text>
+  <text fill="#b7c0c9" font-family="Noto Sans CJK JP, sans-serif" font-size="14" font-weight="400" text-anchor="middle" x="944" y="383">2022/06</text>
+  <text fill="#8895a3" font-family="Noto Sans CJK JP, sans-serif" font-size="15" font-weight="400" x="80" y="432">各時点のMRR（ドル／月）。出典：Plausible創業者の公開記録。</text>
+</svg>

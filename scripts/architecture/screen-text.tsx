@@ -35,6 +35,7 @@ import { ReaderLedger } from '@/features/company-inspector/ui/ReaderDetail';
 import { isGenerationHeading } from '@/platform/components/grid/generation';
 import { allowedUiTexts, isUnknownsLine } from '@/shared/ui-strings';
 import { casePageTexts } from '@/shared/case-page';
+import { caseArticleTexts } from '@/shared/case-article';
 import { parseFinancialEntitiesResiliently, parseFinancialEntity } from '@/shared/financial-entity-schema';
 import type { FinancialEntity } from '@/shared/terminal';
 import { INTERNAL_TERMS, LIST_ONLY_RES, PROCESS_RES, SCREEN_ONLY_RES, STANDALONE_LINES, analyzeScreen } from './screen-text-lib.mjs';
@@ -219,6 +220,8 @@ for (const id of ids) {
   for (const label of entity.reader?.display?.labels?.labels ?? []) allowed.add(label);
   // 章ごとの文（case-page）の文字も、この事例のデータから来た文字
   for (const t of entity.reader?.display?.casePage ? casePageTexts(entity.reader.display.casePage) : []) allowed.add(t);
+  // 事例の記事（case-article）の文字も同じ
+  for (const t of entity.reader?.display?.caseArticle ? caseArticleTexts(entity.reader.display.caseArticle) : []) allowed.add(t);
   const isAllowed = (t: string) => allowed.has(t) || isUnknownsLine(t) || isGenerationHeading(t);
   const factIds = new Set((entity.reader?.facts ?? []).map((f) => f.id));
   for (const [screen, html] of screens) {

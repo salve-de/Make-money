@@ -10,6 +10,7 @@
  */
 import { z } from 'zod';
 import { CasePageSchema } from './case-page';
+import { CaseArticleSchema } from './case-article';
 
 export const SOURCE_KINDS = ['OFFICIAL', 'FILING', 'LISTING', 'ARTICLE', 'SELF_REPORTED', 'THIRD_PARTY', 'ARCHIVE'] as const;
 export const FACT_KINDS = ['DESCRIPTION', 'PRICING', 'FOUNDING', 'TEAM', 'CHANNEL', 'TOOL', 'EVENT', 'EXIT', 'FUNDING', 'OTHER'] as const;
@@ -159,6 +160,8 @@ export const ReaderDisplaySchema = z.object({
   factLines: z.array(z.object({ kind: z.enum(['fact', 'basis', 'period', 'formula', 'analysis']), targetId: z.string().min(1), hash: z.string().min(1), text: z.string() })).optional(),
   /** 章ごとの文（data/case-pages/<事例ID>.md が正本）。あれば詳細はこの章だけを出す。 */
   casePage: CasePageSchema.optional(),
+  /** 事例の記事（新しい形式。data/case-articles/<事例ID>/article.json が正本）。あれば詳細はこの記事を出す。審査が済んだ記事だけが入る。 */
+  caseArticle: CaseArticleSchema.optional(),
   /** 札（事業の中身から付けた分野）。事例が持つ札が少ない時だけ足す。tagline の指紋が合う時だけ使う。 */
   labels: z.object({ hash: z.string().min(1), labels: z.array(z.string().min(1)).min(1).max(3) }).optional(),
 });
