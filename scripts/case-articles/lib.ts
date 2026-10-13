@@ -20,7 +20,7 @@ export const CASE_ARTICLES_FILE = 'data/case-articles.json';
 
 export type ArticleRule =
   | 'schema' | 'entity-id' | 'polite' | 'yen-after-foreign'
-  | 'cites' | 'sources' | 'figure' | 'topics' | 'research' | 'record-keys' | 'too-long' | 'long-paragraph';
+  | 'cites' | 'sources' | 'figure' | 'topics' | 'research' | 'record-keys' | 'too-long';
 export interface ArticleViolation { rule: ArticleRule; where: string; detail: string }
 
 /** 画面用の記事の1件（data/case-articles.json の要素） */
@@ -45,6 +45,7 @@ export const DATA_LINE_MAX = 110;
 export const STEP_TEXT_MAX = 170;
 export const LIST_ITEM_MAX = 140;
 export const NOTE_MAX = 80;
+export const PARAGRAPH_MAX = 240;
 
 /** 図（SVG）に入れてはいけないもの。外へ出る参照・埋め込み・スクリプト */
 const SVG_FORBIDDEN: Array<{ re: RegExp; label: string }> = [
@@ -168,7 +169,7 @@ export function checkArticleDir(dir: string, entityId: string): { built: BuiltAr
   if (new Set(ids).size !== ids.length) v.push({ rule: 'topics', where: 'topics', detail: `id が重複している: ${ids.join(', ')}` });
   const order = ids.map((id) => CASE_ARTICLE_TOPIC_IDS.indexOf(id));
   if (order.some((n, i) => i > 0 && n < order[i - 1])) v.push({ rule: 'topics', where: 'topics', detail: `並びが決まった順（${CASE_ARTICLE_TOPIC_IDS.join(' → ')}）でない: ${ids.join(' → ')}` });
-  // ⑦ 章の形: 長い段落は置かない
+  // ⑦ 1行の長さ
   const chars = (t: string) => [...t].length;
   const tooLong = (where: string, text: string, max: number) => { if (chars(text) > max) v.push({ rule: 'too-long', where, detail: `${chars(text)}字（${max}字以内。行を分けるか表・箇条書きにする）: ${text.slice(0, 30)}…` }); };
   for (const topic of article.topics) {
@@ -179,8 +180,8 @@ export function checkArticleDir(dir: string, entityId: string): { built: BuiltAr
       switch (b.type) {
         case 'facts': b.rows.forEach((r) => tooLong(where, r.text, DATA_LINE_MAX)); break;
         case 'paragraph':
-          if (b.tone === 'body') v.push({ rule: 'long-paragraph', where, detail: '段落（body）は置かない。項目の行・箇条書き・表にするか、短い補足（note）にする' });
-          tooLong(where, b.text, NOTE_MAX);
+          // 背景や理由の説明が要る所は文章で書いてよい（2026-10-14 オーナー決定: 型に押し込めない）
+          tooLong(where, b.text, b.tone === 'body' ? PARAGRAPH_MAX : NOTE_MAX);
           break;
         case 'steps': b.items.forEach((x) => tooLong(where, x.text, STEP_TEXT_MAX)); break;
         case 'list': b.items.forEach((x) => tooLong(where, x.text, LIST_ITEM_MAX)); break;

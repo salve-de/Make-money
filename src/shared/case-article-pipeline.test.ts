@@ -80,9 +80,9 @@ describe('case-article 原稿の検査', () => {
     expect(CaseArticleSchema.safeParse(built?.article).success).toBe(true);
     expect(caseArticleTexts(built!.article)).toContain('無料から有料へ進む流れ');
   });
-  it('章の最初の文は無くてもよい。長い段落を置いた・1行が長すぎる、は止める', () => {
+  it('章の最初の文は無くてもよく、文章の段落も置ける。1行が長すぎる時だけ止める', () => {
     expect(rules(mutate((a) => { delete a.topics[0].lead; }))).toEqual([]);
-    expect(rules(mutate((a) => { a.topics[0].blocks[0].tone = 'body'; }))).toContain('long-paragraph');
+    expect(rules(mutate((a) => { a.topics[0].blocks.push({ type: 'paragraph', tone: 'body', text: '背景の説明の文。', cites: [], recordKeys: [] }); }))).toEqual([]);
     expect(rules(mutate((a) => { a.topics[1].blocks[0].rows[0].text = 'あ'.repeat(DATA_LINE_MAX + 1); }))).toContain('too-long');
     expect(rules(mutate((a) => { a.topics[1].lead.text = 'あ'.repeat(CHAPTER_LEAD_MAX + 1); }))).toContain('too-long');
   });

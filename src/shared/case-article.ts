@@ -43,7 +43,7 @@ function shapes<I extends boolean>(internal: I) {
       variant: z.enum(['text', 'amount']).default('text'),
       rows: z.array(z.object({ label: z.string().min(1), ...line })).min(1),
     }),
-    /** 補足の文。note は表や行の下に添える小さな補足。body（長い段落）は検査で止める。 */
+    /** 文章。body は背景や理由の説明、note は表や行の下に添える小さな補足。 */
     z.object({ type: z.literal('paragraph'), tone: z.enum(['body', 'note']).default('body'), ...line }),
     /** 番号つきの手順（題＋文） */
     z.object({ type: z.literal('steps'), items: z.array(z.object({ title: z.string().min(1), ...line })).min(1) }),
