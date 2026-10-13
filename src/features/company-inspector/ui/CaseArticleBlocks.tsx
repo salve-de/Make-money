@@ -14,20 +14,46 @@ export function hostOf(url: string): string {
   }
 }
 
-/** 文の末尾の出典の印。番号の小さな上付きリンクで、押すと出典の URL を新しいタブで開く。 */
+/** ブロック1つが根拠にしている出典の番号。 */
+function blockCites(block: CaseArticleBlock): Cites {
+  switch (block.type) {
+    case 'facts':
+    case 'rates':
+    case 'table':
+      return block.rows.flatMap((r) => r.cites);
+    case 'steps':
+    case 'timeline':
+    case 'list':
+      return block.items.flatMap((x) => x.cites);
+    case 'paragraph':
+      return block.cites;
+    default:
+      return [];
+  }
+}
+
+/** 章の全体（最初の文と各ブロック）が根拠にしている出典の番号。重なりを除いて小さい順。 */
+export function topicCites(topic: CaseArticle['topics'][number]): number[] {
+  const all = [...(topic.lead?.cites ?? []), ...topic.blocks.flatMap(blockCites)];
+  return [...new Set(all)].sort((a, b) => a - b);
+}
+
+/**
+ * 章の終わりに1回だけ出す出典の番号。行ごとには出さない（同じ番号が何十回も並んで本文が読みにくくなるため）。
+ * 番号は下の出典の一覧と同じで、押すと出典のページを新しいタブで開く。
+ */
 export function CiteMarks({ cites, sources }: { cites: Cites; sources: ReadonlyArray<Source> }) {
   const found = cites.map((no) => sources.find((s) => s.no === no)).filter((s): s is Source => Boolean(s));
   if (found.length === 0) return null;
   return (
-    <span className="whitespace-nowrap">
+    <p data-case-article-cites className="mt-3 flex flex-wrap items-center justify-end gap-x-0.5 text-xs text-term-label">
+      <span className="mr-1">{UI.CASE_ARTICLE_SOURCES}</span>
       {found.map((s) => (
-        <sup key={s.no} className="ml-0.5 text-[10px] leading-none">
-          <a href={s.url} target="_blank" rel="noopener noreferrer" title={s.label} aria-label={s.label} data-cite={s.no} className="inline-block px-0.5 text-term-label underline underline-offset-2 hover:text-term-fg-strong">
-            {s.no}
-          </a>
-        </sup>
+        <a key={s.no} href={s.url} target="_blank" rel="noopener noreferrer" title={s.label} aria-label={s.label} data-cite={s.no} className="term-num inline-flex min-h-8 min-w-6 items-center justify-center rounded-sm px-1 text-term-label hover:bg-term-line hover:text-term-fg-strong">
+          {s.no}
+        </a>
       ))}
-    </span>
+    </p>
   );
 }
 
@@ -80,7 +106,6 @@ function FigureView({ figure }: { figure: CaseArticleFigure }) {
 
 /** ブロック1つを種類に応じて描く。種類ごとの見た目はここだけに置き、事例ごとの手書きはしない。 */
 export function ArticleBlock({ block, article }: { block: CaseArticleBlock; article: CaseArticle }) {
-  const { sources } = article;
   switch (block.type) {
     case 'facts':
       return (
@@ -90,7 +115,6 @@ export function ArticleBlock({ block, article }: { block: CaseArticleBlock; arti
               <dt className="text-xs leading-relaxed text-term-label">{r.label}</dt>
               <dd className={`m-0 text-sm leading-relaxed text-term-fg ${wrap} ${block.variant === 'amount' ? 'term-num text-right' : ''}`}>
                 {r.text}
-                <CiteMarks cites={r.cites} sources={sources} />
               </dd>
             </div>
           ))}
@@ -100,7 +124,6 @@ export function ArticleBlock({ block, article }: { block: CaseArticleBlock; arti
       return (
         <p className={`${block.tone === 'note' ? 'text-xs leading-relaxed text-term-label' : 'text-sm leading-relaxed text-term-fg'} ${wrap}`}>
           {block.text}
-          <CiteMarks cites={block.cites} sources={sources} />
         </p>
       );
     case 'steps':
@@ -113,7 +136,6 @@ export function ArticleBlock({ block, article }: { block: CaseArticleBlock; arti
                 <p className="text-sm font-semibold leading-snug text-term-fg-strong">{x.title}</p>
                 <p className="mt-0.5 text-sm leading-relaxed text-term-fg">
                   {x.text}
-                  <CiteMarks cites={x.cites} sources={sources} />
                 </p>
               </div>
             </li>
@@ -129,7 +151,6 @@ export function ArticleBlock({ block, article }: { block: CaseArticleBlock; arti
               <li key={r.label} className="grid grid-cols-[minmax(0,1fr)_auto] gap-x-3 border-b border-term-line-soft py-2 first:pt-0 last:border-b-0">
                 <div className={`min-w-0 text-sm leading-relaxed text-term-fg ${wrap}`}>
                   {r.label}
-                  <CiteMarks cites={r.cites} sources={sources} />
                   {r.note && <p className="mt-0.5 text-xs leading-relaxed text-term-label">{r.note}</p>}
                 </div>
                 <div className={`max-w-[11rem] text-right ${wrap}`}>
@@ -158,7 +179,6 @@ export function ArticleBlock({ block, article }: { block: CaseArticleBlock; arti
                 <tr key={r.label} className="border-b border-term-line-soft align-top last:border-b-0">
                   <th scope="row" className={`min-w-[5rem] px-1.5 py-2 pl-0 text-left text-sm font-normal leading-relaxed text-term-fg ${wrap}`}>
                     {r.label}
-                    <CiteMarks cites={r.cites} sources={sources} />
                   </th>
                   {r.cells.map((c, i) => (
                     <td key={`${c.text}-${i}`} className="term-num whitespace-nowrap px-1.5 py-2 text-right leading-relaxed text-term-fg last:pr-0">
@@ -181,7 +201,6 @@ export function ArticleBlock({ block, article }: { block: CaseArticleBlock; arti
               <span className={`min-w-0 text-term-fg ${wrap}`}>
                 {x.title && <strong className="block font-semibold text-term-fg-strong">{x.title}</strong>}
                 {x.text}
-                <CiteMarks cites={x.cites} sources={sources} />
               </span>
             </li>
           ))}
@@ -196,7 +215,6 @@ export function ArticleBlock({ block, article }: { block: CaseArticleBlock; arti
               {x.lead && <strong className="font-semibold text-term-fg-strong">{x.lead}</strong>}
               {x.lead && ' '}
               {x.text}
-              <CiteMarks cites={x.cites} sources={sources} />
             </li>
           ))}
         </Tag>

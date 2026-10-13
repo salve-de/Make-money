@@ -2,7 +2,7 @@ import React from 'react';
 
 import { CASE_ARTICLE_TOPIC_IDS, type CaseArticle, type CaseArticleTopicId } from '@/shared/case-article';
 import { UI } from '@/shared/ui-strings';
-import { ArticleBlock, CiteMarks, hostOf } from './CaseArticleBlocks';
+import { ArticleBlock, CiteMarks, hostOf, topicCites } from './CaseArticleBlocks';
 import { CaseArticleNav } from './CaseArticleNav';
 import { Fold } from './ReaderOverview';
 
@@ -58,7 +58,6 @@ export function CaseArticleView({ article, media }: { article: CaseArticle; medi
           {t.lead && (
             <p className="mb-3 text-[15px] font-semibold leading-relaxed text-term-fg-strong [overflow-wrap:anywhere]">
               {t.lead.text}
-              <CiteMarks cites={t.lead.cites} sources={article.sources} />
             </p>
           )}
           <div className="grid grid-cols-1 gap-3">
@@ -66,6 +65,7 @@ export function CaseArticleView({ article, media }: { article: CaseArticle; medi
               <ArticleBlock key={i} block={b} article={article} />
             ))}
           </div>
+          <CiteMarks cites={topicCites(t)} sources={article.sources} />
         </Fold>
       ))}
       <Fold id={SOURCES_ANCHOR} title={UI.CASE_ARTICLE_SOURCES} defaultOpen>

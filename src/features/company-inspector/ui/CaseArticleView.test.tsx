@@ -80,10 +80,15 @@ describe('事例の記事（case-article）の詳細画面', () => {
   it('全種類のブロックの文を出す', () => {
     for (const t of ['概要の結論の文。', '訪問数を表示する。', '月3万ドル', '本文の段落。', '小さな補足の文。', '小見出しの文', '手順の題', '手順の文。', '料金の表題', '月払い', '9ドル', '約1,350円', '年払いなら安い', '決算の比較', '2021年', '売上', '50万ドル', '約7,500万円', '2018年', '始めた', '個人で公開した。', '2019年1月', '有料にした。']) expect(html).toContain(t);
   });
-  it('出典の印は番号のリンクで、出典の URL を新しいタブで開き、ラベルを名前にする', () => {
+  it('出典の番号は行ごとに出さず、章の終わりに1回だけ、重なりを除いて小さい順に出す。押すと出典の URL を新しいタブで開く', () => {
     expect(html).toMatch(/<a href="https:\/\/www\.example\.com\/pricing"[^>]*target="_blank"[^>]*title="公式サイト"[^>]*aria-label="公式サイト"[^>]*>1<\/a>/);
     const row = html.slice(html.indexOf('訪問数を表示する。'), html.indexOf('月3万ドル'));
-    expect(row.indexOf('data-cite="1"')).toBeLessThan(row.indexOf('data-cite="2"'));
+    expect(row).not.toContain('data-cite');
+    const overview = html.slice(html.indexOf('id="section-article-overview"'), html.indexOf('id="section-article-revenue"'));
+    expect(overview.match(/data-case-article-cites/g)).toHaveLength(1);
+    expect(overview.match(/data-cite="1"/g)).toHaveLength(1);
+    expect(overview.indexOf('data-cite="1"')).toBeLessThan(overview.indexOf('data-cite="2"'));
+    expect(overview.indexOf('小さな補足の文。')).toBeLessThan(overview.indexOf('data-case-article-cites'));
     expect(html).toContain('href="https://blog.example.org/post"');
   });
   it('出典の章は番号・ラベルのリンク・ドメインを出し、各行に id がある', () => {
