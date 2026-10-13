@@ -20,7 +20,7 @@ export const CASE_ARTICLES_FILE = 'data/case-articles.json';
 
 export type ArticleRule =
   | 'schema' | 'entity-id' | 'polite' | 'list-line-length' | 'yen-after-foreign'
-  | 'cites' | 'sources' | 'figure' | 'topics' | 'research' | 'record-keys';
+  | 'cites' | 'sources' | 'figure' | 'topics' | 'research' | 'record-keys' | 'chapter-lead' | 'too-long' | 'long-paragraph';
 export interface ArticleViolation { rule: ArticleRule; where: string; detail: string }
 
 /** 画面用の記事の1件（data/case-articles.json の要素） */
@@ -31,6 +31,14 @@ const FOREIGN_ARTICLE = new RegExp(
   `(?:[0-9０-９][0-9０-９,，.]*(?:[万千億百])?)\\s*(?:ドル|ユーロ|ポンド|ルピー|クローナ|SEK|EUR|USD|GBP)|(?:[$＄]|SEK|EUR|USD|GBP)\\s*[0-9０-９]`,
   FOREIGN.flags,
 );
+
+/**
+ * 章は「結論の1文 → 短いデータ」で書く（長い文章は読まれない）。字数の上限は、結論の文・データの1行・補足のそれぞれ。
+ * 上限に当たる時は、文を削るのでなく、行を分けるか表・箇条書きにする。
+ */
+export const CHAPTER_LEAD_MAX = 70;
+export const DATA_LINE_MAX = 60;
+export const NOTE_MAX = 80;
 
 /** 図（SVG）に入れてはいけないもの。外へ出る参照・埋め込み・スクリプト */
 const SVG_FORBIDDEN: Array<{ re: RegExp; label: string }> = [
@@ -156,14 +164,34 @@ export function checkArticleDir(dir: string, entityId: string): { built: BuiltAr
   if (new Set(ids).size !== ids.length) v.push({ rule: 'topics', where: 'topics', detail: `id が重複している: ${ids.join(', ')}` });
   const order = ids.map((id) => CASE_ARTICLE_TOPIC_IDS.indexOf(id));
   if (order.some((n, i) => i > 0 && n < order[i - 1])) v.push({ rule: 'topics', where: 'topics', detail: `並びが決まった順（${CASE_ARTICLE_TOPIC_IDS.join(' → ')}）でない: ${ids.join(' → ')}` });
-  // ⑦ 調査データの指紋
+  // ⑦ 章の形: 結論の1文が先、その下は短いデータ。長い段落は置かない
+  const chars = (t: string) => [...t].length;
+  const tooLong = (where: string, text: string, max: number) => { if (chars(text) > max) v.push({ rule: 'too-long', where, detail: `${chars(text)}字（${max}字以内。行を分けるか表・箇条書きにする）: ${text.slice(0, 30)}…` }); };
+  for (const topic of article.topics) {
+    if (!topic.lead) v.push({ rule: 'chapter-lead', where: topic.id, detail: '章の最初に結論の1文（lead）が要る' });
+    else tooLong(`${topic.id} / 結論の文`, topic.lead.text, CHAPTER_LEAD_MAX);
+    topic.blocks.forEach((b, i) => {
+      const where = `${topic.id} / ブロック${i + 1}（${b.type}）`;
+      switch (b.type) {
+        case 'facts': b.rows.forEach((r) => tooLong(where, r.text, DATA_LINE_MAX)); break;
+        case 'paragraph':
+          if (b.tone === 'body') v.push({ rule: 'long-paragraph', where, detail: '段落（body）は置かない。項目の行・箇条書き・表にするか、短い補足（note）にする' });
+          tooLong(where, b.text, NOTE_MAX);
+          break;
+        case 'steps': case 'timeline': case 'list': b.items.forEach((x) => tooLong(where, x.text, DATA_LINE_MAX)); break;
+        case 'rates': b.rows.forEach((r) => { if (r.note) tooLong(where, r.note, DATA_LINE_MAX); }); break;
+        case 'table': case 'subheading': case 'figure': break;
+      }
+    });
+  }
+  // ⑧ 調査データの指紋
   const researchPath = `${base}/research.json`;
   if (!existsSync(researchPath)) {
     v.push({ rule: 'research', where: 'research.json', detail: '同じ場所に research.json が無い' });
   } else {
     const bytes = readFileSync(researchPath);
     if (sha256(bytes) !== source.basedOn.submissionSha256) v.push({ rule: 'research', where: 'basedOn.submissionSha256', detail: 'research.json の sha256 と一致しない' });
-    // ⑧ recordKeys が調査の記録にある
+    // ⑨ recordKeys が調査の記録にある
     try {
       const research = JSON.parse(bytes.toString('utf8')) as { records?: Array<{ key?: string }> };
       const keys = new Set((research.records ?? []).map((r) => r.key));

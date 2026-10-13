@@ -26,20 +26,23 @@ function sample(): Record<string, unknown> {
     sourceKeys: { S1: 'one' },
     kpis: [{ label: '年間売上', value: '600万ドル', yen: '約9億円', period: '2026年', recordKeys: ['r1'] }],
     topics: [
-      { id: 'overview', blocks: [{ type: 'paragraph', tone: 'body', ...line('フォームを作って配る会社。') }, { type: 'figure', figureId: 'loop' }] },
+      { id: 'overview', lead: line('フォームを作って配る会社。'), blocks: [{ type: 'paragraph', tone: 'note', ...line('無料で始められる。') }, { type: 'figure', figureId: 'loop' }] },
       { id: 'mechanism', lead: line('無料が入口になる。'), blocks: [
         { type: 'facts', variant: 'text', rows: [{ label: '入口', ...line('無料で使える。') }] },
         { type: 'steps', items: [{ title: '作る', ...line('フォームを作る。') }] },
         { type: 'subheading', text: '内訳' },
       ] },
-      { id: 'revenue', blocks: [
+      { id: 'revenue', lead: line('有料の機能で稼ぐ。'), blocks: [
         { type: 'rates', caption: '料金', rows: [{ label: '有料', value: '29ドル', yen: '約4,400円', note: '月額', cites: [2], recordKeys: ['r2'] }] },
         { type: 'table', columns: ['項目', '値'], rows: [{ label: '売上', cells: [{ text: '600万ドル', yen: '約9億円' }], cites: [1], recordKeys: ['r1'] }] },
         { type: 'paragraph', tone: 'note', ...line('円は概算。') },
       ] },
-      { id: 'history', blocks: [
+      { id: 'history', lead: line('2020年に公開した。'), blocks: [
         { type: 'timeline', items: [{ when: '2020年', title: '開始', ...line('公開した。') }] },
         { type: 'list', ordered: false, items: [{ lead: '2021年', ...line('有料を始めた。') }] },
+      ] },
+      { id: 'reasons', lead: line('配った物がそのまま宣伝になった。'), blocks: [
+        { type: 'facts', variant: 'text', rows: [{ label: '効いたこと', ...line('無料の利用者が外へ配る。') }] },
       ] },
     ],
     figures: [{ id: 'loop', file: 'loop.svg', alt: '無料から有料へ進む流れ', width: 10, height: 10 }],
@@ -76,6 +79,12 @@ describe('case-article 原稿の検査', () => {
     expect(built?.article.figures[0].src).toMatch(/^data:image\/svg\+xml;base64,/);
     expect(CaseArticleSchema.safeParse(built?.article).success).toBe(true);
     expect(caseArticleTexts(built!.article)).toContain('無料から有料へ進む流れ');
+  });
+  it('章に結論の1文が無い・長い段落を置いた・1行が長すぎる、は止める', () => {
+    expect(rules(mutate((a) => { delete a.topics[0].lead; }))).toContain('chapter-lead');
+    expect(rules(mutate((a) => { a.topics[0].blocks[0].tone = 'body'; }))).toContain('long-paragraph');
+    expect(rules(mutate((a) => { a.topics[1].blocks[0].rows[0].text = 'あ'.repeat(61); }))).toContain('too-long');
+    expect(rules(mutate((a) => { a.topics[1].lead.text = 'あ'.repeat(71); }))).toContain('too-long');
   });
   it('1 です・ます調を落とす', () => { expect(rules(mutate((a) => { a.lead = 'この会社は強いです。'; }))).toContain('polite'); });
   it('2 一覧の1行が40字を超えると落とす', () => { expect(rules(mutate((a) => { a.listLine = 'あ'.repeat(41); }))).toContain('list-line-length'); });

@@ -2,7 +2,8 @@ import { z } from 'zod';
 
 /**
  * 事例の記事（case-article）。旧形式の「章ごとの文」（case-page）と並んで使う新しい形式。
- * 7つの決まった分類（概要・仕組み・お金・集客・運営・経緯・出典）に、章の結論の1文と、種類の決まったブロック（項目の行・段落・手順・表・年表・箇条書き・図）を並べる。
+ * 8つの決まった分類（概要・仕組み・お金・集客・運営・経緯・成功・失敗の理由・出典）に、章の結論の1文と、種類の決まったブロック（項目の行・補足・手順・表・年表・箇条書き・図）を並べる。
+ * 章は「結論の1文 → 短いデータ（数字・箇条書き・表・図）」の順で、長い文章は置かない（各分類の役割と書き方は docs/CASE_ARTICLE.md）。
  * 事例ごとに画面を手書きしない。どの事例もこの形のデータを、同じ表示部品（CaseArticleView）で出す。
  *
  * 正本は data/case-articles/<事例ID>/article.json（掲載用の原稿。下の CaseArticleSourceSchema）。
@@ -13,8 +14,11 @@ import { z } from 'zod';
 
 export const CASE_ARTICLE_SCHEMA = 'make-money.case-article.v2';
 
-/** 分類の並びは固定。目次もこの順に出す。出典（sources）の中身は記事の sources から作るので、topics には入れない。 */
-export const CASE_ARTICLE_TOPIC_IDS = ['overview', 'mechanism', 'revenue', 'acquisition', 'operations', 'history'] as const;
+/**
+ * 分類の並びは固定。目次もこの順に出す。出典（sources）の中身は記事の sources から作るので、topics には入れない。
+ * overview〜history は事実の整理、reasons（成功・失敗の理由）は前の章の事実をつないだ分析。
+ */
+export const CASE_ARTICLE_TOPIC_IDS = ['overview', 'mechanism', 'revenue', 'acquisition', 'operations', 'history', 'reasons'] as const;
 export type CaseArticleTopicId = (typeof CASE_ARTICLE_TOPIC_IDS)[number];
 
 export const CASE_ARTICLE_REVIEW_STATES = ['draft', 'ready_for_review', 'approved'] as const;
@@ -39,7 +43,7 @@ function shapes<I extends boolean>(internal: I) {
       variant: z.enum(['text', 'amount']).default('text'),
       rows: z.array(z.object({ label: z.string().min(1), ...line })).min(1),
     }),
-    /** 段落。note は表や行の下に添える小さな補足。 */
+    /** 補足の文。note は表や行の下に添える小さな補足。body（長い段落）は検査で止める。 */
     z.object({ type: z.literal('paragraph'), tone: z.enum(['body', 'note']).default('body'), ...line }),
     /** 番号つきの手順（題＋文） */
     z.object({ type: z.literal('steps'), items: z.array(z.object({ title: z.string().min(1), ...line })).min(1) }),
@@ -80,7 +84,7 @@ function shapes<I extends boolean>(internal: I) {
 
   const topic = z.object({
     id: z.enum(CASE_ARTICLE_TOPIC_IDS),
-    /** 章の結論の1文。概要など、置かない章もある。 */
+    /** 章の結論の1文。どの章も最初にこれを出し、その下にデータを並べる（無い原稿は検査で止める）。 */
     lead: z.object(line).optional(),
     blocks: z.array(block).min(1),
   });

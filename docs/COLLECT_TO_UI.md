@@ -264,6 +264,7 @@ bash scripts/reader-case/run-diff-audit.sh <直した事例IDを1行ずつ書い
 - [`research-record/README.md`](./research-record/README.md): 調査記録の必須項目と見本
 - [`pipeline/CLAUDE_RUNNER.md`](./pipeline/CLAUDE_RUNNER.md)、[`pipeline/DAILY_RUN.md`](./pipeline/DAILY_RUN.md)、[`pipeline/DISPLAY_CONTRACT.md`](./pipeline/DISPLAY_CONTRACT.md): 照合・分析・監査の流れと画面に出す項目
 - [`CASE_TEXT_STANDARD.md`](./CASE_TEXT_STANDARD.md)、[`CASE_CHAPTER_PROCESS.md`](./CASE_CHAPTER_PROCESS.md): 画面の層の文の書き方
+- [`CASE_ARTICLE.md`](./CASE_ARTICLE.md): 新しい記事形式（8分類）。分類の役割と、章の書き方（結論の1文 → 短いデータ）。今後の事例はこの形で集めて書く
 - [`MEDIA_ASSETS_AND_PROVENANCE.md`](./MEDIA_ASSETS_AND_PROVENANCE.md): 画像
 - [`architecture/STORAGE.md`](./architecture/STORAGE.md): 保存先
 
