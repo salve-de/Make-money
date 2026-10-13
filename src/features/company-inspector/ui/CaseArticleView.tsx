@@ -16,7 +16,7 @@ const TOPIC_TITLES: Record<CaseArticleTopicId, string> = {
   reasons: UI.CASE_ARTICLE_REASONS,
 };
 
-const KPI_COLUMNS: Record<number, string> = { 1: 'grid-cols-1', 2: 'grid-cols-2', 3: 'grid-cols-3', 4: 'grid-cols-2 sm:grid-cols-4' };
+const KPI_COLUMNS: Record<number, string> = { 1: 'grid-cols-1', 2: 'grid-cols-2', 3: 'grid-cols-1 sm:grid-cols-3', 4: 'grid-cols-2 sm:grid-cols-4' };
 
 const topicAnchor = (id: string) => `section-article-${id}`;
 const SOURCES_ANCHOR = 'section-article-sources';

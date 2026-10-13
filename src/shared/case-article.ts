@@ -84,7 +84,7 @@ function shapes<I extends boolean>(internal: I) {
 
   const topic = z.object({
     id: z.enum(CASE_ARTICLE_TOPIC_IDS),
-    /** 章の結論の1文。どの章も最初にこれを出し、その下にデータを並べる（無い原稿は検査で止める）。 */
+    /** 章の最初に出す1文。必須ではない（箇条書きや数字から直接始めてよい）。 */
     lead: z.object(line).optional(),
     blocks: z.array(block).min(1),
   });

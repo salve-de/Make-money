@@ -1349,8 +1349,8 @@
   "generation": 5,
   "article": {
    "listLine": "無料のGoogleに「訪問者を追跡しない」有料版で挑み、4人で月約1,250万円を売り上げるアクセス解析サービス",
-   "headline": "Googleが無料で提供するアクセス解析を、「訪問者を追跡しない」ことを売りに月額で販売し、社員4人・広告費ゼロで月8万3,637ドル（約1,250万円）を売り上げる",
-   "lead": "Plausible Analyticsは、自分のサイトに何人が訪れ、どこから来て、どのページを読んだかを1つの画面で確認できるアクセス解析サービス。同じことはGoogle Analyticsを使えば無料でできるが、Google Analyticsは訪問者一人ひとりの行動をクッキーで記録するため、ヨーロッパではサイトに「クッキーの使用に同意しますか」という表示を出さなければならない。Plausibleはクッキーを使わず、訪問の数だけを集計するので、この表示が要らない。月9ドル（約1,350円）から使える。",
+   "headline": "無料のGoogle Analyticsの代わりを有料で売り、4人で月約1,250万円",
+   "lead": "サイトの訪問者数を調べるアクセス解析サービス。クッキーを使わないので、Google Analyticsを使うヨーロッパのサイトに必要な「クッキーに同意しますか」の表示が要らない。月9ドル（約1,350円）から。",
    "sources": [
     {
      "no": 1,
@@ -1406,12 +1406,6 @@
      "period": "2022年6月"
     },
     {
-     "label": "年換算の売上",
-     "value": "100万ドル",
-     "yen": "約1億5,000万円",
-     "period": "2022年6月"
-    },
-    {
      "label": "有料の顧客",
      "value": "7,000以上",
      "period": "2022年6月"
@@ -1425,47 +1419,22 @@
    "topics": [
     {
      "id": "overview",
-     "lead": {
-      "text": "サイトの訪問者数を調べるアクセス解析サービス。訪問者を追跡するGoogle Analyticsを使いたくないサイト運営者が、月額を払って契約している。",
-      "cites": [
-       1,
-       2,
-       3
-      ]
-     },
      "blocks": [
       {
        "type": "facts",
        "variant": "text",
        "rows": [
         {
-         "label": "サービス内容",
-         "text": "サイトに計測用のコードを1行貼ると、訪問者数、どこから来たか（検索・SNS・他のサイト）、よく読まれているページが1つの画面に表示される",
-         "cites": [
-          1,
-          2
-         ]
-        },
-        {
          "label": "顧客",
-         "text": "自社サイトを運営する企業や個人、サイト制作会社、企業のマーケティング担当者。有料の顧客は2022年6月時点で7,000以上",
+         "text": "自社サイトを持つ企業や個人、サイト制作会社、企業のマーケティング担当者",
          "cites": [
           1,
           2
-         ]
-        },
-        {
-         "label": "料金",
-         "text": "月9ドル（約1,350円）から。サイトの数と閲覧数が増えると上がる。最初の30日間は無料で試せる",
-         "cites": [
-          1,
-          2,
-          6
          ]
         },
         {
          "label": "競合",
-         "text": "Google Analytics。Googleが無料で提供している、同じ用途のサービス",
+         "text": "Google Analytics（無料）",
          "cites": [
           1,
           3
@@ -1482,7 +1451,8 @@
        "ordered": false,
        "items": [
         {
-         "text": "クッキーを使わないので、サイトに「クッキーの使用に同意しますか」という表示を出さなくて済む。Google Analyticsを使うサイトは、ヨーロッパではこの表示を出す必要がある",
+         "lead": "同意の表示が要らない。",
+         "text": "Google Analyticsを使うサイトは、ヨーロッパでは「クッキーに同意しますか」の表示を出す必要がある。",
          "cites": [
           1,
           2,
@@ -1490,7 +1460,8 @@
          ]
         },
         {
-         "text": "画面は1つだけで、使い方を覚えなくても数字が読める。Google Analyticsは機能も画面も多く、使いこなすには勉強が要る",
+         "lead": "画面が1つ。",
+         "text": "使い方を覚えなくても数字が読める。",
          "cites": [
           1,
           2,
@@ -1498,14 +1469,16 @@
          ]
         },
         {
-         "text": "計測用のコードのサイズはGoogle Analyticsの54分の1で、サイトの表示を遅くしない",
+         "lead": "サイトを遅くしない。",
+         "text": "計測用のコードは、Google Analyticsの54分の1のサイズ。",
          "cites": [
           1,
           2
          ]
         },
         {
-         "text": "集めたデータはEU内のサーバーに保存する。EUの個人情報保護の規則は、個人のデータをEUの外へ持ち出すことを厳しく制限している",
+         "lead": "データをEUの外に出さない。",
+         "text": "EUの規則は、個人のデータの持ち出しを厳しく制限している。",
          "cites": [
           1,
           3
@@ -1517,37 +1490,27 @@
     },
     {
      "id": "mechanism",
-     "lead": {
-      "text": "サイトにコードを1行貼ると計測が始まり、訪問者数やどこから来たかを、30秒ごとに更新される1つの画面で確認できる。",
-      "cites": [
-       1,
-       2,
-       3
-      ]
-     },
      "blocks": [
       {
-       "type": "steps",
+       "type": "list",
+       "ordered": true,
        "items": [
         {
-         "title": "コードを貼る",
-         "text": "サイトの運営者が、Plausibleから発行された計測用のコードを自分のサイトに1行貼る。",
+         "text": "サイトに計測用のコードを1行貼る。",
          "cites": [
           1,
           2
          ]
         },
         {
-         "title": "訪問を記録する",
-         "text": "誰かがサイトを訪れるたびに、閲覧されたページと、検索・SNS・他のサイトのどこから来たかを記録する。訪問者が誰なのかを特定する情報は保存しない。",
+         "text": "訪問のたびに、見られたページと、どこから来たか（検索・SNS・他のサイト）が記録される。誰が来たのかを特定する情報は保存しない。",
          "cites": [
           1,
           2
          ]
         },
         {
-         "title": "画面で確認する",
-         "text": "運営者は、訪問者数、どこから来たか、よく読まれているページを1つの画面で確認できる。数字は30秒ごとに更新される。",
+         "text": "訪問者数、どこから来たか、よく読まれているページを1つの画面で見る。30秒ごとに更新される。",
          "cites": [
           1,
           2
@@ -1556,61 +1519,28 @@
        ]
       },
       {
-       "type": "figure",
-       "figureId": "plausible-model"
-      },
-      {
-       "type": "subheading",
-       "text": "プログラムを公開していて、自分のサーバーで動かせば無料で使える"
-      },
-      {
        "type": "list",
        "ordered": false,
        "items": [
         {
-         "text": "Plausibleはプログラムの中身（ソースコード）を公開している。訪問者を追跡していないことを、誰でもコードを読んで確かめられる",
+         "lead": "プログラムを公開している。",
+         "text": "技術のある人は自分のサーバーに入れて無料で使える。月額を払う客は、サーバーの管理と更新を任せている。",
          "cites": [
           3,
           4
          ]
         },
         {
-         "text": "技術のある人は、このプログラムを自分のサーバーに入れて無料で使える。その場合、サーバーの管理や更新は自分で行う",
-         "cites": [
-          3,
-          4
-         ]
-        },
-        {
-         "text": "Plausibleに月額を払うと、サーバーの管理も更新もPlausibleに任せられる。Plausibleの売上は、この月額だけ",
-         "cites": [
-          3,
-          4
-         ]
-        },
-        {
-         "text": "2020年10月、公開の条件を厳しくした。公開したコードを使って、他社が競合するサービスを売り始めたため",
+         "lead": "他社に同じ物を売られた。",
+         "text": "公開したコードで競合サービスを売る会社が出た。2020年10月、改造した部分も公開させる条件（AGPL）に変えた。",
          "cites": [
           4,
           5
          ]
         },
         {
-         "text": "新しい条件（AGPLというライセンス）では、コードを改造してサービスを提供する会社は、改造した部分も公開しなければならない",
-         "cites": [
-          4,
-          5
-         ]
-        },
-        {
-         "text": "無料で使う人からの問い合わせが増えたため、2020年12月に個別の対応をやめ、利用者同士が教え合う掲示板を案内するようにした",
-         "cites": [
-          4,
-          5
-         ]
-        },
-        {
-         "text": "無料で使う人から寄付も半年ほど募ったが、集まったのは5ドル（約750円）が6件だけだった",
+         "lead": "無料の利用者からの寄付は6件。",
+         "text": "半年募って、5ドル（約750円）が6件だった。",
          "cites": [
           4,
           5
@@ -1622,18 +1552,10 @@
     },
     {
      "id": "revenue",
-     "lead": {
-      "text": "売上は月額の利用料だけで、2022年6月に月8万3,637ドル（約1,250万円）、年換算で100万ドル（約1億5,000万円）に達した。",
-      "cites": [
-       2,
-       3,
-       6
-      ]
-     },
      "blocks": [
       {
        "type": "rates",
-       "caption": "プラン / 月額 / 内容（月に1万回閲覧されるサイトの場合。月払い、2026年10月時点）",
+       "caption": "料金（月払い。月1万回閲覧されるサイトの場合）",
        "rows": [
         {
          "label": "Starter",
@@ -1648,7 +1570,7 @@
          "label": "Growth",
          "value": "14ドル",
          "yen": "約2,100円",
-         "note": "サイト3つまで。チームのメンバーと画面を共有できる",
+         "note": "サイト3つまで",
          "cites": [
           6
          ]
@@ -1657,15 +1579,7 @@
          "label": "Business",
          "value": "19ドル",
          "yen": "約2,850円",
-         "note": "サイト10まで。訪問から購入までの流れを分析できる",
-         "cites": [
-          6
-         ]
-        },
-        {
-         "label": "Enterprise",
-         "value": "個別見積り",
-         "note": "閲覧数が非常に多いサイト向け",
+         "note": "サイト10まで",
          "cites": [
           6
          ]
@@ -1673,39 +1587,21 @@
        ]
       },
       {
-       "type": "list",
-       "ordered": false,
-       "items": [
-        {
-         "text": "30日間の無料体験は、クレジットカードの登録なしで始められる",
-         "cites": [
-          6
-         ]
-        },
-        {
-         "text": "サイトの閲覧数が増えると、同じプランでも月額が上がる",
-         "cites": [
-          6
-         ]
-        }
+       "type": "paragraph",
+       "tone": "note",
+       "text": "閲覧数が増えると、同じプランでも月額が上がる。30日間の無料体験は、カードの登録なしで始められる。",
+       "cites": [
+        6
        ]
       },
       {
-       "type": "table",
-       "caption": "月の売上の推移",
-       "columns": [
-        "時点",
-        "月の売上"
-       ],
+       "type": "rates",
+       "caption": "月の売上",
        "rows": [
         {
          "label": "2019年5月",
-         "cells": [
-          {
-           "text": "64ドル",
-           "yen": "約9,600円"
-          }
-         ],
+         "value": "64ドル",
+         "yen": "約9,600円",
          "cites": [
           2,
           6
@@ -1713,12 +1609,8 @@
         },
         {
          "label": "2020年3月",
-         "cells": [
-          {
-           "text": "433ドル",
-           "yen": "約6万5,000円"
-          }
-         ],
+         "value": "433ドル",
+         "yen": "約6万5,000円",
          "cites": [
           2,
           6
@@ -1726,12 +1618,8 @@
         },
         {
          "label": "2020年12月",
-         "cells": [
-          {
-           "text": "8,999ドル",
-           "yen": "約135万円"
-          }
-         ],
+         "value": "8,999ドル",
+         "yen": "約135万円",
          "cites": [
           2,
           6
@@ -1739,12 +1627,8 @@
         },
         {
          "label": "2021年10月",
-         "cells": [
-          {
-           "text": "4万2,624ドル",
-           "yen": "約640万円"
-          }
-         ],
+         "value": "4万2,624ドル",
+         "yen": "約640万円",
          "cites": [
           2,
           6
@@ -1752,12 +1636,8 @@
         },
         {
          "label": "2022年6月",
-         "cells": [
-          {
-           "text": "8万3,637ドル",
-           "yen": "約1,250万円"
-          }
-         ],
+         "value": "8万3,637ドル",
+         "yen": "約1,250万円",
          "cites": [
           2,
           6
@@ -1766,35 +1646,28 @@
        ]
       },
       {
-       "type": "figure",
-       "figureId": "plausible-mrr"
-      },
-      {
        "type": "list",
        "ordered": false,
        "items": [
         {
-         "text": "2019年5月に有料化してから、月の売上が400ドル（約6万円）に届くまで324日かかった。そこから1万ドル（約150万円）までは9か月だった",
+         "lead": "最初の10か月はほとんど売れなかった。",
+         "text": "有料化から月400ドル（約6万円）まで324日。そこから1万ドル（約150万円）までは9か月。",
          "cites": [
           2,
           6
          ]
         },
         {
-         "text": "創業者2人が初めて給料を受け取ったのは2020年9月で、その月の売上は5,035ドル（約76万円）だった",
+         "lead": "黒字になるまで貯金を使った。",
+         "text": "売上が経費を上回ったのは2021年1月。それまでに創業者2人は、貯金から5万ドル（約750万円）以上を出した。初めて給料を取ったのは2020年9月。",
          "cites": [
           2,
           6
          ]
         },
         {
-         "text": "売上が経費を上回ったのは2021年1月。それまでに2人は、貯金から合計5万ドル（約750万円）以上を持ち出した",
-         "cites": [
-          2
-         ]
-        },
-        {
-         "text": "広告費はゼロで、外部からの出資も受けていない",
+         "lead": "広告費ゼロ。",
+         "text": "外部からの出資も受けていない。",
          "cites": [
           3
          ]
@@ -1805,27 +1678,22 @@
     },
     {
      "id": "acquisition",
-     "lead": {
-      "text": "2020年4月に公開した記事「Google Analyticsをやめるべき理由」が数日で5万人以上に読まれ、1週間で166人が無料体験を始めた。",
-      "cites": [
-       2,
-       7
-      ]
-     },
      "blocks": [
       {
        "type": "list",
        "ordered": false,
        "items": [
         {
-         "text": "2019年1月、個人開発者が集まるサイトIndie Hackersで試作版を公開した。同年5月に有料化した時点で、利用者は60人だった",
+         "lead": "試作版をIndie Hackersで公開。",
+         "text": "2019年1月。個人開発者が集まるサイトで、5月に有料化した時の利用者は60人だった。",
          "cites": [
           2,
           7
          ]
         },
         {
-         "text": "2020年3月16日、マーケティング担当としてMarko Saricが加わった。その前日のサイト訪問者は49人で、Google検索から来た人は0人だった",
+         "lead": "キャッチコピーを変えた。",
+         "text": "「あなたのサイトのためのシンプルなアクセス解析」を「シンプルでプライバシーに配慮した、Google Analyticsの代わり」に。2020年3月、マーケティング担当のMarkoが加わって最初にした事。前日のサイト訪問者は49人、Google検索からは0人だった。",
          "cites": [
           2,
           6,
@@ -1833,41 +1701,32 @@
          ]
         },
         {
-         "text": "Markoは最初に、サイトのキャッチコピーを「あなたのサイトのためのシンプルなアクセス解析」から「シンプルでプライバシーに配慮した、Google Analyticsの代わり」に変えた",
+         "lead": "記事「Google Analyticsをやめるべき理由」を公開。",
+         "text": "2020年4月8日。技術者の掲示板Hacker Newsで1位になり、その日だけで2万5,000人以上が訪れた。1週間で166人が無料体験を始めた。",
          "cites": [
           2,
           7
          ]
         },
         {
-         "text": "4月8日に公開した記事「Google Analyticsをやめるべき理由」が、技術者向けの掲示板Hacker Newsで1位になり、その日だけで2万5,000人以上がサイトを訪れた",
-         "cites": [
-          2,
-          7
-         ]
-        },
-        {
-         "text": "その後も週1本のペースで記事を公開した。Google検索からのクリックは、4月までの累計400回あまりから、7月末には6,000回以上に増えた",
+         "lead": "週1本、記事を出し続けた。",
+         "text": "Google検索からのクリックは、4月までの累計400回あまりから、7月末に6,000回以上。",
          "cites": [
           2,
           8
          ]
         },
         {
-         "text": "MarkoはGoogle Analyticsやクッキーの同意表示について悩みを書き込んでいる人を検索で探し、掲示板やSNSで1人ずつ返信した",
+         "lead": "悩みを書いている人に1人ずつ返信。",
+         "text": "Google Analyticsやクッキーの同意表示で困っている人を検索で探し、掲示板やSNSで返信した。",
          "cites": [
           2,
           8
          ]
         },
         {
-         "text": "2020年8月、新製品の紹介サイトProduct Huntに掲載した。初日は1,000人以上が訪れて15人が無料体験を始めたが、数日後には訪問者が1日20人未満に戻った",
-         "cites": [
-          2
-         ]
-        },
-        {
-         "text": "2020年4〜5月に無料体験を始めた人の33.5％が、そのまま有料契約に移った",
+         "lead": "無料体験の3人に1人が契約。",
+         "text": "2020年4〜5月に始めた人の33.5％。",
          "cites": [
           2
          ]
@@ -1878,14 +1737,6 @@
     },
     {
      "id": "operations",
-     "lead": {
-      "text": "開発はUku、記事の執筆と顧客対応はMarkoと役割を分け、2022年6月には社員4人で月10億回以上の閲覧を集計していた。",
-      "cites": [
-       2,
-       3,
-       9
-      ]
-     },
      "blocks": [
       {
        "type": "facts",
@@ -1893,7 +1744,7 @@
        "rows": [
         {
          "label": "Uku Täht",
-         "text": "創業者。設計と開発を担当",
+         "text": "創業者。設計と開発",
          "cites": [
           1,
           2,
@@ -1902,50 +1753,9 @@
         },
         {
          "label": "Marko Saric",
-         "text": "2020年3月に加わった共同創業者。記事の執筆、利用者との交流、問い合わせ対応を担当",
+         "text": "共同創業者。記事、利用者とのやり取り、問い合わせ対応",
          "cites": [
           1,
-          2,
-          3
-         ]
-        }
-       ]
-      },
-      {
-       "type": "table",
-       "caption": "社員数と有料顧客数",
-       "columns": [
-        "時点",
-        "社員",
-        "有料顧客"
-       ],
-       "rows": [
-        {
-         "label": "2022年6月",
-         "cells": [
-          {
-           "text": "4人"
-          },
-          {
-           "text": "7,000以上"
-          }
-         ],
-         "cites": [
-          2,
-          3
-         ]
-        },
-        {
-         "label": "2026年10月",
-         "cells": [
-          {
-           "text": "10人"
-          },
-          {
-           "text": "2万1,000以上"
-          }
-         ],
-         "cites": [
           2,
           3
          ]
@@ -1957,35 +1767,33 @@
        "ordered": false,
        "items": [
         {
-         "text": "2020年6月、顧客が増えて集計画面の表示が遅くなったため、データベースを、大量のデータの集計に向いたClickHouseに入れ替えた",
+         "lead": "サポート専任なしで4,000の顧客に対応。",
+         "text": "2021年3月時点。月1,000件以上の無料体験の問い合わせも2人で受け、よくある質問はヘルプページにまとめた。",
          "cites": [
           2,
           9
          ]
         },
         {
-         "text": "2021年3月時点で、4,000以上の有料顧客と月1,000件以上の無料体験の問い合わせに、サポート専任の社員なしで対応していた。よくある質問はヘルプページにまとめた",
+         "lead": "3人目は大学生。",
+         "text": "2021年6月、Robertが技術的な問い合わせの担当に。4人目のCenk（サーバー管理）は2022年2月。",
+         "cites": [
+          2,
+          3,
+          9
+         ]
+        },
+        {
+         "lead": "データベースを入れ替えた。",
+         "text": "2020年6月、顧客が増えて画面が遅くなり、大量の集計に向いたClickHouseに。",
          "cites": [
           2,
           9
          ]
         },
         {
-         "text": "2021年6月、3人目のRobertが、大学に通いながら技術的な問い合わせに対応する担当として加わった",
-         "cites": [
-          2,
-          9
-         ]
-        },
-        {
-         "text": "2022年2月、4人目のCenkがサーバー管理の担当として加わった",
-         "cites": [
-          2,
-          3
-         ]
-        },
-        {
-         "text": "有料広告、サイト上のポップアップ、自動応答のチャットは使わない方針をとっている",
+         "lead": "使わないと決めている物。",
+         "text": "有料広告、ポップアップ、自動応答のチャット。",
          "cites": [
           2,
           9
@@ -1997,30 +1805,13 @@
     },
     {
      "id": "history",
-     "lead": {
-      "text": "2018年12月にUkuが1人で開発を始め、2020年にMarkoが加わって記事で顧客が増え、2021年1月に売上が経費を上回った。",
-      "cites": [
-       2,
-       3,
-       5
-      ]
-     },
      "blocks": [
       {
        "type": "timeline",
        "items": [
         {
          "when": "2018年12月",
-         "text": "勤務先でGoogle Analyticsの導入を頼まれたUku Tähtが、もっとシンプルなアクセス解析を自分で作り始めた",
-         "cites": [
-          2,
-          3,
-          5
-         ]
-        },
-        {
-         "when": "2019年1月",
-         "text": "試作版をIndie Hackersで公開した",
+         "text": "Ukuが開発を始める。勤務先でGoogle Analyticsの導入を頼まれたのがきっかけ",
          "cites": [
           2,
           3,
@@ -2029,7 +1820,7 @@
         },
         {
          "when": "2019年5月",
-         "text": "有料化した。利用者は60人、月の売上は64ドル（約9,600円）",
+         "text": "有料化",
          "cites": [
           2,
           3,
@@ -2038,7 +1829,7 @@
         },
         {
          "when": "2020年3月",
-         "text": "Marko Saricがマーケティング担当として加わり、2人になった。月の売上は433ドル（約6万5,000円）",
+         "text": "Markoが加わり2人に",
          "cites": [
           2,
           3,
@@ -2047,7 +1838,7 @@
         },
         {
          "when": "2020年4月",
-         "text": "記事「Google Analyticsをやめるべき理由」がHacker Newsで1位になり、1週間で166人が無料体験を始めた",
+         "text": "記事がHacker Newsで1位",
          "cites": [
           2,
           3,
@@ -2055,23 +1846,15 @@
          ]
         },
         {
-         "when": "2020年9月",
-         "text": "創業者2人が初めて給料を受け取った",
-         "cites": [
-          2,
-          6
-         ]
-        },
-        {
          "when": "2021年1月",
-         "text": "売上が経費を上回った",
+         "text": "黒字",
          "cites": [
           2
          ]
         },
         {
          "when": "2022年1月",
-         "text": "オーストリアの当局が、Google Analyticsの利用はEUの個人情報保護の規則に違反すると判断した",
+         "text": "オーストリアの当局が「Google Analyticsの利用はEUの規則に違反」と判断",
          "cites": [
           2,
           3,
@@ -2080,23 +1863,7 @@
         },
         {
          "when": "2022年3月",
-         "text": "GoogleがGoogle Analyticsの旧版の終了を発表した。Plausibleの月の売上は1か月で8,247ドル（約124万円）増え、過去最大の伸びになった",
-         "cites": [
-          2,
-          3,
-          5
-         ]
-        },
-        {
-         "when": "2022年6月",
-         "text": "月の売上が8万3,637ドル（約1,250万円）になり、有料顧客が7,000を超えた。社員は4人",
-         "cites": [
-          2
-         ]
-        },
-        {
-         "when": "2024年",
-         "text": "自分のサーバーで動かす無料版を「コミュニティ版」と名付けた",
+         "text": "GoogleがGoogle Analyticsの旧版の終了を発表。Plausibleの月の売上は1か月で8,247ドル（約124万円）増え、過去最大の伸び",
          "cites": [
           2,
           3,
@@ -2105,7 +1872,7 @@
         },
         {
          "when": "2026年10月",
-         "text": "社員は10人、有料顧客は2万1,000以上",
+         "text": "社員10人、有料の顧客2万1,000以上",
          "cites": [
           3
          ]
@@ -2116,28 +1883,21 @@
     },
     {
      "id": "reasons",
-     "lead": {
-      "text": "Google Analyticsに不満を持つ人だけを相手にし、自社の宣伝ではなく「Google Analyticsをやめるべき理由」を記事にして読ませた。",
-      "cites": [
-       2,
-       7
-      ]
-     },
      "blocks": [
       {
        "type": "steps",
        "items": [
         {
-         "title": "「Google Analyticsの代わり」と名乗った",
-         "text": "当初のキャッチコピーは「あなたのサイトのためのシンプルなアクセス解析」で、有料化から10か月たっても月の売上は433ドル（約6万5,000円）だった。Markoがこれを「Google Analyticsの代わり」に変え、誰が何のために使う製品なのかが一目で伝わるようになった。",
+         "title": "「Google Analyticsの代わり」と名乗った。",
+         "text": "元のキャッチコピーでは、有料化から10か月たっても月433ドル（約6万5,000円）だった。変えた翌月に記事が当たった。",
          "cites": [
           2,
           7
          ]
         },
         {
-         "title": "自社の宣伝ではなく、Google Analyticsの問題点を記事にした",
-         "text": "自社の機能を並べるのではなく、Google Analyticsの問題点（訪問者を追跡する、同意の表示が必要になる、サイトの表示が遅くなる）を説明する記事を書いた。同じ不満を持つ技術者が集まるHacker Newsで1位になり、数日で5万人以上に読まれた。",
+         "title": "自社の宣伝ではなく、相手の問題点を書いた。",
+         "text": "追跡する、同意の表示が要る、サイトが遅くなる。同じ不満を持つ技術者が集まる場所で読まれた。",
          "cites": [
           2,
           7,
@@ -2145,16 +1905,16 @@
          ]
         },
         {
-         "title": "記事を読んだ人が、カード登録なしですぐ試せるようにした",
-         "text": "無料体験は30日間で、クレジットカードの登録が要らない。記事を読んで興味を持った人がその場で使い始められ、無料体験を始めた人の3人に1人が有料契約に移った。",
+         "title": "読んだその場で試せた。",
+         "text": "無料体験にカードの登録が要らない。",
          "cites": [
           2,
           6
          ]
         },
         {
-         "title": "Google Analyticsへの規制と仕様変更の時期に、乗り換え先として選ばれた",
-         "text": "2022年1月、オーストリアの当局がGoogle Analyticsの利用をEUの規則違反と判断した。3月にはGoogleが旧版の終了を発表し、利用者は新版への移行を迫られた。この月、Plausibleの売上は過去最大の伸びを記録した。",
+         "title": "Googleの側で出来事が続いた。",
+         "text": "2022年の当局の判断と旧版の終了の月に、売上が過去最大の伸びになった。",
          "cites": [
           2,
           3,
@@ -2166,22 +1926,7 @@
      ]
     }
    ],
-   "figures": [
-    {
-     "id": "plausible-model",
-     "alt": "Plausibleの仕組み",
-     "width": 1120,
-     "height": 470,
-     "src": "data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiID8+CjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczpldj0iaHR0cDovL3d3dy53My5vcmcvMjAwMS94bWwtZXZlbnRzIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayIgYmFzZVByb2ZpbGU9ImZ1bGwiIGhlaWdodD0iNDcwIiB2ZXJzaW9uPSIxLjEiIHZpZXdCb3g9IjAgMCAxMTIwIDQ3MCIgd2lkdGg9IjExMjAiPgogIDxkZWZzLz4KICA8cmVjdCBmaWxsPSIjMGQxMDE1IiBoZWlnaHQ9IjEwMCUiIHdpZHRoPSIxMDAlIiB4PSIwIiB5PSIwIi8+CiAgPHRleHQgZmlsbD0iI2YwZjJmNCIgZm9udC1mYW1pbHk9Ik5vdG8gU2FucyBDSksgSlAsIHNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMjYiIGZvbnQtd2VpZ2h0PSI2MDAiIHg9IjQwIiB5PSI1MiI+5L2/44GE5pa544GvMumAmuOCiuOAguacieaWmeOBp+S7u+OBm+OCi+OBi+OAgeeEoeaWmeOBp+iHquWIhuOBp+WLleOBi+OBmeOBizwvdGV4dD4KICA8dGV4dCBmaWxsPSIjODg5NWEzIiBmb250LWZhbWlseT0iTm90byBTYW5zIENKSyBKUCwgc2Fucy1zZXJpZiIgZm9udC1zaXplPSIxNCIgZm9udC13ZWlnaHQ9IjQwMCIgeD0iNDAiIHk9Ijg2Ij5QbGF1c2libGXjga7lo7LkuIrjgavjgarjgovjga7jga/jgIHmnIjpoY3jgpLmiZXjgaPjgabku7vjgZvjgovkurrjga7liIbjgaDjgZE8L3RleHQ+CiAgPHJlY3QgZmlsbD0iIzE3MWIyMiIgaGVpZ2h0PSIxNDUiIHJ4PSI5IiByeT0iOSIgc3Ryb2tlPSIjMzQzYzQ2IiBzdHJva2Utd2lkdGg9IjEuMSIgd2lkdGg9IjI0OCIgeD0iNDAiIHk9IjEyMyIvPgogIDx0ZXh0IGZpbGw9IiNmMGYyZjQiIGZvbnQtZmFtaWx5PSJOb3RvIFNhbnMgQ0pLIEpQLCBzYW5zLXNlcmlmIiBmb250LXNpemU9IjIwIiBmb250LXdlaWdodD0iNjAwIiB4PSI1OCIgeT0iMTU5Ij7jgrXjgqTjg4jpgYvllrbogIU8L3RleHQ+CiAgPHRleHQgZmlsbD0iI2I3YzBjOSIgZm9udC1mYW1pbHk9Ik5vdG8gU2FucyBDSksgSlAsIHNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMTUiIGZvbnQtd2VpZ2h0PSI0MDAiIHg9IjU4IiB5PSIxOTUiPuiHquWIhuOBruOCteOCpOODiOOBrjwvdGV4dD4KICA8dGV4dCBmaWxsPSIjYjdjMGM5IiBmb250LWZhbWlseT0iTm90byBTYW5zIENKSyBKUCwgc2Fucy1zZXJpZiIgZm9udC1zaXplPSIxNSIgZm9udC13ZWlnaHQ9IjQwMCIgeD0iNTgiIHk9IjIyMSI+6Kiq5ZWP6ICF5pWw44KS6Kq/44G544Gf44GEPC90ZXh0PgogIDxyZWN0IGZpbGw9IiMxNzFiMjIiIGhlaWdodD0iMTQ1IiByeD0iOSIgcnk9IjkiIHN0cm9rZT0iIzM0M2M0NiIgc3Ryb2tlLXdpZHRoPSIxLjEiIHdpZHRoPSIyNDgiIHg9IjMyMiIgeT0iMTIzIi8+CiAgPHRleHQgZmlsbD0iI2YwZjJmNCIgZm9udC1mYW1pbHk9Ik5vdG8gU2FucyBDSksgSlAsIHNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMjAiIGZvbnQtd2VpZ2h0PSI2MDAiIHg9IjM0MCIgeT0iMTU5Ij5QbGF1c2libGXvvIjmnInmlpnniYjvvIk8L3RleHQ+CiAgPHRleHQgZmlsbD0iI2I3YzBjOSIgZm9udC1mYW1pbHk9Ik5vdG8gU2FucyBDSksgSlAsIHNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMTUiIGZvbnQtd2VpZ2h0PSI0MDAiIHg9IjM0MCIgeT0iMTk1Ij7oqIjmuKzjgajpm4boqIjjgIHnlLvpnaLjga7ooajnpLo8L3RleHQ+CiAgPHRleHQgZmlsbD0iI2I3YzBjOSIgZm9udC1mYW1pbHk9Ik5vdG8gU2FucyBDSksgSlAsIHNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMTUiIGZvbnQtd2VpZ2h0PSI0MDAiIHg9IjM0MCIgeT0iMjIxIj7jgrXjg7zjg5Djg7zjga7nrqHnkIbjgajmm7TmlrA8L3RleHQ+CiAgPHJlY3QgZmlsbD0iIzE3MWIyMiIgaGVpZ2h0PSIxNDUiIHJ4PSI5IiByeT0iOSIgc3Ryb2tlPSIjMzQzYzQ2IiBzdHJva2Utd2lkdGg9IjEuMSIgd2lkdGg9IjI0OCIgeD0iNjA0IiB5PSIxMjMiLz4KICA8dGV4dCBmaWxsPSIjZjBmMmY0IiBmb250LWZhbWlseT0iTm90byBTYW5zIENKSyBKUCwgc2Fucy1zZXJpZiIgZm9udC1zaXplPSIyMCIgZm9udC13ZWlnaHQ9IjYwMCIgeD0iNjIyIiB5PSIxNTkiPuaciOmhjeOBruWIqeeUqOaWmTwvdGV4dD4KICA8dGV4dCBmaWxsPSIjYjdjMGM5IiBmb250LWZhbWlseT0iTm90byBTYW5zIENKSyBKUCwgc2Fucy1zZXJpZiIgZm9udC1zaXplPSIxNSIgZm9udC13ZWlnaHQ9IjQwMCIgeD0iNjIyIiB5PSIxOTUiPuOCteOCpOODiOOBruaVsOOBqOmWsuimp+aVsOOBp+axuuOBvuOCizwvdGV4dD4KICA8dGV4dCBmaWxsPSIjYjdjMGM5IiBmb250LWZhbWlseT0iTm90byBTYW5zIENKSyBKUCwgc2Fucy1zZXJpZiIgZm9udC1zaXplPSIxNSIgZm9udC13ZWlnaHQ9IjQwMCIgeD0iNjIyIiB5PSIyMjEiPuOBk+OCjOOBjFBsYXVzaWJsZeOBruWjsuS4ijwvdGV4dD4KICA8bGluZSBzdHJva2U9IiNlZWFiNTgiIHN0cm9rZS13aWR0aD0iMi4xIiB4MT0iMjg3IiB4Mj0iMzE5IiB5MT0iMTk0IiB5Mj0iMTk0Ii8+CiAgPHBvbHlnb24gZmlsbD0iI2VlYWI1OCIgcG9pbnRzPSIzMTksMTk0IDMwOS45OTU1Mjg5NzY0NzMyLDE5OC4zNDk2NTUzNDExMTIzIDMwOS45OTU1Mjg5NzY0NzMyLDE4OS42NTAzNDQ2NTg4ODc3Ii8+CiAgPGxpbmUgc3Ryb2tlPSIjZWVhYjU4IiBzdHJva2Utd2lkdGg9IjIuMSIgeDE9IjU2OSIgeDI9IjYwMSIgeTE9IjE5NCIgeTI9IjE5NCIvPgogIDxwb2x5Z29uIGZpbGw9IiNlZWFiNTgiIHBvaW50cz0iNjAxLDE5NCA1OTEuOTk1NTI4OTc2NDczMiwxOTguMzQ5NjU1MzQxMTEyMyA1OTEuOTk1NTI4OTc2NDczMiwxODkuNjUwMzQ0NjU4ODg3NyIvPgogIDxyZWN0IGZpbGw9IiMyMDI2MzIiIGhlaWdodD0iMTQ1IiByeD0iOSIgcnk9IjkiIHN0cm9rZT0iIzM0M2M0NiIgc3Ryb2tlLXdpZHRoPSIxLjEiIHdpZHRoPSIxOTAiIHg9Ijg4NiIgeT0iMTIzIi8+CiAgPHRleHQgZmlsbD0iI2YwZjJmNCIgZm9udC1mYW1pbHk9Ik5vdG8gU2FucyBDSksgSlAsIHNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMjAiIGZvbnQtd2VpZ2h0PSI2MDAiIHg9IjkwNSIgeT0iMTU5Ij7nhKHmlpnniYg8L3RleHQ+CiAgPHRleHQgZmlsbD0iI2I3YzBjOSIgZm9udC1mYW1pbHk9Ik5vdG8gU2FucyBDSksgSlAsIHNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMTUiIGZvbnQtd2VpZ2h0PSI0MDAiIHg9IjkwNSIgeT0iMTk0Ij7lhazplovjg5fjg63jgrDjg6njg6DjgpI8L3RleHQ+CiAgPHRleHQgZmlsbD0iI2I3YzBjOSIgZm9udC1mYW1pbHk9Ik5vdG8gU2FucyBDSksgSlAsIHNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMTUiIGZvbnQtd2VpZ2h0PSI0MDAiIHg9IjkwNSIgeT0iMjIxIj7oh6rliIbjga7jgrXjg7zjg5Djg7zjgafli5XjgYvjgZk8L3RleHQ+CiAgPHRleHQgZmlsbD0iIzg4OTVhMyIgZm9udC1mYW1pbHk9Ik5vdG8gU2FucyBDSksgSlAsIHNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMTQiIGZvbnQtd2VpZ2h0PSI0MDAiIHg9Ijg4OCIgeT0iMjkwIj7jgrXjg7zjg5Djg7zjga7nrqHnkIbjga/oh6rliIbjgafooYzjgYY8L3RleHQ+CiAgPHJlY3QgZmlsbD0iIzIwMjYzMiIgaGVpZ2h0PSIxMTEiIHJ4PSI5IiByeT0iOSIgc3Ryb2tlPSIjMzQzYzQ2IiBzdHJva2Utd2lkdGg9IjEuMSIgd2lkdGg9IjEwMzYiIHg9IjQwIiB5PSIzMDMiLz4KICA8dGV4dCBmaWxsPSIjZjBmMmY0IiBmb250LWZhbWlseT0iTm90byBTYW5zIENKSyBKUCwgc2Fucy1zZXJpZiIgZm9udC1zaXplPSIxOSIgZm9udC13ZWlnaHQ9IjYwMCIgeD0iNjAiIHk9IjM0MSI+5pyJ5paZ5aWR57SE44G+44Gn44Gu5rWB44KMPC90ZXh0PgogIDx0ZXh0IGZpbGw9IiM3OWFjYzgiIGZvbnQtZmFtaWx5PSJOb3RvIFNhbnMgQ0pLIEpQLCBzYW5zLXNlcmlmIiBmb250LXNpemU9IjE2IiBmb250LXdlaWdodD0iNjAwIiB4PSI2MCIgeT0iMzczIj4yMDE55bm0IOippuS9nOeJiOOCkuWFrOmWizwvdGV4dD4KICA8dGV4dCBmaWxsPSIjODg5NWEzIiBmb250LWZhbWlseT0iTm90byBTYW5zIENKSyBKUCwgc2Fucy1zZXJpZiIgZm9udC1zaXplPSIxNiIgZm9udC13ZWlnaHQ9IjQwMCIgeD0iMjgwIiB5PSIzNzMiPuKGkjwvdGV4dD4KICA8dGV4dCBmaWxsPSIjNzlhY2M4IiBmb250LWZhbWlseT0iTm90byBTYW5zIENKSyBKUCwgc2Fucy1zZXJpZiIgZm9udC1zaXplPSIxNiIgZm9udC13ZWlnaHQ9IjYwMCIgeD0iMzIwIiB5PSIzNzMiPjIwMjDlubQg6KiY5LqL44GMSGFja2VyIE5ld3Pjgacx5L2NPC90ZXh0PgogIDx0ZXh0IGZpbGw9IiM4ODk1YTMiIGZvbnQtZmFtaWx5PSJOb3RvIFNhbnMgQ0pLIEpQLCBzYW5zLXNlcmlmIiBmb250LXNpemU9IjE2IiBmb250LXdlaWdodD0iNDAwIiB4PSI1OTIiIHk9IjM3MyI+4oaSPC90ZXh0PgogIDx0ZXh0IGZpbGw9IiM3OWFjYzgiIGZvbnQtZmFtaWx5PSJOb3RvIFNhbnMgQ0pLIEpQLCBzYW5zLXNlcmlmIiBmb250LXNpemU9IjE2IiBmb250LXdlaWdodD0iNjAwIiB4PSI2MzIiIHk9IjM3MyI+5qSc57Si44GL44KJ5p2l44Gf5Lq644GM54Sh5paZ5L2T6aiTPC90ZXh0PgogIDx0ZXh0IGZpbGw9IiM4ODk1YTMiIGZvbnQtZmFtaWx5PSJOb3RvIFNhbnMgQ0pLIEpQLCBzYW5zLXNlcmlmIiBmb250LXNpemU9IjE2IiBmb250LXdlaWdodD0iNDAwIiB4PSI4NDYiIHk9IjM3MyI+4oaSPC90ZXh0PgogIDx0ZXh0IGZpbGw9IiM5ZGMyOWYiIGZvbnQtZmFtaWx5PSJOb3RvIFNhbnMgQ0pLIEpQLCBzYW5zLXNlcmlmIiBmb250LXNpemU9IjE2IiBmb250LXdlaWdodD0iNjAwIiB4PSI4ODAiIHk9IjM3MyI+5pyJ5paZ5aWR57SEPC90ZXh0Pgo8L3N2Zz4K"
-    },
-    {
-     "id": "plausible-mrr",
-     "alt": "月の売上の推移",
-     "width": 1120,
-     "height": 470,
-     "src": "data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiID8+CjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczpldj0iaHR0cDovL3d3dy53My5vcmcvMjAwMS94bWwtZXZlbnRzIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayIgYmFzZVByb2ZpbGU9ImZ1bGwiIGhlaWdodD0iNDcwIiB2ZXJzaW9uPSIxLjEiIHZpZXdCb3g9IjAgMCAxMTIwIDQ3MCIgd2lkdGg9IjExMjAiPgogIDxkZWZzLz4KICA8cmVjdCBmaWxsPSIjMGQxMDE1IiBoZWlnaHQ9IjEwMCUiIHdpZHRoPSIxMDAlIiB4PSIwIiB5PSIwIi8+CiAgPHRleHQgZmlsbD0iI2YwZjJmNCIgZm9udC1mYW1pbHk9Ik5vdG8gU2FucyBDSksgSlAsIHNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMjYiIGZvbnQtd2VpZ2h0PSI2MDAiIHg9IjQwIiB5PSI1MiI+5pyI44Gu5aOy5LiK44Gu5o6o56e777yaMjAxOeW5tOOBi+OCiTIwMjLlubQ8L3RleHQ+CiAgPHRleHQgZmlsbD0iIzg4OTVhMyIgZm9udC1mYW1pbHk9Ik5vdG8gU2FucyBDSksgSlAsIHNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMTQiIGZvbnQtd2VpZ2h0PSI0MDAiIHg9IjQwIiB5PSI4NiI+5Ym15qWt6ICF44GM5YWs6ZaL44GX44GfNeOBpOOBruaZgueCuTwvdGV4dD4KICA8bGluZSBzdHJva2U9IiMzNDNjNDYiIHN0cm9rZS13aWR0aD0iMSIgeDE9IjgwIiB4Mj0iMTAzMCIgeTE9IjM1Ni4wIiB5Mj0iMzU2LjAiLz4KICA8dGV4dCBmaWxsPSIjODg5NWEzIiBmb250LWZhbWlseT0iTm90byBTYW5zIENKSyBKUCwgc2Fucy1zZXJpZiIgZm9udC1zaXplPSIxMyIgZm9udC13ZWlnaHQ9IjQwMCIgdGV4dC1hbmNob3I9ImVuZCIgeD0iNjgiIHk9IjM2MS4wIj4kMDwvdGV4dD4KICA8bGluZSBzdHJva2U9IiMzNDNjNDYiIHN0cm9rZS13aWR0aD0iMSIgeDE9IjgwIiB4Mj0iMTAzMCIgeTE9IjI4Mi42NjY2NjY2NjY2NjY3IiB5Mj0iMjgyLjY2NjY2NjY2NjY2NjciLz4KICA8dGV4dCBmaWxsPSIjODg5NWEzIiBmb250LWZhbWlseT0iTm90byBTYW5zIENKSyBKUCwgc2Fucy1zZXJpZiIgZm9udC1zaXplPSIxMyIgZm9udC13ZWlnaHQ9IjQwMCIgdGV4dC1hbmNob3I9ImVuZCIgeD0iNjgiIHk9IjI4Ny42NjY2NjY2NjY2NjY3Ij4kMzBrPC90ZXh0PgogIDxsaW5lIHN0cm9rZT0iIzM0M2M0NiIgc3Ryb2tlLXdpZHRoPSIxIiB4MT0iODAiIHgyPSIxMDMwIiB5MT0iMjA5LjMzMzMzMzMzMzMzMzM0IiB5Mj0iMjA5LjMzMzMzMzMzMzMzMzM0Ii8+CiAgPHRleHQgZmlsbD0iIzg4OTVhMyIgZm9udC1mYW1pbHk9Ik5vdG8gU2FucyBDSksgSlAsIHNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMTMiIGZvbnQtd2VpZ2h0PSI0MDAiIHRleHQtYW5jaG9yPSJlbmQiIHg9IjY4IiB5PSIyMTQuMzMzMzMzMzMzMzMzMzQiPiQ2MGs8L3RleHQ+CiAgPGxpbmUgc3Ryb2tlPSIjMzQzYzQ2IiBzdHJva2Utd2lkdGg9IjEiIHgxPSI4MCIgeDI9IjEwMzAiIHkxPSIxMzYuMCIgeTI9IjEzNi4wIi8+CiAgPHRleHQgZmlsbD0iIzg4OTVhMyIgZm9udC1mYW1pbHk9Ik5vdG8gU2FucyBDSksgSlAsIHNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMTMiIGZvbnQtd2VpZ2h0PSI0MDAiIHRleHQtYW5jaG9yPSJlbmQiIHg9IjY4IiB5PSIxNDEuMCI+JDkwazwvdGV4dD4KICA8cmVjdCBmaWxsPSIjNzlhY2M4IiBoZWlnaHQ9IjAuMTU2NDQ0NDQ0NDQ0NDQ0NDQiIHdpZHRoPSI5NSIgeD0iMTIwIiB5PSIzNTUuODQzNTU1NTU1NTU1NTUiLz4KICA8dGV4dCBmaWxsPSIjZjBmMmY0IiBmb250LWZhbWlseT0iTm90byBTYW5zIENKSyBKUCwgc2Fucy1zZXJpZiIgZm9udC1zaXplPSIxNiIgZm9udC13ZWlnaHQ9IjYwMCIgdGV4dC1hbmNob3I9Im1pZGRsZSIgeD0iMTY4IiB5PSIzNDYuODQzNTU1NTU1NTU1NTUiPiQ2NDwvdGV4dD4KICA8dGV4dCBmaWxsPSIjYjdjMGM5IiBmb250LWZhbWlseT0iTm90byBTYW5zIENKSyBKUCwgc2Fucy1zZXJpZiIgZm9udC1zaXplPSIxNCIgZm9udC13ZWlnaHQ9IjQwMCIgdGV4dC1hbmNob3I9Im1pZGRsZSIgeD0iMTY4IiB5PSIzODMiPjIwMTkvMDU8L3RleHQ+CiAgPHJlY3QgZmlsbD0iIzc5YWNjOCIgaGVpZ2h0PSIxLjA1ODQ0NDQ0NDQ0NDQ0NDUiIHdpZHRoPSI5NSIgeD0iMzE0IiB5PSIzNTQuOTQxNTU1NTU1NTU1NTciLz4KICA8dGV4dCBmaWxsPSIjZjBmMmY0IiBmb250LWZhbWlseT0iTm90byBTYW5zIENKSyBKUCwgc2Fucy1zZXJpZiIgZm9udC1zaXplPSIxNiIgZm9udC13ZWlnaHQ9IjYwMCIgdGV4dC1hbmNob3I9Im1pZGRsZSIgeD0iMzYyIiB5PSIzNDUuOTQxNTU1NTU1NTU1NTciPiQ0MzM8L3RleHQ+CiAgPHRleHQgZmlsbD0iI2I3YzBjOSIgZm9udC1mYW1pbHk9Ik5vdG8gU2FucyBDSksgSlAsIHNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMTQiIGZvbnQtd2VpZ2h0PSI0MDAiIHRleHQtYW5jaG9yPSJtaWRkbGUiIHg9IjM2MiIgeT0iMzgzIj4yMDIwLzAzPC90ZXh0PgogIDxyZWN0IGZpbGw9IiM3OWFjYzgiIGhlaWdodD0iMjEuOTk3NTU1NTU1NTU1NTU3IiB3aWR0aD0iOTUiIHg9IjUwOCIgeT0iMzM0LjAwMjQ0NDQ0NDQ0NDQ1Ii8+CiAgPHRleHQgZmlsbD0iI2YwZjJmNCIgZm9udC1mYW1pbHk9Ik5vdG8gU2FucyBDSksgSlAsIHNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMTYiIGZvbnQtd2VpZ2h0PSI2MDAiIHRleHQtYW5jaG9yPSJtaWRkbGUiIHg9IjU1NiIgeT0iMzI1LjAwMjQ0NDQ0NDQ0NDQ1Ij4kOCw5OTk8L3RleHQ+CiAgPHRleHQgZmlsbD0iI2I3YzBjOSIgZm9udC1mYW1pbHk9Ik5vdG8gU2FucyBDSksgSlAsIHNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMTQiIGZvbnQtd2VpZ2h0PSI0MDAiIHRleHQtYW5jaG9yPSJtaWRkbGUiIHg9IjU1NiIgeT0iMzgzIj4yMDIwLzEyPC90ZXh0PgogIDxyZWN0IGZpbGw9IiM3OWFjYzgiIGhlaWdodD0iMTA0LjE5MjAwMDAwMDAwMDAxIiB3aWR0aD0iOTUiIHg9IjcwMiIgeT0iMjUxLjgwOCIvPgogIDx0ZXh0IGZpbGw9IiNmMGYyZjQiIGZvbnQtZmFtaWx5PSJOb3RvIFNhbnMgQ0pLIEpQLCBzYW5zLXNlcmlmIiBmb250LXNpemU9IjE2IiBmb250LXdlaWdodD0iNjAwIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiB4PSI3NTAiIHk9IjI0Mi44MDgiPiQ0Miw2MjQ8L3RleHQ+CiAgPHRleHQgZmlsbD0iI2I3YzBjOSIgZm9udC1mYW1pbHk9Ik5vdG8gU2FucyBDSksgSlAsIHNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMTQiIGZvbnQtd2VpZ2h0PSI0MDAiIHRleHQtYW5jaG9yPSJtaWRkbGUiIHg9Ijc1MCIgeT0iMzgzIj4yMDIxLzEwPC90ZXh0PgogIDxyZWN0IGZpbGw9IiM3OWFjYzgiIGhlaWdodD0iMjA0LjQ0NiIgd2lkdGg9Ijk1IiB4PSI4OTYiIHk9IjE1MS41NTQiLz4KICA8dGV4dCBmaWxsPSIjZjBmMmY0IiBmb250LWZhbWlseT0iTm90byBTYW5zIENKSyBKUCwgc2Fucy1zZXJpZiIgZm9udC1zaXplPSIxNiIgZm9udC13ZWlnaHQ9IjYwMCIgdGV4dC1hbmNob3I9Im1pZGRsZSIgeD0iOTQ0IiB5PSIxNDIuNTU0Ij4kODMsNjM3PC90ZXh0PgogIDx0ZXh0IGZpbGw9IiNiN2MwYzkiIGZvbnQtZmFtaWx5PSJOb3RvIFNhbnMgQ0pLIEpQLCBzYW5zLXNlcmlmIiBmb250LXNpemU9IjE0IiBmb250LXdlaWdodD0iNDAwIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiB4PSI5NDQiIHk9IjM4MyI+MjAyMi8wNjwvdGV4dD4KICA8dGV4dCBmaWxsPSIjODg5NWEzIiBmb250LWZhbWlseT0iTm90byBTYW5zIENKSyBKUCwgc2Fucy1zZXJpZiIgZm9udC1zaXplPSIxNSIgZm9udC13ZWlnaHQ9IjQwMCIgeD0iODAiIHk9IjQzMiI+5ZCE5pmC54K544Gu5pyI44Gu5aOy5LiK77yI44OJ44Or77yJ44CC5Ye65YW477yaUGxhdXNpYmxl5Ym15qWt6ICF44Gu5YWs6ZaL6KiY6Yyy44CCPC90ZXh0Pgo8L3N2Zz4K"
-    }
-   ]
+   "figures": []
   }
  },
  {

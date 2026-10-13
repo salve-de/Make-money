@@ -20,7 +20,7 @@ export const CASE_ARTICLES_FILE = 'data/case-articles.json';
 
 export type ArticleRule =
   | 'schema' | 'entity-id' | 'polite' | 'yen-after-foreign'
-  | 'cites' | 'sources' | 'figure' | 'topics' | 'research' | 'record-keys' | 'chapter-lead' | 'too-long' | 'long-paragraph';
+  | 'cites' | 'sources' | 'figure' | 'topics' | 'research' | 'record-keys' | 'too-long' | 'long-paragraph';
 export interface ArticleViolation { rule: ArticleRule; where: string; detail: string }
 
 /** 画面用の記事の1件（data/case-articles.json の要素） */
@@ -168,12 +168,12 @@ export function checkArticleDir(dir: string, entityId: string): { built: BuiltAr
   if (new Set(ids).size !== ids.length) v.push({ rule: 'topics', where: 'topics', detail: `id が重複している: ${ids.join(', ')}` });
   const order = ids.map((id) => CASE_ARTICLE_TOPIC_IDS.indexOf(id));
   if (order.some((n, i) => i > 0 && n < order[i - 1])) v.push({ rule: 'topics', where: 'topics', detail: `並びが決まった順（${CASE_ARTICLE_TOPIC_IDS.join(' → ')}）でない: ${ids.join(' → ')}` });
-  // ⑦ 章の形: 結論の1文が先、その下は短いデータ。長い段落は置かない
+  // ⑦ 章の形: 長い段落は置かない
   const chars = (t: string) => [...t].length;
   const tooLong = (where: string, text: string, max: number) => { if (chars(text) > max) v.push({ rule: 'too-long', where, detail: `${chars(text)}字（${max}字以内。行を分けるか表・箇条書きにする）: ${text.slice(0, 30)}…` }); };
   for (const topic of article.topics) {
-    if (!topic.lead) v.push({ rule: 'chapter-lead', where: topic.id, detail: '章の最初に結論の1文（lead）が要る' });
-    else tooLong(`${topic.id} / 結論の文`, topic.lead.text, CHAPTER_LEAD_MAX);
+    // 章の最初の文は必須ではない（2026-10-14 オーナー決定）。箇条書きや数字から直接始めてよい
+    if (topic.lead) tooLong(`${topic.id} / 最初の文`, topic.lead.text, CHAPTER_LEAD_MAX);
     topic.blocks.forEach((b, i) => {
       const where = `${topic.id} / ブロック${i + 1}（${b.type}）`;
       switch (b.type) {
