@@ -1,34 +1,34 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="1040" height="530" viewBox="0 0 1040 530" role="img" aria-labelledby="title desc"><title id="title">代金は一つ。届く価値は二つ。</title><desc id="desc">事実に基づく自作説明図。数値の比率を表すものではない。</desc>
+<svg xmlns="http://www.w3.org/2000/svg" width="1040" height="530" viewBox="0 0 1040 530" role="img" aria-labelledby="title desc"><title id="title">キットの代金に、材料と解説動画の両方が含まれる</title><desc id="desc">キットの代金と、購入者が受け取るもの。</desc>
 <rect width="1040" height="530" fill="#0c0e11"/>
-<text x="24" y="31" font-family="Noto Sans CJK JP, sans-serif" font-size="13" font-weight="600" fill="#ffac3b" text-anchor="start">THE WOOBLES  /  お金と提供物</text>
-<text x="24" y="65" font-family="Noto Sans CJK JP, sans-serif" font-size="27" font-weight="600" fill="#f0f2f5" text-anchor="start">代金は一つ。届く価値は二つ。</text>
-<text x="24" y="102" font-family="Noto Sans CJK JP, sans-serif" font-size="16" font-weight="400" fill="#b8c0cc" text-anchor="start">材料と学び方を、同じ作品に結び付ける。</text>
+<text x="24" y="31" font-family="Noto Sans CJK JP, sans-serif" font-size="13" font-weight="600" fill="#ffac3b" text-anchor="start">THE WOOBLES  /  代金に含まれるもの</text>
+<text x="24" y="65" font-family="Noto Sans CJK JP, sans-serif" font-size="27" font-weight="600" fill="#f0f2f5" text-anchor="start">キットの代金に、材料と解説動画の両方が含まれる</text>
+<text x="24" y="102" font-family="Noto Sans CJK JP, sans-serif" font-size="16" font-weight="400" fill="#b8c0cc" text-anchor="start">1つの作品を完成させるのに必要なものが、すべて入っている。</text>
 <rect x="24" y="145" width="992" height="92" rx="8" fill="#15191f" stroke="#303640"/>
 <text x="44" y="174" font-family="Noto Sans CJK JP, sans-serif" font-size="13" font-weight="600" fill="#ffac3b" text-anchor="start">代金</text>
 <text x="44" y="204" font-family="Noto Sans CJK JP, sans-serif" font-size="20" font-weight="600" fill="#f0f2f5" text-anchor="start">購入者</text>
-<text x="550" y="179" font-family="Noto Sans CJK JP, sans-serif" font-size="19" font-weight="600" fill="#f0f2f5" text-anchor="middle">1キットの代金 $30</text>
+<text x="550" y="179" font-family="Noto Sans CJK JP, sans-serif" font-size="19" font-weight="600" fill="#f0f2f5" text-anchor="middle">キット1つ 30ドル</text>
 <line x1="307" y1="191" x2="794" y2="191" stroke="#ffac3b" stroke-width="2"/>
 <line x1="794" y1="191" x2="786.5719794658129" y2="196.08178226055531" stroke="#ffac3b" stroke-width="2"/>
 <line x1="794" y1="191" x2="786.5719794658129" y2="185.91821773944469" stroke="#ffac3b" stroke-width="2"/>
-<text x="550" y="220" font-family="Noto Sans CJK JP, sans-serif" font-size="14" font-weight="400" fill="#b8c0cc" text-anchor="middle">米国向けPierreの表示例</text>
+<text x="550" y="220" font-family="Noto Sans CJK JP, sans-serif" font-size="14" font-weight="400" fill="#b8c0cc" text-anchor="middle">ペンギン「Pierre」の場合</text>
 <text x="814" y="197" font-family="Noto Sans CJK JP, sans-serif" font-size="19" font-weight="600" fill="#f0f2f5" text-anchor="start">The Woobles</text>
 <rect x="24" y="251" width="992" height="92" rx="8" fill="#15191f" stroke="#303640"/>
-<text x="44" y="280" font-family="Noto Sans CJK JP, sans-serif" font-size="13" font-weight="600" fill="#86b7d8" text-anchor="start">商品</text>
+<text x="44" y="280" font-family="Noto Sans CJK JP, sans-serif" font-size="13" font-weight="600" fill="#86b7d8" text-anchor="start">材料</text>
 <text x="44" y="310" font-family="Noto Sans CJK JP, sans-serif" font-size="20" font-weight="600" fill="#f0f2f5" text-anchor="start">The Woobles</text>
-<text x="550" y="285" font-family="Noto Sans CJK JP, sans-serif" font-size="19" font-weight="600" fill="#f0f2f5" text-anchor="middle">糸・編み始め・道具</text>
+<text x="550" y="285" font-family="Noto Sans CJK JP, sans-serif" font-size="19" font-weight="600" fill="#f0f2f5" text-anchor="middle">毛糸、編み始めた部品、道具</text>
 <line x1="307" y1="297" x2="794" y2="297" stroke="#86b7d8" stroke-width="2"/>
 <line x1="794" y1="297" x2="786.5719794658129" y2="302.0817822605553" stroke="#86b7d8" stroke-width="2"/>
 <line x1="794" y1="297" x2="786.5719794658129" y2="291.9182177394447" stroke="#86b7d8" stroke-width="2"/>
-<text x="550" y="326" font-family="Noto Sans CJK JP, sans-serif" font-size="14" font-weight="400" fill="#b8c0cc" text-anchor="middle">一作品分の材料</text>
+<text x="550" y="326" font-family="Noto Sans CJK JP, sans-serif" font-size="14" font-weight="400" fill="#b8c0cc" text-anchor="middle">作品1つ分</text>
 <text x="814" y="303" font-family="Noto Sans CJK JP, sans-serif" font-size="19" font-weight="600" fill="#f0f2f5" text-anchor="start">購入者</text>
 <rect x="24" y="357" width="992" height="92" rx="8" fill="#15191f" stroke="#303640"/>
-<text x="44" y="386" font-family="Noto Sans CJK JP, sans-serif" font-size="13" font-weight="600" fill="#86b7d8" text-anchor="start">教材・支援</text>
+<text x="44" y="386" font-family="Noto Sans CJK JP, sans-serif" font-size="13" font-weight="600" fill="#86b7d8" text-anchor="start">解説動画と質問対応</text>
 <text x="44" y="416" font-family="Noto Sans CJK JP, sans-serif" font-size="20" font-weight="600" fill="#f0f2f5" text-anchor="start">The Woobles</text>
-<text x="550" y="391" font-family="Noto Sans CJK JP, sans-serif" font-size="19" font-weight="600" fill="#f0f2f5" text-anchor="middle">動画・質問できる窓口</text>
+<text x="550" y="391" font-family="Noto Sans CJK JP, sans-serif" font-size="19" font-weight="600" fill="#f0f2f5" text-anchor="middle">作品専用の動画、質問の受付</text>
 <line x1="307" y1="403" x2="794" y2="403" stroke="#86b7d8" stroke-width="2"/>
 <line x1="794" y1="403" x2="786.5719794658129" y2="408.0817822605553" stroke="#86b7d8" stroke-width="2"/>
 <line x1="794" y1="403" x2="786.5719794658129" y2="397.9182177394447" stroke="#86b7d8" stroke-width="2"/>
-<text x="550" y="432" font-family="Noto Sans CJK JP, sans-serif" font-size="14" font-weight="400" fill="#b8c0cc" text-anchor="middle">購入した作品に対応</text>
+<text x="550" y="432" font-family="Noto Sans CJK JP, sans-serif" font-size="14" font-weight="400" fill="#b8c0cc" text-anchor="middle">買った作品ごとに用意</text>
 <text x="814" y="409" font-family="Noto Sans CJK JP, sans-serif" font-size="19" font-weight="600" fill="#f0f2f5" text-anchor="start">購入者</text>
-<text x="24" y="501" font-family="Noto Sans CJK JP, sans-serif" font-size="13" font-weight="400" fill="#85909e" text-anchor="start">出典：公式商品・Help。価格は2026-10-12の例。</text>
+<text x="24" y="501" font-family="Noto Sans CJK JP, sans-serif" font-size="13" font-weight="400" fill="#85909e" text-anchor="start">出典：The Wooblesの商品ページとヘルプ（2026年10月）。</text>
 </svg>

@@ -8,7 +8,7 @@ import {
   type CaseArticle,
   type CaseArticleSource,
 } from '../../src/shared/case-article';
-import { FOREIGN, POLITE, LIST_LINE_MAX, foreignWithoutYen } from '../case-pages/lib';
+import { FOREIGN, POLITE, foreignWithoutYen } from '../case-pages/lib';
 
 /**
  * 事例の記事の原稿（data/case-articles/<事例ID>/article.json）を読み、検査して、画面用の形にする。
@@ -19,7 +19,7 @@ export const CASE_ARTICLES_DIR = 'data/case-articles';
 export const CASE_ARTICLES_FILE = 'data/case-articles.json';
 
 export type ArticleRule =
-  | 'schema' | 'entity-id' | 'polite' | 'list-line-length' | 'yen-after-foreign'
+  | 'schema' | 'entity-id' | 'polite' | 'yen-after-foreign'
   | 'cites' | 'sources' | 'figure' | 'topics' | 'research' | 'record-keys' | 'chapter-lead' | 'too-long' | 'long-paragraph';
 export interface ArticleViolation { rule: ArticleRule; where: string; detail: string }
 
@@ -36,8 +36,14 @@ const FOREIGN_ARTICLE = new RegExp(
  * 章は「結論の1文 → 短いデータ」で書く（長い文章は読まれない）。字数の上限は、結論の文・データの1行・補足のそれぞれ。
  * 上限に当たる時は、文を削るのでなく、行を分けるか表・箇条書きにする。
  */
-export const CHAPTER_LEAD_MAX = 70;
-export const DATA_LINE_MAX = 60;
+/**
+ * 上限は「長い段落を置かない」ための物。1行は、その行だけ読んで意味が全部分かる長さまで書いてよい
+ * （短く切って「何の事？」「なぜ？」が残る行は、短くても不合格）。
+ */
+export const CHAPTER_LEAD_MAX = 100;
+export const DATA_LINE_MAX = 110;
+export const STEP_TEXT_MAX = 170;
+export const LIST_ITEM_MAX = 140;
 export const NOTE_MAX = 80;
 
 /** 図（SVG）に入れてはいけないもの。外へ出る参照・埋め込み・スクリプト */
@@ -150,9 +156,7 @@ export function checkArticleDir(dir: string, entityId: string): { built: BuiltAr
   // ① です・ます調（出典のラベルも見る）
   for (const { where, text } of caseArticleLines(article)) for (const m of text.matchAll(POLITE)) v.push({ rule: 'polite', where, detail: `「${m[0]}」は常体に直す` });
   for (const s of article.sources) for (const m of s.label.matchAll(POLITE)) v.push({ rule: 'polite', where: `出典${s.no}`, detail: `「${m[0]}」は常体に直す` });
-  // ② 一覧の1行
-  const len = [...article.listLine].length;
-  if (len > LIST_LINE_MAX) v.push({ rule: 'list-line-length', where: '一覧の1行', detail: `${len}字（${LIST_LINE_MAX}字以内）` });
+  // ② 一覧の1行は字数で止めない（2026-10-08 オーナー決定: 字数は自由。その1行だけで何の商売かが分かることが先）
   // ③ 外貨の直後の円の概算
   for (const { where, text } of foreignTargets(article)) for (const miss of foreignWithoutYen(text, FOREIGN_ARTICLE)) v.push({ rule: 'yen-after-foreign', where, detail: `「${miss}」の直後に円の概算（約…円）が要る` });
   // ④ 出典の番号
@@ -178,7 +182,9 @@ export function checkArticleDir(dir: string, entityId: string): { built: BuiltAr
           if (b.tone === 'body') v.push({ rule: 'long-paragraph', where, detail: '段落（body）は置かない。項目の行・箇条書き・表にするか、短い補足（note）にする' });
           tooLong(where, b.text, NOTE_MAX);
           break;
-        case 'steps': case 'timeline': case 'list': b.items.forEach((x) => tooLong(where, x.text, DATA_LINE_MAX)); break;
+        case 'steps': b.items.forEach((x) => tooLong(where, x.text, STEP_TEXT_MAX)); break;
+        case 'list': b.items.forEach((x) => tooLong(where, x.text, LIST_ITEM_MAX)); break;
+        case 'timeline': b.items.forEach((x) => tooLong(where, x.text, DATA_LINE_MAX)); break;
         case 'rates': b.rows.forEach((r) => { if (r.note) tooLong(where, r.note, DATA_LINE_MAX); }); break;
         case 'table': case 'subheading': case 'figure': break;
       }

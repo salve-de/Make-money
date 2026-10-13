@@ -6,7 +6,7 @@ import { afterEach, describe, expect, it } from 'vitest';
 import { CaseArticleSchema, caseArticleTexts } from './case-article';
 import { displayForEntity, type DisplaySourceFiles } from './reader-display';
 import { ReaderCaseSchema } from './reader-case';
-import { buildAll, checkArticleDir } from '../../scripts/case-articles/lib';
+import { buildAll, checkArticleDir, CHAPTER_LEAD_MAX, DATA_LINE_MAX } from '../../scripts/case-articles/lib';
 import { buildCaseArticleReader } from '../../scripts/case-articles/reader';
 import { validateReader } from '../lib/company-access/reader-case-projection';
 import { foreignWithoutYen } from '../../scripts/case-pages/lib';
@@ -83,11 +83,11 @@ describe('case-article 原稿の検査', () => {
   it('章に結論の1文が無い・長い段落を置いた・1行が長すぎる、は止める', () => {
     expect(rules(mutate((a) => { delete a.topics[0].lead; }))).toContain('chapter-lead');
     expect(rules(mutate((a) => { a.topics[0].blocks[0].tone = 'body'; }))).toContain('long-paragraph');
-    expect(rules(mutate((a) => { a.topics[1].blocks[0].rows[0].text = 'あ'.repeat(61); }))).toContain('too-long');
-    expect(rules(mutate((a) => { a.topics[1].lead.text = 'あ'.repeat(71); }))).toContain('too-long');
+    expect(rules(mutate((a) => { a.topics[1].blocks[0].rows[0].text = 'あ'.repeat(DATA_LINE_MAX + 1); }))).toContain('too-long');
+    expect(rules(mutate((a) => { a.topics[1].lead.text = 'あ'.repeat(CHAPTER_LEAD_MAX + 1); }))).toContain('too-long');
   });
   it('1 です・ます調を落とす', () => { expect(rules(mutate((a) => { a.lead = 'この会社は強いです。'; }))).toContain('polite'); });
-  it('2 一覧の1行が40字を超えると落とす', () => { expect(rules(mutate((a) => { a.listLine = 'あ'.repeat(41); }))).toContain('list-line-length'); });
+  it('2 一覧の1行は字数で止めない（その1行だけで何の商売かが分かる長さまで書く）', () => { expect(rules(mutate((a) => { a.listLine = 'あ'.repeat(60); }))).toEqual([]); });
   it('3 外貨の直後に円の概算が無いと落とす（SEK・クローナも）', () => {
     expect(rules(mutate((a) => { a.lead = '年間の売上は100万ドルだった。'; }))).toContain('yen-after-foreign');
     expect(rules(mutate((a) => { a.lead = '料金は月120 SEKだった。'; }))).toContain('yen-after-foreign');
