@@ -25,6 +25,7 @@
     "case:batch:import": "node --import tsx scripts/case-articles/case-batch.mjs import",
     "case:batch:export": "node --import tsx scripts/case-articles/case-batch.mjs export",
     "case:batch:preview": "node --import tsx scripts/case-articles/case-batch.mjs preview",
+    "case:batch:review": "node scripts/case-articles/review-batch.mjs",
     "case:preview-sleepjar": "node scripts/case-articles/preview-sleepjar-local.mjs",
     "case-text:verify": "node scripts/architecture/check-case-text-standard.mjs",
     "natural-ja:report": "node scripts/architecture/report-natural-japanese.mjs",
