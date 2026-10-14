@@ -2,7 +2,7 @@ import React from 'react';
 
 import { CASE_ARTICLE_TOPIC_IDS, type CaseArticle, type CaseArticleTopicId } from '@/shared/case-article';
 import { UI } from '@/shared/ui-strings';
-import { ArticleBlock, CiteMarks, hostOf, topicCites } from './CaseArticleBlocks';
+import { ArticleBlock, blockSpacing, CiteMarks, hostOf, topicCites } from './CaseArticleBlocks';
 import { CaseArticleNav } from './CaseArticleNav';
 import { Fold } from './ReaderOverview';
 
@@ -55,17 +55,21 @@ export function CaseArticleView({ article, media }: { article: CaseArticle; medi
       <CaseArticleNav items={navItems} label={UI.CASE_ARTICLE_NAV} />
       {topics.map((t) => (
         <Fold key={t.id} id={topicAnchor(t.id)} title={TOPIC_TITLES[t.id]} defaultOpen>
-          {t.lead && (
-            <p className="mb-3 text-[15px] font-semibold leading-relaxed text-term-fg-strong [overflow-wrap:anywhere]">
-              {t.lead.text}
-            </p>
-          )}
-          <div className="grid grid-cols-1 gap-3">
+          {/* 中のブロックは、画面の幅でなくこの欄の幅に合わせて並びを変える（詳細の欄は画面より狭い） */}
+          <div className="@container max-w-[56rem] pt-1.5">
+            {t.title && <h3 data-case-article-title className="m-0 mb-4 text-[17px] font-semibold leading-snug text-term-fg-strong [overflow-wrap:anywhere]">{t.title}</h3>}
+            {t.lead && (
+              <p className="m-0 mb-3 text-[15px] font-semibold leading-relaxed text-term-fg-strong [overflow-wrap:anywhere]">
+                {t.lead.text}
+              </p>
+            )}
             {t.blocks.map((b, i) => (
-              <ArticleBlock key={i} block={b} article={article} />
+              <div key={i} className={blockSpacing(b, t.blocks[i - 1])}>
+                <ArticleBlock block={b} article={article} />
+              </div>
             ))}
+            <CiteMarks cites={topicCites(t)} sources={article.sources} />
           </div>
-          <CiteMarks cites={topicCites(t)} sources={article.sources} />
         </Fold>
       ))}
       <Fold id={SOURCES_ANCHOR} title={UI.CASE_ARTICLE_SOURCES} defaultOpen>

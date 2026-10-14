@@ -264,7 +264,7 @@ export const TerminalShell: React.FC<{
 
         {/* 右リアルタイム解剖インスペクター (全銘柄台帳モード時のみ表示) */}
         {workspaceMode === 'LEDGER' && selectedEntity && (
-          <div className="contents xl:flex xl:w-[520px] xl:min-w-0 xl:shrink-0">
+          <div className="contents xl:flex xl:w-[520px] xl:min-w-0 xl:shrink-0 min-[105rem]:w-[680px] min-[137.5rem]:w-[840px]">
           <CompanyInspectorPane
             entity={selectedEntity} detailState={detailStateFor(selectedEntity)} onRetryDetail={() => { void retryEntityDetail(selectedEntity.id); }}
             positionLabel={selectedPositionLabel}

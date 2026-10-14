@@ -47,10 +47,14 @@ function shapes<I extends boolean>(internal: I) {
     z.object({ type: z.literal('paragraph'), tone: z.enum(['body', 'note']).default('body'), ...line }),
     /** 番号つきの手順（題＋文） */
     z.object({ type: z.literal('steps'), items: z.array(z.object({ title: z.string().min(1), ...line })).min(1) }),
-    /** 料金などの表（行の見出し・主な値・補足）。yen は値に添える円の概算。 */
+    /**
+     * 料金などの表（行の見出し・主な値・補足）。yen は値に添える円の概算。
+     * bars は、行の値を棒の長さでも比べて見せる（月の売上の移り変わりなど、同じ単位の数が並ぶ時）。
+     */
     z.object({
       type: z.literal('rates'),
       caption: z.string().optional(),
+      bars: z.boolean().optional(),
       rows: z.array(z.object({ label: z.string().min(1), value: z.string().min(1), yen: z.string().optional(), note: z.string().optional(), cites, ...keys })).min(1),
     }),
     /** 列のある表（決算の比較など）。1列目が行の見出し、2列目からは値。yen は値の下に小さく出す円の概算。 */
@@ -70,7 +74,10 @@ function shapes<I extends boolean>(internal: I) {
       type: z.literal('timeline'),
       items: z.array(z.object({ when: z.string().min(1), title: z.string().optional(), ...line })).min(1),
     }),
-    /** 箇条書き。lead は行頭の太字（「2019年1月」など）。 */
+    /**
+     * 箇条書き。lead は行頭の太字の見出し（全部の行にあれば、見出しを1行に立てて説明をその下に出す）。
+     * ordered は順番に起きる流れ（番号を線でつなぎ、広い時は横に並べる）。
+     */
     z.object({
       type: z.literal('list'),
       ordered: z.boolean().default(false),
@@ -84,6 +91,11 @@ function shapes<I extends boolean>(internal: I) {
 
   const topic = z.object({
     id: z.enum(CASE_ARTICLE_TOPIC_IDS),
+    /**
+     * その事例のこの章の見出し（「Tallyは何を提供し、誰がお金を払うのか」）。集める時に事例ごとに書く。
+     * 分類の名前（概要・仕組み…）は全事例で同じ。こちらは事例ごとに変えてよく、無ければ出さない。
+     */
+    title: z.string().min(1).optional(),
     /** 章の最初に出す1文。必須ではない（箇条書きや数字から直接始めてよい）。 */
     lead: z.object(line).optional(),
     blocks: z.array(block).min(1),
@@ -201,6 +213,7 @@ export function caseArticleLines(article: CaseArticle): Array<{ where: string; t
     if (k.period) out.push({ where, text: k.period });
   });
   for (const topic of article.topics) {
+    if (topic.title) out.push({ where: `${topic.id} / 章の見出し`, text: topic.title });
     if (topic.lead) out.push({ where: `${topic.id} / 結論の文`, text: topic.lead.text });
     topic.blocks.forEach((b, i) => {
       const where = `${topic.id} / ブロック${i + 1}（${b.type}）`;
