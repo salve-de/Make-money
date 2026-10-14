@@ -1,0 +1,255 @@
+{
+  "schema_version": "make-money.collection-submission.v1",
+  "package_id": "research-ent_scrub_daddy_batch26-20261014",
+  "collected_at": "2026-10-14",
+  "identity": {
+    "entity_id": "ent_scrub_daddy_batch26",
+    "name": "Scrub Daddy",
+    "official_url": "https://scrubdaddy.com/"
+  },
+  "sources": [
+    {
+      "key": "S1",
+      "title": "Scrub Daddy公式｜創業から小売店拡大まで",
+      "url": "https://scrubdaddy.com/about/",
+      "publisher": "Scrub Daddy",
+      "published": null,
+      "checked": "2026-10-14",
+      "rights": {
+        "source_capture": "not_copied",
+        "commercial_use": "not_approved",
+        "product_images": "not_imported"
+      }
+    },
+    {
+      "key": "S2",
+      "title": "Scrub Daddy公式｜オリジナル商品の価格と機能",
+      "url": "https://scrubdaddy.com/product/scrub-daddy-original/",
+      "publisher": "Scrub Daddy",
+      "published": null,
+      "checked": "2026-10-14",
+      "rights": {
+        "source_capture": "not_copied",
+        "commercial_use": "not_approved",
+        "product_images": "not_imported"
+      }
+    },
+    {
+      "key": "S3",
+      "title": "QVC公式｜実演販売と販売数量",
+      "url": "https://corporate.qvc.com/newsroom/happenings/scrub-daddy-featured-beyond-tank/",
+      "publisher": "QVC",
+      "published": null,
+      "checked": "2026-10-14",
+      "rights": {
+        "source_capture": "not_copied",
+        "commercial_use": "not_approved",
+        "product_images": "not_imported"
+      }
+    },
+    {
+      "key": "S4",
+      "title": "Scrub Daddy公式｜2012年のQVC進出",
+      "url": "https://scrubdaddy.com/cool_timeline/lets-make-it-official/",
+      "publisher": "Scrub Daddy",
+      "published": "2024-07-22",
+      "checked": "2026-10-14",
+      "rights": {
+        "source_capture": "not_copied",
+        "commercial_use": "not_approved",
+        "product_images": "not_imported"
+      }
+    }
+  ],
+  "records": [
+    {
+      "key": "r01",
+      "domain": "product",
+      "text": "オリジナル商品はスポンジであり、冷水では硬く温水では柔らかくなる素材FlexTextureを用いる。",
+      "source_keys": [
+        "S2"
+      ],
+      "observed_period": "2026-10",
+      "confidence": "reported_by_source",
+      "notes": "独立した一次資料または関係者証言。出典と照合できるよう原文の所在を保持。"
+    },
+    {
+      "key": "r02",
+      "domain": "product",
+      "text": "笑顔の目と口の穴は持ちやすさと食器の洗いやすさを意図した形状。",
+      "source_keys": [
+        "S1",
+        "S2"
+      ],
+      "observed_period": "2026-10",
+      "confidence": "reported_by_source",
+      "notes": "独立した一次資料または関係者証言。出典と照合できるよう原文の所在を保持。"
+    },
+    {
+      "key": "r03",
+      "domain": "money",
+      "text": "Scrub Daddy Original単品は公式米国サイトで3.99米ドル。",
+      "source_keys": [
+        "S2"
+      ],
+      "observed_period": "2026-10",
+      "confidence": "reported_by_source",
+      "notes": "独立した一次資料または関係者証言。出典と照合できるよう原文の所在を保持。"
+    },
+    {
+      "key": "r04",
+      "domain": "history",
+      "text": "2006年、Aaron Krauseが機械修理中に使う手洗い道具の改良を試みた。",
+      "source_keys": [
+        "S1"
+      ],
+      "observed_period": "2006",
+      "confidence": "reported_by_source",
+      "notes": "独立した一次資料または関係者証言。出典と照合できるよう原文の所在を保持。"
+    },
+    {
+      "key": "r05",
+      "domain": "history",
+      "text": "2007年に自動車整備工場向けに発売を試みたが、必要性と価格の面で反応が得られず一度断念。",
+      "source_keys": [
+        "S1"
+      ],
+      "observed_period": "2007",
+      "confidence": "reported_by_source",
+      "notes": "独立した一次資料または関係者証言。出典と照合できるよう原文の所在を保持。"
+    },
+    {
+      "key": "r06",
+      "domain": "product",
+      "text": "2011年、庭用家具を洗う際に昔のスポンジが塗装を傷つけにくく、冷水と温水で硬さが変わると気づいた。",
+      "source_keys": [
+        "S1"
+      ],
+      "observed_period": "2011",
+      "confidence": "reported_by_source",
+      "notes": "独立した一次資料または関係者証言。出典と照合できるよう原文の所在を保持。"
+    },
+    {
+      "key": "r07",
+      "domain": "distribution",
+      "text": "2012年、Philadelphia Inquirerの記事をきっかけに仲介業者からQVC出演の話が来た。",
+      "source_keys": [
+        "S1",
+        "S4"
+      ],
+      "observed_period": "2012",
+      "confidence": "reported_by_source",
+      "notes": "独立した一次資料または関係者証言。出典と照合できるよう原文の所在を保持。"
+    },
+    {
+      "key": "r08",
+      "domain": "distribution",
+      "text": "2012年の会社設立後、QVCのテレビ実演で4回成功したと公式沿革が記録。",
+      "source_keys": [
+        "S1",
+        "S4"
+      ],
+      "observed_period": "2012",
+      "confidence": "reported_by_source",
+      "notes": "独立した一次資料または関係者証言。出典と照合できるよう原文の所在を保持。"
+    },
+    {
+      "key": "r09",
+      "domain": "distribution",
+      "text": "2012年10月25日、Shark Tank番組に出演し、Lori Greinerから出資を得た。",
+      "source_keys": [
+        "S1"
+      ],
+      "observed_period": "2012-10-25",
+      "confidence": "reported_by_source",
+      "notes": "独立した一次資料または関係者証言。出典と照合できるよう原文の所在を保持。"
+    },
+    {
+      "key": "r10",
+      "domain": "distribution",
+      "text": "2014年以降、Walmart、Target、Home Depot、Krogerなどの小売店へ販路を広げた。",
+      "source_keys": [
+        "S1"
+      ],
+      "observed_period": "2014",
+      "confidence": "reported_by_source",
+      "notes": "独立した一次資料または関係者証言。出典と照合できるよう原文の所在を保持。"
+    },
+    {
+      "key": "r11",
+      "domain": "operations",
+      "text": "2014年に事業拡大で倉庫・拠点を移した。",
+      "source_keys": [
+        "S1"
+      ],
+      "observed_period": "2014",
+      "confidence": "reported_by_source",
+      "notes": "独立した一次資料または関係者証言。出典と照合できるよう原文の所在を保持。"
+    },
+    {
+      "key": "r12",
+      "domain": "operations",
+      "text": "2019年には本社施設を約8万平方フィートに広げた。",
+      "source_keys": [
+        "S1"
+      ],
+      "observed_period": "2019",
+      "confidence": "reported_by_source",
+      "notes": "独立した一次資料または関係者証言。出典と照合できるよう原文の所在を保持。"
+    },
+    {
+      "key": "r13",
+      "domain": "operations",
+      "text": "2022年時点で100人超のチームと約18万5千平方フィートの新本社へ移転した。",
+      "source_keys": [
+        "S1"
+      ],
+      "observed_period": "2022",
+      "confidence": "reported_by_source",
+      "notes": "独立した一次資料または関係者証言。出典と照合できるよう原文の所在を保持。"
+    },
+    {
+      "key": "r14",
+      "domain": "distribution",
+      "text": "2021年にTikTokへ最初の拡散投稿を行った。2年でSNSフォロワー400万人超と会社は記載。",
+      "source_keys": [
+        "S1"
+      ],
+      "observed_period": "2021-2023",
+      "confidence": "reported_by_source",
+      "notes": "独立した一次資料または関係者証言。出典と照合できるよう原文の所在を保持。"
+    },
+    {
+      "key": "r15",
+      "domain": "business",
+      "text": "2023年までに世界47か国へ事業展開したと会社が記録。",
+      "source_keys": [
+        "S1"
+      ],
+      "observed_period": "2023",
+      "confidence": "reported_by_source",
+      "notes": "独立した一次資料または関係者証言。出典と照合できるよう原文の所在を保持。"
+    },
+    {
+      "key": "r16",
+      "domain": "operations",
+      "text": "QVCは2012年4月の製品発売から累計90万4千個超の販売と掲載（掲載ページ時点）。",
+      "source_keys": [
+        "S3"
+      ],
+      "observed_period": null,
+      "confidence": "reported_by_source",
+      "notes": "独立した一次資料または関係者証言。出典と照合できるよう原文の所在を保持。"
+    }
+  ],
+  "editorial_principles": {
+    "main_story": "温度変化が目に見える商品だからこそテレビ実演で売れた。",
+    "suppressed": "非公開の原価・粗利益を推定しない。",
+    "assurance": "AIが捏造した金額・画像・因果は掲載しない。再確認が要る情報は記録へ戻す。"
+  },
+  "unresolved": [
+    "原典の独立照合と商用利用の権利審査",
+    "実画像掲載権と価格変更",
+    "編集品質の人間による最終検査"
+  ]
+}

@@ -1,0 +1,337 @@
+{
+  "schema_version": "make-money.collection-submission.v1",
+  "package_id": "research-ent_bark_batch26-20261014",
+  "collected_at": "2026-10-14",
+  "identity": {
+    "entity_id": "ent_bark_batch26",
+    "name": "BARK / BarkBox",
+    "official_url": "https://bark.co/"
+  },
+  "sources": [
+    {
+      "key": "S1",
+      "title": "米SEC｜BARK 2025年度年次報告書 Form 10-K",
+      "url": "https://www.sec.gov/Archives/edgar/data/1819574/000162828026007771/barkfy202510-k.htm",
+      "publisher": "SEC / BARK",
+      "published": "2026",
+      "checked": "2026-10-14",
+      "rights": {
+        "source_capture": "not_copied",
+        "commercial_use": "not_approved",
+        "product_images": "not_imported"
+      }
+    },
+    {
+      "key": "S2",
+      "title": "米SEC｜2026年4〜6月の四半期報告",
+      "url": "https://www.sec.gov/Archives/edgar/data/1819574/000162828026054441/bark-20260630.htm",
+      "publisher": "SEC / BARK",
+      "published": "2026-08",
+      "checked": "2026-10-14",
+      "rights": {
+        "source_capture": "not_copied",
+        "commercial_use": "not_approved",
+        "product_images": "not_imported"
+      }
+    },
+    {
+      "key": "S3",
+      "title": "BARK公式｜共同創業者の経歴",
+      "url": "https://investors.bark.co/governance/executive-management/default.aspx",
+      "publisher": "BARK",
+      "published": null,
+      "checked": "2026-10-14",
+      "rights": {
+        "source_capture": "not_copied",
+        "commercial_use": "not_approved",
+        "product_images": "not_imported"
+      }
+    },
+    {
+      "key": "S4",
+      "title": "BARK公式｜初めてのTarget店舗向けBarkBox",
+      "url": "https://investors.bark.co/news/news-details/2024/BARK-Launches-BarkBox-in-Retail-for-the-First-Time-with-Target/default.aspx",
+      "publisher": "BARK",
+      "published": "2024-11-08",
+      "checked": "2026-10-14",
+      "rights": {
+        "source_capture": "not_copied",
+        "commercial_use": "not_approved",
+        "product_images": "not_imported"
+      }
+    },
+    {
+      "key": "S5",
+      "title": "BARK公式｜Chewyでおもちゃ販売開始",
+      "url": "https://investors.bark.co/news/news-details/2024/BARK-Launches-Best-Selling-and-Limited-Edition-Toy-Collections-at-Chewy/default.aspx",
+      "publisher": "BARK",
+      "published": "2024-08-21",
+      "checked": "2026-10-14",
+      "rights": {
+        "source_capture": "not_copied",
+        "commercial_use": "not_approved",
+        "product_images": "not_imported"
+      }
+    },
+    {
+      "key": "S6",
+      "title": "BarkBox公式｜サイズやアレルギー別のカスタマイズ",
+      "url": "https://www.barkbox.com/faq/",
+      "publisher": "BarkBox",
+      "published": null,
+      "checked": "2026-10-14",
+      "rights": {
+        "source_capture": "not_copied",
+        "commercial_use": "not_approved",
+        "product_images": "not_imported"
+      }
+    },
+    {
+      "key": "S7",
+      "title": "BARK公式｜2024年の犬向けおやつ小売展開",
+      "url": "https://investors.bark.co/news/news-details/2024/BARK-Expands-Consumables-Business-With-Launch-of-Cereal-Inspired-Dog-Treat-Collection-to-Inject-Innovation-Fun--Humor-Into-Retail-Pet-Aisles/default.aspx",
+      "publisher": "BARK",
+      "published": "2024-03-01",
+      "checked": "2026-10-14",
+      "rights": {
+        "source_capture": "not_copied",
+        "commercial_use": "not_approved",
+        "product_images": "not_imported"
+      }
+    }
+  ],
+  "records": [
+    {
+      "key": "r01",
+      "domain": "product",
+      "text": "BarkBoxは犬用のおもちゃとおやつを毎月届ける定期便。",
+      "source_keys": [
+        "S1",
+        "S3"
+      ],
+      "observed_period": "2025",
+      "confidence": "reported_by_source",
+      "notes": "独立した一次資料または関係者証言。出典と照合できるよう原文の所在を保持。"
+    },
+    {
+      "key": "r02",
+      "domain": "product",
+      "text": "犬の体格、遊び方、アレルギーに応じて内容を調整する。",
+      "source_keys": [
+        "S1",
+        "S6"
+      ],
+      "observed_period": "2025",
+      "confidence": "reported_by_source",
+      "notes": "独立した一次資料または関係者証言。出典と照合できるよう原文の所在を保持。"
+    },
+    {
+      "key": "r03",
+      "domain": "mechanism",
+      "text": "顧客は月・3か月・6か月・12か月契約を選べる。",
+      "source_keys": [
+        "S1"
+      ],
+      "observed_period": "2025",
+      "confidence": "reported_by_source",
+      "notes": "独立した一次資料または関係者証言。出典と照合できるよう原文の所在を保持。"
+    },
+    {
+      "key": "r04",
+      "domain": "mechanism",
+      "text": "契約者は毎月の箱に追加商品を注文できるAdd-to-Boxを利用可能。",
+      "source_keys": [
+        "S1"
+      ],
+      "observed_period": "2025",
+      "confidence": "reported_by_source",
+      "notes": "独立した一次資料または関係者証言。出典と照合できるよう原文の所在を保持。"
+    },
+    {
+      "key": "r05",
+      "domain": "money",
+      "text": "2025年3月期のBARK全社売上は484,182千米ドル。",
+      "source_keys": [
+        "S1"
+      ],
+      "observed_period": "FY2025",
+      "confidence": "reported_by_source",
+      "notes": "独立した一次資料または関係者証言。出典と照合できるよう原文の所在を保持。"
+    },
+    {
+      "key": "r06",
+      "domain": "money",
+      "text": "2025年3月期の直接販売比率は85.9%、小売・オンライン提携販売の比率は14.1%。",
+      "source_keys": [
+        "S1"
+      ],
+      "observed_period": "FY2025",
+      "confidence": "reported_by_source",
+      "notes": "独立した一次資料または関係者証言。出典と照合できるよう原文の所在を保持。"
+    },
+    {
+      "key": "r07",
+      "domain": "money",
+      "text": "2025年3月期の小売・EC提携向け売上は約68百万米ドル。",
+      "source_keys": [
+        "S1"
+      ],
+      "observed_period": "FY2025",
+      "confidence": "reported_by_source",
+      "notes": "独立した一次資料または関係者証言。出典と照合できるよう原文の所在を保持。"
+    },
+    {
+      "key": "r08",
+      "domain": "money",
+      "text": "2025年3月期の全社粗利益は301,988千米ドル、粗利率62.4%。",
+      "source_keys": [
+        "S1"
+      ],
+      "observed_period": "FY2025",
+      "confidence": "reported_by_source",
+      "notes": "独立した一次資料または関係者証言。出典と照合できるよう原文の所在を保持。"
+    },
+    {
+      "key": "r09",
+      "domain": "money",
+      "text": "2026年4〜6月期の売上は78,815千米ドル、前年同期102,861千米ドルから23.4%減。",
+      "source_keys": [
+        "S2"
+      ],
+      "observed_period": "2026Q2",
+      "confidence": "reported_by_source",
+      "notes": "独立した一次資料または関係者証言。出典と照合できるよう原文の所在を保持。"
+    },
+    {
+      "key": "r10",
+      "domain": "distribution",
+      "text": "2025年のSEC資料では製品が5万以上の小売店舗で販売されると記載。",
+      "source_keys": [
+        "S1"
+      ],
+      "observed_period": "FY2025",
+      "confidence": "reported_by_source",
+      "notes": "独立した一次資料または関係者証言。出典と照合できるよう原文の所在を保持。"
+    },
+    {
+      "key": "r11",
+      "domain": "distribution",
+      "text": "2024年8月、Chewy向けに人気おもちゃを販売開始。",
+      "source_keys": [
+        "S5"
+      ],
+      "observed_period": "2024-08",
+      "confidence": "reported_by_source",
+      "notes": "独立した一次資料または関係者証言。出典と照合できるよう原文の所在を保持。"
+    },
+    {
+      "key": "r12",
+      "domain": "distribution",
+      "text": "2024年11月、BarkBoxを期間限定でTarget小売店にも販売すると発表。",
+      "source_keys": [
+        "S4"
+      ],
+      "observed_period": "2024-11",
+      "confidence": "reported_by_source",
+      "notes": "独立した一次資料または関係者証言。出典と照合できるよう原文の所在を保持。"
+    },
+    {
+      "key": "r13",
+      "domain": "operations",
+      "text": "社内で犬用おもちゃのデザイン・開発・ブランド化を行う。",
+      "source_keys": [
+        "S1"
+      ],
+      "observed_period": "FY2025",
+      "confidence": "reported_by_source",
+      "notes": "独立した一次資料または関係者証言。出典と照合できるよう原文の所在を保持。"
+    },
+    {
+      "key": "r14",
+      "domain": "operations",
+      "text": "カスタマーサービス部門は月間約20万件の顧客と接し、その情報を商品企画や提案に活用。",
+      "source_keys": [
+        "S1"
+      ],
+      "observed_period": "FY2025",
+      "confidence": "reported_by_source",
+      "notes": "独立した一次資料または関係者証言。出典と照合できるよう原文の所在を保持。"
+    },
+    {
+      "key": "r15",
+      "domain": "history",
+      "text": "BarkBoxの定期便は2012年に始まった。",
+      "source_keys": [
+        "S3"
+      ],
+      "observed_period": "2012",
+      "confidence": "reported_by_source",
+      "notes": "独立した一次資料または関係者証言。出典と照合できるよう原文の所在を保持。"
+    },
+    {
+      "key": "r16",
+      "domain": "history",
+      "text": "2024年からおやつ・消耗品を小売にも広げた。",
+      "source_keys": [
+        "S7"
+      ],
+      "observed_period": "2024",
+      "confidence": "reported_by_source",
+      "notes": "独立した一次資料または関係者証言。出典と照合できるよう原文の所在を保持。"
+    },
+    {
+      "key": "r17",
+      "domain": "money",
+      "text": "2025年3月期の広告マーケティング費用は83,756千米ドル。",
+      "source_keys": [
+        "S1"
+      ],
+      "observed_period": "FY2025",
+      "confidence": "reported_by_source",
+      "notes": "独立した一次資料または関係者証言。出典と照合できるよう原文の所在を保持。"
+    },
+    {
+      "key": "r18",
+      "domain": "operations",
+      "text": "2025年度の配送・履行関連費用は139,123千米ドル。",
+      "source_keys": [
+        "S1"
+      ],
+      "observed_period": "FY2025",
+      "confidence": "reported_by_source",
+      "notes": "独立した一次資料または関係者証言。出典と照合できるよう原文の所在を保持。"
+    },
+    {
+      "key": "r19",
+      "domain": "business",
+      "text": "BARKは定期便と小売を含む事業全体の決算を発表しており、BarkBox単独の売上とは区別する。",
+      "source_keys": [
+        "S1"
+      ],
+      "observed_period": "FY2025",
+      "confidence": "reported_by_source",
+      "notes": "独立した一次資料または関係者証言。出典と照合できるよう原文の所在を保持。"
+    },
+    {
+      "key": "r20",
+      "domain": "money",
+      "text": "2024年3月期のBARK全社売上は490,184千米ドル。",
+      "source_keys": [
+        "S1"
+      ],
+      "observed_period": "FY2024",
+      "confidence": "reported_by_source",
+      "notes": "独立した一次資料または関係者証言。出典と照合できるよう原文の所在を保持。"
+    }
+  ],
+  "editorial_principles": {
+    "main_story": "契約者との関係を追加購入と商品企画へ使い、さらに小売店に展開した。",
+    "suppressed": "上場企業全社の売上をBarkBox単独の売上と混同しない。",
+    "assurance": "AIが捏造した金額・画像・因果は掲載しない。再確認が要る情報は記録へ戻す。"
+  },
+  "unresolved": [
+    "原典の独立照合と商用利用の権利審査",
+    "実画像掲載権と価格変更",
+    "編集品質の人間による最終検査"
+  ]
+}

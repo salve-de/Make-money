@@ -1,0 +1,257 @@
+{
+  "schema_version": "make-money.collection-submission.v1",
+  "package_id": "research-ent_exploding_kittens_batch26-20261014",
+  "collected_at": "2026-10-14",
+  "identity": {
+    "entity_id": "ent_exploding_kittens_batch26",
+    "name": "Exploding Kittens",
+    "official_url": "https://www.explodingkittens.com/"
+  },
+  "sources": [
+    {
+      "key": "S1",
+      "title": "Kickstarter公式｜219,382人・8,782,571ドルの支援",
+      "url": "https://www.kickstarter.com/projects/elanlee/exploding-kittens",
+      "publisher": "Kickstarter",
+      "published": "2015-02-19",
+      "checked": "2026-10-14",
+      "rights": {
+        "source_capture": "not_copied",
+        "commercial_use": "not_approved",
+        "product_images": "not_imported"
+      }
+    },
+    {
+      "key": "S2",
+      "title": "Kickstarter公式｜資金調達と支援者記録",
+      "url": "https://www.kickstarter.com/blog/exploding-kittens-is-the-most-backed-project-of-all-time",
+      "publisher": "Kickstarter",
+      "published": "2015-02-19",
+      "checked": "2026-10-14",
+      "rights": {
+        "source_capture": "not_copied",
+        "commercial_use": "not_approved",
+        "product_images": "not_imported"
+      }
+    },
+    {
+      "key": "S3",
+      "title": "共同創業者Elan Leeのインタビュー",
+      "url": "https://www.chitag.com/single-post/2015/07/15/elan-lee-on-exploding-kittens-and-more",
+      "publisher": "People of Play / Elan Lee",
+      "published": "2015-07-15",
+      "checked": "2026-10-14",
+      "rights": {
+        "source_capture": "not_copied",
+        "commercial_use": "not_approved",
+        "product_images": "not_imported"
+      }
+    },
+    {
+      "key": "S4",
+      "title": "Exploding Kittens公式｜ゲームと現行価格",
+      "url": "https://www.explodingkittens.com/products/exploding-kittens-original-edition",
+      "publisher": "Exploding Kittens",
+      "published": null,
+      "checked": "2026-10-14",
+      "rights": {
+        "source_capture": "not_copied",
+        "commercial_use": "not_approved",
+        "product_images": "not_imported"
+      }
+    },
+    {
+      "key": "S5",
+      "title": "Netflix公式｜ゲーム・アニメ展開と累計販売",
+      "url": "https://about.netflix.com/en/news/netflix-announces-exploding-kittens-mobile-game-and-animated-series-in-first",
+      "publisher": "Netflix",
+      "published": "2022-04-18",
+      "checked": "2026-10-14",
+      "rights": {
+        "source_capture": "not_copied",
+        "commercial_use": "not_approved",
+        "product_images": "not_imported"
+      }
+    }
+  ],
+  "records": [
+    {
+      "key": "r01",
+      "domain": "product",
+      "text": "Exploding Kittensは爆弾猫のカードを引くと負けるゲーム。回避カードなどを使って駆け引きする。",
+      "source_keys": [
+        "S4"
+      ],
+      "observed_period": "2026-10",
+      "confidence": "reported_by_source",
+      "notes": "独立した一次資料または関係者証言。出典と照合できるよう原文の所在を保持。"
+    },
+    {
+      "key": "r02",
+      "domain": "product",
+      "text": "オリジナル版は2～5人用、約15分で遊ぶカードゲーム。",
+      "source_keys": [
+        "S4"
+      ],
+      "observed_period": "2026-10",
+      "confidence": "reported_by_source",
+      "notes": "独立した一次資料または関係者証言。出典と照合できるよう原文の所在を保持。"
+    },
+    {
+      "key": "r03",
+      "domain": "money",
+      "text": "2015年1月20日から2月19日まで、Kickstarterで支援者219,382人、支援総額8,782,571米ドル。",
+      "source_keys": [
+        "S1",
+        "S2"
+      ],
+      "observed_period": "2015-02-19",
+      "confidence": "reported_by_source",
+      "notes": "独立した一次資料または関係者証言。出典と照合できるよう原文の所在を保持。"
+    },
+    {
+      "key": "r04",
+      "domain": "money",
+      "text": "当初のKickstarter目標は10,000米ドル。",
+      "source_keys": [
+        "S1",
+        "S2",
+        "S3"
+      ],
+      "observed_period": "2015-01",
+      "confidence": "reported_by_source",
+      "notes": "独立した一次資料または関係者証言。出典と照合できるよう原文の所在を保持。"
+    },
+    {
+      "key": "r05",
+      "domain": "operations",
+      "text": "共同創業者Elan Leeは、当初500デッキ程度を印刷するための目標が10,000ドルだったと説明。",
+      "source_keys": [
+        "S3"
+      ],
+      "observed_period": "2015-07",
+      "confidence": "reported_by_source",
+      "notes": "独立した一次資料または関係者証言。出典と照合できるよう原文の所在を保持。"
+    },
+    {
+      "key": "r06",
+      "domain": "operations",
+      "text": "創業者Elan LeeとShane SmallがBomb Squadというゲームを試作し、The OatmealのMatthew Inmanがイラストと名称を提案した。",
+      "source_keys": [
+        "S3"
+      ],
+      "observed_period": "2015以前",
+      "confidence": "reported_by_source",
+      "notes": "独立した一次資料または関係者証言。出典と照合できるよう原文の所在を保持。"
+    },
+    {
+      "key": "r07",
+      "domain": "distribution",
+      "text": "初期の販促計画は、Matthew InmanのSNS上のフォロワーへの紹介だった。",
+      "source_keys": [
+        "S3"
+      ],
+      "observed_period": "2015-01",
+      "confidence": "reported_by_source",
+      "notes": "独立した一次資料または関係者証言。出典と照合できるよう原文の所在を保持。"
+    },
+    {
+      "key": "r08",
+      "domain": "distribution",
+      "text": "初期の盛り上がりは4日ほどで鈍化し、創業者らは支援者参加型の企画へ転換した。",
+      "source_keys": [
+        "S3"
+      ],
+      "observed_period": "2015-01",
+      "confidence": "reported_by_source",
+      "notes": "独立した一次資料または関係者証言。出典と照合できるよう原文の所在を保持。"
+    },
+    {
+      "key": "r09",
+      "domain": "distribution",
+      "text": "Kickstarterページで支援者の写真投稿、遊び・イベント・慈善活動などのコミュニティ参加を促した。",
+      "source_keys": [
+        "S3"
+      ],
+      "observed_period": "2015-02",
+      "confidence": "reported_by_source",
+      "notes": "独立した一次資料または関係者証言。出典と照合できるよう原文の所在を保持。"
+    },
+    {
+      "key": "r10",
+      "domain": "money",
+      "text": "Kickstarterで集まった金額は支援額であり、会社の利益やゲームの小売売上高そのものではない。",
+      "source_keys": [
+        "S1"
+      ],
+      "observed_period": "2015-02",
+      "confidence": "reported_by_source",
+      "notes": "独立した一次資料または関係者証言。出典と照合できるよう原文の所在を保持。"
+    },
+    {
+      "key": "r11",
+      "domain": "operations",
+      "text": "支援募集後には数千万枚の紙カードの製造・物流が課題になったと共同創業者は述べた。",
+      "source_keys": [
+        "S3"
+      ],
+      "observed_period": "2015-07",
+      "confidence": "reported_by_source",
+      "notes": "独立した一次資料または関係者証言。出典と照合できるよう原文の所在を保持。"
+    },
+    {
+      "key": "r12",
+      "domain": "product",
+      "text": "2026年に確認したオリジナル版は公式米国サイトで19.99米ドル。",
+      "source_keys": [
+        "S4"
+      ],
+      "observed_period": "2026-10",
+      "confidence": "reported_by_source",
+      "notes": "独立した一次資料または関係者証言。出典と照合できるよう原文の所在を保持。"
+    },
+    {
+      "key": "r13",
+      "domain": "business",
+      "text": "Netflixは2022年にカードゲームの映像シリーズとモバイルゲームを発表した。",
+      "source_keys": [
+        "S5"
+      ],
+      "observed_period": "2022-04",
+      "confidence": "reported_by_source",
+      "notes": "独立した一次資料または関係者証言。出典と照合できるよう原文の所在を保持。"
+    },
+    {
+      "key": "r14",
+      "domain": "business",
+      "text": "Netflixが2022年に紹介した時点で同シリーズのゲーム販売は累計1,800万以上と説明した。",
+      "source_keys": [
+        "S5"
+      ],
+      "observed_period": "2022-04",
+      "confidence": "reported_by_source",
+      "notes": "独立した一次資料または関係者証言。出典と照合できるよう原文の所在を保持。"
+    },
+    {
+      "key": "r15",
+      "domain": "distribution",
+      "text": "2015年の募集時、支援者数は当時のKickstarter最多記録となった。",
+      "source_keys": [
+        "S2"
+      ],
+      "observed_period": "2015-02",
+      "confidence": "reported_by_source",
+      "notes": "独立した一次資料または関係者証言。出典と照合できるよう原文の所在を保持。"
+    }
+  ],
+  "editorial_principles": {
+    "main_story": "ファン獲得を一人の漫画家の拡散から支援者自身の行動へ移した。",
+    "suppressed": "支援額を売上・純利益に置き換えない。",
+    "assurance": "AIが捏造した金額・画像・因果は掲載しない。再確認が要る情報は記録へ戻す。"
+  },
+  "unresolved": [
+    "原典の独立照合と商用利用の権利審査",
+    "実画像掲載権と価格変更",
+    "編集品質の人間による最終検査"
+  ]
+}

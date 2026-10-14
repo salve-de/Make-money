@@ -1,0 +1,360 @@
+{
+  "schema": "make-money.case-article.v2",
+  "entityId": "ent_exploding_kittens_batch26",
+  "name": "Exploding Kittens",
+  "revision": "r1",
+  "reviewState": "ready_for_review",
+  "generation": 6,
+  "basedOn": {
+    "packageId": "research-ent_exploding_kittens_batch26-20261014",
+    "submissionSha256": "554079d5f9ad91b0257a612c7b1b1156503b79fb78d1f53bc8ed5e208bb07a29"
+  },
+  "listLine": "猫のカードゲームに21万人が支援。30日で約878万ドル",
+  "headline": "猫のカードゲームに21万人が支援。30日で約878万ドルを集めた",
+  "lead": "漫画家のファンに告知して勢いが落ちると、支援者が参加できるお題を次々に公開。カードゲームの販売をコミュニティ企画へ広げた。",
+  "sources": [
+    {
+      "no": 1,
+      "label": "Kickstarter公式｜219,382人・8,782,571ドルの支援",
+      "url": "https://www.kickstarter.com/projects/elanlee/exploding-kittens"
+    },
+    {
+      "no": 2,
+      "label": "Kickstarter公式｜資金調達と支援者記録",
+      "url": "https://www.kickstarter.com/blog/exploding-kittens-is-the-most-backed-project-of-all-time"
+    },
+    {
+      "no": 3,
+      "label": "共同創業者Elan Leeのインタビュー",
+      "url": "https://www.chitag.com/single-post/2015/07/15/elan-lee-on-exploding-kittens-and-more"
+    },
+    {
+      "no": 4,
+      "label": "Exploding Kittens公式｜ゲームと現行価格",
+      "url": "https://www.explodingkittens.com/products/exploding-kittens-original-edition"
+    },
+    {
+      "no": 5,
+      "label": "Netflix公式｜ゲーム・アニメ展開と累計販売",
+      "url": "https://about.netflix.com/en/news/netflix-announces-exploding-kittens-mobile-game-and-animated-series-in-first"
+    }
+  ],
+  "sourceKeys": {
+    "1": "S1",
+    "2": "S2",
+    "3": "S3",
+    "4": "S4",
+    "5": "S5"
+  },
+  "kpis": [
+    {
+      "label": "支援者",
+      "value": "219,382人",
+      "period": "2015年Kickstarter",
+      "recordKeys": [
+        "r03"
+      ]
+    },
+    {
+      "label": "支援総額",
+      "value": "878万ドル",
+      "yen": "約13.2億円",
+      "period": "2015年2月",
+      "recordKeys": [
+        "r03"
+      ]
+    },
+    {
+      "label": "初期目標",
+      "value": "1万ドル",
+      "yen": "約150万円",
+      "period": "2015年1月",
+      "recordKeys": [
+        "r04"
+      ]
+    }
+  ],
+  "topics": [
+    {
+      "id": "overview",
+      "title": "短時間で遊べる猫のカードゲーム",
+      "blocks": [
+        {
+          "type": "list",
+          "ordered": false,
+          "items": [
+            {
+              "lead": "何を売ったか",
+              "text": "順番にカードを引き、爆発する猫のカードを避ける。対戦相手との駆け引きができるカードゲーム。",
+              "cites": [
+                4
+              ],
+              "recordKeys": [
+                "r01"
+              ]
+            },
+            {
+              "lead": "漫画家のイラストが商品になった",
+              "text": "The Oatmealを描くMatthew Inmanがキャラクターとカードの絵を担当した。",
+              "cites": [
+                3
+              ],
+              "recordKeys": [
+                "r06"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "mechanism",
+      "title": "先に資金を集め、支援者向けに印刷・発送",
+      "blocks": [
+        {
+          "type": "steps",
+          "items": [
+            {
+              "title": "試作品を用意",
+              "text": "Elan LeeとShane Smallがルールを試作し、Matthew Inmanが絵を担当。",
+              "cites": [
+                3
+              ],
+              "recordKeys": [
+                "r06"
+              ]
+            },
+            {
+              "title": "Kickstarterで支援を募集",
+              "text": "当初は約500デッキの印刷費として目標1万ドルを設定。",
+              "cites": [
+                1,
+                2,
+                3
+              ],
+              "recordKeys": [
+                "r04",
+                "r05"
+              ]
+            },
+            {
+              "title": "製品化と発送",
+              "text": "支援確定後は大量の紙カードを印刷し、支援者へ届ける仕事が発生した。",
+              "cites": [
+                3
+              ],
+              "recordKeys": [
+                "r11"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "revenue",
+      "title": "最初の資金は、発売前に集めた支援金",
+      "blocks": [
+        {
+          "type": "rates",
+          "caption": "2015年のKickstarter実績",
+          "bars": false,
+          "rows": [
+            {
+              "label": "支援の募集目標",
+              "value": "1万ドル",
+              "yen": "約150万円",
+              "note": "約500デッキの印刷を想定。",
+              "cites": [
+                1,
+                2,
+                3
+              ],
+              "recordKeys": [
+                "r04",
+                "r05"
+              ]
+            },
+            {
+              "label": "実際に集まった支援",
+              "value": "878万2,571ドル",
+              "yen": "約13.2億円",
+              "note": "支援者219,382人、募集期間30日。",
+              "cites": [
+                1,
+                2
+              ],
+              "recordKeys": [
+                "r03"
+              ]
+            }
+          ]
+        },
+        {
+          "type": "paragraph",
+          "tone": "body",
+          "text": "通常版は現在も公式サイトで単品販売され、2026年10月時点の米国価格は19.99ドル（約3,000円）。",
+          "cites": [
+            4
+          ],
+          "recordKeys": [
+            "r12"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "acquisition",
+      "title": "初期のSNS投稿から、支援者が主役の企画へ転換",
+      "blocks": [
+        {
+          "type": "figure",
+          "figureId": "community-shift"
+        }
+      ]
+    },
+    {
+      "id": "operations",
+      "title": "小さな印刷計画から、大量製造と発送へ",
+      "blocks": [
+        {
+          "type": "list",
+          "ordered": false,
+          "items": [
+            {
+              "lead": "想定は500デッキ程度",
+              "text": "当初は少人数で梱包するつもりだったが、21万人以上が支援したため、製造と配送の規模が大きく変わった。",
+              "cites": [
+                1,
+                2,
+                3
+              ],
+              "recordKeys": [
+                "r05",
+                "r03",
+                "r11"
+              ]
+            },
+            {
+              "lead": "支援終了後も制作を続けた",
+              "text": "創業者は大量の紙カードを印刷しながら、支援者との交流を継続することが課題だったと説明した。",
+              "cites": [
+                3
+              ],
+              "recordKeys": [
+                "r11",
+                "r09"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "history",
+      "title": "Kickstarterの成功から、ゲームと映像へ",
+      "blocks": [
+        {
+          "type": "timeline",
+          "items": [
+            {
+              "when": "2015年1月",
+              "text": "カードゲームをKickstarterで公開。",
+              "cites": [
+                1,
+                2
+              ],
+              "recordKeys": [
+                "r03"
+              ]
+            },
+            {
+              "when": "2015年2月",
+              "text": "30日で支援者219,382人、約878万ドルを記録。",
+              "cites": [
+                1,
+                2
+              ],
+              "recordKeys": [
+                "r03"
+              ]
+            },
+            {
+              "when": "2015年7月",
+              "text": "Elan Leeがコミュニティ企画と印刷・発送の経験を取材で説明。",
+              "cites": [
+                3
+              ],
+              "recordKeys": [
+                "r09",
+                "r11"
+              ]
+            },
+            {
+              "when": "2022年",
+              "text": "Netflixがカードゲームを原作とするモバイルゲームと映像シリーズを発表。",
+              "cites": [
+                5
+              ],
+              "recordKeys": [
+                "r13"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "reasons",
+      "title": "SNSの流入だけに頼らず、支援者が参加する理由を作った",
+      "blocks": [
+        {
+          "type": "list",
+          "ordered": false,
+          "items": [
+            {
+              "lead": "ファン層を持つ共同制作者と組んだ",
+              "text": "漫画家Matthew Inmanとの協業で、発売前から既存のファンへ届けられた。",
+              "cites": [
+                3
+              ],
+              "recordKeys": [
+                "r06",
+                "r07"
+              ]
+            },
+            {
+              "lead": "話題を作る人を増やした",
+              "text": "最初の勢いが落ちた時、支援者の写真やイベントを企画に組み込み、コミュニティが発信する場に変えた。",
+              "cites": [
+                3
+              ],
+              "recordKeys": [
+                "r08",
+                "r09"
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "figures": [
+    {
+      "id": "community-shift",
+      "file": "community-shift.svg",
+      "alt": "最初のSNS告知からコミュニティ参加企画に切り替えた4段階",
+      "width": 680,
+      "height": 837
+    }
+  ],
+  "editorialChanges": [
+    {
+      "kind": "withheld",
+      "where": "全体",
+      "text": "支援額を売上・純利益に置き換えない。",
+      "reason": "本文に必要な事実だけを置き、根拠のない金額や説明を加えない。",
+      "recordKeys": []
+    }
+  ]
+}

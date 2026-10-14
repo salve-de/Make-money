@@ -23,6 +23,7 @@
     "case-articles:build": "node --import tsx scripts/case-articles/build.ts",
     "case-articles:check": "node --import tsx scripts/case-articles/build.ts --check",
     "case:preview-sleepjar": "node scripts/case-articles/preview-sleepjar-local.mjs",
+    "case:batch:preview": "node scripts/case-articles/preview-batch-local.mjs",
     "case-text:verify": "node scripts/architecture/check-case-text-standard.mjs",
     "natural-ja:report": "node scripts/architecture/report-natural-japanese.mjs",
     "case-chapters:todo": "node --import tsx scripts/reader-case/chapter-gaps.ts",

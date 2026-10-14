@@ -1,0 +1,350 @@
+{
+  "schema": "make-money.case-article.v2",
+  "entityId": "ent_scrub_daddy_batch26",
+  "name": "Scrub Daddy",
+  "revision": "r1",
+  "reviewState": "ready_for_review",
+  "generation": 6,
+  "basedOn": {
+    "packageId": "research-ent_scrub_daddy_batch26-20261014",
+    "submissionSha256": "6209ea2d471fd7d33dca070d53004c1895381047266b1efd36f2493967a476e7"
+  },
+  "listLine": "水温で硬さが変わるスポンジを実演で売り、量販店へ広げた",
+  "headline": "冷水で硬く、温水で柔らかいスポンジ。テレビ実演をきっかけに小売店へ拡大",
+  "lead": "自動車整備用には売れなかった素材を、食器洗い用に転用。実演で特徴を伝え、テレビ通販から量販店へ広げた。",
+  "sources": [
+    {
+      "no": 1,
+      "label": "Scrub Daddy公式｜創業から小売店拡大まで",
+      "url": "https://scrubdaddy.com/about/"
+    },
+    {
+      "no": 2,
+      "label": "Scrub Daddy公式｜オリジナル商品の価格と機能",
+      "url": "https://scrubdaddy.com/product/scrub-daddy-original/"
+    },
+    {
+      "no": 3,
+      "label": "QVC公式｜実演販売と販売数量",
+      "url": "https://corporate.qvc.com/newsroom/happenings/scrub-daddy-featured-beyond-tank/"
+    },
+    {
+      "no": 4,
+      "label": "Scrub Daddy公式｜2012年のQVC進出",
+      "url": "https://scrubdaddy.com/cool_timeline/lets-make-it-official/"
+    }
+  ],
+  "sourceKeys": {
+    "1": "S1",
+    "2": "S2",
+    "3": "S3",
+    "4": "S4"
+  },
+  "kpis": [
+    {
+      "label": "現在の単品価格",
+      "value": "3.99ドル",
+      "yen": "約600円",
+      "period": "2026年10月",
+      "recordKeys": [
+        "r03"
+      ]
+    },
+    {
+      "label": "展開地域",
+      "value": "47か国",
+      "period": "2023年の会社公表",
+      "recordKeys": [
+        "r15"
+      ]
+    },
+    {
+      "label": "QVC実演",
+      "value": "4回",
+      "period": "2012年の会社記録",
+      "recordKeys": [
+        "r08"
+      ]
+    }
+  ],
+  "topics": [
+    {
+      "id": "overview",
+      "title": "温度で硬さが変わるスポンジを家庭用品として販売",
+      "blocks": [
+        {
+          "type": "figure",
+          "figureId": "temperature-demo"
+        },
+        {
+          "type": "list",
+          "ordered": false,
+          "items": [
+            {
+              "lead": "素材に使い道ができた",
+              "text": "冷水で硬く、温水で柔らかくなる。機械の手洗い用では売れなかった素材を食器洗いに転用した。",
+              "cites": [
+                1,
+                2
+              ],
+              "recordKeys": [
+                "r01",
+                "r05",
+                "r06"
+              ]
+            },
+            {
+              "lead": "笑顔の穴は飾りだけではない",
+              "text": "目の部分に指をかけられ、口でスプーンなどの道具を挟んで洗いやすい。",
+              "cites": [
+                1,
+                2
+              ],
+              "recordKeys": [
+                "r02"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "revenue",
+      "title": "スポンジ単品を販売し、通販と小売店で売る",
+      "blocks": [
+        {
+          "type": "rates",
+          "caption": "Scrub Daddy Original｜公式米国価格",
+          "bars": false,
+          "rows": [
+            {
+              "label": "1個",
+              "value": "3.99ドル",
+              "yen": "約600円",
+              "note": "2026年10月確認の米国向け販売価格。",
+              "cites": [
+                2
+              ],
+              "recordKeys": [
+                "r03"
+              ]
+            }
+          ]
+        },
+        {
+          "type": "paragraph",
+          "tone": "body",
+          "text": "単品販売を基礎に、QVCのテレビ通販、量販店、自社通販へ販路を広げた。会社の粗利益率や原価はこの資料からは算出しない。",
+          "cites": [
+            1,
+            4
+          ],
+          "recordKeys": [
+            "r08",
+            "r10"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "acquisition",
+      "title": "特徴を画面で見せ、テレビから店舗へ",
+      "blocks": [
+        {
+          "type": "list",
+          "ordered": false,
+          "items": [
+            {
+              "lead": "新聞の記事からQVCへ",
+              "text": "2012年、地元紙で紹介された製品をテレビ通販の仲介業者が見つけた。会社設立後、QVCで4回の実演販売に成功。",
+              "cites": [
+                1,
+                4
+              ],
+              "recordKeys": [
+                "r07",
+                "r08"
+              ]
+            },
+            {
+              "lead": "Shark Tankで小売店への道を開いた",
+              "text": "2012年10月に番組へ出演し、Lori Greinerから出資を獲得。2014年以降に大手量販店へ広がった。",
+              "cites": [
+                1
+              ],
+              "recordKeys": [
+                "r09",
+                "r10"
+              ]
+            },
+            {
+              "lead": "後年はSNSにも販路を拡張",
+              "text": "2021年にTikTok動画を投稿し始め、2023年までのSNSフォロワーは会社公表で400万人超。",
+              "cites": [
+                1
+              ],
+              "recordKeys": [
+                "r14"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "operations",
+      "title": "自社の商品開発と、量販店向けの供給体制",
+      "blocks": [
+        {
+          "type": "list",
+          "ordered": false,
+          "items": [
+            {
+              "lead": "販売拡大で拠点を拡張",
+              "text": "2014年に移転。2019年には拠点を約8万平方フィートに、2022年にはさらに広い新本社へ移した。",
+              "cites": [
+                1
+              ],
+              "recordKeys": [
+                "r11",
+                "r12",
+                "r13"
+              ]
+            },
+            {
+              "lead": "商品群と供給先を増やした",
+              "text": "2014年からWalmart、Target、Home Depotなどへ展開。2023年には47か国に達したと公式沿革にある。",
+              "cites": [
+                1
+              ],
+              "recordKeys": [
+                "r10",
+                "r15"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "history",
+      "title": "自動車用品として失敗した素材が、家庭用品に変わった",
+      "blocks": [
+        {
+          "type": "timeline",
+          "items": [
+            {
+              "when": "2007年",
+              "text": "手洗い用のスポンジを整備工場に提案したが売れず、保管。",
+              "cites": [
+                1
+              ],
+              "recordKeys": [
+                "r05"
+              ]
+            },
+            {
+              "when": "2011年",
+              "text": "家具を洗っている時、塗装を傷つけにくく水温で硬さが変わると気づいた。",
+              "cites": [
+                1
+              ],
+              "recordKeys": [
+                "r06"
+              ]
+            },
+            {
+              "when": "2012年",
+              "text": "新聞掲載→QVC実演→Shark Tank出演。",
+              "cites": [
+                1,
+                4
+              ],
+              "recordKeys": [
+                "r07",
+                "r08",
+                "r09"
+              ]
+            },
+            {
+              "when": "2014年以降",
+              "text": "量販店への供給と拠点拡張を進めた。",
+              "cites": [
+                1
+              ],
+              "recordKeys": [
+                "r10",
+                "r11"
+              ]
+            },
+            {
+              "when": "2023年",
+              "text": "会社公表で47か国へ展開。",
+              "cites": [
+                1
+              ],
+              "recordKeys": [
+                "r15"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "reasons",
+      "title": "商品の特徴を短い実演で伝えられた",
+      "blocks": [
+        {
+          "type": "list",
+          "ordered": false,
+          "items": [
+            {
+              "lead": "機能を一瞬で見せられた",
+              "text": "冷水と温水で硬さが変わるため、テレビ実演で違いを具体的に伝えやすかった。",
+              "cites": [
+                1,
+                2,
+                4
+              ],
+              "recordKeys": [
+                "r01",
+                "r07",
+                "r08"
+              ]
+            },
+            {
+              "lead": "想定市場を変えた",
+              "text": "整備工場向けでの販売不振を経て、家庭の食器洗いに用途を変えた。",
+              "cites": [
+                1
+              ],
+              "recordKeys": [
+                "r05",
+                "r06"
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "figures": [
+    {
+      "id": "temperature-demo",
+      "file": "temperature-demo.svg",
+      "alt": "冷水では硬く温水では柔らかくなるScrub Daddyスポンジの使い分け",
+      "width": 680,
+      "height": 665
+    }
+  ],
+  "editorialChanges": [
+    {
+      "kind": "withheld",
+      "where": "全体",
+      "text": "非公開の原価・粗利益を推定しない。",
+      "reason": "本文に必要な事実だけを置き、根拠のない金額や説明を加えない。",
+      "recordKeys": []
+    }
+  ]
+}

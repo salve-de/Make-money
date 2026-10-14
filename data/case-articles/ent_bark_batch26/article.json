@@ -1,0 +1,421 @@
+{
+  "schema": "make-money.case-article.v2",
+  "entityId": "ent_bark_batch26",
+  "name": "BARK / BarkBox",
+  "revision": "r1",
+  "reviewState": "ready_for_review",
+  "generation": 6,
+  "basedOn": {
+    "packageId": "research-ent_bark_batch26-20261014",
+    "submissionSha256": "60ebb070f92911e0666d982b80dbd0da0ce89343206b06f1d9624cd49c5635f9"
+  },
+  "listLine": "犬向け定期便から小売へ拡大したBARK。2025年売上約4.84億ドル",
+  "headline": "BARKは犬の定期便から小売へ拡大。2025年度売上4.84億ドル",
+  "lead": "犬の大きさや遊び方に合わせたおもちゃ・おやつを毎月届ける。契約者へ追加商品を売り、TargetやChewyなど小売にも販路を広げた。",
+  "sources": [
+    {
+      "no": 1,
+      "label": "米SEC｜BARK 2025年度年次報告書 Form 10-K",
+      "url": "https://www.sec.gov/Archives/edgar/data/1819574/000162828026007771/barkfy202510-k.htm"
+    },
+    {
+      "no": 2,
+      "label": "米SEC｜2026年4〜6月の四半期報告",
+      "url": "https://www.sec.gov/Archives/edgar/data/1819574/000162828026054441/bark-20260630.htm"
+    },
+    {
+      "no": 3,
+      "label": "BARK公式｜共同創業者の経歴",
+      "url": "https://investors.bark.co/governance/executive-management/default.aspx"
+    },
+    {
+      "no": 4,
+      "label": "BARK公式｜初めてのTarget店舗向けBarkBox",
+      "url": "https://investors.bark.co/news/news-details/2024/BARK-Launches-BarkBox-in-Retail-for-the-First-Time-with-Target/default.aspx"
+    },
+    {
+      "no": 5,
+      "label": "BARK公式｜Chewyでおもちゃ販売開始",
+      "url": "https://investors.bark.co/news/news-details/2024/BARK-Launches-Best-Selling-and-Limited-Edition-Toy-Collections-at-Chewy/default.aspx"
+    },
+    {
+      "no": 6,
+      "label": "BarkBox公式｜サイズやアレルギー別のカスタマイズ",
+      "url": "https://www.barkbox.com/faq/"
+    },
+    {
+      "no": 7,
+      "label": "BARK公式｜2024年の犬向けおやつ小売展開",
+      "url": "https://investors.bark.co/news/news-details/2024/BARK-Expands-Consumables-Business-With-Launch-of-Cereal-Inspired-Dog-Treat-Collection-to-Inject-Innovation-Fun--Humor-Into-Retail-Pet-Aisles/default.aspx"
+    }
+  ],
+  "sourceKeys": {
+    "1": "S1",
+    "2": "S2",
+    "3": "S3",
+    "4": "S4",
+    "5": "S5",
+    "6": "S6",
+    "7": "S7"
+  },
+  "kpis": [
+    {
+      "label": "2025年度全社売上",
+      "value": "約4.84億ドル",
+      "yen": "約726億円",
+      "period": "2025年3月期",
+      "recordKeys": [
+        "r05"
+      ]
+    },
+    {
+      "label": "直接販売の比率",
+      "value": "85.9%",
+      "period": "2025年3月期",
+      "recordKeys": [
+        "r06"
+      ]
+    },
+    {
+      "label": "取扱店",
+      "value": "5万店超",
+      "period": "2025年のSEC資料",
+      "recordKeys": [
+        "r10"
+      ]
+    }
+  ],
+  "topics": [
+    {
+      "id": "overview",
+      "title": "犬向けおもちゃとおやつを、定期便で届ける",
+      "blocks": [
+        {
+          "type": "list",
+          "ordered": false,
+          "items": [
+            {
+              "lead": "愛犬に合わせて箱の中身を調整",
+              "text": "犬の体格、遊び方、アレルギーを申込時に聞き、内容に反映する。",
+              "cites": [
+                1,
+                3,
+                6
+              ],
+              "recordKeys": [
+                "r01",
+                "r02"
+              ]
+            },
+            {
+              "lead": "定期便から商品ブランドへ",
+              "text": "おもちゃ・おやつを自社で企画し、会員以外も小売店で購入できるようにした。",
+              "cites": [
+                1
+              ],
+              "recordKeys": [
+                "r13",
+                "r10"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "mechanism",
+      "title": "毎月の箱に、追加購入を組み合わせる",
+      "blocks": [
+        {
+          "type": "steps",
+          "items": [
+            {
+              "title": "犬について登録",
+              "text": "体格や遊び方、アレルギーなどを伝えて定期便を申し込む。",
+              "cites": [
+                1,
+                6
+              ],
+              "recordKeys": [
+                "r02"
+              ]
+            },
+            {
+              "title": "毎月おもちゃとおやつを受け取る",
+              "text": "契約期間は月・3か月・6か月・12か月から選べる。",
+              "cites": [
+                1,
+                3
+              ],
+              "recordKeys": [
+                "r01",
+                "r03"
+              ]
+            },
+            {
+              "title": "必要な物を追加購入",
+              "text": "契約者向けのAdd-to-Boxで、おやつなどを箱に追加できる。",
+              "cites": [
+                1
+              ],
+              "recordKeys": [
+                "r04"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "revenue",
+      "title": "定期便に加え、小売・提携ECの販売が売上の14.1%",
+      "blocks": [
+        {
+          "type": "figure",
+          "figureId": "channel-split"
+        },
+        {
+          "type": "rates",
+          "caption": "全社の売上推移（同じ3月期）",
+          "bars": false,
+          "rows": [
+            {
+              "label": "2024年3月期",
+              "value": "4億9,018万ドル",
+              "yen": "約735億円",
+              "note": "米SEC年次報告。",
+              "cites": [
+                1
+              ],
+              "recordKeys": [
+                "r20"
+              ]
+            },
+            {
+              "label": "2025年3月期",
+              "value": "4億8,418万ドル",
+              "yen": "約726億円",
+              "note": "全社の売上、BarkBox単独ではない。",
+              "cites": [
+                1
+              ],
+              "recordKeys": [
+                "r05"
+              ]
+            }
+          ]
+        },
+        {
+          "type": "paragraph",
+          "tone": "body",
+          "text": "2026年4〜6月の売上は7,882万ドル（約118億円）で前年同期比23.4％減。売上規模が大きくても、成長が続いていると決めつけない。",
+          "cites": [
+            2
+          ],
+          "recordKeys": [
+            "r09"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "acquisition",
+      "title": "直接販売で育てた商品を、量販店にも置く",
+      "blocks": [
+        {
+          "type": "list",
+          "ordered": false,
+          "items": [
+            {
+              "lead": "新規顧客との接点を小売に広げた",
+              "text": "2024年8月にChewyへ、11月にはTarget店舗でもBarkBoxを販売する計画を公表。",
+              "cites": [
+                4,
+                5
+              ],
+              "recordKeys": [
+                "r11",
+                "r12"
+              ]
+            },
+            {
+              "lead": "おやつを別の売り場にも展開",
+              "text": "2024年にTargetで新しいおやつシリーズを発売。定期便に限らない購入機会を増やした。",
+              "cites": [
+                7
+              ],
+              "recordKeys": [
+                "r16"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "operations",
+      "title": "20万件の顧客対応を商品開発にも利用",
+      "blocks": [
+        {
+          "type": "list",
+          "ordered": false,
+          "items": [
+            {
+              "lead": "自社でおもちゃを企画",
+              "text": "犬の遊び方に合わせ、おもちゃとおやつのテーマや中身を開発。",
+              "cites": [
+                1,
+                6
+              ],
+              "recordKeys": [
+                "r13",
+                "r02"
+              ]
+            },
+            {
+              "lead": "問い合わせを次の商品に活用",
+              "text": "サポート部門は月間約20万人の顧客と接し、その情報を商品企画と追加購入の提案に使う。",
+              "cites": [
+                1
+              ],
+              "recordKeys": [
+                "r14"
+              ]
+            },
+            {
+              "lead": "配送は大きな仕事",
+              "text": "2025年度の配送・履行関連費用は約1億3,912万ドル（約209億円）と開示されている。",
+              "cites": [
+                1
+              ],
+              "recordKeys": [
+                "r18"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "history",
+      "title": "2012年の定期便から、小売へ販路を広げた",
+      "blocks": [
+        {
+          "type": "timeline",
+          "items": [
+            {
+              "when": "2012年",
+              "text": "BarkBoxの犬用おもちゃ・おやつ定期便を開始。",
+              "cites": [
+                3
+              ],
+              "recordKeys": [
+                "r15"
+              ]
+            },
+            {
+              "when": "2024年",
+              "text": "Chewy、Targetへの商品展開を発表。",
+              "cites": [
+                4,
+                5
+              ],
+              "recordKeys": [
+                "r11",
+                "r12"
+              ]
+            },
+            {
+              "when": "2025年3月期",
+              "text": "全社売上4億8,418万ドル（約726億円）。直接販売が85.9％。",
+              "cites": [
+                1
+              ],
+              "recordKeys": [
+                "r05",
+                "r06"
+              ]
+            },
+            {
+              "when": "2026年4〜6月",
+              "text": "四半期売上は前年同期から23.4％減少。",
+              "cites": [
+                2
+              ],
+              "recordKeys": [
+                "r09"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "reasons",
+      "title": "会員との継続的な関係を、追加販売と商品開発に利用",
+      "blocks": [
+        {
+          "type": "list",
+          "ordered": false,
+          "items": [
+            {
+              "lead": "毎月会う顧客へ追加商品を販売",
+              "text": "定期便のたびにAdd-to-Boxで追加のおもちゃやおやつを提案できる。",
+              "cites": [
+                1,
+                3
+              ],
+              "recordKeys": [
+                "r01",
+                "r04"
+              ]
+            },
+            {
+              "lead": "会員の声が製品企画に戻る",
+              "text": "顧客対応で集まる犬の好みや困りごとを、商品開発に利用している。",
+              "cites": [
+                1
+              ],
+              "recordKeys": [
+                "r14",
+                "r13"
+              ]
+            },
+            {
+              "lead": "小売進出で定期会員以外へ届く",
+              "text": "通販を中心に育てた商品を小売店にも販売し、接点を増やした。",
+              "cites": [
+                1,
+                4,
+                5
+              ],
+              "recordKeys": [
+                "r10",
+                "r11",
+                "r12"
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "figures": [
+    {
+      "id": "channel-split",
+      "file": "channel-split.svg",
+      "alt": "BARKの2025年3月期の売上構成。直接販売85.9％、小売と提携通販14.1％",
+      "width": 680,
+      "height": 610
+    }
+  ],
+  "editorialChanges": [
+    {
+      "kind": "withheld",
+      "where": "全体",
+      "text": "上場企業全社の売上をBarkBox単独の売上と混同しない。",
+      "reason": "本文に必要な事実だけを置き、根拠のない金額や説明を加えない。",
+      "recordKeys": []
+    }
+  ]
+}
