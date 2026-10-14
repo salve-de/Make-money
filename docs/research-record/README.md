@@ -4,6 +4,8 @@
 見本は [`keygen.example.json`](./keygen.example.json)（実在の事例 Keygen の記録を短く削ったもの）。
 全体の流れは [`../COLLECT_TO_UI.md`](../COLLECT_TO_UI.md) を読んでください。
 
+> **注記**：[CASE_COLLECTION_AGENT_RUNBOOK.md](../CASE_COLLECTION_AGENT_RUNBOOK.md) に、新記事の見出し・重要度・章間の重複・図解・独立QAの手順をまとめた。この調査記録JSONは記事素材であり、記事そのものではない。
+
 > **2026-10-14 追補**: 調査開始前に [新しい事例の収集・編集基準](../CASE_COLLECTION_EDITORIAL_STANDARD.md) も参照する。調査時点でその事業の主役・購入理由・具体的な集客・商品画像・図解材料まで理解し、後の自然な文章作成に必要な文脈を残す。**調査記録（原典と事実）は掲載原稿から独立して保存**する。今のこのファイルは現行の調査記録の書き方であり、新8章 `article.json` の生成・統合が完了済みという意味ではない（[PR #224](https://github.com/salve-de/Make-money/pull/224) は作業中）。
 
 ## この記録は何か
