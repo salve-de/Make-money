@@ -2017,6 +2017,7 @@
      "blocks": [
       {
        "type": "facts",
+       "variant": "text",
        "rows": [
         {
          "label": "商品",
@@ -2034,11 +2035,11 @@
           6
          ]
         }
-       ],
-       "variant": "text"
+       ]
       },
       {
        "type": "list",
+       "ordered": false,
        "items": [
         {
          "lead": "犬の鳴き声がきっかけ",
@@ -2054,8 +2055,7 @@
           1
          ]
         }
-       ],
-       "ordered": false
+       ]
       }
      ]
     },
@@ -2069,6 +2069,7 @@
       },
       {
        "type": "list",
+       "ordered": false,
        "items": [
         {
          "lead": "音を選んで再生",
@@ -2092,8 +2093,7 @@
           6
          ]
         }
-       ],
-       "ordered": false
+       ]
       }
      ]
     },
@@ -2140,6 +2140,7 @@
       },
       {
        "type": "list",
+       "ordered": false,
        "items": [
         {
          "lead": "会員向けに睡眠物語も増やした",
@@ -2162,8 +2163,7 @@
           3
          ]
         }
-       ],
-       "ordered": false
+       ]
       }
      ]
     },
@@ -2173,6 +2173,7 @@
      "blocks": [
       {
        "type": "list",
+       "ordered": false,
        "items": [
         {
          "lead": "Alexaスキルとして公開",
@@ -2195,8 +2196,7 @@
           1
          ]
         }
-       ],
-       "ordered": false
+       ]
       }
      ]
     },
@@ -2206,6 +2206,7 @@
      "blocks": [
       {
        "type": "list",
+       "ordered": false,
        "items": [
         {
          "lead": "聞くだけで分かる文章にする",
@@ -2235,8 +2236,7 @@
           3
          ]
         }
-       ],
-       "ordered": false
+       ]
       }
      ]
     },
@@ -2294,6 +2294,7 @@
      "blocks": [
       {
        "type": "list",
+       "ordered": false,
        "items": [
         {
          "lead": "眠る前に音が止まる不便を減らした",
@@ -2319,8 +2320,7 @@
           3
          ]
         }
-       ],
-       "ordered": false
+       ]
       }
      ]
     }
