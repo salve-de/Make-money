@@ -11,11 +11,11 @@ import { pathToFileURL } from 'node:url';
 import { CaseArticleSourceSchema } from '../../src/shared/case-article';
 import { CASE_ARTICLES_DIR, listArticleIds } from './lib';
 
-const NOW = '2026-10-12';
+
 const OUT = 'data/entity-additions/gen5-case-articles.json';
 const flagValue = (name: string) => (process.argv.includes(name) ? process.argv[process.argv.indexOf(name) + 1] : undefined);
 
-interface Research { primary_entity_key?: string; entities?: Array<{ key: string; name?: string; official_url?: string | null; country?: string | null }> }
+interface Research { primary_entity_key?: string; entities?: Array<{ key: string; name?: string; official_url?: string | null; country?: string | null }>; sources?: Array<{ url?: string; retrieved_at?: string | null }> }
 
 const hostOf = (url: string) => { try { return new URL(url).hostname.replace(/^www\./, ''); } catch { return ''; } };
 
@@ -37,7 +37,7 @@ export function recordFor(dir: string, entityId: string) {
     badge: '出典',
     evidenceStatus: 'REPORTED',
     punchline: '出典の所在。数字の読み方は事例の画面の注記に従う',
-    details: [`URL：${s.url}`, `確認日：${NOW}`],
+    details: [`URL：${s.url}`, `出典取得日：${research.sources?.find((x) => x.url === s.url)?.retrieved_at?.slice(0, 10) ?? '未記録'}`],
     url: s.url,
     sourceNote: '公開部分を読み、事実を自分の言葉で書いた。本文・画像は転載しない',
     sourceClass: 'INDEPENDENT_SECONDARY',
@@ -65,7 +65,7 @@ function main() {
     const artifact = readFileSync(`${dir}/${id}/article.json`);
     return { id, provenance: { detailsHash: createHash('sha256').update(JSON.stringify(rec)).digest('hex'), artifactSha256: createHash('sha256').update(artifact).digest('hex') }, record: rec };
   });
-  const file = { version: 1, source: { manifest: 'data/case-articles/*/article.json', manifestSha256: createHash('sha256').update(records.map((r) => r.provenance.artifactSha256).join('')).digest('hex'), artifactsDir: '', collectedAt: `${NOW}T00:00:00.000Z`, generation: 5 }, records };
+  const file = { version: 1, source: { manifest: 'data/case-articles/*/article.json', manifestSha256: createHash('sha256').update(records.map((r) => r.provenance.artifactSha256).join('')).digest('hex'), artifactsDir: '', collectedAt: new Date().toISOString(), generation: 5 }, records };
   writeFileSync(out, `${JSON.stringify(file, null, 1)}\n`);
   console.log(records.length === 0 ? '目録に無い記事の事例は無い（空の記録を書いた）' : records.map((r) => r.id).join('\n'));
 }
