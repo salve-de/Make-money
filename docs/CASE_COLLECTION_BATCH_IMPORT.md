@@ -24,7 +24,7 @@ ChatGPT／別AI／人間が複数事例について、一次情報の調査、�
 
 ```bash
 python3 scripts/case-articles/pack-batch.py \
-  --cases-dir data/case-articles \
+  --cases-dir examples/batch-intake \
   --id ent_scrub_daddy_batch26 \
   --id ent_exploding_kittens_batch26 \
   --id ent_bark_batch26 \
