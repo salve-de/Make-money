@@ -87,7 +87,8 @@
     "text:templates": "node --import tsx scripts/text/build-template-phrases.ts",
     "display:build:parallel": "node scripts/reader-case/display-build-parallel.mjs",
     "case:batch:preview": "node scripts/case-articles/run-case-batch.mjs",
-    "case:batch:inspect": "node scripts/case-articles/run-case-batch.mjs --inspect-only"
+    "case:batch:inspect": "node scripts/case-articles/run-case-batch.mjs --inspect-only",
+    "test:case-batch": "node --test scripts/architecture/case-batch-local.test.mjs"
   },
   "dependencies": {
     "@aws-sdk/client-s3": "^3.1127.0",

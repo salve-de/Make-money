@@ -8,7 +8,7 @@
 import { createHash } from 'node:crypto';
 import { spawn, spawnSync, execFileSync } from 'node:child_process';
 import {
-  copyFileSync, existsSync, mkdirSync, mkdtempSync, readFileSync, writeFileSync, readdirSync, rmSync, statSync,
+  copyFileSync, existsSync, mkdirSync, mkdtempSync, readFileSync, writeFileSync, rmSync, statSync, lstatSync, realpathSync,
 } from 'node:fs';
 import { basename, dirname, isAbsolute, join, resolve, sep } from 'node:path';
 import { gunzipSync } from 'node:zlib';
@@ -60,8 +60,8 @@ function readPart(rel) {
   const root = resolve(absInput);
   const full = resolve(root, rel);
   if (!full.startsWith(root + sep)) fail('path outside package');
-  const n = statSync(full);
-  if (!n.isFile() || n.isSymbolicLink?.() || n.size > LIMIT) fail('invalid member: ' + rel);
+  const n = lstatSync(full);
+  if (!n.isFile() || n.isSymbolicLink() || n.size > LIMIT || !realpathSync(full).startsWith(root + sep)) fail('invalid member: ' + rel);
   return readFileSync(full);
 }
 const loadJSON = bytes => {
