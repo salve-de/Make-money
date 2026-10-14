@@ -58,3 +58,34 @@
 - オーナーの承認と既存公開ゲート。今回は `approved` へ上げない
 
 この事例の作成自体では **main、Cloudflare R2、本番公開、料金・外部契約、定期収集の設定を変更していない**。
+
+
+## ローカルのMAKEMONEY本体UIで確認する（Mac）
+
+**本番公開・R2書き込みはしない。** 既存のmainや作業中のブランチを汚さないため、独立したGit worktreeで実行する。ローカルのNext.jsが既存の事例一覧・詳細・7章＋出典をそのまま描画する。
+
+Make-Moneyをclone済みのMacのターミナルで、**そのリポジトリ直下**から初回のみ：
+
+```bash
+git fetch origin feat/case-sleep-jar-editorial-20261014
+git worktree add --detach ../Make-money-sleepjar-preview origin/feat/case-sleep-jar-editorial-20261014
+cd ../Make-money-sleepjar-preview
+pnpm install --frozen-lockfile
+pnpm case:preview-sleepjar
+```
+
+起動後、MacのSafariで以下を開く。
+
+```text
+http://127.0.0.1:3100/?entity=ent_sleep_jar_20261014
+```
+
+- **本体UIと全く同じ表示プログラム**（`CaseArticleView`、`CaseArticleBlocks`）で開く。単体HTMLモックではない。
+- `--preview-articles` を通してローカル専用の `.catalog-release-preview/`（gitignore済み）を作り、審査待ちのSleep Jarを **ローカルだけ** 表示対象にする。原稿の `reviewState` はそのまま `ready_for_review`。
+- 起動スクリプトはローカル目録を読み戻し、Sleep Jarの登録がなければサーバーを起動せず理由を出す。
+- 3100番が他のアプリで使用中なら `pnpm case:preview-sleepjar -- --port 3110` としてURLも3110へ変更する。
+- 終了はターミナルで Ctrl+C。
+- 再度起動する時は、作成済みの `../Make-money-sleepjar-preview/` で `pnpm case:preview-sleepjar` を実行する。
+- GitHubでこのブランチが更新された場合はworktree内で `git fetch origin feat/case-sleep-jar-editorial-20261014` を行い、ローカルに未コミットの変更がないことを確認してから最新コミットに切り替える。
+
+**GitHub側の確認**: `scripts/architecture/sleepjar-local-preview.test.mjs` でプレビュー目録に事例が入ることと、公開中の `data/catalog-release.json` が変わらないことを検査する。この検査と実機Safariの表示確認は別。
