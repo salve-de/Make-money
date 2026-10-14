@@ -13,7 +13,7 @@ import { gunzipSync } from 'node:zlib';
 
 const ENTITY_ID = 'ent_sleep_jar_20261014';
 const ROOT = process.cwd();
-const PREVIEW_DIR = resolve(ROOT, '.catalog-release-preview-sleepjar');
+const PREVIEW_DIR = resolve(ROOT, '.catalog-release-preview');
 const ARG = process.argv.slice(2).filter((x) => x !== '--');
 const portIndex = ARG.indexOf('--port');
 const portText = portIndex === -1 ? '3100' : ARG[portIndex + 1];
