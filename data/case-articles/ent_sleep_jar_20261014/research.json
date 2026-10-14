@@ -1,0 +1,2608 @@
+{
+  "schema_version": "make-money.collection-submission.v1",
+  "requirements_version": "1.1.0",
+  "package_id": "mm-sleep-jar-20261014-r1",
+  "is_test_data": false,
+  "collector": {
+    "name": "ChatGPT",
+    "agent_version": "GPT-6",
+    "capabilities": [
+      "web",
+      "code",
+      "GitHub"
+    ]
+  },
+  "created_at": "2026-10-14T07:00:00Z",
+  "base": {
+    "app_commit": "237adfec711249587b9d85f0b749d737df9ac8e9",
+    "foundation_commit": null,
+    "prior_package_id": null,
+    "prior_submission_sha256": null
+  },
+  "scope": {
+    "purpose": "case",
+    "tier": "ENRICHED",
+    "declaration": "初回の読者向け記事・図解・調査資料。独立の原典/権利監査と本番掲載は保留。",
+    "coverage": [
+      {
+        "domain": "identity",
+        "status": "found",
+        "attempts": [
+          "https://developer.amazon.com/en-US/blogs/alexa/alexa-skills-kit/2022/06/nick-schwab-june-2022",
+          "https://sleepjar.com/premium",
+          "https://developer.amazon.com/en-US/blogs/alexa/alexa-skills-kit/2023/08/sleep-stories-sleepjar-alexa-august-2023",
+          "https://developer.amazon.com/en-US/blogs/alexa/post/cf473bfc-b504-4575-bdcd-556de233517a/alexa-skill-developer-spotlight-nick-schwa",
+          "https://developer.amazon.com/en-US/blogs/alexa/alexa-skills-kit/2022/11/amazon-associates-on-alexa-blog-november-2022",
+          "https://sleepjar.com/faq",
+          "https://developer.amazon.com/en-US/alexa/champions/nick-schwab",
+          "https://developer.amazon.com/en-US/blogs/alexa/alexa-skills-kit/2022/04/Alexa-in-skill-purchasing-available-canada-april-2022",
+          "https://sleepjar.com/alarms"
+        ],
+        "record_keys": [
+          "r01",
+          "r34",
+          "r35",
+          "r39"
+        ],
+        "note": "関連する原典の確認可能な事実を収録"
+      },
+      {
+        "domain": "people",
+        "status": "attempted_unavailable",
+        "attempts": [
+          "https://developer.amazon.com/en-US/blogs/alexa/alexa-skills-kit/2022/06/nick-schwab-june-2022",
+          "https://sleepjar.com/premium",
+          "https://developer.amazon.com/en-US/blogs/alexa/alexa-skills-kit/2023/08/sleep-stories-sleepjar-alexa-august-2023",
+          "https://developer.amazon.com/en-US/blogs/alexa/post/cf473bfc-b504-4575-bdcd-556de233517a/alexa-skill-developer-spotlight-nick-schwa",
+          "https://developer.amazon.com/en-US/blogs/alexa/alexa-skills-kit/2022/11/amazon-associates-on-alexa-blog-november-2022",
+          "https://sleepjar.com/faq",
+          "https://developer.amazon.com/en-US/alexa/champions/nick-schwab",
+          "https://developer.amazon.com/en-US/blogs/alexa/alexa-skills-kit/2022/04/Alexa-in-skill-purchasing-available-canada-april-2022",
+          "https://sleepjar.com/alarms"
+        ],
+        "record_keys": [],
+        "note": "事例を説明する確実な具体情報が乏しいため掲載本文に項目を作らない"
+      },
+      {
+        "domain": "product",
+        "status": "attempted_unavailable",
+        "attempts": [
+          "https://developer.amazon.com/en-US/blogs/alexa/alexa-skills-kit/2022/06/nick-schwab-june-2022",
+          "https://sleepjar.com/premium",
+          "https://developer.amazon.com/en-US/blogs/alexa/alexa-skills-kit/2023/08/sleep-stories-sleepjar-alexa-august-2023",
+          "https://developer.amazon.com/en-US/blogs/alexa/post/cf473bfc-b504-4575-bdcd-556de233517a/alexa-skill-developer-spotlight-nick-schwa",
+          "https://developer.amazon.com/en-US/blogs/alexa/alexa-skills-kit/2022/11/amazon-associates-on-alexa-blog-november-2022",
+          "https://sleepjar.com/faq",
+          "https://developer.amazon.com/en-US/alexa/champions/nick-schwab",
+          "https://developer.amazon.com/en-US/blogs/alexa/alexa-skills-kit/2022/04/Alexa-in-skill-purchasing-available-canada-april-2022",
+          "https://sleepjar.com/alarms"
+        ],
+        "record_keys": [],
+        "note": "事例を説明する確実な具体情報が乏しいため掲載本文に項目を作らない"
+      },
+      {
+        "domain": "customer_and_demand",
+        "status": "found",
+        "attempts": [
+          "https://developer.amazon.com/en-US/blogs/alexa/alexa-skills-kit/2022/06/nick-schwab-june-2022",
+          "https://sleepjar.com/premium",
+          "https://developer.amazon.com/en-US/blogs/alexa/alexa-skills-kit/2023/08/sleep-stories-sleepjar-alexa-august-2023",
+          "https://developer.amazon.com/en-US/blogs/alexa/post/cf473bfc-b504-4575-bdcd-556de233517a/alexa-skill-developer-spotlight-nick-schwa",
+          "https://developer.amazon.com/en-US/blogs/alexa/alexa-skills-kit/2022/11/amazon-associates-on-alexa-blog-november-2022",
+          "https://sleepjar.com/faq",
+          "https://developer.amazon.com/en-US/alexa/champions/nick-schwab",
+          "https://developer.amazon.com/en-US/blogs/alexa/alexa-skills-kit/2022/04/Alexa-in-skill-purchasing-available-canada-april-2022",
+          "https://sleepjar.com/alarms"
+        ],
+        "record_keys": [
+          "r02",
+          "r08",
+          "r32"
+        ],
+        "note": "関連する原典の確認可能な事実を収録"
+      },
+      {
+        "domain": "pricing",
+        "status": "attempted_unavailable",
+        "attempts": [
+          "https://developer.amazon.com/en-US/blogs/alexa/alexa-skills-kit/2022/06/nick-schwab-june-2022",
+          "https://sleepjar.com/premium",
+          "https://developer.amazon.com/en-US/blogs/alexa/alexa-skills-kit/2023/08/sleep-stories-sleepjar-alexa-august-2023",
+          "https://developer.amazon.com/en-US/blogs/alexa/post/cf473bfc-b504-4575-bdcd-556de233517a/alexa-skill-developer-spotlight-nick-schwa",
+          "https://developer.amazon.com/en-US/blogs/alexa/alexa-skills-kit/2022/11/amazon-associates-on-alexa-blog-november-2022",
+          "https://sleepjar.com/faq",
+          "https://developer.amazon.com/en-US/alexa/champions/nick-schwab",
+          "https://developer.amazon.com/en-US/blogs/alexa/alexa-skills-kit/2022/04/Alexa-in-skill-purchasing-available-canada-april-2022",
+          "https://sleepjar.com/alarms"
+        ],
+        "record_keys": [],
+        "note": "事例を説明する確実な具体情報が乏しいため掲載本文に項目を作らない"
+      },
+      {
+        "domain": "money_and_economics",
+        "status": "found",
+        "attempts": [
+          "https://developer.amazon.com/en-US/blogs/alexa/alexa-skills-kit/2022/06/nick-schwab-june-2022",
+          "https://sleepjar.com/premium",
+          "https://developer.amazon.com/en-US/blogs/alexa/alexa-skills-kit/2023/08/sleep-stories-sleepjar-alexa-august-2023",
+          "https://developer.amazon.com/en-US/blogs/alexa/post/cf473bfc-b504-4575-bdcd-556de233517a/alexa-skill-developer-spotlight-nick-schwa",
+          "https://developer.amazon.com/en-US/blogs/alexa/alexa-skills-kit/2022/11/amazon-associates-on-alexa-blog-november-2022",
+          "https://sleepjar.com/faq",
+          "https://developer.amazon.com/en-US/alexa/champions/nick-schwab",
+          "https://developer.amazon.com/en-US/blogs/alexa/alexa-skills-kit/2022/04/Alexa-in-skill-purchasing-available-canada-april-2022",
+          "https://sleepjar.com/alarms"
+        ],
+        "record_keys": [
+          "r07",
+          "r09",
+          "r10",
+          "r11",
+          "r12",
+          "r13",
+          "r17",
+          "r18",
+          "r19",
+          "r26",
+          "r27",
+          "r28"
+        ],
+        "note": "関連する原典の確認可能な事実を収録"
+      },
+      {
+        "domain": "distribution",
+        "status": "found",
+        "attempts": [
+          "https://developer.amazon.com/en-US/blogs/alexa/alexa-skills-kit/2022/06/nick-schwab-june-2022",
+          "https://sleepjar.com/premium",
+          "https://developer.amazon.com/en-US/blogs/alexa/alexa-skills-kit/2023/08/sleep-stories-sleepjar-alexa-august-2023",
+          "https://developer.amazon.com/en-US/blogs/alexa/post/cf473bfc-b504-4575-bdcd-556de233517a/alexa-skill-developer-spotlight-nick-schwa",
+          "https://developer.amazon.com/en-US/blogs/alexa/alexa-skills-kit/2022/11/amazon-associates-on-alexa-blog-november-2022",
+          "https://sleepjar.com/faq",
+          "https://developer.amazon.com/en-US/alexa/champions/nick-schwab",
+          "https://developer.amazon.com/en-US/blogs/alexa/alexa-skills-kit/2022/04/Alexa-in-skill-purchasing-available-canada-april-2022",
+          "https://sleepjar.com/alarms"
+        ],
+        "record_keys": [
+          "r04",
+          "r20",
+          "r21",
+          "r36"
+        ],
+        "note": "関連する原典の確認可能な事実を収録"
+      },
+      {
+        "domain": "operations",
+        "status": "found",
+        "attempts": [
+          "https://developer.amazon.com/en-US/blogs/alexa/alexa-skills-kit/2022/06/nick-schwab-june-2022",
+          "https://sleepjar.com/premium",
+          "https://developer.amazon.com/en-US/blogs/alexa/alexa-skills-kit/2023/08/sleep-stories-sleepjar-alexa-august-2023",
+          "https://developer.amazon.com/en-US/blogs/alexa/post/cf473bfc-b504-4575-bdcd-556de233517a/alexa-skill-developer-spotlight-nick-schwa",
+          "https://developer.amazon.com/en-US/blogs/alexa/alexa-skills-kit/2022/11/amazon-associates-on-alexa-blog-november-2022",
+          "https://sleepjar.com/faq",
+          "https://developer.amazon.com/en-US/alexa/champions/nick-schwab",
+          "https://developer.amazon.com/en-US/blogs/alexa/alexa-skills-kit/2022/04/Alexa-in-skill-purchasing-available-canada-april-2022",
+          "https://sleepjar.com/alarms"
+        ],
+        "record_keys": [
+          "r06",
+          "r22",
+          "r23",
+          "r24",
+          "r25",
+          "r29",
+          "r38"
+        ],
+        "note": "関連する原典の確認可能な事実を収録"
+      },
+      {
+        "domain": "technology",
+        "status": "found",
+        "attempts": [
+          "https://developer.amazon.com/en-US/blogs/alexa/alexa-skills-kit/2022/06/nick-schwab-june-2022",
+          "https://sleepjar.com/premium",
+          "https://developer.amazon.com/en-US/blogs/alexa/alexa-skills-kit/2023/08/sleep-stories-sleepjar-alexa-august-2023",
+          "https://developer.amazon.com/en-US/blogs/alexa/post/cf473bfc-b504-4575-bdcd-556de233517a/alexa-skill-developer-spotlight-nick-schwa",
+          "https://developer.amazon.com/en-US/blogs/alexa/alexa-skills-kit/2022/11/amazon-associates-on-alexa-blog-november-2022",
+          "https://sleepjar.com/faq",
+          "https://developer.amazon.com/en-US/alexa/champions/nick-schwab",
+          "https://developer.amazon.com/en-US/blogs/alexa/alexa-skills-kit/2022/04/Alexa-in-skill-purchasing-available-canada-april-2022",
+          "https://sleepjar.com/alarms"
+        ],
+        "record_keys": [
+          "r30",
+          "r31"
+        ],
+        "note": "関連する原典の確認可能な事実を収録"
+      },
+      {
+        "domain": "competition_and_market",
+        "status": "attempted_unavailable",
+        "attempts": [
+          "https://developer.amazon.com/en-US/blogs/alexa/alexa-skills-kit/2022/06/nick-schwab-june-2022",
+          "https://sleepjar.com/premium",
+          "https://developer.amazon.com/en-US/blogs/alexa/alexa-skills-kit/2023/08/sleep-stories-sleepjar-alexa-august-2023",
+          "https://developer.amazon.com/en-US/blogs/alexa/post/cf473bfc-b504-4575-bdcd-556de233517a/alexa-skill-developer-spotlight-nick-schwa",
+          "https://developer.amazon.com/en-US/blogs/alexa/alexa-skills-kit/2022/11/amazon-associates-on-alexa-blog-november-2022",
+          "https://sleepjar.com/faq",
+          "https://developer.amazon.com/en-US/alexa/champions/nick-schwab",
+          "https://developer.amazon.com/en-US/blogs/alexa/alexa-skills-kit/2022/04/Alexa-in-skill-purchasing-available-canada-april-2022",
+          "https://sleepjar.com/alarms"
+        ],
+        "record_keys": [],
+        "note": "事例を説明する確実な具体情報が乏しいため掲載本文に項目を作らない"
+      },
+      {
+        "domain": "timeline_and_outcomes",
+        "status": "found",
+        "attempts": [
+          "https://developer.amazon.com/en-US/blogs/alexa/alexa-skills-kit/2022/06/nick-schwab-june-2022",
+          "https://sleepjar.com/premium",
+          "https://developer.amazon.com/en-US/blogs/alexa/alexa-skills-kit/2023/08/sleep-stories-sleepjar-alexa-august-2023",
+          "https://developer.amazon.com/en-US/blogs/alexa/post/cf473bfc-b504-4575-bdcd-556de233517a/alexa-skill-developer-spotlight-nick-schwa",
+          "https://developer.amazon.com/en-US/blogs/alexa/alexa-skills-kit/2022/11/amazon-associates-on-alexa-blog-november-2022",
+          "https://sleepjar.com/faq",
+          "https://developer.amazon.com/en-US/alexa/champions/nick-schwab",
+          "https://developer.amazon.com/en-US/blogs/alexa/alexa-skills-kit/2022/04/Alexa-in-skill-purchasing-available-canada-april-2022",
+          "https://sleepjar.com/alarms"
+        ],
+        "record_keys": [
+          "r03",
+          "r05"
+        ],
+        "note": "関連する原典の確認可能な事実を収録"
+      },
+      {
+        "domain": "provenance_rights_and_uncertainty",
+        "status": "attempted_unavailable",
+        "attempts": [
+          "https://developer.amazon.com/en-US/blogs/alexa/alexa-skills-kit/2022/06/nick-schwab-june-2022",
+          "https://sleepjar.com/premium",
+          "https://developer.amazon.com/en-US/blogs/alexa/alexa-skills-kit/2023/08/sleep-stories-sleepjar-alexa-august-2023",
+          "https://developer.amazon.com/en-US/blogs/alexa/post/cf473bfc-b504-4575-bdcd-556de233517a/alexa-skill-developer-spotlight-nick-schwa",
+          "https://developer.amazon.com/en-US/blogs/alexa/alexa-skills-kit/2022/11/amazon-associates-on-alexa-blog-november-2022",
+          "https://sleepjar.com/faq",
+          "https://developer.amazon.com/en-US/alexa/champions/nick-schwab",
+          "https://developer.amazon.com/en-US/blogs/alexa/alexa-skills-kit/2022/04/Alexa-in-skill-purchasing-available-canada-april-2022",
+          "https://sleepjar.com/alarms"
+        ],
+        "record_keys": [],
+        "note": "事例を説明する確実な具体情報が乏しいため掲載本文に項目を作らない"
+      }
+    ]
+  },
+  "entities": [
+    {
+      "key": "business",
+      "name": "Sleep Jar",
+      "kind": "organization",
+      "official_url": "https://sleepjar.com/",
+      "aliases": [
+        "Invoked Apps"
+      ],
+      "app_entity_id": null,
+      "foundation_entity_id": null,
+      "country": "アメリカ",
+      "status": "公式サイトとAmazon Developerにより提供を確認"
+    }
+  ],
+  "primary_entity_key": "business",
+  "sources": [
+    {
+      "key": "S1",
+      "url": "https://developer.amazon.com/en-US/blogs/alexa/alexa-skills-kit/2022/06/nick-schwab-june-2022",
+      "title": "Alexa公式：創業者Nick Schwabの創業・有料化・集客・有料会員",
+      "publisher": "Amazon Developer",
+      "language": "en",
+      "kind": "article",
+      "published_time": {
+        "value": "2022-06-16",
+        "end": null,
+        "precision": "day",
+        "original": "2022-06-16"
+      },
+      "retrieved_at": "2026-10-14T07:00:00Z",
+      "source_family_key": "amazon-interview-and-developer",
+      "access_state": "read",
+      "incentive_context": "Amazonが掲載した当事者インタビュー。会社が提供した実績であり独立監査済み決算ではない。",
+      "rights": {
+        "fetch": {
+          "decision": "pending",
+          "basis": "unknown",
+          "reference": null,
+          "reviewed_at": null,
+          "note": "著作物の本文・製品写真・画面は転載せず、出典つきの独立した日本語事実要約とオリジナル図解のみ作成。商用掲載および自動取得の規約・権利審査は未完了。"
+        },
+        "private_evidence_storage": {
+          "decision": "pending",
+          "basis": "unknown",
+          "reference": null,
+          "reviewed_at": null,
+          "note": "著作物の本文・製品写真・画面は転載せず、出典つきの独立した日本語事実要約とオリジナル図解のみ作成。商用掲載および自動取得の規約・権利審査は未完了。"
+        },
+        "internal_analysis": {
+          "decision": "pending",
+          "basis": "unknown",
+          "reference": null,
+          "reviewed_at": null,
+          "note": "著作物の本文・製品写真・画面は転載せず、出典つきの独立した日本語事実要約とオリジナル図解のみ作成。商用掲載および自動取得の規約・権利審査は未完了。"
+        },
+        "factual_paraphrase_display": {
+          "decision": "pending",
+          "basis": "unknown",
+          "reference": null,
+          "reviewed_at": null,
+          "note": "著作物の本文・製品写真・画面は転載せず、出典つきの独立した日本語事実要約とオリジナル図解のみ作成。商用掲載および自動取得の規約・権利審査は未完了。"
+        },
+        "paid_member_display": {
+          "decision": "pending",
+          "basis": "unknown",
+          "reference": null,
+          "reviewed_at": null,
+          "note": "著作物の本文・製品写真・画面は転載せず、出典つきの独立した日本語事実要約とオリジナル図解のみ作成。商用掲載および自動取得の規約・権利審査は未完了。"
+        },
+        "redistribution": {
+          "decision": "pending",
+          "basis": "unknown",
+          "reference": null,
+          "reviewed_at": null,
+          "note": "著作物の本文・製品写真・画面は転載せず、出典つきの独立した日本語事実要約とオリジナル図解のみ作成。商用掲載および自動取得の規約・権利審査は未完了。"
+        },
+        "media_display": {
+          "decision": "pending",
+          "basis": "unknown",
+          "reference": null,
+          "reviewed_at": null,
+          "note": "著作物の本文・製品写真・画面は転載せず、出典つきの独立した日本語事実要約とオリジナル図解のみ作成。商用掲載および自動取得の規約・権利審査は未完了。"
+        }
+      }
+    },
+    {
+      "key": "S2",
+      "url": "https://sleepjar.com/premium",
+      "title": "Sleep Jar公式：米国の現行会員料金・無料と有料の内容",
+      "publisher": "Sleep Jar",
+      "language": "en",
+      "kind": "official",
+      "published_time": {
+        "value": null,
+        "end": null,
+        "precision": "unknown",
+        "original": null
+      },
+      "retrieved_at": "2026-10-14T07:00:00Z",
+      "source_family_key": "sleepjar-owned",
+      "access_state": "indexed_excerpt",
+      "incentive_context": "販売者の自己説明。現行料金は米国向け・地域と時点により異なる。",
+      "rights": {
+        "fetch": {
+          "decision": "pending",
+          "basis": "unknown",
+          "reference": null,
+          "reviewed_at": null,
+          "note": "著作物の本文・製品写真・画面は転載せず、出典つきの独立した日本語事実要約とオリジナル図解のみ作成。商用掲載および自動取得の規約・権利審査は未完了。"
+        },
+        "private_evidence_storage": {
+          "decision": "pending",
+          "basis": "unknown",
+          "reference": null,
+          "reviewed_at": null,
+          "note": "著作物の本文・製品写真・画面は転載せず、出典つきの独立した日本語事実要約とオリジナル図解のみ作成。商用掲載および自動取得の規約・権利審査は未完了。"
+        },
+        "internal_analysis": {
+          "decision": "pending",
+          "basis": "unknown",
+          "reference": null,
+          "reviewed_at": null,
+          "note": "著作物の本文・製品写真・画面は転載せず、出典つきの独立した日本語事実要約とオリジナル図解のみ作成。商用掲載および自動取得の規約・権利審査は未完了。"
+        },
+        "factual_paraphrase_display": {
+          "decision": "pending",
+          "basis": "unknown",
+          "reference": null,
+          "reviewed_at": null,
+          "note": "著作物の本文・製品写真・画面は転載せず、出典つきの独立した日本語事実要約とオリジナル図解のみ作成。商用掲載および自動取得の規約・権利審査は未完了。"
+        },
+        "paid_member_display": {
+          "decision": "pending",
+          "basis": "unknown",
+          "reference": null,
+          "reviewed_at": null,
+          "note": "著作物の本文・製品写真・画面は転載せず、出典つきの独立した日本語事実要約とオリジナル図解のみ作成。商用掲載および自動取得の規約・権利審査は未完了。"
+        },
+        "redistribution": {
+          "decision": "pending",
+          "basis": "unknown",
+          "reference": null,
+          "reviewed_at": null,
+          "note": "著作物の本文・製品写真・画面は転載せず、出典つきの独立した日本語事実要約とオリジナル図解のみ作成。商用掲載および自動取得の規約・権利審査は未完了。"
+        },
+        "media_display": {
+          "decision": "pending",
+          "basis": "unknown",
+          "reference": null,
+          "reviewed_at": null,
+          "note": "著作物の本文・製品写真・画面は転載せず、出典つきの独立した日本語事実要約とオリジナル図解のみ作成。商用掲載および自動取得の規約・権利審査は未完了。"
+        }
+      }
+    },
+    {
+      "key": "S3",
+      "url": "https://developer.amazon.com/en-US/blogs/alexa/alexa-skills-kit/2023/08/sleep-stories-sleepjar-alexa-august-2023",
+      "title": "Alexa公式：睡眠物語の制作・収録・人材・費用の使い道",
+      "publisher": "Amazon Developer",
+      "language": "en",
+      "kind": "article",
+      "published_time": {
+        "value": "2023-08-07",
+        "end": null,
+        "precision": "day",
+        "original": "2023-08-07"
+      },
+      "retrieved_at": "2026-10-14T07:00:00Z",
+      "source_family_key": "amazon-interview-and-developer",
+      "access_state": "read",
+      "incentive_context": "Amazonが掲載した当事者インタビュー。会社が提供した実績であり独立監査済み決算ではない。",
+      "rights": {
+        "fetch": {
+          "decision": "pending",
+          "basis": "unknown",
+          "reference": null,
+          "reviewed_at": null,
+          "note": "著作物の本文・製品写真・画面は転載せず、出典つきの独立した日本語事実要約とオリジナル図解のみ作成。商用掲載および自動取得の規約・権利審査は未完了。"
+        },
+        "private_evidence_storage": {
+          "decision": "pending",
+          "basis": "unknown",
+          "reference": null,
+          "reviewed_at": null,
+          "note": "著作物の本文・製品写真・画面は転載せず、出典つきの独立した日本語事実要約とオリジナル図解のみ作成。商用掲載および自動取得の規約・権利審査は未完了。"
+        },
+        "internal_analysis": {
+          "decision": "pending",
+          "basis": "unknown",
+          "reference": null,
+          "reviewed_at": null,
+          "note": "著作物の本文・製品写真・画面は転載せず、出典つきの独立した日本語事実要約とオリジナル図解のみ作成。商用掲載および自動取得の規約・権利審査は未完了。"
+        },
+        "factual_paraphrase_display": {
+          "decision": "pending",
+          "basis": "unknown",
+          "reference": null,
+          "reviewed_at": null,
+          "note": "著作物の本文・製品写真・画面は転載せず、出典つきの独立した日本語事実要約とオリジナル図解のみ作成。商用掲載および自動取得の規約・権利審査は未完了。"
+        },
+        "paid_member_display": {
+          "decision": "pending",
+          "basis": "unknown",
+          "reference": null,
+          "reviewed_at": null,
+          "note": "著作物の本文・製品写真・画面は転載せず、出典つきの独立した日本語事実要約とオリジナル図解のみ作成。商用掲載および自動取得の規約・権利審査は未完了。"
+        },
+        "redistribution": {
+          "decision": "pending",
+          "basis": "unknown",
+          "reference": null,
+          "reviewed_at": null,
+          "note": "著作物の本文・製品写真・画面は転載せず、出典つきの独立した日本語事実要約とオリジナル図解のみ作成。商用掲載および自動取得の規約・権利審査は未完了。"
+        },
+        "media_display": {
+          "decision": "pending",
+          "basis": "unknown",
+          "reference": null,
+          "reviewed_at": null,
+          "note": "著作物の本文・製品写真・画面は転載せず、出典つきの独立した日本語事実要約とオリジナル図解のみ作成。商用掲載および自動取得の規約・権利審査は未完了。"
+        }
+      }
+    },
+    {
+      "key": "S4",
+      "url": "https://developer.amazon.com/en-US/blogs/alexa/post/cf473bfc-b504-4575-bdcd-556de233517a/alexa-skill-developer-spotlight-nick-schwa",
+      "title": "Alexa公式：初期の睡眠音スキルへの反応",
+      "publisher": "Amazon Developer",
+      "language": "en",
+      "kind": "article",
+      "published_time": {
+        "value": "2017",
+        "end": null,
+        "precision": "year",
+        "original": "2017"
+      },
+      "retrieved_at": "2026-10-14T07:00:00Z",
+      "source_family_key": "amazon-interview-and-developer",
+      "access_state": "read",
+      "incentive_context": "Amazonが掲載した当事者インタビュー。会社が提供した実績であり独立監査済み決算ではない。",
+      "rights": {
+        "fetch": {
+          "decision": "pending",
+          "basis": "unknown",
+          "reference": null,
+          "reviewed_at": null,
+          "note": "著作物の本文・製品写真・画面は転載せず、出典つきの独立した日本語事実要約とオリジナル図解のみ作成。商用掲載および自動取得の規約・権利審査は未完了。"
+        },
+        "private_evidence_storage": {
+          "decision": "pending",
+          "basis": "unknown",
+          "reference": null,
+          "reviewed_at": null,
+          "note": "著作物の本文・製品写真・画面は転載せず、出典つきの独立した日本語事実要約とオリジナル図解のみ作成。商用掲載および自動取得の規約・権利審査は未完了。"
+        },
+        "internal_analysis": {
+          "decision": "pending",
+          "basis": "unknown",
+          "reference": null,
+          "reviewed_at": null,
+          "note": "著作物の本文・製品写真・画面は転載せず、出典つきの独立した日本語事実要約とオリジナル図解のみ作成。商用掲載および自動取得の規約・権利審査は未完了。"
+        },
+        "factual_paraphrase_display": {
+          "decision": "pending",
+          "basis": "unknown",
+          "reference": null,
+          "reviewed_at": null,
+          "note": "著作物の本文・製品写真・画面は転載せず、出典つきの独立した日本語事実要約とオリジナル図解のみ作成。商用掲載および自動取得の規約・権利審査は未完了。"
+        },
+        "paid_member_display": {
+          "decision": "pending",
+          "basis": "unknown",
+          "reference": null,
+          "reviewed_at": null,
+          "note": "著作物の本文・製品写真・画面は転載せず、出典つきの独立した日本語事実要約とオリジナル図解のみ作成。商用掲載および自動取得の規約・権利審査は未完了。"
+        },
+        "redistribution": {
+          "decision": "pending",
+          "basis": "unknown",
+          "reference": null,
+          "reviewed_at": null,
+          "note": "著作物の本文・製品写真・画面は転載せず、出典つきの独立した日本語事実要約とオリジナル図解のみ作成。商用掲載および自動取得の規約・権利審査は未完了。"
+        },
+        "media_display": {
+          "decision": "pending",
+          "basis": "unknown",
+          "reference": null,
+          "reviewed_at": null,
+          "note": "著作物の本文・製品写真・画面は転載せず、出典つきの独立した日本語事実要約とオリジナル図解のみ作成。商用掲載および自動取得の規約・権利審査は未完了。"
+        }
+      }
+    },
+    {
+      "key": "S5",
+      "url": "https://developer.amazon.com/en-US/blogs/alexa/alexa-skills-kit/2022/11/amazon-associates-on-alexa-blog-november-2022",
+      "title": "Alexa公式：2022年のAmazon Associatesによる紹介収益",
+      "publisher": "Amazon Developer",
+      "language": "en",
+      "kind": "article",
+      "published_time": {
+        "value": "2022-11",
+        "end": null,
+        "precision": "month",
+        "original": "2022-11"
+      },
+      "retrieved_at": "2026-10-14T07:00:00Z",
+      "source_family_key": "amazon-interview-and-developer",
+      "access_state": "read",
+      "incentive_context": "Amazonが掲載した当事者インタビュー。会社が提供した実績であり独立監査済み決算ではない。",
+      "rights": {
+        "fetch": {
+          "decision": "pending",
+          "basis": "unknown",
+          "reference": null,
+          "reviewed_at": null,
+          "note": "著作物の本文・製品写真・画面は転載せず、出典つきの独立した日本語事実要約とオリジナル図解のみ作成。商用掲載および自動取得の規約・権利審査は未完了。"
+        },
+        "private_evidence_storage": {
+          "decision": "pending",
+          "basis": "unknown",
+          "reference": null,
+          "reviewed_at": null,
+          "note": "著作物の本文・製品写真・画面は転載せず、出典つきの独立した日本語事実要約とオリジナル図解のみ作成。商用掲載および自動取得の規約・権利審査は未完了。"
+        },
+        "internal_analysis": {
+          "decision": "pending",
+          "basis": "unknown",
+          "reference": null,
+          "reviewed_at": null,
+          "note": "著作物の本文・製品写真・画面は転載せず、出典つきの独立した日本語事実要約とオリジナル図解のみ作成。商用掲載および自動取得の規約・権利審査は未完了。"
+        },
+        "factual_paraphrase_display": {
+          "decision": "pending",
+          "basis": "unknown",
+          "reference": null,
+          "reviewed_at": null,
+          "note": "著作物の本文・製品写真・画面は転載せず、出典つきの独立した日本語事実要約とオリジナル図解のみ作成。商用掲載および自動取得の規約・権利審査は未完了。"
+        },
+        "paid_member_display": {
+          "decision": "pending",
+          "basis": "unknown",
+          "reference": null,
+          "reviewed_at": null,
+          "note": "著作物の本文・製品写真・画面は転載せず、出典つきの独立した日本語事実要約とオリジナル図解のみ作成。商用掲載および自動取得の規約・権利審査は未完了。"
+        },
+        "redistribution": {
+          "decision": "pending",
+          "basis": "unknown",
+          "reference": null,
+          "reviewed_at": null,
+          "note": "著作物の本文・製品写真・画面は転載せず、出典つきの独立した日本語事実要約とオリジナル図解のみ作成。商用掲載および自動取得の規約・権利審査は未完了。"
+        },
+        "media_display": {
+          "decision": "pending",
+          "basis": "unknown",
+          "reference": null,
+          "reviewed_at": null,
+          "note": "著作物の本文・製品写真・画面は転載せず、出典つきの独立した日本語事実要約とオリジナル図解のみ作成。商用掲載および自動取得の規約・権利審査は未完了。"
+        }
+      }
+    },
+    {
+      "key": "S6",
+      "url": "https://sleepjar.com/faq",
+      "title": "Sleep Jar公式：Alexa・Android・iPhoneと会員連携",
+      "publisher": "Sleep Jar",
+      "language": "en",
+      "kind": "official",
+      "published_time": {
+        "value": null,
+        "end": null,
+        "precision": "unknown",
+        "original": null
+      },
+      "retrieved_at": "2026-10-14T07:00:00Z",
+      "source_family_key": "sleepjar-owned",
+      "access_state": "indexed_excerpt",
+      "incentive_context": "販売者の自己説明。現行料金は米国向け・地域と時点により異なる。",
+      "rights": {
+        "fetch": {
+          "decision": "pending",
+          "basis": "unknown",
+          "reference": null,
+          "reviewed_at": null,
+          "note": "著作物の本文・製品写真・画面は転載せず、出典つきの独立した日本語事実要約とオリジナル図解のみ作成。商用掲載および自動取得の規約・権利審査は未完了。"
+        },
+        "private_evidence_storage": {
+          "decision": "pending",
+          "basis": "unknown",
+          "reference": null,
+          "reviewed_at": null,
+          "note": "著作物の本文・製品写真・画面は転載せず、出典つきの独立した日本語事実要約とオリジナル図解のみ作成。商用掲載および自動取得の規約・権利審査は未完了。"
+        },
+        "internal_analysis": {
+          "decision": "pending",
+          "basis": "unknown",
+          "reference": null,
+          "reviewed_at": null,
+          "note": "著作物の本文・製品写真・画面は転載せず、出典つきの独立した日本語事実要約とオリジナル図解のみ作成。商用掲載および自動取得の規約・権利審査は未完了。"
+        },
+        "factual_paraphrase_display": {
+          "decision": "pending",
+          "basis": "unknown",
+          "reference": null,
+          "reviewed_at": null,
+          "note": "著作物の本文・製品写真・画面は転載せず、出典つきの独立した日本語事実要約とオリジナル図解のみ作成。商用掲載および自動取得の規約・権利審査は未完了。"
+        },
+        "paid_member_display": {
+          "decision": "pending",
+          "basis": "unknown",
+          "reference": null,
+          "reviewed_at": null,
+          "note": "著作物の本文・製品写真・画面は転載せず、出典つきの独立した日本語事実要約とオリジナル図解のみ作成。商用掲載および自動取得の規約・権利審査は未完了。"
+        },
+        "redistribution": {
+          "decision": "pending",
+          "basis": "unknown",
+          "reference": null,
+          "reviewed_at": null,
+          "note": "著作物の本文・製品写真・画面は転載せず、出典つきの独立した日本語事実要約とオリジナル図解のみ作成。商用掲載および自動取得の規約・権利審査は未完了。"
+        },
+        "media_display": {
+          "decision": "pending",
+          "basis": "unknown",
+          "reference": null,
+          "reviewed_at": null,
+          "note": "著作物の本文・製品写真・画面は転載せず、出典つきの独立した日本語事実要約とオリジナル図解のみ作成。商用掲載および自動取得の規約・権利審査は未完了。"
+        }
+      }
+    },
+    {
+      "key": "S7",
+      "url": "https://developer.amazon.com/en-US/alexa/champions/nick-schwab",
+      "title": "Alexa公式：Nick Schwab経歴・100超の音声スキル",
+      "publisher": "Amazon Developer",
+      "language": "en",
+      "kind": "profile",
+      "published_time": {
+        "value": null,
+        "end": null,
+        "precision": "unknown",
+        "original": null
+      },
+      "retrieved_at": "2026-10-14T07:00:00Z",
+      "source_family_key": "amazon-interview-and-developer",
+      "access_state": "read",
+      "incentive_context": "Amazonが掲載した当事者インタビュー。会社が提供した実績であり独立監査済み決算ではない。",
+      "rights": {
+        "fetch": {
+          "decision": "pending",
+          "basis": "unknown",
+          "reference": null,
+          "reviewed_at": null,
+          "note": "著作物の本文・製品写真・画面は転載せず、出典つきの独立した日本語事実要約とオリジナル図解のみ作成。商用掲載および自動取得の規約・権利審査は未完了。"
+        },
+        "private_evidence_storage": {
+          "decision": "pending",
+          "basis": "unknown",
+          "reference": null,
+          "reviewed_at": null,
+          "note": "著作物の本文・製品写真・画面は転載せず、出典つきの独立した日本語事実要約とオリジナル図解のみ作成。商用掲載および自動取得の規約・権利審査は未完了。"
+        },
+        "internal_analysis": {
+          "decision": "pending",
+          "basis": "unknown",
+          "reference": null,
+          "reviewed_at": null,
+          "note": "著作物の本文・製品写真・画面は転載せず、出典つきの独立した日本語事実要約とオリジナル図解のみ作成。商用掲載および自動取得の規約・権利審査は未完了。"
+        },
+        "factual_paraphrase_display": {
+          "decision": "pending",
+          "basis": "unknown",
+          "reference": null,
+          "reviewed_at": null,
+          "note": "著作物の本文・製品写真・画面は転載せず、出典つきの独立した日本語事実要約とオリジナル図解のみ作成。商用掲載および自動取得の規約・権利審査は未完了。"
+        },
+        "paid_member_display": {
+          "decision": "pending",
+          "basis": "unknown",
+          "reference": null,
+          "reviewed_at": null,
+          "note": "著作物の本文・製品写真・画面は転載せず、出典つきの独立した日本語事実要約とオリジナル図解のみ作成。商用掲載および自動取得の規約・権利審査は未完了。"
+        },
+        "redistribution": {
+          "decision": "pending",
+          "basis": "unknown",
+          "reference": null,
+          "reviewed_at": null,
+          "note": "著作物の本文・製品写真・画面は転載せず、出典つきの独立した日本語事実要約とオリジナル図解のみ作成。商用掲載および自動取得の規約・権利審査は未完了。"
+        },
+        "media_display": {
+          "decision": "pending",
+          "basis": "unknown",
+          "reference": null,
+          "reviewed_at": null,
+          "note": "著作物の本文・製品写真・画面は転載せず、出典つきの独立した日本語事実要約とオリジナル図解のみ作成。商用掲載および自動取得の規約・権利審査は未完了。"
+        }
+      }
+    },
+    {
+      "key": "S8",
+      "url": "https://developer.amazon.com/en-US/blogs/alexa/alexa-skills-kit/2022/04/Alexa-in-skill-purchasing-available-canada-april-2022",
+      "title": "Alexa公式：2022年4月の有料スキル機能と雇用",
+      "publisher": "Amazon Developer",
+      "language": "en",
+      "kind": "article",
+      "published_time": {
+        "value": "2022-04-12",
+        "end": null,
+        "precision": "day",
+        "original": "2022-04-12"
+      },
+      "retrieved_at": "2026-10-14T07:00:00Z",
+      "source_family_key": "amazon-interview-and-developer",
+      "access_state": "read",
+      "incentive_context": "Amazonが掲載した当事者インタビュー。会社が提供した実績であり独立監査済み決算ではない。",
+      "rights": {
+        "fetch": {
+          "decision": "pending",
+          "basis": "unknown",
+          "reference": null,
+          "reviewed_at": null,
+          "note": "著作物の本文・製品写真・画面は転載せず、出典つきの独立した日本語事実要約とオリジナル図解のみ作成。商用掲載および自動取得の規約・権利審査は未完了。"
+        },
+        "private_evidence_storage": {
+          "decision": "pending",
+          "basis": "unknown",
+          "reference": null,
+          "reviewed_at": null,
+          "note": "著作物の本文・製品写真・画面は転載せず、出典つきの独立した日本語事実要約とオリジナル図解のみ作成。商用掲載および自動取得の規約・権利審査は未完了。"
+        },
+        "internal_analysis": {
+          "decision": "pending",
+          "basis": "unknown",
+          "reference": null,
+          "reviewed_at": null,
+          "note": "著作物の本文・製品写真・画面は転載せず、出典つきの独立した日本語事実要約とオリジナル図解のみ作成。商用掲載および自動取得の規約・権利審査は未完了。"
+        },
+        "factual_paraphrase_display": {
+          "decision": "pending",
+          "basis": "unknown",
+          "reference": null,
+          "reviewed_at": null,
+          "note": "著作物の本文・製品写真・画面は転載せず、出典つきの独立した日本語事実要約とオリジナル図解のみ作成。商用掲載および自動取得の規約・権利審査は未完了。"
+        },
+        "paid_member_display": {
+          "decision": "pending",
+          "basis": "unknown",
+          "reference": null,
+          "reviewed_at": null,
+          "note": "著作物の本文・製品写真・画面は転載せず、出典つきの独立した日本語事実要約とオリジナル図解のみ作成。商用掲載および自動取得の規約・権利審査は未完了。"
+        },
+        "redistribution": {
+          "decision": "pending",
+          "basis": "unknown",
+          "reference": null,
+          "reviewed_at": null,
+          "note": "著作物の本文・製品写真・画面は転載せず、出典つきの独立した日本語事実要約とオリジナル図解のみ作成。商用掲載および自動取得の規約・権利審査は未完了。"
+        },
+        "media_display": {
+          "decision": "pending",
+          "basis": "unknown",
+          "reference": null,
+          "reviewed_at": null,
+          "note": "著作物の本文・製品写真・画面は転載せず、出典つきの独立した日本語事実要約とオリジナル図解のみ作成。商用掲載および自動取得の規約・権利審査は未完了。"
+        }
+      }
+    },
+    {
+      "key": "S9",
+      "url": "https://sleepjar.com/alarms",
+      "title": "Sleep Jar公式：有料アラームは会員費と別売り",
+      "publisher": "Sleep Jar",
+      "language": "en",
+      "kind": "official",
+      "published_time": {
+        "value": null,
+        "end": null,
+        "precision": "unknown",
+        "original": null
+      },
+      "retrieved_at": "2026-10-14T07:00:00Z",
+      "source_family_key": "sleepjar-owned",
+      "access_state": "indexed_excerpt",
+      "incentive_context": "販売者の自己説明。現行料金は米国向け・地域と時点により異なる。",
+      "rights": {
+        "fetch": {
+          "decision": "pending",
+          "basis": "unknown",
+          "reference": null,
+          "reviewed_at": null,
+          "note": "著作物の本文・製品写真・画面は転載せず、出典つきの独立した日本語事実要約とオリジナル図解のみ作成。商用掲載および自動取得の規約・権利審査は未完了。"
+        },
+        "private_evidence_storage": {
+          "decision": "pending",
+          "basis": "unknown",
+          "reference": null,
+          "reviewed_at": null,
+          "note": "著作物の本文・製品写真・画面は転載せず、出典つきの独立した日本語事実要約とオリジナル図解のみ作成。商用掲載および自動取得の規約・権利審査は未完了。"
+        },
+        "internal_analysis": {
+          "decision": "pending",
+          "basis": "unknown",
+          "reference": null,
+          "reviewed_at": null,
+          "note": "著作物の本文・製品写真・画面は転載せず、出典つきの独立した日本語事実要約とオリジナル図解のみ作成。商用掲載および自動取得の規約・権利審査は未完了。"
+        },
+        "factual_paraphrase_display": {
+          "decision": "pending",
+          "basis": "unknown",
+          "reference": null,
+          "reviewed_at": null,
+          "note": "著作物の本文・製品写真・画面は転載せず、出典つきの独立した日本語事実要約とオリジナル図解のみ作成。商用掲載および自動取得の規約・権利審査は未完了。"
+        },
+        "paid_member_display": {
+          "decision": "pending",
+          "basis": "unknown",
+          "reference": null,
+          "reviewed_at": null,
+          "note": "著作物の本文・製品写真・画面は転載せず、出典つきの独立した日本語事実要約とオリジナル図解のみ作成。商用掲載および自動取得の規約・権利審査は未完了。"
+        },
+        "redistribution": {
+          "decision": "pending",
+          "basis": "unknown",
+          "reference": null,
+          "reviewed_at": null,
+          "note": "著作物の本文・製品写真・画面は転載せず、出典つきの独立した日本語事実要約とオリジナル図解のみ作成。商用掲載および自動取得の規約・権利審査は未完了。"
+        },
+        "media_display": {
+          "decision": "pending",
+          "basis": "unknown",
+          "reference": null,
+          "reviewed_at": null,
+          "note": "著作物の本文・製品写真・画面は転載せず、出典つきの独立した日本語事実要約とオリジナル図解のみ作成。商用掲載および自動取得の規約・権利審査は未完了。"
+        }
+      }
+    }
+  ],
+  "evidence": [
+    {
+      "key": "ev-S1",
+      "source_key": "S1",
+      "locator": "Alexa公式：創業者Nick Schwabの創業・有料化・集客・有料会員",
+      "short_quote": null,
+      "context": "資料の関連節・表示内容に照らして事実を日本語で要約。原典全文・画像は複製していない。",
+      "capture_path": null,
+      "capture_sha256": null,
+      "method": "web_read"
+    },
+    {
+      "key": "ev-S2",
+      "source_key": "S2",
+      "locator": "Sleep Jar公式：米国の現行会員料金・無料と有料の内容",
+      "short_quote": null,
+      "context": "資料の関連節・表示内容に照らして事実を日本語で要約。原典全文・画像は複製していない。",
+      "capture_path": null,
+      "capture_sha256": null,
+      "method": "indexed_result"
+    },
+    {
+      "key": "ev-S3",
+      "source_key": "S3",
+      "locator": "Alexa公式：睡眠物語の制作・収録・人材・費用の使い道",
+      "short_quote": null,
+      "context": "資料の関連節・表示内容に照らして事実を日本語で要約。原典全文・画像は複製していない。",
+      "capture_path": null,
+      "capture_sha256": null,
+      "method": "web_read"
+    },
+    {
+      "key": "ev-S4",
+      "source_key": "S4",
+      "locator": "Alexa公式：初期の睡眠音スキルへの反応",
+      "short_quote": null,
+      "context": "資料の関連節・表示内容に照らして事実を日本語で要約。原典全文・画像は複製していない。",
+      "capture_path": null,
+      "capture_sha256": null,
+      "method": "web_read"
+    },
+    {
+      "key": "ev-S5",
+      "source_key": "S5",
+      "locator": "Alexa公式：2022年のAmazon Associatesによる紹介収益",
+      "short_quote": null,
+      "context": "資料の関連節・表示内容に照らして事実を日本語で要約。原典全文・画像は複製していない。",
+      "capture_path": null,
+      "capture_sha256": null,
+      "method": "web_read"
+    },
+    {
+      "key": "ev-S6",
+      "source_key": "S6",
+      "locator": "Sleep Jar公式：Alexa・Android・iPhoneと会員連携",
+      "short_quote": null,
+      "context": "資料の関連節・表示内容に照らして事実を日本語で要約。原典全文・画像は複製していない。",
+      "capture_path": null,
+      "capture_sha256": null,
+      "method": "indexed_result"
+    },
+    {
+      "key": "ev-S7",
+      "source_key": "S7",
+      "locator": "Alexa公式：Nick Schwab経歴・100超の音声スキル",
+      "short_quote": null,
+      "context": "資料の関連節・表示内容に照らして事実を日本語で要約。原典全文・画像は複製していない。",
+      "capture_path": null,
+      "capture_sha256": null,
+      "method": "web_read"
+    },
+    {
+      "key": "ev-S8",
+      "source_key": "S8",
+      "locator": "Alexa公式：2022年4月の有料スキル機能と雇用",
+      "short_quote": null,
+      "context": "資料の関連節・表示内容に照らして事実を日本語で要約。原典全文・画像は複製していない。",
+      "capture_path": null,
+      "capture_sha256": null,
+      "method": "web_read"
+    },
+    {
+      "key": "ev-S9",
+      "source_key": "S9",
+      "locator": "Sleep Jar公式：有料アラームは会員費と別売り",
+      "short_quote": null,
+      "context": "資料の関連節・表示内容に照らして事実を日本語で要約。原典全文・画像は複製していない。",
+      "capture_path": null,
+      "capture_sha256": null,
+      "method": "indexed_result"
+    }
+  ],
+  "records": [
+    {
+      "key": "r01",
+      "kind": "fact",
+      "domain": "identity",
+      "subject_keys": [
+        "business"
+      ],
+      "text": "サービス名はSleep Jar。環境音・睡眠向け朗読・瞑想を提供する。",
+      "origin": "official",
+      "verification": "INDEXED_SOURCE_PENDING_LIVE_CHECK",
+      "source_keys": [
+        "S2"
+      ],
+      "evidence_keys": [
+        "ev-S2"
+      ],
+      "basis_record_keys": [],
+      "time": {
+        "value": "2026-10",
+        "end": null,
+        "precision": "month",
+        "original": "2026-10"
+      },
+      "attributes": {
+        "claimed_metric_policy": "Do not infer revenue by multiplying subscriber counts from 2022 by pricing captured in 2026."
+      },
+      "notes": "この日本語は原典の独自要約。出典を独立監査した事実認定ではない。"
+    },
+    {
+      "key": "r02",
+      "kind": "fact",
+      "domain": "customer_and_demand",
+      "subject_keys": [
+        "business"
+      ],
+      "text": "創業者Nick Schwabは上階の住人の犬が早朝に吠える騒音を遮るため、雨音を流すAlexaスキルを作った。",
+      "origin": "self_reported",
+      "verification": "SUPPORTED_BY_PUBLISHED_INTERVIEW",
+      "source_keys": [
+        "S1"
+      ],
+      "evidence_keys": [
+        "ev-S1"
+      ],
+      "basis_record_keys": [],
+      "time": {
+        "value": "2016",
+        "end": null,
+        "precision": "year",
+        "original": "2016"
+      },
+      "attributes": {
+        "claimed_metric_policy": "Do not infer revenue by multiplying subscriber counts from 2022 by pricing captured in 2026."
+      },
+      "notes": "この日本語は原典の独自要約。出典を独立監査した事実認定ではない。"
+    },
+    {
+      "key": "r03",
+      "kind": "fact",
+      "domain": "timeline_and_outcomes",
+      "subject_keys": [
+        "business"
+      ],
+      "text": "2016年10月、Rain Sounds、Ocean Sounds、Thunderstorm Soundsの3つの睡眠音スキルをAlexaマーケットプレイスに公開。",
+      "origin": "self_reported",
+      "verification": "SUPPORTED_BY_PUBLISHED_INTERVIEW",
+      "source_keys": [
+        "S1"
+      ],
+      "evidence_keys": [
+        "ev-S1"
+      ],
+      "basis_record_keys": [],
+      "time": {
+        "value": "2016-10",
+        "end": null,
+        "precision": "month",
+        "original": "2016-10"
+      },
+      "attributes": {
+        "claimed_metric_policy": "Do not infer revenue by multiplying subscriber counts from 2022 by pricing captured in 2026."
+      },
+      "notes": "この日本語は原典の独自要約。出典を独立監査した事実認定ではない。"
+    },
+    {
+      "key": "r04",
+      "kind": "fact",
+      "domain": "distribution",
+      "subject_keys": [
+        "business"
+      ],
+      "text": "最初のRain Soundsは公開日におよそ24件の肯定的レビューを受けたと開発者が述べた。",
+      "origin": "self_reported",
+      "verification": "SUPPORTED_BY_PUBLISHED_INTERVIEW",
+      "source_keys": [
+        "S4"
+      ],
+      "evidence_keys": [
+        "ev-S4"
+      ],
+      "basis_record_keys": [],
+      "time": {
+        "value": "2016",
+        "end": null,
+        "precision": "year",
+        "original": "2016"
+      },
+      "attributes": {
+        "claimed_metric_policy": "Do not infer revenue by multiplying subscriber counts from 2022 by pricing captured in 2026."
+      },
+      "notes": "この日本語は原典の独自要約。出典を独立監査した事実認定ではない。"
+    },
+    {
+      "key": "r05",
+      "kind": "fact",
+      "domain": "timeline_and_outcomes",
+      "subject_keys": [
+        "business"
+      ],
+      "text": "2017年、Alexa Developer Awardsからの最初の支払を契機に会社を設立。後にSleep Jarへ名称変更。",
+      "origin": "self_reported",
+      "verification": "SUPPORTED_BY_PUBLISHED_INTERVIEW",
+      "source_keys": [
+        "S1"
+      ],
+      "evidence_keys": [
+        "ev-S1"
+      ],
+      "basis_record_keys": [],
+      "time": {
+        "value": "2017",
+        "end": null,
+        "precision": "year",
+        "original": "2017"
+      },
+      "attributes": {
+        "claimed_metric_policy": "Do not infer revenue by multiplying subscriber counts from 2022 by pricing captured in 2026."
+      },
+      "notes": "この日本語は原典の独自要約。出典を独立監査した事実認定ではない。"
+    },
+    {
+      "key": "r06",
+      "kind": "fact",
+      "domain": "operations",
+      "subject_keys": [
+        "business"
+      ],
+      "text": "2021年初めには睡眠向け環境音の種類が100を超え、芝刈り機・いびき・犬の息づかいなど利用者の要望に応じた音も追加した。",
+      "origin": "self_reported",
+      "verification": "SUPPORTED_BY_PUBLISHED_INTERVIEW",
+      "source_keys": [
+        "S1"
+      ],
+      "evidence_keys": [
+        "ev-S1"
+      ],
+      "basis_record_keys": [],
+      "time": {
+        "value": "2021",
+        "end": null,
+        "precision": "year",
+        "original": "2021"
+      },
+      "attributes": {
+        "claimed_metric_policy": "Do not infer revenue by multiplying subscriber counts from 2022 by pricing captured in 2026."
+      },
+      "notes": "この日本語は原典の独自要約。出典を独立監査した事実認定ではない。"
+    },
+    {
+      "key": "r07",
+      "kind": "metric",
+      "domain": "money_and_economics",
+      "subject_keys": [
+        "business"
+      ],
+      "text": "2022年6月時点で有料会員は10万人を超えていた（Amazonに掲載された創業者説明）。",
+      "origin": "self_reported",
+      "verification": "SUPPORTED_BY_PUBLISHED_INTERVIEW",
+      "source_keys": [
+        "S1"
+      ],
+      "evidence_keys": [
+        "ev-S1"
+      ],
+      "basis_record_keys": [],
+      "time": {
+        "value": "2022-06",
+        "end": null,
+        "precision": "month",
+        "original": "2022-06"
+      },
+      "attributes": {
+        "claimed_metric_policy": "Do not infer revenue by multiplying subscriber counts from 2022 by pricing captured in 2026."
+      },
+      "notes": "この日本語は原典の独自要約。出典を独立監査した事実認定ではない。"
+    },
+    {
+      "key": "r08",
+      "kind": "metric",
+      "domain": "customer_and_demand",
+      "subject_keys": [
+        "business"
+      ],
+      "text": "2022年6月時点で世界の利用者は数百万人規模と紹介された。",
+      "origin": "self_reported",
+      "verification": "SUPPORTED_BY_PUBLISHED_INTERVIEW",
+      "source_keys": [
+        "S1"
+      ],
+      "evidence_keys": [
+        "ev-S1"
+      ],
+      "basis_record_keys": [],
+      "time": {
+        "value": "2022-06",
+        "end": null,
+        "precision": "month",
+        "original": "2022-06"
+      },
+      "attributes": {
+        "claimed_metric_policy": "Do not infer revenue by multiplying subscriber counts from 2022 by pricing captured in 2026."
+      },
+      "notes": "この日本語は原典の独自要約。出典を独立監査した事実認定ではない。"
+    },
+    {
+      "key": "r09",
+      "kind": "metric",
+      "domain": "money_and_economics",
+      "subject_keys": [
+        "business"
+      ],
+      "text": "2026年10月閲覧の米国向けSleep Jar公式料金：プレミアム会員は月3.99米ドルまたは年19.99米ドル。",
+      "origin": "official",
+      "verification": "INDEXED_SOURCE_PENDING_LIVE_CHECK",
+      "source_keys": [
+        "S2"
+      ],
+      "evidence_keys": [
+        "ev-S2"
+      ],
+      "basis_record_keys": [],
+      "time": {
+        "value": "2026-10",
+        "end": null,
+        "precision": "month",
+        "original": "2026-10"
+      },
+      "attributes": {
+        "claimed_metric_policy": "Do not infer revenue by multiplying subscriber counts from 2022 by pricing captured in 2026."
+      },
+      "notes": "この日本語は原典の独自要約。出典を独立監査した事実認定ではない。"
+    },
+    {
+      "key": "r10",
+      "kind": "metric",
+      "domain": "money_and_economics",
+      "subject_keys": [
+        "business"
+      ],
+      "text": "Sleep Jar公式の無料プランの音声は88種類、プレミアム会員は106種類（2026年10月時点）。",
+      "origin": "official",
+      "verification": "INDEXED_SOURCE_PENDING_LIVE_CHECK",
+      "source_keys": [
+        "S2"
+      ],
+      "evidence_keys": [
+        "ev-S2"
+      ],
+      "basis_record_keys": [],
+      "time": {
+        "value": "2026-10",
+        "end": null,
+        "precision": "month",
+        "original": "2026-10"
+      },
+      "attributes": {
+        "claimed_metric_policy": "Do not infer revenue by multiplying subscriber counts from 2022 by pricing captured in 2026."
+      },
+      "notes": "この日本語は原典の独自要約。出典を独立監査した事実認定ではない。"
+    },
+    {
+      "key": "r11",
+      "kind": "metric",
+      "domain": "money_and_economics",
+      "subject_keys": [
+        "business"
+      ],
+      "text": "無料プランの睡眠物語41話に対し、プレミアム会員は178話（2026年10月時点）。",
+      "origin": "official",
+      "verification": "INDEXED_SOURCE_PENDING_LIVE_CHECK",
+      "source_keys": [
+        "S2"
+      ],
+      "evidence_keys": [
+        "ev-S2"
+      ],
+      "basis_record_keys": [],
+      "time": {
+        "value": "2026-10",
+        "end": null,
+        "precision": "month",
+        "original": "2026-10"
+      },
+      "attributes": {
+        "claimed_metric_policy": "Do not infer revenue by multiplying subscriber counts from 2022 by pricing captured in 2026."
+      },
+      "notes": "この日本語は原典の独自要約。出典を独立監査した事実認定ではない。"
+    },
+    {
+      "key": "r12",
+      "kind": "metric",
+      "domain": "money_and_economics",
+      "subject_keys": [
+        "business"
+      ],
+      "text": "無料プランの瞑想2本に対し、プレミアム会員は100本（2026年10月時点）。",
+      "origin": "official",
+      "verification": "INDEXED_SOURCE_PENDING_LIVE_CHECK",
+      "source_keys": [
+        "S2"
+      ],
+      "evidence_keys": [
+        "ev-S2"
+      ],
+      "basis_record_keys": [],
+      "time": {
+        "value": "2026-10",
+        "end": null,
+        "precision": "month",
+        "original": "2026-10"
+      },
+      "attributes": {
+        "claimed_metric_policy": "Do not infer revenue by multiplying subscriber counts from 2022 by pricing captured in 2026."
+      },
+      "notes": "この日本語は原典の独自要約。出典を独立監査した事実認定ではない。"
+    },
+    {
+      "key": "r13",
+      "kind": "metric",
+      "domain": "money_and_economics",
+      "subject_keys": [
+        "business"
+      ],
+      "text": "無料プランのイメージ旅行2本に対し、プレミアム会員は58本（2026年10月時点）。",
+      "origin": "official",
+      "verification": "INDEXED_SOURCE_PENDING_LIVE_CHECK",
+      "source_keys": [
+        "S2"
+      ],
+      "evidence_keys": [
+        "ev-S2"
+      ],
+      "basis_record_keys": [],
+      "time": {
+        "value": "2026-10",
+        "end": null,
+        "precision": "month",
+        "original": "2026-10"
+      },
+      "attributes": {
+        "claimed_metric_policy": "Do not infer revenue by multiplying subscriber counts from 2022 by pricing captured in 2026."
+      },
+      "notes": "この日本語は原典の独自要約。出典を独立監査した事実認定ではない。"
+    },
+    {
+      "key": "r14",
+      "kind": "fact",
+      "domain": "mechanism",
+      "subject_keys": [
+        "business"
+      ],
+      "text": "Alexa向けプレミアムでは10時間の途切れない環境音再生が使える。",
+      "origin": "official",
+      "verification": "INDEXED_SOURCE_PENDING_LIVE_CHECK",
+      "source_keys": [
+        "S2"
+      ],
+      "evidence_keys": [
+        "ev-S2"
+      ],
+      "basis_record_keys": [],
+      "time": {
+        "value": "2026-10",
+        "end": null,
+        "precision": "month",
+        "original": "2026-10"
+      },
+      "attributes": {
+        "claimed_metric_policy": "Do not infer revenue by multiplying subscriber counts from 2022 by pricing captured in 2026."
+      },
+      "notes": "この日本語は原典の独自要約。出典を独立監査した事実認定ではない。"
+    },
+    {
+      "key": "r15",
+      "kind": "fact",
+      "domain": "mechanism",
+      "subject_keys": [
+        "business"
+      ],
+      "text": "プレミアムでは複数の環境音を組み合わせられ、高音質の音源や限定コンテンツも利用できる。",
+      "origin": "official",
+      "verification": "INDEXED_SOURCE_PENDING_LIVE_CHECK",
+      "source_keys": [
+        "S2"
+      ],
+      "evidence_keys": [
+        "ev-S2"
+      ],
+      "basis_record_keys": [],
+      "time": {
+        "value": "2026-10",
+        "end": null,
+        "precision": "month",
+        "original": "2026-10"
+      },
+      "attributes": {
+        "claimed_metric_policy": "Do not infer revenue by multiplying subscriber counts from 2022 by pricing captured in 2026."
+      },
+      "notes": "この日本語は原典の独自要約。出典を独立監査した事実認定ではない。"
+    },
+    {
+      "key": "r16",
+      "kind": "fact",
+      "domain": "mechanism",
+      "subject_keys": [
+        "business"
+      ],
+      "text": "会員特典はAlexaとAndroid・iOSアプリで連携利用できるが、Alexaアカウントのひも付けが必要。",
+      "origin": "official",
+      "verification": "INDEXED_SOURCE_PENDING_LIVE_CHECK",
+      "source_keys": [
+        "S6"
+      ],
+      "evidence_keys": [
+        "ev-S6"
+      ],
+      "basis_record_keys": [],
+      "time": {
+        "value": "2026-10",
+        "end": null,
+        "precision": "month",
+        "original": "2026-10"
+      },
+      "attributes": {
+        "claimed_metric_policy": "Do not infer revenue by multiplying subscriber counts from 2022 by pricing captured in 2026."
+      },
+      "notes": "この日本語は原典の独自要約。出典を独立監査した事実認定ではない。"
+    },
+    {
+      "key": "r17",
+      "kind": "fact",
+      "domain": "money_and_economics",
+      "subject_keys": [
+        "business"
+      ],
+      "text": "米国向けプレミアムは初回2週間無料体験の表示がある。料金はプラットフォーム・地域や販促条件によって異なる。",
+      "origin": "official",
+      "verification": "INDEXED_SOURCE_PENDING_LIVE_CHECK",
+      "source_keys": [
+        "S2"
+      ],
+      "evidence_keys": [
+        "ev-S2"
+      ],
+      "basis_record_keys": [],
+      "time": {
+        "value": "2026-10",
+        "end": null,
+        "precision": "month",
+        "original": "2026-10"
+      },
+      "attributes": {
+        "claimed_metric_policy": "Do not infer revenue by multiplying subscriber counts from 2022 by pricing captured in 2026."
+      },
+      "notes": "この日本語は原典の独自要約。出典を独立監査した事実認定ではない。"
+    },
+    {
+      "key": "r18",
+      "kind": "metric",
+      "domain": "money_and_economics",
+      "subject_keys": [
+        "business"
+      ],
+      "text": "2022年のAlexa公式記事ではプレミアム月1.99米ドルと紹介された。当時の料金と現行の料金は混同しない。",
+      "origin": "self_reported",
+      "verification": "SUPPORTED_BY_PUBLISHED_INTERVIEW",
+      "source_keys": [
+        "S1"
+      ],
+      "evidence_keys": [
+        "ev-S1"
+      ],
+      "basis_record_keys": [],
+      "time": {
+        "value": "2022-06",
+        "end": null,
+        "precision": "month",
+        "original": "2022-06"
+      },
+      "attributes": {
+        "claimed_metric_policy": "Do not infer revenue by multiplying subscriber counts from 2022 by pricing captured in 2026."
+      },
+      "notes": "この日本語は原典の独自要約。出典を独立監査した事実認定ではない。"
+    },
+    {
+      "key": "r19",
+      "kind": "metric",
+      "domain": "money_and_economics",
+      "subject_keys": [
+        "business"
+      ],
+      "text": "2022年4月のカナダ向けAlexa公式案内では、Sleep Jarの月額料金を2.99米ドル相当の表記で紹介。",
+      "origin": "self_reported",
+      "verification": "SUPPORTED_BY_PUBLISHED_INTERVIEW",
+      "source_keys": [
+        "S8"
+      ],
+      "evidence_keys": [
+        "ev-S8"
+      ],
+      "basis_record_keys": [],
+      "time": {
+        "value": "2022-04",
+        "end": null,
+        "precision": "month",
+        "original": "2022-04"
+      },
+      "attributes": {
+        "claimed_metric_policy": "Do not infer revenue by multiplying subscriber counts from 2022 by pricing captured in 2026."
+      },
+      "notes": "この日本語は原典の独自要約。出典を独立監査した事実認定ではない。"
+    },
+    {
+      "key": "r20",
+      "kind": "fact",
+      "domain": "distribution",
+      "subject_keys": [
+        "business"
+      ],
+      "text": "創業から最初の4年間は利用者からの紹介や自然流入を中心に増え、有料広告費を使い始めたのは2020年。",
+      "origin": "self_reported",
+      "verification": "SUPPORTED_BY_PUBLISHED_INTERVIEW",
+      "source_keys": [
+        "S1"
+      ],
+      "evidence_keys": [
+        "ev-S1"
+      ],
+      "basis_record_keys": [],
+      "time": {
+        "value": "2020",
+        "end": null,
+        "precision": "year",
+        "original": "2020"
+      },
+      "attributes": {
+        "claimed_metric_policy": "Do not infer revenue by multiplying subscriber counts from 2022 by pricing captured in 2026."
+      },
+      "notes": "この日本語は原典の独自要約。出典を独立監査した事実認定ではない。"
+    },
+    {
+      "key": "r21",
+      "kind": "fact",
+      "domain": "distribution",
+      "subject_keys": [
+        "business"
+      ],
+      "text": "2020年以降、Amazon Music、Spotify、Pandoraに音声広告を出し、SNSに視覚広告を出した。",
+      "origin": "self_reported",
+      "verification": "SUPPORTED_BY_PUBLISHED_INTERVIEW",
+      "source_keys": [
+        "S1"
+      ],
+      "evidence_keys": [
+        "ev-S1"
+      ],
+      "basis_record_keys": [],
+      "time": {
+        "value": "2020",
+        "end": null,
+        "precision": "year",
+        "original": "2020"
+      },
+      "attributes": {
+        "claimed_metric_policy": "Do not infer revenue by multiplying subscriber counts from 2022 by pricing captured in 2026."
+      },
+      "notes": "この日本語は原典の独自要約。出典を独立監査した事実認定ではない。"
+    },
+    {
+      "key": "r22",
+      "kind": "fact",
+      "domain": "operations",
+      "subject_keys": [
+        "business"
+      ],
+      "text": "2022年6月時点では正社員3人・パート2人を雇い、ライター、声優、デザイナー、モバイル開発の仕事を分担。",
+      "origin": "self_reported",
+      "verification": "SUPPORTED_BY_PUBLISHED_INTERVIEW",
+      "source_keys": [
+        "S1"
+      ],
+      "evidence_keys": [
+        "ev-S1"
+      ],
+      "basis_record_keys": [],
+      "time": {
+        "value": "2022-06",
+        "end": null,
+        "precision": "month",
+        "original": "2022-06"
+      },
+      "attributes": {
+        "claimed_metric_policy": "Do not infer revenue by multiplying subscriber counts from 2022 by pricing captured in 2026."
+      },
+      "notes": "この日本語は原典の独自要約。出典を独立監査した事実認定ではない。"
+    },
+    {
+      "key": "r23",
+      "kind": "fact",
+      "domain": "operations",
+      "subject_keys": [
+        "business"
+      ],
+      "text": "2022年に睡眠向け朗読物語を公開。2023年8月のAlexa公式取材では45作品以上を提供し、毎月新しい作品を公開。",
+      "origin": "self_reported",
+      "verification": "SUPPORTED_BY_PUBLISHED_INTERVIEW",
+      "source_keys": [
+        "S3"
+      ],
+      "evidence_keys": [
+        "ev-S3"
+      ],
+      "basis_record_keys": [],
+      "time": {
+        "value": "2023-08",
+        "end": null,
+        "precision": "month",
+        "original": "2023-08"
+      },
+      "attributes": {
+        "claimed_metric_policy": "Do not infer revenue by multiplying subscriber counts from 2022 by pricing captured in 2026."
+      },
+      "notes": "この日本語は原典の独自要約。出典を独立監査した事実認定ではない。"
+    },
+    {
+      "key": "r24",
+      "kind": "fact",
+      "domain": "operations",
+      "subject_keys": [
+        "business"
+      ],
+      "text": "朗読向け脚本を担当するAmy Deanは、聞き取りやすい短い文を使い、登場人物・場面の切替が分かるように書く。",
+      "origin": "self_reported",
+      "verification": "SUPPORTED_BY_PUBLISHED_INTERVIEW",
+      "source_keys": [
+        "S3"
+      ],
+      "evidence_keys": [
+        "ev-S3"
+      ],
+      "basis_record_keys": [],
+      "time": {
+        "value": "2023-08",
+        "end": null,
+        "precision": "month",
+        "original": "2023-08"
+      },
+      "attributes": {
+        "claimed_metric_policy": "Do not infer revenue by multiplying subscriber counts from 2022 by pricing captured in 2026."
+      },
+      "notes": "この日本語は原典の独自要約。出典を独立監査した事実認定ではない。"
+    },
+    {
+      "key": "r25",
+      "kind": "fact",
+      "domain": "operations",
+      "subject_keys": [
+        "business"
+      ],
+      "text": "声優Michael FoxとAmy Tallmadgeが収録を担当し、Foxは自宅スタジオで音の大きさを圧縮処理して睡眠を妨げる急な大音量を抑える。",
+      "origin": "self_reported",
+      "verification": "SUPPORTED_BY_PUBLISHED_INTERVIEW",
+      "source_keys": [
+        "S3"
+      ],
+      "evidence_keys": [
+        "ev-S3"
+      ],
+      "basis_record_keys": [],
+      "time": {
+        "value": "2023-08",
+        "end": null,
+        "precision": "month",
+        "original": "2023-08"
+      },
+      "attributes": {
+        "claimed_metric_policy": "Do not infer revenue by multiplying subscriber counts from 2022 by pricing captured in 2026."
+      },
+      "notes": "この日本語は原典の独自要約。出典を独立監査した事実認定ではない。"
+    },
+    {
+      "key": "r26",
+      "kind": "fact",
+      "domain": "money_and_economics",
+      "subject_keys": [
+        "business"
+      ],
+      "text": "創業者はAlexaアプリ内課金から得た収入を、脚本制作・声優・編集スタッフの採用へ再投資したと説明した。",
+      "origin": "self_reported",
+      "verification": "SUPPORTED_BY_PUBLISHED_INTERVIEW",
+      "source_keys": [
+        "S3"
+      ],
+      "evidence_keys": [
+        "ev-S3"
+      ],
+      "basis_record_keys": [],
+      "time": {
+        "value": "2023-08",
+        "end": null,
+        "precision": "month",
+        "original": "2023-08"
+      },
+      "attributes": {
+        "claimed_metric_policy": "Do not infer revenue by multiplying subscriber counts from 2022 by pricing captured in 2026."
+      },
+      "notes": "この日本語は原典の独自要約。出典を独立監査した事実認定ではない。"
+    },
+    {
+      "key": "r27",
+      "kind": "fact",
+      "domain": "money_and_economics",
+      "subject_keys": [
+        "business"
+      ],
+      "text": "2022年11月、Alexaの買い物向け紹介機能で枕・寝具などを案内し、条件を満たす購入から紹介報酬を得ていると説明。",
+      "origin": "self_reported",
+      "verification": "SUPPORTED_BY_PUBLISHED_INTERVIEW",
+      "source_keys": [
+        "S5"
+      ],
+      "evidence_keys": [
+        "ev-S5"
+      ],
+      "basis_record_keys": [],
+      "time": {
+        "value": "2022-11",
+        "end": null,
+        "precision": "month",
+        "original": "2022-11"
+      },
+      "attributes": {
+        "claimed_metric_policy": "Do not infer revenue by multiplying subscriber counts from 2022 by pricing captured in 2026."
+      },
+      "notes": "この日本語は原典の独自要約。出典を独立監査した事実認定ではない。"
+    },
+    {
+      "key": "r28",
+      "kind": "fact",
+      "domain": "money_and_economics",
+      "subject_keys": [
+        "business"
+      ],
+      "text": "会社創業前にAlexa Developer Awardsから実績に応じた報奨金を受領した（定額・継続サブスクとは別）。",
+      "origin": "self_reported",
+      "verification": "SUPPORTED_BY_PUBLISHED_INTERVIEW",
+      "source_keys": [
+        "S1"
+      ],
+      "evidence_keys": [
+        "ev-S1"
+      ],
+      "basis_record_keys": [],
+      "time": {
+        "value": "2017",
+        "end": null,
+        "precision": "year",
+        "original": "2017"
+      },
+      "attributes": {
+        "claimed_metric_policy": "Do not infer revenue by multiplying subscriber counts from 2022 by pricing captured in 2026."
+      },
+      "notes": "この日本語は原典の独自要約。出典を独立監査した事実認定ではない。"
+    },
+    {
+      "key": "r29",
+      "kind": "fact",
+      "domain": "operations",
+      "subject_keys": [
+        "business"
+      ],
+      "text": "2022年の専任メンバーに、Head Writer・声優・デザイナー・モバイル開発者が含まれた。",
+      "origin": "self_reported",
+      "verification": "SUPPORTED_BY_PUBLISHED_INTERVIEW",
+      "source_keys": [
+        "S1"
+      ],
+      "evidence_keys": [
+        "ev-S1"
+      ],
+      "basis_record_keys": [],
+      "time": {
+        "value": "2022-06",
+        "end": null,
+        "precision": "month",
+        "original": "2022-06"
+      },
+      "attributes": {
+        "claimed_metric_policy": "Do not infer revenue by multiplying subscriber counts from 2022 by pricing captured in 2026."
+      },
+      "notes": "この日本語は原典の独自要約。出典を独立監査した事実認定ではない。"
+    },
+    {
+      "key": "r30",
+      "kind": "fact",
+      "domain": "technology",
+      "subject_keys": [
+        "business"
+      ],
+      "text": "創業初期はAlexaのスキル公開・音声再生・アプリ内課金などAmazonのプラットフォームを利用した。",
+      "origin": "self_reported",
+      "verification": "SUPPORTED_BY_PUBLISHED_INTERVIEW",
+      "source_keys": [
+        "S1"
+      ],
+      "evidence_keys": [
+        "ev-S1"
+      ],
+      "basis_record_keys": [],
+      "time": {
+        "value": "2016",
+        "end": null,
+        "precision": "year",
+        "original": "2016"
+      },
+      "attributes": {
+        "claimed_metric_policy": "Do not infer revenue by multiplying subscriber counts from 2022 by pricing captured in 2026."
+      },
+      "notes": "この日本語は原典の独自要約。出典を独立監査した事実認定ではない。"
+    },
+    {
+      "key": "r31",
+      "kind": "fact",
+      "domain": "technology",
+      "subject_keys": [
+        "business"
+      ],
+      "text": "2016年のAlexaスキルからAndroidとiOSへ拡張した。現在は公式サイトでAlexa・Android・iOS・Fire TVでの利用を案内。",
+      "origin": "official",
+      "verification": "INDEXED_SOURCE_PENDING_LIVE_CHECK",
+      "source_keys": [
+        "S6"
+      ],
+      "evidence_keys": [
+        "ev-S6"
+      ],
+      "basis_record_keys": [],
+      "time": {
+        "value": "2026-10",
+        "end": null,
+        "precision": "month",
+        "original": "2026-10"
+      },
+      "attributes": {
+        "claimed_metric_policy": "Do not infer revenue by multiplying subscriber counts from 2022 by pricing captured in 2026."
+      },
+      "notes": "この日本語は原典の独自要約。出典を独立監査した事実認定ではない。"
+    },
+    {
+      "key": "r32",
+      "kind": "fact",
+      "domain": "customer_and_demand",
+      "subject_keys": [
+        "business"
+      ],
+      "text": "創業者は睡眠音が何時間も途切れず再生される機能を求める利用者の声を受けて有料特典にした。",
+      "origin": "self_reported",
+      "verification": "SUPPORTED_BY_PUBLISHED_INTERVIEW",
+      "source_keys": [
+        "S1"
+      ],
+      "evidence_keys": [
+        "ev-S1"
+      ],
+      "basis_record_keys": [],
+      "time": {
+        "value": "2022",
+        "end": null,
+        "precision": "year",
+        "original": "2022"
+      },
+      "attributes": {
+        "claimed_metric_policy": "Do not infer revenue by multiplying subscriber counts from 2022 by pricing captured in 2026."
+      },
+      "notes": "この日本語は原典の独自要約。出典を独立監査した事実認定ではない。"
+    },
+    {
+      "key": "r33",
+      "kind": "fact",
+      "domain": "mechanism",
+      "subject_keys": [
+        "business"
+      ],
+      "text": "Sleep Jar公式では、プレミアム会員料金とは別に有料アラーム音セットを販売すると説明。",
+      "origin": "official",
+      "verification": "INDEXED_SOURCE_PENDING_LIVE_CHECK",
+      "source_keys": [
+        "S9"
+      ],
+      "evidence_keys": [
+        "ev-S9"
+      ],
+      "basis_record_keys": [],
+      "time": {
+        "value": "2026-10",
+        "end": null,
+        "precision": "month",
+        "original": "2026-10"
+      },
+      "attributes": {
+        "claimed_metric_policy": "Do not infer revenue by multiplying subscriber counts from 2022 by pricing captured in 2026."
+      },
+      "notes": "この日本語は原典の独自要約。出典を独立監査した事実認定ではない。"
+    },
+    {
+      "key": "r34",
+      "kind": "fact",
+      "domain": "identity",
+      "subject_keys": [
+        "business"
+      ],
+      "text": "Nick SchwabはSleep Jar創業前にAlexa向けBargain Buddy、Opening Bell等のスキルを制作した。",
+      "origin": "self_reported",
+      "verification": "SUPPORTED_BY_PUBLISHED_INTERVIEW",
+      "source_keys": [
+        "S1"
+      ],
+      "evidence_keys": [
+        "ev-S1"
+      ],
+      "basis_record_keys": [],
+      "time": {
+        "value": "2016",
+        "end": null,
+        "precision": "year",
+        "original": "2016"
+      },
+      "attributes": {
+        "claimed_metric_policy": "Do not infer revenue by multiplying subscriber counts from 2022 by pricing captured in 2026."
+      },
+      "notes": "この日本語は原典の独自要約。出典を独立監査した事実認定ではない。"
+    },
+    {
+      "key": "r35",
+      "kind": "fact",
+      "domain": "identity",
+      "subject_keys": [
+        "business"
+      ],
+      "text": "Nick Schwabは2017年にInvoked Apps LLCを立ち上げ、その後Sleep Jarへ改称した。",
+      "origin": "self_reported",
+      "verification": "SUPPORTED_BY_PUBLISHED_INTERVIEW",
+      "source_keys": [
+        "S7"
+      ],
+      "evidence_keys": [
+        "ev-S7"
+      ],
+      "basis_record_keys": [],
+      "time": {
+        "value": "2017",
+        "end": null,
+        "precision": "year",
+        "original": "2017"
+      },
+      "attributes": {
+        "claimed_metric_policy": "Do not infer revenue by multiplying subscriber counts from 2022 by pricing captured in 2026."
+      },
+      "notes": "この日本語は原典の独自要約。出典を独立監査した事実認定ではない。"
+    },
+    {
+      "key": "r36",
+      "kind": "fact",
+      "domain": "distribution",
+      "subject_keys": [
+        "business"
+      ],
+      "text": "Sleep JarはAlexaスキルの初期段階から、利用者の要望を反映して環境音の種類を増やした。",
+      "origin": "self_reported",
+      "verification": "SUPPORTED_BY_PUBLISHED_INTERVIEW",
+      "source_keys": [
+        "S1"
+      ],
+      "evidence_keys": [
+        "ev-S1"
+      ],
+      "basis_record_keys": [],
+      "time": {
+        "value": "2016",
+        "end": null,
+        "precision": "year",
+        "original": "2016"
+      },
+      "attributes": {
+        "claimed_metric_policy": "Do not infer revenue by multiplying subscriber counts from 2022 by pricing captured in 2026."
+      },
+      "notes": "この日本語は原典の独自要約。出典を独立監査した事実認定ではない。"
+    },
+    {
+      "key": "r37",
+      "kind": "fact",
+      "domain": "mechanism",
+      "subject_keys": [
+        "business"
+      ],
+      "text": "プレミアム会員では、Android/iOSでオフライン再生や朗読に背景音を重ねる機能も提供している。",
+      "origin": "official",
+      "verification": "INDEXED_SOURCE_PENDING_LIVE_CHECK",
+      "source_keys": [
+        "S2"
+      ],
+      "evidence_keys": [
+        "ev-S2"
+      ],
+      "basis_record_keys": [],
+      "time": {
+        "value": "2026-10",
+        "end": null,
+        "precision": "month",
+        "original": "2026-10"
+      },
+      "attributes": {
+        "claimed_metric_policy": "Do not infer revenue by multiplying subscriber counts from 2022 by pricing captured in 2026."
+      },
+      "notes": "この日本語は原典の独自要約。出典を独立監査した事実認定ではない。"
+    },
+    {
+      "key": "r38",
+      "kind": "fact",
+      "domain": "operations",
+      "subject_keys": [
+        "business"
+      ],
+      "text": "2022年の開発者本人は、Alexaへの依存を維持しつつスマホ向けコンパニオンアプリを展開する方針を述べた。",
+      "origin": "self_reported",
+      "verification": "SUPPORTED_BY_PUBLISHED_INTERVIEW",
+      "source_keys": [
+        "S1"
+      ],
+      "evidence_keys": [
+        "ev-S1"
+      ],
+      "basis_record_keys": [],
+      "time": {
+        "value": "2022",
+        "end": null,
+        "precision": "year",
+        "original": "2022"
+      },
+      "attributes": {
+        "claimed_metric_policy": "Do not infer revenue by multiplying subscriber counts from 2022 by pricing captured in 2026."
+      },
+      "notes": "この日本語は原典の独自要約。出典を独立監査した事実認定ではない。"
+    },
+    {
+      "key": "r39",
+      "kind": "fact",
+      "domain": "identity",
+      "subject_keys": [
+        "business"
+      ],
+      "text": "2026年10月の現行米国料金は年19.99ドル・月3.99ドルで、2022年の過去料金を現在の売上推定へ流用すべきではない。",
+      "origin": "official",
+      "verification": "INDEXED_SOURCE_PENDING_LIVE_CHECK",
+      "source_keys": [
+        "S2"
+      ],
+      "evidence_keys": [
+        "ev-S2"
+      ],
+      "basis_record_keys": [],
+      "time": {
+        "value": "2026-10",
+        "end": null,
+        "precision": "month",
+        "original": "2026-10"
+      },
+      "attributes": {
+        "claimed_metric_policy": "Do not infer revenue by multiplying subscriber counts from 2022 by pricing captured in 2026."
+      },
+      "notes": "この日本語は原典の独自要約。出典を独立監査した事実認定ではない。"
+    }
+  ],
+  "article_state": "ready_for_review",
+  "article": {
+    "language": "ja",
+    "title": "Sleep Jar",
+    "list_line": "雨音を流すAlexaアプリから、有料会員10万人超の睡眠音サービスへ",
+    "headline_record_keys": [
+      "r02",
+      "r07"
+    ],
+    "overview": "寝る時の騒音対策から始まった音声アプリの無料・有料会員モデル。",
+    "key_record_keys": [
+      "r02",
+      "r07",
+      "r09",
+      "r20",
+      "r32"
+    ],
+    "gallery_visual_keys": [
+      "sleepjar-flow",
+      "sleepjar-content-2026"
+    ],
+    "sections": [
+      "overview",
+      "mechanism",
+      "revenue",
+      "acquisition",
+      "operations",
+      "history",
+      "reasons"
+    ],
+    "excluded_sections": []
+  },
+  "visuals": [
+    {
+      "key": "sleepjar-flow",
+      "kind": "diagram",
+      "state": "reviewed",
+      "question": "誰が何を利用し、どこで継続課金になるか",
+      "subject_keys": [
+        "business"
+      ],
+      "record_keys": [
+        "r02",
+        "r09",
+        "r14",
+        "r16",
+        "r17"
+      ],
+      "brief": "独自SVG。サービスの利用・決済概念を示す。AmazonとSleep Jarの実際の手数料率を推定しない。",
+      "caption": {
+        "text": "Alexa・アプリを入口として、無料再生と有料会員の便益へ分かれる",
+        "record_keys": [
+          "r02",
+          "r09",
+          "r14",
+          "r16"
+        ],
+        "interpretation": false
+      },
+      "alt": "Sleep Jarの無料利用・有料会員の仕組み",
+      "variants": [
+        {
+          "path": "figures/sleepjar-flow.svg",
+          "content_type": "image/svg+xml",
+          "width": 1100,
+          "height": 420,
+          "role": "wide"
+        }
+      ],
+      "production": {
+        "producer": "ChatGPT",
+        "tool_version": "vector SVG",
+        "created_at": "2026-10-14T07:00:00Z",
+        "input_source_keys": [
+          "S1",
+          "S2",
+          "S6"
+        ],
+        "rights_review": {
+          "decision": "allowed",
+          "basis": "own_creation",
+          "reference": null,
+          "reviewed_at": "2026-10-14T07:00:00Z",
+          "note": "汎用図形と文字のみで制作し、外部画像を複製していない。"
+        },
+        "visual_review": "PENDING_BROWSER"
+      }
+    },
+    {
+      "key": "sleepjar-content-2026",
+      "kind": "generated_chart",
+      "state": "reviewed",
+      "question": "無料と有料のどこに違いがあるか",
+      "subject_keys": [
+        "business"
+      ],
+      "record_keys": [
+        "r10",
+        "r11",
+        "r12",
+        "r13"
+      ],
+      "brief": "Sleep Jar公式の2026年10月表示を元に、コンテンツ種別ごとの件数を横棒で比較。",
+      "caption": {
+        "text": "無料と有料会員で利用できる音声・物語・瞑想・イメージ旅行の件数",
+        "record_keys": [
+          "r10",
+          "r11",
+          "r12",
+          "r13"
+        ],
+        "interpretation": false
+      },
+      "alt": "Sleep Jarの無料・有料で利用できるコンテンツ数の比較",
+      "variants": [
+        {
+          "path": "figures/sleepjar-content-2026.svg",
+          "content_type": "image/svg+xml",
+          "width": 1100,
+          "height": 530,
+          "role": "wide"
+        }
+      ],
+      "production": {
+        "producer": "ChatGPT",
+        "tool_version": "vector SVG",
+        "created_at": "2026-10-14T07:00:00Z",
+        "input_source_keys": [
+          "S2"
+        ],
+        "rights_review": {
+          "decision": "allowed",
+          "basis": "own_creation",
+          "reference": null,
+          "reviewed_at": "2026-10-14T07:00:00Z",
+          "note": "事実の数値から独自作成した棒グラフ。元ページの画面・画像を転載していない。"
+        },
+        "visual_review": "PENDING_BROWSER"
+      }
+    }
+  ],
+  "topic_links": [
+    {
+      "kind": "pattern",
+      "target_id": null,
+      "candidate_title": "小さな継続的な不便を、利用者が望む有料機能で解消",
+      "relation": "analogy",
+      "record_keys": [
+        "r02",
+        "r32",
+        "r14",
+        "r07"
+      ],
+      "reason": "利用者の要望・機能・有料会員の規模は記録されたが、個別変更の収益因果・広告効果は厳密には測定されていない。"
+    }
+  ],
+  "dispositions": [
+    {
+      "record_key": "r01",
+      "destinations": [
+        "article",
+        "analysis"
+      ],
+      "note": "事業の根拠記録として保持。未確認の売上・利益は記事に補完しない。"
+    },
+    {
+      "record_key": "r02",
+      "destinations": [
+        "article",
+        "analysis"
+      ],
+      "note": "事業の根拠記録として保持。未確認の売上・利益は記事に補完しない。"
+    },
+    {
+      "record_key": "r03",
+      "destinations": [
+        "article",
+        "analysis"
+      ],
+      "note": "事業の根拠記録として保持。未確認の売上・利益は記事に補完しない。"
+    },
+    {
+      "record_key": "r04",
+      "destinations": [
+        "article",
+        "analysis"
+      ],
+      "note": "事業の根拠記録として保持。未確認の売上・利益は記事に補完しない。"
+    },
+    {
+      "record_key": "r05",
+      "destinations": [
+        "article",
+        "analysis"
+      ],
+      "note": "事業の根拠記録として保持。未確認の売上・利益は記事に補完しない。"
+    },
+    {
+      "record_key": "r06",
+      "destinations": [
+        "article",
+        "analysis"
+      ],
+      "note": "事業の根拠記録として保持。未確認の売上・利益は記事に補完しない。"
+    },
+    {
+      "record_key": "r07",
+      "destinations": [
+        "article",
+        "analysis"
+      ],
+      "note": "事業の根拠記録として保持。未確認の売上・利益は記事に補完しない。"
+    },
+    {
+      "record_key": "r08",
+      "destinations": [
+        "article",
+        "analysis"
+      ],
+      "note": "事業の根拠記録として保持。未確認の売上・利益は記事に補完しない。"
+    },
+    {
+      "record_key": "r09",
+      "destinations": [
+        "article",
+        "analysis"
+      ],
+      "note": "事業の根拠記録として保持。未確認の売上・利益は記事に補完しない。"
+    },
+    {
+      "record_key": "r10",
+      "destinations": [
+        "article",
+        "analysis"
+      ],
+      "note": "事業の根拠記録として保持。未確認の売上・利益は記事に補完しない。"
+    },
+    {
+      "record_key": "r11",
+      "destinations": [
+        "article",
+        "analysis"
+      ],
+      "note": "事業の根拠記録として保持。未確認の売上・利益は記事に補完しない。"
+    },
+    {
+      "record_key": "r12",
+      "destinations": [
+        "article",
+        "analysis"
+      ],
+      "note": "事業の根拠記録として保持。未確認の売上・利益は記事に補完しない。"
+    },
+    {
+      "record_key": "r13",
+      "destinations": [
+        "article",
+        "analysis"
+      ],
+      "note": "事業の根拠記録として保持。未確認の売上・利益は記事に補完しない。"
+    },
+    {
+      "record_key": "r14",
+      "destinations": [
+        "article",
+        "analysis"
+      ],
+      "note": "事業の根拠記録として保持。未確認の売上・利益は記事に補完しない。"
+    },
+    {
+      "record_key": "r15",
+      "destinations": [
+        "article",
+        "analysis"
+      ],
+      "note": "事業の根拠記録として保持。未確認の売上・利益は記事に補完しない。"
+    },
+    {
+      "record_key": "r16",
+      "destinations": [
+        "article",
+        "analysis"
+      ],
+      "note": "事業の根拠記録として保持。未確認の売上・利益は記事に補完しない。"
+    },
+    {
+      "record_key": "r17",
+      "destinations": [
+        "article",
+        "analysis"
+      ],
+      "note": "事業の根拠記録として保持。未確認の売上・利益は記事に補完しない。"
+    },
+    {
+      "record_key": "r18",
+      "destinations": [
+        "article",
+        "analysis"
+      ],
+      "note": "事業の根拠記録として保持。未確認の売上・利益は記事に補完しない。"
+    },
+    {
+      "record_key": "r19",
+      "destinations": [
+        "article",
+        "analysis"
+      ],
+      "note": "事業の根拠記録として保持。未確認の売上・利益は記事に補完しない。"
+    },
+    {
+      "record_key": "r20",
+      "destinations": [
+        "article",
+        "analysis"
+      ],
+      "note": "事業の根拠記録として保持。未確認の売上・利益は記事に補完しない。"
+    },
+    {
+      "record_key": "r21",
+      "destinations": [
+        "article",
+        "analysis"
+      ],
+      "note": "事業の根拠記録として保持。未確認の売上・利益は記事に補完しない。"
+    },
+    {
+      "record_key": "r22",
+      "destinations": [
+        "article",
+        "analysis"
+      ],
+      "note": "事業の根拠記録として保持。未確認の売上・利益は記事に補完しない。"
+    },
+    {
+      "record_key": "r23",
+      "destinations": [
+        "article",
+        "analysis"
+      ],
+      "note": "事業の根拠記録として保持。未確認の売上・利益は記事に補完しない。"
+    },
+    {
+      "record_key": "r24",
+      "destinations": [
+        "article",
+        "analysis"
+      ],
+      "note": "事業の根拠記録として保持。未確認の売上・利益は記事に補完しない。"
+    },
+    {
+      "record_key": "r25",
+      "destinations": [
+        "article",
+        "analysis"
+      ],
+      "note": "事業の根拠記録として保持。未確認の売上・利益は記事に補完しない。"
+    },
+    {
+      "record_key": "r26",
+      "destinations": [
+        "article",
+        "analysis"
+      ],
+      "note": "事業の根拠記録として保持。未確認の売上・利益は記事に補完しない。"
+    },
+    {
+      "record_key": "r27",
+      "destinations": [
+        "article",
+        "analysis"
+      ],
+      "note": "事業の根拠記録として保持。未確認の売上・利益は記事に補完しない。"
+    },
+    {
+      "record_key": "r28",
+      "destinations": [
+        "article",
+        "analysis"
+      ],
+      "note": "事業の根拠記録として保持。未確認の売上・利益は記事に補完しない。"
+    },
+    {
+      "record_key": "r29",
+      "destinations": [
+        "article",
+        "analysis"
+      ],
+      "note": "事業の根拠記録として保持。未確認の売上・利益は記事に補完しない。"
+    },
+    {
+      "record_key": "r30",
+      "destinations": [
+        "article",
+        "analysis"
+      ],
+      "note": "事業の根拠記録として保持。未確認の売上・利益は記事に補完しない。"
+    },
+    {
+      "record_key": "r31",
+      "destinations": [
+        "article",
+        "analysis"
+      ],
+      "note": "事業の根拠記録として保持。未確認の売上・利益は記事に補完しない。"
+    },
+    {
+      "record_key": "r32",
+      "destinations": [
+        "article",
+        "analysis"
+      ],
+      "note": "事業の根拠記録として保持。未確認の売上・利益は記事に補完しない。"
+    },
+    {
+      "record_key": "r33",
+      "destinations": [
+        "article",
+        "analysis"
+      ],
+      "note": "事業の根拠記録として保持。未確認の売上・利益は記事に補完しない。"
+    },
+    {
+      "record_key": "r34",
+      "destinations": [
+        "article",
+        "analysis"
+      ],
+      "note": "事業の根拠記録として保持。未確認の売上・利益は記事に補完しない。"
+    },
+    {
+      "record_key": "r35",
+      "destinations": [
+        "article",
+        "analysis"
+      ],
+      "note": "事業の根拠記録として保持。未確認の売上・利益は記事に補完しない。"
+    },
+    {
+      "record_key": "r36",
+      "destinations": [
+        "article",
+        "analysis"
+      ],
+      "note": "事業の根拠記録として保持。未確認の売上・利益は記事に補完しない。"
+    },
+    {
+      "record_key": "r37",
+      "destinations": [
+        "article",
+        "analysis"
+      ],
+      "note": "事業の根拠記録として保持。未確認の売上・利益は記事に補完しない。"
+    },
+    {
+      "record_key": "r38",
+      "destinations": [
+        "article",
+        "analysis"
+      ],
+      "note": "事業の根拠記録として保持。未確認の売上・利益は記事に補完しない。"
+    },
+    {
+      "record_key": "r39",
+      "destinations": [
+        "article",
+        "analysis"
+      ],
+      "note": "事業の根拠記録として保持。未確認の売上・利益は記事に補完しない。"
+    }
+  ],
+  "handoff": {
+    "delivery": "prepared",
+    "article_change_policy": "preserve_authored_text",
+    "r2_write_authorized": false,
+    "publication_authorized": false,
+    "remaining_work": [
+      "正式な収集schemaとの適合監査と規約・商用利用条件の確認",
+      "別担当による原典の独立突合",
+      "公式Premiumの現在価格・件数はJS表示ページのため公開直前に再確認",
+      "既存カタログへの目録統合と本番ブラウザ検証",
+      "会社の売上・利益・転換率を推計しない"
+    ],
+    "checks": [
+      {
+        "name": "source_read",
+        "status": "PASS",
+        "by": "ChatGPT",
+        "note": "Amazon一次インタビューと公式サイトの公開検索結果を確認"
+      },
+      {
+        "name": "independent_evidence_review",
+        "status": "NOT_RUN",
+        "by": null,
+        "note": "別担当監査未実施"
+      },
+      {
+        "name": "commercial_rights_review",
+        "status": "NOT_RUN",
+        "by": null,
+        "note": "規約を独立確認していない"
+      },
+      {
+        "name": "application_import",
+        "status": "NOT_RUN",
+        "by": null,
+        "note": "CI・公開目録・ブラウザは未実施"
+      }
+    ]
+  }
+}
