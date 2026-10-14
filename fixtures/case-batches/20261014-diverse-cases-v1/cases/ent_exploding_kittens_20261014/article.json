@@ -9,8 +9,8 @@
     "packageId": "20261014-diverse-cases-v1-ent_exploding_kittens_20261014",
     "submissionSha256": "5c25d585771c8fec235f6d4af053b939c67689efacabab3e155c0f74a570c811"
   },
-  "listLine": "発売前のカードゲームに21万人以上が支援。Kickstarterで約878万ドルを集めた",
-  "headline": "発売前のカードゲームに21万人以上が支援。30日で約878万ドルの資金を集めた",
+  "listLine": "発売前のカードゲームに21万人以上が支援。Kickstarterで約13.2億円を集めた",
+  "headline": "発売前のカードゲームに21万人以上が支援。30日で約13.2億円の資金を集めた",
   "lead": "猫のイラストを使った短時間のカードゲーム。漫画家とゲーム開発者がKickstarterで支援を募り、当時の最多支援者数記録を更新した。",
   "kpis": [
     {
@@ -156,7 +156,7 @@
     },
     {
       "id": "revenue",
-      "title": "約878万ドルは支援金であり、利益ではない",
+      "title": "約13.2億円は支援金であり、利益ではない",
       "blocks": [
         {
           "type": "figure",
