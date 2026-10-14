@@ -1,0 +1,375 @@
+{
+  "schema": "make-money.case-article.v2",
+  "entityId": "ent_exploding_kittens_20261014",
+  "name": "Exploding Kittens",
+  "revision": "r1",
+  "reviewState": "ready_for_review",
+  "generation": 6,
+  "basedOn": {
+    "packageId": "20261014-diverse-cases-v1-ent_exploding_kittens_20261014",
+    "submissionSha256": "5c25d585771c8fec235f6d4af053b939c67689efacabab3e155c0f74a570c811"
+  },
+  "listLine": "発売前のカードゲームに21万人以上が支援。Kickstarterで約878万ドルを集めた",
+  "headline": "発売前のカードゲームに21万人以上が支援。30日で約878万ドルの資金を集めた",
+  "lead": "猫のイラストを使った短時間のカードゲーム。漫画家とゲーム開発者がKickstarterで支援を募り、当時の最多支援者数記録を更新した。",
+  "kpis": [
+    {
+      "label": "Kickstarter支援者",
+      "value": "219,382人",
+      "period": "2015年",
+      "recordKeys": [
+        "r08"
+      ]
+    },
+    {
+      "label": "集まった支援金",
+      "value": "878万2,571ドル",
+      "yen": "約13.2億円",
+      "period": "2015年・利益ではない",
+      "recordKeys": [
+        "r07"
+      ]
+    },
+    {
+      "label": "募集期間",
+      "value": "30日",
+      "period": "2015年1〜2月",
+      "recordKeys": [
+        "r09"
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "no": 1,
+      "label": "公式募集：2015年の支援額・支援者・期間",
+      "url": "https://www.kickstarter.com/projects/elanlee/exploding-kittens"
+    },
+    {
+      "no": 2,
+      "label": "Kickstarter公式：当時の最多支援者数記録",
+      "url": "https://www.kickstarter.com/blog/exploding-kittens-is-the-most-backed-project-of-all-time"
+    },
+    {
+      "no": 3,
+      "label": "会社公式：創業者とその後のゲーム展開",
+      "url": "https://www.explodingkittens.com/pages/about-exploding-kittens"
+    },
+    {
+      "no": 4,
+      "label": "公式販売：遊び方・価格・内容",
+      "url": "https://www.explodingkittens.com/products/exploding-kittens-original-edition"
+    },
+    {
+      "no": 5,
+      "label": "Kickstarter公式：2015年ゲーム部門の記録",
+      "url": "https://www.kickstarter.com/blog/2015-in-games-kittens-zombies-and-kung-fu"
+    },
+    {
+      "no": 6,
+      "label": "Kickstarter公式：支援者の内訳",
+      "url": "https://www.kickstarter.com/projects/elanlee/exploding-kittens/community"
+    }
+  ],
+  "sourceKeys": {
+    "1": "S1",
+    "2": "S2",
+    "3": "S3",
+    "4": "S4",
+    "5": "S5",
+    "6": "S6"
+  },
+  "topics": [
+    {
+      "id": "overview",
+      "blocks": [
+        {
+          "type": "list",
+          "items": [
+            {
+              "lead": "爆発する子猫のカードを引くと負け",
+              "text": "回避カードや順番を飛ばすカードを使い、最後まで残ることを目指す。",
+              "cites": [
+                4
+              ],
+              "recordKeys": [
+                "r01",
+                "r15"
+              ]
+            },
+            {
+              "lead": "漫画家とゲーム開発者の共同制作",
+              "text": "The OatmealのMatthew InmanとElan Lee、Shane Smallが関わった。",
+              "cites": [
+                2
+              ],
+              "recordKeys": [
+                "r03",
+                "r04"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "mechanism",
+      "blocks": [
+        {
+          "type": "steps",
+          "items": [
+            {
+              "title": "完成前に商品案を公開",
+              "text": "2015年1月、Kickstarterにカードゲームを掲載して支援を募った。",
+              "cites": [
+                1
+              ],
+              "recordKeys": [
+                "r05"
+              ]
+            },
+            {
+              "title": "支援金を集める",
+              "text": "目標1万ドル（約150万円）に対し、30日で219,382人が参加した。",
+              "cites": [
+                1
+              ],
+              "recordKeys": [
+                "r06",
+                "r08",
+                "r09"
+              ]
+            },
+            {
+              "title": "通常の販売へ展開",
+              "text": "現在はOriginal Editionを公式ストアで19.99ドル（約3,000円）で販売する。",
+              "cites": [
+                4
+              ],
+              "recordKeys": [
+                "r13"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "revenue",
+      "title": "約878万ドルは支援金であり、利益ではない",
+      "blocks": [
+        {
+          "type": "figure",
+          "figureId": "funding"
+        },
+        {
+          "type": "facts",
+          "rows": [
+            {
+              "label": "募集時の資金",
+              "text": "Kickstarterで8,782,571ドル（約13.2億円）を集めた。製造費などを差し引いた純利益ではない。",
+              "cites": [
+                1
+              ],
+              "recordKeys": [
+                "r07",
+                "r16"
+              ]
+            },
+            {
+              "label": "現在の販売",
+              "text": "Original Editionは米国公式ストアで19.99ドル（約3,000円）。2015年の支援金と別の価格。",
+              "cites": [
+                4
+              ],
+              "recordKeys": [
+                "r13"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "acquisition",
+      "blocks": [
+        {
+          "type": "list",
+          "items": [
+            {
+              "lead": "漫画家の作品を使ったゲーム",
+              "text": "人気ウェブ漫画The Oatmealの作者Matthew Inmanがカードのイラストを担当した。",
+              "cites": [
+                3
+              ],
+              "recordKeys": [
+                "r03",
+                "r04"
+              ]
+            },
+            {
+              "lead": "Kickstarterで多数の支援者へ届いた",
+              "text": "2015年当時のKickstarterで最多となる219,382人が支援した。",
+              "cites": [
+                2
+              ],
+              "recordKeys": [
+                "r08",
+                "r10"
+              ]
+            },
+            {
+              "lead": "その後もゲーム商品を展開",
+              "text": "初回のプロジェクトから複数のゲームへ広がり、35を超える言語で提供すると会社が説明する。",
+              "cites": [
+                3
+              ],
+              "recordKeys": [
+                "r12"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "operations",
+      "blocks": [
+        {
+          "type": "list",
+          "items": [
+            {
+              "lead": "56枚のカードを使う商品",
+              "text": "Original Editionは2〜5人向けで、1回約15分。実物のカードを売る事業。",
+              "cites": [
+                4
+              ],
+              "recordKeys": [
+                "r02",
+                "r14"
+              ]
+            },
+            {
+              "lead": "ルールとイラストが商品価値",
+              "text": "行動カードや回避カードと漫画の絵柄を組み合わせた。",
+              "cites": [
+                4
+              ],
+              "recordKeys": [
+                "r03",
+                "r15"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "history",
+      "blocks": [
+        {
+          "type": "timeline",
+          "items": [
+            {
+              "when": "2015年1月",
+              "text": "目標1万ドル（約150万円）で支援募集を開始。",
+              "cites": [
+                1
+              ],
+              "recordKeys": [
+                "r05",
+                "r06"
+              ]
+            },
+            {
+              "when": "2015年2月",
+              "text": "219,382人から約878万ドル（約13.2億円）の支援を獲得。",
+              "cites": [
+                1
+              ],
+              "recordKeys": [
+                "r07",
+                "r08"
+              ]
+            },
+            {
+              "when": "2015年以降",
+              "text": "別のゲームや多言語の商品へ展開。",
+              "cites": [
+                3
+              ],
+              "recordKeys": [
+                "r12"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "reasons",
+      "blocks": [
+        {
+          "type": "list",
+          "items": [
+            {
+              "lead": "発売前に顧客の関心を確かめた",
+              "text": "完成前のカードゲームに219,382人が資金を約束した。実際の製造原価や利益はこれと別。",
+              "cites": [
+                1
+              ],
+              "recordKeys": [
+                "r08",
+                "r16"
+              ]
+            },
+            {
+              "lead": "ルールを短く説明できる商品",
+              "text": "爆発する子猫を避けるという明快なルールに、特徴的なイラストを組み合わせた。",
+              "cites": [
+                4
+              ],
+              "recordKeys": [
+                "r01",
+                "r03",
+                "r15"
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "figures": [
+    {
+      "id": "funding",
+      "file": "kittens-funding.svg",
+      "alt": "2015年Kickstarterで219382人が合計8782571ドルを支援。目標額は1万ドル。利益ではない。",
+      "width": 960,
+      "height": 390
+    }
+  ],
+  "editorialChanges": [
+    {
+      "kind": "withheld",
+      "where": "お金",
+      "text": "支援金＝売上・純利益という表現",
+      "reason": "Kickstarterの支援額は製造費等を差し引く前の金額。",
+      "recordKeys": [
+        "r07",
+        "r16"
+      ]
+    },
+    {
+      "kind": "other",
+      "where": "集客",
+      "text": "The Oatmealの読者が支援者の何割を占めたか",
+      "reason": "割合が確認できないため、漫画家の知名度だけで支援額を説明しない。",
+      "recordKeys": [
+        "r03",
+        "r04",
+        "r08"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,406 @@
+{
+  "schema_version": "make-money.collection-submission.v1",
+  "requirements_version": "1.1.0",
+  "package_id": "20261014-diverse-cases-v1-ent_exploding_kittens_20261014",
+  "is_test_data": false,
+  "created_at": "2026-10-14T11:40:00Z",
+  "collector": {
+    "name": "ChatGPT",
+    "version": "GPT-6",
+    "mode": "researched-demo"
+  },
+  "entities": [
+    {
+      "key": "business",
+      "name": "Exploding Kittens",
+      "kind": "organization"
+    }
+  ],
+  "primary_entity_key": "business",
+  "sources": [
+    {
+      "key": "S1",
+      "url": "https://www.kickstarter.com/projects/elanlee/exploding-kittens",
+      "title": "公式募集：2015年の支援額・支援者・期間",
+      "publisher": "Kickstarter",
+      "published_time": "2015-02-19",
+      "checked_at": "2026-10-14",
+      "rights": {
+        "factual_paraphrase": "review_pending",
+        "image_reuse": "not_authorized"
+      }
+    },
+    {
+      "key": "S2",
+      "url": "https://www.kickstarter.com/blog/exploding-kittens-is-the-most-backed-project-of-all-time",
+      "title": "Kickstarter公式：当時の最多支援者数記録",
+      "publisher": "Kickstarter",
+      "published_time": "2015-02-19",
+      "checked_at": "2026-10-14",
+      "rights": {
+        "factual_paraphrase": "review_pending",
+        "image_reuse": "not_authorized"
+      }
+    },
+    {
+      "key": "S3",
+      "url": "https://www.explodingkittens.com/pages/about-exploding-kittens",
+      "title": "会社公式：創業者とその後のゲーム展開",
+      "publisher": "Exploding Kittens",
+      "published_time": null,
+      "checked_at": "2026-10-14",
+      "rights": {
+        "factual_paraphrase": "review_pending",
+        "image_reuse": "not_authorized"
+      }
+    },
+    {
+      "key": "S4",
+      "url": "https://www.explodingkittens.com/products/exploding-kittens-original-edition",
+      "title": "公式販売：遊び方・価格・内容",
+      "publisher": "Exploding Kittens",
+      "published_time": null,
+      "checked_at": "2026-10-14",
+      "rights": {
+        "factual_paraphrase": "review_pending",
+        "image_reuse": "not_authorized"
+      }
+    },
+    {
+      "key": "S5",
+      "url": "https://www.kickstarter.com/blog/2015-in-games-kittens-zombies-and-kung-fu",
+      "title": "Kickstarter公式：2015年ゲーム部門の記録",
+      "publisher": "Kickstarter",
+      "published_time": "2016-01-14",
+      "checked_at": "2026-10-14",
+      "rights": {
+        "factual_paraphrase": "review_pending",
+        "image_reuse": "not_authorized"
+      }
+    },
+    {
+      "key": "S6",
+      "url": "https://www.kickstarter.com/projects/elanlee/exploding-kittens/community",
+      "title": "Kickstarter公式：支援者の内訳",
+      "publisher": "Kickstarter",
+      "published_time": null,
+      "checked_at": "2026-10-14",
+      "rights": {
+        "factual_paraphrase": "review_pending",
+        "image_reuse": "not_authorized"
+      }
+    }
+  ],
+  "evidence": [
+    {
+      "key": "ev-S1",
+      "source_key": "S1",
+      "locator": "公式募集：2015年の支援額・支援者・期間",
+      "method": "published_page",
+      "note": "公開情報の日本語要約。画像・原文を転載しない。"
+    },
+    {
+      "key": "ev-S2",
+      "source_key": "S2",
+      "locator": "Kickstarter公式：当時の最多支援者数記録",
+      "method": "published_page",
+      "note": "公開情報の日本語要約。画像・原文を転載しない。"
+    },
+    {
+      "key": "ev-S3",
+      "source_key": "S3",
+      "locator": "会社公式：創業者とその後のゲーム展開",
+      "method": "published_page",
+      "note": "公開情報の日本語要約。画像・原文を転載しない。"
+    },
+    {
+      "key": "ev-S4",
+      "source_key": "S4",
+      "locator": "公式販売：遊び方・価格・内容",
+      "method": "published_page",
+      "note": "公開情報の日本語要約。画像・原文を転載しない。"
+    },
+    {
+      "key": "ev-S5",
+      "source_key": "S5",
+      "locator": "Kickstarter公式：2015年ゲーム部門の記録",
+      "method": "published_page",
+      "note": "公開情報の日本語要約。画像・原文を転載しない。"
+    },
+    {
+      "key": "ev-S6",
+      "source_key": "S6",
+      "locator": "Kickstarter公式：支援者の内訳",
+      "method": "published_page",
+      "note": "公開情報の日本語要約。画像・原文を転載しない。"
+    }
+  ],
+  "records": [
+    {
+      "key": "r01",
+      "kind": "fact",
+      "domain": "case_research",
+      "subject_keys": [
+        "business"
+      ],
+      "text": "Exploding Kittensは爆発する子猫のカードを引かないようにするカードゲーム。",
+      "source_keys": [
+        "S4"
+      ],
+      "evidence_keys": [
+        "ev-S4"
+      ],
+      "verification": "SOURCE_REVIEW_PENDING"
+    },
+    {
+      "key": "r02",
+      "kind": "fact",
+      "domain": "case_research",
+      "subject_keys": [
+        "business"
+      ],
+      "text": "対象は2～5人、1回のプレイ時間は約15分。",
+      "source_keys": [
+        "S4"
+      ],
+      "evidence_keys": [
+        "ev-S4"
+      ],
+      "verification": "SOURCE_REVIEW_PENDING"
+    },
+    {
+      "key": "r03",
+      "kind": "fact",
+      "domain": "case_research",
+      "subject_keys": [
+        "business"
+      ],
+      "text": "創業にElan Lee、Shane Smallと漫画家Matthew Inmanが参加した。",
+      "source_keys": [
+        "S2"
+      ],
+      "evidence_keys": [
+        "ev-S2"
+      ],
+      "verification": "SOURCE_REVIEW_PENDING"
+    },
+    {
+      "key": "r04",
+      "kind": "fact",
+      "domain": "case_research",
+      "subject_keys": [
+        "business"
+      ],
+      "text": "Matthew Inmanはウェブ漫画The Oatmealの作者。",
+      "source_keys": [
+        "S3"
+      ],
+      "evidence_keys": [
+        "ev-S3"
+      ],
+      "verification": "SOURCE_REVIEW_PENDING"
+    },
+    {
+      "key": "r05",
+      "kind": "fact",
+      "domain": "case_research",
+      "subject_keys": [
+        "business"
+      ],
+      "text": "2015年1月20日にKickstarterでカードゲームの制作を支援してくれる人を募集した。",
+      "source_keys": [
+        "S1"
+      ],
+      "evidence_keys": [
+        "ev-S1"
+      ],
+      "verification": "SOURCE_REVIEW_PENDING"
+    },
+    {
+      "key": "r06",
+      "kind": "fact",
+      "domain": "case_research",
+      "subject_keys": [
+        "business"
+      ],
+      "text": "最初に設定した資金目標は1万ドル。",
+      "source_keys": [
+        "S1"
+      ],
+      "evidence_keys": [
+        "ev-S1"
+      ],
+      "verification": "SOURCE_REVIEW_PENDING"
+    },
+    {
+      "key": "r07",
+      "kind": "fact",
+      "domain": "case_research",
+      "subject_keys": [
+        "business"
+      ],
+      "text": "2015年の最終支援額は8,782,571ドル。",
+      "source_keys": [
+        "S1"
+      ],
+      "evidence_keys": [
+        "ev-S1"
+      ],
+      "verification": "SOURCE_REVIEW_PENDING"
+    },
+    {
+      "key": "r08",
+      "kind": "fact",
+      "domain": "case_research",
+      "subject_keys": [
+        "business"
+      ],
+      "text": "2015年の最終支援者数は219,382人。",
+      "source_keys": [
+        "S1"
+      ],
+      "evidence_keys": [
+        "ev-S1"
+      ],
+      "verification": "SOURCE_REVIEW_PENDING"
+    },
+    {
+      "key": "r09",
+      "kind": "fact",
+      "domain": "case_research",
+      "subject_keys": [
+        "business"
+      ],
+      "text": "募集期間は約30日だった。",
+      "source_keys": [
+        "S1"
+      ],
+      "evidence_keys": [
+        "ev-S1"
+      ],
+      "verification": "SOURCE_REVIEW_PENDING"
+    },
+    {
+      "key": "r10",
+      "kind": "fact",
+      "domain": "case_research",
+      "subject_keys": [
+        "business"
+      ],
+      "text": "2015年当時、Kickstarter全体で支援者数の最多記録となった。",
+      "source_keys": [
+        "S2"
+      ],
+      "evidence_keys": [
+        "ev-S2"
+      ],
+      "verification": "SOURCE_REVIEW_PENDING"
+    },
+    {
+      "key": "r11",
+      "kind": "fact",
+      "domain": "case_research",
+      "subject_keys": [
+        "business"
+      ],
+      "text": "2015年当時、Kickstarterのゲーム部門で最も資金を集めた企画となった。",
+      "source_keys": [
+        "S2"
+      ],
+      "evidence_keys": [
+        "ev-S2"
+      ],
+      "verification": "SOURCE_REVIEW_PENDING"
+    },
+    {
+      "key": "r12",
+      "kind": "fact",
+      "domain": "case_research",
+      "subject_keys": [
+        "business"
+      ],
+      "text": "会社はその後さまざまなゲームへ展開し、35を超える言語で提供すると説明している。",
+      "source_keys": [
+        "S3"
+      ],
+      "evidence_keys": [
+        "ev-S3"
+      ],
+      "verification": "SOURCE_REVIEW_PENDING"
+    },
+    {
+      "key": "r13",
+      "kind": "fact",
+      "domain": "case_research",
+      "subject_keys": [
+        "business"
+      ],
+      "text": "2026年10月確認の米国公式販売ページではOriginal Editionが19.99ドル。",
+      "source_keys": [
+        "S4"
+      ],
+      "evidence_keys": [
+        "ev-S4"
+      ],
+      "verification": "SOURCE_REVIEW_PENDING"
+    },
+    {
+      "key": "r14",
+      "kind": "fact",
+      "domain": "case_research",
+      "subject_keys": [
+        "business"
+      ],
+      "text": "Original Editionには56枚のカードが入る。",
+      "source_keys": [
+        "S4"
+      ],
+      "evidence_keys": [
+        "ev-S4"
+      ],
+      "verification": "SOURCE_REVIEW_PENDING"
+    },
+    {
+      "key": "r15",
+      "kind": "fact",
+      "domain": "case_research",
+      "subject_keys": [
+        "business"
+      ],
+      "text": "回避カードやスキップ、シャッフルなどの行動カードがある。",
+      "source_keys": [
+        "S4"
+      ],
+      "evidence_keys": [
+        "ev-S4"
+      ],
+      "verification": "SOURCE_REVIEW_PENDING"
+    },
+    {
+      "key": "r16",
+      "kind": "fact",
+      "domain": "case_research",
+      "subject_keys": [
+        "business"
+      ],
+      "text": "Kickstarterで集まった支援金は会社の利益額を示していない。",
+      "source_keys": [
+        "S1"
+      ],
+      "evidence_keys": [
+        "ev-S1"
+      ],
+      "verification": "SOURCE_REVIEW_PENDING"
+    }
+  ],
+  "handoff": {
+    "publication_authorized": false,
+    "r2_write_authorized": false,
+    "review_status": "ready_for_review",
+    "missing": [
+      "独立した原典確認",
+      "商用権利",
+      "本番画面監査"
+    ]
+  }
+}

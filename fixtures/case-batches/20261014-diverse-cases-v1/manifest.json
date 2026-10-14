@@ -1,0 +1,32 @@
+{
+  "schema": "make-money.case-batch.v1",
+  "batchId": "20261014-diverse-cases-v1",
+  "createdAt": "2026-10-14T11:40:00Z",
+  "reviewOnly": true,
+  "cases": [
+    {
+      "entityId": "ent_scrub_daddy_20261014",
+      "name": "Scrub Daddy",
+      "officialUrl": "https://scrubdaddy.com/",
+      "country": "アメリカ",
+      "category": "物販・家庭用品"
+    },
+    {
+      "entityId": "ent_exploding_kittens_20261014",
+      "name": "Exploding Kittens",
+      "officialUrl": "https://www.explodingkittens.com/",
+      "country": "アメリカ",
+      "category": "ゲーム・クラウドファンディング"
+    }
+  ],
+  "sha256": {
+    "cases/ent_scrub_daddy_20261014/research.json": "bb24c4511b4763e34e654896ffb555909d37d519c4cfa5cc22a2406ac0dc699b",
+    "cases/ent_exploding_kittens_20261014/research.json": "5c25d585771c8fec235f6d4af053b939c67689efacabab3e155c0f74a570c811",
+    "cases/ent_scrub_daddy_20261014/figures/scrub-temperature.svg": "bbfe13e0551362e7551e6c4a044ae8cb6f0d03720ef3541df108eafe072340a8",
+    "cases/ent_exploding_kittens_20261014/figures/kittens-funding.svg": "50b241f381b4861d9c295d20ae4688391ec47df7de1b965829f493d2eb17bb5a",
+    "cases/ent_scrub_daddy_20261014/article.json": "8bbbb6ad7ece2647a8f588f6822d69ba815b51af4cb41dbe75bcc1e13feea8e2",
+    "cases/ent_exploding_kittens_20261014/article.json": "5b21c73d8f962e16059790ed74ddbf37532440d8617b0322c9c792cada1628e8",
+    "cases/ent_scrub_daddy_20261014/README.md": "bad37dc6b22052d53db2233bc672f841cba46b3efeadd875216a32b28584ea96",
+    "cases/ent_exploding_kittens_20261014/README.md": "113e6e2a1edabc7d7c48ff7d37a81e724d5973d580961a593a5c9019a691e5cd"
+  }
+}

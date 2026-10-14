@@ -1,0 +1,380 @@
+{
+  "schema": "make-money.case-article.v2",
+  "entityId": "ent_scrub_daddy_20261014",
+  "name": "Scrub Daddy",
+  "revision": "r1",
+  "reviewState": "ready_for_review",
+  "generation": 6,
+  "basedOn": {
+    "packageId": "20261014-diverse-cases-v1-ent_scrub_daddy_20261014",
+    "submissionSha256": "bb24c4511b4763e34e654896ffb555909d37d519c4cfa5cc22a2406ac0dc699b"
+  },
+  "listLine": "整備工場向けに売れなかったスポンジが、温度で硬さの変わる台所用品に",
+  "headline": "売れなかった手洗い用スポンジを台所用品に転用。テレビ出演後1年以内に売上約22.5億円",
+  "lead": "水の温度によって硬さが変わるスポンジ。整備工場への販売に失敗した後、家庭の掃除用品として使い道を変えた。",
+  "kpis": [
+    {
+      "label": "約1年間の売上",
+      "value": "1,500万ドル",
+      "yen": "約22.5億円",
+      "period": "2013年7月の投資家の説明",
+      "recordKeys": [
+        "r10"
+      ]
+    },
+    {
+      "label": "Originalの価格",
+      "value": "3.99ドル",
+      "yen": "約600円",
+      "period": "米国公式・2026年10月",
+      "recordKeys": [
+        "r12"
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "no": 1,
+      "label": "公式沿革：商品転用、QVC、Shark Tank、量販店",
+      "url": "https://scrubdaddy.com/about/"
+    },
+    {
+      "no": 2,
+      "label": "公式：水温で変わる素材FlexTexture",
+      "url": "https://support.scrubdaddy.com/support/solutions/articles/156000293546-what-is-flextexture-"
+    },
+    {
+      "no": 3,
+      "label": "ABC 2013年：Lori Greinerによる売上説明",
+      "url": "https://abc.com/news/4b951eaa-e29e-4a02-8bcf-623b591da855/category/706923"
+    },
+    {
+      "no": 4,
+      "label": "公式商品：Original 1個の機能と表示価格",
+      "url": "https://scrubdaddy.com/product/scrub-daddy-original/"
+    },
+    {
+      "no": 5,
+      "label": "2012年の創業者インタビュー：小売営業・QVC",
+      "url": "https://www.sharktankblog.com/aaron-krause-scrub-daddy/"
+    },
+    {
+      "no": 6,
+      "label": "ABC：Shark Tankで紹介された商品の特長",
+      "url": "https://abc.com/news/471d13cc-e2d7-47d3-96d7-57e7b93cadac/category/939724"
+    }
+  ],
+  "sourceKeys": {
+    "1": "S1",
+    "2": "S2",
+    "3": "S3",
+    "4": "S4",
+    "5": "S5",
+    "6": "S6"
+  },
+  "topics": [
+    {
+      "id": "overview",
+      "blocks": [
+        {
+          "type": "list",
+          "items": [
+            {
+              "lead": "冷たい水では硬く、温かい水では柔らかい",
+              "text": "一つのスポンジを水温で使い分けられる。",
+              "cites": [
+                2
+              ],
+              "recordKeys": [
+                "r05"
+              ]
+            },
+            {
+              "lead": "笑顔の形にも意味がある",
+              "text": "口の形を使って食器を洗い、目の穴に指を掛けられる。",
+              "cites": [
+                1
+              ],
+              "recordKeys": [
+                "r06"
+              ]
+            }
+          ]
+        },
+        {
+          "type": "figure",
+          "figureId": "temperature"
+        }
+      ]
+    },
+    {
+      "id": "mechanism",
+      "title": "用途を変えて、台所向けの商品になった",
+      "blocks": [
+        {
+          "type": "steps",
+          "items": [
+            {
+              "title": "整備工場では売れなかった",
+              "text": "手の汚れを落とす製品として開発したが、価格と必要性を評価されなかった。",
+              "cites": [
+                1
+              ],
+              "recordKeys": [
+                "r01"
+              ]
+            },
+            {
+              "title": "家庭の掃除で素材を再発見",
+              "text": "2011年、庭の家具を傷つけずに洗え、水温による硬さの変化にも気付いた。",
+              "cites": [
+                1
+              ],
+              "recordKeys": [
+                "r03",
+                "r04"
+              ]
+            },
+            {
+              "title": "台所のスポンジに転用",
+              "text": "温水では柔らかく、冷水では硬くなる素材の特性を食器洗いに利用した。",
+              "cites": [
+                2
+              ],
+              "recordKeys": [
+                "r05"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "revenue",
+      "blocks": [
+        {
+          "type": "rates",
+          "caption": "Original 1個の米国公式価格",
+          "rows": [
+            {
+              "label": "Scrub Daddy Original",
+              "value": "3.99ドル",
+              "yen": "約600円",
+              "note": "2026年10月のオンライン表示。店舗では価格が異なる可能性がある。",
+              "cites": [
+                4
+              ],
+              "recordKeys": [
+                "r12"
+              ]
+            }
+          ]
+        },
+        {
+          "type": "facts",
+          "rows": [
+            {
+              "label": "公表された販売実績",
+              "text": "Lori Greinerは2013年7月に、約1年で売上1,500万ドル（約22.5億円）と説明。",
+              "cites": [
+                3
+              ],
+              "recordKeys": [
+                "r10"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "acquisition",
+      "title": "地元紙の記事から、テレビ通販と量販店へ",
+      "blocks": [
+        {
+          "type": "steps",
+          "items": [
+            {
+              "title": "新聞記事を見た仲介人が紹介",
+              "text": "地元紙の記事をきっかけに、テレビ通販QVCへの出演が決まった。",
+              "cites": [
+                1
+              ],
+              "recordKeys": [
+                "r07"
+              ]
+            },
+            {
+              "title": "QVCで使い方を実演",
+              "text": "2012年に4回出演。スポンジの特性をテレビで見せた。",
+              "cites": [
+                1
+              ],
+              "recordKeys": [
+                "r08"
+              ]
+            },
+            {
+              "title": "Shark Tankで流通先を広げた",
+              "text": "2012年10月に出演。投資家との提携後、WalmartやTargetなどの店舗展開が進んだ。",
+              "cites": [
+                1
+              ],
+              "recordKeys": [
+                "r09",
+                "r11",
+                "r15"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "operations",
+      "blocks": [
+        {
+          "type": "list",
+          "items": [
+            {
+              "lead": "商品性能の確認",
+              "text": "QVC出演前、製品の性能を示す独立試験を準備した。",
+              "cites": [
+                5
+              ],
+              "recordKeys": [
+                "r14"
+              ]
+            },
+            {
+              "lead": "店頭販売の営業",
+              "text": "棚入れ手数料やバーコードなどの条件があり、初期の小売営業は断られた。",
+              "cites": [
+                5
+              ],
+              "recordKeys": [
+                "r13"
+              ]
+            },
+            {
+              "lead": "流通先の拡大",
+              "text": "2014年までに主要量販店への取引が広がった。",
+              "cites": [
+                1
+              ],
+              "recordKeys": [
+                "r11"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "history",
+      "blocks": [
+        {
+          "type": "timeline",
+          "items": [
+            {
+              "when": "2007年",
+              "text": "整備工場への販売を試したが、受け入れられなかった。",
+              "cites": [
+                1
+              ],
+              "recordKeys": [
+                "r01"
+              ]
+            },
+            {
+              "when": "2011年",
+              "text": "家庭の掃除で再評価し、台所向けへ変更した。",
+              "cites": [
+                1
+              ],
+              "recordKeys": [
+                "r03",
+                "r04"
+              ]
+            },
+            {
+              "when": "2012年",
+              "text": "QVCとShark Tankに出演。",
+              "cites": [
+                1
+              ],
+              "recordKeys": [
+                "r08",
+                "r09"
+              ]
+            },
+            {
+              "when": "2013年",
+              "text": "1年以内の売上約1,500万ドル（約22.5億円）を投資家が公表。",
+              "cites": [
+                3
+              ],
+              "recordKeys": [
+                "r10"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "reasons",
+      "blocks": [
+        {
+          "type": "list",
+          "items": [
+            {
+              "lead": "売れない商品ではなく、売る相手を見直した",
+              "text": "整備工場向けでは必要とされなかった素材が、食器洗いでは傷つけにくいという価値を持った。",
+              "cites": [
+                1
+              ],
+              "recordKeys": [
+                "r01",
+                "r03",
+                "r04"
+              ]
+            },
+            {
+              "lead": "言葉より実演で伝わる特長があった",
+              "text": "冷水と温水で硬さが変わる特徴をテレビ通販で見せ、量販店での扱いにつながった。",
+              "cites": [
+                1
+              ],
+              "recordKeys": [
+                "r05",
+                "r08",
+                "r11"
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "figures": [
+    {
+      "id": "temperature",
+      "file": "scrub-temperature.svg",
+      "alt": "Scrub Daddyの素材は冷水で硬く、温水で柔らかくなる。",
+      "width": 960,
+      "height": 380
+    }
+  ],
+  "editorialChanges": [
+    {
+      "kind": "withheld",
+      "where": "お金",
+      "text": "Scrub Daddyの製造原価と利益率",
+      "reason": "一次情報を確認できず、売上から利益を推計しない。",
+      "recordKeys": [
+        "r10"
+      ]
+    }
+  ]
+}

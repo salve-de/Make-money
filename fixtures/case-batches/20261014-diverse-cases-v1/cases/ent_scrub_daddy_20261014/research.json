@@ -1,0 +1,390 @@
+{
+  "schema_version": "make-money.collection-submission.v1",
+  "requirements_version": "1.1.0",
+  "package_id": "20261014-diverse-cases-v1-ent_scrub_daddy_20261014",
+  "is_test_data": false,
+  "created_at": "2026-10-14T11:40:00Z",
+  "collector": {
+    "name": "ChatGPT",
+    "version": "GPT-6",
+    "mode": "researched-demo"
+  },
+  "entities": [
+    {
+      "key": "business",
+      "name": "Scrub Daddy",
+      "kind": "organization"
+    }
+  ],
+  "primary_entity_key": "business",
+  "sources": [
+    {
+      "key": "S1",
+      "url": "https://scrubdaddy.com/about/",
+      "title": "公式沿革：商品転用、QVC、Shark Tank、量販店",
+      "publisher": "Scrub Daddy",
+      "published_time": null,
+      "checked_at": "2026-10-14",
+      "rights": {
+        "factual_paraphrase": "review_pending",
+        "image_reuse": "not_authorized"
+      }
+    },
+    {
+      "key": "S2",
+      "url": "https://support.scrubdaddy.com/support/solutions/articles/156000293546-what-is-flextexture-",
+      "title": "公式：水温で変わる素材FlexTexture",
+      "publisher": "Scrub Daddy",
+      "published_time": null,
+      "checked_at": "2026-10-14",
+      "rights": {
+        "factual_paraphrase": "review_pending",
+        "image_reuse": "not_authorized"
+      }
+    },
+    {
+      "key": "S3",
+      "url": "https://abc.com/news/4b951eaa-e29e-4a02-8bcf-623b591da855/category/706923",
+      "title": "ABC 2013年：Lori Greinerによる売上説明",
+      "publisher": "ABC",
+      "published_time": "2013-07-25",
+      "checked_at": "2026-10-14",
+      "rights": {
+        "factual_paraphrase": "review_pending",
+        "image_reuse": "not_authorized"
+      }
+    },
+    {
+      "key": "S4",
+      "url": "https://scrubdaddy.com/product/scrub-daddy-original/",
+      "title": "公式商品：Original 1個の機能と表示価格",
+      "publisher": "Scrub Daddy",
+      "published_time": null,
+      "checked_at": "2026-10-14",
+      "rights": {
+        "factual_paraphrase": "review_pending",
+        "image_reuse": "not_authorized"
+      }
+    },
+    {
+      "key": "S5",
+      "url": "https://www.sharktankblog.com/aaron-krause-scrub-daddy/",
+      "title": "2012年の創業者インタビュー：小売営業・QVC",
+      "publisher": "Shark Tank Blog",
+      "published_time": "2012",
+      "checked_at": "2026-10-14",
+      "rights": {
+        "factual_paraphrase": "review_pending",
+        "image_reuse": "not_authorized"
+      }
+    },
+    {
+      "key": "S6",
+      "url": "https://abc.com/news/471d13cc-e2d7-47d3-96d7-57e7b93cadac/category/939724",
+      "title": "ABC：Shark Tankで紹介された商品の特長",
+      "publisher": "ABC",
+      "published_time": null,
+      "checked_at": "2026-10-14",
+      "rights": {
+        "factual_paraphrase": "review_pending",
+        "image_reuse": "not_authorized"
+      }
+    }
+  ],
+  "evidence": [
+    {
+      "key": "ev-S1",
+      "source_key": "S1",
+      "locator": "公式沿革：商品転用、QVC、Shark Tank、量販店",
+      "method": "published_page",
+      "note": "公開情報の日本語要約。画像・原文を転載しない。"
+    },
+    {
+      "key": "ev-S2",
+      "source_key": "S2",
+      "locator": "公式：水温で変わる素材FlexTexture",
+      "method": "published_page",
+      "note": "公開情報の日本語要約。画像・原文を転載しない。"
+    },
+    {
+      "key": "ev-S3",
+      "source_key": "S3",
+      "locator": "ABC 2013年：Lori Greinerによる売上説明",
+      "method": "published_page",
+      "note": "公開情報の日本語要約。画像・原文を転載しない。"
+    },
+    {
+      "key": "ev-S4",
+      "source_key": "S4",
+      "locator": "公式商品：Original 1個の機能と表示価格",
+      "method": "published_page",
+      "note": "公開情報の日本語要約。画像・原文を転載しない。"
+    },
+    {
+      "key": "ev-S5",
+      "source_key": "S5",
+      "locator": "2012年の創業者インタビュー：小売営業・QVC",
+      "method": "published_page",
+      "note": "公開情報の日本語要約。画像・原文を転載しない。"
+    },
+    {
+      "key": "ev-S6",
+      "source_key": "S6",
+      "locator": "ABC：Shark Tankで紹介された商品の特長",
+      "method": "published_page",
+      "note": "公開情報の日本語要約。画像・原文を転載しない。"
+    }
+  ],
+  "records": [
+    {
+      "key": "r01",
+      "kind": "fact",
+      "domain": "case_research",
+      "subject_keys": [
+        "business"
+      ],
+      "text": "自動車整備工場で汚れた手を洗うスポンジとして開発したが、必要性や価格を認められず売れなかった。",
+      "source_keys": [
+        "S1"
+      ],
+      "evidence_keys": [
+        "ev-S1"
+      ],
+      "verification": "SOURCE_REVIEW_PENDING"
+    },
+    {
+      "key": "r02",
+      "kind": "fact",
+      "domain": "case_research",
+      "subject_keys": [
+        "business"
+      ],
+      "text": "2008年に元の事業を売却した後も、売れ残りのスポンジは手元にあった。",
+      "source_keys": [
+        "S1"
+      ],
+      "evidence_keys": [
+        "ev-S1"
+      ],
+      "verification": "SOURCE_REVIEW_PENDING"
+    },
+    {
+      "key": "r03",
+      "kind": "fact",
+      "domain": "case_research",
+      "subject_keys": [
+        "business"
+      ],
+      "text": "2011年、屋外家具の清掃で従来品が塗装を傷つけたが、旧試作品は傷つけずに洗えた。",
+      "source_keys": [
+        "S1"
+      ],
+      "evidence_keys": [
+        "ev-S1"
+      ],
+      "verification": "SOURCE_REVIEW_PENDING"
+    },
+    {
+      "key": "r04",
+      "kind": "fact",
+      "domain": "case_research",
+      "subject_keys": [
+        "business"
+      ],
+      "text": "水温で素材が変化し、冷水では硬く、温水では柔らかくなる性質に気付いた。",
+      "source_keys": [
+        "S1"
+      ],
+      "evidence_keys": [
+        "ev-S1"
+      ],
+      "verification": "SOURCE_REVIEW_PENDING"
+    },
+    {
+      "key": "r05",
+      "kind": "fact",
+      "domain": "case_research",
+      "subject_keys": [
+        "business"
+      ],
+      "text": "独自素材FlexTextureの硬さは水温で変わる。",
+      "source_keys": [
+        "S2"
+      ],
+      "evidence_keys": [
+        "ev-S2"
+      ],
+      "verification": "SOURCE_REVIEW_PENDING"
+    },
+    {
+      "key": "r06",
+      "kind": "fact",
+      "domain": "case_research",
+      "subject_keys": [
+        "business"
+      ],
+      "text": "スマイル形状の口で食器を洗えるなど、形状にも使用上の意味がある。",
+      "source_keys": [
+        "S1"
+      ],
+      "evidence_keys": [
+        "ev-S1"
+      ],
+      "verification": "SOURCE_REVIEW_PENDING"
+    },
+    {
+      "key": "r07",
+      "kind": "fact",
+      "domain": "case_research",
+      "subject_keys": [
+        "business"
+      ],
+      "text": "2012年、地元紙の記事を読んだ仲介人がQVCテレビ通販への出演を手配した。",
+      "source_keys": [
+        "S1"
+      ],
+      "evidence_keys": [
+        "ev-S1"
+      ],
+      "verification": "SOURCE_REVIEW_PENDING"
+    },
+    {
+      "key": "r08",
+      "kind": "fact",
+      "domain": "case_research",
+      "subject_keys": [
+        "business"
+      ],
+      "text": "2012年に4回のQVCテレビ通販へ出演した。",
+      "source_keys": [
+        "S1"
+      ],
+      "evidence_keys": [
+        "ev-S1"
+      ],
+      "verification": "SOURCE_REVIEW_PENDING"
+    },
+    {
+      "key": "r09",
+      "kind": "fact",
+      "domain": "case_research",
+      "subject_keys": [
+        "business"
+      ],
+      "text": "2012年10月25日にShark Tankへ出演した。",
+      "source_keys": [
+        "S1"
+      ],
+      "evidence_keys": [
+        "ev-S1"
+      ],
+      "verification": "SOURCE_REVIEW_PENDING"
+    },
+    {
+      "key": "r10",
+      "kind": "fact",
+      "domain": "case_research",
+      "subject_keys": [
+        "business"
+      ],
+      "text": "Lori Greinerは2013年7月のABC取材で、1年未満に約1,500万ドルの売上があったと説明した。",
+      "source_keys": [
+        "S3"
+      ],
+      "evidence_keys": [
+        "ev-S3"
+      ],
+      "verification": "SOURCE_REVIEW_PENDING"
+    },
+    {
+      "key": "r11",
+      "kind": "fact",
+      "domain": "case_research",
+      "subject_keys": [
+        "business"
+      ],
+      "text": "2014年までにWalmart、Target、Home Depotなどとの流通を広げた。",
+      "source_keys": [
+        "S1"
+      ],
+      "evidence_keys": [
+        "ev-S1"
+      ],
+      "verification": "SOURCE_REVIEW_PENDING"
+    },
+    {
+      "key": "r12",
+      "kind": "fact",
+      "domain": "case_research",
+      "subject_keys": [
+        "business"
+      ],
+      "text": "Scrub Daddy Original 1個は2026年10月の米国公式表示で3.99ドル。",
+      "source_keys": [
+        "S4"
+      ],
+      "evidence_keys": [
+        "ev-S4"
+      ],
+      "verification": "SOURCE_REVIEW_PENDING"
+    },
+    {
+      "key": "r13",
+      "kind": "fact",
+      "domain": "case_research",
+      "subject_keys": [
+        "business"
+      ],
+      "text": "小売店の棚に置くためのバーコードや棚入れ手数料の問題があり、初期の営業は断られていた。",
+      "source_keys": [
+        "S5"
+      ],
+      "evidence_keys": [
+        "ev-S5"
+      ],
+      "verification": "SOURCE_REVIEW_PENDING"
+    },
+    {
+      "key": "r14",
+      "kind": "fact",
+      "domain": "case_research",
+      "subject_keys": [
+        "business"
+      ],
+      "text": "QVC出演に当たり製品性能について独立試験を準備したと創業者が説明した。",
+      "source_keys": [
+        "S5"
+      ],
+      "evidence_keys": [
+        "ev-S5"
+      ],
+      "verification": "SOURCE_REVIEW_PENDING"
+    },
+    {
+      "key": "r15",
+      "kind": "fact",
+      "domain": "case_research",
+      "subject_keys": [
+        "business"
+      ],
+      "text": "Greinerの提携はその後の小売店展開のきっかけになったと会社が説明している。",
+      "source_keys": [
+        "S1"
+      ],
+      "evidence_keys": [
+        "ev-S1"
+      ],
+      "verification": "SOURCE_REVIEW_PENDING"
+    }
+  ],
+  "handoff": {
+    "publication_authorized": false,
+    "r2_write_authorized": false,
+    "review_status": "ready_for_review",
+    "missing": [
+      "独立した原典確認",
+      "商用権利",
+      "本番画面監査"
+    ]
+  }
+}
