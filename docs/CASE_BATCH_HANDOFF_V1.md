@@ -82,7 +82,7 @@ unzip -q ~/Downloads/MAKEMONEY_3事例_一括取り込みパッケージ_2026101
 **最短の確認方法（取り込み・検証・本体UI起動を1コマンド）**：
 
 ```bash
-pnpm case:batch:review --from ~/Downloads/MAKEMONEY_case_batch_20261014
+pnpm case:batch:review -- --from ~/Downloads/MAKEMONEY_case_batch_20261014
 ```
 
 このコマンドはZIPを解凍済みであることが前提。マニフェスト検査→記事・図解・調査の検査→ローカル目録の生成→本物のNext.js開発サーバー起動を行う。URLをターミナルに表示する。**他の仕事のworktreeや本番設定へ影響しないため、独立したworktreeで実行すること。** 既に3100番を使っている場合は `--port 3110` を追加。
@@ -90,13 +90,13 @@ pnpm case:batch:review --from ~/Downloads/MAKEMONEY_case_batch_20261014
 **ローカルプレビューまで1コマンド**：
 
 ```bash
-pnpm case:batch:import --from ~/Downloads/MAKEMONEY_case_batch_20261014 --preview
+pnpm case:batch:import -- --from ~/Downloads/MAKEMONEY_case_batch_20261014 --preview
 ```
 
 取り込み前の検査だけ：
 
 ```bash
-pnpm case:batch:import --from ~/Downloads/MAKEMONEY_case_batch_20261014 --check-only
+pnpm case:batch:import -- --from ~/Downloads/MAKEMONEY_case_batch_20261014 --check-only
 ```
 
 画面を起動：
