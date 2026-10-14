@@ -1,0 +1,583 @@
+{
+  "schema": "make-money.case-article.v2",
+  "entityId": "ent_sleep_jar_20261014",
+  "name": "Sleep Jar",
+  "revision": "r1",
+  "reviewState": "ready_for_review",
+  "generation": 5,
+  "basedOn": {
+    "packageId": "mm-sleep-jar-20261014-r1",
+    "submissionSha256": "10eaf09d5c38b0dd36a3b8518af8efb1d204126180caf1e2ba61f81478201315"
+  },
+  "listLine": "雨音を流すAlexaアプリから、有料会員10万人超の睡眠音サービスへ",
+  "headline": "犬の鳴き声対策に作った雨音が、有料会員10万人超のサービスになった",
+  "lead": "Amazon Echo向けの環境音から始まり、夜間に音が途切れない再生を有料化。現在は睡眠物語や瞑想も提供する。",
+  "sources": [
+    {
+      "no": 1,
+      "label": "Alexa公式：創業者の起業・有料化・会員数",
+      "url": "https://developer.amazon.com/en-US/blogs/alexa/alexa-skills-kit/2022/06/nick-schwab-june-2022"
+    },
+    {
+      "no": 2,
+      "label": "Sleep Jar公式：Premium料金と収録内容（2026年10月確認）",
+      "url": "https://sleepjar.com/premium"
+    },
+    {
+      "no": 3,
+      "label": "Alexa公式：朗読物語の制作工程（2023年8月）",
+      "url": "https://developer.amazon.com/en-US/blogs/alexa/alexa-skills-kit/2023/08/sleep-stories-sleepjar-alexa-august-2023"
+    },
+    {
+      "no": 4,
+      "label": "Alexa公式：初期の雨音スキルと反響",
+      "url": "https://developer.amazon.com/en-US/blogs/alexa/post/cf473bfc-b504-4575-bdcd-556de233517a/alexa-skill-developer-spotlight-nick-schwa"
+    },
+    {
+      "no": 5,
+      "label": "Alexa公式：Amazon紹介報酬の事例（2022年11月）",
+      "url": "https://developer.amazon.com/en-US/blogs/alexa/alexa-skills-kit/2022/11/amazon-associates-on-alexa-blog-november-2022"
+    },
+    {
+      "no": 6,
+      "label": "Sleep Jar公式：スマホとAlexaの利用・連携",
+      "url": "https://sleepjar.com/faq"
+    },
+    {
+      "no": 7,
+      "label": "Alexa公式：創業者Nick Schwabの経歴",
+      "url": "https://developer.amazon.com/en-US/alexa/champions/nick-schwab"
+    },
+    {
+      "no": 8,
+      "label": "Alexa公式：2022年のアプリ内課金状況",
+      "url": "https://developer.amazon.com/en-US/blogs/alexa/alexa-skills-kit/2022/04/Alexa-in-skill-purchasing-available-canada-april-2022"
+    },
+    {
+      "no": 9,
+      "label": "Sleep Jar公式：会員と別売りのアラーム",
+      "url": "https://sleepjar.com/alarms"
+    }
+  ],
+  "sourceKeys": {
+    "1": "S1",
+    "2": "S2",
+    "3": "S3",
+    "4": "S4",
+    "5": "S5",
+    "6": "S6",
+    "7": "S7",
+    "8": "S8",
+    "9": "S9"
+  },
+  "kpis": [
+    {
+      "label": "有料会員",
+      "value": "10万人超",
+      "period": "2022年6月",
+      "recordKeys": [
+        "r07"
+      ]
+    },
+    {
+      "label": "月額料金",
+      "value": "3.99ドル",
+      "yen": "約600円",
+      "period": "米国・2026年10月",
+      "recordKeys": [
+        "r09"
+      ]
+    },
+    {
+      "label": "プレミアム環境音",
+      "value": "106種類",
+      "period": "2026年10月",
+      "recordKeys": [
+        "r10"
+      ]
+    }
+  ],
+  "topics": [
+    {
+      "id": "overview",
+      "title": "睡眠音が必要な人に、何を届けているのか",
+      "blocks": [
+        {
+          "type": "facts",
+          "rows": [
+            {
+              "label": "商品",
+              "text": "雨や海、扇風機などの環境音と、眠る前に聴く朗読物語・瞑想を提供。",
+              "cites": [
+                1,
+                6
+              ],
+              "recordKeys": [
+                "r01",
+                "r31"
+              ]
+            },
+            {
+              "label": "使う人",
+              "text": "夜の騒音を遮りたい人や、眠る前に音を流したい人。Alexaとスマホアプリで利用できる。",
+              "cites": [
+                1,
+                6
+              ],
+              "recordKeys": [
+                "r02",
+                "r31"
+              ]
+            }
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            {
+              "lead": "犬の鳴き声がきっかけ",
+              "text": "Nick Schwabは上階の犬の鳴き声を遮るため、Amazon Echoから雨音を流すスキルを作った。",
+              "cites": [
+                1
+              ],
+              "recordKeys": [
+                "r02"
+              ]
+            },
+            {
+              "lead": "利用者が欲しい音を増やした",
+              "text": "芝刈り機、いびき、犬の息づかいの音まで追加し、2021年初めに環境音は100種類を超えた。",
+              "cites": [
+                1
+              ],
+              "recordKeys": [
+                "r06",
+                "r21"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "mechanism",
+      "title": "無料再生から、途切れない音への有料化",
+      "blocks": [
+        {
+          "type": "figure",
+          "figureId": "sleepjar-flow"
+        },
+        {
+          "type": "list",
+          "items": [
+            {
+              "lead": "音を選んで再生",
+              "text": "利用者はAlexaに声で指示するか、iPhone・Androidのアプリで雨音などを選んで聴く。",
+              "cites": [
+                6
+              ],
+              "recordKeys": [
+                "r31"
+              ]
+            },
+            {
+              "lead": "無料版にない機能を有料で提供",
+              "text": "プレミアム会員はAlexaで最大10時間途切れずに再生でき、高音質や複数の音の組み合わせも使える。",
+              "cites": [
+                2
+              ],
+              "recordKeys": [
+                "r14",
+                "r15"
+              ]
+            },
+            {
+              "lead": "複数の端末で会員特典を使える",
+              "text": "スマホとAlexaのアカウントを連携すれば、有料会員の特典を両方で利用できる。",
+              "cites": [
+                2,
+                6
+              ],
+              "recordKeys": [
+                "r16"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "revenue",
+      "title": "有料会員が収益の柱。2022年には10万人超",
+      "blocks": [
+        {
+          "type": "rates",
+          "caption": "現在の米国向け会員料金（2026年10月確認）",
+          "rows": [
+            {
+              "label": "月払い",
+              "value": "3.99ドル",
+              "yen": "約600円",
+              "note": "地域・税・販促条件によって変動する。",
+              "cites": [
+                2
+              ],
+              "recordKeys": [
+                "r09",
+                "r17"
+              ]
+            },
+            {
+              "label": "年払い",
+              "value": "19.99ドル",
+              "yen": "約3,000円",
+              "note": "1年分を支払う契約。",
+              "cites": [
+                2
+              ],
+              "recordKeys": [
+                "r09"
+              ]
+            }
+          ]
+        },
+        {
+          "type": "paragraph",
+          "tone": "body",
+          "text": "2022年6月のAlexa公式取材では、有料会員が10万人を超えていた。当時と現在で料金が違うため、現在の売上額として掛け算はしない。",
+          "cites": [
+            1,
+            2
+          ],
+          "recordKeys": [
+            "r07",
+            "r18",
+            "r09"
+          ]
+        },
+        {
+          "type": "figure",
+          "figureId": "sleepjar-content-2026"
+        },
+        {
+          "type": "list",
+          "items": [
+            {
+              "lead": "会員向けに睡眠物語も増やした",
+              "text": "2026年10月の公式表示では、無料41話に対し有料178話。瞑想は無料2本に対し有料100本。",
+              "cites": [
+                2
+              ],
+              "recordKeys": [
+                "r11",
+                "r12"
+              ]
+            },
+            {
+              "lead": "2022年には買い物の紹介報酬も得た",
+              "text": "Echo Showで枕や寝具を案内し、条件を満たすAmazonでの購入から紹介料を受け取っていた。",
+              "cites": [
+                5
+              ],
+              "recordKeys": [
+                "r27"
+              ]
+            },
+            {
+              "lead": "会員の料金を制作費に使う",
+              "text": "創業者はアプリ内課金からの収入を、睡眠物語を書く人や声優の採用へ再投資したと説明している。",
+              "cites": [
+                3
+              ],
+              "recordKeys": [
+                "r26"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "acquisition",
+      "title": "4年間は有料広告を出さず、2020年から出稿",
+      "blocks": [
+        {
+          "type": "list",
+          "items": [
+            {
+              "lead": "Alexaスキルとして公開",
+              "text": "2016年に最初の雨音を公開。Amazonの当時の取材では、公開初日に好意的なレビューが約24件付いた。",
+              "cites": [
+                4
+              ],
+              "recordKeys": [
+                "r03",
+                "r04"
+              ]
+            },
+            {
+              "lead": "既存利用者の紹介で広がった",
+              "text": "新しい環境音を追加しながら成長し、創業後の約4年間は有料広告費を使わなかった。",
+              "cites": [
+                1
+              ],
+              "recordKeys": [
+                "r06",
+                "r20",
+                "r36"
+              ]
+            },
+            {
+              "lead": "2020年から音声広告を配信",
+              "text": "Amazon Music、Spotify、Pandoraに音声広告を出し、SNSでは画像広告を出した。",
+              "cites": [
+                1
+              ],
+              "recordKeys": [
+                "r21"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "operations",
+      "title": "専任の脚本家と声優が、睡眠向けの物語を制作",
+      "blocks": [
+        {
+          "type": "list",
+          "items": [
+            {
+              "lead": "聞くだけで分かる文章にする",
+              "text": "脚本家Amy Deanは短い文を使い、登場人物や場面が変わる箇所に区切りを入れる。",
+              "cites": [
+                3
+              ],
+              "recordKeys": [
+                "r24"
+              ]
+            },
+            {
+              "lead": "急な大音量が出ないよう編集",
+              "text": "声優Michael Foxは自宅スタジオで収録し、音量差を圧縮して睡眠を妨げる急な大音量を抑えている。",
+              "cites": [
+                3
+              ],
+              "recordKeys": [
+                "r25"
+              ]
+            },
+            {
+              "lead": "2022年には5人で仕事を分担",
+              "text": "2022年6月時点で正社員3人・パート2人がおり、ライター、声優、デザイン、モバイル開発を担当した。",
+              "cites": [
+                1
+              ],
+              "recordKeys": [
+                "r22"
+              ]
+            },
+            {
+              "lead": "2023年には45話以上の睡眠物語",
+              "text": "2022年に睡眠物語を開始。2023年8月には45話以上を提供し、新しい朗読作品を毎月追加した。",
+              "cites": [
+                3
+              ],
+              "recordKeys": [
+                "r23"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "history",
+      "title": "雨音だけのスキルから、複数端末の音声サービスへ",
+      "blocks": [
+        {
+          "type": "timeline",
+          "items": [
+            {
+              "when": "2016年10月",
+              "text": "Alexa向けに雨音、海の音、雷雨の音を公開。",
+              "cites": [
+                1
+              ],
+              "recordKeys": [
+                "r03"
+              ]
+            },
+            {
+              "when": "2017年",
+              "text": "Alexaの開発者向け報奨金を初めて受け取り、会社を設立。",
+              "cites": [
+                1,
+                7
+              ],
+              "recordKeys": [
+                "r05",
+                "r35"
+              ]
+            },
+            {
+              "when": "2020年",
+              "text": "初めて有料広告に投資。",
+              "cites": [
+                1
+              ],
+              "recordKeys": [
+                "r20"
+              ]
+            },
+            {
+              "when": "2022年",
+              "text": "有料会員10万人超。睡眠物語の制作を開始し、スマホアプリにも展開。",
+              "cites": [
+                1,
+                3
+              ],
+              "recordKeys": [
+                "r07",
+                "r23",
+                "r38"
+              ]
+            },
+            {
+              "when": "2023年",
+              "text": "ライターと声優による制作を拡充し、45話以上を公開。",
+              "cites": [
+                3
+              ],
+              "recordKeys": [
+                "r23"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "reasons",
+      "title": "利用者が繰り返し困ることを、有料にする理由へ",
+      "blocks": [
+        {
+          "type": "list",
+          "items": [
+            {
+              "lead": "眠る前に音が止まる不便を減らした",
+              "text": "長時間途切れない再生を求める利用者の声を受け、最大10時間の再生をプレミアム会員の特典にした。",
+              "cites": [
+                1,
+                2
+              ],
+              "recordKeys": [
+                "r32",
+                "r14"
+              ]
+            },
+            {
+              "lead": "最初はAlexaの仕組みを利用した",
+              "text": "Alexaの配信・音声再生・アプリ内課金機能を使っていた。一方、Amazon側の仕組みへの依存も残る。",
+              "cites": [
+                1,
+                7
+              ],
+              "recordKeys": [
+                "r30",
+                "r31"
+              ]
+            },
+            {
+              "lead": "音声作品そのものも増やした",
+              "text": "環境音に加え、朗読や瞑想などの限定コンテンツを制作し、無料と有料の内容に差を付けた。",
+              "cites": [
+                2,
+                3
+              ],
+              "recordKeys": [
+                "r11",
+                "r12",
+                "r23"
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "figures": [
+    {
+      "id": "sleepjar-flow",
+      "file": "sleepjar-flow.svg",
+      "alt": "Sleep Jarの無料利用と有料会員の仕組みを表すオリジナル図解",
+      "width": 1100,
+      "height": 420
+    },
+    {
+      "id": "sleepjar-content-2026",
+      "file": "sleepjar-content-2026.svg",
+      "alt": "無料会員とプレミアム会員のコンテンツ数を比較するオリジナル棒グラフ",
+      "width": 1100,
+      "height": 530
+    }
+  ],
+  "editorialChanges": [
+    {
+      "kind": "withheld",
+      "where": "お金",
+      "text": "2022年の有料会員10万人に2026年の現行料金を掛けた売上試算",
+      "reason": "時点と契約条件が一致せず、会社の売上として扱えない。",
+      "recordKeys": [
+        "r07",
+        "r09",
+        "r18",
+        "r19"
+      ]
+    },
+    {
+      "kind": "not-in-article",
+      "where": "運営",
+      "text": "2022年4月の採用5人と、同年6月の正社員3人・パート2人の情報",
+      "reason": "採用人数と在籍人数の違いを区別し、6月の状況だけ本文へ採用。",
+      "recordKeys": [
+        "r22"
+      ]
+    },
+    {
+      "kind": "not-in-article",
+      "where": "会費以外の商品",
+      "text": "有料アラーム音セットを別途販売。",
+      "reason": "主役となるサブスクリプションの説明を優先。",
+      "recordKeys": [
+        "r33"
+      ]
+    },
+    {
+      "kind": "other",
+      "where": "視覚素材",
+      "text": "外部の写真・スクリーンショットは複製せず、出典つきの独自図解2点のみ制作。",
+      "reason": "実画像の商用掲載権が未確認。",
+      "recordKeys": [
+        "r10",
+        "r11",
+        "r12",
+        "r13"
+      ]
+    },
+    {
+      "kind": "other",
+      "where": "公式料金・収録数の確認",
+      "text": "現行価格と件数は検索エンジンの取得した公式ページ本文に基づく。",
+      "reason": "公式本体はJavaScriptのため、公開前にライブ画面を別担当が再確認する。",
+      "recordKeys": [
+        "r09",
+        "r10",
+        "r11",
+        "r12",
+        "r13"
+      ]
+    }
+  ]
+}
