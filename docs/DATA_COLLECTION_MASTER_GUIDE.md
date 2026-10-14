@@ -15,9 +15,9 @@
 > **ユーザーは長文のプロンプトや前提条件を絶対に書かない。**
 > ユーザーが他AI（ChatGPT, Claude, Cursor, Antigravity等）に投げる指示は、以下の**「1行」**のみである：
 > ```markdown
-> docs/DATA_COLLECTION_MASTER_GUIDE.md を読め。業種・規模・形態の限定は一切禁止。個人・少数・近年・再現性のある生々しい金儲けの事実（または破綻死因ログ）を中心に、枠組みなしで柔軟に自律収集せよ。調べる直前に data/CLAIMED_TARGETS.txt を検索し、なければ末尾に社名を1行追記してから調査せよ。成果物は data/incoming/batch_[識別名]_[番号].json に保存せよ。
+> GitHubの docs/DATA_COLLECTION_MASTER_GUIDE.md を読め。
 > ```
-> 本文書を読み込んだ全てのAIは、一切の追加質問・手戻り・過去のやらかしをゼロにして完全自律稼働せよ。
+> 本文書を読み込んだAIは、上位正本と [CASE_COLLECTION_AGENT_RUNBOOK.md](./CASE_COLLECTION_AGENT_RUNBOOK.md) を自ら読んで、必要な調査・編集・図解・独立検査を実施する。何も確かめず完全と称したり、スキーマを勝手に変えたりしない。
 >
 > **【最重要・リアルタイム重複予約 ＆ 隔離保存ルール】**:
 > 1. **調査直前の予約ロック（CLAIM_LOCK義務）**:
