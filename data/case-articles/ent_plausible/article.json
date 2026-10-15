@@ -2,7 +2,7 @@
  "schema": "make-money.case-article.v2",
  "entityId": "ent_plausible",
  "name": "Plausible Analytics",
- "revision": "r8",
+ "revision": "r9",
  "reviewState": "ready_for_review",
  "generation": 5,
  "basedOn": {
@@ -691,6 +691,49 @@
      ]
     }
    ]
+  },
+  {
+   "id": "reasons",
+   "title": "無料のGoogle Analyticsとの差を明確にして顧客を獲得",
+   "blocks": [
+    {
+     "type": "list",
+     "ordered": false,
+     "items": [
+      {
+       "lead": "無料の競合との違いを示した",
+       "text": "クッキーを使わないシンプルな解析を、「Google Analyticsの代わり」と紹介し、乗り換え先を探す人に伝えた。",
+       "cites": [
+        2,
+        7
+       ],
+       "recordKeys": [
+        "r42",
+        "r58",
+        "r2"
+       ]
+      },
+      {
+       "lead": "記事を読んだ人がすぐ試せた",
+       "text": "Google Analyticsに関する不満を扱った記事で集客し、カード登録不要の無料体験につなげた。",
+       "cites": [
+        2,
+        6,
+        7,
+        8
+       ],
+       "recordKeys": [
+        "r43",
+        "r45",
+        "r13",
+        "r31",
+        "r44",
+        "r58"
+       ]
+      }
+     ]
+    }
+   ]
   }
  ],
  "figures": [],
@@ -833,6 +876,22 @@
     "r38",
     "r15",
     "r34"
+   ]
+  },
+  {
+   "kind": "other",
+   "where": "成功の理由（2026-10-15）",
+   "text": "既存の成功理由4項目から、重複・マイナス情報を避けた2項目を表示用に再構成した。",
+   "reason": "本文7分類と出典の現行UIに合わせる。元の調査記録は未変更。",
+   "recordKeys": [
+    "r42",
+    "r58",
+    "r2",
+    "r43",
+    "r45",
+    "r13",
+    "r31",
+    "r44"
    ]
   }
  ]
