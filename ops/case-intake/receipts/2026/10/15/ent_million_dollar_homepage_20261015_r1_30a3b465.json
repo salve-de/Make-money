@@ -1,0 +1,59 @@
+{
+  "schema": "make-money.case-intake-receipt.v1",
+  "receipt_id": "r2-30a3b465fd69247d2d5504466fed21ff71389cfcd322c41f29fd4ff357561d96",
+  "batch_id": "20261015-pilot-001",
+  "case_id": "ent_million_dollar_homepage_20261015",
+  "canonical_name": "The Million Dollar Homepage",
+  "official_domain": "milliondollarhomepage.com",
+  "aliases": [
+    "Million Dollar Homepage",
+    "milliondollarhomepage.com"
+  ],
+  "revision": "r1",
+  "collected_on": "2026-10-15",
+  "collection_window": {
+    "start": "2026-10-14T23:25:00+09:00",
+    "end": "2026-10-15T00:11:00+09:00",
+    "precision": "approximate_not_measured"
+  },
+  "source_count": 8,
+  "figure_count": 2,
+  "article_chapters": 7,
+  "storage": {
+    "provider": "Cloudflare R2",
+    "purpose": "private intake",
+    "sha256": "30a3b465fd69247d2d5504466fed21ff71389cfcd322c41f29fd4ff357561d96",
+    "bytes": 31192,
+    "saved": true,
+    "readback_verified": true,
+    "reader_tool": "readMakeMoneyJson",
+    "publisher_write": false
+  },
+  "state_at_receipt": {
+    "research": "collected",
+    "article": "draft_for_review",
+    "fact_audit": "pending",
+    "rights_audit": "pending",
+    "ui_intake": "not_imported",
+    "owner_review": "pending",
+    "published": false,
+    "owner_approved": false
+  },
+  "duplication": {
+    "github_prior_index_check": "attempted",
+    "global_r2_list": "unavailable",
+    "decision": "unverified_requires_importer_recheck"
+  },
+  "upstream_source_urls": [
+    "https://milliondollarhomepage.com/",
+    "https://www.theguardian.com/education/2005/sep/07/students.uk",
+    "https://www.theguardian.com/technology/2005/sep/24/uknews.onlinesupplement",
+    "https://www.wired.com/2006/06/your-money-or-your-site/",
+    "https://www.cbsnews.com/news/pixel-perfect/",
+    "https://www.theguardian.com/business/2006/dec/05/newmedia.workandcareers",
+    "https://www.washingtonpost.com/news/the-intersect/wp/2015/02/18/million-dollar-homepage-the-2005-internet-snapshot-thats-stuck-in-time/",
+    "https://www.theguardian.com/media/2006/dec/05/advertising.business"
+  ],
+  "import_instructions": "Read SHA from R2 via readMakeMoneyJson, check each source and rights, verify duplicate identity, convert article and SVG assets to existing case-article schema, run local preview and owner review; do NOT autoapprove, publish, change release pointers or historical catalog.",
+  "updater_note": "This is immutable evidence of submission, not the authoritative current review/import state. A distinct receipt keyed by case ID + revision + sha tracks any subsequent imports/approvals."
+}
