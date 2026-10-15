@@ -13,7 +13,6 @@ const TOPIC_TITLES: Record<CaseArticleTopicId, string> = {
   acquisition: UI.CASE_ARTICLE_ACQUISITION,
   operations: UI.CASE_ARTICLE_OPERATIONS,
   history: UI.CASE_ARTICLE_HISTORY,
-  reasons: UI.CASE_ARTICLE_REASONS,
 };
 
 const KPI_COLUMNS: Record<number, string> = { 1: 'grid-cols-1', 2: 'grid-cols-2', 3: 'grid-cols-1 sm:grid-cols-3', 4: 'grid-cols-2 sm:grid-cols-4' };
