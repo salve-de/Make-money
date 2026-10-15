@@ -77,13 +77,13 @@ describe('事例の記事（case-article）の詳細画面', () => {
     expect(nav).toContain('aria-current="true"');
     expect(html).not.toContain('section-article-mechanism');
   });
-  it('全分類がある時も目次は概要→仕組み→お金→集客→運営→経緯→出典の7項目のみ', () => {
-    const ids = ['overview', 'mechanism', 'revenue', 'acquisition', 'operations', 'history'] as const;
+  it('本文7分類と最後の出典を同じ順で表示する', () => {
+    const ids = ['overview', 'mechanism', 'revenue', 'acquisition', 'operations', 'history', 'reasons'] as const;
     const topics: CaseArticle['topics'] = ids.map((id) => ({ id, blocks: [{ type: 'paragraph', tone: 'body', text: '事業の具体的な説明。', cites: [1] }] }));
     const full = render({ ...article, topics });
     const nav = full.slice(full.indexOf('<nav'), full.indexOf('</nav>'));
     const labels = [...nav.matchAll(/<button[^>]*>([^<]+)<\/button>/g)].map((m) => m[1]);
-    expect(labels).toEqual(['概要', '仕組み', 'お金', '集客', '運営', '経緯', '出典']);
+    expect(labels).toEqual(['概要', '仕組み', 'お金', '集客', '運営', '経緯', '成功の理由', '出典']);
     expect(full).not.toContain('成功・失敗の理由');
   });
   it('全種類のブロックの文を出す', () => {
