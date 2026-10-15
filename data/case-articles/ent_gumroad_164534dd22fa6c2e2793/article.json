@@ -2,7 +2,7 @@
  "schema": "make-money.case-article.v2",
  "entityId": "ent_gumroad_164534dd22fa6c2e2793",
  "name": "Gumroad",
- "revision": "r5",
+ "revision": "r6",
  "reviewState": "ready_for_review",
  "generation": 5,
  "basedOn": {
@@ -873,6 +873,40 @@
      ]
     }
    ]
+  },
+  {
+   "id": "reasons",
+   "title": "売り手の集客を使い、売れたときだけ手数料を受け取る",
+   "blocks": [
+    {
+     "type": "list",
+     "ordered": false,
+     "items": [
+      {
+       "lead": "購入者を連れてくるのは売り手",
+       "text": "作り手が自分のSNSやメール読者に商品を案内し、Gumroadが決済と商品の受け渡しを担当する。",
+       "cites": [
+        7
+       ],
+       "recordKeys": [
+        "r48"
+       ]
+      },
+      {
+       "lead": "販売を始めるための固定費がない",
+       "text": "出品に月額料金をかけず、商品が売れたときに手数料を受け取る仕組みにした。",
+       "cites": [
+        1,
+        2
+       ],
+       "recordKeys": [
+        "r26",
+        "r27"
+       ]
+      }
+     ]
+    }
+   ]
   }
  ],
  "figures": [
@@ -1087,6 +1121,17 @@
    "reason": "成功事例の理解に新しい価値を与えない補足。元researchは保持。",
    "recordKeys": [
     "r54"
+   ]
+  },
+  {
+   "kind": "other",
+   "where": "成功の理由（2026-10-15）",
+   "text": "既存の成功理由5項目から、重複・マイナス情報を避けた2項目を表示用に再構成した。",
+   "reason": "本文7分類と出典の現行UIに合わせる。元の調査記録は未変更。",
+   "recordKeys": [
+    "r48",
+    "r26",
+    "r27"
    ]
   }
  ]
