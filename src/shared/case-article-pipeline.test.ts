@@ -41,6 +41,7 @@ function sample(): Record<string, unknown> {
         { type: 'timeline', items: [{ when: '2020年', title: '開始', ...line('公開した。') }] },
         { type: 'list', ordered: false, items: [{ lead: '2021年', ...line('有料を始めた。') }] },
       ] },
+      { id: 'reasons', blocks: [{ type: 'list', items: [{ lead: '配布が集客になる', ...line('回答者がサービスを知る。') }] }] },
     ],
     figures: [{ id: 'loop', file: 'loop.svg', alt: '無料から有料へ進む流れ', width: 10, height: 10 }],
     editorialChanges: [{ kind: 'other', where: '概要', text: '言い換え', reason: '見本から', recordKeys: ['r2'] }],
@@ -121,9 +122,9 @@ describe('case-article 原稿の検査', () => {
     expect(rules(mutate((a) => { a.topics[1].id = 'overview'; }))).toContain('topics');
     expect(rules(mutate((a) => { a.topics.reverse(); }))).toContain('topics');
   });
-  it('共通目次は本文6分類＋出典の最大7セクションだけとし、独立の理由セクションは受け付けない', () => {
-    expect(rules(mutate((a) => { a.topics.push({ id: 'reasons', blocks: [{ type: 'paragraph', tone: 'body', text: '同じ事実の繰り返し。', cites: [1], recordKeys: ['r1'] }] }); }))).toContain('schema');
+  it('本文の成功の理由は正規の分類として許し、同じ分類を重複させると止める', () => {
     expect(rules(setup())).toEqual([]);
+    expect(rules(mutate((a) => { a.topics.push({ id: 'reasons', blocks: [{ type: 'paragraph', tone: 'body', text: '事例の説明。', cites: [1], recordKeys: ['r1'] }] }); }))).toContain('topics');
   });
   it('7 research.json が無い・指紋が違うと落とす', () => {
     expect(rules(setup(undefined, { research: null }))).toContain('research');
