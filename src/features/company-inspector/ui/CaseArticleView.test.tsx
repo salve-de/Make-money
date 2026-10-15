@@ -77,6 +77,15 @@ describe('事例の記事（case-article）の詳細画面', () => {
     expect(nav).toContain('aria-current="true"');
     expect(html).not.toContain('section-article-mechanism');
   });
+  it('全分類がある時も目次は概要→仕組み→お金→集客→運営→経緯→出典の7項目のみ', () => {
+    const ids = ['overview', 'mechanism', 'revenue', 'acquisition', 'operations', 'history'] as const;
+    const topics: CaseArticle['topics'] = ids.map((id) => ({ id, blocks: [{ type: 'paragraph', tone: 'body', text: '事業の具体的な説明。', cites: [1] }] }));
+    const full = render({ ...article, topics });
+    const nav = full.slice(full.indexOf('<nav'), full.indexOf('</nav>'));
+    const labels = [...nav.matchAll(/<button[^>]*>([^<]+)<\\/button>/g)].map((m) => m[1]);
+    expect(labels).toEqual(['概要', '仕組み', 'お金', '集客', '運営', '経緯', '出典']);
+    expect(full).not.toContain('成功・失敗の理由');
+  });
   it('全種類のブロックの文を出す', () => {
     for (const t of ['概要の結論の文。', '訪問数を表示する。', '月3万ドル', '本文の段落。', '小さな補足の文。', '小見出しの文', '手順の題', '手順の文。', '料金の表題', '月払い', '9ドル', '約1,350円', '年払いなら安い', '決算の比較', '2021年', '売上', '50万ドル', '約7,500万円', '2018年', '始めた', '個人で公開した。', '2019年1月', '有料にした。']) expect(html).toContain(t);
   });
