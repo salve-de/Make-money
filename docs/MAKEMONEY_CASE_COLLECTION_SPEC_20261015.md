@@ -1,3 +1,5 @@
+> **2026-10-15 E2E検証の実行契約**： [MAKEMONEY_AUTOMATION_TO_CODEX_E2E_PILOT_20261015.md](./MAKEMONEY_AUTOMATION_TO_CODEX_E2E_PILOT_20261015.md)／[Issue #229](https://github.com/salve-de/Make-money/issues/229)。単発オートメーションで実在事例1件を制作し、原本の存在・private R2/Drive保存・ZIP受入・同一IDでのローカルUIとPC/スマホ画像をCodexが実証してから合格とする。現段階は元の自動生成3件がDrive保存失敗／R2 stagingの該当SHA不在であり、UIまでの成功ではない。
+
 # MAKEMONEY｜事例の収集・記事・本文7分類＋出典・図表・納品の統一実務仕様
 
 更新：2026-10-15 JST。根拠：オーナーの最新会話、2026-10-12の50事例モック、実在GitHubコード（PR #224 / #225）、mainのOWNER_INTENT・MAKE_MONEY_COLLECTION_SCOPE、既存R2 Tony's Chocolonely原本、Google Drive保管庫、ケース一括取込CLI。**これは新規定期タスク・公開・課金・デプロイの許可ではない。**
