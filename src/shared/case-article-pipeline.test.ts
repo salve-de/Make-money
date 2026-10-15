@@ -84,6 +84,11 @@ describe('case-article 原稿の検査', () => {
     expect(rules(mutate((a) => { a.topics[1].lead.text = 'あ'.repeat(CHAPTER_LEAD_MAX + 1); }))).toContain('too-long');
   });
   it('1 です・ます調を落とす', () => { expect(rules(mutate((a) => { a.lead = 'この会社は強いです。'; }))).toContain('polite'); });
+  it('読者向けの内部メモや自明な否定注記を受け付けない', () => {
+    expect(rules(mutate((a) => { a.lead = '売上は利益ではない。'; }))).toContain('reader-noise');
+    expect(rules(mutate((a) => { a.lead = '実際の割合は調査記録に残す。'; }))).toContain('reader-noise');
+    expect(rules(mutate((a) => { a.lead = '誰でも成功できるわけではない。'; }))).toContain('reader-noise');
+  });
   it('2 一覧の1行は字数で止めない（その1行だけで何の商売かが分かる長さまで書く）', () => { expect(rules(mutate((a) => { a.listLine = 'あ'.repeat(60); }))).toEqual([]); });
   it('3 外貨の直後に円の概算が無いと落とす（SEK・クローナも）', () => {
     expect(rules(mutate((a) => { a.lead = '年間の売上は100万ドルだった。'; }))).toContain('yen-after-foreign');
