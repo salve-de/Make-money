@@ -2,7 +2,7 @@
  "schema": "make-money.case-article.v2",
  "entityId": "ent_the_woobles_8319812a1ddb",
  "name": "The Woobles",
- "revision": "r5",
+ "revision": "r6",
  "reviewState": "ready_for_review",
  "generation": 5,
  "basedOn": {
@@ -684,6 +684,44 @@
      ]
     }
    ]
+  },
+  {
+   "id": "reasons",
+   "title": "初心者が完成できる商品設計とキャラクター商品の展開",
+   "blocks": [
+    {
+     "type": "list",
+     "ordered": false,
+     "items": [
+      {
+       "lead": "最初の難しい工程を済ませた",
+       "text": "編み始めを済ませた部品と作品専用の動画を組み合わせ、編み物が初めての人も完成まで進められるようにした。",
+       "cites": [
+        1,
+        2,
+        3
+       ],
+       "recordKeys": [
+        "r7",
+        "a1"
+       ]
+      },
+      {
+       "lead": "購入者の要望から商品を増やした",
+       "text": "キャラクターのキットを求める声を受け、展示会で使用契約を獲得して商品展開を広げた。",
+       "cites": [
+        1,
+        3
+       ],
+       "recordKeys": [
+        "r15",
+        "r16",
+        "a2"
+       ]
+      }
+     ]
+    }
+   ]
   }
  ],
  "figures": [
@@ -878,6 +916,19 @@
    "reason": "成功事例の理解に新しい価値を与えない補足。元researchは保持。",
    "recordKeys": [
     "r25"
+   ]
+  },
+  {
+   "kind": "other",
+   "where": "成功の理由（2026-10-15）",
+   "text": "既存の成功理由5項目から、重複・マイナス情報を避けた2項目を表示用に再構成した。",
+   "reason": "本文7分類と出典の現行UIに合わせる。元の調査記録は未変更。",
+   "recordKeys": [
+    "r7",
+    "a1",
+    "r15",
+    "r16",
+    "a2"
    ]
   }
  ]
