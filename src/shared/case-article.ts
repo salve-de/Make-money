@@ -2,7 +2,7 @@ import { z } from 'zod';
 
 /**
  * 事例の記事（case-article）。旧形式の「章ごとの文」（case-page）と並んで使う新しい形式。
- * 本文は6つの固定分類（概要・仕組み・お金・集客・運営・経緯）、出典は sources から自動生成する。記事の共通目次は合計最大7セクション。
+ * 本文の共通分類は7つ（概要・仕組み・お金・集客・運営・経緯・成功の理由）、出典は sources から別に自動生成する。
  * 章は「結論の1文 → 短いデータ（数字・箇条書き・表・図）」の順で、長い文章は置かない（各分類の役割と書き方は docs/CASE_ARTICLE.md）。
  * 事例ごとに画面を手書きしない。どの事例もこの形のデータを、同じ表示部品（CaseArticleView）で出す。
  *
@@ -16,9 +16,9 @@ export const CASE_ARTICLE_SCHEMA = 'make-money.case-article.v2';
 
 /**
  * 分類の並びは固定。目次もこの順に出す。出典（sources）の中身は記事の sources から作るので、topics には入れない。
- * 成功につながる理由や実際の行動・結果は、内容に合う既存6分類へ置く。独立した理由の章は作らない。
+ * 成功の理由には、他章で述べた行動と結果をつないで何が売れた理由なのかを具体的に説明する。冗長な再掲や一般論は入れない。
  */
-export const CASE_ARTICLE_TOPIC_IDS = ['overview', 'mechanism', 'revenue', 'acquisition', 'operations', 'history'] as const;
+export const CASE_ARTICLE_TOPIC_IDS = ['overview', 'mechanism', 'revenue', 'acquisition', 'operations', 'history', 'reasons'] as const;
 export type CaseArticleTopicId = (typeof CASE_ARTICLE_TOPIC_IDS)[number];
 
 export const CASE_ARTICLE_REVIEW_STATES = ['draft', 'ready_for_review', 'approved'] as const;
