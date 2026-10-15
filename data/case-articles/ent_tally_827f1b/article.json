@@ -2,7 +2,7 @@
  "schema": "make-money.case-article.v2",
  "entityId": "ent_tally_827f1b",
  "name": "Tally",
- "revision": "r5",
+ "revision": "r6",
  "reviewState": "ready_for_review",
  "generation": 5,
  "basedOn": {
@@ -725,6 +725,45 @@
      ]
     }
    ]
+  },
+  {
+   "id": "reasons",
+   "title": "無料フォームが利用者を呼び、企業の有料契約につながる",
+   "blocks": [
+    {
+     "type": "list",
+     "ordered": false,
+     "items": [
+      {
+       "lead": "無料のフォームが宣伝にもなる",
+       "text": "無料フォームの「Made with Tally」を見た回答者が、自分でもフォームを作って使い始める。",
+       "cites": [
+        2,
+        3,
+        4
+       ],
+       "recordKeys": [
+        "r3",
+        "a1"
+       ]
+      },
+      {
+       "lead": "企業が必要とする機能だけ課金",
+       "text": "自社ドメイン、ブランド表示の非表示、チーム管理など、業務に必要な機能を有料にした。",
+       "cites": [
+        2,
+        3,
+        4
+       ],
+       "recordKeys": [
+        "r4",
+        "a2",
+        "r38"
+       ]
+      }
+     ]
+    }
+   ]
   }
  ],
  "figures": [
@@ -893,6 +932,19 @@
    "reason": "通常の成功紹介では掲載しない。研究原本に保持。",
    "recordKeys": [
     "r29"
+   ]
+  },
+  {
+   "kind": "other",
+   "where": "成功の理由（2026-10-15）",
+   "text": "既存の成功理由4項目から、重複・マイナス情報を避けた2項目を表示用に再構成した。",
+   "reason": "本文7分類と出典の現行UIに合わせる。元の調査記録は未変更。",
+   "recordKeys": [
+    "r3",
+    "a1",
+    "r4",
+    "a2",
+    "r38"
    ]
   }
  ]
