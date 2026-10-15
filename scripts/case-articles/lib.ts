@@ -20,7 +20,7 @@ export const CASE_ARTICLES_FILE = 'data/case-articles.json';
 
 export type ArticleRule =
   | 'schema' | 'entity-id' | 'polite' | 'yen-after-foreign'
-  | 'cites' | 'sources' | 'figure' | 'topics' | 'research' | 'record-keys' | 'too-long';
+  | 'cites' | 'sources' | 'figure' | 'topics' | 'research' | 'record-keys' | 'too-long' | 'reader-noise';
 export interface ArticleViolation { rule: ArticleRule; where: string; detail: string }
 
 /** 画面用の記事の1件（data/case-articles.json の要素） */
@@ -157,6 +157,12 @@ export function checkArticleDir(dir: string, entityId: string): { built: BuiltAr
   // ① です・ます調（出典のラベルも見る）
   for (const { where, text } of caseArticleLines(article)) for (const m of text.matchAll(POLITE)) v.push({ rule: 'polite', where, detail: `「${m[0]}」は常体に直す` });
   for (const s of article.sources) for (const m of s.label.matchAll(POLITE)) v.push({ rule: 'polite', where: `出典${s.no}`, detail: `「${m[0]}」は常体に直す` });
+  // 明らかに執筆・監査担当者向けのメモを、読む人の画面へ出さないための最小限の検査。
+  // 読者価値の判断そのものは文章を読む編集担当が行い、単語スコアや網羅率で代替しない。
+  const READER_NOISE = /利益ではない|調査記録に残す|記事には載せない|確認できなかったので|誰でも同じように稼げるわけではない|誰でも成功できるわけではない/;
+  for (const { where, text } of caseArticleLines(article)) {
+    if (READER_NOISE.test(text)) v.push({ rule: 'reader-noise', where, detail: '読者向けに不要な説明・内部の編集メモを含む。表示を見直す' });
+  }
   // ② 一覧の1行は字数で止めない（2026-10-08 オーナー決定: 字数は自由。その1行だけで何の商売かが分かることが先）
   // ③ 外貨の直後の円の概算
   for (const { where, text } of foreignTargets(article)) for (const miss of foreignWithoutYen(text, FOREIGN_ARTICLE)) v.push({ rule: 'yen-after-foreign', where, detail: `「${miss}」の直後に円の概算（約…円）が要る` });
