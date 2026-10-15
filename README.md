@@ -1,3 +1,5 @@
+> **【最優先・2026-10-15 19時台オーナー最終訂正】責任分担を固定**：**ChatGPT／既存の毎時オートメーションが調査・執筆・追加調査・日本語全文の推敲・出典と必要な図表の用意まで担当**。成果は読者がそのまま読める、事例固有の具体的な成功記事。**Codexはその原稿を受け取った後のJSON/ZIP等への変換、Drive/GitHub/R2格納、既存UIへの反映・画面検査を担当**。ChatGPTにはDrive/R2書込・SHA・JSON厳密schema・ZIP作成を記事完成条件として課さない。保存に失敗しても原稿全文と出典を必ず納品。従来の『ChatGPTがDrive格納まで担当』『保存読戻しで収集成功』という記述は**旧仕様**。記事と根拠の事実・権利・公開境界は維持。本文7分類＋別枠の出典は維持。指示ではなく原稿の実物と読者の理解・発見を成果とする。
+
 > **2026-10-15 実行中の1件E2E試験・Codex引継ぎ**：[自動収集1件→非公開R2→実UIの検証手順](docs/MAKEMONEY_AUTOMATION_TO_CODEX_E2E_PILOT_20261015.md)／[Codex Issue #229](https://github.com/salve-de/Make-money/issues/229)。Printful／Morning Brew／Photopeaは生成Runの記録があるが、Drive保存不可・R2 stagingで該当SHAの原本読戻し不可。実原本と実画面の証拠でのみE2E合格とする。新しい単発検証オートメーションを登録したが、これ自体は試験完了の証明ではない。
 
 > **2026-10-15 事例の最新正本：Plausible採用UI＋価値ある収集・記事**： [docs/MAKEMONEY_CASE_COLLECTION_SPEC_20261015.md](docs/MAKEMONEY_CASE_COLLECTION_SPEC_20261015.md)。本文7分類（概要・仕組み・お金・集客・運営・経緯・成功の理由）＋末尾の出典。調査は幅広く、読者に価値のある事実だけを記事にし、不要なメモ・赤字・否定注記・重複を外す。PR #224の7本文分類と5レビュー記事は復旧済みだが、main未マージ、最終CI・実ブラウザQA・Drive自動納品は別の未実証工程。
