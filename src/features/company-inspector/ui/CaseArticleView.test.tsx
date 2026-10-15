@@ -79,7 +79,7 @@ describe('事例の記事（case-article）の詳細画面', () => {
   });
   it('本文7分類と最後の出典を同じ順で表示する', () => {
     const ids = ['overview', 'mechanism', 'revenue', 'acquisition', 'operations', 'history', 'reasons'] as const;
-    const topics: CaseArticle['topics'] = ids.map((id) => ({ id, blocks: [{ type: 'paragraph', tone: 'body', text: '事業の具体的な説明。', cites: [1] }] }));
+    const topics: CaseArticle['topics'] = ids.map((id) => ({ id, blocks: [{ type: 'paragraph' as const, tone: 'body' as const, text: '事業の具体的な説明。', cites: [1] }] }));
     const full = render({ ...article, topics });
     const nav = full.slice(full.indexOf('<nav'), full.indexOf('</nav>'));
     const labels = [...nav.matchAll(/<button[^>]*>([^<]+)<\/button>/g)].map((m) => m[1]);
