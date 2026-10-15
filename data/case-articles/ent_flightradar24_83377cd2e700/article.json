@@ -2,7 +2,7 @@
  "schema": "make-money.case-article.v2",
  "entityId": "ent_flightradar24_83377cd2e700",
  "name": "Flightradar24",
- "revision": "r5",
+ "revision": "r6",
  "reviewState": "ready_for_review",
  "generation": 5,
  "basedOn": {
@@ -641,6 +641,47 @@
      ]
     }
    ]
+  },
+  {
+   "id": "reasons",
+   "title": "利用者の協力で飛行データを集め、3つの販路で収益化",
+   "blocks": [
+    {
+     "type": "list",
+     "ordered": false,
+     "items": [
+      {
+       "lead": "利用者もデータ収集に参加する",
+       "text": "各地の利用者が受信機を設置し、データ提供の見返りとして専用プランを無料で使える仕組みにした。",
+       "cites": [
+        3,
+        4,
+        5
+       ],
+       "recordKeys": [
+        "a1",
+        "r7",
+        "r10"
+       ]
+      },
+      {
+       "lead": "同じ飛行データを別の相手に売る",
+       "text": "地図を無料で見る人には広告を表示し、詳しく見る有料会員と業務で使う企業からも収益を得る。",
+       "cites": [
+        1,
+        2,
+        6
+       ],
+       "recordKeys": [
+        "a2",
+        "r11",
+        "r13",
+        "r15"
+       ]
+      }
+     ]
+    }
+   ]
   }
  ],
  "figures": [
@@ -857,6 +898,21 @@
    "reason": "読者に役立たない否定注記を外し、応募方法のみ記載。",
    "recordKeys": [
     "r9"
+   ]
+  },
+  {
+   "kind": "other",
+   "where": "成功の理由（2026-10-15）",
+   "text": "旧独立理由章を、読者が価値を理解できる2つの要点へ再編。",
+   "reason": "最新の採用分類と成功事例中心の編集方針。調査原本は未変更。",
+   "recordKeys": [
+    "a1",
+    "r7",
+    "r10",
+    "a2",
+    "r11",
+    "r13",
+    "r15"
    ]
   }
  ]
