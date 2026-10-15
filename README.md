@@ -1,3 +1,5 @@
+> **2026-10-15 実行中の1件E2E試験・Codex引継ぎ**：[自動収集1件→非公開R2→実UIの検証手順](docs/MAKEMONEY_AUTOMATION_TO_CODEX_E2E_PILOT_20261015.md)／[Codex Issue #229](https://github.com/salve-de/Make-money/issues/229)。Printful／Morning Brew／Photopeaは生成Runの記録があるが、Drive保存不可・R2 stagingで該当SHAの原本読戻し不可。実原本と実画面の証拠でのみE2E合格とする。新しい単発検証オートメーションを登録したが、これ自体は試験完了の証明ではない。
+
 > **2026-10-15 事例の最新正本：Plausible採用UI＋価値ある収集・記事**： [docs/MAKEMONEY_CASE_COLLECTION_SPEC_20261015.md](docs/MAKEMONEY_CASE_COLLECTION_SPEC_20261015.md)。本文7分類（概要・仕組み・お金・集客・運営・経緯・成功の理由）＋末尾の出典。調査は幅広く、読者に価値のある事実だけを記事にし、不要なメモ・赤字・否定注記・重複を外す。PR #224の7本文分類と5レビュー記事は復旧済みだが、main未マージ、最終CI・実ブラウザQA・Drive自動納品は別の未実証工程。
 
 > **2026-10-15 最新のオーナー指示（全AI必読）**：まず [現在の目的・収集・記事・図解・保存の統一方針](docs/MAKEMONEY_CURRENT_OWNER_BRIEF_20261015.md) を読む。**普通に調べて、普通にわかりやすく表示する**。成功の実例・売り方・集客・成長・数字が主役。「利益ではない」「未確認」「調査記録に残す」等の不要な注意書きや内部メモを画面に載せない。旧い敗因検死の固定比率・過剰な厳密化・過去の『最終仕様』より今回の指示を優先。元情報の事実・権利・公開保護は維持。
