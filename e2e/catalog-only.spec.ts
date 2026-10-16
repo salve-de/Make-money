@@ -23,7 +23,7 @@ const outsiderNames = [...new Set(outsiders.map((row) => row.name.trim()))]
   .filter((name) => name.length >= 10 && !catalogText.includes(name.toLowerCase()));
 
 const OUTSIDER_ID = outsiders[0].id;
-const PUBLIC_PAGES = ['/', '/welcome', '/discover', '/execute', '/compare', '/build', '/marketplace', '/partners', '/legal'];
+const PUBLIC_PAGES = ['/', '/welcome', '/execute', '/compare', '/build', '/marketplace', '/partners', '/legal'];
 const PUBLIC_API = ['/api/businesses', '/api/businesses?limit=100', '/api/businesses?q=a', '/api/catalog'];
 
 function expectNoOutsider(label: string, rawText: string, requestedId = ''): void {
@@ -57,8 +57,8 @@ for (const path of PUBLIC_API) {
   });
 }
 
-test('the ledger, discover and welcome screens render no unpublished case', async ({ page }) => {
-  for (const path of ['/', '/discover', '/welcome']) {
+test('the ledger and welcome screens render no unpublished case', async ({ page }) => {
+  for (const path of ['/', '/welcome']) {
     await page.goto(path);
     await page.waitForLoadState('networkidle');
     expectNoOutsider(path, await page.content());

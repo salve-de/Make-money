@@ -13,7 +13,6 @@ import {
   LOCAL_MODE_BY_SECTION,
   LocalWorkspaceMode,
   PRIMARY_NAV_ITEMS,
-  SAVED_HREF,
   LEGAL_LINKS,
   SECTION_TITLES,
   tabOfSection,
@@ -27,8 +26,6 @@ interface GlobalHeaderProps {
   onOpenPro?: () => void;
   rightContent?: React.ReactNode;
   bookmarkCount?: number;
-  onSelectBookmark?: () => void;
-  isBookmarkActive?: boolean;
   bookmarkSyncStatus?: BookmarkSyncStatus;
   /** 互換用。下部メニューは常に全ページ共通のため何も変わらない */
   hideMobilePrimaryNav?: boolean;
@@ -55,46 +52,11 @@ function isTypingTarget(target: EventTarget | null): boolean {
   return tag === 'INPUT' || tag === 'TEXTAREA' || tag === 'SELECT' || target.isContentEditable;
 }
 
-function formatJstClock(now: Date): string {
-  const parts = new Intl.DateTimeFormat('ja-JP', {
-    timeZone: 'Asia/Tokyo',
-    month: '2-digit',
-    day: '2-digit',
-    hour: '2-digit',
-    minute: '2-digit',
-    hour12: false,
-  }).formatToParts(now);
-  const get = (type: string) => parts.find((part) => part.type === type)?.value ?? '';
-  const hour = get('hour') === '24' ? '00' : get('hour');
-  return `${get('month')}/${get('day')} ${hour}:${get('minute')} JST`;
-}
-
-const JstClock: React.FC = () => {
-  const [label, setLabel] = useState<string | null>(null);
-  useEffect(() => {
-    let timer: ReturnType<typeof setTimeout>;
-    const tick = () => {
-      const now = new Date();
-      setLabel(formatJstClock(now));
-      timer = setTimeout(tick, 60_000 - (now.getSeconds() * 1000 + now.getMilliseconds()));
-    };
-    tick();
-    return () => clearTimeout(timer);
-  }, []);
-  return (
-    <span className="term-num min-w-[8.5rem] text-right text-xs text-term-muted" suppressHydrationWarning>
-      {label ?? ''}
-    </span>
-  );
-};
-
 export const GlobalHeader: React.FC<GlobalHeaderProps> = ({
   currentSection,
   onOpenPro,
   rightContent,
   bookmarkCount,
-  onSelectBookmark,
-  isBookmarkActive,
   bookmarkSyncStatus,
   onSelectLocalMode,
   searchValue,
@@ -110,7 +72,6 @@ export const GlobalHeader: React.FC<GlobalHeaderProps> = ({
   const menuItems = useMenuItems(bookmarkCount);
 
   const activeSection: GlobalNavSection = currentSection || (() => {
-    if (pathname?.startsWith('/discover')) return 'DISCOVER';
     if (pathname?.startsWith('/trends')) return 'TRENDS';
     if (pathname?.startsWith('/execute')) return 'EXECUTION';
     if (pathname?.startsWith('/marketplace/businesses')) return 'BUSINESSES';
@@ -178,30 +139,6 @@ export const GlobalHeader: React.FC<GlobalHeaderProps> = ({
 
   const activeTab = tabOfSection(activeSection);
   const secondaryActive = activeSection === 'LEGAL' || (activeTab === undefined && menuItems.some((item) => item.section === activeSection));
-
-  const renderBookmark = () => {
-    const label = (
-      <>
-        <span>保存</span>
-        {typeof bookmarkCount === 'number' && bookmarkCount > 0 && (
-          <span className="term-num text-term-accent">{bookmarkCount}</span>
-        )}
-      </>
-    );
-    const cls = `flex h-full items-center gap-1.5 px-3 text-[13px] hover:bg-term-head ${
-      isBookmarkActive ? 'bg-term-select text-term-fg-strong' : 'text-term-fg'
-    }`;
-    return onSelectBookmark ? (
-      <button type="button" onClick={onSelectBookmark} className={cls} aria-label={bookmarkCount ? `保存した事例 (${bookmarkCount}件)` : '保存した事例'}>
-        {label}
-      </button>
-    ) : (
-      <Link href={SAVED_HREF} prefetch={false} className={cls} aria-label={bookmarkCount ? `保存した事例 (${bookmarkCount}件)` : '保存した事例'}>
-        {label}
-      </Link>
-    );
-  };
-
 
   return (
     <>
@@ -335,11 +272,7 @@ export const GlobalHeader: React.FC<GlobalHeaderProps> = ({
               {SYNC_LABEL[bookmarkSyncStatus] ?? ''}
             </span>
           )}
-          {renderBookmark()}
           <HeaderUserMenu />
-          <div className="hidden items-center border-l border-term-line px-3 xl:flex">
-            <JstClock />
-          </div>
         </div>
       </header>
 

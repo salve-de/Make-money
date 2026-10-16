@@ -1,10 +1,10 @@
-import { openNotes, selectCompany } from './inspector-actions';
+import { selectCompany } from './inspector-actions';
 import { expect, test } from '@playwright/test';
 import { NO_MONEY, PRIMARY, SECONDARY, openDetails } from './reader-fixture';
 
 // 公開済みの事例（GoRails）で、一覧 → 詳細 → 閉じる → 開き直す、を通す。
 // 詳細は entity.reader だけを読む（公開目録の reader が出る）。
-// 取り下げた損益セクション・捏造値・旧グラフは出ず、出典欄とメモタブが出る。
+// 取り下げた損益セクション・捏造値・旧グラフは出ず、出典欄が出る。
 test('company list opens financials and evidence, then closes and reopens the inspector', async ({ page }) => {
   const errors: string[] = [];
   page.on('pageerror', (error) => errors.push(error.message));
@@ -26,7 +26,6 @@ test('company list opens financials and evidence, then closes and reopens the in
   await expect(inspector.locator('canvas')).toHaveCount(0);
   await page.locator('#section-sources').scrollIntoViewIfNeeded();
   await expect(page.locator('#section-sources')).toBeInViewport();
-  await openNotes(page);
   await expect(page.getByText(/Display Guarantee: 100%/)).toHaveCount(0);
   await page.keyboard.press('Escape');
   await expect(page.getByRole('heading', { name: PRIMARY.name, exact: true })).toHaveCount(0);
@@ -53,57 +52,22 @@ test('strategy API rejects malformed input before processing', async ({ request 
   expect(await response.json()).toEqual({ error: 'Invalid strategy request' });
 });
 
-test('J/K never switches companies, including while writing and reloading a note', async ({ page }) => {
+test('J/K never switches companies, including after reloading', async ({ page }) => {
   const errors: string[] = [];
   page.on('pageerror', (error) => errors.push(error.message));
   await page.goto(`/?entity=${PRIMARY.id}`);
   const heading = page.getByRole('heading', { name: PRIMARY.name, exact: true });
   await expect(heading).toBeVisible();
-  await openNotes(page);
-  const note = page.locator('#section-notes textarea');
-  await note.fill('');
-  await note.pressSequentially('jkJK memo');
-  await expect(heading).toBeVisible();
-  await expect(note).toHaveValue('jkJK memo');
   await heading.click();
   for (const key of ['j', 'k', 'J', 'K']) await page.keyboard.press(key);
   await expect(heading).toBeVisible();
   await expect(page.locator('kbd').filter({ hasText: 'J/K' })).toHaveCount(0);
   await page.reload();
   await expect(heading).toBeVisible();
-  await openNotes(page);
-  await expect(note).toHaveValue('jkJK memo');
   await selectCompany(page, SECONDARY.name);
   await expect(heading).toHaveCount(0);
   expect(errors).toEqual([]);
 });
-
-for (const raw of ['null', '[]', '{broken', JSON.stringify({ [PRIMARY.id]: { content: 42 }, [SECONDARY.id]: { entityId: SECONDARY.id, content: '正常な既存メモ', updatedAt: '2026-09-11T00:00:00Z' } })]) {
-  test(`damaged note storage is recoverable without losing original data: ${raw.slice(0, 28)}`, async ({ page }) => {
-    const storageKey = 'make_money_analyst_notes_v1';
-    const errors: string[] = [];
-    page.on('pageerror', (error) => errors.push(error.message));
-    await page.addInitScript(({ storageKey, raw }) => {
-      if (!sessionStorage.getItem('notes-test-seeded')) { localStorage.setItem(storageKey, raw); sessionStorage.setItem('notes-test-seeded', 'true'); }
-    }, { storageKey, raw });
-    await page.goto(`/?entity=${PRIMARY.id}`);
-    await expect(page.getByRole('heading', { name: PRIMARY.name, exact: true })).toBeVisible();
-    await openNotes(page);
-    const note = page.locator('#section-notes textarea');
-    await expect(note).toHaveValue('');
-    expect(await page.evaluate((key) => localStorage.getItem(key), storageKey)).toBe(raw);
-    await note.fill('復旧後のメモ jkJK');
-    const stored = await page.evaluate((key) => ({ notes: JSON.parse(localStorage.getItem(key) || '{}'),
-      backups: Object.keys(localStorage).filter((k) => k.startsWith(`${key}.recovery.`)).map((k) => localStorage.getItem(k)) }), storageKey);
-    expect(stored.backups).toEqual([raw]);
-    if (raw.includes(SECONDARY.id)) expect(stored.notes[SECONDARY.id].content).toBe('正常な既存メモ');
-    await page.reload();
-    await expect(page.getByRole('heading', { name: PRIMARY.name, exact: true })).toBeVisible();
-    await openNotes(page);
-    await expect(note).toHaveValue('復旧後のメモ jkJK');
-    expect(errors).toEqual([]);
-  });
-}
 
 // 収集基盤の候補や旧版の行が API から届いても、目録に無い事例は一覧にも詳細にも出ない
 test('a row outside the published catalog never appears even if an API returns it', async ({ page }) => {

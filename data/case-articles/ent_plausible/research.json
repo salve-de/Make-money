@@ -1,0 +1,4568 @@
+{
+  "schema_version": "make-money.collection-submission.v1",
+  "requirements_version": "1.1.0",
+  "package_id": "mm-plausible-20261012-r1",
+  "is_test_data": false,
+  "collector": {
+    "name": "ChatGPT",
+    "agent_version": "GPT-6",
+    "capabilities": [
+      "web",
+      "code",
+      "file"
+    ]
+  },
+  "created_at": "2026-10-12T06:05:00Z",
+  "base": {
+    "app_commit": "faa4c5e504c3ecb7fddd21039321bb407df7e400",
+    "foundation_commit": null,
+    "prior_package_id": null,
+    "prior_submission_sha256": null
+  },
+  "scope": {
+    "purpose": "case",
+    "tier": "ENRICHED",
+    "declaration": "本文と根拠記録を同時に収集・執筆した調査草稿。出典別権利審査・別担当独立監査・本番反映は未完了。",
+    "coverage": [
+      {
+        "domain": "identity",
+        "status": "attempted_unavailable",
+        "attempts": [
+          "一次情報・提出書類・公式資料を確認"
+        ],
+        "record_keys": [],
+        "note": "当該領域の固有の十分な根拠を確認できず、公開本文は設けていない。"
+      },
+      {
+        "domain": "people",
+        "status": "found",
+        "attempts": [
+          "https://plausible.io/",
+          "https://plausible.io/blog/open-source-saas"
+        ],
+        "record_keys": [
+          "r6",
+          "r7",
+          "r8",
+          "r9"
+        ],
+        "note": "確認できた範囲を収録。未確認は推計で埋めない。"
+      },
+      {
+        "domain": "product",
+        "status": "found",
+        "attempts": [
+          "https://plausible.io/",
+          "https://plausible.io/blog/open-source-saas",
+          "https://plausible.io/about"
+        ],
+        "record_keys": [
+          "r16",
+          "r17",
+          "r18",
+          "r19"
+        ],
+        "note": "確認できた範囲を収録。未確認は推計で埋めない。"
+      },
+      {
+        "domain": "customer_and_demand",
+        "status": "found",
+        "attempts": [
+          "https://plausible.io/",
+          "https://plausible.io/blog/open-source-saas",
+          "https://plausible.io/about",
+          "https://plausible.io/blog/building-open-source",
+          "https://plausible.io/blog/community-edition"
+        ],
+        "record_keys": [
+          "r20",
+          "r21",
+          "r22",
+          "r23",
+          "r24",
+          "r25"
+        ],
+        "note": "確認できた範囲を収録。未確認は推計で埋めない。"
+      },
+      {
+        "domain": "pricing",
+        "status": "attempted_unavailable",
+        "attempts": [
+          "一次情報・提出書類・公式資料を確認"
+        ],
+        "record_keys": [],
+        "note": "当該領域の固有の十分な根拠を確認できず、公開本文は設けていない。"
+      },
+      {
+        "domain": "money_and_economics",
+        "status": "found",
+        "attempts": [
+          "https://plausible.io/docs/subscription-plans",
+          "https://plausible.io/blog/open-source-saas",
+          "https://plausible.io/about"
+        ],
+        "record_keys": [
+          "r1",
+          "r2",
+          "r3",
+          "r4",
+          "r5",
+          "r10",
+          "r11",
+          "r12",
+          "r15",
+          "r26",
+          "r27",
+          "r28",
+          "r29",
+          "r30",
+          "r31",
+          "r32",
+          "r33",
+          "r34",
+          "r35",
+          "r36",
+          "r37",
+          "r38",
+          "r39"
+        ],
+        "note": "確認できた範囲を収録。未確認は推計で埋めない。"
+      },
+      {
+        "domain": "distribution",
+        "status": "found",
+        "attempts": [
+          "https://plausible.io/blog/open-source-saas",
+          "https://plausible.io/blog/bootstrapping-saas",
+          "https://plausible.io/blog/startup-marketing"
+        ],
+        "record_keys": [
+          "r13",
+          "r14",
+          "r40",
+          "r41",
+          "r42",
+          "r43",
+          "r44",
+          "r45",
+          "r46"
+        ],
+        "note": "確認できた範囲を収録。未確認は推計で埋めない。"
+      },
+      {
+        "domain": "operations",
+        "status": "found",
+        "attempts": [
+          "https://plausible.io/blog/open-source-saas",
+          "https://plausible.io/blog/growing-saas-mrr",
+          "https://plausible.io/about",
+          "https://plausible.io/blog/building-open-source"
+        ],
+        "record_keys": [
+          "r47",
+          "r48",
+          "r49",
+          "r50",
+          "r51"
+        ],
+        "note": "確認できた範囲を収録。未確認は推計で埋めない。"
+      },
+      {
+        "domain": "technology",
+        "status": "attempted_unavailable",
+        "attempts": [
+          "一次情報・提出書類・公式資料を確認"
+        ],
+        "record_keys": [],
+        "note": "当該領域の固有の十分な根拠を確認できず、公開本文は設けていない。"
+      },
+      {
+        "domain": "competition_and_market",
+        "status": "attempted_unavailable",
+        "attempts": [
+          "一次情報・提出書類・公式資料を確認"
+        ],
+        "record_keys": [],
+        "note": "当該領域の固有の十分な根拠を確認できず、公開本文は設けていない。"
+      },
+      {
+        "domain": "timeline_and_outcomes",
+        "status": "found",
+        "attempts": [
+          "https://plausible.io/blog/open-source-saas",
+          "https://plausible.io/about",
+          "https://plausible.io/blog/community-edition"
+        ],
+        "record_keys": [
+          "r52",
+          "r53",
+          "r54",
+          "r55",
+          "r56",
+          "r57",
+          "r58"
+        ],
+        "note": "確認できた範囲を収録。未確認は推計で埋めない。"
+      },
+      {
+        "domain": "provenance_rights_and_uncertainty",
+        "status": "found",
+        "attempts": [
+          "https://plausible.io/",
+          "https://plausible.io/blog/open-source-saas",
+          "https://plausible.io/about"
+        ],
+        "record_keys": [],
+        "note": "当該領域の固有の十分な根拠を確認できず、公開本文は設けていない。"
+      }
+    ]
+  },
+  "entities": [
+    {
+      "key": "business",
+      "name": "Plausible Analytics",
+      "kind": "organization",
+      "official_url": "https://plausible.io/",
+      "aliases": [],
+      "app_entity_id": null,
+      "foundation_entity_id": null,
+      "country": "エストニア",
+      "status": "公式ページで事業提供を確認"
+    }
+  ],
+  "primary_entity_key": "business",
+  "sources": [
+    {
+      "key": "src-p1",
+      "url": "https://plausible.io/",
+      "title": "サービス概要と料金表示",
+      "publisher": "Plausible",
+      "language": "en",
+      "kind": "official",
+      "published_time": {
+        "value": null,
+        "end": null,
+        "precision": "unknown",
+        "original": null
+      },
+      "retrieved_at": "2026-10-12T05:30:00Z",
+      "source_family_key": "plausible-plausible",
+      "access_state": "read",
+      "incentive_context": "当事者の広報・事業説明・本人回顧。数値をそのまま第三者が監査したことを意味しない。",
+      "rights": {
+        "fetch": {
+          "decision": "pending",
+          "basis": "unknown",
+          "reference": null,
+          "reviewed_at": null,
+          "note": "出典の商用・有料配信・保存/再配信条件について最終の権利審査は未実施。この記事では短い独自日本語説明に限り、外部画像は複製していない。"
+        },
+        "private_evidence_storage": {
+          "decision": "pending",
+          "basis": "unknown",
+          "reference": null,
+          "reviewed_at": null,
+          "note": "出典の商用・有料配信・保存/再配信条件について最終の権利審査は未実施。この記事では短い独自日本語説明に限り、外部画像は複製していない。"
+        },
+        "internal_analysis": {
+          "decision": "pending",
+          "basis": "unknown",
+          "reference": null,
+          "reviewed_at": null,
+          "note": "出典の商用・有料配信・保存/再配信条件について最終の権利審査は未実施。この記事では短い独自日本語説明に限り、外部画像は複製していない。"
+        },
+        "factual_paraphrase_display": {
+          "decision": "pending",
+          "basis": "unknown",
+          "reference": null,
+          "reviewed_at": null,
+          "note": "出典の商用・有料配信・保存/再配信条件について最終の権利審査は未実施。この記事では短い独自日本語説明に限り、外部画像は複製していない。"
+        },
+        "paid_member_display": {
+          "decision": "pending",
+          "basis": "unknown",
+          "reference": null,
+          "reviewed_at": null,
+          "note": "出典の商用・有料配信・保存/再配信条件について最終の権利審査は未実施。この記事では短い独自日本語説明に限り、外部画像は複製していない。"
+        },
+        "redistribution": {
+          "decision": "pending",
+          "basis": "unknown",
+          "reference": null,
+          "reviewed_at": null,
+          "note": "出典の商用・有料配信・保存/再配信条件について最終の権利審査は未実施。この記事では短い独自日本語説明に限り、外部画像は複製していない。"
+        },
+        "media_display": {
+          "decision": "pending",
+          "basis": "unknown",
+          "reference": null,
+          "reviewed_at": null,
+          "note": "出典の商用・有料配信・保存/再配信条件について最終の権利審査は未実施。この記事では短い独自日本語説明に限り、外部画像は複製していない。"
+        }
+      }
+    },
+    {
+      "key": "src-p2",
+      "url": "https://plausible.io/blog/open-source-saas",
+      "title": "2018〜2022年の創業・集客・収益の回顧",
+      "publisher": "Plausible",
+      "language": "en",
+      "kind": "founder",
+      "published_time": {
+        "value": "2022-06-22",
+        "end": null,
+        "precision": "day",
+        "original": "2022-06-22"
+      },
+      "retrieved_at": "2026-10-12T05:30:00Z",
+      "source_family_key": "plausible-plausible",
+      "access_state": "read",
+      "incentive_context": "当事者の広報・事業説明・本人回顧。数値をそのまま第三者が監査したことを意味しない。",
+      "rights": {
+        "fetch": {
+          "decision": "pending",
+          "basis": "unknown",
+          "reference": null,
+          "reviewed_at": null,
+          "note": "出典の商用・有料配信・保存/再配信条件について最終の権利審査は未実施。この記事では短い独自日本語説明に限り、外部画像は複製していない。"
+        },
+        "private_evidence_storage": {
+          "decision": "pending",
+          "basis": "unknown",
+          "reference": null,
+          "reviewed_at": null,
+          "note": "出典の商用・有料配信・保存/再配信条件について最終の権利審査は未実施。この記事では短い独自日本語説明に限り、外部画像は複製していない。"
+        },
+        "internal_analysis": {
+          "decision": "pending",
+          "basis": "unknown",
+          "reference": null,
+          "reviewed_at": null,
+          "note": "出典の商用・有料配信・保存/再配信条件について最終の権利審査は未実施。この記事では短い独自日本語説明に限り、外部画像は複製していない。"
+        },
+        "factual_paraphrase_display": {
+          "decision": "pending",
+          "basis": "unknown",
+          "reference": null,
+          "reviewed_at": null,
+          "note": "出典の商用・有料配信・保存/再配信条件について最終の権利審査は未実施。この記事では短い独自日本語説明に限り、外部画像は複製していない。"
+        },
+        "paid_member_display": {
+          "decision": "pending",
+          "basis": "unknown",
+          "reference": null,
+          "reviewed_at": null,
+          "note": "出典の商用・有料配信・保存/再配信条件について最終の権利審査は未実施。この記事では短い独自日本語説明に限り、外部画像は複製していない。"
+        },
+        "redistribution": {
+          "decision": "pending",
+          "basis": "unknown",
+          "reference": null,
+          "reviewed_at": null,
+          "note": "出典の商用・有料配信・保存/再配信条件について最終の権利審査は未実施。この記事では短い独自日本語説明に限り、外部画像は複製していない。"
+        },
+        "media_display": {
+          "decision": "pending",
+          "basis": "unknown",
+          "reference": null,
+          "reviewed_at": null,
+          "note": "出典の商用・有料配信・保存/再配信条件について最終の権利審査は未実施。この記事では短い独自日本語説明に限り、外部画像は複製していない。"
+        }
+      }
+    },
+    {
+      "key": "src-p3",
+      "url": "https://plausible.io/about",
+      "title": "会社概要・チーム・顧客と収益源",
+      "publisher": "Plausible",
+      "language": "en",
+      "kind": "official",
+      "published_time": {
+        "value": null,
+        "end": null,
+        "precision": "unknown",
+        "original": null
+      },
+      "retrieved_at": "2026-10-12T05:30:00Z",
+      "source_family_key": "plausible-plausible",
+      "access_state": "read",
+      "incentive_context": "当事者の広報・事業説明・本人回顧。数値をそのまま第三者が監査したことを意味しない。",
+      "rights": {
+        "fetch": {
+          "decision": "pending",
+          "basis": "unknown",
+          "reference": null,
+          "reviewed_at": null,
+          "note": "出典の商用・有料配信・保存/再配信条件について最終の権利審査は未実施。この記事では短い独自日本語説明に限り、外部画像は複製していない。"
+        },
+        "private_evidence_storage": {
+          "decision": "pending",
+          "basis": "unknown",
+          "reference": null,
+          "reviewed_at": null,
+          "note": "出典の商用・有料配信・保存/再配信条件について最終の権利審査は未実施。この記事では短い独自日本語説明に限り、外部画像は複製していない。"
+        },
+        "internal_analysis": {
+          "decision": "pending",
+          "basis": "unknown",
+          "reference": null,
+          "reviewed_at": null,
+          "note": "出典の商用・有料配信・保存/再配信条件について最終の権利審査は未実施。この記事では短い独自日本語説明に限り、外部画像は複製していない。"
+        },
+        "factual_paraphrase_display": {
+          "decision": "pending",
+          "basis": "unknown",
+          "reference": null,
+          "reviewed_at": null,
+          "note": "出典の商用・有料配信・保存/再配信条件について最終の権利審査は未実施。この記事では短い独自日本語説明に限り、外部画像は複製していない。"
+        },
+        "paid_member_display": {
+          "decision": "pending",
+          "basis": "unknown",
+          "reference": null,
+          "reviewed_at": null,
+          "note": "出典の商用・有料配信・保存/再配信条件について最終の権利審査は未実施。この記事では短い独自日本語説明に限り、外部画像は複製していない。"
+        },
+        "redistribution": {
+          "decision": "pending",
+          "basis": "unknown",
+          "reference": null,
+          "reviewed_at": null,
+          "note": "出典の商用・有料配信・保存/再配信条件について最終の権利審査は未実施。この記事では短い独自日本語説明に限り、外部画像は複製していない。"
+        },
+        "media_display": {
+          "decision": "pending",
+          "basis": "unknown",
+          "reference": null,
+          "reviewed_at": null,
+          "note": "出典の商用・有料配信・保存/再配信条件について最終の権利審査は未実施。この記事では短い独自日本語説明に限り、外部画像は複製していない。"
+        }
+      }
+    },
+    {
+      "key": "src-p4",
+      "url": "https://plausible.io/blog/building-open-source",
+      "title": "公開コードの提供・コミュニティ支援",
+      "publisher": "Plausible",
+      "language": "en",
+      "kind": "founder",
+      "published_time": {
+        "value": "2020",
+        "end": null,
+        "precision": "year",
+        "original": "2020"
+      },
+      "retrieved_at": "2026-10-12T05:30:00Z",
+      "source_family_key": "plausible-plausible",
+      "access_state": "read",
+      "incentive_context": "当事者の広報・事業説明・本人回顧。数値をそのまま第三者が監査したことを意味しない。",
+      "rights": {
+        "fetch": {
+          "decision": "pending",
+          "basis": "unknown",
+          "reference": null,
+          "reviewed_at": null,
+          "note": "出典の商用・有料配信・保存/再配信条件について最終の権利審査は未実施。この記事では短い独自日本語説明に限り、外部画像は複製していない。"
+        },
+        "private_evidence_storage": {
+          "decision": "pending",
+          "basis": "unknown",
+          "reference": null,
+          "reviewed_at": null,
+          "note": "出典の商用・有料配信・保存/再配信条件について最終の権利審査は未実施。この記事では短い独自日本語説明に限り、外部画像は複製していない。"
+        },
+        "internal_analysis": {
+          "decision": "pending",
+          "basis": "unknown",
+          "reference": null,
+          "reviewed_at": null,
+          "note": "出典の商用・有料配信・保存/再配信条件について最終の権利審査は未実施。この記事では短い独自日本語説明に限り、外部画像は複製していない。"
+        },
+        "factual_paraphrase_display": {
+          "decision": "pending",
+          "basis": "unknown",
+          "reference": null,
+          "reviewed_at": null,
+          "note": "出典の商用・有料配信・保存/再配信条件について最終の権利審査は未実施。この記事では短い独自日本語説明に限り、外部画像は複製していない。"
+        },
+        "paid_member_display": {
+          "decision": "pending",
+          "basis": "unknown",
+          "reference": null,
+          "reviewed_at": null,
+          "note": "出典の商用・有料配信・保存/再配信条件について最終の権利審査は未実施。この記事では短い独自日本語説明に限り、外部画像は複製していない。"
+        },
+        "redistribution": {
+          "decision": "pending",
+          "basis": "unknown",
+          "reference": null,
+          "reviewed_at": null,
+          "note": "出典の商用・有料配信・保存/再配信条件について最終の権利審査は未実施。この記事では短い独自日本語説明に限り、外部画像は複製していない。"
+        },
+        "media_display": {
+          "decision": "pending",
+          "basis": "unknown",
+          "reference": null,
+          "reviewed_at": null,
+          "note": "出典の商用・有料配信・保存/再配信条件について最終の権利審査は未実施。この記事では短い独自日本語説明に限り、外部画像は複製していない。"
+        }
+      }
+    },
+    {
+      "key": "src-p5",
+      "url": "https://plausible.io/blog/community-edition",
+      "title": "Community Editionへの変更",
+      "publisher": "Plausible",
+      "language": "en",
+      "kind": "official",
+      "published_time": {
+        "value": "2024",
+        "end": null,
+        "precision": "year",
+        "original": "2024"
+      },
+      "retrieved_at": "2026-10-12T05:30:00Z",
+      "source_family_key": "plausible-plausible",
+      "access_state": "read",
+      "incentive_context": "当事者の広報・事業説明・本人回顧。数値をそのまま第三者が監査したことを意味しない。",
+      "rights": {
+        "fetch": {
+          "decision": "pending",
+          "basis": "unknown",
+          "reference": null,
+          "reviewed_at": null,
+          "note": "出典の商用・有料配信・保存/再配信条件について最終の権利審査は未実施。この記事では短い独自日本語説明に限り、外部画像は複製していない。"
+        },
+        "private_evidence_storage": {
+          "decision": "pending",
+          "basis": "unknown",
+          "reference": null,
+          "reviewed_at": null,
+          "note": "出典の商用・有料配信・保存/再配信条件について最終の権利審査は未実施。この記事では短い独自日本語説明に限り、外部画像は複製していない。"
+        },
+        "internal_analysis": {
+          "decision": "pending",
+          "basis": "unknown",
+          "reference": null,
+          "reviewed_at": null,
+          "note": "出典の商用・有料配信・保存/再配信条件について最終の権利審査は未実施。この記事では短い独自日本語説明に限り、外部画像は複製していない。"
+        },
+        "factual_paraphrase_display": {
+          "decision": "pending",
+          "basis": "unknown",
+          "reference": null,
+          "reviewed_at": null,
+          "note": "出典の商用・有料配信・保存/再配信条件について最終の権利審査は未実施。この記事では短い独自日本語説明に限り、外部画像は複製していない。"
+        },
+        "paid_member_display": {
+          "decision": "pending",
+          "basis": "unknown",
+          "reference": null,
+          "reviewed_at": null,
+          "note": "出典の商用・有料配信・保存/再配信条件について最終の権利審査は未実施。この記事では短い独自日本語説明に限り、外部画像は複製していない。"
+        },
+        "redistribution": {
+          "decision": "pending",
+          "basis": "unknown",
+          "reference": null,
+          "reviewed_at": null,
+          "note": "出典の商用・有料配信・保存/再配信条件について最終の権利審査は未実施。この記事では短い独自日本語説明に限り、外部画像は複製していない。"
+        },
+        "media_display": {
+          "decision": "pending",
+          "basis": "unknown",
+          "reference": null,
+          "reviewed_at": null,
+          "note": "出典の商用・有料配信・保存/再配信条件について最終の権利審査は未実施。この記事では短い独自日本語説明に限り、外部画像は複製していない。"
+        }
+      }
+    },
+    {
+      "key": "src-p6",
+      "url": "https://plausible.io/docs/subscription-plans",
+      "title": "プランと計測量の利用条件",
+      "publisher": "Plausible",
+      "language": "en",
+      "kind": "official",
+      "published_time": {
+        "value": "2026-09-29",
+        "end": null,
+        "precision": "day",
+        "original": "2026-09-29"
+      },
+      "retrieved_at": "2026-10-12T05:30:00Z",
+      "source_family_key": "plausible-plausible",
+      "access_state": "read",
+      "incentive_context": "当事者の広報・事業説明・本人回顧。数値をそのまま第三者が監査したことを意味しない。",
+      "rights": {
+        "fetch": {
+          "decision": "pending",
+          "basis": "unknown",
+          "reference": null,
+          "reviewed_at": null,
+          "note": "出典の商用・有料配信・保存/再配信条件について最終の権利審査は未実施。この記事では短い独自日本語説明に限り、外部画像は複製していない。"
+        },
+        "private_evidence_storage": {
+          "decision": "pending",
+          "basis": "unknown",
+          "reference": null,
+          "reviewed_at": null,
+          "note": "出典の商用・有料配信・保存/再配信条件について最終の権利審査は未実施。この記事では短い独自日本語説明に限り、外部画像は複製していない。"
+        },
+        "internal_analysis": {
+          "decision": "pending",
+          "basis": "unknown",
+          "reference": null,
+          "reviewed_at": null,
+          "note": "出典の商用・有料配信・保存/再配信条件について最終の権利審査は未実施。この記事では短い独自日本語説明に限り、外部画像は複製していない。"
+        },
+        "factual_paraphrase_display": {
+          "decision": "pending",
+          "basis": "unknown",
+          "reference": null,
+          "reviewed_at": null,
+          "note": "出典の商用・有料配信・保存/再配信条件について最終の権利審査は未実施。この記事では短い独自日本語説明に限り、外部画像は複製していない。"
+        },
+        "paid_member_display": {
+          "decision": "pending",
+          "basis": "unknown",
+          "reference": null,
+          "reviewed_at": null,
+          "note": "出典の商用・有料配信・保存/再配信条件について最終の権利審査は未実施。この記事では短い独自日本語説明に限り、外部画像は複製していない。"
+        },
+        "redistribution": {
+          "decision": "pending",
+          "basis": "unknown",
+          "reference": null,
+          "reviewed_at": null,
+          "note": "出典の商用・有料配信・保存/再配信条件について最終の権利審査は未実施。この記事では短い独自日本語説明に限り、外部画像は複製していない。"
+        },
+        "media_display": {
+          "decision": "pending",
+          "basis": "unknown",
+          "reference": null,
+          "reviewed_at": null,
+          "note": "出典の商用・有料配信・保存/再配信条件について最終の権利審査は未実施。この記事では短い独自日本語説明に限り、外部画像は複製していない。"
+        }
+      }
+    },
+    {
+      "key": "src-p7",
+      "url": "https://plausible.io/blog/bootstrapping-saas",
+      "title": "マーケティングの施策と成長",
+      "publisher": "Plausible",
+      "language": "en",
+      "kind": "founder",
+      "published_time": {
+        "value": "2021-10-25",
+        "end": null,
+        "precision": "day",
+        "original": "2021-10-25"
+      },
+      "retrieved_at": "2026-10-12T05:30:00Z",
+      "source_family_key": "plausible-plausible",
+      "access_state": "read",
+      "incentive_context": "当事者の広報・事業説明・本人回顧。数値をそのまま第三者が監査したことを意味しない。",
+      "rights": {
+        "fetch": {
+          "decision": "pending",
+          "basis": "unknown",
+          "reference": null,
+          "reviewed_at": null,
+          "note": "出典の商用・有料配信・保存/再配信条件について最終の権利審査は未実施。この記事では短い独自日本語説明に限り、外部画像は複製していない。"
+        },
+        "private_evidence_storage": {
+          "decision": "pending",
+          "basis": "unknown",
+          "reference": null,
+          "reviewed_at": null,
+          "note": "出典の商用・有料配信・保存/再配信条件について最終の権利審査は未実施。この記事では短い独自日本語説明に限り、外部画像は複製していない。"
+        },
+        "internal_analysis": {
+          "decision": "pending",
+          "basis": "unknown",
+          "reference": null,
+          "reviewed_at": null,
+          "note": "出典の商用・有料配信・保存/再配信条件について最終の権利審査は未実施。この記事では短い独自日本語説明に限り、外部画像は複製していない。"
+        },
+        "factual_paraphrase_display": {
+          "decision": "pending",
+          "basis": "unknown",
+          "reference": null,
+          "reviewed_at": null,
+          "note": "出典の商用・有料配信・保存/再配信条件について最終の権利審査は未実施。この記事では短い独自日本語説明に限り、外部画像は複製していない。"
+        },
+        "paid_member_display": {
+          "decision": "pending",
+          "basis": "unknown",
+          "reference": null,
+          "reviewed_at": null,
+          "note": "出典の商用・有料配信・保存/再配信条件について最終の権利審査は未実施。この記事では短い独自日本語説明に限り、外部画像は複製していない。"
+        },
+        "redistribution": {
+          "decision": "pending",
+          "basis": "unknown",
+          "reference": null,
+          "reviewed_at": null,
+          "note": "出典の商用・有料配信・保存/再配信条件について最終の権利審査は未実施。この記事では短い独自日本語説明に限り、外部画像は複製していない。"
+        },
+        "media_display": {
+          "decision": "pending",
+          "basis": "unknown",
+          "reference": null,
+          "reviewed_at": null,
+          "note": "出典の商用・有料配信・保存/再配信条件について最終の権利審査は未実施。この記事では短い独自日本語説明に限り、外部画像は複製していない。"
+        }
+      }
+    },
+    {
+      "key": "src-p8",
+      "url": "https://plausible.io/blog/startup-marketing",
+      "title": "広告を使わず最初の顧客を獲得する方法",
+      "publisher": "Plausible",
+      "language": "en",
+      "kind": "founder",
+      "published_time": {
+        "value": "2020-07-31",
+        "end": null,
+        "precision": "day",
+        "original": "2020-07-31"
+      },
+      "retrieved_at": "2026-10-12T05:30:00Z",
+      "source_family_key": "plausible-plausible",
+      "access_state": "read",
+      "incentive_context": "当事者の広報・事業説明・本人回顧。数値をそのまま第三者が監査したことを意味しない。",
+      "rights": {
+        "fetch": {
+          "decision": "pending",
+          "basis": "unknown",
+          "reference": null,
+          "reviewed_at": null,
+          "note": "出典の商用・有料配信・保存/再配信条件について最終の権利審査は未実施。この記事では短い独自日本語説明に限り、外部画像は複製していない。"
+        },
+        "private_evidence_storage": {
+          "decision": "pending",
+          "basis": "unknown",
+          "reference": null,
+          "reviewed_at": null,
+          "note": "出典の商用・有料配信・保存/再配信条件について最終の権利審査は未実施。この記事では短い独自日本語説明に限り、外部画像は複製していない。"
+        },
+        "internal_analysis": {
+          "decision": "pending",
+          "basis": "unknown",
+          "reference": null,
+          "reviewed_at": null,
+          "note": "出典の商用・有料配信・保存/再配信条件について最終の権利審査は未実施。この記事では短い独自日本語説明に限り、外部画像は複製していない。"
+        },
+        "factual_paraphrase_display": {
+          "decision": "pending",
+          "basis": "unknown",
+          "reference": null,
+          "reviewed_at": null,
+          "note": "出典の商用・有料配信・保存/再配信条件について最終の権利審査は未実施。この記事では短い独自日本語説明に限り、外部画像は複製していない。"
+        },
+        "paid_member_display": {
+          "decision": "pending",
+          "basis": "unknown",
+          "reference": null,
+          "reviewed_at": null,
+          "note": "出典の商用・有料配信・保存/再配信条件について最終の権利審査は未実施。この記事では短い独自日本語説明に限り、外部画像は複製していない。"
+        },
+        "redistribution": {
+          "decision": "pending",
+          "basis": "unknown",
+          "reference": null,
+          "reviewed_at": null,
+          "note": "出典の商用・有料配信・保存/再配信条件について最終の権利審査は未実施。この記事では短い独自日本語説明に限り、外部画像は複製していない。"
+        },
+        "media_display": {
+          "decision": "pending",
+          "basis": "unknown",
+          "reference": null,
+          "reviewed_at": null,
+          "note": "出典の商用・有料配信・保存/再配信条件について最終の権利審査は未実施。この記事では短い独自日本語説明に限り、外部画像は複製していない。"
+        }
+      }
+    },
+    {
+      "key": "src-p9",
+      "url": "https://plausible.io/blog/growing-saas-mrr",
+      "title": "継続収益成長の具体的な仕事",
+      "publisher": "Plausible",
+      "language": "en",
+      "kind": "founder",
+      "published_time": {
+        "value": "2021-01-28",
+        "end": null,
+        "precision": "day",
+        "original": "2021-01-28"
+      },
+      "retrieved_at": "2026-10-12T05:30:00Z",
+      "source_family_key": "plausible-plausible",
+      "access_state": "read",
+      "incentive_context": "当事者の広報・事業説明・本人回顧。数値をそのまま第三者が監査したことを意味しない。",
+      "rights": {
+        "fetch": {
+          "decision": "pending",
+          "basis": "unknown",
+          "reference": null,
+          "reviewed_at": null,
+          "note": "出典の商用・有料配信・保存/再配信条件について最終の権利審査は未実施。この記事では短い独自日本語説明に限り、外部画像は複製していない。"
+        },
+        "private_evidence_storage": {
+          "decision": "pending",
+          "basis": "unknown",
+          "reference": null,
+          "reviewed_at": null,
+          "note": "出典の商用・有料配信・保存/再配信条件について最終の権利審査は未実施。この記事では短い独自日本語説明に限り、外部画像は複製していない。"
+        },
+        "internal_analysis": {
+          "decision": "pending",
+          "basis": "unknown",
+          "reference": null,
+          "reviewed_at": null,
+          "note": "出典の商用・有料配信・保存/再配信条件について最終の権利審査は未実施。この記事では短い独自日本語説明に限り、外部画像は複製していない。"
+        },
+        "factual_paraphrase_display": {
+          "decision": "pending",
+          "basis": "unknown",
+          "reference": null,
+          "reviewed_at": null,
+          "note": "出典の商用・有料配信・保存/再配信条件について最終の権利審査は未実施。この記事では短い独自日本語説明に限り、外部画像は複製していない。"
+        },
+        "paid_member_display": {
+          "decision": "pending",
+          "basis": "unknown",
+          "reference": null,
+          "reviewed_at": null,
+          "note": "出典の商用・有料配信・保存/再配信条件について最終の権利審査は未実施。この記事では短い独自日本語説明に限り、外部画像は複製していない。"
+        },
+        "redistribution": {
+          "decision": "pending",
+          "basis": "unknown",
+          "reference": null,
+          "reviewed_at": null,
+          "note": "出典の商用・有料配信・保存/再配信条件について最終の権利審査は未実施。この記事では短い独自日本語説明に限り、外部画像は複製していない。"
+        },
+        "media_display": {
+          "decision": "pending",
+          "basis": "unknown",
+          "reference": null,
+          "reviewed_at": null,
+          "note": "出典の商用・有料配信・保存/再配信条件について最終の権利審査は未実施。この記事では短い独自日本語説明に限り、外部画像は複製していない。"
+        }
+      }
+    }
+  ],
+  "evidence": [
+    {
+      "key": "ev-p1",
+      "source_key": "src-p1",
+      "locator": "サービス概要と料金表示",
+      "short_quote": null,
+      "context": "原典の該当記事・表を確認：サービス概要と料金表示。出典にない利益・費用・動機・効果を推測で補完しない。",
+      "capture_path": null,
+      "capture_sha256": null,
+      "method": "web_read"
+    },
+    {
+      "key": "ev-p2",
+      "source_key": "src-p2",
+      "locator": "2018〜2022年の創業・集客・収益の回顧",
+      "short_quote": null,
+      "context": "原典の該当記事・表を確認：2018〜2022年の創業・集客・収益の回顧。出典にない利益・費用・動機・効果を推測で補完しない。",
+      "capture_path": null,
+      "capture_sha256": null,
+      "method": "web_read"
+    },
+    {
+      "key": "ev-p3",
+      "source_key": "src-p3",
+      "locator": "会社概要・チーム・顧客と収益源",
+      "short_quote": null,
+      "context": "原典の該当記事・表を確認：会社概要・チーム・顧客と収益源。出典にない利益・費用・動機・効果を推測で補完しない。",
+      "capture_path": null,
+      "capture_sha256": null,
+      "method": "web_read"
+    },
+    {
+      "key": "ev-p4",
+      "source_key": "src-p4",
+      "locator": "公開コードの提供・コミュニティ支援",
+      "short_quote": null,
+      "context": "原典の該当記事・表を確認：公開コードの提供・コミュニティ支援。出典にない利益・費用・動機・効果を推測で補完しない。",
+      "capture_path": null,
+      "capture_sha256": null,
+      "method": "web_read"
+    },
+    {
+      "key": "ev-p5",
+      "source_key": "src-p5",
+      "locator": "Community Editionへの変更",
+      "short_quote": null,
+      "context": "原典の該当記事・表を確認：Community Editionへの変更。出典にない利益・費用・動機・効果を推測で補完しない。",
+      "capture_path": null,
+      "capture_sha256": null,
+      "method": "web_read"
+    },
+    {
+      "key": "ev-p6",
+      "source_key": "src-p6",
+      "locator": "プランと計測量の利用条件",
+      "short_quote": null,
+      "context": "原典の該当記事・表を確認：プランと計測量の利用条件。出典にない利益・費用・動機・効果を推測で補完しない。",
+      "capture_path": null,
+      "capture_sha256": null,
+      "method": "web_read"
+    },
+    {
+      "key": "ev-p7",
+      "source_key": "src-p7",
+      "locator": "マーケティングの施策と成長",
+      "short_quote": null,
+      "context": "原典の該当記事・表を確認：マーケティングの施策と成長。出典にない利益・費用・動機・効果を推測で補完しない。",
+      "capture_path": null,
+      "capture_sha256": null,
+      "method": "web_read"
+    },
+    {
+      "key": "ev-p8",
+      "source_key": "src-p8",
+      "locator": "広告を使わず最初の顧客を獲得する方法",
+      "short_quote": null,
+      "context": "原典の該当記事・表を確認：広告を使わず最初の顧客を獲得する方法。出典にない利益・費用・動機・効果を推測で補完しない。",
+      "capture_path": null,
+      "capture_sha256": null,
+      "method": "web_read"
+    },
+    {
+      "key": "ev-p9",
+      "source_key": "src-p9",
+      "locator": "継続収益成長の具体的な仕事",
+      "short_quote": null,
+      "context": "原典の該当記事・表を確認：継続収益成長の具体的な仕事。出典にない利益・費用・動機・効果を推測で補完しない。",
+      "capture_path": null,
+      "capture_sha256": null,
+      "method": "web_read"
+    },
+    {
+      "key": "ev-metric-r1",
+      "source_key": "src-p2",
+      "locator": "Founders retrospective, dated MRR/traffic timeline",
+      "short_quote": null,
+      "context": "2019年5月の月次継続収益: 64 USD; 対象期間：2019-05, 数値の種類：MRR。",
+      "capture_path": null,
+      "capture_sha256": null,
+      "method": "web_read"
+    },
+    {
+      "key": "ev-metric-r2",
+      "source_key": "src-p2",
+      "locator": "Founders retrospective, dated MRR/traffic timeline",
+      "short_quote": null,
+      "context": "2020年3月の月次継続収益: 433 USD; 対象期間：2020-03, 数値の種類：MRR。",
+      "capture_path": null,
+      "capture_sha256": null,
+      "method": "web_read"
+    },
+    {
+      "key": "ev-metric-r3",
+      "source_key": "src-p2",
+      "locator": "Founders retrospective, dated MRR/traffic timeline",
+      "short_quote": null,
+      "context": "2020年12月の月次継続収益: 8,999 USD; 対象期間：2020-12, 数値の種類：MRR。",
+      "capture_path": null,
+      "capture_sha256": null,
+      "method": "web_read"
+    },
+    {
+      "key": "ev-metric-r4",
+      "source_key": "src-p2",
+      "locator": "Founders retrospective, dated MRR/traffic timeline",
+      "short_quote": null,
+      "context": "2021年10月の月次継続収益: 42,624 USD; 対象期間：2021-10, 数値の種類：MRR。",
+      "capture_path": null,
+      "capture_sha256": null,
+      "method": "web_read"
+    },
+    {
+      "key": "ev-metric-r5",
+      "source_key": "src-p2",
+      "locator": "Founders retrospective, dated MRR/traffic timeline",
+      "short_quote": null,
+      "context": "2022年6月の月次継続収益: 83,637 USD; 対象期間：2022-06, 数値の種類：MRR。",
+      "capture_path": null,
+      "capture_sha256": null,
+      "method": "web_read"
+    },
+    {
+      "key": "ev-metric-r6",
+      "source_key": "src-p2",
+      "locator": "Founders retrospective, dated MRR/traffic timeline",
+      "short_quote": null,
+      "context": "2022年6月の有料顧客数（7,000超）: 7,000 count; 対象期間：2022-06, 数値の種類：PAID_CUSTOMERS。",
+      "capture_path": null,
+      "capture_sha256": null,
+      "method": "web_read"
+    },
+    {
+      "key": "ev-metric-r7",
+      "source_key": "src-p2",
+      "locator": "Founders retrospective, dated MRR/traffic timeline",
+      "short_quote": null,
+      "context": "2022年6月のチーム人数: 4 people; 対象期間：2022-06, 数値の種類：TEAM。",
+      "capture_path": null,
+      "capture_sha256": null,
+      "method": "web_read"
+    },
+    {
+      "key": "ev-metric-r8",
+      "source_key": "src-p3",
+      "locator": "Official price, usage and operating terms",
+      "short_quote": null,
+      "context": "2026年10月閲覧時の公式案内による有料顧客数（21,000超）: 21,000 count; 対象期間：2026-10, 数値の種類：PAID_CUSTOMERS。",
+      "capture_path": null,
+      "capture_sha256": null,
+      "method": "web_read"
+    },
+    {
+      "key": "ev-metric-r9",
+      "source_key": "src-p3",
+      "locator": "Official price, usage and operating terms",
+      "short_quote": null,
+      "context": "2026年10月閲覧時の公式案内によるチーム人数: 10 people; 対象期間：2026-10, 数値の種類：TEAM。",
+      "capture_path": null,
+      "capture_sha256": null,
+      "method": "web_read"
+    },
+    {
+      "key": "ev-metric-r10",
+      "source_key": "src-p6",
+      "locator": "Official price, usage and operating terms",
+      "short_quote": null,
+      "context": "2026年10月に閲覧した月間1万ページビューのStarter月額: 9 USD; 対象期間：2026-10, 数値の種類：PRICE。",
+      "capture_path": null,
+      "capture_sha256": null,
+      "method": "web_read"
+    },
+    {
+      "key": "ev-metric-r11",
+      "source_key": "src-p6",
+      "locator": "Official price, usage and operating terms",
+      "short_quote": null,
+      "context": "2026年10月に閲覧した月間1万ページビューのGrowth月額: 14 USD; 対象期間：2026-10, 数値の種類：PRICE。",
+      "capture_path": null,
+      "capture_sha256": null,
+      "method": "web_read"
+    },
+    {
+      "key": "ev-metric-r12",
+      "source_key": "src-p6",
+      "locator": "Official price, usage and operating terms",
+      "short_quote": null,
+      "context": "2026年10月に閲覧した月間1万ページビューのBusiness月額: 19 USD; 対象期間：2026-10, 数値の種類：PRICE。",
+      "capture_path": null,
+      "capture_sha256": null,
+      "method": "web_read"
+    },
+    {
+      "key": "ev-metric-r13",
+      "source_key": "src-p2",
+      "locator": "Founders retrospective, dated MRR/traffic timeline",
+      "short_quote": null,
+      "context": "2020年4月のHacker News記事による数日間の閲覧数（5万超）: 50,000 views; 対象期間：2020-04, 数値の種類：TRAFFIC。",
+      "capture_path": null,
+      "capture_sha256": null,
+      "method": "web_read"
+    },
+    {
+      "key": "ev-metric-r14",
+      "source_key": "src-p7",
+      "locator": "Official price, usage and operating terms",
+      "short_quote": null,
+      "context": "同記事公開後1週間の無料体験登録: 166 count; 対象期間：2020-04, 数値の種類：TRIALS。",
+      "capture_path": null,
+      "capture_sha256": null,
+      "method": "web_read"
+    },
+    {
+      "key": "ev-metric-r15",
+      "source_key": "src-p2",
+      "locator": "Founders retrospective, dated MRR/traffic timeline",
+      "short_quote": null,
+      "context": "2021年初めまでに創業者2人の貯蓄から投入した総額（5万ドル超）: 50,000 USD; 対象期間：2021-01, 数値の種類：COST。",
+      "capture_path": null,
+      "capture_sha256": null,
+      "method": "web_read"
+    }
+  ],
+  "records": [
+    {
+      "key": "r1",
+      "kind": "metric",
+      "domain": "money_and_economics",
+      "subject_keys": [
+        "business"
+      ],
+      "text": "2019年5月の月次継続収益：64 USD",
+      "origin": "reported",
+      "verification": "SUPPORTED",
+      "evidence_keys": [
+        "ev-metric-r1"
+      ],
+      "basis_record_keys": [],
+      "time": {
+        "value": "2019-05",
+        "end": null,
+        "precision": "month",
+        "original": "2019-05"
+      },
+      "metric": {
+        "measure": "MRR",
+        "definition": "2019年5月の月次継続収益",
+        "value": 64,
+        "lower": null,
+        "upper": null,
+        "operator": "exact",
+        "currency": "USD",
+        "unit": "USD",
+        "period_kind": "month",
+        "scope": "Plausible Analytics",
+        "denominator": null,
+        "original_label": "2019年5月の月次継続収益"
+      },
+      "relationship": null,
+      "computation": null,
+      "attributes": {},
+      "notes": ""
+    },
+    {
+      "key": "r2",
+      "kind": "metric",
+      "domain": "money_and_economics",
+      "subject_keys": [
+        "business"
+      ],
+      "text": "2020年3月の月次継続収益：433 USD",
+      "origin": "reported",
+      "verification": "SUPPORTED",
+      "evidence_keys": [
+        "ev-metric-r2"
+      ],
+      "basis_record_keys": [],
+      "time": {
+        "value": "2020-03",
+        "end": null,
+        "precision": "month",
+        "original": "2020-03"
+      },
+      "metric": {
+        "measure": "MRR",
+        "definition": "2020年3月の月次継続収益",
+        "value": 433,
+        "lower": null,
+        "upper": null,
+        "operator": "exact",
+        "currency": "USD",
+        "unit": "USD",
+        "period_kind": "month",
+        "scope": "Plausible Analytics",
+        "denominator": null,
+        "original_label": "2020年3月の月次継続収益"
+      },
+      "relationship": null,
+      "computation": null,
+      "attributes": {},
+      "notes": ""
+    },
+    {
+      "key": "r3",
+      "kind": "metric",
+      "domain": "money_and_economics",
+      "subject_keys": [
+        "business"
+      ],
+      "text": "2020年12月の月次継続収益：8,999 USD",
+      "origin": "reported",
+      "verification": "SUPPORTED",
+      "evidence_keys": [
+        "ev-metric-r3"
+      ],
+      "basis_record_keys": [],
+      "time": {
+        "value": "2020-12",
+        "end": null,
+        "precision": "month",
+        "original": "2020-12"
+      },
+      "metric": {
+        "measure": "MRR",
+        "definition": "2020年12月の月次継続収益",
+        "value": 8999,
+        "lower": null,
+        "upper": null,
+        "operator": "exact",
+        "currency": "USD",
+        "unit": "USD",
+        "period_kind": "month",
+        "scope": "Plausible Analytics",
+        "denominator": null,
+        "original_label": "2020年12月の月次継続収益"
+      },
+      "relationship": null,
+      "computation": null,
+      "attributes": {},
+      "notes": ""
+    },
+    {
+      "key": "r4",
+      "kind": "metric",
+      "domain": "money_and_economics",
+      "subject_keys": [
+        "business"
+      ],
+      "text": "2021年10月の月次継続収益：42,624 USD",
+      "origin": "reported",
+      "verification": "SUPPORTED",
+      "evidence_keys": [
+        "ev-metric-r4"
+      ],
+      "basis_record_keys": [],
+      "time": {
+        "value": "2021-10",
+        "end": null,
+        "precision": "month",
+        "original": "2021-10"
+      },
+      "metric": {
+        "measure": "MRR",
+        "definition": "2021年10月の月次継続収益",
+        "value": 42624,
+        "lower": null,
+        "upper": null,
+        "operator": "exact",
+        "currency": "USD",
+        "unit": "USD",
+        "period_kind": "month",
+        "scope": "Plausible Analytics",
+        "denominator": null,
+        "original_label": "2021年10月の月次継続収益"
+      },
+      "relationship": null,
+      "computation": null,
+      "attributes": {},
+      "notes": ""
+    },
+    {
+      "key": "r5",
+      "kind": "metric",
+      "domain": "money_and_economics",
+      "subject_keys": [
+        "business"
+      ],
+      "text": "2022年6月の月次継続収益：83,637 USD",
+      "origin": "reported",
+      "verification": "SUPPORTED",
+      "evidence_keys": [
+        "ev-metric-r5"
+      ],
+      "basis_record_keys": [],
+      "time": {
+        "value": "2022-06",
+        "end": null,
+        "precision": "month",
+        "original": "2022-06"
+      },
+      "metric": {
+        "measure": "MRR",
+        "definition": "2022年6月の月次継続収益",
+        "value": 83637,
+        "lower": null,
+        "upper": null,
+        "operator": "exact",
+        "currency": "USD",
+        "unit": "USD",
+        "period_kind": "month",
+        "scope": "Plausible Analytics",
+        "denominator": null,
+        "original_label": "2022年6月の月次継続収益"
+      },
+      "relationship": null,
+      "computation": null,
+      "attributes": {},
+      "notes": ""
+    },
+    {
+      "key": "r6",
+      "kind": "metric",
+      "domain": "people",
+      "subject_keys": [
+        "business"
+      ],
+      "text": "2022年6月の有料顧客数（7,000超）：7,000",
+      "origin": "reported",
+      "verification": "SUPPORTED",
+      "evidence_keys": [
+        "ev-metric-r6"
+      ],
+      "basis_record_keys": [],
+      "time": {
+        "value": "2022-06",
+        "end": null,
+        "precision": "month",
+        "original": "2022-06"
+      },
+      "metric": {
+        "measure": "PAID_CUSTOMERS",
+        "definition": "2022年6月の有料顧客数（7,000超）",
+        "value": 7000,
+        "lower": null,
+        "upper": null,
+        "operator": "gt",
+        "currency": null,
+        "unit": "count",
+        "period_kind": "point",
+        "scope": "Plausible Analytics",
+        "denominator": null,
+        "original_label": "2022年6月の有料顧客数（7,000超）"
+      },
+      "relationship": null,
+      "computation": null,
+      "attributes": {},
+      "notes": ""
+    },
+    {
+      "key": "r7",
+      "kind": "metric",
+      "domain": "people",
+      "subject_keys": [
+        "business"
+      ],
+      "text": "2022年6月のチーム人数：4",
+      "origin": "reported",
+      "verification": "SUPPORTED",
+      "evidence_keys": [
+        "ev-metric-r7"
+      ],
+      "basis_record_keys": [],
+      "time": {
+        "value": "2022-06",
+        "end": null,
+        "precision": "month",
+        "original": "2022-06"
+      },
+      "metric": {
+        "measure": "TEAM",
+        "definition": "2022年6月のチーム人数",
+        "value": 4,
+        "lower": null,
+        "upper": null,
+        "operator": "exact",
+        "currency": null,
+        "unit": "people",
+        "period_kind": "point",
+        "scope": "Plausible Analytics",
+        "denominator": null,
+        "original_label": "2022年6月のチーム人数"
+      },
+      "relationship": null,
+      "computation": null,
+      "attributes": {},
+      "notes": ""
+    },
+    {
+      "key": "r8",
+      "kind": "metric",
+      "domain": "people",
+      "subject_keys": [
+        "business"
+      ],
+      "text": "2026年10月閲覧時の公式案内による有料顧客数（21,000超）：21,000",
+      "origin": "reported",
+      "verification": "SUPPORTED",
+      "evidence_keys": [
+        "ev-metric-r8"
+      ],
+      "basis_record_keys": [],
+      "time": {
+        "value": "2026-10",
+        "end": null,
+        "precision": "month",
+        "original": "2026-10"
+      },
+      "metric": {
+        "measure": "PAID_CUSTOMERS",
+        "definition": "2026年10月閲覧時の公式案内による有料顧客数（21,000超）",
+        "value": 21000,
+        "lower": null,
+        "upper": null,
+        "operator": "gt",
+        "currency": null,
+        "unit": "count",
+        "period_kind": "point",
+        "scope": "Plausible Analytics",
+        "denominator": null,
+        "original_label": "2026年10月閲覧時の公式案内による有料顧客数（21,000超）"
+      },
+      "relationship": null,
+      "computation": null,
+      "attributes": {},
+      "notes": ""
+    },
+    {
+      "key": "r9",
+      "kind": "metric",
+      "domain": "people",
+      "subject_keys": [
+        "business"
+      ],
+      "text": "2026年10月閲覧時の公式案内によるチーム人数：10",
+      "origin": "reported",
+      "verification": "SUPPORTED",
+      "evidence_keys": [
+        "ev-metric-r9"
+      ],
+      "basis_record_keys": [],
+      "time": {
+        "value": "2026-10",
+        "end": null,
+        "precision": "month",
+        "original": "2026-10"
+      },
+      "metric": {
+        "measure": "TEAM",
+        "definition": "2026年10月閲覧時の公式案内によるチーム人数",
+        "value": 10,
+        "lower": null,
+        "upper": null,
+        "operator": "exact",
+        "currency": null,
+        "unit": "people",
+        "period_kind": "point",
+        "scope": "Plausible Analytics",
+        "denominator": null,
+        "original_label": "2026年10月閲覧時の公式案内によるチーム人数"
+      },
+      "relationship": null,
+      "computation": null,
+      "attributes": {},
+      "notes": ""
+    },
+    {
+      "key": "r10",
+      "kind": "metric",
+      "domain": "money_and_economics",
+      "subject_keys": [
+        "business"
+      ],
+      "text": "2026年10月に閲覧した月間1万ページビューのStarter月額：9 USD",
+      "origin": "observed",
+      "verification": "SUPPORTED",
+      "evidence_keys": [
+        "ev-metric-r10"
+      ],
+      "basis_record_keys": [],
+      "time": {
+        "value": "2026-10",
+        "end": null,
+        "precision": "month",
+        "original": "2026-10"
+      },
+      "metric": {
+        "measure": "PRICE",
+        "definition": "2026年10月に閲覧した月間1万ページビューのStarter月額",
+        "value": 9,
+        "lower": null,
+        "upper": null,
+        "operator": "exact",
+        "currency": "USD",
+        "unit": "USD",
+        "period_kind": "point",
+        "scope": "Plausible Analytics",
+        "denominator": null,
+        "original_label": "2026年10月に閲覧した月間1万ページビューのStarter月額"
+      },
+      "relationship": null,
+      "computation": null,
+      "attributes": {},
+      "notes": ""
+    },
+    {
+      "key": "r11",
+      "kind": "metric",
+      "domain": "money_and_economics",
+      "subject_keys": [
+        "business"
+      ],
+      "text": "2026年10月に閲覧した月間1万ページビューのGrowth月額：14 USD",
+      "origin": "observed",
+      "verification": "SUPPORTED",
+      "evidence_keys": [
+        "ev-metric-r11"
+      ],
+      "basis_record_keys": [],
+      "time": {
+        "value": "2026-10",
+        "end": null,
+        "precision": "month",
+        "original": "2026-10"
+      },
+      "metric": {
+        "measure": "PRICE",
+        "definition": "2026年10月に閲覧した月間1万ページビューのGrowth月額",
+        "value": 14,
+        "lower": null,
+        "upper": null,
+        "operator": "exact",
+        "currency": "USD",
+        "unit": "USD",
+        "period_kind": "point",
+        "scope": "Plausible Analytics",
+        "denominator": null,
+        "original_label": "2026年10月に閲覧した月間1万ページビューのGrowth月額"
+      },
+      "relationship": null,
+      "computation": null,
+      "attributes": {},
+      "notes": ""
+    },
+    {
+      "key": "r12",
+      "kind": "metric",
+      "domain": "money_and_economics",
+      "subject_keys": [
+        "business"
+      ],
+      "text": "2026年10月に閲覧した月間1万ページビューのBusiness月額：19 USD",
+      "origin": "observed",
+      "verification": "SUPPORTED",
+      "evidence_keys": [
+        "ev-metric-r12"
+      ],
+      "basis_record_keys": [],
+      "time": {
+        "value": "2026-10",
+        "end": null,
+        "precision": "month",
+        "original": "2026-10"
+      },
+      "metric": {
+        "measure": "PRICE",
+        "definition": "2026年10月に閲覧した月間1万ページビューのBusiness月額",
+        "value": 19,
+        "lower": null,
+        "upper": null,
+        "operator": "exact",
+        "currency": "USD",
+        "unit": "USD",
+        "period_kind": "point",
+        "scope": "Plausible Analytics",
+        "denominator": null,
+        "original_label": "2026年10月に閲覧した月間1万ページビューのBusiness月額"
+      },
+      "relationship": null,
+      "computation": null,
+      "attributes": {},
+      "notes": ""
+    },
+    {
+      "key": "r13",
+      "kind": "metric",
+      "domain": "distribution",
+      "subject_keys": [
+        "business"
+      ],
+      "text": "2020年4月のHacker News記事による数日間の閲覧数（5万超）：50,000",
+      "origin": "reported",
+      "verification": "SUPPORTED",
+      "evidence_keys": [
+        "ev-metric-r13"
+      ],
+      "basis_record_keys": [],
+      "time": {
+        "value": "2020-04",
+        "end": null,
+        "precision": "month",
+        "original": "2020-04"
+      },
+      "metric": {
+        "measure": "TRAFFIC",
+        "definition": "2020年4月のHacker News記事による数日間の閲覧数（5万超）",
+        "value": 50000,
+        "lower": null,
+        "upper": null,
+        "operator": "gt",
+        "currency": null,
+        "unit": "views",
+        "period_kind": "point",
+        "scope": "Plausible Analytics",
+        "denominator": null,
+        "original_label": "2020年4月のHacker News記事による数日間の閲覧数（5万超）"
+      },
+      "relationship": null,
+      "computation": null,
+      "attributes": {},
+      "notes": ""
+    },
+    {
+      "key": "r14",
+      "kind": "metric",
+      "domain": "distribution",
+      "subject_keys": [
+        "business"
+      ],
+      "text": "同記事公開後1週間の無料体験登録：166",
+      "origin": "reported",
+      "verification": "SUPPORTED",
+      "evidence_keys": [
+        "ev-metric-r14"
+      ],
+      "basis_record_keys": [],
+      "time": {
+        "value": "2020-04",
+        "end": null,
+        "precision": "month",
+        "original": "2020-04"
+      },
+      "metric": {
+        "measure": "TRIALS",
+        "definition": "同記事公開後1週間の無料体験登録",
+        "value": 166,
+        "lower": null,
+        "upper": null,
+        "operator": "exact",
+        "currency": null,
+        "unit": "count",
+        "period_kind": "point",
+        "scope": "Plausible Analytics",
+        "denominator": null,
+        "original_label": "同記事公開後1週間の無料体験登録"
+      },
+      "relationship": null,
+      "computation": null,
+      "attributes": {},
+      "notes": ""
+    },
+    {
+      "key": "r15",
+      "kind": "metric",
+      "domain": "money_and_economics",
+      "subject_keys": [
+        "business"
+      ],
+      "text": "2021年初めまでに創業者2人の貯蓄から投入した総額（5万ドル超）：50,000 USD",
+      "origin": "reported",
+      "verification": "SUPPORTED",
+      "evidence_keys": [
+        "ev-metric-r15"
+      ],
+      "basis_record_keys": [],
+      "time": {
+        "value": "2021-01",
+        "end": null,
+        "precision": "month",
+        "original": "2021-01"
+      },
+      "metric": {
+        "measure": "COST",
+        "definition": "2021年初めまでに創業者2人の貯蓄から投入した総額（5万ドル超）",
+        "value": 50000,
+        "lower": null,
+        "upper": null,
+        "operator": "gt",
+        "currency": "USD",
+        "unit": "USD",
+        "period_kind": "cumulative",
+        "scope": "Plausible Analytics",
+        "denominator": null,
+        "original_label": "2021年初めまでに創業者2人の貯蓄から投入した総額（5万ドル超）"
+      },
+      "relationship": null,
+      "computation": null,
+      "attributes": {},
+      "notes": ""
+    },
+    {
+      "key": "r16",
+      "kind": "fact",
+      "domain": "product",
+      "subject_keys": [
+        "business"
+      ],
+      "text": "商品：Webサイトに小さな計測コードを設置すると、訪問数、参照元、人気ページ、目標達成などを一つのダッシュボードで確認できるサービス。",
+      "origin": "reported",
+      "verification": "SUPPORTED",
+      "evidence_keys": [
+        "ev-p1",
+        "ev-p2"
+      ],
+      "basis_record_keys": [],
+      "time": {
+        "value": null,
+        "end": null,
+        "precision": "unknown",
+        "original": null
+      },
+      "metric": null,
+      "relationship": null,
+      "computation": null,
+      "attributes": {
+        "citation_refs": [
+          "P1",
+          "P2"
+        ],
+        "explicit_source_citation": false,
+        "original_md_text": "商品：Webサイトに小さな計測コードを設置すると、訪問数、参照元、人気ページ、目標達成などを一つのダッシュボードで確認できるサービス。"
+      },
+      "notes": ""
+    },
+    {
+      "key": "r17",
+      "kind": "fact",
+      "domain": "product",
+      "subject_keys": [
+        "business"
+      ],
+      "text": "利用者：自社サイトの集客を把握したい運営者、制作会社、企業のマーケティング担当者。導入先の規模や利用者数が違っても、主にサイトを管理する側が料金を負担する。",
+      "origin": "reported",
+      "verification": "SUPPORTED",
+      "evidence_keys": [
+        "ev-p1",
+        "ev-p2"
+      ],
+      "basis_record_keys": [],
+      "time": {
+        "value": null,
+        "end": null,
+        "precision": "unknown",
+        "original": null
+      },
+      "metric": null,
+      "relationship": null,
+      "computation": null,
+      "attributes": {
+        "citation_refs": [
+          "P1",
+          "P2"
+        ],
+        "explicit_source_citation": false,
+        "original_md_text": "利用者：自社サイトの集客を把握したい運営者、制作会社、企業のマーケティング担当者。導入先の規模や利用者数が違っても、主にサイトを管理する側が料金を負担する。"
+      },
+      "notes": ""
+    },
+    {
+      "key": "r18",
+      "kind": "fact",
+      "domain": "product",
+      "subject_keys": [
+        "business"
+      ],
+      "text": "売り方：無料体験の後は、管理するサイト数、チーム機能、計測する閲覧数などに応じた定期契約。閲覧者の個人情報を広告販売する商売ではない。",
+      "origin": "reported",
+      "verification": "SUPPORTED",
+      "evidence_keys": [
+        "ev-p1",
+        "ev-p2"
+      ],
+      "basis_record_keys": [],
+      "time": {
+        "value": null,
+        "end": null,
+        "precision": "unknown",
+        "original": null
+      },
+      "metric": null,
+      "relationship": null,
+      "computation": null,
+      "attributes": {
+        "citation_refs": [
+          "P1",
+          "P2"
+        ],
+        "explicit_source_citation": false,
+        "original_md_text": "売り方：無料体験の後は、管理するサイト数、チーム機能、計測する閲覧数などに応じた定期契約。閲覧者の個人情報を広告販売する商売ではない。"
+      },
+      "notes": ""
+    },
+    {
+      "key": "r19",
+      "kind": "fact",
+      "domain": "product",
+      "subject_keys": [
+        "business"
+      ],
+      "text": "創業者のUku Tähtが2018年末に開発を始め、2019年に有料化。2020年にはマーケティングを担当するMarko Saricが加わった。大手の無料製品と機能数で競争するのではなく、画面の単純さ、クッキーを使わない計測、欧州でのデータ管理、公開されたソースコードを選ぶ理由にしている。",
+      "origin": "reported",
+      "verification": "SUPPORTED",
+      "evidence_keys": [
+        "ev-p1",
+        "ev-p3"
+      ],
+      "basis_record_keys": [],
+      "time": {
+        "value": null,
+        "end": null,
+        "precision": "unknown",
+        "original": null
+      },
+      "metric": null,
+      "relationship": null,
+      "computation": null,
+      "attributes": {
+        "citation_refs": [
+          "P1",
+          "P3"
+        ],
+        "explicit_source_citation": true,
+        "original_md_text": "創業者のUku Tähtが2018年末に開発を始め、2019年に有料化。2020年にはマーケティングを担当するMarko Saricが加わった。大手の無料製品と機能数で競争するのではなく、画面の単純さ、クッキーを使わない計測、欧州でのデータ管理、公開されたソースコードを選ぶ理由にしている。[P1][P3]"
+      },
+      "notes": ""
+    },
+    {
+      "key": "r20",
+      "kind": "fact",
+      "domain": "customer_and_demand",
+      "subject_keys": [
+        "business"
+      ],
+      "text": "サイト運営者が計測する：設定したページへの訪問や広告・検索からの流入を集計する。",
+      "origin": "reported",
+      "verification": "SUPPORTED",
+      "evidence_keys": [
+        "ev-p1",
+        "ev-p2"
+      ],
+      "basis_record_keys": [],
+      "time": {
+        "value": null,
+        "end": null,
+        "precision": "unknown",
+        "original": null
+      },
+      "metric": null,
+      "relationship": null,
+      "computation": null,
+      "attributes": {
+        "citation_refs": [
+          "P1",
+          "P2"
+        ],
+        "explicit_source_citation": false,
+        "original_md_text": "サイト運営者が計測する：設定したページへの訪問や広告・検索からの流入を集計する。"
+      },
+      "notes": ""
+    },
+    {
+      "key": "r21",
+      "kind": "fact",
+      "domain": "customer_and_demand",
+      "subject_keys": [
+        "business"
+      ],
+      "text": "Plausibleが表示する：誰が訪問したかを追跡する代わりに、サイト運営に使う集計値を見せる。",
+      "origin": "reported",
+      "verification": "SUPPORTED",
+      "evidence_keys": [
+        "ev-p1",
+        "ev-p2"
+      ],
+      "basis_record_keys": [],
+      "time": {
+        "value": null,
+        "end": null,
+        "precision": "unknown",
+        "original": null
+      },
+      "metric": null,
+      "relationship": null,
+      "computation": null,
+      "attributes": {
+        "citation_refs": [
+          "P1",
+          "P2"
+        ],
+        "explicit_source_citation": false,
+        "original_md_text": "Plausibleが表示する：誰が訪問したかを追跡する代わりに、サイト運営に使う集計値を見せる。"
+      },
+      "notes": ""
+    },
+    {
+      "key": "r22",
+      "kind": "fact",
+      "domain": "customer_and_demand",
+      "subject_keys": [
+        "business"
+      ],
+      "text": "運営者が判断する：どのページや流入経路が役立っているかを確認し、サイト改善に使う。",
+      "origin": "reported",
+      "verification": "SUPPORTED",
+      "evidence_keys": [
+        "ev-p1",
+        "ev-p2"
+      ],
+      "basis_record_keys": [],
+      "time": {
+        "value": null,
+        "end": null,
+        "precision": "unknown",
+        "original": null
+      },
+      "metric": null,
+      "relationship": null,
+      "computation": null,
+      "attributes": {
+        "citation_refs": [
+          "P1",
+          "P2"
+        ],
+        "explicit_source_citation": false,
+        "original_md_text": "運営者が判断する：どのページや流入経路が役立っているかを確認し、サイト改善に使う。"
+      },
+      "notes": ""
+    },
+    {
+      "key": "r23",
+      "kind": "fact",
+      "domain": "customer_and_demand",
+      "subject_keys": [
+        "business"
+      ],
+      "text": "Google Analyticsを無料で使える環境でも、導入や解釈の手間、追跡や同意管理に対する方針を重視する顧客がいる。Plausibleは、その顧客が必要とする作業に絞って商品を設計した。",
+      "origin": "reported",
+      "verification": "SUPPORTED",
+      "evidence_keys": [
+        "ev-p1",
+        "ev-p3"
+      ],
+      "basis_record_keys": [],
+      "time": {
+        "value": null,
+        "end": null,
+        "precision": "unknown",
+        "original": null
+      },
+      "metric": null,
+      "relationship": null,
+      "computation": null,
+      "attributes": {
+        "citation_refs": [
+          "P1",
+          "P3"
+        ],
+        "explicit_source_citation": true,
+        "original_md_text": "Google Analyticsを無料で使える環境でも、導入や解釈の手間、追跡や同意管理に対する方針を重視する顧客がいる。Plausibleは、その顧客が必要とする作業に絞って商品を設計した。[P1][P3]"
+      },
+      "notes": ""
+    },
+    {
+      "key": "r24",
+      "kind": "analysis",
+      "domain": "customer_and_demand",
+      "subject_keys": [
+        "business"
+      ],
+      "text": "プログラムは公開され、自分のサーバーで動かす版もある。一方、クラウド契約では、サーバーの維持、更新、監視、障害時の対応を提供者側が担う。無料で入手できるソフトと、保守されたサービスは別の商品という切り分けだ。クラウドの購読料が開発とサポートを支えている。",
+      "origin": "inferred",
+      "verification": "SUPPORTED",
+      "evidence_keys": [
+        "ev-p3",
+        "ev-p4"
+      ],
+      "basis_record_keys": [],
+      "time": {
+        "value": null,
+        "end": null,
+        "precision": "unknown",
+        "original": null
+      },
+      "metric": null,
+      "relationship": null,
+      "computation": null,
+      "attributes": {
+        "citation_refs": [
+          "P3",
+          "P4"
+        ],
+        "explicit_source_citation": true,
+        "original_md_text": "プログラムは公開され、自分のサーバーで動かす版もある。一方、クラウド契約では、サーバーの維持、更新、監視、障害時の対応を提供者側が担う。無料で入手できるソフトと、保守されたサービスは別の商品という切り分けだ。クラウドの購読料が開発とサポートを支えている。[P3][P4]"
+      },
+      "notes": "資料を踏まえた構造分析。直接の発言・財務数値として断定しない。"
+    },
+    {
+      "key": "r25",
+      "kind": "fact",
+      "domain": "customer_and_demand",
+      "subject_keys": [
+        "business"
+      ],
+      "text": "このやり方は無条件に簡単ではない。2020年には自社運用者からの問い合わせが増え、サポートを無制限に約束しない方針へ変更。2020年にはMITライセンスからAGPLへ切り替え、2024年にはコミュニティ版と公式クラウドの役割を整理した。",
+      "origin": "reported",
+      "verification": "SUPPORTED",
+      "evidence_keys": [
+        "ev-p4",
+        "ev-p5"
+      ],
+      "basis_record_keys": [],
+      "time": {
+        "value": null,
+        "end": null,
+        "precision": "unknown",
+        "original": null
+      },
+      "metric": null,
+      "relationship": null,
+      "computation": null,
+      "attributes": {
+        "citation_refs": [
+          "P4",
+          "P5"
+        ],
+        "explicit_source_citation": true,
+        "original_md_text": "このやり方は無条件に簡単ではない。2020年には自社運用者からの問い合わせが増え、サポートを無制限に約束しない方針へ変更。2020年にはMITライセンスからAGPLへ切り替え、2024年にはコミュニティ版と公式クラウドの役割を整理した。[P4][P5]"
+      },
+      "notes": ""
+    },
+    {
+      "key": "r26",
+      "kind": "fact",
+      "domain": "money_and_economics",
+      "subject_keys": [
+        "business"
+      ],
+      "text": "2026年10月に確認した公式料金（月間1万ページビューの表示例、米ドル、月払い）：",
+      "origin": "reported",
+      "verification": "SUPPORTED",
+      "evidence_keys": [
+        "ev-p6"
+      ],
+      "basis_record_keys": [],
+      "time": {
+        "value": null,
+        "end": null,
+        "precision": "unknown",
+        "original": null
+      },
+      "metric": null,
+      "relationship": null,
+      "computation": null,
+      "attributes": {
+        "citation_refs": [
+          "P6"
+        ],
+        "explicit_source_citation": true,
+        "original_md_text": "2026年10月に確認した公式料金（月間1万ページビューの表示例、米ドル、月払い）：[P6]"
+      },
+      "notes": ""
+    },
+    {
+      "key": "r27",
+      "kind": "fact",
+      "domain": "money_and_economics",
+      "subject_keys": [
+        "business"
+      ],
+      "text": "Starter | 9ドル | 原則1サイト。個人・小規模のサイト計測",
+      "origin": "reported",
+      "verification": "SUPPORTED",
+      "evidence_keys": [
+        "ev-p6"
+      ],
+      "basis_record_keys": [],
+      "time": {
+        "value": null,
+        "end": null,
+        "precision": "unknown",
+        "original": null
+      },
+      "metric": null,
+      "relationship": null,
+      "computation": null,
+      "attributes": {
+        "citation_refs": [
+          "P6"
+        ],
+        "explicit_source_citation": false,
+        "original_md_text": "Starter | 9ドル | 原則1サイト。個人・小規模のサイト計測"
+      },
+      "notes": ""
+    },
+    {
+      "key": "r28",
+      "kind": "fact",
+      "domain": "money_and_economics",
+      "subject_keys": [
+        "business"
+      ],
+      "text": "Growth | 14ドル | 複数サイト、共有画面、チーム向け機能",
+      "origin": "reported",
+      "verification": "SUPPORTED",
+      "evidence_keys": [
+        "ev-p6"
+      ],
+      "basis_record_keys": [],
+      "time": {
+        "value": null,
+        "end": null,
+        "precision": "unknown",
+        "original": null
+      },
+      "metric": null,
+      "relationship": null,
+      "computation": null,
+      "attributes": {
+        "citation_refs": [
+          "P6"
+        ],
+        "explicit_source_citation": false,
+        "original_md_text": "Growth | 14ドル | 複数サイト、共有画面、チーム向け機能"
+      },
+      "notes": ""
+    },
+    {
+      "key": "r29",
+      "kind": "fact",
+      "domain": "money_and_economics",
+      "subject_keys": [
+        "business"
+      ],
+      "text": "Business | 19ドル | より多くのサイト、訪問経路・販売成果の分析、API利用",
+      "origin": "reported",
+      "verification": "SUPPORTED",
+      "evidence_keys": [
+        "ev-p6"
+      ],
+      "basis_record_keys": [],
+      "time": {
+        "value": null,
+        "end": null,
+        "precision": "unknown",
+        "original": null
+      },
+      "metric": null,
+      "relationship": null,
+      "computation": null,
+      "attributes": {
+        "citation_refs": [
+          "P6"
+        ],
+        "explicit_source_citation": false,
+        "original_md_text": "Business | 19ドル | より多くのサイト、訪問経路・販売成果の分析、API利用"
+      },
+      "notes": ""
+    },
+    {
+      "key": "r30",
+      "kind": "fact",
+      "domain": "money_and_economics",
+      "subject_keys": [
+        "business"
+      ],
+      "text": "Enterprise | 個別見積り | 大規模計測、企業認証、個別要件",
+      "origin": "reported",
+      "verification": "SUPPORTED",
+      "evidence_keys": [
+        "ev-p6"
+      ],
+      "basis_record_keys": [],
+      "time": {
+        "value": null,
+        "end": null,
+        "precision": "unknown",
+        "original": null
+      },
+      "metric": null,
+      "relationship": null,
+      "computation": null,
+      "attributes": {
+        "citation_refs": [
+          "P6"
+        ],
+        "explicit_source_citation": false,
+        "original_md_text": "Enterprise | 個別見積り | 大規模計測、企業認証、個別要件"
+      },
+      "notes": ""
+    },
+    {
+      "key": "r31",
+      "kind": "fact",
+      "domain": "money_and_economics",
+      "subject_keys": [
+        "business"
+      ],
+      "text": "30日間の無料体験はクレジットカード登録不要。課金量は単純な訪問者数ではなく、ページビューとカスタムイベントの合計で決まる。従量枠を2か月連続で超過した場合にはプラン変更の案内があり、単発の急増だけで追加請求する仕組みではない。",
+      "origin": "reported",
+      "verification": "SUPPORTED",
+      "evidence_keys": [
+        "ev-p6"
+      ],
+      "basis_record_keys": [],
+      "time": {
+        "value": null,
+        "end": null,
+        "precision": "unknown",
+        "original": null
+      },
+      "metric": null,
+      "relationship": null,
+      "computation": null,
+      "attributes": {
+        "citation_refs": [
+          "P6"
+        ],
+        "explicit_source_citation": true,
+        "original_md_text": "30日間の無料体験はクレジットカード登録不要。課金量は単純な訪問者数ではなく、ページビューとカスタムイベントの合計で決まる。従量枠を2か月連続で超過した場合にはプラン変更の案内があり、単発の急増だけで追加請求する仕組みではない。[P6]"
+      },
+      "notes": ""
+    },
+    {
+      "key": "r32",
+      "kind": "fact",
+      "domain": "money_and_economics",
+      "subject_keys": [
+        "business"
+      ],
+      "text": "2019年5月 | MRR 64ドル | 60人のベータ利用者の一部が有料化",
+      "origin": "reported",
+      "verification": "SUPPORTED",
+      "evidence_keys": [
+        "ev-p6"
+      ],
+      "basis_record_keys": [],
+      "time": {
+        "value": null,
+        "end": null,
+        "precision": "unknown",
+        "original": null
+      },
+      "metric": null,
+      "relationship": null,
+      "computation": null,
+      "attributes": {
+        "citation_refs": [
+          "P6"
+        ],
+        "explicit_source_citation": false,
+        "original_md_text": "2019年5月 | MRR 64ドル | 60人のベータ利用者の一部が有料化"
+      },
+      "notes": ""
+    },
+    {
+      "key": "r33",
+      "kind": "fact",
+      "domain": "money_and_economics",
+      "subject_keys": [
+        "business"
+      ],
+      "text": "2020年3月 | MRR 433ドル | マーケティング担当が参加、2人体制",
+      "origin": "reported",
+      "verification": "SUPPORTED",
+      "evidence_keys": [
+        "ev-p6"
+      ],
+      "basis_record_keys": [],
+      "time": {
+        "value": null,
+        "end": null,
+        "precision": "unknown",
+        "original": null
+      },
+      "metric": null,
+      "relationship": null,
+      "computation": null,
+      "attributes": {
+        "citation_refs": [
+          "P6"
+        ],
+        "explicit_source_citation": false,
+        "original_md_text": "2020年3月 | MRR 433ドル | マーケティング担当が参加、2人体制"
+      },
+      "notes": ""
+    },
+    {
+      "key": "r34",
+      "kind": "fact",
+      "domain": "money_and_economics",
+      "subject_keys": [
+        "business"
+      ],
+      "text": "2020年12月 | MRR 8,999ドル | ブログ・検索・紹介を積み上げた",
+      "origin": "reported",
+      "verification": "SUPPORTED",
+      "evidence_keys": [
+        "ev-p6"
+      ],
+      "basis_record_keys": [],
+      "time": {
+        "value": null,
+        "end": null,
+        "precision": "unknown",
+        "original": null
+      },
+      "metric": null,
+      "relationship": null,
+      "computation": null,
+      "attributes": {
+        "citation_refs": [
+          "P6"
+        ],
+        "explicit_source_citation": false,
+        "original_md_text": "2020年12月 | MRR 8,999ドル | ブログ・検索・紹介を積み上げた"
+      },
+      "notes": ""
+    },
+    {
+      "key": "r35",
+      "kind": "fact",
+      "domain": "money_and_economics",
+      "subject_keys": [
+        "business"
+      ],
+      "text": "2021年10月 | MRR 42,624ドル | 年換算継続収益約50万ドルの段階",
+      "origin": "reported",
+      "verification": "SUPPORTED",
+      "evidence_keys": [
+        "ev-p6"
+      ],
+      "basis_record_keys": [],
+      "time": {
+        "value": null,
+        "end": null,
+        "precision": "unknown",
+        "original": null
+      },
+      "metric": null,
+      "relationship": null,
+      "computation": null,
+      "attributes": {
+        "citation_refs": [
+          "P6"
+        ],
+        "explicit_source_citation": false,
+        "original_md_text": "2021年10月 | MRR 42,624ドル | 年換算継続収益約50万ドルの段階"
+      },
+      "notes": ""
+    },
+    {
+      "key": "r36",
+      "kind": "fact",
+      "domain": "money_and_economics",
+      "subject_keys": [
+        "business"
+      ],
+      "text": "2022年6月 | MRR 83,637ドル | 年換算継続収益100万ドル超",
+      "origin": "reported",
+      "verification": "SUPPORTED",
+      "evidence_keys": [
+        "ev-p6"
+      ],
+      "basis_record_keys": [],
+      "time": {
+        "value": null,
+        "end": null,
+        "precision": "unknown",
+        "original": null
+      },
+      "metric": null,
+      "relationship": null,
+      "computation": null,
+      "attributes": {
+        "citation_refs": [
+          "P6"
+        ],
+        "explicit_source_citation": false,
+        "original_md_text": "2022年6月 | MRR 83,637ドル | 年換算継続収益100万ドル超"
+      },
+      "notes": ""
+    },
+    {
+      "key": "r37",
+      "kind": "fact",
+      "domain": "money_and_economics",
+      "subject_keys": [
+        "business"
+      ],
+      "text": "※ MRRは各時点の月額継続契約の規模、ARRはその年換算。実際の年間売上や年間利益ではない。",
+      "origin": "reported",
+      "verification": "SUPPORTED",
+      "evidence_keys": [
+        "ev-p2"
+      ],
+      "basis_record_keys": [],
+      "time": {
+        "value": null,
+        "end": null,
+        "precision": "unknown",
+        "original": null
+      },
+      "metric": null,
+      "relationship": null,
+      "computation": null,
+      "attributes": {
+        "citation_refs": [
+          "P2"
+        ],
+        "explicit_source_citation": true,
+        "original_md_text": "※ MRRは各時点の月額継続契約の規模、ARRはその年換算。実際の年間売上や年間利益ではない。[P2]"
+      },
+      "notes": ""
+    },
+    {
+      "key": "r38",
+      "kind": "fact",
+      "domain": "money_and_economics",
+      "subject_keys": [
+        "business"
+      ],
+      "text": "2021年1月に月額継続収益が約1.1万ドルへ達した時点で、本人たちは費用をようやく賄えるようになったと説明している。それまで2人の個人貯蓄の減少は合計5万ドルを超えていた。「2人で年100万ドル」の数字だけでは見えない、立ち上げに必要だった時間と自己負担だ。",
+      "origin": "reported",
+      "verification": "SUPPORTED",
+      "evidence_keys": [
+        "ev-p2"
+      ],
+      "basis_record_keys": [],
+      "time": {
+        "value": null,
+        "end": null,
+        "precision": "unknown",
+        "original": null
+      },
+      "metric": null,
+      "relationship": null,
+      "computation": null,
+      "attributes": {
+        "citation_refs": [
+          "P2"
+        ],
+        "explicit_source_citation": true,
+        "original_md_text": "2021年1月に月額継続収益が約1.1万ドルへ達した時点で、本人たちは費用をようやく賄えるようになったと説明している。それまで2人の個人貯蓄の減少は合計5万ドルを超えていた。「2人で年100万ドル」の数字だけでは見えない、立ち上げに必要だった時間と自己負担だ。[P2]"
+      },
+      "notes": ""
+    },
+    {
+      "key": "r39",
+      "kind": "fact",
+      "domain": "money_and_economics",
+      "subject_keys": [
+        "business"
+      ],
+      "text": "現在の公式ページは「自社資金で運営し黒字、収益源は購読料」と案内している。ただし最新の利益額、営業利益率、創業者の受取額は公表資料から確定できていない。",
+      "origin": "reported",
+      "verification": "SUPPORTED",
+      "evidence_keys": [
+        "ev-p3"
+      ],
+      "basis_record_keys": [],
+      "time": {
+        "value": null,
+        "end": null,
+        "precision": "unknown",
+        "original": null
+      },
+      "metric": null,
+      "relationship": null,
+      "computation": null,
+      "attributes": {
+        "citation_refs": [
+          "P3"
+        ],
+        "explicit_source_citation": true,
+        "original_md_text": "現在の公式ページは「自社資金で運営し黒字、収益源は購読料」と案内している。ただし最新の利益額、営業利益率、創業者の受取額は公表資料から確定できていない。[P3]"
+      },
+      "notes": ""
+    },
+    {
+      "key": "r40",
+      "kind": "fact",
+      "domain": "distribution",
+      "subject_keys": [
+        "business"
+      ],
+      "text": "2019年1月：Indie Hackersでベータ版を公開し、開発の進み具合を発信。",
+      "origin": "reported",
+      "verification": "SUPPORTED",
+      "evidence_keys": [
+        "ev-p2",
+        "ev-p7"
+      ],
+      "basis_record_keys": [],
+      "time": {
+        "value": null,
+        "end": null,
+        "precision": "unknown",
+        "original": null
+      },
+      "metric": null,
+      "relationship": null,
+      "computation": null,
+      "attributes": {
+        "citation_refs": [
+          "P2",
+          "P7"
+        ],
+        "explicit_source_citation": false,
+        "original_md_text": "2019年1月：Indie Hackersでベータ版を公開し、開発の進み具合を発信。"
+      },
+      "notes": ""
+    },
+    {
+      "key": "r41",
+      "kind": "fact",
+      "domain": "distribution",
+      "subject_keys": [
+        "business"
+      ],
+      "text": "2019年5月：ベータ利用者60人のうち一部が有料契約へ移行。月次継続収益64ドル。",
+      "origin": "reported",
+      "verification": "SUPPORTED",
+      "evidence_keys": [
+        "ev-p2",
+        "ev-p7"
+      ],
+      "basis_record_keys": [],
+      "time": {
+        "value": null,
+        "end": null,
+        "precision": "unknown",
+        "original": null
+      },
+      "metric": null,
+      "relationship": null,
+      "computation": null,
+      "attributes": {
+        "citation_refs": [
+          "P2",
+          "P7"
+        ],
+        "explicit_source_citation": false,
+        "original_md_text": "2019年5月：ベータ利用者60人のうち一部が有料契約へ移行。月次継続収益64ドル。"
+      },
+      "notes": ""
+    },
+    {
+      "key": "r42",
+      "kind": "fact",
+      "domain": "distribution",
+      "subject_keys": [
+        "business"
+      ],
+      "text": "2020年3月：Markoが合流。製品の呼び方、サイト構成、Google Analyticsとの違いを伝える文章を整理。",
+      "origin": "reported",
+      "verification": "SUPPORTED",
+      "evidence_keys": [
+        "ev-p2",
+        "ev-p7"
+      ],
+      "basis_record_keys": [],
+      "time": {
+        "value": null,
+        "end": null,
+        "precision": "unknown",
+        "original": null
+      },
+      "metric": null,
+      "relationship": null,
+      "computation": null,
+      "attributes": {
+        "citation_refs": [
+          "P2",
+          "P7"
+        ],
+        "explicit_source_citation": false,
+        "original_md_text": "2020年3月：Markoが合流。製品の呼び方、サイト構成、Google Analyticsとの違いを伝える文章を整理。"
+      },
+      "notes": ""
+    },
+    {
+      "key": "r43",
+      "kind": "fact",
+      "domain": "distribution",
+      "subject_keys": [
+        "business"
+      ],
+      "text": "2020年4月：Google Analyticsをやめる理由を説明する記事を公開し、Hacker Newsで紹介された。数日間で5万件超の閲覧、公開後1週間で新規無料体験166件を獲得したと報告。",
+      "origin": "reported",
+      "verification": "SUPPORTED",
+      "evidence_keys": [
+        "ev-p2",
+        "ev-p7"
+      ],
+      "basis_record_keys": [],
+      "time": {
+        "value": null,
+        "end": null,
+        "precision": "unknown",
+        "original": null
+      },
+      "metric": null,
+      "relationship": null,
+      "computation": null,
+      "attributes": {
+        "citation_refs": [
+          "P2",
+          "P7"
+        ],
+        "explicit_source_citation": true,
+        "original_md_text": "2020年4月：Google Analyticsをやめる理由を説明する記事を公開し、Hacker Newsで紹介された。数日間で5万件超の閲覧、公開後1週間で新規無料体験166件を獲得したと報告。[P2][P7]"
+      },
+      "notes": ""
+    },
+    {
+      "key": "r44",
+      "kind": "fact",
+      "domain": "distribution",
+      "subject_keys": [
+        "business"
+      ],
+      "text": "2020年の数字を見ると、話題化が即日そのまま月額売上になったわけではない。無料体験を挟むため、最初にアクセスと体験申込が増え、その後に購読契約へ進んでいる。",
+      "origin": "reported",
+      "verification": "SUPPORTED",
+      "evidence_keys": [
+        "ev-p2"
+      ],
+      "basis_record_keys": [],
+      "time": {
+        "value": null,
+        "end": null,
+        "precision": "unknown",
+        "original": null
+      },
+      "metric": null,
+      "relationship": null,
+      "computation": null,
+      "attributes": {
+        "citation_refs": [
+          "P2"
+        ],
+        "explicit_source_citation": true,
+        "original_md_text": "2020年の数字を見ると、話題化が即日そのまま月額売上になったわけではない。無料体験を挟むため、最初にアクセスと体験申込が増え、その後に購読契約へ進んでいる。[P2]"
+      },
+      "notes": ""
+    },
+    {
+      "key": "r45",
+      "kind": "fact",
+      "domain": "distribution",
+      "subject_keys": [
+        "business"
+      ],
+      "text": "MarkoはGoogle Analytics、プライバシー、クッキーバナーなどの話題を検索し、悩みを投稿した人へ具体的に返信していた。Hacker News、Reddit、SNSでの会話だけではなく、検索から発見される比較記事や解説記事を継続的に制作。2020年5月には影響力のある技術系サイトへの営業連絡の一部が掲載につながり、同月2日に94件の無料体験登録があった。",
+      "origin": "reported",
+      "verification": "SUPPORTED",
+      "evidence_keys": [
+        "ev-p2",
+        "ev-p8"
+      ],
+      "basis_record_keys": [],
+      "time": {
+        "value": null,
+        "end": null,
+        "precision": "unknown",
+        "original": null
+      },
+      "metric": null,
+      "relationship": null,
+      "computation": null,
+      "attributes": {
+        "citation_refs": [
+          "P2",
+          "P8"
+        ],
+        "explicit_source_citation": true,
+        "original_md_text": "MarkoはGoogle Analytics、プライバシー、クッキーバナーなどの話題を検索し、悩みを投稿した人へ具体的に返信していた。Hacker News、Reddit、SNSでの会話だけではなく、検索から発見される比較記事や解説記事を継続的に制作。2020年5月には影響力のある技術系サイトへの営業連絡の一部が掲載につながり、同月2日に94件の無料体験登録があった。[P2][P8]"
+      },
+      "notes": ""
+    },
+    {
+      "key": "r46",
+      "kind": "analysis",
+      "domain": "distribution",
+      "subject_keys": [
+        "business"
+      ],
+      "text": "2020年8月のProduct Hunt公開では、初日に1,000件超の訪問と15件の無料体験登録を得た一方、数日後の流入は20件未満へ落ちた。単発の新製品公開に頼らず、記事・検索・口コミの継続経路を育てたことが分かる。",
+      "origin": "inferred",
+      "verification": "SUPPORTED",
+      "evidence_keys": [
+        "ev-p2"
+      ],
+      "basis_record_keys": [],
+      "time": {
+        "value": null,
+        "end": null,
+        "precision": "unknown",
+        "original": null
+      },
+      "metric": null,
+      "relationship": null,
+      "computation": null,
+      "attributes": {
+        "citation_refs": [
+          "P2"
+        ],
+        "explicit_source_citation": true,
+        "original_md_text": "2020年8月のProduct Hunt公開では、初日に1,000件超の訪問と15件の無料体験登録を得た一方、数日後の流入は20件未満へ落ちた。単発の新製品公開に頼らず、記事・検索・口コミの継続経路を育てたことが分かる。[P2]"
+      },
+      "notes": "資料を踏まえた構造分析。直接の発言・財務数値として断定しない。"
+    },
+    {
+      "key": "r47",
+      "kind": "fact",
+      "domain": "operations",
+      "subject_keys": [
+        "business"
+      ],
+      "text": "開発担当のUkuは製品開発・機能改善を担い、2020年からMarkoが記事制作、利用者対応、コミュニティ運営を引き受けた。",
+      "origin": "reported",
+      "verification": "SUPPORTED",
+      "evidence_keys": [
+        "ev-p2",
+        "ev-p9"
+      ],
+      "basis_record_keys": [],
+      "time": {
+        "value": null,
+        "end": null,
+        "precision": "unknown",
+        "original": null
+      },
+      "metric": null,
+      "relationship": null,
+      "computation": null,
+      "attributes": {
+        "citation_refs": [
+          "P2",
+          "P9"
+        ],
+        "explicit_source_citation": false,
+        "original_md_text": "開発担当のUkuは製品開発・機能改善を担い、2020年からMarkoが記事制作、利用者対応、コミュニティ運営を引き受けた。"
+      },
+      "notes": ""
+    },
+    {
+      "key": "r48",
+      "kind": "fact",
+      "domain": "operations",
+      "subject_keys": [
+        "business"
+      ],
+      "text": "2020年6月には、顧客が増えて集計画面が遅くなったため、集計データベースをPostgreSQLからClickHouseに移行した。",
+      "origin": "reported",
+      "verification": "SUPPORTED",
+      "evidence_keys": [
+        "ev-p2",
+        "ev-p9"
+      ],
+      "basis_record_keys": [],
+      "time": {
+        "value": null,
+        "end": null,
+        "precision": "unknown",
+        "original": null
+      },
+      "metric": null,
+      "relationship": null,
+      "computation": null,
+      "attributes": {
+        "citation_refs": [
+          "P2",
+          "P9"
+        ],
+        "explicit_source_citation": false,
+        "original_md_text": "2020年6月には、顧客が増えて集計画面が遅くなったため、集計データベースをPostgreSQLからClickHouseに移行した。"
+      },
+      "notes": ""
+    },
+    {
+      "key": "r49",
+      "kind": "fact",
+      "domain": "operations",
+      "subject_keys": [
+        "business"
+      ],
+      "text": "2021年には問い合わせ増加に対応してヘルプ記事を整え、技術サポートを補う人材も加えた。顧客対応を完全な無人化にはしていない。",
+      "origin": "reported",
+      "verification": "SUPPORTED",
+      "evidence_keys": [
+        "ev-p2",
+        "ev-p9"
+      ],
+      "basis_record_keys": [],
+      "time": {
+        "value": null,
+        "end": null,
+        "precision": "unknown",
+        "original": null
+      },
+      "metric": null,
+      "relationship": null,
+      "computation": null,
+      "attributes": {
+        "citation_refs": [
+          "P2",
+          "P9"
+        ],
+        "explicit_source_citation": true,
+        "original_md_text": "2021年には問い合わせ増加に対応してヘルプ記事を整え、技術サポートを補う人材も加えた。顧客対応を完全な無人化にはしていない。[P2][P9]"
+      },
+      "notes": ""
+    },
+    {
+      "key": "r50",
+      "kind": "fact",
+      "domain": "operations",
+      "subject_keys": [
+        "business"
+      ],
+      "text": "2022年の4人体制で月10億件以上のページビューを処理すると公表。2026年10月に閲覧した会社紹介ではチーム10人、有料顧客21,000超。人数だけから生産性や利益額を推計することはできないが、データ処理の維持と人によるサポートが必要な商売だと分かる。",
+      "origin": "reported",
+      "verification": "SUPPORTED",
+      "evidence_keys": [
+        "ev-p2",
+        "ev-p3"
+      ],
+      "basis_record_keys": [],
+      "time": {
+        "value": null,
+        "end": null,
+        "precision": "unknown",
+        "original": null
+      },
+      "metric": null,
+      "relationship": null,
+      "computation": null,
+      "attributes": {
+        "citation_refs": [
+          "P2",
+          "P3"
+        ],
+        "explicit_source_citation": true,
+        "original_md_text": "2022年の4人体制で月10億件以上のページビューを処理すると公表。2026年10月に閲覧した会社紹介ではチーム10人、有料顧客21,000超。人数だけから生産性や利益額を推計することはできないが、データ処理の維持と人によるサポートが必要な商売だと分かる。[P2][P3]"
+      },
+      "notes": ""
+    },
+    {
+      "key": "r51",
+      "kind": "fact",
+      "domain": "operations",
+      "subject_keys": [
+        "business"
+      ],
+      "text": "クラウドの契約者は料金を払い、更新・運営・支援を受ける。自社サーバーで動かす人にはソフトを公開するが、すべての個別環境のトラブルを無償で直す約束はしない。無償版と有料版が共存するための運営上の線引きだ。",
+      "origin": "reported",
+      "verification": "SUPPORTED",
+      "evidence_keys": [
+        "ev-p4"
+      ],
+      "basis_record_keys": [],
+      "time": {
+        "value": null,
+        "end": null,
+        "precision": "unknown",
+        "original": null
+      },
+      "metric": null,
+      "relationship": null,
+      "computation": null,
+      "attributes": {
+        "citation_refs": [
+          "P4"
+        ],
+        "explicit_source_citation": true,
+        "original_md_text": "クラウドの契約者は料金を払い、更新・運営・支援を受ける。自社サーバーで動かす人にはソフトを公開するが、すべての個別環境のトラブルを無償で直す約束はしない。無償版と有料版が共存するための運営上の線引きだ。[P4]"
+      },
+      "notes": ""
+    },
+    {
+      "key": "r52",
+      "kind": "fact",
+      "domain": "timeline_and_outcomes",
+      "subject_keys": [
+        "business"
+      ],
+      "text": "2018年12月：Google Analyticsの導入を頼まれたUkuが、もっと単純な代替手段を作り始める。",
+      "origin": "reported",
+      "verification": "SUPPORTED",
+      "evidence_keys": [
+        "ev-p2",
+        "ev-p3",
+        "ev-p5"
+      ],
+      "basis_record_keys": [],
+      "time": {
+        "value": null,
+        "end": null,
+        "precision": "unknown",
+        "original": null
+      },
+      "metric": null,
+      "relationship": null,
+      "computation": null,
+      "attributes": {
+        "citation_refs": [
+          "P2",
+          "P3",
+          "P5"
+        ],
+        "explicit_source_citation": false,
+        "original_md_text": "2018年12月：Google Analyticsの導入を頼まれたUkuが、もっと単純な代替手段を作り始める。"
+      },
+      "notes": ""
+    },
+    {
+      "key": "r53",
+      "kind": "fact",
+      "domain": "timeline_and_outcomes",
+      "subject_keys": [
+        "business"
+      ],
+      "text": "2019年：ベータ版公開・課金開始。開発公開と小規模コミュニティが初期の顧客接点。",
+      "origin": "reported",
+      "verification": "SUPPORTED",
+      "evidence_keys": [
+        "ev-p2",
+        "ev-p3",
+        "ev-p5"
+      ],
+      "basis_record_keys": [],
+      "time": {
+        "value": null,
+        "end": null,
+        "precision": "unknown",
+        "original": null
+      },
+      "metric": null,
+      "relationship": null,
+      "computation": null,
+      "attributes": {
+        "citation_refs": [
+          "P2",
+          "P3",
+          "P5"
+        ],
+        "explicit_source_citation": false,
+        "original_md_text": "2019年：ベータ版公開・課金開始。開発公開と小規模コミュニティが初期の顧客接点。"
+      },
+      "notes": ""
+    },
+    {
+      "key": "r54",
+      "kind": "fact",
+      "domain": "timeline_and_outcomes",
+      "subject_keys": [
+        "business"
+      ],
+      "text": "2020年前半：マーケティング担当を迎え、訴求を明確化。記事経由の大きな流入を獲得し、無料体験が増える。",
+      "origin": "reported",
+      "verification": "SUPPORTED",
+      "evidence_keys": [
+        "ev-p2",
+        "ev-p3",
+        "ev-p5"
+      ],
+      "basis_record_keys": [],
+      "time": {
+        "value": null,
+        "end": null,
+        "precision": "unknown",
+        "original": null
+      },
+      "metric": null,
+      "relationship": null,
+      "computation": null,
+      "attributes": {
+        "citation_refs": [
+          "P2",
+          "P3",
+          "P5"
+        ],
+        "explicit_source_citation": false,
+        "original_md_text": "2020年前半：マーケティング担当を迎え、訴求を明確化。記事経由の大きな流入を獲得し、無料体験が増える。"
+      },
+      "notes": ""
+    },
+    {
+      "key": "r55",
+      "kind": "fact",
+      "domain": "timeline_and_outcomes",
+      "subject_keys": [
+        "business"
+      ],
+      "text": "2020年後半：負荷増加への対応、ライセンス変更、サポート範囲の整理。",
+      "origin": "reported",
+      "verification": "SUPPORTED",
+      "evidence_keys": [
+        "ev-p2",
+        "ev-p3",
+        "ev-p5"
+      ],
+      "basis_record_keys": [],
+      "time": {
+        "value": null,
+        "end": null,
+        "precision": "unknown",
+        "original": null
+      },
+      "metric": null,
+      "relationship": null,
+      "computation": null,
+      "attributes": {
+        "citation_refs": [
+          "P2",
+          "P3",
+          "P5"
+        ],
+        "explicit_source_citation": false,
+        "original_md_text": "2020年後半：負荷増加への対応、ライセンス変更、サポート範囲の整理。"
+      },
+      "notes": ""
+    },
+    {
+      "key": "r56",
+      "kind": "fact",
+      "domain": "timeline_and_outcomes",
+      "subject_keys": [
+        "business"
+      ],
+      "text": "2021〜2022年：検索流入、顧客紹介、プライバシー規制への関心の高まりを背景に成長。2022年に年換算継続収益100万ドルへ到達。",
+      "origin": "reported",
+      "verification": "SUPPORTED",
+      "evidence_keys": [
+        "ev-p2",
+        "ev-p3",
+        "ev-p5"
+      ],
+      "basis_record_keys": [],
+      "time": {
+        "value": null,
+        "end": null,
+        "precision": "unknown",
+        "original": null
+      },
+      "metric": null,
+      "relationship": null,
+      "computation": null,
+      "attributes": {
+        "citation_refs": [
+          "P2",
+          "P3",
+          "P5"
+        ],
+        "explicit_source_citation": false,
+        "original_md_text": "2021〜2022年：検索流入、顧客紹介、プライバシー規制への関心の高まりを背景に成長。2022年に年換算継続収益100万ドルへ到達。"
+      },
+      "notes": ""
+    },
+    {
+      "key": "r57",
+      "kind": "fact",
+      "domain": "timeline_and_outcomes",
+      "subject_keys": [
+        "business"
+      ],
+      "text": "2024年以降：自己運用版をコミュニティ版として整理し、現在も有料クラウドを中心に運営。",
+      "origin": "reported",
+      "verification": "SUPPORTED",
+      "evidence_keys": [
+        "ev-p2",
+        "ev-p3",
+        "ev-p5"
+      ],
+      "basis_record_keys": [],
+      "time": {
+        "value": null,
+        "end": null,
+        "precision": "unknown",
+        "original": null
+      },
+      "metric": null,
+      "relationship": null,
+      "computation": null,
+      "attributes": {
+        "citation_refs": [
+          "P2",
+          "P3",
+          "P5"
+        ],
+        "explicit_source_citation": true,
+        "original_md_text": "2024年以降：自己運用版をコミュニティ版として整理し、現在も有料クラウドを中心に運営。[P2][P3][P5]"
+      },
+      "notes": ""
+    },
+    {
+      "key": "r58",
+      "kind": "analysis",
+      "domain": "timeline_and_outcomes",
+      "subject_keys": [
+        "business"
+      ],
+      "text": "この事例から確認できるのは、特定の利用者にとっての不満が明確だったこと、比較対象がはっきりしていたこと、記事を読んだ人が実際に試せる製品が既にあったことだ。一方で、2022年の規制動向やGoogle Analyticsの製品変更も後押しになっている。いま同じ時期・同じ競争条件で参入できる保証はない。",
+      "origin": "inferred",
+      "verification": "SUPPORTED",
+      "evidence_keys": [
+        "ev-p2"
+      ],
+      "basis_record_keys": [],
+      "time": {
+        "value": null,
+        "end": null,
+        "precision": "unknown",
+        "original": null
+      },
+      "metric": null,
+      "relationship": null,
+      "computation": null,
+      "attributes": {
+        "citation_refs": [
+          "P2"
+        ],
+        "explicit_source_citation": true,
+        "original_md_text": "この事例から確認できるのは、特定の利用者にとっての不満が明確だったこと、比較対象がはっきりしていたこと、記事を読んだ人が実際に試せる製品が既にあったことだ。一方で、2022年の規制動向やGoogle Analyticsの製品変更も後押しになっている。いま同じ時期・同じ競争条件で参入できる保証はない。[P2]"
+      },
+      "notes": "資料を踏まえた構造分析。直接の発言・財務数値として断定しない。"
+    }
+  ],
+  "article_state": "ready_for_review",
+  "article": {
+    "language": "ja",
+    "title": "Plausible Analytics｜無料のGoogle Analyticsに対抗し、使いやすさとプライバシーを月額商品にした",
+    "list_line": "Webサイトの訪問状況を、クッキーなしで見やすく確認できる有料アクセス解析。2019年の有料化から約3年で年換算継続収益100万ドルに到達した。",
+    "headline_record_keys": [
+      "r1",
+      "r2",
+      "r3"
+    ],
+    "overview": [
+      {
+        "text": "・商品：Webサイトに小さな計測コードを設置すると、訪問数、参照元、人気ページ、目標達成などを一つのダッシュボードで確認できるサービス。",
+        "record_keys": [
+          "r16"
+        ],
+        "interpretation": false
+      },
+      {
+        "text": "・利用者：自社サイトの集客を把握したい運営者、制作会社、企業のマーケティング担当者。導入先の規模や利用者数が違っても、主にサイトを管理する側が料金を負担する。",
+        "record_keys": [
+          "r17"
+        ],
+        "interpretation": false
+      },
+      {
+        "text": "・売り方：無料体験の後は、管理するサイト数、チーム機能、計測する閲覧数などに応じた定期契約。閲覧者の個人情報を広告販売する商売ではない。",
+        "record_keys": [
+          "r18"
+        ],
+        "interpretation": false
+      },
+      {
+        "text": "創業者のUku Tähtが2018年末に開発を始め、2019年に有料化。2020年にはマーケティングを担当するMarko Saricが加わった。大手の無料製品と機能数で競争するのではなく、画面の単純さ、クッキーを使わない計測、欧州でのデータ管理、公開されたソースコードを選ぶ理由にしている。",
+        "record_keys": [
+          "r19"
+        ],
+        "interpretation": false
+      }
+    ],
+    "key_record_keys": [
+      "r1",
+      "r2",
+      "r3",
+      "r4",
+      "r5",
+      "r6",
+      "r7",
+      "r8",
+      "r9",
+      "r10",
+      "r11",
+      "r12"
+    ],
+    "gallery_visual_keys": [
+      "plausible-model",
+      "plausible-mrr"
+    ],
+    "sections": [
+      {
+        "id": "insight",
+        "title": "仕組み",
+        "lead": null,
+        "blocks": [
+          {
+            "key": "b2",
+            "type": "text",
+            "title": "複雑な設定を減らした分析画面を月額で提供する",
+            "record_keys": [
+              "r20",
+              "r21",
+              "r22",
+              "r23"
+            ],
+            "paragraphs": [
+              {
+                "text": "1. サイト運営者が計測する：設定したページへの訪問や広告・検索からの流入を集計する。",
+                "record_keys": [
+                  "r20"
+                ],
+                "interpretation": false
+              },
+              {
+                "text": "2. Plausibleが表示する：誰が訪問したかを追跡する代わりに、サイト運営に使う集計値を見せる。",
+                "record_keys": [
+                  "r21"
+                ],
+                "interpretation": false
+              },
+              {
+                "text": "3. 運営者が判断する：どのページや流入経路が役立っているかを確認し、サイト改善に使う。",
+                "record_keys": [
+                  "r22"
+                ],
+                "interpretation": false
+              },
+              {
+                "text": "Google Analyticsを無料で使える環境でも、導入や解釈の手間、追跡や同意管理に対する方針を重視する顧客がいる。Plausibleは、その顧客が必要とする作業に絞って商品を設計した。",
+                "record_keys": [
+                  "r23"
+                ],
+                "interpretation": false
+              }
+            ]
+          },
+          {
+            "key": "b3",
+            "type": "text",
+            "title": "コードは公開し、自社運用の手間を引き受けるクラウドを売る",
+            "record_keys": [
+              "r24",
+              "r25"
+            ],
+            "paragraphs": [
+              {
+                "text": "プログラムは公開され、自分のサーバーで動かす版もある。一方、クラウド契約では、サーバーの維持、更新、監視、障害時の対応を提供者側が担う。無料で入手できるソフトと、保守されたサービスは別の商品という切り分けだ。クラウドの購読料が開発とサポートを支えている。",
+                "record_keys": [
+                  "r24"
+                ],
+                "interpretation": true
+              },
+              {
+                "text": "このやり方は無条件に簡単ではない。2020年には自社運用者からの問い合わせが増え、サポートを無制限に約束しない方針へ変更。2020年にはMITライセンスからAGPLへ切り替え、2024年にはコミュニティ版と公式クラウドの役割を整理した。",
+                "record_keys": [
+                  "r25"
+                ],
+                "interpretation": false
+              }
+            ]
+          },
+          {
+            "key": "b4",
+            "type": "visual",
+            "title": null,
+            "record_keys": [
+              "r1",
+              "r2"
+            ],
+            "visual_key": "plausible-model",
+            "caption": {
+              "text": "Plausibleの事業構造",
+              "record_keys": [
+                "r1",
+                "r2"
+              ],
+              "interpretation": false
+            }
+          }
+        ]
+      },
+      {
+        "id": "money",
+        "title": "お金",
+        "lead": null,
+        "blocks": [
+          {
+            "key": "b5",
+            "type": "text",
+            "title": "サイト規模と業務で必要な機能が増えるほど、毎月の契約額も上がる",
+            "record_keys": [
+              "r26"
+            ],
+            "paragraphs": [
+              {
+                "text": "2026年10月に確認した公式料金（月間1万ページビューの表示例、米ドル、月払い）：",
+                "record_keys": [
+                  "r26"
+                ],
+                "interpretation": false
+              }
+            ]
+          },
+          {
+            "key": "b6",
+            "type": "table",
+            "title": null,
+            "record_keys": [
+              "r29",
+              "r28",
+              "r30",
+              "r27"
+            ],
+            "columns": [
+              "プラン",
+              "月額",
+              "課金対象と使い方"
+            ],
+            "rows": [
+              [
+                {
+                  "text": "Starter",
+                  "record_keys": [
+                    "r27"
+                  ],
+                  "interpretation": false
+                },
+                {
+                  "text": "9ドル",
+                  "record_keys": [
+                    "r27"
+                  ],
+                  "interpretation": false
+                },
+                {
+                  "text": "原則1サイト。個人・小規模のサイト計測",
+                  "record_keys": [
+                    "r27"
+                  ],
+                  "interpretation": false
+                }
+              ],
+              [
+                {
+                  "text": "Growth",
+                  "record_keys": [
+                    "r28"
+                  ],
+                  "interpretation": false
+                },
+                {
+                  "text": "14ドル",
+                  "record_keys": [
+                    "r28"
+                  ],
+                  "interpretation": false
+                },
+                {
+                  "text": "複数サイト、共有画面、チーム向け機能",
+                  "record_keys": [
+                    "r28"
+                  ],
+                  "interpretation": false
+                }
+              ],
+              [
+                {
+                  "text": "Business",
+                  "record_keys": [
+                    "r29"
+                  ],
+                  "interpretation": false
+                },
+                {
+                  "text": "19ドル",
+                  "record_keys": [
+                    "r29"
+                  ],
+                  "interpretation": false
+                },
+                {
+                  "text": "より多くのサイト、訪問経路・販売成果の分析、API利用",
+                  "record_keys": [
+                    "r29"
+                  ],
+                  "interpretation": false
+                }
+              ],
+              [
+                {
+                  "text": "Enterprise",
+                  "record_keys": [
+                    "r30"
+                  ],
+                  "interpretation": false
+                },
+                {
+                  "text": "個別見積り",
+                  "record_keys": [
+                    "r30"
+                  ],
+                  "interpretation": false
+                },
+                {
+                  "text": "大規模計測、企業認証、個別要件",
+                  "record_keys": [
+                    "r30"
+                  ],
+                  "interpretation": false
+                }
+              ]
+            ],
+            "caption": null
+          },
+          {
+            "key": "b7",
+            "type": "text",
+            "title": null,
+            "record_keys": [
+              "r31"
+            ],
+            "paragraphs": [
+              {
+                "text": "30日間の無料体験はクレジットカード登録不要。課金量は単純な訪問者数ではなく、ページビューとカスタムイベントの合計で決まる。従量枠を2か月連続で超過した場合にはプラン変更の案内があり、単発の急増だけで追加請求する仕組みではない。",
+                "record_keys": [
+                  "r31"
+                ],
+                "interpretation": false
+              }
+            ]
+          },
+          {
+            "key": "b8",
+            "type": "table",
+            "title": "開発から約3年で、年換算継続収益100万ドルに到達した",
+            "record_keys": [
+              "r32",
+              "r35",
+              "r34",
+              "r36",
+              "r33"
+            ],
+            "columns": [
+              "時期",
+              "確認できる実績",
+              "当時の状況"
+            ],
+            "rows": [
+              [
+                {
+                  "text": "2019年5月",
+                  "record_keys": [
+                    "r32"
+                  ],
+                  "interpretation": false
+                },
+                {
+                  "text": "MRR 64ドル",
+                  "record_keys": [
+                    "r32"
+                  ],
+                  "interpretation": false
+                },
+                {
+                  "text": "60人のベータ利用者の一部が有料化",
+                  "record_keys": [
+                    "r32"
+                  ],
+                  "interpretation": false
+                }
+              ],
+              [
+                {
+                  "text": "2020年3月",
+                  "record_keys": [
+                    "r33"
+                  ],
+                  "interpretation": false
+                },
+                {
+                  "text": "MRR 433ドル",
+                  "record_keys": [
+                    "r33"
+                  ],
+                  "interpretation": false
+                },
+                {
+                  "text": "マーケティング担当が参加、2人体制",
+                  "record_keys": [
+                    "r33"
+                  ],
+                  "interpretation": false
+                }
+              ],
+              [
+                {
+                  "text": "2020年12月",
+                  "record_keys": [
+                    "r34"
+                  ],
+                  "interpretation": false
+                },
+                {
+                  "text": "MRR 8,999ドル",
+                  "record_keys": [
+                    "r34"
+                  ],
+                  "interpretation": false
+                },
+                {
+                  "text": "ブログ・検索・紹介を積み上げた",
+                  "record_keys": [
+                    "r34"
+                  ],
+                  "interpretation": false
+                }
+              ],
+              [
+                {
+                  "text": "2021年10月",
+                  "record_keys": [
+                    "r35"
+                  ],
+                  "interpretation": false
+                },
+                {
+                  "text": "MRR 42,624ドル",
+                  "record_keys": [
+                    "r35"
+                  ],
+                  "interpretation": false
+                },
+                {
+                  "text": "年換算継続収益約50万ドルの段階",
+                  "record_keys": [
+                    "r35"
+                  ],
+                  "interpretation": false
+                }
+              ],
+              [
+                {
+                  "text": "2022年6月",
+                  "record_keys": [
+                    "r36"
+                  ],
+                  "interpretation": false
+                },
+                {
+                  "text": "MRR 83,637ドル",
+                  "record_keys": [
+                    "r36"
+                  ],
+                  "interpretation": false
+                },
+                {
+                  "text": "年換算継続収益100万ドル超",
+                  "record_keys": [
+                    "r36"
+                  ],
+                  "interpretation": false
+                }
+              ]
+            ],
+            "caption": null
+          },
+          {
+            "key": "b9",
+            "type": "text",
+            "title": null,
+            "record_keys": [
+              "r37"
+            ],
+            "paragraphs": [
+              {
+                "text": "※ MRRは各時点の月額継続契約の規模、ARRはその年換算。実際の年間売上や年間利益ではない。",
+                "record_keys": [
+                  "r37"
+                ],
+                "interpretation": false
+              }
+            ]
+          },
+          {
+            "key": "b10",
+            "type": "visual",
+            "title": null,
+            "record_keys": [
+              "r1",
+              "r2"
+            ],
+            "visual_key": "plausible-mrr",
+            "caption": {
+              "text": "MRRの公表推移",
+              "record_keys": [
+                "r1",
+                "r2"
+              ],
+              "interpretation": false
+            }
+          },
+          {
+            "key": "b11",
+            "type": "text",
+            "title": null,
+            "record_keys": [
+              "r38",
+              "r39"
+            ],
+            "paragraphs": [
+              {
+                "text": "2021年1月に月額継続収益が約1.1万ドルへ達した時点で、本人たちは費用をようやく賄えるようになったと説明している。それまで2人の個人貯蓄の減少は合計5万ドルを超えていた。「2人で年100万ドル」の数字だけでは見えない、立ち上げに必要だった時間と自己負担だ。",
+                "record_keys": [
+                  "r38"
+                ],
+                "interpretation": false
+              },
+              {
+                "text": "現在の公式ページは「自社資金で運営し黒字、収益源は購読料」と案内している。ただし最新の利益額、営業利益率、創業者の受取額は公表資料から確定できていない。",
+                "record_keys": [
+                  "r39"
+                ],
+                "interpretation": false
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "acquisition",
+        "title": "集客",
+        "lead": null,
+        "blocks": [
+          {
+            "key": "b12",
+            "type": "text",
+            "title": "最初の客は、制作過程を公開したコミュニティから来た",
+            "record_keys": [
+              "r40",
+              "r41",
+              "r42",
+              "r43",
+              "r44"
+            ],
+            "paragraphs": [
+              {
+                "text": "・2019年1月：Indie Hackersでベータ版を公開し、開発の進み具合を発信。",
+                "record_keys": [
+                  "r40"
+                ],
+                "interpretation": false
+              },
+              {
+                "text": "・2019年5月：ベータ利用者60人のうち一部が有料契約へ移行。月次継続収益64ドル。",
+                "record_keys": [
+                  "r41"
+                ],
+                "interpretation": false
+              },
+              {
+                "text": "・2020年3月：Markoが合流。製品の呼び方、サイト構成、Google Analyticsとの違いを伝える文章を整理。",
+                "record_keys": [
+                  "r42"
+                ],
+                "interpretation": false
+              },
+              {
+                "text": "・2020年4月：Google Analyticsをやめる理由を説明する記事を公開し、Hacker Newsで紹介された。数日間で5万件超の閲覧、公開後1週間で新規無料体験166件を獲得したと報告。",
+                "record_keys": [
+                  "r43"
+                ],
+                "interpretation": false
+              },
+              {
+                "text": "2020年の数字を見ると、話題化が即日そのまま月額売上になったわけではない。無料体験を挟むため、最初にアクセスと体験申込が増え、その後に購読契約へ進んでいる。",
+                "record_keys": [
+                  "r44"
+                ],
+                "interpretation": false
+              }
+            ]
+          },
+          {
+            "key": "b13",
+            "type": "text",
+            "title": "顧客が既に話している場所で、直接声を掛け続けた",
+            "record_keys": [
+              "r45",
+              "r46"
+            ],
+            "paragraphs": [
+              {
+                "text": "MarkoはGoogle Analytics、プライバシー、クッキーバナーなどの話題を検索し、悩みを投稿した人へ具体的に返信していた。Hacker News、Reddit、SNSでの会話だけではなく、検索から発見される比較記事や解説記事を継続的に制作。2020年5月には影響力のある技術系サイトへの営業連絡の一部が掲載につながり、同月2日に94件の無料体験登録があった。",
+                "record_keys": [
+                  "r45"
+                ],
+                "interpretation": false
+              },
+              {
+                "text": "2020年8月のProduct Hunt公開では、初日に1,000件超の訪問と15件の無料体験登録を得た一方、数日後の流入は20件未満へ落ちた。単発の新製品公開に頼らず、記事・検索・口コミの継続経路を育てたことが分かる。",
+                "record_keys": [
+                  "r46"
+                ],
+                "interpretation": true
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "operations",
+        "title": "運営",
+        "lead": null,
+        "blocks": [
+          {
+            "key": "b14",
+            "type": "text",
+            "title": "開発、集客、サポートを分担するまで、会社はすぐには成長しなかった",
+            "record_keys": [
+              "r47",
+              "r48",
+              "r49",
+              "r50"
+            ],
+            "paragraphs": [
+              {
+                "text": "・開発担当のUkuは製品開発・機能改善を担い、2020年からMarkoが記事制作、利用者対応、コミュニティ運営を引き受けた。",
+                "record_keys": [
+                  "r47"
+                ],
+                "interpretation": false
+              },
+              {
+                "text": "・2020年6月には、顧客が増えて集計画面が遅くなったため、集計データベースをPostgreSQLからClickHouseに移行した。",
+                "record_keys": [
+                  "r48"
+                ],
+                "interpretation": false
+              },
+              {
+                "text": "・2021年には問い合わせ増加に対応してヘルプ記事を整え、技術サポートを補う人材も加えた。顧客対応を完全な無人化にはしていない。",
+                "record_keys": [
+                  "r49"
+                ],
+                "interpretation": false
+              },
+              {
+                "text": "2022年の4人体制で月10億件以上のページビューを処理すると公表。2026年10月に閲覧した会社紹介ではチーム10人、有料顧客21,000超。人数だけから生産性や利益額を推計することはできないが、データ処理の維持と人によるサポートが必要な商売だと分かる。",
+                "record_keys": [
+                  "r50"
+                ],
+                "interpretation": false
+              }
+            ]
+          },
+          {
+            "key": "b15",
+            "type": "text",
+            "title": "オープンソース利用者への支援は、提供範囲を分けて続けた",
+            "record_keys": [
+              "r51"
+            ],
+            "paragraphs": [
+              {
+                "text": "クラウドの契約者は料金を払い、更新・運営・支援を受ける。自社サーバーで動かす人にはソフトを公開するが、すべての個別環境のトラブルを無償で直す約束はしない。無償版と有料版が共存するための運営上の線引きだ。",
+                "record_keys": [
+                  "r51"
+                ],
+                "interpretation": false
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "history",
+        "title": "経緯",
+        "lead": null,
+        "blocks": [
+          {
+            "key": "b16",
+            "type": "text",
+            "title": "売れなかった期間に方針を変え、検索で選ばれる理由を磨いた",
+            "record_keys": [
+              "r52",
+              "r53",
+              "r54",
+              "r55",
+              "r56",
+              "r57"
+            ],
+            "paragraphs": [
+              {
+                "text": "1. 2018年12月：Google Analyticsの導入を頼まれたUkuが、もっと単純な代替手段を作り始める。",
+                "record_keys": [
+                  "r52"
+                ],
+                "interpretation": false
+              },
+              {
+                "text": "2. 2019年：ベータ版公開・課金開始。開発公開と小規模コミュニティが初期の顧客接点。",
+                "record_keys": [
+                  "r53"
+                ],
+                "interpretation": false
+              },
+              {
+                "text": "3. 2020年前半：マーケティング担当を迎え、訴求を明確化。記事経由の大きな流入を獲得し、無料体験が増える。",
+                "record_keys": [
+                  "r54"
+                ],
+                "interpretation": false
+              },
+              {
+                "text": "4. 2020年後半：負荷増加への対応、ライセンス変更、サポート範囲の整理。",
+                "record_keys": [
+                  "r55"
+                ],
+                "interpretation": false
+              },
+              {
+                "text": "5. 2021〜2022年：検索流入、顧客紹介、プライバシー規制への関心の高まりを背景に成長。2022年に年換算継続収益100万ドルへ到達。",
+                "record_keys": [
+                  "r56"
+                ],
+                "interpretation": false
+              },
+              {
+                "text": "6. 2024年以降：自己運用版をコミュニティ版として整理し、現在も有料クラウドを中心に運営。",
+                "record_keys": [
+                  "r57"
+                ],
+                "interpretation": false
+              }
+            ]
+          },
+          {
+            "key": "b17",
+            "type": "text",
+            "title": "成立条件は「無料の競合より機能が多いこと」ではない",
+            "record_keys": [
+              "r58"
+            ],
+            "paragraphs": [
+              {
+                "text": "この事例から確認できるのは、特定の利用者にとっての不満が明確だったこと、比較対象がはっきりしていたこと、記事を読んだ人が実際に試せる製品が既にあったことだ。一方で、2022年の規制動向やGoogle Analyticsの製品変更も後押しになっている。いま同じ時期・同じ競争条件で参入できる保証はない。",
+                "record_keys": [
+                  "r58"
+                ],
+                "interpretation": true
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "sources",
+        "title": "出典",
+        "lead": null,
+        "blocks": [
+          {
+            "key": "b18",
+            "type": "text",
+            "title": "一次資料と決算資料",
+            "record_keys": [
+              "r1"
+            ],
+            "paragraphs": [
+              {
+                "text": "Plausible｜サービス概要と料金表示：https://plausible.io/",
+                "record_keys": [
+                  "r1"
+                ],
+                "interpretation": false
+              },
+              {
+                "text": "Plausible｜2018〜2022年の創業・集客・収益の回顧：https://plausible.io/blog/open-source-saas",
+                "record_keys": [
+                  "r1"
+                ],
+                "interpretation": false
+              },
+              {
+                "text": "Plausible｜会社概要・チーム・顧客と収益源：https://plausible.io/about",
+                "record_keys": [
+                  "r1"
+                ],
+                "interpretation": false
+              },
+              {
+                "text": "Plausible｜公開コードの提供・コミュニティ支援：https://plausible.io/blog/building-open-source",
+                "record_keys": [
+                  "r1"
+                ],
+                "interpretation": false
+              },
+              {
+                "text": "Plausible｜Community Editionへの変更：https://plausible.io/blog/community-edition",
+                "record_keys": [
+                  "r1"
+                ],
+                "interpretation": false
+              },
+              {
+                "text": "Plausible｜プランと計測量の利用条件：https://plausible.io/docs/subscription-plans",
+                "record_keys": [
+                  "r1"
+                ],
+                "interpretation": false
+              },
+              {
+                "text": "Plausible｜マーケティングの施策と成長：https://plausible.io/blog/bootstrapping-saas",
+                "record_keys": [
+                  "r1"
+                ],
+                "interpretation": false
+              },
+              {
+                "text": "Plausible｜広告を使わず最初の顧客を獲得する方法：https://plausible.io/blog/startup-marketing",
+                "record_keys": [
+                  "r1"
+                ],
+                "interpretation": false
+              },
+              {
+                "text": "Plausible｜継続収益成長の具体的な仕事：https://plausible.io/blog/growing-saas-mrr",
+                "record_keys": [
+                  "r1"
+                ],
+                "interpretation": false
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "excluded_sections": []
+  },
+  "visuals": [
+    {
+      "key": "plausible-model",
+      "kind": "diagram",
+      "state": "reviewed",
+      "question": "この事例の収益/成長の仕組みを具体的な実測/工程で説明する",
+      "subject_keys": [
+        "business"
+      ],
+      "record_keys": [
+        "r1",
+        "r15"
+      ],
+      "brief": "独自作成のベクター図。外部画像の転用なし。数値と出来事は原典の該当資料に対応。",
+      "caption": {
+        "text": "事例の取引/収益を元の記録に基づいて描いた図",
+        "record_keys": [
+          "r1",
+          "r15"
+        ],
+        "interpretation": false
+      },
+      "alt": "plausible modelの図解",
+      "variants": [
+        {
+          "path": "media/plausible-model.svg",
+          "content_type": "image/svg+xml",
+          "width": 1120,
+          "height": 470,
+          "role": "wide"
+        },
+        {
+          "path": "media/plausible-model.png",
+          "content_type": "image/png",
+          "width": 1120,
+          "height": 470,
+          "role": "wide"
+        }
+      ],
+      "production": {
+        "producer": "ChatGPT",
+        "tool_version": "svgwrite 1.4 + CairoSVG",
+        "created_at": "2026-10-12T06:05:00Z",
+        "input_source_keys": [
+          "src-p1",
+          "src-p2"
+        ],
+        "rights_review": {
+          "decision": "allowed",
+          "basis": "policy",
+          "reference": "Independent original schematic/vector; no third-party media copied",
+          "reviewed_at": "2026-10-12T06:05:00Z",
+          "note": "汎用の図形と独自のテキストで製作。第三者写真は含まない。"
+        },
+        "visual_review": "PASS"
+      }
+    },
+    {
+      "key": "plausible-mrr",
+      "kind": "generated_chart",
+      "state": "reviewed",
+      "question": "この事例の収益/成長の仕組みを具体的な実測/工程で説明する",
+      "subject_keys": [
+        "business"
+      ],
+      "record_keys": [
+        "r1",
+        "r15"
+      ],
+      "brief": "独自作成のベクター図。外部画像の転用なし。数値と出来事は原典の該当資料に対応。",
+      "caption": {
+        "text": "事例の取引/収益を元の記録に基づいて描いた図",
+        "record_keys": [
+          "r1",
+          "r15"
+        ],
+        "interpretation": false
+      },
+      "alt": "plausible mrrの図解",
+      "variants": [
+        {
+          "path": "media/plausible-mrr.svg",
+          "content_type": "image/svg+xml",
+          "width": 1120,
+          "height": 470,
+          "role": "wide"
+        },
+        {
+          "path": "media/plausible-mrr.png",
+          "content_type": "image/png",
+          "width": 1120,
+          "height": 470,
+          "role": "wide"
+        }
+      ],
+      "production": {
+        "producer": "ChatGPT",
+        "tool_version": "svgwrite 1.4 + CairoSVG",
+        "created_at": "2026-10-12T06:05:00Z",
+        "input_source_keys": [
+          "src-p1",
+          "src-p2"
+        ],
+        "rights_review": {
+          "decision": "allowed",
+          "basis": "policy",
+          "reference": "Independent original schematic/vector; no third-party media copied",
+          "reviewed_at": "2026-10-12T06:05:00Z",
+          "note": "汎用の図形と独自のテキストで製作。第三者写真は含まない。"
+        },
+        "visual_review": "PASS"
+      }
+    }
+  ],
+  "topic_links": [
+    {
+      "kind": "pattern",
+      "target_id": null,
+      "candidate_title": "無料製品の代替へ、有料の簡素な業務体験を提供",
+      "relation": "analogy",
+      "record_keys": [
+        "r1",
+        "r2"
+      ],
+      "reason": "事例固有の観測から得た比較対象の候補。市場全体の成長や一般的な成功因果を実証したわけではない。"
+    }
+  ],
+  "dispositions": [
+    {
+      "record_key": "r1",
+      "destinations": [
+        "article",
+        "trend"
+      ],
+      "note": "出典・対象・期間を併記し、他社の数字へ推計転用しない。"
+    },
+    {
+      "record_key": "r2",
+      "destinations": [
+        "article",
+        "trend"
+      ],
+      "note": "出典・対象・期間を併記し、他社の数字へ推計転用しない。"
+    },
+    {
+      "record_key": "r3",
+      "destinations": [
+        "article",
+        "trend"
+      ],
+      "note": "出典・対象・期間を併記し、他社の数字へ推計転用しない。"
+    },
+    {
+      "record_key": "r4",
+      "destinations": [
+        "article",
+        "trend"
+      ],
+      "note": "出典・対象・期間を併記し、他社の数字へ推計転用しない。"
+    },
+    {
+      "record_key": "r5",
+      "destinations": [
+        "article",
+        "trend"
+      ],
+      "note": "出典・対象・期間を併記し、他社の数字へ推計転用しない。"
+    },
+    {
+      "record_key": "r6",
+      "destinations": [
+        "article",
+        "trend"
+      ],
+      "note": "出典・対象・期間を併記し、他社の数字へ推計転用しない。"
+    },
+    {
+      "record_key": "r7",
+      "destinations": [
+        "article",
+        "trend"
+      ],
+      "note": "出典・対象・期間を併記し、他社の数字へ推計転用しない。"
+    },
+    {
+      "record_key": "r8",
+      "destinations": [
+        "article",
+        "trend"
+      ],
+      "note": "出典・対象・期間を併記し、他社の数字へ推計転用しない。"
+    },
+    {
+      "record_key": "r9",
+      "destinations": [
+        "article",
+        "trend"
+      ],
+      "note": "出典・対象・期間を併記し、他社の数字へ推計転用しない。"
+    },
+    {
+      "record_key": "r10",
+      "destinations": [
+        "article",
+        "trend"
+      ],
+      "note": "出典・対象・期間を併記し、他社の数字へ推計転用しない。"
+    },
+    {
+      "record_key": "r11",
+      "destinations": [
+        "article",
+        "trend"
+      ],
+      "note": "出典・対象・期間を併記し、他社の数字へ推計転用しない。"
+    },
+    {
+      "record_key": "r12",
+      "destinations": [
+        "article",
+        "trend"
+      ],
+      "note": "出典・対象・期間を併記し、他社の数字へ推計転用しない。"
+    },
+    {
+      "record_key": "r13",
+      "destinations": [
+        "article",
+        "trend"
+      ],
+      "note": "出典・対象・期間を併記し、他社の数字へ推計転用しない。"
+    },
+    {
+      "record_key": "r14",
+      "destinations": [
+        "article",
+        "trend"
+      ],
+      "note": "出典・対象・期間を併記し、他社の数字へ推計転用しない。"
+    },
+    {
+      "record_key": "r15",
+      "destinations": [
+        "article",
+        "trend"
+      ],
+      "note": "出典・対象・期間を併記し、他社の数字へ推計転用しない。"
+    },
+    {
+      "record_key": "r16",
+      "destinations": [
+        "article",
+        "internal"
+      ],
+      "note": "出典・対象・期間を併記し、他社の数字へ推計転用しない。"
+    },
+    {
+      "record_key": "r17",
+      "destinations": [
+        "article",
+        "internal"
+      ],
+      "note": "出典・対象・期間を併記し、他社の数字へ推計転用しない。"
+    },
+    {
+      "record_key": "r18",
+      "destinations": [
+        "article",
+        "internal"
+      ],
+      "note": "出典・対象・期間を併記し、他社の数字へ推計転用しない。"
+    },
+    {
+      "record_key": "r19",
+      "destinations": [
+        "article",
+        "internal"
+      ],
+      "note": "出典・対象・期間を併記し、他社の数字へ推計転用しない。"
+    },
+    {
+      "record_key": "r20",
+      "destinations": [
+        "article",
+        "internal"
+      ],
+      "note": "出典・対象・期間を併記し、他社の数字へ推計転用しない。"
+    },
+    {
+      "record_key": "r21",
+      "destinations": [
+        "article",
+        "internal"
+      ],
+      "note": "出典・対象・期間を併記し、他社の数字へ推計転用しない。"
+    },
+    {
+      "record_key": "r22",
+      "destinations": [
+        "article",
+        "internal"
+      ],
+      "note": "出典・対象・期間を併記し、他社の数字へ推計転用しない。"
+    },
+    {
+      "record_key": "r23",
+      "destinations": [
+        "article",
+        "internal"
+      ],
+      "note": "出典・対象・期間を併記し、他社の数字へ推計転用しない。"
+    },
+    {
+      "record_key": "r24",
+      "destinations": [
+        "article",
+        "internal"
+      ],
+      "note": "出典・対象・期間を併記し、他社の数字へ推計転用しない。"
+    },
+    {
+      "record_key": "r25",
+      "destinations": [
+        "article",
+        "internal"
+      ],
+      "note": "出典・対象・期間を併記し、他社の数字へ推計転用しない。"
+    },
+    {
+      "record_key": "r26",
+      "destinations": [
+        "article",
+        "internal"
+      ],
+      "note": "出典・対象・期間を併記し、他社の数字へ推計転用しない。"
+    },
+    {
+      "record_key": "r27",
+      "destinations": [
+        "article",
+        "internal"
+      ],
+      "note": "出典・対象・期間を併記し、他社の数字へ推計転用しない。"
+    },
+    {
+      "record_key": "r28",
+      "destinations": [
+        "article",
+        "internal"
+      ],
+      "note": "出典・対象・期間を併記し、他社の数字へ推計転用しない。"
+    },
+    {
+      "record_key": "r29",
+      "destinations": [
+        "article",
+        "internal"
+      ],
+      "note": "出典・対象・期間を併記し、他社の数字へ推計転用しない。"
+    },
+    {
+      "record_key": "r30",
+      "destinations": [
+        "article",
+        "internal"
+      ],
+      "note": "出典・対象・期間を併記し、他社の数字へ推計転用しない。"
+    },
+    {
+      "record_key": "r31",
+      "destinations": [
+        "article",
+        "internal"
+      ],
+      "note": "出典・対象・期間を併記し、他社の数字へ推計転用しない。"
+    },
+    {
+      "record_key": "r32",
+      "destinations": [
+        "article",
+        "internal"
+      ],
+      "note": "出典・対象・期間を併記し、他社の数字へ推計転用しない。"
+    },
+    {
+      "record_key": "r33",
+      "destinations": [
+        "article",
+        "internal"
+      ],
+      "note": "出典・対象・期間を併記し、他社の数字へ推計転用しない。"
+    },
+    {
+      "record_key": "r34",
+      "destinations": [
+        "article",
+        "internal"
+      ],
+      "note": "出典・対象・期間を併記し、他社の数字へ推計転用しない。"
+    },
+    {
+      "record_key": "r35",
+      "destinations": [
+        "article",
+        "internal"
+      ],
+      "note": "出典・対象・期間を併記し、他社の数字へ推計転用しない。"
+    },
+    {
+      "record_key": "r36",
+      "destinations": [
+        "article",
+        "internal"
+      ],
+      "note": "出典・対象・期間を併記し、他社の数字へ推計転用しない。"
+    },
+    {
+      "record_key": "r37",
+      "destinations": [
+        "article",
+        "internal"
+      ],
+      "note": "出典・対象・期間を併記し、他社の数字へ推計転用しない。"
+    },
+    {
+      "record_key": "r38",
+      "destinations": [
+        "article",
+        "internal"
+      ],
+      "note": "出典・対象・期間を併記し、他社の数字へ推計転用しない。"
+    },
+    {
+      "record_key": "r39",
+      "destinations": [
+        "article",
+        "internal"
+      ],
+      "note": "出典・対象・期間を併記し、他社の数字へ推計転用しない。"
+    },
+    {
+      "record_key": "r40",
+      "destinations": [
+        "article",
+        "internal"
+      ],
+      "note": "出典・対象・期間を併記し、他社の数字へ推計転用しない。"
+    },
+    {
+      "record_key": "r41",
+      "destinations": [
+        "article",
+        "internal"
+      ],
+      "note": "出典・対象・期間を併記し、他社の数字へ推計転用しない。"
+    },
+    {
+      "record_key": "r42",
+      "destinations": [
+        "article",
+        "internal"
+      ],
+      "note": "出典・対象・期間を併記し、他社の数字へ推計転用しない。"
+    },
+    {
+      "record_key": "r43",
+      "destinations": [
+        "article",
+        "internal"
+      ],
+      "note": "出典・対象・期間を併記し、他社の数字へ推計転用しない。"
+    },
+    {
+      "record_key": "r44",
+      "destinations": [
+        "article",
+        "internal"
+      ],
+      "note": "出典・対象・期間を併記し、他社の数字へ推計転用しない。"
+    },
+    {
+      "record_key": "r45",
+      "destinations": [
+        "article",
+        "internal"
+      ],
+      "note": "出典・対象・期間を併記し、他社の数字へ推計転用しない。"
+    },
+    {
+      "record_key": "r46",
+      "destinations": [
+        "article",
+        "internal"
+      ],
+      "note": "出典・対象・期間を併記し、他社の数字へ推計転用しない。"
+    },
+    {
+      "record_key": "r47",
+      "destinations": [
+        "article",
+        "internal"
+      ],
+      "note": "出典・対象・期間を併記し、他社の数字へ推計転用しない。"
+    },
+    {
+      "record_key": "r48",
+      "destinations": [
+        "article",
+        "internal"
+      ],
+      "note": "出典・対象・期間を併記し、他社の数字へ推計転用しない。"
+    },
+    {
+      "record_key": "r49",
+      "destinations": [
+        "article",
+        "internal"
+      ],
+      "note": "出典・対象・期間を併記し、他社の数字へ推計転用しない。"
+    },
+    {
+      "record_key": "r50",
+      "destinations": [
+        "article",
+        "internal"
+      ],
+      "note": "出典・対象・期間を併記し、他社の数字へ推計転用しない。"
+    },
+    {
+      "record_key": "r51",
+      "destinations": [
+        "article",
+        "internal"
+      ],
+      "note": "出典・対象・期間を併記し、他社の数字へ推計転用しない。"
+    },
+    {
+      "record_key": "r52",
+      "destinations": [
+        "article",
+        "internal"
+      ],
+      "note": "出典・対象・期間を併記し、他社の数字へ推計転用しない。"
+    },
+    {
+      "record_key": "r53",
+      "destinations": [
+        "article",
+        "internal"
+      ],
+      "note": "出典・対象・期間を併記し、他社の数字へ推計転用しない。"
+    },
+    {
+      "record_key": "r54",
+      "destinations": [
+        "article",
+        "internal"
+      ],
+      "note": "出典・対象・期間を併記し、他社の数字へ推計転用しない。"
+    },
+    {
+      "record_key": "r55",
+      "destinations": [
+        "article",
+        "internal"
+      ],
+      "note": "出典・対象・期間を併記し、他社の数字へ推計転用しない。"
+    },
+    {
+      "record_key": "r56",
+      "destinations": [
+        "article",
+        "internal"
+      ],
+      "note": "出典・対象・期間を併記し、他社の数字へ推計転用しない。"
+    },
+    {
+      "record_key": "r57",
+      "destinations": [
+        "article",
+        "internal"
+      ],
+      "note": "出典・対象・期間を併記し、他社の数字へ推計転用しない。"
+    },
+    {
+      "record_key": "r58",
+      "destinations": [
+        "article",
+        "internal"
+      ],
+      "note": "出典・対象・期間を併記し、他社の数字へ推計転用しない。"
+    }
+  ],
+  "handoff": {
+    "delivery": "prepared",
+    "article_change_policy": "preserve_authored_text",
+    "r2_write_authorized": false,
+    "publication_authorized": false,
+    "remaining_work": [
+      "別担当による事実・原典の独立監査",
+      "出典・画像の商用掲載権の最終審査",
+      "現行Foundation/R2 schemaへのアダプターの作成と検査",
+      "公開目録/API/実ブラウザの本番統合検証"
+    ],
+    "checks": [
+      {
+        "name": "same_agent_article_source_review",
+        "status": "PASS",
+        "by": "ChatGPT",
+        "note": "本文の金額・年月・定義を調査担当が一次資料と照合。独立監査ではない。"
+      },
+      {
+        "name": "same_agent_visual_review",
+        "status": "PASS",
+        "by": "ChatGPT",
+        "note": "元のSVG/PNG 4点の表示・重なりを目視確認。"
+      },
+      {
+        "name": "independent_evidence_review",
+        "status": "NOT_RUN",
+        "by": null,
+        "note": "別担当の独立原典監査は未実施"
+      },
+      {
+        "name": "commercial_rights_review",
+        "status": "NOT_RUN",
+        "by": null,
+        "note": "権利最終審査は未実施"
+      },
+      {
+        "name": "application_import",
+        "status": "NOT_RUN",
+        "by": null,
+        "note": "R2/API/UI投入なし"
+      }
+    ]
+  }
+}

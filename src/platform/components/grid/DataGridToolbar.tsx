@@ -1,10 +1,11 @@
 'use client';
 
 import React from 'react';
-import Link from 'next/link';
 import { CompareTrayLink } from '@/platform/components/compare/CompareTrayLink';
+import { useCompareTray } from '@/platform/hooks/useCompareTray';
 import { SaveSearchButton, type SavedSearchDraft } from './SaveSearchButton';
-import { Check, Compass, Layers, Search, SlidersHorizontal, X } from 'lucide-react';
+import { hasSavableCondition } from '@/platform/model/saved-search-view';
+import { Check, Layers, Search, SlidersHorizontal, X } from 'lucide-react';
 import { ScreenerFilterState } from '../screener/AdvancedScreenerModal';
 import { KNOWN_INGEST_BATCHES } from '@/shared/terminal';
 
@@ -88,6 +89,16 @@ export const DataGridToolbar: React.FC<DataGridToolbarProps> = ({
   // 条件も検索語も無い時は全件の数（一覧は先頭の10件だけ読み込むため、読み込み済みの数は総数ではない）
   const shownCount = !hasActiveScreener && !searchQuery.trim() && catalogTotal !== null ? catalogTotal : totalCount;
   const hasSearchTerm = searchQuery.trim().length > 0;
+  const compareCount = useCompareTray().items.length;
+  // 広い画面（xl 以上）は絞り込みが左の欄にあるので、ここに並ぶ物が無い時は帯ごと畳む（空の帯を残さない）
+  const hasWideContent =
+    !hideSearch ||
+    showBatchFilter ||
+    selectedBatch !== 'ALL' ||
+    activeTags.some((tag) => tag !== '収集事例') ||
+    (activeTags.includes('収集事例') && Boolean(onApproveAllCollected)) ||
+    Boolean(savedSearchDraft && hasSavableCondition(savedSearchDraft)) ||
+    compareCount > 0;
 
   // 文字サイズはボタンごとに指定する（同じ種類のクラスを重ねると、どちらが効くかがCSSの並び順任せになるため）
   const btn = 'inline-flex items-center gap-1.5 rounded-sm border px-2.5 transition-colors';
@@ -95,7 +106,7 @@ export const DataGridToolbar: React.FC<DataGridToolbarProps> = ({
   const btnOn = 'border-term-accent text-term-accent';
 
   return (
-    <section aria-label="事例を検索・絞り込み" className="shrink-0 border-b border-term-line bg-term-panel px-3 py-2 lg:px-2.5 lg:py-1.5">
+    <section aria-label="事例を検索・絞り込み" className={`shrink-0 border-b border-term-line bg-term-panel px-3 py-2 lg:px-2.5 lg:py-1.5 ${hasWideContent ? '' : 'xl:border-b-0 xl:py-0'}`}>
       <div className={hideSearch ? 'flex flex-wrap items-center gap-2' : 'flex flex-col gap-2 lg:gap-1.5'}>
         {/* 検索欄を出さないときは「条件を絞る」を登録回の行の右端へ寄せ、空の行を作らない */}
         <div className={hideSearch ? 'order-last ml-auto flex items-center gap-2' : 'flex items-center gap-2'}>
@@ -185,18 +196,6 @@ export const DataGridToolbar: React.FC<DataGridToolbarProps> = ({
             </button>
           ) : null}
 
-          {onToggleTag && (
-            <button
-              type="button"
-              onClick={() => onToggleTag('収集事例')}
-              aria-pressed={activeTags.includes('収集事例')}
-              title="新しく登録された事例を表示"
-              className={`${btn} min-h-9 text-xs lg:min-h-7 ${activeTags.includes('収集事例') ? btnOn : btnOff}`}
-            >
-              <span>新着事例</span>
-            </button>
-          )}
-
           {activeTags.filter((tag) => tag !== '収集事例').map((tag) => (
             <button
               key={tag}
@@ -223,15 +222,6 @@ export const DataGridToolbar: React.FC<DataGridToolbarProps> = ({
           )}
 
           {savedSearchDraft && <SaveSearchButton draft={savedSearchDraft} />}
-          <Link
-            href="/discover"
-            prefetch={false}
-            title="分野や規模のしぼり込みで、事例を探す"
-            className={`${btn} ${btnOff} min-h-11 text-xs lg:min-h-7`}
-          >
-            <Compass aria-hidden="true" className="h-3.5 w-3.5" />
-            事例を探す
-          </Link>
           <CompareTrayLink />
 
           <p className="term-num ml-auto shrink-0 whitespace-nowrap text-xs text-term-label lg:sr-only" aria-live="polite">

@@ -1,0 +1,2930 @@
+[
+ {
+  "entityId": "ent_flightradar24_83377cd2e700",
+  "reviewState": "ready_for_review",
+  "generation": 5,
+  "article": {
+   "listLine": "世界中の協力者の受信機5万5,000台で飛行機の現在地を地図に映し、16か月で約98億円を売り上げた飛行機追跡サービス",
+   "headline": "協力者の受信機5万5,000台で飛行機を追跡し、広告・会員・企業向け販売で16か月約98億円",
+   "lead": "Flightradar24は、いま空を飛んでいる飛行機の位置を、地図の上でリアルタイムに見られるサービス。飛行機は自分の位置や高度を電波で発信していて、世界各地の協力者が受信機でその電波を受け、Flightradar24に送っている。協力者は見返りに、協力者専用のプランを無料で使える。地図は広告つきで誰でも無料で見られ、より詳しい情報を見たい個人は有料会員になり、Boeingのような企業は飛行データそのものを買う。",
+   "sources": [
+    {
+     "no": 1,
+     "label": "Flightradar24 / About Flightradar24 / 公開日不明",
+     "url": "https://www.flightradar24.com/about/"
+    },
+    {
+     "no": 2,
+     "label": "Flightradar24 / Subscription plans / 公開日不明",
+     "url": "https://www.flightradar24.com/premium/"
+    },
+    {
+     "no": 3,
+     "label": "Flightradar24 / How it works / 公開日不明",
+     "url": "https://www.flightradar24.com/how-it-works/"
+    },
+    {
+     "no": 4,
+     "label": "Flightradar24 / Become a contributor / 公開日不明",
+     "url": "https://www.flightradar24.com/add-coverage"
+    },
+    {
+     "no": 5,
+     "label": "Flightradar24 / Share your ADS-B data / 公開日不明",
+     "url": "https://www.flightradar24.com/share-your-data"
+    },
+    {
+     "no": 6,
+     "label": "Google for Publishers / Flightradar24 / Mats Lidgren / 2023",
+     "url": "https://www.google.com/ads/publisher/stories/flightradar24/"
+    },
+    {
+     "no": 7,
+     "label": "Flightradar24 / Flight Data Services to Boeing / 2025-12-22",
+     "url": "https://www.flightradar24.com/blog/b2b/flightradar24-to-supply-flight-data-services-to-boeing/"
+    },
+    {
+     "no": 8,
+     "label": "Allabolag / Flightradar24 AB Bokslut / 公開日不明",
+     "url": "https://www.allabolag.se/bokslut/flightradar24-ab/stockholm/internet-konsulter-operat%C3%B6rer/2K3LY99I5YFHL"
+    },
+    {
+     "no": 9,
+     "label": "Flightradar24 / SPAR19 traffic surge and service impact / 2022-08-02",
+     "url": "https://www.flightradar24.com/blog/flight-tracking-news/special-aircraft-tracking/spar19-becomes-the-most-tracked-flight-of-all-time/"
+    }
+   ],
+   "kpis": [
+    {
+     "label": "売上",
+     "value": "7億353万クローナ",
+     "yen": "約98億円",
+     "period": "2024年9月〜2025年12月（16か月）"
+    },
+    {
+     "label": "営業利益",
+     "value": "4億6,015万クローナ",
+     "yen": "約64億円",
+     "period": "同じ16か月"
+    },
+    {
+     "label": "受信機",
+     "value": "5万5,000台以上",
+     "period": "2025年12月"
+    }
+   ],
+   "topics": [
+    {
+     "id": "overview",
+     "lead": {
+      "text": "飛行中の飛行機の現在地を地図で見られるサービス。誰でも無料で見られ、広告、有料会員、企業へのデータ販売で売上を得ている。",
+      "cites": [
+       1,
+       2,
+       6
+      ]
+     },
+     "blocks": [
+      {
+       "type": "facts",
+       "variant": "text",
+       "rows": [
+        {
+         "label": "サービス内容",
+         "text": "いま飛んでいる飛行機の位置を、ウェブとアプリの地図で確認できる。過去に飛んだ経路も見られる",
+         "cites": [
+          1,
+          2
+         ]
+        },
+        {
+         "label": "無料の利用者",
+         "text": "広告が表示される代わりに、無料で地図を見られる",
+         "cites": [
+          6
+         ]
+        },
+        {
+         "label": "有料の顧客",
+         "text": "より詳しい情報を見たい個人、業務で使う会社、飛行データを自社のシステムで使いたい企業",
+         "cites": [
+          2,
+          6,
+          7
+         ]
+        }
+       ]
+      },
+      {
+       "type": "list",
+       "ordered": false,
+       "items": [
+        {
+         "text": "飛行機が発信する位置の電波を、世界各地にある5万5,000台以上の受信機で集めている（2025年12月）。受信機を設置しているのは、各地の協力者",
+         "cites": [
+          3,
+          4,
+          7
+         ]
+        },
+        {
+         "text": "2025年12月、航空機メーカーのBoeingに、現在と過去の飛行データを供給する契約を発表した。Boeingは、機体の性能や整備の分析に使うと説明している",
+         "cites": [
+          7
+         ]
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "id": "mechanism",
+     "lead": {
+      "text": "各地の協力者が受信機で飛行機の電波を受けて送り、Flightradar24がそれをまとめて地図に表示する。協力者は見返りに、専用のプランを無料で使える。",
+      "cites": [
+       3,
+       4,
+       5
+      ]
+     },
+     "blocks": [
+      {
+       "type": "steps",
+       "items": [
+        {
+         "title": "協力者が電波を受信する",
+         "text": "飛行機は、機体の識別番号、位置、速度、高度を電波で発信している。協力者は、設置した受信機でこの電波を受ける。",
+         "cites": [
+          3
+         ]
+        },
+        {
+         "title": "データを送る",
+         "text": "受信したデータを、Flightradar24に送る。",
+         "cites": [
+          3,
+          4
+         ]
+        },
+        {
+         "title": "Flightradar24がまとめる",
+         "text": "各地から届いたデータを、衛星やレーダーの情報と組み合わせ、どの便のどの機体かを特定して地図に表示する。",
+         "cites": [
+          3
+         ]
+        },
+        {
+         "title": "協力者は無料で使える",
+         "text": "データを送っている協力者は、協力者専用のプラン「Contributor」を無料で使える。",
+         "cites": [
+          4,
+          5
+         ]
+        }
+       ]
+      },
+      {
+       "type": "figure",
+       "figureId": "fr24-data"
+      },
+      {
+       "type": "subheading",
+       "text": "協力者になる3つの方法"
+      },
+      {
+       "type": "list",
+       "ordered": false,
+       "items": [
+        {
+         "text": "受信機を自分で購入して設置する",
+         "cites": [
+          4
+         ]
+        },
+        {
+         "text": "すでに持っている受信機のデータを、Flightradar24に共有する",
+         "cites": [
+          4
+         ]
+        },
+        {
+         "text": "Flightradar24が提供する受信機に応募する",
+         "cites": [
+          4
+         ]
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "id": "revenue",
+     "lead": {
+      "text": "売上は広告、有料会員、企業向けのデータ販売の3つ。2025年12月までの16か月の売上は7億353万クローナ（約98億円）、営業利益は4億6,015万クローナ（約64億円）だった。",
+      "cites": [
+       1,
+       2,
+       6
+      ]
+     },
+     "blocks": [
+      {
+       "type": "list",
+       "ordered": false,
+       "items": [
+        {
+         "lead": "広告",
+         "text": "無料で地図を見る利用者に広告を表示し、広告主から広告料を得る",
+         "cites": [
+          6
+         ]
+        },
+        {
+         "lead": "有料会員（個人）",
+         "text": "SilverとGoldの2つのプランがある。月払いと年払いを選べる",
+         "cites": [
+          2
+         ]
+        },
+        {
+         "lead": "有料会員（業務用）",
+         "text": "業務で使う会社向けのBusinessプラン。月払いと年払いを選べる",
+         "cites": [
+          2
+         ]
+        },
+        {
+         "lead": "企業向けのデータ販売",
+         "text": "企業が飛行データを自社のシステムに取り込んで使う。地図を見るための有料会員とは別の契約になる",
+         "cites": [
+          2,
+          6,
+          7
+         ]
+        }
+       ]
+      },
+      {
+       "type": "figure",
+       "figureId": "fr24-revenues"
+      },
+      {
+       "type": "subheading",
+       "text": "決算（通貨はスウェーデン・クローナ）"
+      },
+      {
+       "type": "facts",
+       "variant": "text",
+       "rows": [
+        {
+         "label": "2024年8月期",
+         "text": "12か月の決算。売上4億1,794万クローナ（約58億円）、営業利益2億7,207万クローナ（約38億円）",
+         "cites": [
+          8
+         ]
+        },
+        {
+         "label": "2025年12月期",
+         "text": "16か月の決算。売上7億353万クローナ（約98億円）、営業利益4億6,015万クローナ（約64億円）",
+         "cites": [
+          8
+         ]
+        }
+       ]
+      },
+      {
+       "type": "list",
+       "ordered": false,
+       "items": [
+        {
+         "text": "どちらの期も、営業利益は売上の約65％にあたる",
+         "cites": [
+          8
+         ]
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "id": "acquisition",
+     "lead": {
+      "text": "すでに利用者がいた航空券比較サイトの一機能として始まり、2010年のアイスランドの火山噴火で、空の様子を見られるサイトとして世界に知られた。",
+      "cites": [
+       1
+      ]
+     },
+     "blocks": [
+      {
+       "type": "list",
+       "ordered": false,
+       "items": [
+        {
+         "text": "2006年、既存の航空券比較サイトFlygresorに、飛行機の現在地を表示するページを追加した。すでにサイトに利用者がいたので、利用者ゼロからの出発ではなかった",
+         "cites": [
+          1
+         ]
+        },
+        {
+         "text": "2009年から、他の人が設置した受信機のデータも受け入れ始めた。データを送った人は、協力者専用のプランを無料で使える",
+         "cites": [
+          1,
+          4,
+          5
+         ]
+        },
+        {
+         "text": "2010年、アイスランドの火山が噴火して空の便が止まった。飛行機が飛ばなくなった空を映す地図が、世界で注目された",
+         "cites": [
+          1
+         ]
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "id": "operations",
+     "lead": {
+      "text": "各地から届くデータを便ごとにまとめて地図に表示するのがFlightradar24の仕事で、アクセスが集中しても止まらないように処理能力を増やしている。",
+      "cites": [
+       3,
+       4,
+       9
+      ]
+     },
+     "blocks": [
+      {
+       "type": "facts",
+       "variant": "text",
+       "rows": [
+        {
+         "label": "本社",
+         "text": "スウェーデンのストックホルム",
+         "cites": [
+          1,
+          8
+         ]
+        },
+        {
+         "label": "受信機",
+         "text": "設置しているのは各地の協力者。届いたデータをまとめ、欠けた部分を補い、安定して配信する作業と費用は、Flightradar24が負担する",
+         "cites": [
+          3,
+          4,
+          9
+         ]
+        }
+       ]
+      },
+      {
+       "type": "list",
+       "ordered": false,
+       "items": [
+        {
+         "text": "協力者の受信機のデータに、衛星やレーダーの情報を組み合わせて、どの便のどの機体かを特定している",
+         "cites": [
+          3
+         ]
+        }
+       ]
+      },
+      {
+       "type": "subheading",
+       "text": "アクセスが集中した時の対応"
+      },
+      {
+       "type": "list",
+       "ordered": false,
+       "items": [
+        {
+         "text": "2022年8月、1つの便に閲覧者が集中した。サーバーの負荷を抑えるため、有料会員を優先して通す順番待ちの画面を一時的に設け、その便が着陸した後に通常の状態へ戻した",
+         "cites": [
+          9
+         ]
+        },
+        {
+         "text": "その後も、注目が集まる便があっても表示が止まらないように、処理能力の増強を続けている",
+         "cites": [
+          9
+         ]
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "id": "history",
+     "lead": {
+      "text": "2006年に航空券比較サイトの一機能として始まり、2010年の火山噴火で知られ、2025年にはBoeingへのデータ供給契約を発表した。",
+      "cites": [
+       1,
+       7
+      ]
+     },
+     "blocks": [
+      {
+       "type": "timeline",
+       "items": [
+        {
+         "when": "2006年",
+         "text": "創業者のMicke RobertssonとOlov Lindbergが受信機を設置し、航空券比較サイトFlygresorで飛行機の現在地の表示を始めた",
+         "cites": [
+          1
+         ]
+        },
+        {
+         "when": "2007年",
+         "text": "航空券比較サイトから切り離し、独立したサイトにした",
+         "cites": [
+          1
+         ]
+        },
+        {
+         "when": "2009年",
+         "text": "他の人が設置した受信機のデータを受け入れ始めた",
+         "cites": [
+          1
+         ]
+        },
+        {
+         "when": "2010年",
+         "text": "アイスランドの火山噴火で空の便が止まり、空の様子を見られるサイトとして世界で注目された",
+         "cites": [
+          1
+         ]
+        },
+        {
+         "when": "2022年8月",
+         "text": "1つの便に閲覧者が集中し、有料会員を優先する順番待ちの画面を一時的に設けた",
+         "cites": [
+          9
+         ]
+        },
+        {
+         "when": "2024年",
+         "text": "企業が自社のシステムに飛行データを取り込める機能（API）を公開した",
+         "cites": [
+          1
+         ]
+        },
+        {
+         "when": "2025年12月",
+         "text": "Boeingに飛行データを供給する契約を発表した。受信機は5万5,000台を超えた",
+         "cites": [
+          7
+         ]
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "id": "reasons",
+     "title": "利用者の協力で飛行データを集め、3つの販路で収益化",
+     "blocks": [
+      {
+       "type": "list",
+       "ordered": false,
+       "items": [
+        {
+         "lead": "利用者もデータ収集に参加する",
+         "text": "各地の利用者が受信機を設置し、データ提供の見返りとして専用プランを無料で使える仕組みにした。",
+         "cites": [
+          3,
+          4,
+          5
+         ]
+        },
+        {
+         "lead": "同じ飛行データを別の相手に売る",
+         "text": "地図を無料で見る人には広告を表示し、詳しく見る有料会員と業務で使う企業からも収益を得る。",
+         "cites": [
+          1,
+          2,
+          6
+         ]
+        }
+       ]
+      }
+     ]
+    }
+   ],
+   "figures": [
+    {
+     "id": "fr24-data",
+     "alt": "協力者の受信機から地図に表示されるまでの流れ",
+     "width": 1040,
+     "height": 530,
+     "src": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMDQwIiBoZWlnaHQ9IjUzMCIgdmlld0JveD0iMCAwIDEwNDAgNTMwIiByb2xlPSJpbWciIGFyaWEtbGFiZWxsZWRieT0idGl0bGUgZGVzYyI+PHRpdGxlIGlkPSJ0aXRsZSI+5ZCE5Zyw44Gu5Y+X5L+h5qmf44Gu44OH44O844K/44KS44CBMeOBpOOBruWcsOWbs+OBq+OBvuOBqOOCgeOCizwvdGl0bGU+PGRlc2MgaWQ9ImRlc2MiPuWNlOWKm+iAheOBruWPl+S/oeapn+OBi+OCieWcsOWbs+OBq+ihqOekuuOBleOCjOOCi+OBvuOBp+OBrua1geOCjOOAgjwvZGVzYz4KPHJlY3Qgd2lkdGg9IjEwNDAiIGhlaWdodD0iNTMwIiBmaWxsPSIjMGMwZTExIi8+Cjx0ZXh0IHg9IjI0IiB5PSIzMSIgZm9udC1mYW1pbHk9Ik5vdG8gU2FucyBDSksgSlAsIHNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMTMiIGZvbnQtd2VpZ2h0PSI2MDAiIGZpbGw9IiNmZmFjM2IiIHRleHQtYW5jaG9yPSJzdGFydCI+RkxJR0hUUkFEQVIyNCAgLyAg44OH44O844K/44Gu5rWB44KMPC90ZXh0Pgo8dGV4dCB4PSIyNCIgeT0iNjUiIGZvbnQtZmFtaWx5PSJOb3RvIFNhbnMgQ0pLIEpQLCBzYW5zLXNlcmlmIiBmb250LXNpemU9IjI3IiBmb250LXdlaWdodD0iNjAwIiBmaWxsPSIjZjBmMmY1IiB0ZXh0LWFuY2hvcj0ic3RhcnQiPuWQhOWcsOOBruWPl+S/oeapn+OBruODh+ODvOOCv+OCkuOAgTHjgaTjga7lnLDlm7Pjgavjgb7jgajjgoHjgos8L3RleHQ+Cjx0ZXh0IHg9IjI0IiB5PSIxMDIiIGZvbnQtZmFtaWx5PSJOb3RvIFNhbnMgQ0pLIEpQLCBzYW5zLXNlcmlmIiBmb250LXNpemU9IjE2IiBmb250LXdlaWdodD0iNDAwIiBmaWxsPSIjYjhjMGNjIiB0ZXh0LWFuY2hvcj0ic3RhcnQiPuODh+ODvOOCv+OCkumAgeOCi+WNlOWKm+iAheOBr+OAgeWwgueUqOOBruODl+ODqeODs+OCkueEoeaWmeOBp+S9v+OBiOOCi+OAgjwvdGV4dD4KPHJlY3QgeD0iMjQiIHk9IjE0OSIgd2lkdGg9IjI5NiIgaGVpZ2h0PSIyNTUiIHJ4PSI4IiBmaWxsPSIjMTUxOTFmIiBzdHJva2U9IiMzMDM2NDAiLz4KPHRleHQgeD0iNDIiIHk9IjE3OSIgZm9udC1mYW1pbHk9Ik5vdG8gU2FucyBDSksgSlAsIHNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMTQiIGZvbnQtd2VpZ2h0PSI2MDAiIGZpbGw9IiNmZmFjM2IiIHRleHQtYW5jaG9yPSJzdGFydCI+MDE8L3RleHQ+CjxnIHRyYW5zZm9ybT0idHJhbnNsYXRlKDEzNCAxODEpIHNjYWxlKDAuOTUpIiBmaWxsPSJub25lIiBzdHJva2U9IiNmZmFjM2IiIHN0cm9rZS13aWR0aD0iMi4yIiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiPgo8cGF0aCBkPSJNNDAgMjJ2NDhNMjUgNzBoMzBNMzAgMjhhMTQgMTQgMCAwIDEgMjAgME0yMCAxOGEyOCAyOCAwIDAgMSA0MCAwTTggOGE0NSA0NSAwIDAgMSA2NCAwIi8+PGNpcmNsZSBjeD0iNDAiIGN5PSIzNSIgcj0iNCIvPjwvZz4KPHRleHQgeD0iNDIiIHk9IjI5NSIgZm9udC1mYW1pbHk9Ik5vdG8gU2FucyBDSksgSlAsIHNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMjIiIGZvbnQtd2VpZ2h0PSI2MDAiIGZpbGw9IiNmMGYyZjUiIHRleHQtYW5jaG9yPSJzdGFydCI+5Y2U5Yqb6ICF44GM5Y+X5L+h44GZ44KLPC90ZXh0Pgo8dGV4dCB4PSI0MiIgeT0iMzI5IiBmb250LWZhbWlseT0iTm90byBTYW5zIENKSyBKUCwgc2Fucy1zZXJpZiIgZm9udC1zaXplPSIxNyIgZm9udC13ZWlnaHQ9IjQwMCIgZmlsbD0iI2I4YzBjYyIgdGV4dC1hbmNob3I9InN0YXJ0Ij7po5vooYzmqZ/jga7pm7vms6LjgpLlj5fjgZHjgabpgIHjgos8L3RleHQ+CjxsaW5lIHgxPSIzMjkiIHkxPSIyNjciIHgyPSIzNjIiIHkyPSIyNjciIHN0cm9rZT0iI2ZmYWMzYiIgc3Ryb2tlLXdpZHRoPSIyIi8+CjxsaW5lIHgxPSIzNjIiIHkxPSIyNjciIHgyPSIzNTQuNTcxOTc5NDY1ODEyOSIgeTI9IjI3Mi4wODE3ODIyNjA1NTUzIiBzdHJva2U9IiNmZmFjM2IiIHN0cm9rZS13aWR0aD0iMiIvPgo8bGluZSB4MT0iMzYyIiB5MT0iMjY3IiB4Mj0iMzU0LjU3MTk3OTQ2NTgxMjkiIHkyPSIyNjEuOTE4MjE3NzM5NDQ0NyIgc3Ryb2tlPSIjZmZhYzNiIiBzdHJva2Utd2lkdGg9IjIiLz4KPHJlY3QgeD0iMzcyIiB5PSIxNDkiIHdpZHRoPSIyOTYiIGhlaWdodD0iMjU1IiByeD0iOCIgZmlsbD0iIzE1MTkxZiIgc3Ryb2tlPSIjMzAzNjQwIi8+Cjx0ZXh0IHg9IjM5MCIgeT0iMTc5IiBmb250LWZhbWlseT0iTm90byBTYW5zIENKSyBKUCwgc2Fucy1zZXJpZiIgZm9udC1zaXplPSIxNCIgZm9udC13ZWlnaHQ9IjYwMCIgZmlsbD0iI2ZmYWMzYiIgdGV4dC1hbmNob3I9InN0YXJ0Ij4wMjwvdGV4dD4KPGcgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoNDgyIDE4MSkgc2NhbGUoMC45NSkiIGZpbGw9Im5vbmUiIHN0cm9rZT0iI2ZmYWMzYiIgc3Ryb2tlLXdpZHRoPSIyLjIiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCI+CjxyZWN0IHg9IjEyIiB5PSI3IiB3aWR0aD0iNTciIGhlaWdodD0iMTgiIHJ4PSIzIi8+PHJlY3QgeD0iMTIiIHk9IjMyIiB3aWR0aD0iNTciIGhlaWdodD0iMTgiIHJ4PSIzIi8+PHJlY3QgeD0iMTIiIHk9IjU3IiB3aWR0aD0iNTciIGhlaWdodD0iMTgiIHJ4PSIzIi8+PHBhdGggZD0iTTI1IDE2aDI4TTI1IDQxaDI4TTI1IDY2aDI4Ii8+PC9nPgo8dGV4dCB4PSIzOTAiIHk9IjI5NSIgZm9udC1mYW1pbHk9Ik5vdG8gU2FucyBDSksgSlAsIHNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMjIiIGZvbnQtd2VpZ2h0PSI2MDAiIGZpbGw9IiNmMGYyZjUiIHRleHQtYW5jaG9yPSJzdGFydCI+44G+44Go44KB44Gm5L6/44KS54m55a6a44GZ44KLPC90ZXh0Pgo8dGV4dCB4PSIzOTAiIHk9IjMyOSIgZm9udC1mYW1pbHk9Ik5vdG8gU2FucyBDSksgSlAsIHNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMTciIGZvbnQtd2VpZ2h0PSI0MDAiIGZpbGw9IiNiOGMwY2MiIHRleHQtYW5jaG9yPSJzdGFydCI+6KGb5pif44KE44Os44O844OA44O844Gu5oOF5aCx44KC5L2/44GGPC90ZXh0Pgo8bGluZSB4MT0iNjc3IiB5MT0iMjY3IiB4Mj0iNzEwIiB5Mj0iMjY3IiBzdHJva2U9IiNmZmFjM2IiIHN0cm9rZS13aWR0aD0iMiIvPgo8bGluZSB4MT0iNzEwIiB5MT0iMjY3IiB4Mj0iNzAyLjU3MTk3OTQ2NTgxMjkiIHkyPSIyNzIuMDgxNzgyMjYwNTU1MyIgc3Ryb2tlPSIjZmZhYzNiIiBzdHJva2Utd2lkdGg9IjIiLz4KPGxpbmUgeDE9IjcxMCIgeTE9IjI2NyIgeDI9IjcwMi41NzE5Nzk0NjU4MTI5IiB5Mj0iMjYxLjkxODIxNzczOTQ0NDciIHN0cm9rZT0iI2ZmYWMzYiIgc3Ryb2tlLXdpZHRoPSIyIi8+CjxyZWN0IHg9IjcyMCIgeT0iMTQ5IiB3aWR0aD0iMjk2IiBoZWlnaHQ9IjI1NSIgcng9IjgiIGZpbGw9IiMxNTE5MWYiIHN0cm9rZT0iIzMwMzY0MCIvPgo8dGV4dCB4PSI3MzgiIHk9IjE3OSIgZm9udC1mYW1pbHk9Ik5vdG8gU2FucyBDSksgSlAsIHNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMTQiIGZvbnQtd2VpZ2h0PSI2MDAiIGZpbGw9IiNmZmFjM2IiIHRleHQtYW5jaG9yPSJzdGFydCI+MDM8L3RleHQ+CjxnIHRyYW5zZm9ybT0idHJhbnNsYXRlKDgzMCAxODEpIHNjYWxlKDAuOTUpIiBmaWxsPSJub25lIiBzdHJva2U9IiNmZmFjM2IiIHN0cm9rZS13aWR0aD0iMi4yIiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiPgo8cmVjdCB4PSI1IiB5PSIxMiIgd2lkdGg9IjcwIiBoZWlnaHQ9IjU3IiByeD0iNCIvPjxwYXRoIGQ9Ik0xMCA1MWwyMC0xMiAxNiA4IDIyLTIwTTI2IDEydjU3TTUyIDEydjU3TTYgMzBoNjlNNiA1MGg2OSIvPjxjaXJjbGUgY3g9IjMwIiBjeT0iMzkiIHI9IjMiLz48Y2lyY2xlIGN4PSI2OCIgY3k9IjI3IiByPSIzIi8+PC9nPgo8dGV4dCB4PSI3MzgiIHk9IjI5NSIgZm9udC1mYW1pbHk9Ik5vdG8gU2FucyBDSksgSlAsIHNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMjIiIGZvbnQtd2VpZ2h0PSI2MDAiIGZpbGw9IiNmMGYyZjUiIHRleHQtYW5jaG9yPSJzdGFydCI+5Zyw5Zuz44Go44OH44O844K/44Gn5o+Q5L6b44GZ44KLPC90ZXh0Pgo8dGV4dCB4PSI3MzgiIHk9IjMyOSIgZm9udC1mYW1pbHk9Ik5vdG8gU2FucyBDSksgSlAsIHNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMTciIGZvbnQtd2VpZ2h0PSI0MDAiIGZpbGw9IiNiOGMwY2MiIHRleHQtYW5jaG9yPSJzdGFydCI+5Yip55So6ICF44Gr44Gv5Zyw5Zuz44CB5LyB5qWt44Gr44Gv44OH44O844K/PC90ZXh0Pgo8dGV4dCB4PSIyNCIgeT0iNTA0IiBmb250LWZhbWlseT0iTm90byBTYW5zIENKSyBKUCwgc2Fucy1zZXJpZiIgZm9udC1zaXplPSIxNCIgZm9udC13ZWlnaHQ9IjQwMCIgZmlsbD0iIzg1OTA5ZSIgdGV4dC1hbmNob3I9InN0YXJ0Ij7lh7rlhbjvvJpGbGlnaHRyYWRhcjI05YWs5byP44K144Kk44OI44Gu6Kqs5piO44CCPC90ZXh0Pgo8L3N2Zz4="
+    },
+    {
+     "id": "fr24-revenues",
+     "alt": "広告主・有料会員・企業が払う代金",
+     "width": 1040,
+     "height": 530,
+     "src": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMDQwIiBoZWlnaHQ9IjUzMCIgdmlld0JveD0iMCAwIDEwNDAgNTMwIiByb2xlPSJpbWciIGFyaWEtbGFiZWxsZWRieT0idGl0bGUgZGVzYyI+PHRpdGxlIGlkPSJ0aXRsZSI+5ZCM44GY6aOb6KGM44OH44O844K/44GL44KJ44CBM+mAmuOCiuOBruWjsuS4iuOCkuW+l+OCizwvdGl0bGU+PGRlc2MgaWQ9ImRlc2MiPuW6g+WRiuS4u+OAgeacieaWmeS8muWToeOAgeS8gealreOBrjPogIXjgYzmiZXjgYbku6Pph5HjgII8L2Rlc2M+CjxyZWN0IHdpZHRoPSIxMDQwIiBoZWlnaHQ9IjUzMCIgZmlsbD0iIzBjMGUxMSIvPgo8dGV4dCB4PSIyNCIgeT0iMzEiIGZvbnQtZmFtaWx5PSJOb3RvIFNhbnMgQ0pLIEpQLCBzYW5zLXNlcmlmIiBmb250LXNpemU9IjEzIiBmb250LXdlaWdodD0iNjAwIiBmaWxsPSIjZmZhYzNiIiB0ZXh0LWFuY2hvcj0ic3RhcnQiPkZMSUdIVFJBREFSMjQgIC8gIOWPjuWFpea6kDwvdGV4dD4KPHRleHQgeD0iMjQiIHk9IjY1IiBmb250LWZhbWlseT0iTm90byBTYW5zIENKSyBKUCwgc2Fucy1zZXJpZiIgZm9udC1zaXplPSIyNyIgZm9udC13ZWlnaHQ9IjYwMCIgZmlsbD0iI2YwZjJmNSIgdGV4dC1hbmNob3I9InN0YXJ0Ij7lkIzjgZjpo5vooYzjg4fjg7zjgr/jgYvjgonjgIEz6YCa44KK44Gu5aOy5LiK44KS5b6X44KLPC90ZXh0Pgo8dGV4dCB4PSIyNCIgeT0iMTAyIiBmb250LWZhbWlseT0iTm90byBTYW5zIENKSyBKUCwgc2Fucy1zZXJpZiIgZm9udC1zaXplPSIxNiIgZm9udC13ZWlnaHQ9IjQwMCIgZmlsbD0iI2I4YzBjYyIgdGV4dC1hbmNob3I9InN0YXJ0Ij7lnLDlm7Pjga/nhKHmlpnjgafopovjgonjgozjgovjgILluoPlkYrkuLvjgIHmnInmlpnkvJrlk6HjgIHkvIHmpa3jgYzku6Pph5HjgpLmiZXjgYbjgII8L3RleHQ+CjxyZWN0IHg9IjI0IiB5PSIxNDUiIHdpZHRoPSI5OTIiIGhlaWdodD0iOTIiIHJ4PSI4IiBmaWxsPSIjMTUxOTFmIiBzdHJva2U9IiMzMDM2NDAiLz4KPHRleHQgeD0iNDQiIHk9IjE3NCIgZm9udC1mYW1pbHk9Ik5vdG8gU2FucyBDSksgSlAsIHNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMTMiIGZvbnQtd2VpZ2h0PSI2MDAiIGZpbGw9IiNmZmFjM2IiIHRleHQtYW5jaG9yPSJzdGFydCI+5Luj6YeRPC90ZXh0Pgo8dGV4dCB4PSI0NCIgeT0iMjA0IiBmb250LWZhbWlseT0iTm90byBTYW5zIENKSyBKUCwgc2Fucy1zZXJpZiIgZm9udC1zaXplPSIyMCIgZm9udC13ZWlnaHQ9IjYwMCIgZmlsbD0iI2YwZjJmNSIgdGV4dC1hbmNob3I9InN0YXJ0Ij7luoPlkYrkuLs8L3RleHQ+Cjx0ZXh0IHg9IjU1MCIgeT0iMTc5IiBmb250LWZhbWlseT0iTm90byBTYW5zIENKSyBKUCwgc2Fucy1zZXJpZiIgZm9udC1zaXplPSIxOSIgZm9udC13ZWlnaHQ9IjYwMCIgZmlsbD0iI2YwZjJmNSIgdGV4dC1hbmNob3I9Im1pZGRsZSI+5bqD5ZGK5paZPC90ZXh0Pgo8bGluZSB4MT0iMzA3IiB5MT0iMTkxIiB4Mj0iNzk0IiB5Mj0iMTkxIiBzdHJva2U9IiNmZmFjM2IiIHN0cm9rZS13aWR0aD0iMiIvPgo8bGluZSB4MT0iNzk0IiB5MT0iMTkxIiB4Mj0iNzg2LjU3MTk3OTQ2NTgxMjkiIHkyPSIxOTYuMDgxNzgyMjYwNTU1MzEiIHN0cm9rZT0iI2ZmYWMzYiIgc3Ryb2tlLXdpZHRoPSIyIi8+CjxsaW5lIHgxPSI3OTQiIHkxPSIxOTEiIHgyPSI3ODYuNTcxOTc5NDY1ODEyOSIgeTI9IjE4NS45MTgyMTc3Mzk0NDQ2OSIgc3Ryb2tlPSIjZmZhYzNiIiBzdHJva2Utd2lkdGg9IjIiLz4KPHRleHQgeD0iNTUwIiB5PSIyMjAiIGZvbnQtZmFtaWx5PSJOb3RvIFNhbnMgQ0pLIEpQLCBzYW5zLXNlcmlmIiBmb250LXNpemU9IjE0IiBmb250LXdlaWdodD0iNDAwIiBmaWxsPSIjYjhjMGNjIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIj7nhKHmlpnjga7liKnnlKjogIXjgavluoPlkYrjgpLooajnpLo8L3RleHQ+Cjx0ZXh0IHg9IjgxNCIgeT0iMTk3IiBmb250LWZhbWlseT0iTm90byBTYW5zIENKSyBKUCwgc2Fucy1zZXJpZiIgZm9udC1zaXplPSIxOSIgZm9udC13ZWlnaHQ9IjYwMCIgZmlsbD0iI2YwZjJmNSIgdGV4dC1hbmNob3I9InN0YXJ0Ij5GbGlnaHRyYWRhcjI0PC90ZXh0Pgo8cmVjdCB4PSIyNCIgeT0iMjUxIiB3aWR0aD0iOTkyIiBoZWlnaHQ9IjkyIiByeD0iOCIgZmlsbD0iIzE1MTkxZiIgc3Ryb2tlPSIjMzAzNjQwIi8+Cjx0ZXh0IHg9IjQ0IiB5PSIyODAiIGZvbnQtZmFtaWx5PSJOb3RvIFNhbnMgQ0pLIEpQLCBzYW5zLXNlcmlmIiBmb250LXNpemU9IjEzIiBmb250LXdlaWdodD0iNjAwIiBmaWxsPSIjZmZhYzNiIiB0ZXh0LWFuY2hvcj0ic3RhcnQiPuS7o+mHkTwvdGV4dD4KPHRleHQgeD0iNDQiIHk9IjMxMCIgZm9udC1mYW1pbHk9Ik5vdG8gU2FucyBDSksgSlAsIHNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMjAiIGZvbnQtd2VpZ2h0PSI2MDAiIGZpbGw9IiNmMGYyZjUiIHRleHQtYW5jaG9yPSJzdGFydCI+5pyJ5paZ5Lya5ZOhPC90ZXh0Pgo8dGV4dCB4PSI1NTAiIHk9IjI4NSIgZm9udC1mYW1pbHk9Ik5vdG8gU2FucyBDSksgSlAsIHNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMTkiIGZvbnQtd2VpZ2h0PSI2MDAiIGZpbGw9IiNmMGYyZjUiIHRleHQtYW5jaG9yPSJtaWRkbGUiPuaciOmhjeODu+W5tOmhjeOBruS8muWToeaWmTwvdGV4dD4KPGxpbmUgeDE9IjMwNyIgeTE9IjI5NyIgeDI9Ijc5NCIgeTI9IjI5NyIgc3Ryb2tlPSIjZmZhYzNiIiBzdHJva2Utd2lkdGg9IjIiLz4KPGxpbmUgeDE9Ijc5NCIgeTE9IjI5NyIgeDI9Ijc4Ni41NzE5Nzk0NjU4MTI5IiB5Mj0iMzAyLjA4MTc4MjI2MDU1NTMiIHN0cm9rZT0iI2ZmYWMzYiIgc3Ryb2tlLXdpZHRoPSIyIi8+CjxsaW5lIHgxPSI3OTQiIHkxPSIyOTciIHgyPSI3ODYuNTcxOTc5NDY1ODEyOSIgeTI9IjI5MS45MTgyMTc3Mzk0NDQ3IiBzdHJva2U9IiNmZmFjM2IiIHN0cm9rZS13aWR0aD0iMiIvPgo8dGV4dCB4PSI1NTAiIHk9IjMyNiIgZm9udC1mYW1pbHk9Ik5vdG8gU2FucyBDSksgSlAsIHNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMTQiIGZvbnQtd2VpZ2h0PSI0MDAiIGZpbGw9IiNiOGMwY2MiIHRleHQtYW5jaG9yPSJtaWRkbGUiPuips+OBl+OBhOaDheWgseOChOmBjuWOu+OBrue1jOi3rzwvdGV4dD4KPHRleHQgeD0iODE0IiB5PSIzMDMiIGZvbnQtZmFtaWx5PSJOb3RvIFNhbnMgQ0pLIEpQLCBzYW5zLXNlcmlmIiBmb250LXNpemU9IjE5IiBmb250LXdlaWdodD0iNjAwIiBmaWxsPSIjZjBmMmY1IiB0ZXh0LWFuY2hvcj0ic3RhcnQiPkZsaWdodHJhZGFyMjQ8L3RleHQ+CjxyZWN0IHg9IjI0IiB5PSIzNTciIHdpZHRoPSI5OTIiIGhlaWdodD0iOTIiIHJ4PSI4IiBmaWxsPSIjMTUxOTFmIiBzdHJva2U9IiMzMDM2NDAiLz4KPHRleHQgeD0iNDQiIHk9IjM4NiIgZm9udC1mYW1pbHk9Ik5vdG8gU2FucyBDSksgSlAsIHNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMTMiIGZvbnQtd2VpZ2h0PSI2MDAiIGZpbGw9IiNmZmFjM2IiIHRleHQtYW5jaG9yPSJzdGFydCI+5Luj6YeRPC90ZXh0Pgo8dGV4dCB4PSI0NCIgeT0iNDE2IiBmb250LWZhbWlseT0iTm90byBTYW5zIENKSyBKUCwgc2Fucy1zZXJpZiIgZm9udC1zaXplPSIyMCIgZm9udC13ZWlnaHQ9IjYwMCIgZmlsbD0iI2YwZjJmNSIgdGV4dC1hbmNob3I9InN0YXJ0Ij7kvIHmpa08L3RleHQ+Cjx0ZXh0IHg9IjU1MCIgeT0iMzkxIiBmb250LWZhbWlseT0iTm90byBTYW5zIENKSyBKUCwgc2Fucy1zZXJpZiIgZm9udC1zaXplPSIxOSIgZm9udC13ZWlnaHQ9IjYwMCIgZmlsbD0iI2YwZjJmNSIgdGV4dC1hbmNob3I9Im1pZGRsZSI+44OH44O844K/44Gu5Yip55So5paZPC90ZXh0Pgo8bGluZSB4MT0iMzA3IiB5MT0iNDAzIiB4Mj0iNzk0IiB5Mj0iNDAzIiBzdHJva2U9IiNmZmFjM2IiIHN0cm9rZS13aWR0aD0iMiIvPgo8bGluZSB4MT0iNzk0IiB5MT0iNDAzIiB4Mj0iNzg2LjU3MTk3OTQ2NTgxMjkiIHkyPSI0MDguMDgxNzgyMjYwNTU1MyIgc3Ryb2tlPSIjZmZhYzNiIiBzdHJva2Utd2lkdGg9IjIiLz4KPGxpbmUgeDE9Ijc5NCIgeTE9IjQwMyIgeDI9Ijc4Ni41NzE5Nzk0NjU4MTI5IiB5Mj0iMzk3LjkxODIxNzczOTQ0NDciIHN0cm9rZT0iI2ZmYWMzYiIgc3Ryb2tlLXdpZHRoPSIyIi8+Cjx0ZXh0IHg9IjU1MCIgeT0iNDMyIiBmb250LWZhbWlseT0iTm90byBTYW5zIENKSyBKUCwgc2Fucy1zZXJpZiIgZm9udC1zaXplPSIxNCIgZm9udC13ZWlnaHQ9IjQwMCIgZmlsbD0iI2I4YzBjYyIgdGV4dC1hbmNob3I9Im1pZGRsZSI+6aOb6KGM44OH44O844K/44KS6Ieq56S+44Gn5L2/44GGPC90ZXh0Pgo8dGV4dCB4PSI4MTQiIHk9IjQwOSIgZm9udC1mYW1pbHk9Ik5vdG8gU2FucyBDSksgSlAsIHNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMTkiIGZvbnQtd2VpZ2h0PSI2MDAiIGZpbGw9IiNmMGYyZjUiIHRleHQtYW5jaG9yPSJzdGFydCI+RmxpZ2h0cmFkYXIyNDwvdGV4dD4KPHRleHQgeD0iMjQiIHk9IjUwMSIgZm9udC1mYW1pbHk9Ik5vdG8gU2FucyBDSksgSlAsIHNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMTMiIGZvbnQtd2VpZ2h0PSI0MDAiIGZpbGw9IiM4NTkwOWUiIHRleHQtYW5jaG9yPSJzdGFydCI+5Ye65YW477ya5ouF5b2T6ICF44G444Gu5Y+W5p2Q44CB5YWs5byP44Gu5paZ6YeR44OX44Op44Oz44CBQm9laW5n44Go44Gu5aWR57SE55m66KGo44CCPC90ZXh0Pgo8L3N2Zz4="
+    }
+   ]
+  }
+ },
+ {
+  "entityId": "ent_gumroad_164534dd22fa6c2e2793",
+  "reviewState": "ready_for_review",
+  "generation": 5,
+  "article": {
+   "listLine": "電子書籍やデザイン素材の販売を手数料で支え、2025年に売上約27億円を得たデジタル商品販売サービス",
+   "headline": "個人の電子書籍や素材の決済・納品を代行し、販売手数料で2025年に売上約27億円",
+   "lead": "個人が電子書籍、デザイン素材、講座などを販売できるサービス。売り手が自分のファンに商品を案内すると、Gumroadが決済、商品の受け渡し、売り手への送金を担当する。月額料金はなく、商品が売れたときに手数料を受け取る。",
+   "sources": [
+    {
+     "no": 1,
+     "label": "創業者Sahil Lavingia：Gumroadの創業・人員削減・黒字化・財務公開（2019年2月7日公開）",
+     "url": "https://sahillavingia.com/reflecting"
+    },
+    {
+     "no": 2,
+     "label": "米SEC：Gumroad, Inc. 2025年Form C-AR（2024・2025年比較表を含む）（2026年4月8日提出）",
+     "url": "https://www.sec.gov/Archives/edgar/data/1532978/000153297826000003/formc-ar.pdf"
+    },
+    {
+     "no": 3,
+     "label": "Gumroad公式：現行料金とDiscoverの手数料（2026年10月12日閲覧）",
+     "url": "https://gumroad.com/pricing"
+    },
+    {
+     "no": 4,
+     "label": "Gumroad公式：販売できる商品、会員商品、出金方法（2026年10月12日閲覧）",
+     "url": "https://gumroad.com/pricing"
+    },
+    {
+     "no": 5,
+     "label": "Gumroad公式ヘルプ：決済手数料・月2万ドルの大口条件（2026年10月12日閲覧）",
+     "url": "https://gumroad.com/help/article/66-gumroads-fees"
+    },
+    {
+     "no": 6,
+     "label": "WIRED：創業者の初期経験とプロダクトの着想（2020年）",
+     "url": "https://www.wired.com/story/he-wanted-unicorn-got-sustainable-business/"
+    },
+    {
+     "no": 7,
+     "label": "Gumroad公式：クリエイターの集客・販売実例（2025年1月14日）",
+     "url": "https://gumroad.com/blog/p/how-lifemathmoney-made-1m-on-gumroad"
+    }
+   ],
+   "kpis": [
+    {
+     "label": "売上",
+     "value": "約1,779万ドル",
+     "yen": "約26億7,000万円",
+     "period": "2025年"
+    },
+    {
+     "label": "純利益",
+     "value": "約379万ドル",
+     "yen": "約5億7,000万円",
+     "period": "2025年"
+    },
+    {
+     "label": "手数料（1件ごと）",
+     "value": "販売額の10％",
+     "period": "＋0.50ドル（約75円）"
+    }
+   ],
+   "topics": [
+    {
+     "id": "overview",
+     "lead": {
+      "text": "個人が電子書籍や素材などのデジタル商品を売るための販売サービス。月額料金は取らず、商品が売れた時にだけ手数料を取る。",
+      "cites": [
+       1,
+       2
+      ]
+     },
+     "blocks": [
+      {
+       "type": "facts",
+       "variant": "text",
+       "rows": [
+        {
+         "label": "売り手",
+         "text": "電子書籍、デザイン素材、オンライン講座、音楽、ソフト、会員限定のコンテンツなどを販売する個人の作り手",
+         "cites": [
+          1,
+          2
+         ]
+        },
+        {
+         "label": "買い手",
+         "text": "売り手がSNSやメールで商品を案内した、その売り手のファンや読者",
+         "cites": [
+          1,
+          2
+         ]
+        },
+        {
+         "label": "料金",
+         "text": "商品が1件売れるごとに、販売額の10％＋0.50ドル（約75円）の手数料。月額の固定料金はない",
+         "cites": [
+          1,
+          2,
+          5
+         ]
+        }
+       ]
+      },
+      {
+       "type": "list",
+       "ordered": false,
+       "items": [
+        {
+         "text": "販売ページの作成、注文と決済の処理、購入者への商品の受け渡し、売り手への送金を、Gumroadがまとめて引き受ける",
+         "cites": [
+          1,
+          2
+         ]
+        },
+        {
+         "text": "創業者のSahil Lavingiaは、デジタル商品を1つ売りたいだけの人が、ネットショップを丸ごと開設しなければならないのは大げさだと考えて作った",
+         "cites": [
+          1,
+          4
+         ]
+        },
+        {
+         "text": "現在は、購入者がGumroad上で商品を探せるページ「Discover」もある",
+         "cites": [
+          1,
+          4
+         ]
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "id": "mechanism",
+     "lead": {
+      "text": "売り手が商品を登録して自分のファンに案内し、決済、商品の受け渡し、売り手への送金をGumroadが行う。",
+      "cites": [
+       4
+      ]
+     },
+     "blocks": [
+      {
+       "type": "steps",
+       "items": [
+        {
+         "title": "商品を登録する",
+         "text": "売り手が商品を登録し、価格と販売ページの内容を決める。",
+         "cites": [
+          4
+         ]
+        },
+        {
+         "title": "ファンに案内する",
+         "text": "売り手が、販売ページのリンクをSNS、ブログ、メールで自分のファンや読者に知らせる。購入者はそのページで代金を支払う。",
+         "cites": [
+          4
+         ]
+        },
+        {
+         "title": "決済して商品を渡す",
+         "text": "Gumroadが代金を受け取り、購入者が商品を受け取れるようにする。",
+         "cites": [
+          4
+         ]
+        },
+        {
+         "title": "売り手に送金する",
+         "text": "Gumroadが、代金から手数料を引いた金額を売り手に送金する。",
+         "cites": [
+          4
+         ]
+        }
+       ]
+      },
+      {
+       "type": "figure",
+       "figureId": "gumroad-flow"
+      },
+      {
+       "type": "subheading",
+       "text": "売れ方は2通りあり、手数料が違う"
+      },
+      {
+       "type": "list",
+       "ordered": false,
+       "items": [
+        {
+         "lead": "直接販売",
+         "text": "売り手が自分で案内した購入者による注文。手数料は販売額の10％＋0.50ドル（約75円）",
+         "cites": [
+          5
+         ]
+        },
+        {
+         "lead": "Discover経由",
+         "text": "Gumroadの商品検索ページ「Discover」で商品を見つけた購入者による注文。手数料は販売額の30％",
+         "cites": [
+          4,
+          5
+         ]
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "id": "revenue",
+     "lead": {
+      "text": "Gumroadの売上は販売手数料で、2025年は売上が約1,779万ドル（約26億7,000万円）、純利益が約379万ドル（約5億7,000万円）だった。",
+      "cites": [
+       1,
+       2
+      ]
+     },
+     "blocks": [
+      {
+       "type": "rates",
+       "caption": "売れ方 / 1件ごとの手数料（2026年10月時点）",
+       "rows": [
+        {
+         "label": "直接販売",
+         "value": "販売額の10％＋0.50ドル",
+         "yen": "10％＋約75円",
+         "note": "これとは別に、カード会社などに払う決済手数料がかかる。例は2.9％＋0.30ドル（約45円）",
+         "cites": [
+          5
+         ]
+        },
+        {
+         "label": "Discover経由",
+         "value": "販売額の30％",
+         "note": "決済手数料を含む",
+         "cites": [
+          5
+         ]
+        },
+        {
+         "label": "大口の直接販売",
+         "value": "5％＋0.50ドル",
+         "yen": "5％＋約75円",
+         "note": "月の販売額が2万ドル（約300万円）を超えた分に適用。翌月は10％に戻る",
+         "cites": [
+          5
+         ]
+        }
+       ]
+      },
+      {
+       "type": "table",
+       "caption": "年間の業績（会社全体）",
+       "columns": [
+        "項目",
+        "2024年",
+        "2025年"
+       ],
+       "rows": [
+        {
+         "label": "売上",
+         "cells": [
+          {
+           "text": "約1,895万ドル",
+           "yen": "約28億4,000万円"
+          },
+          {
+           "text": "約1,779万ドル",
+           "yen": "約26億7,000万円"
+          }
+         ],
+         "cites": [
+          2,
+          5
+         ]
+        },
+        {
+         "label": "原価",
+         "cells": [
+          {
+           "text": "約592万ドル",
+           "yen": "約8億9,000万円"
+          },
+          {
+           "text": "約608万ドル",
+           "yen": "約9億1,000万円"
+          }
+         ],
+         "cites": [
+          2,
+          5
+         ]
+        },
+        {
+         "label": "粗利益（売上−原価）",
+         "cells": [
+          {
+           "text": "約1,303万ドル",
+           "yen": "約19億5,000万円"
+          },
+          {
+           "text": "約1,171万ドル",
+           "yen": "約17億6,000万円"
+          }
+         ],
+         "cites": [
+          5
+         ]
+        },
+        {
+         "label": "純利益",
+         "cells": [
+          {
+           "text": "約429万ドル",
+           "yen": "約6億4,000万円"
+          },
+          {
+           "text": "約379万ドル",
+           "yen": "約5億7,000万円"
+          }
+         ],
+         "cites": [
+          2,
+          5
+         ]
+        }
+       ]
+      },
+      {
+       "type": "figure",
+       "figureId": "gumroad-results"
+      },
+      {
+       "type": "list",
+       "ordered": false,
+       "items": [
+        {
+         "text": "2025年の売上には、関連サービスSmall Betsの売上約25万ドル（約3,740万円）が含まれる",
+         "cites": [
+          2
+         ]
+        }
+       ]
+      },
+      {
+       "type": "subheading",
+       "text": "2025年の主な費用"
+      },
+      {
+       "type": "facts",
+       "variant": "text",
+       "rows": [
+        {
+         "label": "決済手数料",
+         "text": "約440万ドル（約6億6,000万円）。カード会社などへの支払い",
+         "cites": [
+          2
+         ]
+        },
+        {
+         "label": "サーバー・制作関連",
+         "text": "約92万ドル（約1億3,800万円）",
+         "cites": [
+          2
+         ]
+        },
+        {
+         "label": "外部の専門家への報酬",
+         "text": "約137万ドル（約2億600万円）",
+         "cites": [
+          2
+         ]
+        },
+        {
+         "label": "製品開発",
+         "text": "約194万ドル（約2億9,000万円）",
+         "cites": [
+          2
+         ]
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "id": "acquisition",
+     "lead": {
+      "text": "2011年に創業者が技術者向けの掲示板に投稿して初日に5万2,000人以上を集め、その後は売り手が自分のファンを購入者として連れてくる形で広がった。",
+      "cites": [
+       1,
+       6,
+       7
+      ]
+     },
+     "blocks": [
+      {
+       "type": "list",
+       "ordered": false,
+       "items": [
+        {
+         "text": "2011年、創業者のSahil Lavingiaが週末に試作品を作り、月曜の朝に技術者向けの掲示板Hacker Newsに投稿した。初日に5万2,000人以上がサイトを訪れた",
+         "cites": [
+          1,
+          6
+         ]
+        },
+        {
+         "text": "創業者は画像共有サービスPinterestの初期の社員で、製品を自分で開発できた",
+         "cites": [
+          1,
+          6
+         ]
+        },
+        {
+         "text": "売り手は、自分のSNSのフォロワーやメールの読者に販売ページのリンクを知らせる。購入者を集めるのは売り手なので、Gumroadは購入者を集めるための広告を出さずに済む",
+         "cites": [
+          7
+         ]
+        },
+        {
+         "text": "商品検索ページ「Discover」に掲載されると、Gumroadを訪れた人にも商品が売れる",
+         "cites": [
+          1,
+          4
+         ]
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "id": "operations",
+     "lead": {
+      "text": "決済、商品の受け渡し、売り手への送金、税の手続きを売り手に代わって行っている。2015年には、社員を20人から5人に減らした。",
+      "cites": [
+       1,
+       2,
+       5
+      ]
+     },
+     "blocks": [
+      {
+       "type": "steps",
+       "items": [
+        {
+         "title": "代金を決済する",
+         "text": "クレジットカードなどの支払い方法を用意し、注文を確定させる。カード会社などへの決済手数料がかかる。",
+         "cites": [
+          2,
+          5
+         ]
+        },
+        {
+         "title": "商品を渡す",
+         "text": "購入者がデジタル商品を受け取れるようにする。会員制の継続販売にも対応している。",
+         "cites": [
+          2,
+          5
+         ]
+        },
+        {
+         "title": "売り手に送金する",
+         "text": "売り手の国や受け取り方法に合わせて、送金の手段を用意する。",
+         "cites": [
+          2,
+          5
+         ]
+        },
+        {
+         "title": "税の手続きをする",
+         "text": "2025年から、販売にかかる税（販売税）の手続きを、売り手に代わって行っている。",
+         "cites": [
+          2,
+          5
+         ]
+        }
+       ]
+      },
+      {
+       "type": "subheading",
+       "text": "2015年の人員削減"
+      },
+      {
+       "type": "list",
+       "ordered": false,
+       "items": [
+        {
+         "text": "成長が鈍って次の資金調達がまとまらず、20人いた社員を5人に減らした",
+         "cites": [
+          1
+         ]
+        },
+        {
+         "text": "月2万5,000ドル（約375万円）の賃料がかかっていた事務所を解約しようとした",
+         "cites": [
+          1
+         ]
+        },
+        {
+         "text": "その後は、創業者が日々の問い合わせ対応と不具合の修正を自分で行った。元社員も手伝った",
+         "cites": [
+          1
+         ]
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "id": "history",
+     "lead": {
+      "text": "2011年に公開し、資金を調達して社員を増やしたが2015年に大幅な赤字になり、社員を減らして2016年に黒字に戻った。",
+      "cites": [
+       1
+      ]
+     },
+     "blocks": [
+      {
+       "type": "timeline",
+       "items": [
+        {
+         "when": "2011年",
+         "text": "創業者が週末に試作品を作り、Hacker Newsに投稿した。その後、投資家から資金を調達し始めた",
+         "cites": [
+          1,
+          6
+         ]
+        },
+        {
+         "when": "2012年",
+         "text": "投資家から700万ドル（約10億5,000万円）を追加で調達し、社員と事務所を増やした",
+         "cites": [
+          1
+         ]
+        },
+        {
+         "when": "2015年",
+         "text": "成長が鈍り、次の資金調達がまとまらなかった。社員を20人から5人に減らした",
+         "cites": [
+          1
+         ]
+        },
+        {
+         "when": "2016年",
+         "text": "月ごとの収支が黒字になった。少人数で、固定費の少ない運営に切り替えた",
+         "cites": [
+          1
+         ]
+        },
+        {
+         "when": "2017年",
+         "text": "主な投資家から、その投資家が持つ株を会社が買い戻す提案があった",
+         "cites": [
+          1
+         ]
+        },
+        {
+         "when": "2018年",
+         "text": "創業者が、会社の売上や利益の数字を公開し始めた",
+         "cites": [
+          1
+         ]
+        },
+        {
+         "when": "2025年",
+         "text": "売上は約1,779万ドル（約26億7,000万円）、純利益は約379万ドル（約5億7,000万円）",
+         "cites": [
+          1
+         ]
+        }
+       ]
+      },
+      {
+       "type": "table",
+       "caption": "2015年6月と2016年6月の比較（1か月分）",
+       "columns": [
+        "項目",
+        "2015年6月",
+        "2016年6月"
+       ],
+       "rows": [
+        {
+         "label": "売上",
+         "cells": [
+          {
+           "text": "8.9万ドル",
+           "yen": "約1,340万円"
+          },
+          {
+           "text": "17.6万ドル",
+           "yen": "約2,640万円"
+          }
+         ],
+         "cites": [
+          1
+         ]
+        },
+        {
+         "label": "粗利益",
+         "cells": [
+          {
+           "text": "1.7万ドル",
+           "yen": "約255万円"
+          },
+          {
+           "text": "4.2万ドル",
+           "yen": "約630万円"
+          }
+         ],
+         "cites": [
+          1
+         ]
+        },
+        {
+         "label": "営業費用",
+         "cells": [
+          {
+           "text": "36.4万ドル",
+           "yen": "約5,500万円"
+          },
+          {
+           "text": "3.2万ドル",
+           "yen": "約480万円"
+          }
+         ],
+         "cites": [
+          1
+         ]
+        },
+        {
+         "label": "最終損益",
+         "cells": [
+          {
+           "text": "−35.1万ドル",
+           "yen": "約5,300万円の赤字"
+          },
+          {
+           "text": "＋1万ドル",
+           "yen": "約150万円の黒字"
+          }
+         ],
+         "cites": [
+          1
+         ]
+        }
+       ]
+      },
+      {
+       "type": "paragraph",
+       "tone": "note",
+       "text": "営業費用は、1年で10分の1以下になった。",
+       "cites": [
+        1,
+        2
+       ]
+      }
+     ]
+    },
+    {
+     "id": "reasons",
+     "title": "売り手の集客を使い、売れたときだけ手数料を受け取る",
+     "blocks": [
+      {
+       "type": "list",
+       "ordered": false,
+       "items": [
+        {
+         "lead": "購入者を連れてくるのは売り手",
+         "text": "作り手が自分のSNSやメール読者に商品を案内し、Gumroadが決済と商品の受け渡しを担当する。",
+         "cites": [
+          7
+         ]
+        },
+        {
+         "lead": "販売を始めるための固定費がない",
+         "text": "出品に月額料金をかけず、商品が売れたときに手数料を受け取る仕組みにした。",
+         "cites": [
+          1,
+          2
+         ]
+        }
+       ]
+      }
+     ]
+    }
+   ],
+   "figures": [
+    {
+     "id": "gumroad-flow",
+     "alt": "売り手・Gumroad・購入者の間の商品とお金の流れ",
+     "width": 1120,
+     "height": 470,
+     "src": "data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiID8+CjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczpldj0iaHR0cDovL3d3dy53My5vcmcvMjAwMS94bWwtZXZlbnRzIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayIgYmFzZVByb2ZpbGU9ImZ1bGwiIGhlaWdodD0iNDcwIiB2ZXJzaW9uPSIxLjEiIHZpZXdCb3g9IjAgMCAxMTIwIDQ3MCIgd2lkdGg9IjExMjAiPgogIDxkZWZzLz4KICA8cmVjdCBmaWxsPSIjMGQxMDE1IiBoZWlnaHQ9IjEwMCUiIHdpZHRoPSIxMDAlIiB4PSIwIiB5PSIwIi8+CiAgPHRleHQgZmlsbD0iI2YwZjJmNCIgZm9udC1mYW1pbHk9Ik5vdG8gU2FucyBDSksgSlAsIHNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMjYiIGZvbnQtd2VpZ2h0PSI2MDAiIHg9IjQwIiB5PSI1MiI+5aOy44KK5omL44GM5ZWG5ZOB44KS55So5oSP44GX44CB5rG65riI44Go5ZWG5ZOB44Gu5Y+X44GR5rih44GX44GvR3Vtcm9hZOOBjOihjOOBhjwvdGV4dD4KICA8dGV4dCBmaWxsPSIjODg5NWEzIiBmb250LWZhbWlseT0iTm90byBTYW5zIENKSyBKUCwgc2Fucy1zZXJpZiIgZm9udC1zaXplPSIxNCIgZm9udC13ZWlnaHQ9IjQwMCIgeD0iNDAiIHk9Ijg2Ij7miYvmlbDmlpnjga/jgIHlo7LjgozmlrnjgavjgojjgaPjgaYy6YCa44KKPC90ZXh0PgogIDxyZWN0IGZpbGw9IiMxNzFiMjIiIGhlaWdodD0iMTUyIiByeD0iOSIgcnk9IjkiIHN0cm9rZT0iIzM0M2M0NiIgc3Ryb2tlLXdpZHRoPSIxLjEiIHdpZHRoPSIyODUiIHg9IjQwIiB5PSIxMTgiLz4KICA8dGV4dCBmaWxsPSIjZjBmMmY0IiBmb250LWZhbWlseT0iTm90byBTYW5zIENKSyBKUCwgc2Fucy1zZXJpZiIgZm9udC1zaXplPSIxOSIgZm9udC13ZWlnaHQ9IjYwMCIgeD0iNTgiIHk9IjE1NCI+5aOy44KK5omLPC90ZXh0PgogIDx0ZXh0IGZpbGw9IiNiN2MwYzkiIGZvbnQtZmFtaWx5PSJOb3RvIFNhbnMgQ0pLIEpQLCBzYW5zLXNlcmlmIiBmb250LXNpemU9IjE2IiBmb250LXdlaWdodD0iNDAwIiB4PSI1OCIgeT0iMTk0Ij7llYblk4HjgpLnmbvpjLLjgZfjgIHkvqHmoLzjgpLmsbrjgoHjgos8L3RleHQ+CiAgPHRleHQgZmlsbD0iI2I3YzBjOSIgZm9udC1mYW1pbHk9Ik5vdG8gU2FucyBDSksgSlAsIHNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMTYiIGZvbnQtd2VpZ2h0PSI0MDAiIHg9IjU4IiB5PSIyMjEiPuiHquWIhuOBruODleOCoeODs+OBq+ahiOWGheOBmeOCizwvdGV4dD4KICA8cmVjdCBmaWxsPSIjMTcxYjIyIiBoZWlnaHQ9IjE1MiIgcng9IjkiIHJ5PSI5IiBzdHJva2U9IiMzNDNjNDYiIHN0cm9rZS13aWR0aD0iMS4xIiB3aWR0aD0iMjg1IiB4PSI0MjAiIHk9IjExOCIvPgogIDx0ZXh0IGZpbGw9IiNmMGYyZjQiIGZvbnQtZmFtaWx5PSJOb3RvIFNhbnMgQ0pLIEpQLCBzYW5zLXNlcmlmIiBmb250LXNpemU9IjE5IiBmb250LXdlaWdodD0iNjAwIiB4PSI0MzgiIHk9IjE1NCI+R3Vtcm9hZDwvdGV4dD4KICA8dGV4dCBmaWxsPSIjYjdjMGM5IiBmb250LWZhbWlseT0iTm90byBTYW5zIENKSyBKUCwgc2Fucy1zZXJpZiIgZm9udC1zaXplPSIxNiIgZm9udC13ZWlnaHQ9IjQwMCIgeD0iNDM4IiB5PSIxOTQiPuiyqeWjsuODmuODvOOCuOODu+axuua4iOODu+WPl+OBkea4oeOBlzwvdGV4dD4KICA8dGV4dCBmaWxsPSIjYjdjMGM5IiBmb250LWZhbWlseT0iTm90byBTYW5zIENKSyBKUCwgc2Fucy1zZXJpZiIgZm9udC1zaXplPSIxNiIgZm9udC13ZWlnaHQ9IjQwMCIgeD0iNDM4IiB5PSIyMjEiPuWjsuOCiuaJi+OBuOOBrumAgemHkeOAgeeojuOBruaJi+e2muOBjTwvdGV4dD4KICA8cmVjdCBmaWxsPSIjMTcxYjIyIiBoZWlnaHQ9IjE1MiIgcng9IjkiIHJ5PSI5IiBzdHJva2U9IiMzNDNjNDYiIHN0cm9rZS13aWR0aD0iMS4xIiB3aWR0aD0iMjgwIiB4PSI4MDAiIHk9IjExOCIvPgogIDx0ZXh0IGZpbGw9IiNmMGYyZjQiIGZvbnQtZmFtaWx5PSJOb3RvIFNhbnMgQ0pLIEpQLCBzYW5zLXNlcmlmIiBmb250LXNpemU9IjE5IiBmb250LXdlaWdodD0iNjAwIiB4PSI4MTgiIHk9IjE1NCI+6LO85YWl6ICFPC90ZXh0PgogIDx0ZXh0IGZpbGw9IiNiN2MwYzkiIGZvbnQtZmFtaWx5PSJOb3RvIFNhbnMgQ0pLIEpQLCBzYW5zLXNlcmlmIiBmb250LXNpemU9IjE2IiBmb250LXdlaWdodD0iNDAwIiB4PSI4MTgiIHk9IjE5NCI+5ZWG5ZOB44KS6LK344GGPC90ZXh0PgogIDx0ZXh0IGZpbGw9IiNiN2MwYzkiIGZvbnQtZmFtaWx5PSJOb3RvIFNhbnMgQ0pLIEpQLCBzYW5zLXNlcmlmIiBmb250LXNpemU9IjE2IiBmb250LXdlaWdodD0iNDAwIiB4PSI4MTgiIHk9IjIyMSI+5Luj6YeR44KS5omV44GE44CB5ZWG5ZOB44KS5Y+X44GR5Y+W44KLPC90ZXh0PgogIDxsaW5lIHN0cm9rZT0iIzc5YWNjOCIgc3Ryb2tlLXdpZHRoPSIyLjEiIHgxPSIzMjciIHgyPSI0MTYiIHkxPSIxNzAiIHkyPSIxNzAiLz4KICA8cG9seWdvbiBmaWxsPSIjNzlhY2M4IiBwb2ludHM9IjQxNiwxNzAgNDA2Ljk5NTUyODk3NjQ3MzIsMTc0LjM0OTY1NTM0MTExMjMgNDA2Ljk5NTUyODk3NjQ3MzIsMTY1LjY1MDM0NDY1ODg4NzciLz4KICA8dGV4dCBmaWxsPSIjODg5NWEzIiBmb250LWZhbWlseT0iTm90byBTYW5zIENKSyBKUCwgc2Fucy1zZXJpZiIgZm9udC1zaXplPSIxMyIgZm9udC13ZWlnaHQ9IjQwMCIgdGV4dC1hbmNob3I9Im1pZGRsZSIgeD0iMzcyIiB5PSIxNjAiPuWVhuWTgeOBqOODquODs+OCrzwvdGV4dD4KICA8bGluZSBzdHJva2U9IiNlZWFiNTgiIHN0cm9rZS13aWR0aD0iMi4xIiB4MT0iNzk5IiB4Mj0iNzExIiB5MT0iMTk0IiB5Mj0iMTk0Ii8+CiAgPHBvbHlnb24gZmlsbD0iI2VlYWI1OCIgcG9pbnRzPSI3MTEsMTk0IDcyMC4wMDQ0NzEwMjM1MjY4LDE4OS42NTAzNDQ2NTg4ODc3IDcyMC4wMDQ0NzEwMjM1MjY4LDE5OC4zNDk2NTUzNDExMTIzIi8+CiAgPHRleHQgZmlsbD0iIzg4OTVhMyIgZm9udC1mYW1pbHk9Ik5vdG8gU2FucyBDSksgSlAsIHNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMTQiIGZvbnQtd2VpZ2h0PSI0MDAiIHRleHQtYW5jaG9yPSJtaWRkbGUiIHg9Ijc1NSIgeT0iMTgyIj7ms6jmlofjg7vku6Pph5E8L3RleHQ+CiAgPGxpbmUgc3Ryb2tlPSIjOWRjMjlmIiBzdHJva2Utd2lkdGg9IjIuMSIgeDE9IjcxMCIgeDI9Ijc5NiIgeTE9IjIzMSIgeTI9IjIzMSIvPgogIDxwb2x5Z29uIGZpbGw9IiM5ZGMyOWYiIHBvaW50cz0iNzk2LDIzMSA3ODYuOTk1NTI4OTc2NDczMiwyMzUuMzQ5NjU1MzQxMTEyMyA3ODYuOTk1NTI4OTc2NDczMiwyMjYuNjUwMzQ0NjU4ODg3NyIvPgogIDx0ZXh0IGZpbGw9IiM4ODk1YTMiIGZvbnQtZmFtaWx5PSJOb3RvIFNhbnMgQ0pLIEpQLCBzYW5zLXNlcmlmIiBmb250LXNpemU9IjE0IiBmb250LXdlaWdodD0iNDAwIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiB4PSI3NTMiIHk9IjI1NyI+5ZWG5ZOB44KS5rih44GZPC90ZXh0PgogIDxyZWN0IGZpbGw9IiMyMDI2MzIiIGhlaWdodD0iMTEwIiByeD0iOSIgcnk9IjkiIHN0cm9rZT0iIzM0M2M0NiIgc3Ryb2tlLXdpZHRoPSIxLjEiIHdpZHRoPSIxMDQwIiB4PSI0MCIgeT0iMzEwIi8+CiAgPHRleHQgZmlsbD0iI2YwZjJmNCIgZm9udC1mYW1pbHk9Ik5vdG8gU2FucyBDSksgSlAsIHNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMTkiIGZvbnQtd2VpZ2h0PSI2MDAiIHg9IjU5IiB5PSIzNDciPkd1bXJvYWTjga7miYvmlbDmlpk8L3RleHQ+CiAgPHRleHQgZmlsbD0iI2VlYWI1OCIgZm9udC1mYW1pbHk9Ik5vdG8gU2FucyBDSksgSlAsIHNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMTciIGZvbnQtd2VpZ2h0PSI2MDAiIHg9IjYwIiB5PSIzODMiPuWjsuOCiuaJi+OBjOahiOWGheOBl+OBn+azqOaWh++8mjEwJSArICQwLjUwIC8g5Lu2PC90ZXh0PgogIDx0ZXh0IGZpbGw9IiM3OWFjYzgiIGZvbnQtZmFtaWx5PSJOb3RvIFNhbnMgQ0pLIEpQLCBzYW5zLXNlcmlmIiBmb250LXNpemU9IjE3IiBmb250LXdlaWdodD0iNjAwIiB4PSI2MDMiIHk9IjM4MyI+RGlzY292ZXLjgafopovjgaTjgZHjgZ/ms6jmlofvvJozMCUgLyDku7Y8L3RleHQ+CiAgPHRleHQgZmlsbD0iIzg4OTVhMyIgZm9udC1mYW1pbHk9Ik5vdG8gU2FucyBDSksgSlAsIHNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMTMiIGZvbnQtd2VpZ2h0PSI0MDAiIHg9IjYwIiB5PSI0MTAiPuWjsuOCiuaJi+OBjOahiOWGheOBl+OBn+azqOaWh+OBr+OAgeaxuua4iOaJi+aVsOaWmeOBjOWIpeOBq+OBi+OBi+OCi+OAgjIwMjblubQxMOaciOaZgueCueOAgjwvdGV4dD4KPC9zdmc+Cg=="
+    },
+    {
+     "id": "gumroad-results",
+     "alt": "2024年と2025年の売上と純利益",
+     "width": 1120,
+     "height": 470,
+     "src": "data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiID8+CjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczpldj0iaHR0cDovL3d3dy53My5vcmcvMjAwMS94bWwtZXZlbnRzIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayIgYmFzZVByb2ZpbGU9ImZ1bGwiIGhlaWdodD0iNDcwIiB2ZXJzaW9uPSIxLjEiIHZpZXdCb3g9IjAgMCAxMTIwIDQ3MCIgd2lkdGg9IjExMjAiPgogIDxkZWZzLz4KICA8cmVjdCBmaWxsPSIjMGQxMDE1IiBoZWlnaHQ9IjEwMCUiIHdpZHRoPSIxMDAlIiB4PSIwIiB5PSIwIi8+CiAgPHRleHQgZmlsbD0iI2YwZjJmNCIgZm9udC1mYW1pbHk9Ik5vdG8gU2FucyBDSksgSlAsIHNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMjYiIGZvbnQtd2VpZ2h0PSI2MDAiIHg9IjQwIiB5PSI1MiI+MjAyNOW5tOOBqDIwMjXlubTjga7lo7LkuIrjgajntJTliKnnm4o8L3RleHQ+CiAgPHRleHQgZmlsbD0iIzg4OTVhMyIgZm9udC1mYW1pbHk9Ik5vdG8gU2FucyBDSksgSlAsIHNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMTQiIGZvbnQtd2VpZ2h0PSI0MDAiIHg9IjQwIiB5PSI4NiI+5Y2Y5L2N44Gv57Gz44OJ44Or44CCTeOBrzEwMOS4h+ODieODqzwvdGV4dD4KICA8bGluZSBzdHJva2U9IiMzNDNjNDYiIHN0cm9rZS13aWR0aD0iMSIgeDE9IjExMCIgeDI9IjExMCIgeTE9IjEyOCIgeTI9IjM2MyIvPgogIDx0ZXh0IGZpbGw9IiM4ODk1YTMiIGZvbnQtZmFtaWx5PSJOb3RvIFNhbnMgQ0pLIEpQLCBzYW5zLXNlcmlmIiBmb250LXNpemU9IjE0IiBmb250LXdlaWdodD0iNDAwIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiB4PSIxMTAiIHk9IjM5MCI+JDBNPC90ZXh0PgogIDxsaW5lIHN0cm9rZT0iIzM0M2M0NiIgc3Ryb2tlLXdpZHRoPSIxIiB4MT0iMzA1IiB4Mj0iMzA1IiB5MT0iMTI4IiB5Mj0iMzYzIi8+CiAgPHRleHQgZmlsbD0iIzg4OTVhMyIgZm9udC1mYW1pbHk9Ik5vdG8gU2FucyBDSksgSlAsIHNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMTQiIGZvbnQtd2VpZ2h0PSI0MDAiIHRleHQtYW5jaG9yPSJtaWRkbGUiIHg9IjMwNSIgeT0iMzkwIj4kNU08L3RleHQ+CiAgPGxpbmUgc3Ryb2tlPSIjMzQzYzQ2IiBzdHJva2Utd2lkdGg9IjEiIHgxPSI1MDAiIHgyPSI1MDAiIHkxPSIxMjgiIHkyPSIzNjMiLz4KICA8dGV4dCBmaWxsPSIjODg5NWEzIiBmb250LWZhbWlseT0iTm90byBTYW5zIENKSyBKUCwgc2Fucy1zZXJpZiIgZm9udC1zaXplPSIxNCIgZm9udC13ZWlnaHQ9IjQwMCIgdGV4dC1hbmNob3I9Im1pZGRsZSIgeD0iNTAwIiB5PSIzOTAiPiQxME08L3RleHQ+CiAgPGxpbmUgc3Ryb2tlPSIjMzQzYzQ2IiBzdHJva2Utd2lkdGg9IjEiIHgxPSI2OTUiIHgyPSI2OTUiIHkxPSIxMjgiIHkyPSIzNjMiLz4KICA8dGV4dCBmaWxsPSIjODg5NWEzIiBmb250LWZhbWlseT0iTm90byBTYW5zIENKSyBKUCwgc2Fucy1zZXJpZiIgZm9udC1zaXplPSIxNCIgZm9udC13ZWlnaHQ9IjQwMCIgdGV4dC1hbmNob3I9Im1pZGRsZSIgeD0iNjk1IiB5PSIzOTAiPiQxNU08L3RleHQ+CiAgPGxpbmUgc3Ryb2tlPSIjMzQzYzQ2IiBzdHJva2Utd2lkdGg9IjEiIHgxPSI4OTAiIHgyPSI4OTAiIHkxPSIxMjgiIHkyPSIzNjMiLz4KICA8dGV4dCBmaWxsPSIjODg5NWEzIiBmb250LWZhbWlseT0iTm90byBTYW5zIENKSyBKUCwgc2Fucy1zZXJpZiIgZm9udC1zaXplPSIxNCIgZm9udC13ZWlnaHQ9IjQwMCIgdGV4dC1hbmNob3I9Im1pZGRsZSIgeD0iODkwIiB5PSIzOTAiPiQyME08L3RleHQ+CiAgPHRleHQgZmlsbD0iIzc5YWNjOCIgZm9udC1mYW1pbHk9Ik5vdG8gU2FucyBDSksgSlAsIHNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMTUiIGZvbnQtd2VpZ2h0PSI2MDAiIHg9Ijk1IiB5PSIxMTkiPuWjsuS4ijwvdGV4dD4KICA8dGV4dCBmaWxsPSIjOWRjMjlmIiBmb250LWZhbWlseT0iTm90byBTYW5zIENKSyBKUCwgc2Fucy1zZXJpZiIgZm9udC1zaXplPSIxNSIgZm9udC13ZWlnaHQ9IjYwMCIgeD0iMTgzIiB5PSIxMTkiPue0lOWIqeebijwvdGV4dD4KICA8dGV4dCBmaWxsPSIjZjBmMmY0IiBmb250LWZhbWlseT0iTm90byBTYW5zIENKSyBKUCwgc2Fucy1zZXJpZiIgZm9udC1zaXplPSIxOCIgZm9udC13ZWlnaHQ9IjYwMCIgeD0iNDAiIHk9IjE4NSI+MjAyNOW5tDwvdGV4dD4KICA8cmVjdCBmaWxsPSIjNzlhY2M4IiBoZWlnaHQ9IjI3IiB3aWR0aD0iNzM5LjEwMTAxMjAwMDAwMDEiIHg9IjExMCIgeT0iMTYwIi8+CiAgPHJlY3QgZmlsbD0iIzlkYzI5ZiIgaGVpZ2h0PSIyMCIgd2lkdGg9IjE2Ny4zMjY0OTciIHg9IjExMCIgeT0iMTk0Ii8+CiAgPHRleHQgZmlsbD0iI2YwZjJmNCIgZm9udC1mYW1pbHk9Ik5vdG8gU2FucyBDSksgSlAsIHNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMTYiIGZvbnQtd2VpZ2h0PSI2MDAiIHg9Ijg2MS4xMDEwMTIwMDAwMDAxIiB5PSIxODEiPuWjsuS4iiAkMTguOTVNPC90ZXh0PgogIDx0ZXh0IGZpbGw9IiNiN2MwYzkiIGZvbnQtZmFtaWx5PSJOb3RvIFNhbnMgQ0pLIEpQLCBzYW5zLXNlcmlmIiBmb250LXNpemU9IjE1IiBmb250LXdlaWdodD0iNDAwIiB4PSIyODkuMzI2NDk3IiB5PSIyMTIiPue0lOWIqeebiiAkNC4yOU08L3RleHQ+CiAgPHRleHQgZmlsbD0iI2YwZjJmNCIgZm9udC1mYW1pbHk9Ik5vdG8gU2FucyBDSksgSlAsIHNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMTgiIGZvbnQtd2VpZ2h0PSI2MDAiIHg9IjQwIiB5PSIyODAiPjIwMjXlubQ8L3RleHQ+CiAgPHJlY3QgZmlsbD0iIzc5YWNjOCIgaGVpZ2h0PSIyNyIgd2lkdGg9IjY5My42NDM0NyIgeD0iMTEwIiB5PSIyNTUiLz4KICA8cmVjdCBmaWxsPSIjOWRjMjlmIiBoZWlnaHQ9IjIwIiB3aWR0aD0iMTQ3Ljg5NDk4MSIgeD0iMTEwIiB5PSIyODkiLz4KICA8dGV4dCBmaWxsPSIjZjBmMmY0IiBmb250LWZhbWlseT0iTm90byBTYW5zIENKSyBKUCwgc2Fucy1zZXJpZiIgZm9udC1zaXplPSIxNiIgZm9udC13ZWlnaHQ9IjYwMCIgeD0iODE1LjY0MzQ3IiB5PSIyNzYiPuWjsuS4iiAkMTcuNzlNPC90ZXh0PgogIDx0ZXh0IGZpbGw9IiNiN2MwYzkiIGZvbnQtZmFtaWx5PSJOb3RvIFNhbnMgQ0pLIEpQLCBzYW5zLXNlcmlmIiBmb250LXNpemU9IjE1IiBmb250LXdlaWdodD0iNDAwIiB4PSIyNjkuODk0OTgxMDAwMDAwMDMiIHk9IjMwNyI+57SU5Yip55uKICQzLjc5TTwvdGV4dD4KICA8dGV4dCBmaWxsPSIjODg5NWEzIiBmb250LWZhbWlseT0iTm90byBTYW5zIENKSyBKUCwgc2Fucy1zZXJpZiIgZm9udC1zaXplPSIxNSIgZm9udC13ZWlnaHQ9IjQwMCIgeD0iNDAiIHk9IjQ0NCI+5Ye65YW477yaR3Vtcm9hZOekvuOBrjIwMjXlubTjga7lubTmrKHloLHlkYrmm7jjgII8L3RleHQ+Cjwvc3ZnPgo="
+    }
+   ]
+  }
+ },
+ {
+  "entityId": "ent_plausible",
+  "reviewState": "ready_for_review",
+  "generation": 5,
+  "article": {
+   "listLine": "無料のGoogleに「訪問者を追跡しない」有料版で挑み、4人で月約1,250万円を売り上げるアクセス解析サービス",
+   "headline": "無料のGoogle Analyticsの代わりを有料で売り、4人で月約1,250万円",
+   "lead": "サイトの訪問者数を調べるアクセス解析サービス。クッキーを使わないので、Google Analyticsを使うヨーロッパのサイトに必要な「クッキーに同意しますか」の表示が要らない。月9ドル（約1,350円）から。",
+   "sources": [
+    {
+     "no": 1,
+     "label": "Plausible公式：サービス概要と料金表示（2026年10月12日閲覧）",
+     "url": "https://plausible.io/"
+    },
+    {
+     "no": 2,
+     "label": "Plausible公式：2018〜2022年の創業・集客・収益記録（2022年6月22日公開）",
+     "url": "https://plausible.io/blog/open-source-saas"
+    },
+    {
+     "no": 3,
+     "label": "Plausible公式：会社概要、顧客数・収益源・チーム（2026年10月12日閲覧）",
+     "url": "https://plausible.io/about"
+    },
+    {
+     "no": 4,
+     "label": "Plausible公式：オープンソース提供と支援費用（2020年）",
+     "url": "https://plausible.io/blog/building-open-source"
+    },
+    {
+     "no": 5,
+     "label": "Plausible公式：Community Edition導入（2024年）",
+     "url": "https://plausible.io/blog/community-edition"
+    },
+    {
+     "no": 6,
+     "label": "Plausible公式：プランと従量条件（2026年9月29日更新）",
+     "url": "https://plausible.io/docs/subscription-plans"
+    },
+    {
+     "no": 7,
+     "label": "Plausible公式：2020年の集客拡大の詳細（2021年10月25日）",
+     "url": "https://plausible.io/blog/bootstrapping-saas"
+    },
+    {
+     "no": 8,
+     "label": "Plausible公式：広告なしで獲得した初期ユーザー（2020年7月31日）",
+     "url": "https://plausible.io/blog/startup-marketing"
+    },
+    {
+     "no": 9,
+     "label": "Plausible公式：月次継続収益1万ドルまでの仕事（2021年1月28日）",
+     "url": "https://plausible.io/blog/growing-saas-mrr"
+    }
+   ],
+   "kpis": [
+    {
+     "label": "月の売上",
+     "value": "8万3,637ドル",
+     "yen": "約1,250万円",
+     "period": "2022年6月"
+    },
+    {
+     "label": "有料の顧客",
+     "value": "7,000以上",
+     "period": "2022年6月"
+    },
+    {
+     "label": "社員",
+     "value": "4人",
+     "period": "2022年6月"
+    }
+   ],
+   "topics": [
+    {
+     "id": "overview",
+     "title": "クッキーを使わない解析サービスを企業やサイト運営者へ提供",
+     "blocks": [
+      {
+       "type": "facts",
+       "variant": "text",
+       "rows": [
+        {
+         "label": "顧客",
+         "text": "自社サイトを持つ企業や個人、サイト制作会社、企業のマーケティング担当者",
+         "cites": [
+          1,
+          2
+         ]
+        },
+        {
+         "label": "競合",
+         "text": "Google Analytics（無料）",
+         "cites": [
+          1,
+          3
+         ]
+        }
+       ]
+      },
+      {
+       "type": "subheading",
+       "text": "無料のGoogle Analyticsがあるのに、Plausibleが選ばれる理由"
+      },
+      {
+       "type": "list",
+       "ordered": false,
+       "items": [
+        {
+         "lead": "同意の表示が要らない",
+         "text": "Google Analyticsを使うサイトは、ヨーロッパでは「クッキーに同意しますか」の表示を出す必要がある。",
+         "cites": [
+          1,
+          2,
+          3
+         ]
+        },
+        {
+         "lead": "画面が1つ",
+         "text": "使い方を覚えなくても数字が読める。",
+         "cites": [
+          1,
+          2,
+          3
+         ]
+        },
+        {
+         "lead": "サイトを遅くしない",
+         "text": "計測用のコードは、Google Analyticsの54分の1のサイズ。",
+         "cites": [
+          1,
+          2
+         ]
+        },
+        {
+         "lead": "データをEUの外に出さない",
+         "text": "EUの規則は、個人のデータの持ち出しを厳しく制限している。",
+         "cites": [
+          1,
+          3
+         ]
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "id": "mechanism",
+     "title": "計測コードを設置し、訪問数と流入元を1画面に表示",
+     "blocks": [
+      {
+       "type": "list",
+       "ordered": true,
+       "items": [
+        {
+         "text": "サイトに計測用のコードを1行貼る。",
+         "cites": [
+          1,
+          2
+         ]
+        },
+        {
+         "text": "訪問のたびに、見られたページと、どこから来たか（検索・SNS・他のサイト）が記録される。誰が来たのかを特定する情報は保存しない。",
+         "cites": [
+          1,
+          2
+         ]
+        },
+        {
+         "text": "訪問者数、どこから来たか、よく読まれているページを1つの画面で見る。30秒ごとに更新される。",
+         "cites": [
+          1,
+          2
+         ]
+        }
+       ]
+      },
+      {
+       "type": "list",
+       "ordered": false,
+       "items": [
+        {
+         "lead": "プログラムを公開している",
+         "text": "技術のある人は自分のサーバーに入れて無料で使える。月額を払う客は、サーバーの管理と更新を任せている。",
+         "cites": [
+          3,
+          4
+         ]
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "id": "revenue",
+     "title": "月額契約のアクセス解析サービスで売上を得る",
+     "blocks": [
+      {
+       "type": "rates",
+       "caption": "料金（月払い。月1万回閲覧されるサイトの場合）",
+       "rows": [
+        {
+         "label": "Starter",
+         "value": "9ドル",
+         "yen": "約1,350円",
+         "note": "サイト1つ",
+         "cites": [
+          6
+         ]
+        },
+        {
+         "label": "Growth",
+         "value": "14ドル",
+         "yen": "約2,100円",
+         "note": "サイト3つまで",
+         "cites": [
+          6
+         ]
+        },
+        {
+         "label": "Business",
+         "value": "19ドル",
+         "yen": "約2,850円",
+         "note": "サイト10まで",
+         "cites": [
+          6
+         ]
+        }
+       ]
+      },
+      {
+       "type": "paragraph",
+       "tone": "note",
+       "text": "閲覧数が増えると、同じプランでも月額が上がる。30日間の無料体験は、カードの登録なしで始められる。",
+       "cites": [
+        6
+       ]
+      },
+      {
+       "type": "rates",
+       "caption": "月の売上",
+       "bars": true,
+       "rows": [
+        {
+         "label": "2019年5月",
+         "value": "64ドル",
+         "yen": "約9,600円",
+         "cites": [
+          2,
+          6
+         ]
+        },
+        {
+         "label": "2020年3月",
+         "value": "433ドル",
+         "yen": "約6万5,000円",
+         "cites": [
+          2,
+          6
+         ]
+        },
+        {
+         "label": "2020年12月",
+         "value": "8,999ドル",
+         "yen": "約135万円",
+         "cites": [
+          2,
+          6
+         ]
+        },
+        {
+         "label": "2021年10月",
+         "value": "4万2,624ドル",
+         "yen": "約640万円",
+         "cites": [
+          2,
+          6
+         ]
+        },
+        {
+         "label": "2022年6月",
+         "value": "8万3,637ドル",
+         "yen": "約1,250万円",
+         "cites": [
+          2,
+          6
+         ]
+        }
+       ]
+      },
+      {
+       "type": "list",
+       "ordered": false,
+       "items": [
+        {
+         "lead": "最初の10か月はほとんど売れなかった",
+         "text": "有料化から月400ドル（約6万円）まで324日。そこから1万ドル（約150万円）までは9か月。",
+         "cites": [
+          2,
+          6
+         ]
+        },
+        {
+         "lead": "広告費ゼロ",
+         "text": "外部からの出資も受けていない。",
+         "cites": [
+          3
+         ]
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "id": "acquisition",
+     "title": "Google Analyticsの代替を伝える記事と検索で顧客を獲得",
+     "blocks": [
+      {
+       "type": "list",
+       "ordered": false,
+       "items": [
+        {
+         "lead": "試作版をIndie Hackersで公開",
+         "text": "2019年1月。個人開発者が集まるサイトで、5月に有料化した時の利用者は60人だった。",
+         "cites": [
+          2,
+          7
+         ]
+        },
+        {
+         "lead": "キャッチコピーを変えた",
+         "text": "「あなたのサイトのためのシンプルなアクセス解析」を「シンプルでプライバシーに配慮した、Google Analyticsの代わり」に。2020年3月、マーケティング担当のMarkoが加わって最初にした事。前日のサイト訪問者は49人、Google検索からは0人だった。",
+         "cites": [
+          2,
+          6,
+          7
+         ]
+        },
+        {
+         "lead": "記事「Google Analyticsをやめるべき理由」を公開",
+         "text": "2020年4月8日。技術者の掲示板Hacker Newsで1位になり、その日だけで2万5,000人以上が訪れた。1週間で166人が無料体験を始めた。",
+         "cites": [
+          2,
+          7
+         ]
+        },
+        {
+         "lead": "週1本、記事を出し続けた",
+         "text": "Google検索からのクリックは、4月までの累計400回あまりから、7月末に6,000回以上。",
+         "cites": [
+          2,
+          8
+         ]
+        },
+        {
+         "lead": "悩みを書いている人に1人ずつ返信",
+         "text": "Google Analyticsやクッキーの同意表示で困っている人を検索で探し、掲示板やSNSで返信した。",
+         "cites": [
+          2,
+          8
+         ]
+        },
+        {
+         "lead": "無料体験の3人に1人が契約",
+         "text": "2020年4〜5月に始めた人の33.5％。",
+         "cites": [
+          2
+         ]
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "id": "operations",
+     "title": "少人数で開発・問い合わせ対応・サーバー運用を分担",
+     "blocks": [
+      {
+       "type": "facts",
+       "variant": "text",
+       "rows": [
+        {
+         "label": "Uku Täht",
+         "text": "創業者。設計と開発",
+         "cites": [
+          1,
+          2,
+          3
+         ]
+        },
+        {
+         "label": "Marko Saric",
+         "text": "共同創業者。記事、利用者とのやり取り、問い合わせ対応",
+         "cites": [
+          1,
+          2,
+          3
+         ]
+        }
+       ]
+      },
+      {
+       "type": "list",
+       "ordered": false,
+       "items": [
+        {
+         "lead": "サポート専任なしで4,000の顧客に対応",
+         "text": "2021年3月時点。月1,000件以上の無料体験の問い合わせも2人で受け、よくある質問はヘルプページにまとめた。",
+         "cites": [
+          2,
+          9
+         ]
+        },
+        {
+         "lead": "3人目は大学生",
+         "text": "2021年6月、Robertが技術的な問い合わせの担当に。4人目のCenk（サーバー管理）は2022年2月。",
+         "cites": [
+          2,
+          3,
+          9
+         ]
+        },
+        {
+         "lead": "データベースを入れ替えた",
+         "text": "2020年6月、顧客が増えて画面が遅くなり、大量の集計に向いたClickHouseに。",
+         "cites": [
+          2,
+          9
+         ]
+        },
+        {
+         "lead": "使わないと決めている物",
+         "text": "有料広告、ポップアップ、自動応答のチャット。",
+         "cites": [
+          2,
+          9
+         ]
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "id": "history",
+     "title": "2018年の開発開始から有料化、売上拡大まで",
+     "blocks": [
+      {
+       "type": "timeline",
+       "items": [
+        {
+         "when": "2018年12月",
+         "text": "Ukuが開発を始める。勤務先でGoogle Analyticsの導入を頼まれたのがきっかけ",
+         "cites": [
+          2,
+          3,
+          5
+         ]
+        },
+        {
+         "when": "2019年5月",
+         "text": "有料化",
+         "cites": [
+          2,
+          3,
+          5
+         ]
+        },
+        {
+         "when": "2020年3月",
+         "text": "Markoが加わり2人に",
+         "cites": [
+          2,
+          3,
+          5
+         ]
+        },
+        {
+         "when": "2020年4月",
+         "text": "記事がHacker Newsで1位",
+         "cites": [
+          2,
+          3,
+          5
+         ]
+        },
+        {
+         "when": "2021年1月",
+         "text": "月の売上が運営費を上回るようになった。",
+         "cites": [
+          2
+         ]
+        },
+        {
+         "when": "2022年1月",
+         "text": "オーストリアの当局が「Google Analyticsの利用はEUの規則に違反」と判断",
+         "cites": [
+          2,
+          3,
+          5
+         ]
+        },
+        {
+         "when": "2022年3月",
+         "text": "GoogleがGoogle Analyticsの旧版の終了を発表。Plausibleの月の売上は1か月で8,247ドル（約124万円）増え、過去最大の伸び",
+         "cites": [
+          2,
+          3,
+          5
+         ]
+        },
+        {
+         "when": "2026年10月",
+         "text": "社員10人、有料の顧客2万1,000以上",
+         "cites": [
+          3
+         ]
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "id": "reasons",
+     "title": "無料のGoogle Analyticsとの差を明確にして顧客を獲得",
+     "blocks": [
+      {
+       "type": "list",
+       "ordered": false,
+       "items": [
+        {
+         "lead": "無料の競合との違いを示した",
+         "text": "クッキーを使わないシンプルな解析を、「Google Analyticsの代わり」と紹介し、乗り換え先を探す人に伝えた。",
+         "cites": [
+          2,
+          7
+         ]
+        },
+        {
+         "lead": "記事を読んだ人がすぐ試せた",
+         "text": "Google Analyticsに関する不満を扱った記事で集客し、カード登録不要の無料体験につなげた。",
+         "cites": [
+          2,
+          6,
+          7,
+          8
+         ]
+        }
+       ]
+      }
+     ]
+    }
+   ],
+   "figures": []
+  }
+ },
+ {
+  "entityId": "ent_tally_827f1b",
+  "reviewState": "ready_for_review",
+  "generation": 5,
+  "article": {
+   "listLine": "無料・無制限のフォームを250万人に広め、Tallyの表示を消したい企業の月額で月約7,500万円を売り上げるフォーム作成サービス",
+   "headline": "無料・無制限のフォームで250万人に広がり、企業向け月額で月約7,500万円を売り上げたTally",
+   "lead": "問い合わせやアンケートのフォームを無料で作れるサービス。無料フォームに付く「Made with Tally」の表示が新しい利用者を呼び、自社の名前で公開したい企業が月額プランを契約する。",
+   "sources": [
+    {
+     "no": 1,
+     "label": "Tally / How we grew Tally to $4M ARR, fully bootstrapped / 2025-10-15",
+     "url": "https://blog.tally.so/how-we-grew-tally-to-4m-arr-fully-bootstrapped/"
+    },
+    {
+     "no": 2,
+     "label": "Tally / Pricing / 公開日不明",
+     "url": "https://tally.so/pricing"
+    },
+    {
+     "no": 3,
+     "label": "Tally / Fair Use Policy / 公開日不明",
+     "url": "https://tally.so/help/fair-use-policy"
+    },
+    {
+     "no": 4,
+     "label": "Tally / Tally Pro / 公開日不明",
+     "url": "https://tally.so/help/tally-pro"
+    },
+    {
+     "no": 5,
+     "label": "Tally / 6 years in, $6 million far / 2026-09-22",
+     "url": "https://blog.tally.so/6-years-in-6-million-far/"
+    },
+    {
+     "no": 6,
+     "label": "Tally / Tally Business / 公開日不明",
+     "url": "https://tally.so/help/tally-business"
+    },
+    {
+     "no": 7,
+     "label": "Tally / Bootstrapping our SaaS from $10K to $20K MRR / 2022-06-16",
+     "url": "https://blog.tally.so/bootstrapping-our-saas-from-10k-to-20k-mrr/"
+    },
+    {
+     "no": 8,
+     "label": "Tally / Year 1: bootstrapping to 11K users and $5K MRR / 公開日不明",
+     "url": "https://blog.tally.so/year-1-how-we-bootstrapped-tally-to-11k-users-and-5k-mrr/"
+    },
+    {
+     "no": 9,
+     "label": "Tally / How we ended up building a no-code tool / 2021-04-08",
+     "url": "https://blog.tally.so/how-we-quit-our-jobs-to-work-on-our-startup-lost-half-of-our-clients-decided-to-pivot-and-ended-up-building-a-no-code-tool/"
+    }
+   ],
+   "kpis": [
+    {
+     "label": "月の売上",
+     "value": "約50万1,000ドル",
+     "yen": "約7,500万円",
+     "period": "2026年9月"
+    },
+    {
+     "label": "利用者",
+     "value": "250万人",
+     "period": "2026年9月"
+    },
+    {
+     "label": "社員",
+     "value": "10人",
+     "period": "2026年9月"
+    },
+    {
+     "label": "有料プランの最低料金",
+     "value": "月29ドル",
+     "yen": "約4,350円"
+    }
+   ],
+   "topics": [
+    {
+     "id": "overview",
+     "lead": {
+      "text": "フォームを無料・無制限で作れるサービス。フォームからTallyの表示を消したい企業や、チームで管理したい企業が月額を払っている。",
+      "cites": [
+       1,
+       2,
+       3
+      ]
+     },
+     "blocks": [
+      {
+       "type": "facts",
+       "variant": "text",
+       "rows": [
+        {
+         "label": "サービス内容",
+         "text": "問い合わせ・申し込み・アンケートのフォームを、文章を書くように質問を並べて作り、公開して回答を集められる",
+         "cites": [
+          1,
+          2
+         ]
+        },
+        {
+         "label": "利用者",
+         "text": "250万人（2026年9月）。フォームの数にも回答の数にも上限がなく、無料で使える",
+         "cites": [
+          2,
+          3,
+          5
+         ]
+        },
+        {
+         "label": "有料の顧客",
+         "text": "フォームからTallyの表示を消したい企業、自社のドメインで公開したい企業、チームで管理したい企業",
+         "cites": [
+          2,
+          3,
+          4
+         ]
+        },
+        {
+         "label": "料金",
+         "text": "無料。有料プランはProが月29ドル（約4,350円）、Businessが月89ドル（約1万3,400円）",
+         "cites": [
+          4,
+          6
+         ]
+        },
+        {
+         "label": "競合",
+         "text": "Google Formsと、回答数が増えると有料になる他社のフォーム作成サービス",
+         "cites": [
+          1,
+          9
+         ]
+        }
+       ]
+      },
+      {
+       "type": "subheading",
+       "text": "他のフォーム作成サービスとの違い"
+      },
+      {
+       "type": "list",
+       "ordered": false,
+       "items": [
+        {
+         "text": "Google Formsは無料だが、作れるフォームの見た目が限られる。Tallyは文書を編集するように、質問や説明文を自由に並べられる",
+         "cites": [
+          1,
+          2,
+          9
+         ]
+        },
+        {
+         "text": "他社のサービスの多くは、回答数が一定を超えると有料になる。Tallyは回答数が増えても無料のまま使える",
+         "cites": [
+          1,
+          2,
+          3
+         ]
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "id": "mechanism",
+     "lead": {
+      "text": "無料で作られたフォームに「Made with Tally」の表示が入り、回答した人がTallyを知って自分でもフォームを作る、という流れで利用者が増える。",
+      "cites": [
+       2,
+       3,
+       4
+      ]
+     },
+     "blocks": [
+      {
+       "type": "steps",
+       "items": [
+        {
+         "title": "フォームを作る",
+         "text": "利用者が、文章を書くように質問を並べてフォームを作る。料金はかからない。",
+         "cites": [
+          1,
+          2,
+          3
+         ]
+        },
+        {
+         "title": "フォームを送る",
+         "text": "作ったフォームを公開し、顧客や参加者に送って回答を集める。",
+         "cites": [
+          1,
+          2
+         ]
+        },
+        {
+         "title": "回答者がTallyを知る",
+         "text": "無料で作ったフォームには「Made with Tally」という表示が入っている。回答した人は、この表示でTallyを知る。",
+         "cites": [
+          5,
+          7
+         ]
+        },
+        {
+         "title": "回答者が次の利用者になる",
+         "text": "表示を見てTallyに登録した人が、今度は自分のフォームを作って送る。フォームが送られるたびに、Tallyを知る人が増える。",
+         "cites": [
+          2,
+          3,
+          4
+         ]
+        }
+       ]
+      },
+      {
+       "type": "figure",
+       "figureId": "tally-loop"
+      }
+     ]
+    },
+    {
+     "id": "revenue",
+     "lead": {
+      "text": "売上は有料プラン（ProとBusiness）の月額だけで、2026年9月の月の売上は約50万1,000ドル（約7,500万円）だった。",
+      "cites": [
+       4,
+       5,
+       6
+      ]
+     },
+     "blocks": [
+      {
+       "type": "rates",
+       "caption": "プラン / 月額 / 内容",
+       "rows": [
+        {
+         "label": "Free",
+         "value": "無料",
+         "note": "フォームの作成と回答の受付。数の上限はない",
+         "cites": [
+          2,
+          3
+         ]
+        },
+        {
+         "label": "Pro",
+         "value": "29ドル",
+         "yen": "約4,350円",
+         "note": "フォームからTallyの表示を消せる。自社のドメインで公開でき、チームで共同編集できる。年払いは290ドル（約4万3,500円）",
+         "cites": [
+          4
+         ]
+        },
+        {
+         "label": "Business",
+         "value": "89ドル",
+         "yen": "約1万3,400円",
+         "note": "Proの機能に加え、回答データの保存期間を設定できる。年払いは890ドル（約13万4,000円）",
+         "cites": [
+          6
+         ]
+        }
+       ]
+      },
+      {
+       "type": "list",
+       "ordered": false,
+       "items": [
+        {
+         "text": "ProもBusinessも、利用者1人ごとではなく、会社やチームの単位で契約する",
+         "cites": [
+          4,
+          6
+         ]
+        },
+        {
+         "text": "回答数が非常に多い状態が続く顧客には、通常の料金に上乗せする個別の料金を提示し、3か月ごとに請求する",
+         "cites": [
+          3
+         ]
+        }
+       ]
+      },
+      {
+       "type": "figure",
+       "figureId": "tally-plans"
+      },
+      {
+       "type": "table",
+       "caption": "月の売上の推移",
+       "columns": [
+        "時点",
+        "月の売上"
+       ],
+       "rows": [
+        {
+         "label": "2020年10月",
+         "cells": [
+          {
+           "text": "64ドル",
+           "yen": "約9,600円"
+          }
+         ],
+         "cites": [
+          8
+         ]
+        },
+        {
+         "label": "2022年6月",
+         "cells": [
+          {
+           "text": "2万700ドル",
+           "yen": "約310万円"
+          }
+         ],
+         "cites": [
+          7
+         ]
+        },
+        {
+         "label": "2026年9月",
+         "cells": [
+          {
+           "text": "約50万1,000ドル",
+           "yen": "約7,500万円"
+          }
+         ],
+         "cites": [
+          5
+         ]
+        }
+       ]
+      },
+      {
+       "type": "list",
+       "ordered": false,
+       "items": [
+        {
+         "text": "2026年9月の月の売上を年換算すると、600万ドル（約9億円）を超える",
+         "cites": [
+          5
+         ]
+        },
+        {
+         "text": "外部からの出資は受けておらず、顧客からの売上だけで運営している",
+         "cites": [
+          5
+         ]
+        },
+        {
+         "text": "2022年6月の時点で、有料の顧客は775人。創業者2人だけで運営し、売上だけで黒字だった",
+         "cites": [
+          7
+         ]
+        },
+        {
+         "text": "2022年6月のサーバー代（Google Cloud）は月600ユーロ（約9万9,000円）、決済手数料（Stripe）は月836ユーロ（約13万8,000円）だった",
+         "cites": []
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "id": "acquisition",
+     "lead": {
+      "text": "最初は創業者が、フォームを使いそうな人に1人ずつ連絡して試してもらった。2026年9月には、新規利用者の43％がChatGPTなどのAIに勧められて登録している。",
+      "cites": [
+       5,
+       8
+      ]
+     },
+     "blocks": [
+      {
+       "type": "timeline",
+       "items": [
+        {
+         "when": "2020年夏",
+         "text": "知人にフォームを試してもらい、意見を聞いて改良した",
+         "cites": [
+          8
+         ]
+        },
+        {
+         "when": "2020年",
+         "text": "新製品の紹介サイトProduct HuntやTwitterで、自分でサービスを作っている人を探し、1人ずつ連絡して感想を求めた",
+         "cites": [
+          8
+         ]
+        },
+        {
+         "when": "2021年3月",
+         "text": "Product Huntに掲載し、一般公開した",
+         "cites": [
+          7
+         ]
+        }
+       ]
+      },
+      {
+       "type": "list",
+       "ordered": false,
+       "items": [
+        {
+         "text": "公開後は、無料のフォームに入る「Made with Tally」の表示を見た回答者が登録するようになった",
+         "cites": [
+          5,
+          7
+         ]
+        },
+        {
+         "text": "2026年9月には、ChatGPTなどのAIに勧められて登録する人が、フォームの表示を見て登録する人を上回った",
+         "cites": [
+          5
+         ]
+        },
+        {
+         "text": "口コミやフォームの表示から登録した人のうち、有料プランに移るのは約1％",
+         "cites": [
+          5
+         ]
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "id": "operations",
+     "lead": {
+      "text": "創業者2人で始め、2026年9月の社員は10人。2人だった2022年6月には、作業時間の半分を利用者からの問い合わせ対応に充てていた。",
+      "cites": [
+       5,
+       7
+      ]
+     },
+     "blocks": [
+      {
+       "type": "facts",
+       "variant": "text",
+       "rows": [
+        {
+         "label": "Marie Martens",
+         "text": "共同創業者。マーケティングを担当し、問い合わせに最初に対応する",
+         "cites": [
+          7,
+          9
+         ]
+        },
+        {
+         "label": "Filip Minev",
+         "text": "共同創業者。開発を担当し、技術的な問い合わせに対応する",
+         "cites": [
+          7,
+          9
+         ]
+        },
+        {
+         "label": "社員数",
+         "text": "2022年6月は創業者の2人だけ。2026年9月は10人",
+         "cites": [
+          5,
+          7
+         ]
+        },
+        {
+         "label": "本社",
+         "text": "ベルギーのヘント",
+         "cites": [
+          5
+         ]
+        }
+       ]
+      },
+      {
+       "type": "list",
+       "ordered": false,
+       "items": [
+        {
+         "text": "問い合わせは、2人で共有できるメールソフトMissiveで受けた。よくある質問は、その都度ヘルプページに追加した",
+         "cites": [
+          7
+         ]
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "id": "history",
+     "lead": {
+      "text": "コロナ禍で旅行関連の事業の顧客が減った創業者2人が、2020年夏にフォーム作成サービスを作り始め、6年で社員10人の会社になった。",
+      "cites": [
+       5,
+       9
+      ]
+     },
+     "blocks": [
+      {
+       "type": "timeline",
+       "items": [
+        {
+         "when": "2020年夏",
+         "text": "コロナ禍で、2人が運営していた旅行関連の事業Hotspotの顧客が減った。既存のフォーム作成サービスへの不満をきっかけに、Tallyを作り始めた",
+         "cites": [
+          9
+         ]
+        },
+        {
+         "when": "2020年10月",
+         "text": "月の売上は64ドル（約9,600円）",
+         "cites": [
+          8
+         ]
+        },
+        {
+         "when": "2021年3月",
+         "text": "Product Huntに掲載し、一般公開した",
+         "cites": [
+          7
+         ]
+        },
+        {
+         "when": "2022年6月",
+         "text": "月の売上が2万700ドル（約310万円）、有料の顧客が775人になった。創業者2人のまま黒字だった",
+         "cites": [
+          7
+         ]
+        },
+        {
+         "when": "2026年9月",
+         "text": "月の売上が約50万1,000ドル（約7,500万円）、利用者が250万人、社員が10人になった",
+         "cites": [
+          5
+         ]
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "id": "reasons",
+     "title": "無料フォームが利用者を呼び、企業の有料契約につながる",
+     "blocks": [
+      {
+       "type": "list",
+       "ordered": false,
+       "items": [
+        {
+         "lead": "無料のフォームが宣伝にもなる",
+         "text": "無料フォームの「Made with Tally」を見た回答者が、自分でもフォームを作って使い始める。",
+         "cites": [
+          2,
+          3,
+          4
+         ]
+        },
+        {
+         "lead": "企業が必要とする機能だけ課金",
+         "text": "自社ドメイン、ブランド表示の非表示、チーム管理など、業務に必要な機能を有料にした。",
+         "cites": [
+          2,
+          3,
+          4
+         ]
+        }
+       ]
+      }
+     ]
+    }
+   ],
+   "figures": [
+    {
+     "id": "tally-loop",
+     "alt": "Tallyの利用者が増える流れ",
+     "width": 1040,
+     "height": 530,
+     "src": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMDQwIiBoZWlnaHQ9IjUzMCIgdmlld0JveD0iMCAwIDEwNDAgNTMwIiByb2xlPSJpbWciIGFyaWEtbGFiZWxsZWRieT0idGl0bGUgZGVzYyI+PHRpdGxlIGlkPSJ0aXRsZSI+54Sh5paZ44Gu44OV44Kp44O844Og44GM44CB5qyh44Gu5Yip55So6ICF44KS6YCj44KM44Gm44GP44KLPC90aXRsZT48ZGVzYyBpZD0iZGVzYyI+54Sh5paZ44Gn5L2c44Gj44Gf44OV44Kp44O844Og44Gu6KGo56S644KS6KaL44Gf5Zue562U6ICF44GM44CB5qyh44Gu5Yip55So6ICF44Gr44Gq44KL5rWB44KM44CCPC9kZXNjPgo8cmVjdCB3aWR0aD0iMTA0MCIgaGVpZ2h0PSI1MzAiIGZpbGw9IiMwYzBlMTEiLz4KPHRleHQgeD0iMjQiIHk9IjMxIiBmb250LWZhbWlseT0iTm90byBTYW5zIENKSyBKUCwgc2Fucy1zZXJpZiIgZm9udC1zaXplPSIxMyIgZm9udC13ZWlnaHQ9IjYwMCIgZmlsbD0iI2ZmYWMzYiIgdGV4dC1hbmNob3I9InN0YXJ0Ij5UQUxMWSAgLyAg5Yip55So6ICF44GM5aKX44GI44KL5rWB44KMPC90ZXh0Pgo8dGV4dCB4PSIyNCIgeT0iNjUiIGZvbnQtZmFtaWx5PSJOb3RvIFNhbnMgQ0pLIEpQLCBzYW5zLXNlcmlmIiBmb250LXNpemU9IjI3IiBmb250LXdlaWdodD0iNjAwIiBmaWxsPSIjZjBmMmY1IiB0ZXh0LWFuY2hvcj0ic3RhcnQiPueEoeaWmeOBruODleOCqeODvOODoOOBjOOAgeasoeOBruWIqeeUqOiAheOCkumAo+OCjOOBpuOBj+OCizwvdGV4dD4KPHRleHQgeD0iMjQiIHk9IjEwMiIgZm9udC1mYW1pbHk9Ik5vdG8gU2FucyBDSksgSlAsIHNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMTYiIGZvbnQtd2VpZ2h0PSI0MDAiIGZpbGw9IiNiOGMwY2MiIHRleHQtYW5jaG9yPSJzdGFydCI+44OV44Kp44O844Og44GM6YCB44KJ44KM44KL44Gf44Gz44Gr44CB5Zue562U44GX44Gf5Lq644GMVGFsbHnjgpLnn6XjgovjgII8L3RleHQ+CjxyZWN0IHg9IjI0IiB5PSIxNDkiIHdpZHRoPSIyOTYiIGhlaWdodD0iMjU1IiByeD0iOCIgZmlsbD0iIzE1MTkxZiIgc3Ryb2tlPSIjMzAzNjQwIi8+Cjx0ZXh0IHg9IjQyIiB5PSIxNzkiIGZvbnQtZmFtaWx5PSJOb3RvIFNhbnMgQ0pLIEpQLCBzYW5zLXNlcmlmIiBmb250LXNpemU9IjE0IiBmb250LXdlaWdodD0iNjAwIiBmaWxsPSIjZmZhYzNiIiB0ZXh0LWFuY2hvcj0ic3RhcnQiPjAxPC90ZXh0Pgo8ZyB0cmFuc2Zvcm09InRyYW5zbGF0ZSgxMzQgMTgxKSBzY2FsZSgwLjk1KSIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjZmZhYzNiIiBzdHJva2Utd2lkdGg9IjIuMiIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2UtbGluZWpvaW49InJvdW5kIj4KPHJlY3QgeD0iMTQiIHk9IjQiIHdpZHRoPSI1NCIgaGVpZ2h0PSI3MCIgcng9IjQiLz48cGF0aCBkPSJNMjQgMTloMzBNMjQgMzBoMTdNMjQgNTJoMjQiLz48cmVjdCB4PSIyNCIgeT0iMzUiIHdpZHRoPSIzMyIgaGVpZ2h0PSIxMCIgcng9IjIiLz48cmVjdCB4PSIyNCIgeT0iNTgiIHdpZHRoPSIyNiIgaGVpZ2h0PSI4IiByeD0iMiIvPjwvZz4KPHRleHQgeD0iNDIiIHk9IjI5NSIgZm9udC1mYW1pbHk9Ik5vdG8gU2FucyBDSksgSlAsIHNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMjIiIGZvbnQtd2VpZ2h0PSI2MDAiIGZpbGw9IiNmMGYyZjUiIHRleHQtYW5jaG9yPSJzdGFydCI+54Sh5paZ44Gn44OV44Kp44O844Og44KS5L2c44KLPC90ZXh0Pgo8dGV4dCB4PSI0MiIgeT0iMzI5IiBmb250LWZhbWlseT0iTm90byBTYW5zIENKSyBKUCwgc2Fucy1zZXJpZiIgZm9udC1zaXplPSIxNyIgZm9udC13ZWlnaHQ9IjQwMCIgZmlsbD0iI2I4YzBjYyIgdGV4dC1hbmNob3I9InN0YXJ0Ij7lhazplovjgZfjgabjgIHlm57nrZTjgpLpm4bjgoHjgos8L3RleHQ+CjxsaW5lIHgxPSIzMjkiIHkxPSIyNjciIHgyPSIzNjIiIHkyPSIyNjciIHN0cm9rZT0iI2ZmYWMzYiIgc3Ryb2tlLXdpZHRoPSIyIi8+CjxsaW5lIHgxPSIzNjIiIHkxPSIyNjciIHgyPSIzNTQuNTcxOTc5NDY1ODEyOSIgeTI9IjI3Mi4wODE3ODIyNjA1NTUzIiBzdHJva2U9IiNmZmFjM2IiIHN0cm9rZS13aWR0aD0iMiIvPgo8bGluZSB4MT0iMzYyIiB5MT0iMjY3IiB4Mj0iMzU0LjU3MTk3OTQ2NTgxMjkiIHkyPSIyNjEuOTE4MjE3NzM5NDQ0NyIgc3Ryb2tlPSIjZmZhYzNiIiBzdHJva2Utd2lkdGg9IjIiLz4KPHJlY3QgeD0iMzcyIiB5PSIxNDkiIHdpZHRoPSIyOTYiIGhlaWdodD0iMjU1IiByeD0iOCIgZmlsbD0iIzE1MTkxZiIgc3Ryb2tlPSIjMzAzNjQwIi8+Cjx0ZXh0IHg9IjM5MCIgeT0iMTc5IiBmb250LWZhbWlseT0iTm90byBTYW5zIENKSyBKUCwgc2Fucy1zZXJpZiIgZm9udC1zaXplPSIxNCIgZm9udC13ZWlnaHQ9IjYwMCIgZmlsbD0iI2ZmYWMzYiIgdGV4dC1hbmNob3I9InN0YXJ0Ij4wMjwvdGV4dD4KPGcgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoNDgyIDE4MSkgc2NhbGUoMC45NSkiIGZpbGw9Im5vbmUiIHN0cm9rZT0iI2ZmYWMzYiIgc3Ryb2tlLXdpZHRoPSIyLjIiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCI+CjxjaXJjbGUgY3g9IjQwIiBjeT0iMjEiIHI9IjExIi8+PHBhdGggZD0iTTIyIDYyVjUwYTE4IDE4IDAgMCAxIDM2IDB2MTJNMjAgMjRhOSA5IDAgMSAwIDAgMThNNjIgMjRhOSA5IDAgMSAxIDAgMThNNCA2M3YtN2ExNSAxNSAwIDAgMSAxMi0xNU03NiA2M3YtN2ExNSAxNSAwIDAgMC0xMi0xNSIvPjwvZz4KPHRleHQgeD0iMzkwIiB5PSIyOTUiIGZvbnQtZmFtaWx5PSJOb3RvIFNhbnMgQ0pLIEpQLCBzYW5zLXNlcmlmIiBmb250LXNpemU9IjIyIiBmb250LXdlaWdodD0iNjAwIiBmaWxsPSIjZjBmMmY1IiB0ZXh0LWFuY2hvcj0ic3RhcnQiPuWbnuetlOiAheOBjFRhbGx544KS55+l44KLPC90ZXh0Pgo8dGV4dCB4PSIzOTAiIHk9IjMyOSIgZm9udC1mYW1pbHk9Ik5vdG8gU2FucyBDSksgSlAsIHNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMTciIGZvbnQtd2VpZ2h0PSI0MDAiIGZpbGw9IiNiOGMwY2MiIHRleHQtYW5jaG9yPSJzdGFydCI+44CMTWFkZSB3aXRoIFRhbGx544CN44Gu6KGo56S6PC90ZXh0Pgo8bGluZSB4MT0iNjc3IiB5MT0iMjY3IiB4Mj0iNzEwIiB5Mj0iMjY3IiBzdHJva2U9IiNmZmFjM2IiIHN0cm9rZS13aWR0aD0iMiIvPgo8bGluZSB4MT0iNzEwIiB5MT0iMjY3IiB4Mj0iNzAyLjU3MTk3OTQ2NTgxMjkiIHkyPSIyNzIuMDgxNzgyMjYwNTU1MyIgc3Ryb2tlPSIjZmZhYzNiIiBzdHJva2Utd2lkdGg9IjIiLz4KPGxpbmUgeDE9IjcxMCIgeTE9IjI2NyIgeDI9IjcwMi41NzE5Nzk0NjU4MTI5IiB5Mj0iMjYxLjkxODIxNzczOTQ0NDciIHN0cm9rZT0iI2ZmYWMzYiIgc3Ryb2tlLXdpZHRoPSIyIi8+CjxyZWN0IHg9IjcyMCIgeT0iMTQ5IiB3aWR0aD0iMjk2IiBoZWlnaHQ9IjI1NSIgcng9IjgiIGZpbGw9IiMxNTE5MWYiIHN0cm9rZT0iIzMwMzY0MCIvPgo8dGV4dCB4PSI3MzgiIHk9IjE3OSIgZm9udC1mYW1pbHk9Ik5vdG8gU2FucyBDSksgSlAsIHNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMTQiIGZvbnQtd2VpZ2h0PSI2MDAiIGZpbGw9IiNmZmFjM2IiIHRleHQtYW5jaG9yPSJzdGFydCI+MDM8L3RleHQ+CjxnIHRyYW5zZm9ybT0idHJhbnNsYXRlKDgzMCAxODEpIHNjYWxlKDAuOTUpIiBmaWxsPSJub25lIiBzdHJva2U9IiNmZmFjM2IiIHN0cm9rZS13aWR0aD0iMi4yIiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiPgo8cmVjdCB4PSI5IiB5PSI2IiB3aWR0aD0iNTQiIGhlaWdodD0iNjUiIHJ4PSI0Ii8+PHBhdGggZD0iTTIxIDI0aDI3TTIxIDM2aDE3TTUxIDYxbDE5LTE5IDYgNi0xOSAxOS0xMCA0eiIvPjwvZz4KPHRleHQgeD0iNzM4IiB5PSIyOTUiIGZvbnQtZmFtaWx5PSJOb3RvIFNhbnMgQ0pLIEpQLCBzYW5zLXNlcmlmIiBmb250LXNpemU9IjIyIiBmb250LXdlaWdodD0iNjAwIiBmaWxsPSIjZjBmMmY1IiB0ZXh0LWFuY2hvcj0ic3RhcnQiPuiHquWIhuOCguODleOCqeODvOODoOOCkuS9nOOCizwvdGV4dD4KPHRleHQgeD0iNzM4IiB5PSIzMjkiIGZvbnQtZmFtaWx5PSJOb3RvIFNhbnMgQ0pLIEpQLCBzYW5zLXNlcmlmIiBmb250LXNpemU9IjE3IiBmb250LXdlaWdodD0iNDAwIiBmaWxsPSIjYjhjMGNjIiB0ZXh0LWFuY2hvcj0ic3RhcnQiPuWbnuetlOiAheOBruS4gOmDqOOBjOWIqeeUqOiAheOBq+OBquOCizwvdGV4dD4KPGxpbmUgeDE9Ijk5MCIgeTE9IjQwNCIgeDI9Ijk5MCIgeTI9IjQyMyIgc3Ryb2tlPSIjZmZhYzNiIiBzdHJva2Utd2lkdGg9IjIiLz4KPGxpbmUgeDE9Ijk5MCIgeTE9IjQyMyIgeDI9IjQzIiB5Mj0iNDIzIiBzdHJva2U9IiNmZmFjM2IiIHN0cm9rZS13aWR0aD0iMiIvPgo8bGluZSB4MT0iNDMiIHkxPSI0MjMiIHgyPSI0MyIgeTI9IjQxMiIgc3Ryb2tlPSIjZmZhYzNiIiBzdHJva2Utd2lkdGg9IjIiLz4KPGxpbmUgeDE9IjQzIiB5MT0iNDEyIiB4Mj0iNDguMDgxNzgyMjYwNTU1MzE1IiB5Mj0iNDE5LjQyODAyMDUzNDE4NzEiIHN0cm9rZT0iI2ZmYWMzYiIgc3Ryb2tlLXdpZHRoPSIyIi8+CjxsaW5lIHgxPSI0MyIgeTE9IjQxMiIgeDI9IjM3LjkxODIxNzczOTQ0NDY4NSIgeTI9IjQxOS40MjgwMjA1MzQxODcxIiBzdHJva2U9IiNmZmFjM2IiIHN0cm9rZS13aWR0aD0iMiIvPgo8dGV4dCB4PSI1MjAiIHk9IjQ0OSIgZm9udC1mYW1pbHk9Ik5vdG8gU2FucyBDSksgSlAsIHNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMTUiIGZvbnQtd2VpZ2h0PSI0MDAiIGZpbGw9IiNmZmFjM2IiIHRleHQtYW5jaG9yPSJtaWRkbGUiPuaWsOOBl+OBhOODleOCqeODvOODoOOBp+OCguOAgeWQjOOBmOOBk+OBqOOBjOi1t+OBjeOCizwvdGV4dD4KPHRleHQgeD0iMjQiIHk9IjUwNCIgZm9udC1mYW1pbHk9Ik5vdG8gU2FucyBDSksgSlAsIHNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMTQiIGZvbnQtd2VpZ2h0PSI0MDAiIGZpbGw9IiM4NTkwOWUiIHRleHQtYW5jaG9yPSJzdGFydCI+5Ye65YW477yaVGFsbHnlibXmpa3ogIXjga7lhazplovoqJjpjLLjgII8L3RleHQ+Cjwvc3ZnPg=="
+    },
+    {
+     "id": "tally-plans",
+     "alt": "Tallyの料金プラン",
+     "width": 1040,
+     "height": 530,
+     "src": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMDQwIiBoZWlnaHQ9IjUzMCIgdmlld0JveD0iMCAwIDEwNDAgNTMwIiByb2xlPSJpbWciIGFyaWEtbGFiZWxsZWRieT0idGl0bGUgZGVzYyI+PHRpdGxlIGlkPSJ0aXRsZSI+VGFsbHnjga7mlpnph5Hjg5fjg6njg7M8L3RpdGxlPjxkZXNjIGlkPSJkZXNjIj7nhKHmlpnjg5fjg6njg7PjgajjgIEy44Gk44Gu5pyJ5paZ44OX44Op44Oz44Gu5YaF5a6544CCPC9kZXNjPgo8cmVjdCB3aWR0aD0iMTA0MCIgaGVpZ2h0PSI1MzAiIGZpbGw9IiMwYzBlMTEiLz4KPHRleHQgeD0iMjQiIHk9IjMxIiBmb250LWZhbWlseT0iTm90byBTYW5zIENKSyBKUCwgc2Fucy1zZXJpZiIgZm9udC1zaXplPSIxMyIgZm9udC13ZWlnaHQ9IjYwMCIgZmlsbD0iI2ZmYWMzYiIgdGV4dC1hbmNob3I9InN0YXJ0Ij5UQUxMWSAgLyAg5paZ6YeR44Gu5L6LPC90ZXh0Pgo8dGV4dCB4PSIyNCIgeT0iNjUiIGZvbnQtZmFtaWx5PSJOb3RvIFNhbnMgQ0pLIEpQLCBzYW5zLXNlcmlmIiBmb250LXNpemU9IjI3IiBmb250LXdlaWdodD0iNjAwIiBmaWxsPSIjZjBmMmY1IiB0ZXh0LWFuY2hvcj0ic3RhcnQiPuODleOCqeODvOODoOOCkuS9nOOCi+OBruOBr+eEoeaWmeOAguS8gealreWQkeOBkeOBruapn+iDveOBjOacieaWmTwvdGV4dD4KPHRleHQgeD0iMjQiIHk9IjEwMiIgZm9udC1mYW1pbHk9Ik5vdG8gU2FucyBDSksgSlAsIHNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMTYiIGZvbnQtd2VpZ2h0PSI0MDAiIGZpbGw9IiNiOGMwY2MiIHRleHQtYW5jaG9yPSJzdGFydCI+VGFsbHnjga7ooajnpLrjgpLmtojjgZnjgIHoh6rnpL7jg4njg6HjgqTjg7PjgaflhazplovjgZnjgovjgIHjg4Hjg7zjg6DjgafnrqHnkIbjgZnjgovjgII8L3RleHQ+CjxyZWN0IHg9IjI0IiB5PSIxNDUiIHdpZHRoPSIzMTIiIGhlaWdodD0iMjk3IiByeD0iOCIgZmlsbD0iIzE1MTkxZiIgc3Ryb2tlPSIjMzAzNjQwIi8+CjxnIHRyYW5zZm9ybT0idHJhbnNsYXRlKDI0NiAxNjcpIHNjYWxlKDAuNzM3NSkiIGZpbGw9Im5vbmUiIHN0cm9rZT0iI2ZmYWMzYiIgc3Ryb2tlLXdpZHRoPSIyLjIiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCI+CjxyZWN0IHg9IjE0IiB5PSI0IiB3aWR0aD0iNTQiIGhlaWdodD0iNzAiIHJ4PSI0Ii8+PHBhdGggZD0iTTI0IDE5aDMwTTI0IDMwaDE3TTI0IDUyaDI0Ii8+PHJlY3QgeD0iMjQiIHk9IjM1IiB3aWR0aD0iMzMiIGhlaWdodD0iMTAiIHJ4PSIyIi8+PHJlY3QgeD0iMjQiIHk9IjU4IiB3aWR0aD0iMjYiIGhlaWdodD0iOCIgcng9IjIiLz48L2c+Cjx0ZXh0IHg9IjQ0IiB5PSIxODAiIGZvbnQtZmFtaWx5PSJOb3RvIFNhbnMgQ0pLIEpQLCBzYW5zLXNlcmlmIiBmb250LXNpemU9IjE5IiBmb250LXdlaWdodD0iNjAwIiBmaWxsPSIjZmZhYzNiIiB0ZXh0LWFuY2hvcj0ic3RhcnQiPueEoeaWmTwvdGV4dD4KPHRleHQgeD0iNDQiIHk9IjI0OSIgZm9udC1mYW1pbHk9Ik5vdG8gU2FucyBDSksgSlAsIHNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMzYiIGZvbnQtd2VpZ2h0PSI2MDAiIGZpbGw9IiNmMGYyZjUiIHRleHQtYW5jaG9yPSJzdGFydCI+54Sh5paZPC90ZXh0Pgo8dGV4dCB4PSI0NCIgeT0iMzA4IiBmb250LWZhbWlseT0iTm90byBTYW5zIENKSyBKUCwgc2Fucy1zZXJpZiIgZm9udC1zaXplPSIyMSIgZm9udC13ZWlnaHQ9IjQwMCIgZmlsbD0iI2YwZjJmNSIgdGV4dC1hbmNob3I9InN0YXJ0Ij7jg5Xjgqnjg7zjg6Djga7kvZzmiJDjg7vlm57nrZTlj47pm4Y8L3RleHQ+Cjx0ZXh0IHg9IjQ0IiB5PSI0MDciIGZvbnQtZmFtaWx5PSJOb3RvIFNhbnMgQ0pLIEpQLCBzYW5zLXNlcmlmIiBmb250LXNpemU9IjE2IiBmb250LXdlaWdodD0iNDAwIiBmaWxsPSIjYjhjMGNjIiB0ZXh0LWFuY2hvcj0ic3RhcnQiPuaVsOOBruS4iumZkOOBquOBlzwvdGV4dD4KPHJlY3QgeD0iMzY0IiB5PSIxNDUiIHdpZHRoPSIzMTIiIGhlaWdodD0iMjk3IiByeD0iOCIgZmlsbD0iIzE1MTkxZiIgc3Ryb2tlPSIjMzAzNjQwIi8+CjxnIHRyYW5zZm9ybT0idHJhbnNsYXRlKDU4NiAxNjcpIHNjYWxlKDAuNzM3NSkiIGZpbGw9Im5vbmUiIHN0cm9rZT0iI2ZmYWMzYiIgc3Ryb2tlLXdpZHRoPSIyLjIiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCI+CjxyZWN0IHg9IjUiIHk9IjEwIiB3aWR0aD0iNzAiIGhlaWdodD0iNTQiIHJ4PSI0Ii8+PHBhdGggZD0iTTYgMjRoNjhNMTcgMThoOE0xOSAzOGgyN00xOSA0N2g0M00xOSA1NmgyMCIvPjwvZz4KPHRleHQgeD0iMzg0IiB5PSIxODAiIGZvbnQtZmFtaWx5PSJOb3RvIFNhbnMgQ0pLIEpQLCBzYW5zLXNlcmlmIiBmb250LXNpemU9IjE5IiBmb250LXdlaWdodD0iNjAwIiBmaWxsPSIjZmZhYzNiIiB0ZXh0LWFuY2hvcj0ic3RhcnQiPlBybzwvdGV4dD4KPHRleHQgeD0iMzg0IiB5PSIyNDkiIGZvbnQtZmFtaWx5PSJOb3RvIFNhbnMgQ0pLIEpQLCBzYW5zLXNlcmlmIiBmb250LXNpemU9IjM2IiBmb250LXdlaWdodD0iNjAwIiBmaWxsPSIjZjBmMmY1IiB0ZXh0LWFuY2hvcj0ic3RhcnQiPuaciCAkMjk8L3RleHQ+Cjx0ZXh0IHg9IjM4NCIgeT0iMzA4IiBmb250LWZhbWlseT0iTm90byBTYW5zIENKSyBKUCwgc2Fucy1zZXJpZiIgZm9udC1zaXplPSIyMSIgZm9udC13ZWlnaHQ9IjQwMCIgZmlsbD0iI2YwZjJmNSIgdGV4dC1hbmNob3I9InN0YXJ0Ij5UYWxseeOBruihqOekuuOCkua2iOOBm+OCizwvdGV4dD4KPHRleHQgeD0iMzg0IiB5PSIzNDAiIGZvbnQtZmFtaWx5PSJOb3RvIFNhbnMgQ0pLIEpQLCBzYW5zLXNlcmlmIiBmb250LXNpemU9IjIxIiBmb250LXdlaWdodD0iNDAwIiBmaWxsPSIjZjBmMmY1IiB0ZXh0LWFuY2hvcj0ic3RhcnQiPuiHquekvuODieODoeOCpOODs+OBp+WFrOmWi+OBp+OBjeOCizwvdGV4dD4KPHRleHQgeD0iMzg0IiB5PSI0MDciIGZvbnQtZmFtaWx5PSJOb3RvIFNhbnMgQ0pLIEpQLCBzYW5zLXNlcmlmIiBmb250LXNpemU9IjE2IiBmb250LXdlaWdodD0iNDAwIiBmaWxsPSIjYjhjMGNjIiB0ZXh0LWFuY2hvcj0ic3RhcnQiPuW5tOaJleOBhOOBryAkMjkwPC90ZXh0Pgo8cmVjdCB4PSI3MDQiIHk9IjE0NSIgd2lkdGg9IjMxMiIgaGVpZ2h0PSIyOTciIHJ4PSI4IiBmaWxsPSIjMTUxOTFmIiBzdHJva2U9IiMzMDM2NDAiLz4KPGcgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoOTI2IDE2Nykgc2NhbGUoMC43Mzc1KSIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjZmZhYzNiIiBzdHJva2Utd2lkdGg9IjIuMiIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2UtbGluZWpvaW49InJvdW5kIj4KPHJlY3QgeD0iMTYiIHk9IjMxIiB3aWR0aD0iNDgiIGhlaWdodD0iNDAiIHJ4PSI1Ii8+PHBhdGggZD0iTTI2IDMxVjIxYTE0IDE0IDAgMCAxIDI4IDB2MTBNNDAgNDd2MTIiLz48Y2lyY2xlIGN4PSI0MCIgY3k9IjQ2IiByPSIzIi8+PC9nPgo8dGV4dCB4PSI3MjQiIHk9IjE4MCIgZm9udC1mYW1pbHk9Ik5vdG8gU2FucyBDSksgSlAsIHNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMTkiIGZvbnQtd2VpZ2h0PSI2MDAiIGZpbGw9IiNmZmFjM2IiIHRleHQtYW5jaG9yPSJzdGFydCI+QnVzaW5lc3M8L3RleHQ+Cjx0ZXh0IHg9IjcyNCIgeT0iMjQ5IiBmb250LWZhbWlseT0iTm90byBTYW5zIENKSyBKUCwgc2Fucy1zZXJpZiIgZm9udC1zaXplPSIzNiIgZm9udC13ZWlnaHQ9IjYwMCIgZmlsbD0iI2YwZjJmNSIgdGV4dC1hbmNob3I9InN0YXJ0Ij7mnIggJDg5PC90ZXh0Pgo8dGV4dCB4PSI3MjQiIHk9IjMwOCIgZm9udC1mYW1pbHk9Ik5vdG8gU2FucyBDSksgSlAsIHNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMjEiIGZvbnQtd2VpZ2h0PSI0MDAiIGZpbGw9IiNmMGYyZjUiIHRleHQtYW5jaG9yPSJzdGFydCI+UHJv44Gu5qmf6IO944Gr5Yqg44GI44CBPC90ZXh0Pgo8dGV4dCB4PSI3MjQiIHk9IjM0MCIgZm9udC1mYW1pbHk9Ik5vdG8gU2FucyBDSksgSlAsIHNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMjEiIGZvbnQtd2VpZ2h0PSI0MDAiIGZpbGw9IiNmMGYyZjUiIHRleHQtYW5jaG9yPSJzdGFydCI+5Zue562U44Gu5L+d5a2Y5pyf6ZaT44KS6Kit5a6a44Gn44GN44KLPC90ZXh0Pgo8dGV4dCB4PSI3MjQiIHk9IjQwNyIgZm9udC1mYW1pbHk9Ik5vdG8gU2FucyBDSksgSlAsIHNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMTYiIGZvbnQtd2VpZ2h0PSI0MDAiIGZpbGw9IiNiOGMwY2MiIHRleHQtYW5jaG9yPSJzdGFydCI+5bm05omV44GE44GvICQ4OTA8L3RleHQ+Cjx0ZXh0IHg9IjI0IiB5PSI0OTUiIGZvbnQtZmFtaWx5PSJOb3RvIFNhbnMgQ0pLIEpQLCBzYW5zLXNlcmlmIiBmb250LXNpemU9IjEzIiBmb250LXdlaWdodD0iNDAwIiBmaWxsPSIjODU5MDllIiB0ZXh0LWFuY2hvcj0ic3RhcnQiPuWHuuWFuO+8mlRhbGx55YWs5byP44OY44Or44OX77yIMjAyNuW5tDEw5pyI77yJ44CC6YeR6aGN44Gv57Gz44OJ44Or44CCPC90ZXh0Pgo8L3N2Zz4="
+    }
+   ]
+  }
+ },
+ {
+  "entityId": "ent_the_woobles_8319812a1ddb",
+  "reviewState": "ready_for_review",
+  "generation": 5,
+  "article": {
+   "listLine": "初心者がつまずく編み始めの部分をあらかじめ編んで届け、約2年で累計約8億円を売り上げた、ぬいぐるみの編み物キット",
+   "headline": "編み物の難しい「編み始め」を済ませたキットが、発売から約2年で累計約8億円",
+   "lead": "The Wooblesは、かぎ針でぬいぐるみを編む「編みぐるみ」の初心者向けキットを売っている。毛糸、かぎ針、詰め物などの材料一式に、その作品専用の解説動画がつく。編み物は最初の数段がいちばん難しく、初心者はそこでつまずきやすい。The Wooblesのキットは、その部分をあらかじめ編んだ状態で届くので、初めての人でも続きから編んで完成させられる。ペンギンのキットは30ドル（約4,500円）。",
+   "sources": [
+    {
+     "no": 1,
+     "label": "The Woobles / Pierre the Penguin Crochet Kit / 公開日不明",
+     "url": "https://thewoobles.com/products/penguin-crochet-kit"
+    },
+    {
+     "no": 2,
+     "label": "The Woobles / Help Center / 公開日不明",
+     "url": "https://help.thewoobles.com/en-US"
+    },
+    {
+     "no": 3,
+     "label": "Inc. / How the Woobles Founders Taught Half a Million People to Crochet / 2024-08-12",
+     "url": "https://www.inc.com/marina-khidekel/how-woobles-founders-taught-half-a-million-people-how-to-crochet.html"
+    },
+    {
+     "no": 4,
+     "label": "The Woobles / Our Story / 公開日不明",
+     "url": "https://thewoobles.com/pages/our-story"
+    },
+    {
+     "no": 5,
+     "label": "Shopify / How The Woobles scaled with Shopify / 公開日不明",
+     "url": "https://www.shopify.com/case-studies/the-woobles"
+    },
+    {
+     "no": 6,
+     "label": "The News & Observer / Did an Apex startup outmaneuver the sharks? / 2022-10-01",
+     "url": "https://www.newsobserver.com/news/business/article266666896.html"
+    },
+    {
+     "no": 7,
+     "label": "Cary Magazine / Women of Western Wake: Justine Tiu / 2025-09-02",
+     "url": "https://www.carymagazine.com/features/women-of-western-wake-justine-tiu/"
+    },
+    {
+     "no": 8,
+     "label": "The Woobles / PR Newswire / The Woobles on Shark Tank / 2022-10-03",
+     "url": "https://www.prnewswire.com/news-releases/the-woobles-crochets-its-way-to-a-deal-for-450-000-on-abcs-shark-tank-301638709.html"
+    }
+   ],
+   "kpis": [
+    {
+     "label": "累計の売上",
+     "value": "530万ドル",
+     "yen": "約8億円",
+     "period": "2020年夏〜2022年9月"
+    },
+    {
+     "label": "キットの価格",
+     "value": "30ドル",
+     "yen": "約4,500円",
+     "period": "ペンギン「Pierre」"
+    },
+    {
+     "label": "編み方を学んだ人",
+     "value": "100万人超"
+    },
+    {
+     "label": "社員",
+     "value": "50人",
+     "period": "2025年9月"
+    }
+   ],
+   "topics": [
+    {
+     "id": "overview",
+     "lead": {
+      "text": "編み物をしたことがない人に、ぬいぐるみを自分で編んで完成させるための材料と解説動画をセットで売っている。",
+      "cites": [
+       1,
+       2,
+       4
+      ]
+     },
+     "blocks": [
+      {
+       "type": "facts",
+       "variant": "text",
+       "rows": [
+        {
+         "label": "商品",
+         "text": "かぎ針でぬいぐるみを編む「編みぐるみ」のキット。ペンギンなどの作品ごとに、専用の解説動画がつく",
+         "cites": [
+          1,
+          2,
+          7
+         ]
+        },
+        {
+         "label": "顧客",
+         "text": "編み物をしたことがなく、まず1つ完成させてみたい人",
+         "cites": [
+          4,
+          5
+         ]
+        },
+        {
+         "label": "価格",
+         "text": "ペンギン「Pierre」のキットは30ドル（約4,500円）",
+         "cites": [
+          1
+         ]
+        },
+        {
+         "label": "キットの中身",
+         "text": "編み始めの部分をあらかじめ編んだ部品、初心者向けの毛糸、詰め物、目のパーツ、かぎ針、編み目の位置を示す目印",
+         "cites": [
+          1
+         ]
+        }
+       ]
+      },
+      {
+       "type": "list",
+       "ordered": false,
+       "items": [
+        {
+         "text": "創業者のJustine Tiuは、いくつもの動画や図解を見ながら独学で編み物を覚えた。初めて作品を完成させた時の達成感を、他の初心者にも味わってほしいと話している",
+         "cites": [
+          4,
+          5
+         ]
+        },
+        {
+         "text": "The Wooblesのキットで編み方を学んだ人は、100万人を超える",
+         "cites": [
+          1,
+          2
+         ]
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "id": "mechanism",
+     "lead": {
+      "text": "編み始めの部分をあらかじめ編んだ部品が届き、購入者は作品専用の動画を見ながら、続きを自分で編んで完成させる。",
+      "cites": [
+       1,
+       2,
+       3
+      ]
+     },
+     "blocks": [
+      {
+       "type": "steps",
+       "items": [
+        {
+         "title": "キットを買う",
+         "text": "作りたい作品のキットを選んで購入する。",
+         "cites": [
+          1
+         ]
+        },
+        {
+         "title": "キットが届く",
+         "text": "材料一式と、編み始めの部分をあらかじめ編んだ部品が届く。",
+         "cites": [
+          1,
+          3
+         ]
+        },
+        {
+         "title": "解説動画を開く",
+         "text": "キットに入っているカードのコードを使って、その作品専用の解説動画を開く。",
+         "cites": [
+          1,
+          2,
+          7
+         ]
+        },
+        {
+         "title": "動画を見ながら編む",
+         "text": "動画は工程ごとに分かれていて、右利き用と左利き用がある。自分の利き手に合う動画を見ながら、続きを編み進める。",
+         "cites": [
+          1,
+          2,
+          3
+         ]
+        },
+        {
+         "title": "分からない時は質問する",
+         "text": "途中で分からなくなったら、メールで問い合わせるか、オンラインで質問できる。",
+         "cites": [
+          1,
+          2
+         ]
+        }
+       ]
+      },
+      {
+       "type": "figure",
+       "figureId": "woobles-learning"
+      },
+      {
+       "type": "subheading",
+       "text": "初心者が途中でやめずに済むように工夫した点"
+      },
+      {
+       "type": "list",
+       "ordered": false,
+       "items": [
+        {
+         "text": "創業者のJustine Tiuは、製品の使いやすさを設計する仕事の経験があり、初心者が実際に編む様子を観察して、手が止まる箇所を探した",
+         "cites": [
+          3
+         ]
+        },
+        {
+         "text": "最も難しい最初の数段は、あらかじめ編んだ部品を入れて、購入者が飛ばせるようにした",
+         "cites": [
+          1,
+          3
+         ]
+        },
+        {
+         "text": "毛糸は、初心者がかぎ針を引っかけても糸が割れにくい専用のものを用意した",
+         "cites": [
+          1,
+          3
+         ]
+        },
+        {
+         "text": "解説動画は工程ごとに分け、右利き用と左利き用の2種類を用意した",
+         "cites": [
+          1,
+          2,
+          3
+         ]
+        },
+        {
+         "text": "残りを編んで完成させる作業は、購入者が自分で行う。完成品ではなく、自分の手で作り上げる体験を売っている",
+         "cites": [
+          1,
+          2,
+          3
+         ]
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "id": "revenue",
+     "lead": {
+      "text": "売上はキットの販売によるもので、2020年夏の発売から2022年9月までの累計は530万ドル（約8億円）だった。",
+      "cites": [
+       1,
+       2,
+       6
+      ]
+     },
+     "blocks": [
+      {
+       "type": "figure",
+       "figureId": "woobles-exchange"
+      },
+      {
+       "type": "list",
+       "ordered": false,
+       "items": [
+        {
+         "text": "2020年、最初の材料費200ドル（約3万円）で始めた",
+         "cites": [
+          7
+         ]
+        },
+        {
+         "text": "キットの代金には、材料一式と、その作品の解説動画・編み図が含まれる。毛糸の買い足しは別料金",
+         "cites": [
+          1,
+          2,
+          7
+         ]
+        },
+        {
+         "text": "2022年9月、起業家が投資家に出資を求めるアメリカのテレビ番組Shark Tankに出演した。番組内で、45万ドル（約6,750万円）の出資と引き換えに株式の6％を渡す条件で合意した",
+         "cites": [
+          6,
+          7,
+          8
+         ]
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "id": "acquisition",
+     "lead": {
+      "text": "最初は手作り品の通販サイトEtsyで販売し、売れることを確かめてから自社サイトを作ってFacebook広告を出した。",
+      "cites": [
+       3,
+       5
+      ]
+     },
+     "blocks": [
+      {
+       "type": "list",
+       "ordered": false,
+       "items": [
+        {
+         "text": "2020年夏、手作り品の通販サイトEtsyで販売を始め、購入者の反応を確かめた",
+         "cites": [
+          5,
+          6
+         ]
+        },
+        {
+         "text": "売れると分かってから、自社の通販サイトを作った",
+         "cites": [
+          5
+         ]
+        },
+        {
+         "text": "販売が増えた後、アメリカとカナダでFacebook広告を出した",
+         "cites": [
+          3
+         ]
+        },
+        {
+         "text": "カナダの小売チェーンLoblawsの仕入れ担当者から、店頭で販売したいと連絡が来た。大量の注文に対応し、店頭用のパッケージを作った",
+         "cites": [
+          3
+         ]
+        },
+        {
+         "text": "購入者から、人気キャラクターのキットが欲しいという要望が届いた。2022年、キャラクターの使用権を取引する展示会Licensing Expoに出向いた",
+         "cites": [
+          3
+         ]
+        },
+        {
+         "text": "会場で、商談には事前の予約が必要だと知ったが、その場で担当者に話しかけ、ゲーム「Pac-Man」のキャラクターを使う契約を結んだ",
+         "cites": [
+          3
+         ]
+        },
+        {
+         "text": "2022年9月、テレビ番組Shark Tankに出演した",
+         "cites": [
+          6,
+          7,
+          8
+         ]
+        },
+        {
+         "text": "現在の公式サイトには、Peanuts（スヌーピー）、Harry Potter、Minecraftなどのキャラクターのキットが並んでいる",
+         "cites": [
+          1
+         ]
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "id": "operations",
+     "lead": {
+      "text": "最初の2年間は社員を雇わず、創業者2人と両家の親で製造から発送までを行い、2025年9月には社員50人の会社になった。",
+      "cites": [
+       3,
+       5,
+       7
+      ]
+     },
+     "blocks": [
+      {
+       "type": "facts",
+       "variant": "text",
+       "rows": [
+        {
+         "label": "創業者の2人",
+         "text": "当初は、広告の制作、問い合わせへの返信、袋への印刷、毛糸の準備、梱包、発送までを自分たちで行った",
+         "cites": [
+          7
+         ]
+        },
+        {
+         "label": "両家の親",
+         "text": "部品の組み立て、梱包、発送を手伝った",
+         "cites": [
+          3,
+          5
+         ]
+        },
+        {
+         "label": "製造",
+         "text": "中国でキットを製造している（2025年9月）",
+         "cites": [
+          7
+         ]
+        },
+        {
+         "label": "発送",
+         "text": "アメリカのダーラムにある倉庫から発送している（2025年9月）",
+         "cites": [
+          7
+         ]
+        },
+        {
+         "label": "社員数",
+         "text": "50人（2025年9月）",
+         "cites": [
+          7
+         ]
+        }
+       ]
+      },
+      {
+       "type": "subheading",
+       "text": "通販サイトの作り直し"
+      },
+      {
+       "type": "list",
+       "ordered": false,
+       "items": [
+        {
+         "text": "最初は、通販サイトを自分で構築するソフトWooCommerceで自社サイトを作った。構築にもサーバーの管理にも時間がかかり、ページの表示の遅さや障害で、売れるはずの注文を逃した",
+         "cites": [
+          5
+         ]
+        },
+        {
+         "text": "サーバーの管理まで任せられる通販サービスShopifyに移行した。創業者によると、サイトの作り直しは半日で終わった",
+         "cites": [
+          5
+         ]
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "id": "history",
+     "lead": {
+      "text": "2020年にJustine TiuとAdrian Zhangの2人がEtsyで販売を始め、2022年にテレビ番組に出演し、2025年には社員50人の会社になった。",
+      "cites": [
+       3,
+       5,
+       7
+      ]
+     },
+     "blocks": [
+      {
+       "type": "timeline",
+       "items": [
+        {
+         "when": "2020年",
+         "text": "Justine TiuとAdrian Zhangが2人で事業を始めた。最初の材料費は200ドル（約3万円）",
+         "cites": [
+          3,
+          7,
+          8
+         ]
+        },
+        {
+         "when": "2020年夏",
+         "text": "手作り品の通販サイトEtsyで、編みぐるみキットの販売を始めた",
+         "cites": [
+          5,
+          6
+         ]
+        },
+        {
+         "when": "2022年",
+         "text": "展示会Licensing Expoで、Pac-Manのキャラクターを使う契約を結んだ",
+         "cites": [
+          3
+         ]
+        },
+        {
+         "when": "2022年9月",
+         "text": "テレビ番組Shark Tankに出演した。発売からの累計売上は530万ドル（約8億円）と紹介された",
+         "cites": [
+          6,
+          7,
+          8
+         ]
+        },
+        {
+         "when": "2025年9月",
+         "text": "社員は50人。中国で製造し、アメリカの倉庫から発送している",
+         "cites": [
+          7
+         ]
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "id": "reasons",
+     "title": "初心者が完成できる商品設計とキャラクター商品の展開",
+     "blocks": [
+      {
+       "type": "list",
+       "ordered": false,
+       "items": [
+        {
+         "lead": "最初の難しい工程を済ませた",
+         "text": "編み始めを済ませた部品と作品専用の動画を組み合わせ、編み物が初めての人も完成まで進められるようにした。",
+         "cites": [
+          1,
+          2,
+          3
+         ]
+        },
+        {
+         "lead": "購入者の要望から商品を増やした",
+         "text": "キャラクターのキットを求める声を受け、展示会で使用契約を獲得して商品展開を広げた。",
+         "cites": [
+          1,
+          3
+         ]
+        }
+       ]
+      }
+     ]
+    }
+   ],
+   "figures": [
+    {
+     "id": "woobles-learning",
+     "alt": "キットが届いてから完成するまでの流れ",
+     "width": 1040,
+     "height": 530,
+     "src": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMDQwIiBoZWlnaHQ9IjUzMCIgdmlld0JveD0iMCAwIDEwNDAgNTMwIiByb2xlPSJpbWciIGFyaWEtbGFiZWxsZWRieT0idGl0bGUgZGVzYyI+PHRpdGxlIGlkPSJ0aXRsZSI+5a6M5oiQ5ZOB44Gn44Gv44Gq44GP44CB6Ieq5YiG44Gn57eo44KA44Gf44KB44Gu44Kt44OD44OI44KS5aOy44KLPC90aXRsZT48ZGVzYyBpZD0iZGVzYyI+44Kt44OD44OI44GM5bGK44GE44Gm44GL44KJ44CB44Gs44GE44GQ44KL44G/44GM5a6M5oiQ44GZ44KL44G+44Gn44Gu5rWB44KM44CCPC9kZXNjPgo8cmVjdCB3aWR0aD0iMTA0MCIgaGVpZ2h0PSI1MzAiIGZpbGw9IiMwYzBlMTEiLz4KPHRleHQgeD0iMjQiIHk9IjMxIiBmb250LWZhbWlseT0iTm90byBTYW5zIENKSyBKUCwgc2Fucy1zZXJpZiIgZm9udC1zaXplPSIxMyIgZm9udC13ZWlnaHQ9IjYwMCIgZmlsbD0iI2ZmYWMzYiIgdGV4dC1hbmNob3I9InN0YXJ0Ij5USEUgV09PQkxFUyAgLyAg44Kt44OD44OI44Gu5L2/44GE5pa5PC90ZXh0Pgo8dGV4dCB4PSIyNCIgeT0iNjUiIGZvbnQtZmFtaWx5PSJOb3RvIFNhbnMgQ0pLIEpQLCBzYW5zLXNlcmlmIiBmb250LXNpemU9IjI3IiBmb250LXdlaWdodD0iNjAwIiBmaWxsPSIjZjBmMmY1IiB0ZXh0LWFuY2hvcj0ic3RhcnQiPuWujOaIkOWTgeOBp+OBr+OBquOBj+OAgeiHquWIhuOBp+e3qOOCgOOBn+OCgeOBruOCreODg+ODiOOCkuWjsuOCizwvdGV4dD4KPHRleHQgeD0iMjQiIHk9IjEwMiIgZm9udC1mYW1pbHk9Ik5vdG8gU2FucyBDSksgSlAsIHNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMTYiIGZvbnQtd2VpZ2h0PSI0MDAiIGZpbGw9IiNiOGMwY2MiIHRleHQtYW5jaG9yPSJzdGFydCI+5pyA44KC6Zuj44GX44GE57eo44G/5aeL44KB44Gv5riI44G+44Gb44Gm44GC44KK44CB57aa44GN44Gv6LO85YWl6ICF44GM57eo44KA44CCPC90ZXh0Pgo8cmVjdCB4PSIyNCIgeT0iMTQ5IiB3aWR0aD0iMjk2IiBoZWlnaHQ9IjI1NSIgcng9IjgiIGZpbGw9IiMxNTE5MWYiIHN0cm9rZT0iIzMwMzY0MCIvPgo8dGV4dCB4PSI0MiIgeT0iMTc5IiBmb250LWZhbWlseT0iTm90byBTYW5zIENKSyBKUCwgc2Fucy1zZXJpZiIgZm9udC1zaXplPSIxNCIgZm9udC13ZWlnaHQ9IjYwMCIgZmlsbD0iI2ZmYWMzYiIgdGV4dC1hbmNob3I9InN0YXJ0Ij4wMTwvdGV4dD4KPGcgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoMTM0IDE4MSkgc2NhbGUoMC45NSkiIGZpbGw9Im5vbmUiIHN0cm9rZT0iI2ZmYWMzYiIgc3Ryb2tlLXdpZHRoPSIyLjIiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCI+CjxjaXJjbGUgY3g9IjMzIiBjeT0iMzciIHI9IjI1Ii8+PHBhdGggZD0iTTEyIDI1YzE1IDAgMjUgNyA0MyAyMk05IDM0YzE0IDAgMjYgOCA0MyAyMU0xNSAxN2MxMiAzIDI3IDE3IDM5IDI2TTI1IDEzYy0yIDExLTEgMjQgMyA0OE0zNiAxM2MtNSAxMi01IDI0LTEgNDlNNTMgNjFjMTMgMSAxNC03IDgtMTFNNjggMTF2NDltMC00OWMwLTYgOC02IDggMHY1Ii8+PC9nPgo8dGV4dCB4PSI0MiIgeT0iMjk1IiBmb250LWZhbWlseT0iTm90byBTYW5zIENKSyBKUCwgc2Fucy1zZXJpZiIgZm9udC1zaXplPSIyMiIgZm9udC13ZWlnaHQ9IjYwMCIgZmlsbD0iI2YwZjJmNSIgdGV4dC1hbmNob3I9InN0YXJ0Ij7nt6jjgb/lp4vjgoHjga/muIjjgpPjgafjgYTjgos8L3RleHQ+Cjx0ZXh0IHg9IjQyIiB5PSIzMjkiIGZvbnQtZmFtaWx5PSJOb3RvIFNhbnMgQ0pLIEpQLCBzYW5zLXNlcmlmIiBmb250LXNpemU9IjE3IiBmb250LXdlaWdodD0iNDAwIiBmaWxsPSIjYjhjMGNjIiB0ZXh0LWFuY2hvcj0ic3RhcnQiPuadkOaWmeOBqOOAgee3qOOBv+Wni+OCgeOBn+mDqOWTgeOBjOWxiuOBjzwvdGV4dD4KPGxpbmUgeDE9IjMyOSIgeTE9IjI2NyIgeDI9IjM2MiIgeTI9IjI2NyIgc3Ryb2tlPSIjZmZhYzNiIiBzdHJva2Utd2lkdGg9IjIiLz4KPGxpbmUgeDE9IjM2MiIgeTE9IjI2NyIgeDI9IjM1NC41NzE5Nzk0NjU4MTI5IiB5Mj0iMjcyLjA4MTc4MjI2MDU1NTMiIHN0cm9rZT0iI2ZmYWMzYiIgc3Ryb2tlLXdpZHRoPSIyIi8+CjxsaW5lIHgxPSIzNjIiIHkxPSIyNjciIHgyPSIzNTQuNTcxOTc5NDY1ODEyOSIgeTI9IjI2MS45MTgyMTc3Mzk0NDQ3IiBzdHJva2U9IiNmZmFjM2IiIHN0cm9rZS13aWR0aD0iMiIvPgo8cmVjdCB4PSIzNzIiIHk9IjE0OSIgd2lkdGg9IjI5NiIgaGVpZ2h0PSIyNTUiIHJ4PSI4IiBmaWxsPSIjMTUxOTFmIiBzdHJva2U9IiMzMDM2NDAiLz4KPHRleHQgeD0iMzkwIiB5PSIxNzkiIGZvbnQtZmFtaWx5PSJOb3RvIFNhbnMgQ0pLIEpQLCBzYW5zLXNlcmlmIiBmb250LXNpemU9IjE0IiBmb250LXdlaWdodD0iNjAwIiBmaWxsPSIjZmZhYzNiIiB0ZXh0LWFuY2hvcj0ic3RhcnQiPjAyPC90ZXh0Pgo8ZyB0cmFuc2Zvcm09InRyYW5zbGF0ZSg0ODIgMTgxKSBzY2FsZSgwLjk1KSIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjZmZhYzNiIiBzdHJva2Utd2lkdGg9IjIuMiIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2UtbGluZWpvaW49InJvdW5kIj4KPHJlY3QgeD0iMTAiIHk9IjQiIHdpZHRoPSI1NiIgaGVpZ2h0PSI3MiIgcng9IjciLz48cGF0aCBkPSJNMzIgMjRsMTkgMTMtMTkgMTN6TTIxIDYwaDM1TTIxIDY3aDIwIi8+PC9nPgo8dGV4dCB4PSIzOTAiIHk9IjI5NSIgZm9udC1mYW1pbHk9Ik5vdG8gU2FucyBDSksgSlAsIHNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMjIiIGZvbnQtd2VpZ2h0PSI2MDAiIGZpbGw9IiNmMGYyZjUiIHRleHQtYW5jaG9yPSJzdGFydCI+5YuV55S744KS6KaL44Gq44GM44KJ57eo44KAPC90ZXh0Pgo8dGV4dCB4PSIzOTAiIHk9IjMyOSIgZm9udC1mYW1pbHk9Ik5vdG8gU2FucyBDSksgSlAsIHNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMTciIGZvbnQtd2VpZ2h0PSI0MDAiIGZpbGw9IiNiOGMwY2MiIHRleHQtYW5jaG9yPSJzdGFydCI+5L2c5ZOB5bCC55So44Gu5YuV55S744CC6LOq5ZWP44KC44Gn44GN44KLPC90ZXh0Pgo8bGluZSB4MT0iNjc3IiB5MT0iMjY3IiB4Mj0iNzEwIiB5Mj0iMjY3IiBzdHJva2U9IiNmZmFjM2IiIHN0cm9rZS13aWR0aD0iMiIvPgo8bGluZSB4MT0iNzEwIiB5MT0iMjY3IiB4Mj0iNzAyLjU3MTk3OTQ2NTgxMjkiIHkyPSIyNzIuMDgxNzgyMjYwNTU1MyIgc3Ryb2tlPSIjZmZhYzNiIiBzdHJva2Utd2lkdGg9IjIiLz4KPGxpbmUgeDE9IjcxMCIgeTE9IjI2NyIgeDI9IjcwMi41NzE5Nzk0NjU4MTI5IiB5Mj0iMjYxLjkxODIxNzczOTQ0NDciIHN0cm9rZT0iI2ZmYWMzYiIgc3Ryb2tlLXdpZHRoPSIyIi8+CjxyZWN0IHg9IjcyMCIgeT0iMTQ5IiB3aWR0aD0iMjk2IiBoZWlnaHQ9IjI1NSIgcng9IjgiIGZpbGw9IiMxNTE5MWYiIHN0cm9rZT0iIzMwMzY0MCIvPgo8dGV4dCB4PSI3MzgiIHk9IjE3OSIgZm9udC1mYW1pbHk9Ik5vdG8gU2FucyBDSksgSlAsIHNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMTQiIGZvbnQtd2VpZ2h0PSI2MDAiIGZpbGw9IiNmZmFjM2IiIHRleHQtYW5jaG9yPSJzdGFydCI+MDM8L3RleHQ+CjxnIHRyYW5zZm9ybT0idHJhbnNsYXRlKDgzMCAxODEpIHNjYWxlKDAuOTUpIiBmaWxsPSJub25lIiBzdHJva2U9IiNmZmFjM2IiIHN0cm9rZS13aWR0aD0iMi4yIiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiPgo8cGF0aCBkPSJNMjggMThsLTQtOS04IDEtNSAxMiA3IDlNNTUgMTlsNS0xMSA5IDMgMSAxMi04IDYiLz48ZWxsaXBzZSBjeD0iNDEiIGN5PSI0NiIgcng9IjIzIiByeT0iMjYiLz48Y2lyY2xlIGN4PSIzMyIgY3k9IjM4IiByPSIyIi8+PGNpcmNsZSBjeD0iNDkiIGN5PSIzOCIgcj0iMiIvPjxwYXRoIGQ9Ik0zNiA1MHE1IDYgMTAgME0yNCA2M2wtNSA5TTU1IDYzbDUgOSIvPjwvZz4KPHRleHQgeD0iNzM4IiB5PSIyOTUiIGZvbnQtZmFtaWx5PSJOb3RvIFNhbnMgQ0pLIEpQLCBzYW5zLXNlcmlmIiBmb250LXNpemU9IjIyIiBmb250LXdlaWdodD0iNjAwIiBmaWxsPSIjZjBmMmY1IiB0ZXh0LWFuY2hvcj0ic3RhcnQiPuOBrOOBhOOBkOOCi+OBv+OBjOWujOaIkOOBmeOCizwvdGV4dD4KPHRleHQgeD0iNzM4IiB5PSIzMjkiIGZvbnQtZmFtaWx5PSJOb3RvIFNhbnMgQ0pLIEpQLCBzYW5zLXNlcmlmIiBmb250LXNpemU9IjE3IiBmb250LXdlaWdodD0iNDAwIiBmaWxsPSIjYjhjMGNjIiB0ZXh0LWFuY2hvcj0ic3RhcnQiPuiHquWIhuOBruaJi+OBp+S9nOOCiuS4iuOBkuOCizwvdGV4dD4KPHRleHQgeD0iMjQiIHk9IjUwNCIgZm9udC1mYW1pbHk9Ik5vdG8gU2FucyBDSksgSlAsIHNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMTQiIGZvbnQtd2VpZ2h0PSI0MDAiIGZpbGw9IiM4NTkwOWUiIHRleHQtYW5jaG9yPSJzdGFydCI+5Ye65YW477yaVGhlIFdvb2JsZXPjga7llYblk4HoqqzmmI7jgIHlibXmpa3ogIXjgbjjga7lj5bmnZDjgII8L3RleHQ+Cjwvc3ZnPg=="
+    },
+    {
+     "id": "woobles-exchange",
+     "alt": "キットの代金に含まれるもの",
+     "width": 1040,
+     "height": 530,
+     "src": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMDQwIiBoZWlnaHQ9IjUzMCIgdmlld0JveD0iMCAwIDEwNDAgNTMwIiByb2xlPSJpbWciIGFyaWEtbGFiZWxsZWRieT0idGl0bGUgZGVzYyI+PHRpdGxlIGlkPSJ0aXRsZSI+44Kt44OD44OI44Gu5Luj6YeR44Gr44CB5p2Q5paZ44Go6Kej6Kqs5YuV55S744Gu5Lih5pa544GM5ZCr44G+44KM44KLPC90aXRsZT48ZGVzYyBpZD0iZGVzYyI+44Kt44OD44OI44Gu5Luj6YeR44Go44CB6LO85YWl6ICF44GM5Y+X44GR5Y+W44KL44KC44Gu44CCPC9kZXNjPgo8cmVjdCB3aWR0aD0iMTA0MCIgaGVpZ2h0PSI1MzAiIGZpbGw9IiMwYzBlMTEiLz4KPHRleHQgeD0iMjQiIHk9IjMxIiBmb250LWZhbWlseT0iTm90byBTYW5zIENKSyBKUCwgc2Fucy1zZXJpZiIgZm9udC1zaXplPSIxMyIgZm9udC13ZWlnaHQ9IjYwMCIgZmlsbD0iI2ZmYWMzYiIgdGV4dC1hbmNob3I9InN0YXJ0Ij5USEUgV09PQkxFUyAgLyAg5Luj6YeR44Gr5ZCr44G+44KM44KL44KC44GuPC90ZXh0Pgo8dGV4dCB4PSIyNCIgeT0iNjUiIGZvbnQtZmFtaWx5PSJOb3RvIFNhbnMgQ0pLIEpQLCBzYW5zLXNlcmlmIiBmb250LXNpemU9IjI3IiBmb250LXdlaWdodD0iNjAwIiBmaWxsPSIjZjBmMmY1IiB0ZXh0LWFuY2hvcj0ic3RhcnQiPuOCreODg+ODiOOBruS7o+mHkeOBq+OAgeadkOaWmeOBqOino+iqrOWLleeUu+OBruS4oeaWueOBjOWQq+OBvuOCjOOCizwvdGV4dD4KPHRleHQgeD0iMjQiIHk9IjEwMiIgZm9udC1mYW1pbHk9Ik5vdG8gU2FucyBDSksgSlAsIHNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMTYiIGZvbnQtd2VpZ2h0PSI0MDAiIGZpbGw9IiNiOGMwY2MiIHRleHQtYW5jaG9yPSJzdGFydCI+MeOBpOOBruS9nOWTgeOCkuWujOaIkOOBleOBm+OCi+OBruOBq+W/heimgeOBquOCguOBruOBjOOAgeOBmeOBueOBpuWFpeOBo+OBpuOBhOOCi+OAgjwvdGV4dD4KPHJlY3QgeD0iMjQiIHk9IjE0NSIgd2lkdGg9Ijk5MiIgaGVpZ2h0PSI5MiIgcng9IjgiIGZpbGw9IiMxNTE5MWYiIHN0cm9rZT0iIzMwMzY0MCIvPgo8dGV4dCB4PSI0NCIgeT0iMTc0IiBmb250LWZhbWlseT0iTm90byBTYW5zIENKSyBKUCwgc2Fucy1zZXJpZiIgZm9udC1zaXplPSIxMyIgZm9udC13ZWlnaHQ9IjYwMCIgZmlsbD0iI2ZmYWMzYiIgdGV4dC1hbmNob3I9InN0YXJ0Ij7ku6Pph5E8L3RleHQ+Cjx0ZXh0IHg9IjQ0IiB5PSIyMDQiIGZvbnQtZmFtaWx5PSJOb3RvIFNhbnMgQ0pLIEpQLCBzYW5zLXNlcmlmIiBmb250LXNpemU9IjIwIiBmb250LXdlaWdodD0iNjAwIiBmaWxsPSIjZjBmMmY1IiB0ZXh0LWFuY2hvcj0ic3RhcnQiPuizvOWFpeiAhTwvdGV4dD4KPHRleHQgeD0iNTUwIiB5PSIxNzkiIGZvbnQtZmFtaWx5PSJOb3RvIFNhbnMgQ0pLIEpQLCBzYW5zLXNlcmlmIiBmb250LXNpemU9IjE5IiBmb250LXdlaWdodD0iNjAwIiBmaWxsPSIjZjBmMmY1IiB0ZXh0LWFuY2hvcj0ibWlkZGxlIj7jgq3jg4Pjg4gx44GkIDMw44OJ44OrPC90ZXh0Pgo8bGluZSB4MT0iMzA3IiB5MT0iMTkxIiB4Mj0iNzk0IiB5Mj0iMTkxIiBzdHJva2U9IiNmZmFjM2IiIHN0cm9rZS13aWR0aD0iMiIvPgo8bGluZSB4MT0iNzk0IiB5MT0iMTkxIiB4Mj0iNzg2LjU3MTk3OTQ2NTgxMjkiIHkyPSIxOTYuMDgxNzgyMjYwNTU1MzEiIHN0cm9rZT0iI2ZmYWMzYiIgc3Ryb2tlLXdpZHRoPSIyIi8+CjxsaW5lIHgxPSI3OTQiIHkxPSIxOTEiIHgyPSI3ODYuNTcxOTc5NDY1ODEyOSIgeTI9IjE4NS45MTgyMTc3Mzk0NDQ2OSIgc3Ryb2tlPSIjZmZhYzNiIiBzdHJva2Utd2lkdGg9IjIiLz4KPHRleHQgeD0iNTUwIiB5PSIyMjAiIGZvbnQtZmFtaWx5PSJOb3RvIFNhbnMgQ0pLIEpQLCBzYW5zLXNlcmlmIiBmb250LXNpemU9IjE0IiBmb250LXdlaWdodD0iNDAwIiBmaWxsPSIjYjhjMGNjIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIj7jg5rjg7Pjgq7jg7PjgIxQaWVycmXjgI3jga7loLTlkIg8L3RleHQ+Cjx0ZXh0IHg9IjgxNCIgeT0iMTk3IiBmb250LWZhbWlseT0iTm90byBTYW5zIENKSyBKUCwgc2Fucy1zZXJpZiIgZm9udC1zaXplPSIxOSIgZm9udC13ZWlnaHQ9IjYwMCIgZmlsbD0iI2YwZjJmNSIgdGV4dC1hbmNob3I9InN0YXJ0Ij5UaGUgV29vYmxlczwvdGV4dD4KPHJlY3QgeD0iMjQiIHk9IjI1MSIgd2lkdGg9Ijk5MiIgaGVpZ2h0PSI5MiIgcng9IjgiIGZpbGw9IiMxNTE5MWYiIHN0cm9rZT0iIzMwMzY0MCIvPgo8dGV4dCB4PSI0NCIgeT0iMjgwIiBmb250LWZhbWlseT0iTm90byBTYW5zIENKSyBKUCwgc2Fucy1zZXJpZiIgZm9udC1zaXplPSIxMyIgZm9udC13ZWlnaHQ9IjYwMCIgZmlsbD0iIzg2YjdkOCIgdGV4dC1hbmNob3I9InN0YXJ0Ij7mnZDmlpk8L3RleHQ+Cjx0ZXh0IHg9IjQ0IiB5PSIzMTAiIGZvbnQtZmFtaWx5PSJOb3RvIFNhbnMgQ0pLIEpQLCBzYW5zLXNlcmlmIiBmb250LXNpemU9IjIwIiBmb250LXdlaWdodD0iNjAwIiBmaWxsPSIjZjBmMmY1IiB0ZXh0LWFuY2hvcj0ic3RhcnQiPlRoZSBXb29ibGVzPC90ZXh0Pgo8dGV4dCB4PSI1NTAiIHk9IjI4NSIgZm9udC1mYW1pbHk9Ik5vdG8gU2FucyBDSksgSlAsIHNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMTkiIGZvbnQtd2VpZ2h0PSI2MDAiIGZpbGw9IiNmMGYyZjUiIHRleHQtYW5jaG9yPSJtaWRkbGUiPuavm+ezuOOAgee3qOOBv+Wni+OCgeOBn+mDqOWTgeOAgemBk+WFtzwvdGV4dD4KPGxpbmUgeDE9IjMwNyIgeTE9IjI5NyIgeDI9Ijc5NCIgeTI9IjI5NyIgc3Ryb2tlPSIjODZiN2Q4IiBzdHJva2Utd2lkdGg9IjIiLz4KPGxpbmUgeDE9Ijc5NCIgeTE9IjI5NyIgeDI9Ijc4Ni41NzE5Nzk0NjU4MTI5IiB5Mj0iMzAyLjA4MTc4MjI2MDU1NTMiIHN0cm9rZT0iIzg2YjdkOCIgc3Ryb2tlLXdpZHRoPSIyIi8+CjxsaW5lIHgxPSI3OTQiIHkxPSIyOTciIHgyPSI3ODYuNTcxOTc5NDY1ODEyOSIgeTI9IjI5MS45MTgyMTc3Mzk0NDQ3IiBzdHJva2U9IiM4NmI3ZDgiIHN0cm9rZS13aWR0aD0iMiIvPgo8dGV4dCB4PSI1NTAiIHk9IjMyNiIgZm9udC1mYW1pbHk9Ik5vdG8gU2FucyBDSksgSlAsIHNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMTQiIGZvbnQtd2VpZ2h0PSI0MDAiIGZpbGw9IiNiOGMwY2MiIHRleHQtYW5jaG9yPSJtaWRkbGUiPuS9nOWTgTHjgaTliIY8L3RleHQ+Cjx0ZXh0IHg9IjgxNCIgeT0iMzAzIiBmb250LWZhbWlseT0iTm90byBTYW5zIENKSyBKUCwgc2Fucy1zZXJpZiIgZm9udC1zaXplPSIxOSIgZm9udC13ZWlnaHQ9IjYwMCIgZmlsbD0iI2YwZjJmNSIgdGV4dC1hbmNob3I9InN0YXJ0Ij7os7zlhaXogIU8L3RleHQ+CjxyZWN0IHg9IjI0IiB5PSIzNTciIHdpZHRoPSI5OTIiIGhlaWdodD0iOTIiIHJ4PSI4IiBmaWxsPSIjMTUxOTFmIiBzdHJva2U9IiMzMDM2NDAiLz4KPHRleHQgeD0iNDQiIHk9IjM4NiIgZm9udC1mYW1pbHk9Ik5vdG8gU2FucyBDSksgSlAsIHNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMTMiIGZvbnQtd2VpZ2h0PSI2MDAiIGZpbGw9IiM4NmI3ZDgiIHRleHQtYW5jaG9yPSJzdGFydCI+6Kej6Kqs5YuV55S744Go6LOq5ZWP5a++5b+cPC90ZXh0Pgo8dGV4dCB4PSI0NCIgeT0iNDE2IiBmb250LWZhbWlseT0iTm90byBTYW5zIENKSyBKUCwgc2Fucy1zZXJpZiIgZm9udC1zaXplPSIyMCIgZm9udC13ZWlnaHQ9IjYwMCIgZmlsbD0iI2YwZjJmNSIgdGV4dC1hbmNob3I9InN0YXJ0Ij5UaGUgV29vYmxlczwvdGV4dD4KPHRleHQgeD0iNTUwIiB5PSIzOTEiIGZvbnQtZmFtaWx5PSJOb3RvIFNhbnMgQ0pLIEpQLCBzYW5zLXNlcmlmIiBmb250LXNpemU9IjE5IiBmb250LXdlaWdodD0iNjAwIiBmaWxsPSIjZjBmMmY1IiB0ZXh0LWFuY2hvcj0ibWlkZGxlIj7kvZzlk4HlsILnlKjjga7li5XnlLvjgIHos6rllY/jga7lj5fku5g8L3RleHQ+CjxsaW5lIHgxPSIzMDciIHkxPSI0MDMiIHgyPSI3OTQiIHkyPSI0MDMiIHN0cm9rZT0iIzg2YjdkOCIgc3Ryb2tlLXdpZHRoPSIyIi8+CjxsaW5lIHgxPSI3OTQiIHkxPSI0MDMiIHgyPSI3ODYuNTcxOTc5NDY1ODEyOSIgeTI9IjQwOC4wODE3ODIyNjA1NTUzIiBzdHJva2U9IiM4NmI3ZDgiIHN0cm9rZS13aWR0aD0iMiIvPgo8bGluZSB4MT0iNzk0IiB5MT0iNDAzIiB4Mj0iNzg2LjU3MTk3OTQ2NTgxMjkiIHkyPSIzOTcuOTE4MjE3NzM5NDQ0NyIgc3Ryb2tlPSIjODZiN2Q4IiBzdHJva2Utd2lkdGg9IjIiLz4KPHRleHQgeD0iNTUwIiB5PSI0MzIiIGZvbnQtZmFtaWx5PSJOb3RvIFNhbnMgQ0pLIEpQLCBzYW5zLXNlcmlmIiBmb250LXNpemU9IjE0IiBmb250LXdlaWdodD0iNDAwIiBmaWxsPSIjYjhjMGNjIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIj7osrfjgaPjgZ/kvZzlk4HjgZTjgajjgavnlKjmhI88L3RleHQ+Cjx0ZXh0IHg9IjgxNCIgeT0iNDA5IiBmb250LWZhbWlseT0iTm90byBTYW5zIENKSyBKUCwgc2Fucy1zZXJpZiIgZm9udC1zaXplPSIxOSIgZm9udC13ZWlnaHQ9IjYwMCIgZmlsbD0iI2YwZjJmNSIgdGV4dC1hbmNob3I9InN0YXJ0Ij7os7zlhaXogIU8L3RleHQ+Cjx0ZXh0IHg9IjI0IiB5PSI1MDEiIGZvbnQtZmFtaWx5PSJOb3RvIFNhbnMgQ0pLIEpQLCBzYW5zLXNlcmlmIiBmb250LXNpemU9IjEzIiBmb250LXdlaWdodD0iNDAwIiBmaWxsPSIjODU5MDllIiB0ZXh0LWFuY2hvcj0ic3RhcnQiPuWHuuWFuO+8mlRoZSBXb29ibGVz44Gu5ZWG5ZOB44Oa44O844K444Go44OY44Or44OX77yIMjAyNuW5tDEw5pyI77yJ44CCPC90ZXh0Pgo8L3N2Zz4="
+    }
+   ]
+  }
+ }
+]

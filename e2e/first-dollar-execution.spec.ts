@@ -8,7 +8,7 @@ test('company dossier becomes a persistent First Dollar execution project', asyn
   await page.goto(`/?entity=${PRIMARY.id}`);
   await expect(page.getByRole('heading', { level: 2, name: PRIMARY.name, exact: true })).toBeVisible();
 
-  // 実行計画は画面から入れない（直接URLのみ）。事例画面の入口は「これで作る」（/build）
+  // 実行計画は画面から入れない（直接URLのみ）。事例画面からの入口は無い
   await page.goto(`/execute/${PRIMARY.id}`);
   await expect(page).toHaveURL(new RegExp(`/execute/${PRIMARY.id}$`));
   await expect(page.getByRole('heading', { level: 1, name: /の実行計画$/ })).toBeVisible();

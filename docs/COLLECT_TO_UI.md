@@ -143,7 +143,17 @@ bash scripts/reader-case/run-diff-audit.sh <直した事例IDを1行ずつ書い
 
 ## 4. 画像
 
-- **何を取るか（上ほど優先）**: ①App Store の画面写真 ②公式サイトに載った製品の画面写真 ③アイコン（一覧の小さな印用）。実際に使うときの画面がいちばん大事です。
+- **何を取るか**: その事例が「何を売っているか」が、その1枚で分かる画像を選びます。アプリの画面写真に限りません（2026-10-14 オーナー決定。それまでの「ストアの画面写真が最優先」は取り下げ）。事例ごとに、下の中からいちばん伝わる物を1枚目に置きます。
+  - ソフト・アプリ: 実際に使う時の画面（公式サイトの製品画面、App Store の画面写真）
+  - 物を売る事業: 商品そのものの写真（公式サイトの商品ページ）
+  - 店・施設: 店や施設の様子（公式サイトの写真）
+  - 記事・メール・動画を売る事業: 実際の号や記事の画面
+  - 仲介・販売の場: 出品の一覧や商品ページの画面
+  - データ・地図を売る事業: 地図やグラフの画面
+  - どの事業でも: 会社や創業者が公式に出した売上のグラフ・仕組みの図・料金表が、製品の画面より伝わるなら、そちらを先に置く
+  - アイコンは一覧の小さな印用（詳細の1枚目にはしない）
+- **選び方**: 前提を知らない人がその1枚を見て「何の商売か」が分かるか、で決めます。似た画面を何枚も並べません。集める時に、候補ごとに「何が写っているか」を1行で残し、1枚目にする物を決めておきます。
+- **取得元と権利の決まりは変えていません**: 取得元は公式ドメインの中と App Store の掲載画像だけ。下の「出さない物」と判定の流れは今までどおりです。今の命令が自動で取るのは、アイコン・og:image・公式サイトのトップと料金ページの画面写真・App Store の画像です。商品ページの写真や公式ブログのグラフなど、それ以外の公式の画像を使う時は、同じ台帳に載せて人が判定します。
 - **出さない物**: ロゴと飾りだけの宣伝バナー（OG画像は自動で「使わない」になる）、人物写真、出所の分からない画像。ログインした後の画面を自分で撮ることもしません。
 - **命令**:
   - 公式サイトから: `node --import tsx scripts/media/fetch-official-assets.ts --ids <id>`
@@ -264,6 +274,7 @@ bash scripts/reader-case/run-diff-audit.sh <直した事例IDを1行ずつ書い
 - [`research-record/README.md`](./research-record/README.md): 調査記録の必須項目と見本
 - [`pipeline/CLAUDE_RUNNER.md`](./pipeline/CLAUDE_RUNNER.md)、[`pipeline/DAILY_RUN.md`](./pipeline/DAILY_RUN.md)、[`pipeline/DISPLAY_CONTRACT.md`](./pipeline/DISPLAY_CONTRACT.md): 照合・分析・監査の流れと画面に出す項目
 - [`CASE_TEXT_STANDARD.md`](./CASE_TEXT_STANDARD.md)、[`CASE_CHAPTER_PROCESS.md`](./CASE_CHAPTER_PROCESS.md): 画面の層の文の書き方
+- [`CASE_ARTICLE.md`](./CASE_ARTICLE.md): 新しい記事形式（8分類）。分類の役割、集める時に取る深さ、章の書き方（流し読みで分かる形。型ではなく見本）。今後の事例は、集める所から画面までこの形に合わせる
 - [`MEDIA_ASSETS_AND_PROVENANCE.md`](./MEDIA_ASSETS_AND_PROVENANCE.md): 画像
 - [`architecture/STORAGE.md`](./architecture/STORAGE.md): 保存先
 

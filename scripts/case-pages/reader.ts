@@ -11,7 +11,7 @@ const hostOf = (url: string) => { try { return new URL(url).hostname.replace(/^w
 const numbersOf = (text: string) => new Set((text.replace(/,/g, '').match(/\d+(?:\.\d+)?/g) ?? []).filter((n) => n.length >= 2 || n.includes('.')));
 
 /** 一覧の1行を支える出典。1行に出てくる数字を最も多くラベルに含む出典を選ぶ（共通の数字が無ければ先頭） */
-export function headlineSource(page: CasePage): CasePage['sources'][number] {
+export function headlineSource(page: Pick<CasePage, 'listLine' | 'sources'>): CasePage['sources'][number] {
   const want = numbersOf(page.listLine);
   let best = page.sources[0];
   let bestHit = 0;

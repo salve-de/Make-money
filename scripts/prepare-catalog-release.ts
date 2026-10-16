@@ -1,4 +1,5 @@
 import { readFile, mkdir, writeFile } from 'node:fs/promises';
+import { resolve } from 'node:path';
 import { createHash } from 'node:crypto';
 import { gzipSync } from 'node:zlib';
 import { parseFinancialEntitiesResiliently } from '../src/shared/financial-entity-schema';
@@ -23,6 +24,7 @@ import { rightsOptions } from './reader-case/load-readers';
 import { withoutSuspendedSources } from './reader-case/source-policy';
 import { displayForEntity, DISPLAY_SOURCE_FILE_NAMES, type DisplaySourceFiles } from '../src/shared/reader-display';
 import { buildCasePageReader } from './case-pages/reader';
+import { buildCaseArticleReader } from './case-articles/reader';
 import { heldChapterRemovals, readHeld, withoutHeldClaims, withoutHeldDisplay, type HeldRemoval } from './reader-case/held-items';
 import { manifestObjectKey, type ReleasePointer } from '../src/shared/catalog-manifest';
 
@@ -39,12 +41,21 @@ async function main() {
 // --withdrawals: 除外してよい事例IDの明示一覧。計画の除外と完全に一致しない限り、目録は書き換えない（黙って巻き戻らない）
 const dryRun = process.argv.includes('--dry-run');
 const flagValue = (name: string) => (process.argv.includes(name) ? process.argv[process.argv.indexOf(name) + 1] : undefined);
+// --preview-articles: 手元で記事の見た目を確かめる版。未審査（ready_for_review・draft）の記事も入れ、追跡対象のファイル
+// （data/catalog-release.json・data/case-display.json・data/entities-index.json）は一切書き換えず、--out の置き場（既定 .catalog-release-preview）へだけ書く。
+// 使う時は CATALOG_RELEASE_DIR=<その置き場> でアプリを起動する。公開版（pnpm catalog:prepare）の経路とは混ぜない
+const preview = process.argv.includes('--preview-articles');
+const previewDir = resolve(flagValue('--out') ?? '.catalog-release-preview');
+const previewArticlesFile = flagValue('--articles-file') ?? 'data/case-articles.json';
+const previewAdditionsFile = flagValue('--additions-file') ?? 'data/entity-additions/gen5-case-articles.json';
+if (preview && (dryRun || process.argv.includes('--check') || process.argv.includes('--artifacts-only'))) throw new Error('--preview-articles は --dry-run / --check / --artifacts-only と一緒に使えない');
+if (preview && previewDir === resolve('.catalog-release')) throw new Error('--out に公開版の置き場（.catalog-release）は指定できない');
 const previous = JSON.parse(await readFile(flagValue('--previous') ?? 'data/catalog-release.json', 'utf8')) as { details: Record<string, string>; coreDetails?: Record<string, string> };
 const withdrawalsPath = flagValue('--withdrawals');
 // --changed: 差分公開。この一覧の事例だけを受領書つきで評価し直す。いま公開中でこの一覧に無い事例は、受領書の再評価をせずに引き継ぐ。
 // ただし引き継いだ事例の中身（詳細の指紋）が公開中と1文字でも違えば止める（審査を経ない書き換えを出さない）
 const changedPath = flagValue('--changed');
-const changedIds = changedPath
+let changedIds = changedPath
   ? new Set((await readFile(changedPath, 'utf8')).split(/\r?\n/).map((x) => x.trim()).filter((x) => x && !x.startsWith('#')))
   : null;
 // 章ごとの文（case-page）の事例は、毎回この実行で組み直す（引き継がない）
@@ -56,10 +67,18 @@ const authorizedWithdrawals = withdrawalsPath
 // 出典本文・画像台帳などの手元の証拠（gitに入れない）は公開の作業場所や CI には無い。照合だけの実行（--check / --artifacts-only）では
 // 目録に載った事例をそのまま信頼し、証拠を読んで受領書を再評価するのは目録を作る実行と --dry-run だけにする
 const verifyOnly = process.argv.includes('--check') || process.argv.includes('--artifacts-only');
-const audited = verifyOnly ? {} : readPublicationAudits();
+const audited = verifyOnly || preview ? {} : readPublicationAudits();
 const source = await readFile('data/entities-index.json');
-const sourceHash = createHash('sha256').update(source).digest('hex');
-const raw: unknown = JSON.parse(source.toString('utf8'));
+// 手元確認用の版だけ、目録（entities-index.json）に無い記事の事例を、身元の記録（data/entity-additions/gen5-case-articles.json）からメモリ上で足す
+const indexRecords: unknown = JSON.parse(source.toString('utf8'));
+const previewExtra: unknown[] = [];
+if (preview) {
+  const have = new Set((indexRecords as Array<{ id?: string }>).map((r) => r?.id));
+  const additions = JSON.parse(await readFile(previewAdditionsFile, 'utf8').catch(() => '{"records":[]}')) as { records: Array<{ id: string; record: unknown }> };
+  for (const r of additions.records) if (!have.has(r.id)) previewExtra.push(r.record);
+}
+const raw: unknown = preview ? [...(indexRecords as unknown[]), ...previewExtra] : indexRecords;
+const sourceHash = createHash('sha256').update(preview ? Buffer.from(JSON.stringify(raw)) : source).digest('hex');
 // 公開版を作る前に、3件以上で使い回された作文（テンプレ文）が残っていないか確認する（除外リストは template-prose-lib.mjs）
 const templateViolations = findTemplateViolations(raw as Record<string, unknown>[]);
 if (templateViolations.length) {
@@ -85,7 +104,14 @@ try { analysisFile = JSON.parse(await readFile('data/reader-analysis.json', 'utf
 const reflectState = readReflectState();
 analysisFile = withReflectedAnalysis(analysisFile, reflectState);
 const displaySources = Object.fromEntries(await Promise.all(DISPLAY_SOURCE_FILE_NAMES.map(async (name) => [name, JSON.parse(await readFile(`data/${name}.json`, 'utf8').catch(() => '[]')) as unknown]))) as unknown as DisplaySourceFiles;
-casePageIds = new Set(((displaySources['case-pages'] ?? []) as Array<{ entityId: string }>).map((x) => x.entityId));
+// 事例の記事（case-article）: 審査が済んだ（approved）記事だけが公開の対象。それ以外の記事は無いものとして扱い、事例のこれまでの扱いを変えない。
+// 手元確認用の版だけ、未審査の記事も入れる（approved として扱うのはこの実行の中だけ。原稿は書き換えない）
+if (preview) displaySources['case-articles'] = (JSON.parse(await readFile(previewArticlesFile, 'utf8').catch(() => '[]')) as NonNullable<DisplaySourceFiles['case-articles']>).map((x) => ({ ...x, reviewState: 'approved' as const }));
+const articleList = (displaySources['case-articles'] ?? []).filter((x) => x.reviewState === 'approved');
+// 章ごとの文・記事の事例は、毎回この実行で組み直す（引き継がない）
+casePageIds = new Set([...((displaySources['case-pages'] ?? []) as Array<{ entityId: string }>).map((x) => x.entityId), ...articleList.map((x) => x.entityId)]);
+// 手元確認用の版は、記事の事例だけを組み直し、公開中の事例は今の版のまま引き継ぐ（出典の手元の証拠が無くても作れる。中身が公開中と違えば止まる）
+if (preview) changedIds = new Set(articleList.map((x) => x.entityId));
 const withheld = { imported: 0, audit: 0, evidence: 0, schemaInvalid: 0, thin: 0, noRawRecord: 0, unverified: 0, resource: 0, queued: 0 };
 // 事例ごとのスタンプ（画面に出すか・出さない理由）。捨てずに保存し、探し直しの対象にする
 type Display = 'SHOW' | 'CARRIED' | 'HOLD_IMPORT' | 'HOLD_AUDIT' | 'HOLD_NO_RAW' | 'HOLD_UNVERIFIED' | 'HOLD_SCHEMA' | 'HOLD_THIN' | 'HOLD_RESOURCE' | 'HOLD_QUEUE' | 'HOLD_EVIDENCE';
@@ -135,6 +161,18 @@ for (const entity of publishable) {
   if (result.unbound.length) unboundAll.push({ id: entity.id, lines: result.unbound });
   if (result.review.length) reviewAll.push({ id: entity.id, items: result.review });
   const verified = applyVerdicts(result.reader, verdicts[entity.id]);
+  // 審査が済んだ記事（data/case-articles/<事例ID>/article.json）がある事例: 章ごとの文より優先する。旧版（base）の数値・出典・推論は持ち込まない
+  const articleEntry = articleList.find((x) => x.entityId === entity.id);
+  const caseArticle = articleEntry?.article;
+  if (articleEntry && caseArticle) {
+    const reader = buildCaseArticleReader(caseArticle, entity.name);
+    if (validateReader(reader)) { withheld.schemaInvalid++; stamp(entity.id, 'HOLD_SCHEMA'); continue; }
+    stamp(entity.id, 'SHOW', '事例の記事（case-article）で公開');
+    totals.facts += reader.facts.length;
+    // 記事の事例は、原稿が決めた世代で一覧に並べる
+    entities.push({ ...entity, generation: articleEntry.generation, reader });
+    continue;
+  }
   // 章ごとの文（data/case-pages/<事例ID>.md）がある事例: 古い監査の受領証・順番待ち・推論の空欄は求めない。文は軽い検査（pnpm case-pages:check）が見る
   const casePage = (displaySources['case-pages'] ?? []).find((x) => x.entityId === entity.id)?.page;
   if (casePage) {
@@ -203,7 +241,7 @@ if (process.env.READER_REPORT_DIR && !dryRun) {
   await writeFile(`${process.env.READER_REPORT_DIR}/unbound.json`, JSON.stringify(unboundAll, null, 1));
   await writeFile(`${process.env.READER_REPORT_DIR}/review.json`, JSON.stringify(reviewAll, null, 1));
 }
-const directory = '.catalog-release';
+const directory = preview ? previewDir : '.catalog-release';
 const checkOnly = process.argv.includes('--check');
 // CI の e2e 用: .catalog-release/*.gz だけを書く。目録ファイル（data/catalog-release.json）は書き換えず、食い違えば失敗
 const artifactsOnly = process.argv.includes('--artifacts-only');
@@ -213,7 +251,7 @@ const withdrawalApproval = checkWithdrawals(withdrawnIds, authorizedWithdrawals)
 // 止めるのは、公開中の事例の判定ができない時だけ。まだ公開していない新しい事例は HOLD_EVIDENCE で外れるだけで、ほかの事例の反映を止めない
 const evidenceBlocked = evidenceCarried.size > 0;
 if (!dryRun && !verifyOnly && evidenceBlocked) throw new Error(`Catalog release blocked: ${evidenceCarried.size} published cases lack the evidence needed to judge (not a failure; nothing was withdrawn or changed). Provide the missing evidence and rerun: ${JSON.stringify(Object.fromEntries([...evidenceCarried].map((id) => [id, insufficientEvidence[id]])))}`);
-if (!dryRun && !verifyOnly && !withdrawalApproval.allowed) throw new Error(`Catalog release needs explicit --withdrawals approval: ${JSON.stringify(withdrawalApproval)}. Inspect --dry-run first; no manifest was changed.`);
+if (!dryRun && !verifyOnly && !preview && !withdrawalApproval.allowed) throw new Error(`Catalog release needs explicit --withdrawals approval: ${JSON.stringify(withdrawalApproval)}. Inspect --dry-run first; no manifest was changed.`);
 if (!checkOnly && !dryRun) await mkdir(directory, { recursive: true });
 const objects: { key: string; file: string }[] = [];
 async function artifact(value: unknown, key?: string) {
@@ -264,12 +302,16 @@ if (checkOnly || artifactsOnly) {
   if (await readFile('data/catalog-release.json', 'utf8') !== manifestText) throw new Error('Catalog release is stale; run pnpm catalog:prepare and publish before deployment');
   // 手元の画面（開発サーバ・自動テスト）が、同梱の版と食い違わずに今の版を読めるよう、手元の目印を書く
   if (artifactsOnly) await writeFile(`${directory}/current.json`, `${JSON.stringify(localPointer, null, 2)}\n`);
+} else if (preview) {
+  // 手元確認用: 目録・目印だけを置き場に書く。追跡対象のファイルと upload.json（R2 へ上げる一覧）は書かない
+  await writeFile(`${directory}/current.json`, `${JSON.stringify(localPointer, null, 2)}\n`);
 } else {
   await writeFile(`${directory}/current.json`, `${JSON.stringify(localPointer, null, 2)}\n`);
   await writeFile('data/catalog-release.json', manifestText);
   await writeFile('data/case-display.json', `${JSON.stringify(Object.fromEntries(Object.entries(caseStamps).sort(([x], [y]) => x.localeCompare(y))), null, 1)}\n`);
   await writeFile(`${directory}/upload.json`, JSON.stringify(objects));
 }
+if (preview) console.log(`手元確認用の版を書いた: ${directory}（公開中 ${entities.length - articleList.filter((a) => entities.some((e) => e.id === a.entityId)).length}件＋記事 ${articleList.filter((a) => entities.some((e) => e.id === a.entityId)).length}件。取り下げ ${withdrawnIds.length}件）\n起動: CATALOG_RELEASE_DIR=${directory} pnpm dev`);
 console.log(JSON.stringify({ sourceHash, sourceCount: manifest.sourceCount, publishedCount: entities.length, sourcelessExcluded, plan, withheld, heldRemoved, hiddenItems, paraphrasedItems, totals,
   blankRate: blanks.cells ? Number((blanks.empty / blanks.cells).toFixed(4)) : null, blanks, objects: objects.length }));
 }

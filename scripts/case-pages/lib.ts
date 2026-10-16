@@ -126,9 +126,9 @@ export function parseRights(md: string): CasePageRight[] {
 export interface Violation { rule: 'polite' | 'list-line-length' | 'yen-after-foreign' | 'missing-chapter'; where: string; detail: string }
 
 export const LIST_LINE_MAX = 40;
-const POLITE = /(です|ます|ました|でした)。/g;
+export const POLITE = /(です|ます|ました|でした)。/g;
 // 数字（「3万6千」「1.8千」「1,793」「250,000」）＋外貨の単位
-const FOREIGN = /(?:[0-9０-９][0-9０-９,，.]*(?:[万千億百])?)\s*(?:ドル|ユーロ|ポンド|ルピー)|[$＄]\s*[0-9０-９]/g;
+export const FOREIGN = /(?:[0-9０-９][0-9０-９,，.]*(?:[万千億百])?)\s*(?:ドル|ユーロ|ポンド|ルピー)|[$＄]\s*[0-9０-９]/g;
 // 「1,500ドル弱（約22万円弱）」のように、額と円の概算のあいだに「弱・強・超・ほど」が入る書き方も許す
 const YEN_APPROX = /^\s*(?:弱|強|超|ほど|前後)?\s*[（(]\s*約[^）)]*円/;
 
@@ -147,9 +147,9 @@ export function bodyLines(page: CasePage): Array<{ where: string; text: string }
 }
 
 /** 外貨の数字の直後に、円の概算（約…円）があるか。同じ括弧の中で先に円の概算が出ている比較用の額、円の額の直後の括弧に添えた元の額も許す */
-export function foreignWithoutYen(line: string): string[] {
+export function foreignWithoutYen(line: string, foreign: RegExp = FOREIGN): string[] {
   const misses: string[] = [];
-  for (const m of line.matchAll(FOREIGN)) {
+  for (const m of line.matchAll(foreign)) {
     const end = (m.index ?? 0) + m[0].length;
     if (YEN_APPROX.test(line.slice(end))) continue;
     const before = line.slice(0, m.index ?? 0);

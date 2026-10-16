@@ -1,0 +1,3738 @@
+{
+  "schema_version": "make-money.collection-submission.v1",
+  "requirements_version": "1.1.0",
+  "package_id": "mm-woobles-20261012-r1",
+  "is_test_data": false,
+  "collector": {
+    "name": "ChatGPT",
+    "agent_version": null,
+    "capabilities": [
+      "web",
+      "code",
+      "file"
+    ]
+  },
+  "created_at": "2026-10-11T16:18:13Z",
+  "base": {
+    "app_commit": "faa4c5e504c3ecb7fddd21039321bb407df7e400",
+    "foundation_commit": null,
+    "prior_package_id": null,
+    "prior_submission_sha256": null
+  },
+  "scope": {
+    "purpose": "case",
+    "tier": "ENRICHED",
+    "declaration": "教材付き手芸キットの顧客体験、最初の販売、ライセンスによる商品拡張、物流と販売基盤を調査。 公開資料を横断して、自然な記事と参照付きデータを同じ調査で作成。131細目の完全充足や全資料の網羅、独立監査を意味しない。",
+    "coverage": [
+      {
+        "domain": "identity",
+        "status": "found",
+        "attempts": [
+          "https://www.inc.com/marina-khidekel/how-woobles-founders-taught-half-a-million-people-how-to-crochet.html",
+          "https://www.prnewswire.com/news-releases/the-woobles-crochets-its-way-to-a-deal-for-450-000-on-abcs-shark-tank-301638709.html"
+        ],
+        "record_keys": [
+          "r9"
+        ],
+        "note": "この領域の一部を確認。領域内の全細目が判明した意味ではない。"
+      },
+      {
+        "domain": "people",
+        "status": "found",
+        "attempts": [
+          "https://www.shopify.com/case-studies/the-woobles",
+          "https://www.inc.com/marina-khidekel/how-woobles-founders-taught-half-a-million-people-how-to-crochet.html",
+          "https://www.carymagazine.com/features/women-of-western-wake-justine-tiu/"
+        ],
+        "record_keys": [
+          "r6",
+          "r17",
+          "r21"
+        ],
+        "note": "この領域の一部を確認。領域内の全細目が判明した意味ではない。"
+      },
+      {
+        "domain": "product",
+        "status": "found",
+        "attempts": [
+          "https://thewoobles.com/products/penguin-crochet-kit",
+          "https://help.thewoobles.com/en-US",
+          "https://www.inc.com/marina-khidekel/how-woobles-founders-taught-half-a-million-people-how-to-crochet.html"
+        ],
+        "record_keys": [
+          "r1",
+          "r2",
+          "r7",
+          "rel2",
+          "rel3"
+        ],
+        "note": "この領域の一部を確認。領域内の全細目が判明した意味ではない。"
+      },
+      {
+        "domain": "customer_and_demand",
+        "status": "found",
+        "attempts": [
+          "https://thewoobles.com/products/penguin-crochet-kit",
+          "https://thewoobles.com/pages/our-story",
+          "https://help.thewoobles.com/en-US",
+          "https://www.shopify.com/case-studies/the-woobles"
+        ],
+        "record_keys": [
+          "r4",
+          "r8",
+          "r26",
+          "a1"
+        ],
+        "note": "この領域の一部を確認。領域内の全細目が判明した意味ではない。"
+      },
+      {
+        "domain": "pricing",
+        "status": "found",
+        "attempts": [
+          "https://thewoobles.com/products/penguin-crochet-kit",
+          "https://help.thewoobles.com/en-US"
+        ],
+        "record_keys": [
+          "r3",
+          "r25",
+          "rel1"
+        ],
+        "note": "この領域の一部を確認。領域内の全細目が判明した意味ではない。"
+      },
+      {
+        "domain": "money_and_economics",
+        "status": "found",
+        "attempts": [
+          "https://www.newsobserver.com/news/business/article266666896.html",
+          "https://www.prnewswire.com/news-releases/the-woobles-crochets-its-way-to-a-deal-for-450-000-on-abcs-shark-tank-301638709.html",
+          "https://www.carymagazine.com/features/women-of-western-wake-justine-tiu/",
+          "公式商品・FAQ",
+          "Inc.2024取材",
+          "Cary2025取材",
+          "Woobles profit revenue manufacturing query",
+          "Bizjournals2URLの通常openが403/InternalError。回避せず停止。"
+        ],
+        "record_keys": [
+          "r10",
+          "r11",
+          "r19"
+        ],
+        "note": "この領域の一部を確認。領域内の全細目が判明した意味ではない。現在の年商・利益・キット別原価・ライセンス料率・返品率・広告獲得費は今回確認できていない。 後日のShark Tank投資不成立に言及する検索結果はあったが、該当取材の本文を取得できなかった。"
+      },
+      {
+        "domain": "distribution",
+        "status": "found",
+        "attempts": [
+          "https://www.shopify.com/case-studies/the-woobles",
+          "https://www.inc.com/marina-khidekel/how-woobles-founders-taught-half-a-million-people-how-to-crochet.html",
+          "ShopifyのEtsy検証経緯とInc.初期広告の記事を確認"
+        ],
+        "record_keys": [
+          "r12",
+          "r13",
+          "r14",
+          "r15"
+        ],
+        "note": "この領域の一部を確認。領域内の全細目が判明した意味ではない。最初の購入者個人と初回売上額は今回の公開資料では特定できない。"
+      },
+      {
+        "domain": "operations",
+        "status": "found",
+        "attempts": [
+          "https://www.shopify.com/case-studies/the-woobles",
+          "https://www.carymagazine.com/features/women-of-western-wake-justine-tiu/"
+        ],
+        "record_keys": [
+          "r18",
+          "r20",
+          "r24"
+        ],
+        "note": "この領域の一部を確認。領域内の全細目が判明した意味ではない。"
+      },
+      {
+        "domain": "technology",
+        "status": "found",
+        "attempts": [
+          "https://help.thewoobles.com/en-US",
+          "https://www.shopify.com/case-studies/the-woobles",
+          "https://www.carymagazine.com/features/women-of-western-wake-justine-tiu/"
+        ],
+        "record_keys": [
+          "r5",
+          "r22"
+        ],
+        "note": "この領域の一部を確認。領域内の全細目が判明した意味ではない。"
+      },
+      {
+        "domain": "competition_and_market",
+        "status": "found",
+        "attempts": [
+          "https://thewoobles.com/products/penguin-crochet-kit"
+        ],
+        "record_keys": [
+          "r16",
+          "a2"
+        ],
+        "note": "この領域の一部を確認。領域内の全細目が判明した意味ではない。"
+      },
+      {
+        "domain": "timeline_and_outcomes",
+        "status": "found",
+        "attempts": [
+          "https://www.shopify.com/case-studies/the-woobles"
+        ],
+        "record_keys": [
+          "r23"
+        ],
+        "note": "この領域の一部を確認。領域内の全細目が判明した意味ではない。"
+      },
+      {
+        "domain": "provenance_rights_and_uncertainty",
+        "status": "found",
+        "attempts": [
+          "https://thewoobles.com/products/penguin-crochet-kit",
+          "https://help.thewoobles.com/en-US",
+          "https://www.newsobserver.com/news/business/article266666896.html",
+          "https://www.prnewswire.com/news-releases/the-woobles-crochets-its-way-to-a-deal-for-450-000-on-abcs-shark-tank-301638709.html",
+          "https://www.carymagazine.com/features/women-of-western-wake-justine-tiu/"
+        ],
+        "record_keys": [
+          "r27",
+          "r28",
+          "r29"
+        ],
+        "note": "この領域の一部を確認。領域内の全細目が判明した意味ではない。"
+      }
+    ]
+  },
+  "entities": [
+    {
+      "key": "business",
+      "name": "The Woobles",
+      "kind": "organization",
+      "official_url": "https://thewoobles.com/",
+      "aliases": [],
+      "app_entity_id": null,
+      "foundation_entity_id": null,
+      "country": "アメリカ",
+      "status": "公開サイトで提供を確認"
+    },
+    {
+      "key": "learner",
+      "name": "編み物を初めて学ぶ購入者",
+      "kind": "customer_group",
+      "official_url": null,
+      "aliases": [],
+      "app_entity_id": null,
+      "foundation_entity_id": null,
+      "country": null,
+      "status": null
+    },
+    {
+      "key": "kit",
+      "name": "Pierre the Penguin kit",
+      "kind": "product",
+      "official_url": "https://thewoobles.com/products/penguin-crochet-kit",
+      "aliases": [],
+      "app_entity_id": null,
+      "foundation_entity_id": null,
+      "country": null,
+      "status": null
+    },
+    {
+      "key": "retailer",
+      "name": "小売店",
+      "kind": "customer_group",
+      "official_url": null,
+      "aliases": [],
+      "app_entity_id": null,
+      "foundation_entity_id": null,
+      "country": null,
+      "status": null
+    },
+    {
+      "key": "partner",
+      "name": "キャラクター権利者",
+      "kind": "customer_group",
+      "official_url": null,
+      "aliases": [],
+      "app_entity_id": null,
+      "foundation_entity_id": null,
+      "country": null,
+      "status": null
+    },
+    {
+      "key": "factory",
+      "name": "製造先",
+      "kind": "customer_group",
+      "official_url": null,
+      "aliases": [],
+      "app_entity_id": null,
+      "foundation_entity_id": null,
+      "country": null,
+      "status": null
+    },
+    {
+      "key": "tutorial",
+      "name": "購入品に対応する教材",
+      "kind": "service",
+      "official_url": null,
+      "aliases": [],
+      "app_entity_id": null,
+      "foundation_entity_id": null,
+      "country": null,
+      "status": null
+    }
+  ],
+  "primary_entity_key": "business",
+  "sources": [
+    {
+      "key": "product",
+      "url": "https://thewoobles.com/products/penguin-crochet-kit",
+      "title": "Pierre the Penguin Crochet Kit",
+      "publisher": "The Woobles",
+      "language": "en",
+      "kind": "official",
+      "published_time": {
+        "value": null,
+        "end": null,
+        "precision": "unknown",
+        "original": null
+      },
+      "retrieved_at": "2026-10-11T16:18:13Z",
+      "source_family_key": "the-woobles-product",
+      "access_state": "read",
+      "incentive_context": "提供者自身の説明。商品紹介・採用・信用形成の目的を含み、顧客全体の独立調査や会計監査ではない。",
+      "rights": {
+        "fetch": {
+          "decision": "pending",
+          "basis": "unknown",
+          "reference": null,
+          "reviewed_at": null,
+          "note": "公開ページの通常閲覧のみ。ログイン・有料壁・CAPTCHAの回避なし。提供元の自動取得・継続収集条件は正式レビュー未了。"
+        },
+        "private_evidence_storage": {
+          "decision": "pending",
+          "basis": "unknown",
+          "reference": null,
+          "reviewed_at": null,
+          "note": "原文全文・第三者画像の保存ファイルをこの納品に含めない。URLと該当箇所、自分の言葉による調査記録を保持。"
+        },
+        "internal_analysis": {
+          "decision": "pending",
+          "basis": "unknown",
+          "reference": null,
+          "reviewed_at": null,
+          "note": "原典を参照した調査。アカウント固有の有償データ契約や長期処理条件は未確認。"
+        },
+        "factual_paraphrase_display": {
+          "decision": "pending",
+          "basis": "unknown",
+          "reference": null,
+          "reviewed_at": null,
+          "note": "本文は独自の日本語要約。商用サイト掲載前に提供元別の公開ポリシーで審査する。"
+        },
+        "paid_member_display": {
+          "decision": "pending",
+          "basis": "unknown",
+          "reference": null,
+          "reviewed_at": null,
+          "note": "有料会員への掲載を本納品で自動承認しない。"
+        },
+        "media_display": {
+          "decision": "pending",
+          "basis": "unknown",
+          "reference": null,
+          "reviewed_at": null,
+          "note": "第三者の製品写真はURL参照のみ。複製・表示の許諾は別審査。"
+        },
+        "redistribution": {
+          "decision": "pending",
+          "basis": "unknown",
+          "reference": null,
+          "reviewed_at": null,
+          "note": "原資料の再配布を承認しない。納品に原文全文や第三者画像は含まない。"
+        }
+      }
+    },
+    {
+      "key": "story",
+      "url": "https://thewoobles.com/pages/our-story",
+      "title": "Our Story",
+      "publisher": "The Woobles",
+      "language": "en",
+      "kind": "official",
+      "published_time": {
+        "value": null,
+        "end": null,
+        "precision": "unknown",
+        "original": null
+      },
+      "retrieved_at": "2026-10-11T16:18:13Z",
+      "source_family_key": "the-woobles-story",
+      "access_state": "read",
+      "incentive_context": "提供者自身の説明。商品紹介・採用・信用形成の目的を含み、顧客全体の独立調査や会計監査ではない。",
+      "rights": {
+        "fetch": {
+          "decision": "pending",
+          "basis": "unknown",
+          "reference": null,
+          "reviewed_at": null,
+          "note": "公開ページの通常閲覧のみ。ログイン・有料壁・CAPTCHAの回避なし。提供元の自動取得・継続収集条件は正式レビュー未了。"
+        },
+        "private_evidence_storage": {
+          "decision": "pending",
+          "basis": "unknown",
+          "reference": null,
+          "reviewed_at": null,
+          "note": "原文全文・第三者画像の保存ファイルをこの納品に含めない。URLと該当箇所、自分の言葉による調査記録を保持。"
+        },
+        "internal_analysis": {
+          "decision": "pending",
+          "basis": "unknown",
+          "reference": null,
+          "reviewed_at": null,
+          "note": "原典を参照した調査。アカウント固有の有償データ契約や長期処理条件は未確認。"
+        },
+        "factual_paraphrase_display": {
+          "decision": "pending",
+          "basis": "unknown",
+          "reference": null,
+          "reviewed_at": null,
+          "note": "本文は独自の日本語要約。商用サイト掲載前に提供元別の公開ポリシーで審査する。"
+        },
+        "paid_member_display": {
+          "decision": "pending",
+          "basis": "unknown",
+          "reference": null,
+          "reviewed_at": null,
+          "note": "有料会員への掲載を本納品で自動承認しない。"
+        },
+        "media_display": {
+          "decision": "pending",
+          "basis": "unknown",
+          "reference": null,
+          "reviewed_at": null,
+          "note": "第三者の製品写真はURL参照のみ。複製・表示の許諾は別審査。"
+        },
+        "redistribution": {
+          "decision": "pending",
+          "basis": "unknown",
+          "reference": null,
+          "reviewed_at": null,
+          "note": "原資料の再配布を承認しない。納品に原文全文や第三者画像は含まない。"
+        }
+      }
+    },
+    {
+      "key": "help",
+      "url": "https://help.thewoobles.com/en-US",
+      "title": "Help Center",
+      "publisher": "The Woobles",
+      "language": "en",
+      "kind": "official",
+      "published_time": {
+        "value": null,
+        "end": null,
+        "precision": "unknown",
+        "original": null
+      },
+      "retrieved_at": "2026-10-11T16:18:13Z",
+      "source_family_key": "the-woobles-help",
+      "access_state": "read",
+      "incentive_context": "提供者自身の説明。商品紹介・採用・信用形成の目的を含み、顧客全体の独立調査や会計監査ではない。",
+      "rights": {
+        "fetch": {
+          "decision": "pending",
+          "basis": "unknown",
+          "reference": null,
+          "reviewed_at": null,
+          "note": "公開ページの通常閲覧のみ。ログイン・有料壁・CAPTCHAの回避なし。提供元の自動取得・継続収集条件は正式レビュー未了。"
+        },
+        "private_evidence_storage": {
+          "decision": "pending",
+          "basis": "unknown",
+          "reference": null,
+          "reviewed_at": null,
+          "note": "原文全文・第三者画像の保存ファイルをこの納品に含めない。URLと該当箇所、自分の言葉による調査記録を保持。"
+        },
+        "internal_analysis": {
+          "decision": "pending",
+          "basis": "unknown",
+          "reference": null,
+          "reviewed_at": null,
+          "note": "原典を参照した調査。アカウント固有の有償データ契約や長期処理条件は未確認。"
+        },
+        "factual_paraphrase_display": {
+          "decision": "pending",
+          "basis": "unknown",
+          "reference": null,
+          "reviewed_at": null,
+          "note": "本文は独自の日本語要約。商用サイト掲載前に提供元別の公開ポリシーで審査する。"
+        },
+        "paid_member_display": {
+          "decision": "pending",
+          "basis": "unknown",
+          "reference": null,
+          "reviewed_at": null,
+          "note": "有料会員への掲載を本納品で自動承認しない。"
+        },
+        "media_display": {
+          "decision": "pending",
+          "basis": "unknown",
+          "reference": null,
+          "reviewed_at": null,
+          "note": "第三者の製品写真はURL参照のみ。複製・表示の許諾は別審査。"
+        },
+        "redistribution": {
+          "decision": "pending",
+          "basis": "unknown",
+          "reference": null,
+          "reviewed_at": null,
+          "note": "原資料の再配布を承認しない。納品に原文全文や第三者画像は含まない。"
+        }
+      }
+    },
+    {
+      "key": "shopify",
+      "url": "https://www.shopify.com/case-studies/the-woobles",
+      "title": "How The Woobles scaled with Shopify",
+      "publisher": "Shopify",
+      "language": "en",
+      "kind": "interview",
+      "published_time": {
+        "value": null,
+        "end": null,
+        "precision": "unknown",
+        "original": null
+      },
+      "retrieved_at": "2026-10-11T16:18:13Z",
+      "source_family_key": "shopify-shopify",
+      "access_state": "read",
+      "incentive_context": "販売基盤提供者Shopifyの顧客導入事例。創業者への直接取材を含むが、提供者の販促であり比較性能の独立実験ではない。",
+      "rights": {
+        "fetch": {
+          "decision": "pending",
+          "basis": "unknown",
+          "reference": null,
+          "reviewed_at": null,
+          "note": "公開ページの通常閲覧のみ。ログイン・有料壁・CAPTCHAの回避なし。提供元の自動取得・継続収集条件は正式レビュー未了。"
+        },
+        "private_evidence_storage": {
+          "decision": "pending",
+          "basis": "unknown",
+          "reference": null,
+          "reviewed_at": null,
+          "note": "原文全文・第三者画像の保存ファイルをこの納品に含めない。URLと該当箇所、自分の言葉による調査記録を保持。"
+        },
+        "internal_analysis": {
+          "decision": "pending",
+          "basis": "unknown",
+          "reference": null,
+          "reviewed_at": null,
+          "note": "原典を参照した調査。アカウント固有の有償データ契約や長期処理条件は未確認。"
+        },
+        "factual_paraphrase_display": {
+          "decision": "pending",
+          "basis": "unknown",
+          "reference": null,
+          "reviewed_at": null,
+          "note": "本文は独自の日本語要約。商用サイト掲載前に提供元別の公開ポリシーで審査する。"
+        },
+        "paid_member_display": {
+          "decision": "pending",
+          "basis": "unknown",
+          "reference": null,
+          "reviewed_at": null,
+          "note": "有料会員への掲載を本納品で自動承認しない。"
+        },
+        "media_display": {
+          "decision": "pending",
+          "basis": "unknown",
+          "reference": null,
+          "reviewed_at": null,
+          "note": "第三者の製品写真はURL参照のみ。複製・表示の許諾は別審査。"
+        },
+        "redistribution": {
+          "decision": "pending",
+          "basis": "unknown",
+          "reference": null,
+          "reviewed_at": null,
+          "note": "原資料の再配布を承認しない。納品に原文全文や第三者画像は含まない。"
+        }
+      }
+    },
+    {
+      "key": "inc",
+      "url": "https://www.inc.com/marina-khidekel/how-woobles-founders-taught-half-a-million-people-how-to-crochet.html",
+      "title": "How the Woobles Founders Taught Half a Million People to Crochet",
+      "publisher": "Inc.",
+      "language": "en",
+      "kind": "interview",
+      "published_time": {
+        "value": "2024-08-12",
+        "end": null,
+        "precision": "day",
+        "original": "2024-08-12"
+      },
+      "retrieved_at": "2026-10-11T16:18:13Z",
+      "source_family_key": "inc.-inc",
+      "access_state": "read",
+      "incentive_context": "創業者への取材記事。語られた経緯と報道上の整理を区別。成長企業特集の選択バイアスがある。",
+      "rights": {
+        "fetch": {
+          "decision": "pending",
+          "basis": "unknown",
+          "reference": null,
+          "reviewed_at": null,
+          "note": "公開ページの通常閲覧のみ。ログイン・有料壁・CAPTCHAの回避なし。提供元の自動取得・継続収集条件は正式レビュー未了。"
+        },
+        "private_evidence_storage": {
+          "decision": "pending",
+          "basis": "unknown",
+          "reference": null,
+          "reviewed_at": null,
+          "note": "原文全文・第三者画像の保存ファイルをこの納品に含めない。URLと該当箇所、自分の言葉による調査記録を保持。"
+        },
+        "internal_analysis": {
+          "decision": "pending",
+          "basis": "unknown",
+          "reference": null,
+          "reviewed_at": null,
+          "note": "原典を参照した調査。アカウント固有の有償データ契約や長期処理条件は未確認。"
+        },
+        "factual_paraphrase_display": {
+          "decision": "pending",
+          "basis": "unknown",
+          "reference": null,
+          "reviewed_at": null,
+          "note": "本文は独自の日本語要約。商用サイト掲載前に提供元別の公開ポリシーで審査する。"
+        },
+        "paid_member_display": {
+          "decision": "pending",
+          "basis": "unknown",
+          "reference": null,
+          "reviewed_at": null,
+          "note": "有料会員への掲載を本納品で自動承認しない。"
+        },
+        "media_display": {
+          "decision": "pending",
+          "basis": "unknown",
+          "reference": null,
+          "reviewed_at": null,
+          "note": "第三者の製品写真はURL参照のみ。複製・表示の許諾は別審査。"
+        },
+        "redistribution": {
+          "decision": "pending",
+          "basis": "unknown",
+          "reference": null,
+          "reviewed_at": null,
+          "note": "原資料の再配布を承認しない。納品に原文全文や第三者画像は含まない。"
+        }
+      }
+    },
+    {
+      "key": "news",
+      "url": "https://www.newsobserver.com/news/business/article266666896.html",
+      "title": "Did an Apex startup outmaneuver the sharks?",
+      "publisher": "The News & Observer",
+      "language": "en",
+      "kind": "independent_reporting",
+      "published_time": {
+        "value": "2022-10-01",
+        "end": null,
+        "precision": "day",
+        "original": "2022-10-01"
+      },
+      "retrieved_at": "2026-10-11T16:18:13Z",
+      "source_family_key": "the-news-&-observer-news",
+      "access_state": "read",
+      "incentive_context": "番組内の創業者発言と直接取材を報道。実際の会計・投資実行の監査ではない。",
+      "rights": {
+        "fetch": {
+          "decision": "pending",
+          "basis": "unknown",
+          "reference": null,
+          "reviewed_at": null,
+          "note": "公開ページの通常閲覧のみ。ログイン・有料壁・CAPTCHAの回避なし。提供元の自動取得・継続収集条件は正式レビュー未了。"
+        },
+        "private_evidence_storage": {
+          "decision": "pending",
+          "basis": "unknown",
+          "reference": null,
+          "reviewed_at": null,
+          "note": "原文全文・第三者画像の保存ファイルをこの納品に含めない。URLと該当箇所、自分の言葉による調査記録を保持。"
+        },
+        "internal_analysis": {
+          "decision": "pending",
+          "basis": "unknown",
+          "reference": null,
+          "reviewed_at": null,
+          "note": "原典を参照した調査。アカウント固有の有償データ契約や長期処理条件は未確認。"
+        },
+        "factual_paraphrase_display": {
+          "decision": "pending",
+          "basis": "unknown",
+          "reference": null,
+          "reviewed_at": null,
+          "note": "本文は独自の日本語要約。商用サイト掲載前に提供元別の公開ポリシーで審査する。"
+        },
+        "paid_member_display": {
+          "decision": "pending",
+          "basis": "unknown",
+          "reference": null,
+          "reviewed_at": null,
+          "note": "有料会員への掲載を本納品で自動承認しない。"
+        },
+        "media_display": {
+          "decision": "pending",
+          "basis": "unknown",
+          "reference": null,
+          "reviewed_at": null,
+          "note": "第三者の製品写真はURL参照のみ。複製・表示の許諾は別審査。"
+        },
+        "redistribution": {
+          "decision": "pending",
+          "basis": "unknown",
+          "reference": null,
+          "reviewed_at": null,
+          "note": "原資料の再配布を承認しない。納品に原文全文や第三者画像は含まない。"
+        }
+      }
+    },
+    {
+      "key": "press",
+      "url": "https://www.prnewswire.com/news-releases/the-woobles-crochets-its-way-to-a-deal-for-450-000-on-abcs-shark-tank-301638709.html",
+      "title": "The Woobles on Shark Tank",
+      "publisher": "The Woobles / PR Newswire",
+      "language": "en",
+      "kind": "official",
+      "published_time": {
+        "value": "2022-10-03",
+        "end": null,
+        "precision": "day",
+        "original": "2022-10-03"
+      },
+      "retrieved_at": "2026-10-11T16:18:13Z",
+      "source_family_key": "the-woobles-/-pr-newswire-press",
+      "access_state": "read",
+      "incentive_context": "The Woobles発行のプレスリリース。番組上の合意であり、銀行口座への入金確認資料ではない。",
+      "rights": {
+        "fetch": {
+          "decision": "pending",
+          "basis": "unknown",
+          "reference": null,
+          "reviewed_at": null,
+          "note": "公開ページの通常閲覧のみ。ログイン・有料壁・CAPTCHAの回避なし。提供元の自動取得・継続収集条件は正式レビュー未了。"
+        },
+        "private_evidence_storage": {
+          "decision": "pending",
+          "basis": "unknown",
+          "reference": null,
+          "reviewed_at": null,
+          "note": "原文全文・第三者画像の保存ファイルをこの納品に含めない。URLと該当箇所、自分の言葉による調査記録を保持。"
+        },
+        "internal_analysis": {
+          "decision": "pending",
+          "basis": "unknown",
+          "reference": null,
+          "reviewed_at": null,
+          "note": "原典を参照した調査。アカウント固有の有償データ契約や長期処理条件は未確認。"
+        },
+        "factual_paraphrase_display": {
+          "decision": "pending",
+          "basis": "unknown",
+          "reference": null,
+          "reviewed_at": null,
+          "note": "本文は独自の日本語要約。商用サイト掲載前に提供元別の公開ポリシーで審査する。"
+        },
+        "paid_member_display": {
+          "decision": "pending",
+          "basis": "unknown",
+          "reference": null,
+          "reviewed_at": null,
+          "note": "有料会員への掲載を本納品で自動承認しない。"
+        },
+        "media_display": {
+          "decision": "pending",
+          "basis": "unknown",
+          "reference": null,
+          "reviewed_at": null,
+          "note": "第三者の製品写真はURL参照のみ。複製・表示の許諾は別審査。"
+        },
+        "redistribution": {
+          "decision": "pending",
+          "basis": "unknown",
+          "reference": null,
+          "reviewed_at": null,
+          "note": "原資料の再配布を承認しない。納品に原文全文や第三者画像は含まない。"
+        }
+      }
+    },
+    {
+      "key": "cary",
+      "url": "https://www.carymagazine.com/features/women-of-western-wake-justine-tiu/",
+      "title": "Women of Western Wake: Justine Tiu",
+      "publisher": "Cary Magazine",
+      "language": "en",
+      "kind": "interview",
+      "published_time": {
+        "value": "2025-09-02",
+        "end": null,
+        "precision": "day",
+        "original": "2025-09-02"
+      },
+      "retrieved_at": "2026-10-11T16:18:13Z",
+      "source_family_key": "cary-magazine-cary",
+      "access_state": "read",
+      "incentive_context": "創業者への人物取材。資材費・業務の証言を使用。記事のShark Tank年次は2023とあり他一次資料の2022と不一致。「$5m business」は指標が曖昧なので売上に使用しない。",
+      "rights": {
+        "fetch": {
+          "decision": "pending",
+          "basis": "unknown",
+          "reference": null,
+          "reviewed_at": null,
+          "note": "公開ページの通常閲覧のみ。ログイン・有料壁・CAPTCHAの回避なし。提供元の自動取得・継続収集条件は正式レビュー未了。"
+        },
+        "private_evidence_storage": {
+          "decision": "pending",
+          "basis": "unknown",
+          "reference": null,
+          "reviewed_at": null,
+          "note": "原文全文・第三者画像の保存ファイルをこの納品に含めない。URLと該当箇所、自分の言葉による調査記録を保持。"
+        },
+        "internal_analysis": {
+          "decision": "pending",
+          "basis": "unknown",
+          "reference": null,
+          "reviewed_at": null,
+          "note": "原典を参照した調査。アカウント固有の有償データ契約や長期処理条件は未確認。"
+        },
+        "factual_paraphrase_display": {
+          "decision": "pending",
+          "basis": "unknown",
+          "reference": null,
+          "reviewed_at": null,
+          "note": "本文は独自の日本語要約。商用サイト掲載前に提供元別の公開ポリシーで審査する。"
+        },
+        "paid_member_display": {
+          "decision": "pending",
+          "basis": "unknown",
+          "reference": null,
+          "reviewed_at": null,
+          "note": "有料会員への掲載を本納品で自動承認しない。"
+        },
+        "media_display": {
+          "decision": "pending",
+          "basis": "unknown",
+          "reference": null,
+          "reviewed_at": null,
+          "note": "第三者の製品写真はURL参照のみ。複製・表示の許諾は別審査。"
+        },
+        "redistribution": {
+          "decision": "pending",
+          "basis": "unknown",
+          "reference": null,
+          "reviewed_at": null,
+          "note": "原資料の再配布を承認しない。納品に原文全文や第三者画像は含まない。"
+        }
+      }
+    },
+    {
+      "key": "biz-unread",
+      "url": "https://www.bizjournals.com/sanjose/bizwomen/news/latest-news/2024/09/viral-crochet-startup-woobles-eyes-walmart.html?page=all",
+      "title": "Licensing / wholesale interview（本文取得不可）",
+      "publisher": "Bizwomen",
+      "language": "en",
+      "kind": "interview",
+      "published_time": {
+        "value": "2024-09",
+        "end": null,
+        "precision": "month",
+        "original": "2024-09"
+      },
+      "retrieved_at": null,
+      "source_family_key": "bizwomen-biz-unread",
+      "access_state": "unavailable",
+      "incentive_context": "検索結果で見つけた手掛かり。本文の取得に失敗したため数値・投資不成立の断定に使用しない。",
+      "rights": {
+        "fetch": {
+          "decision": "pending",
+          "basis": "unknown",
+          "reference": null,
+          "reviewed_at": null,
+          "note": "公開ページの通常閲覧のみ。ログイン・有料壁・CAPTCHAの回避なし。提供元の自動取得・継続収集条件は正式レビュー未了。"
+        },
+        "private_evidence_storage": {
+          "decision": "pending",
+          "basis": "unknown",
+          "reference": null,
+          "reviewed_at": null,
+          "note": "原文全文・第三者画像の保存ファイルをこの納品に含めない。URLと該当箇所、自分の言葉による調査記録を保持。"
+        },
+        "internal_analysis": {
+          "decision": "pending",
+          "basis": "unknown",
+          "reference": null,
+          "reviewed_at": null,
+          "note": "原典を参照した調査。アカウント固有の有償データ契約や長期処理条件は未確認。"
+        },
+        "factual_paraphrase_display": {
+          "decision": "pending",
+          "basis": "unknown",
+          "reference": null,
+          "reviewed_at": null,
+          "note": "本文は独自の日本語要約。商用サイト掲載前に提供元別の公開ポリシーで審査する。"
+        },
+        "paid_member_display": {
+          "decision": "pending",
+          "basis": "unknown",
+          "reference": null,
+          "reviewed_at": null,
+          "note": "有料会員への掲載を本納品で自動承認しない。"
+        },
+        "media_display": {
+          "decision": "pending",
+          "basis": "unknown",
+          "reference": null,
+          "reviewed_at": null,
+          "note": "第三者の製品写真はURL参照のみ。複製・表示の許諾は別審査。"
+        },
+        "redistribution": {
+          "decision": "pending",
+          "basis": "unknown",
+          "reference": null,
+          "reviewed_at": null,
+          "note": "原資料の再配布を承認しない。納品に原文全文や第三者画像は含まない。"
+        }
+      }
+    }
+  ],
+  "evidence": [
+    {
+      "key": "e1",
+      "source_key": "product",
+      "locator": "US/USD表示、価格／All Materials Included／Righty? Lefty?／商品レビュー",
+      "short_quote": null,
+      "context": "The Wooblesは初心者向けの編みぐるみキットを販売し、その作品に対応した動画教材と支援を組み合わせる。",
+      "capture_path": null,
+      "capture_sha256": null,
+      "method": "web_read"
+    },
+    {
+      "key": "e2",
+      "source_key": "help",
+      "locator": "初心者用キット／Easy Peasy Yarn／tutorial access／returns",
+      "short_quote": null,
+      "context": "The Wooblesは初心者向けの編みぐるみキットを販売し、その作品に対応した動画教材と支援を組み合わせる。",
+      "capture_path": null,
+      "capture_sha256": null,
+      "method": "web_read"
+    },
+    {
+      "key": "e3",
+      "source_key": "product",
+      "locator": "US/USD表示、価格／All Materials Included／Righty? Lefty?／商品レビュー",
+      "short_quote": null,
+      "context": "Pierreキットは編み始めた部品、初心者向け糸、詰め物、目、針、印、動画とPDFの編み図などを含む。",
+      "capture_path": null,
+      "capture_sha256": null,
+      "method": "web_read"
+    },
+    {
+      "key": "e4",
+      "source_key": "product",
+      "locator": "US/USD表示、価格／All Materials Included／Righty? Lefty?／商品レビュー",
+      "short_quote": null,
+      "context": "米国向けPierre the Penguinキットの表示価格は30米ドル。",
+      "capture_path": null,
+      "capture_sha256": null,
+      "method": "web_read"
+    },
+    {
+      "key": "e5",
+      "source_key": "product",
+      "locator": "US/USD表示、価格／All Materials Included／Righty? Lefty?／商品レビュー",
+      "short_quote": null,
+      "context": "右利き用と左利き用の動画があり、メールでの支援とオンライン質問機会も案内される。",
+      "capture_path": null,
+      "capture_sha256": null,
+      "method": "web_read"
+    },
+    {
+      "key": "e6",
+      "source_key": "help",
+      "locator": "初心者用キット／Easy Peasy Yarn／tutorial access／returns",
+      "short_quote": null,
+      "context": "右利き用と左利き用の動画があり、メールでの支援とオンライン質問機会も案内される。",
+      "capture_path": null,
+      "capture_sha256": null,
+      "method": "web_read"
+    },
+    {
+      "key": "e7",
+      "source_key": "help",
+      "locator": "初心者用キット／Easy Peasy Yarn／tutorial access／returns",
+      "short_quote": null,
+      "context": "商品ごとの教材は購入品に対応し、カードのコードでアクセスする。教材アクセスと追加の材料購入は別である。",
+      "capture_path": null,
+      "capture_sha256": null,
+      "method": "web_read"
+    },
+    {
+      "key": "e8",
+      "source_key": "cary",
+      "locator": "創業資材200ドル／2023年20人・2025年50人／中国製造とDurham出荷",
+      "short_quote": null,
+      "context": "商品ごとの教材は購入品に対応し、カードのコードでアクセスする。教材アクセスと追加の材料購入は別である。",
+      "capture_path": null,
+      "capture_sha256": null,
+      "method": "web_read"
+    },
+    {
+      "key": "e9",
+      "source_key": "inc",
+      "locator": "本文の製品改善／初期販売／Licensing Expo",
+      "short_quote": null,
+      "context": "Justine Tiuは利用者体験の設計経験を持ち、実際の初心者が編む様子を観察してキットを改善した。",
+      "capture_path": null,
+      "capture_sha256": null,
+      "method": "web_read"
+    },
+    {
+      "key": "e10",
+      "source_key": "inc",
+      "locator": "本文の製品改善／初期販売／Licensing Expo",
+      "short_quote": null,
+      "context": "初心者が最初の難所を越えられるよう、編み始めの部品を用意し、裂けにくい専用糸と段階別動画を組み合わせた。",
+      "capture_path": null,
+      "capture_sha256": null,
+      "method": "web_read"
+    },
+    {
+      "key": "e11",
+      "source_key": "product",
+      "locator": "US/USD表示、価格／All Materials Included／Righty? Lefty?／商品レビュー",
+      "short_quote": null,
+      "context": "初心者が最初の難所を越えられるよう、編み始めの部品を用意し、裂けにくい専用糸と段階別動画を組み合わせた。",
+      "capture_path": null,
+      "capture_sha256": null,
+      "method": "web_read"
+    },
+    {
+      "key": "e12",
+      "source_key": "story",
+      "locator": "JustineのGoogleでの経験と編み物を始めた経緯",
+      "short_quote": null,
+      "context": "Justineは複数の動画や図を見ながら独学で編み物を習い、初めて完成させた達成感を他の初心者へ渡したいと説明している。",
+      "capture_path": null,
+      "capture_sha256": null,
+      "method": "web_read"
+    },
+    {
+      "key": "e13",
+      "source_key": "shopify",
+      "locator": "Etsyからの移行／The challenge／The solution／bundles",
+      "short_quote": null,
+      "context": "Justineは複数の動画や図を見ながら独学で編み物を習い、初めて完成させた達成感を他の初心者へ渡したいと説明している。",
+      "capture_path": null,
+      "capture_sha256": null,
+      "method": "web_read"
+    },
+    {
+      "key": "e14",
+      "source_key": "inc",
+      "locator": "本文の製品改善／初期販売／Licensing Expo",
+      "short_quote": null,
+      "context": "2020年にJustine TiuとAdrian Zhangが事業を始めた。",
+      "capture_path": null,
+      "capture_sha256": null,
+      "method": "web_read"
+    },
+    {
+      "key": "e15",
+      "source_key": "press",
+      "locator": "2022-09-30放送、450000ドル6%のオファー",
+      "short_quote": null,
+      "context": "2020年にJustine TiuとAdrian Zhangが事業を始めた。",
+      "capture_path": null,
+      "capture_sha256": null,
+      "method": "web_read"
+    },
+    {
+      "key": "e16",
+      "source_key": "news",
+      "locator": "本文259〜268相当、放送内の累計売上と投資提案。2022-10-03更新。",
+      "short_quote": null,
+      "context": "2022年放送で、2020年夏の販売開始からの累計売上が530万ドルと説明されたと報道。",
+      "capture_path": null,
+      "capture_sha256": null,
+      "method": "web_read"
+    },
+    {
+      "key": "e17",
+      "source_key": "press",
+      "locator": "2022-09-30放送、450000ドル6%のオファー",
+      "short_quote": null,
+      "context": "Shark Tankでは45万ドルと株式6%の提案に合意したと会社発表。実際の資金移動はこの発表だけでは確定しない。",
+      "capture_path": null,
+      "capture_sha256": null,
+      "method": "web_read"
+    },
+    {
+      "key": "e18",
+      "source_key": "news",
+      "locator": "本文259〜268相当、放送内の累計売上と投資提案。2022-10-03更新。",
+      "short_quote": null,
+      "context": "Shark Tankでは45万ドルと株式6%の提案に合意したと会社発表。実際の資金移動はこの発表だけでは確定しない。",
+      "capture_path": null,
+      "capture_sha256": null,
+      "method": "web_read"
+    },
+    {
+      "key": "e19",
+      "source_key": "shopify",
+      "locator": "Etsyからの移行／The challenge／The solution／bundles",
+      "short_quote": null,
+      "context": "Etsyで反応を確かめた後、自社サイトへ進んだ。",
+      "capture_path": null,
+      "capture_sha256": null,
+      "method": "web_read"
+    },
+    {
+      "key": "e20",
+      "source_key": "inc",
+      "locator": "本文の製品改善／初期販売／Licensing Expo",
+      "short_quote": null,
+      "context": "初期の販売が増えた後、米国とカナダでFacebook広告を行ったと創業者取材で説明される。",
+      "capture_path": null,
+      "capture_sha256": null,
+      "method": "web_read"
+    },
+    {
+      "key": "e21",
+      "source_key": "inc",
+      "locator": "本文の製品改善／初期販売／Licensing Expo",
+      "short_quote": null,
+      "context": "カナダの小売Loblawsのバイヤーから取扱いの話が来て、大量注文への供給と店頭包装を準備した。",
+      "capture_path": null,
+      "capture_sha256": null,
+      "method": "web_read"
+    },
+    {
+      "key": "e22",
+      "source_key": "inc",
+      "locator": "本文の製品改善／初期販売／Licensing Expo",
+      "short_quote": null,
+      "context": "顧客から人気キャラクターの要望が届き、2022年にLicensing Expoへ出向いた。予約が必要と知った後も担当者に話し、Pac-Manのライセンス契約につながったと取材で説明。",
+      "capture_path": null,
+      "capture_sha256": null,
+      "method": "web_read"
+    },
+    {
+      "key": "e23",
+      "source_key": "product",
+      "locator": "US/USD表示、価格／All Materials Included／Righty? Lefty?／商品レビュー",
+      "short_quote": null,
+      "context": "現在の公式サイトにPeanuts、Harry Potter、Minecraftなどのコラボ商品が掲載されている。",
+      "capture_path": null,
+      "capture_sha256": null,
+      "method": "web_read"
+    },
+    {
+      "key": "e24",
+      "source_key": "shopify",
+      "locator": "Etsyからの移行／The challenge／The solution／bundles",
+      "short_quote": null,
+      "context": "最初の2年は追加の社員を雇わなかったとShopify取材で説明される。一方、Inc.取材では両家の親が部品の組立・梱包・発送を手伝ったとある。",
+      "capture_path": null,
+      "capture_sha256": null,
+      "method": "web_read"
+    },
+    {
+      "key": "e25",
+      "source_key": "inc",
+      "locator": "本文の製品改善／初期販売／Licensing Expo",
+      "short_quote": null,
+      "context": "最初の2年は追加の社員を雇わなかったとShopify取材で説明される。一方、Inc.取材では両家の親が部品の組立・梱包・発送を手伝ったとある。",
+      "capture_path": null,
+      "capture_sha256": null,
+      "method": "web_read"
+    },
+    {
+      "key": "e26",
+      "source_key": "cary",
+      "locator": "創業資材200ドル／2023年20人・2025年50人／中国製造とDurham出荷",
+      "short_quote": null,
+      "context": "初期は自分たちで広告を作り、問い合わせへ返事をし、袋への印刷、糸の準備、梱包・発送まで行っていたとJustineが述べる。",
+      "capture_path": null,
+      "capture_sha256": null,
+      "method": "web_read"
+    },
+    {
+      "key": "e27",
+      "source_key": "cary",
+      "locator": "創業資材200ドル／2023年20人・2025年50人／中国製造とDurham出荷",
+      "short_quote": null,
+      "context": "初期の材料への支出は200米ドルと2025年の取材記事にある。",
+      "capture_path": null,
+      "capture_sha256": null,
+      "method": "web_read"
+    },
+    {
+      "key": "e28",
+      "source_key": "cary",
+      "locator": "創業資材200ドル／2023年20人・2025年50人／中国製造とDurham出荷",
+      "short_quote": null,
+      "context": "2025年9月の取材では、中国でキットを製造し、Durhamの倉庫から発送すると説明されている。",
+      "capture_path": null,
+      "capture_sha256": null,
+      "method": "web_read"
+    },
+    {
+      "key": "e29",
+      "source_key": "cary",
+      "locator": "創業資材200ドル／2023年20人・2025年50人／中国製造とDurham出荷",
+      "short_quote": null,
+      "context": "2025年9月の取材記事は従業員50人と記載する。",
+      "capture_path": null,
+      "capture_sha256": null,
+      "method": "web_read"
+    },
+    {
+      "key": "e30",
+      "source_key": "shopify",
+      "locator": "Etsyからの移行／The challenge／The solution／bundles",
+      "short_quote": null,
+      "context": "WooCommerceで自社販売を始めたが、構築・ホスト管理に時間がかかり、ページの遅さと障害が売上機会を妨げたと創業者が説明。",
+      "capture_path": null,
+      "capture_sha256": null,
+      "method": "web_read"
+    },
+    {
+      "key": "e31",
+      "source_key": "shopify",
+      "locator": "Etsyからの移行／The challenge／The solution／bundles",
+      "short_quote": null,
+      "context": "Shopifyへの移行により販売基盤を外部へ任せた。創業者は構築を一午後で終えたと説明するが、独立した工数比較実験ではない。",
+      "capture_path": null,
+      "capture_sha256": null,
+      "method": "web_read"
+    },
+    {
+      "key": "e32",
+      "source_key": "shopify",
+      "locator": "Etsyからの移行／The challenge／The solution／bundles",
+      "short_quote": null,
+      "context": "セット販売の在庫管理にShopify Bundlesを使い、構成商品の在庫を同期させる運用が紹介される。",
+      "capture_path": null,
+      "capture_sha256": null,
+      "method": "web_read"
+    },
+    {
+      "key": "e33",
+      "source_key": "help",
+      "locator": "初心者用キット／Easy Peasy Yarn／tutorial access／returns",
+      "short_quote": null,
+      "context": "FAQは返品に受取後14日という条件を示し、元の送料や返送送料の条件も設けている。",
+      "capture_path": null,
+      "capture_sha256": null,
+      "method": "web_read"
+    },
+    {
+      "key": "e34",
+      "source_key": "product",
+      "locator": "US/USD表示、価格／All Materials Included／Righty? Lefty?／商品レビュー",
+      "short_quote": null,
+      "context": "自社商品ページには動画の速度や説明との相性に不満を述べるレビューもある。",
+      "capture_path": null,
+      "capture_sha256": null,
+      "method": "web_read"
+    },
+    {
+      "key": "e35",
+      "source_key": "cary",
+      "locator": "創業資材200ドル／2023年20人・2025年50人／中国製造とDurham出荷",
+      "short_quote": null,
+      "context": "Caryの記事はShark Tankを2023年としているが、会社リリースと当時報道は2022年9月放送。年次は後者を採用する。",
+      "capture_path": null,
+      "capture_sha256": null,
+      "method": "web_read"
+    },
+    {
+      "key": "e36",
+      "source_key": "press",
+      "locator": "2022-09-30放送、450000ドル6%のオファー",
+      "short_quote": null,
+      "context": "Caryの記事はShark Tankを2023年としているが、会社リリースと当時報道は2022年9月放送。年次は後者を採用する。",
+      "capture_path": null,
+      "capture_sha256": null,
+      "method": "web_read"
+    },
+    {
+      "key": "e37",
+      "source_key": "news",
+      "locator": "本文259〜268相当、放送内の累計売上と投資提案。2022-10-03更新。",
+      "short_quote": null,
+      "context": "Caryの記事はShark Tankを2023年としているが、会社リリースと当時報道は2022年9月放送。年次は後者を採用する。",
+      "capture_path": null,
+      "capture_sha256": null,
+      "method": "web_read"
+    },
+    {
+      "key": "e38",
+      "source_key": "cary",
+      "locator": "創業資材200ドル／2023年20人・2025年50人／中国製造とDurham出荷",
+      "short_quote": null,
+      "context": "Caryの「500万ドルの事業」という表現には売上の期間・評価額の区別がないため、収益指標には取り込まない。",
+      "capture_path": null,
+      "capture_sha256": null,
+      "method": "web_read"
+    },
+    {
+      "key": "e39",
+      "source_key": "product",
+      "locator": "US/USD表示、価格／All Materials Included／Righty? Lefty?／商品レビュー",
+      "short_quote": null,
+      "context": "商品ページの累計学習者表現は100万人超、FAQ等には以前の50万人という表現も残る。両者の差から成長率を作らない。",
+      "capture_path": null,
+      "capture_sha256": null,
+      "method": "web_read"
+    },
+    {
+      "key": "e40",
+      "source_key": "help",
+      "locator": "初心者用キット／Easy Peasy Yarn／tutorial access／returns",
+      "short_quote": null,
+      "context": "商品ページの累計学習者表現は100万人超、FAQ等には以前の50万人という表現も残る。両者の差から成長率を作らない。",
+      "capture_path": null,
+      "capture_sha256": null,
+      "method": "web_read"
+    },
+    {
+      "key": "e41",
+      "source_key": "product",
+      "locator": "US/USD表示、価格／All Materials Included／Righty? Lefty?／商品レビュー",
+      "short_quote": null,
+      "context": "キットの代金を支払う",
+      "capture_path": null,
+      "capture_sha256": null,
+      "method": "web_read"
+    },
+    {
+      "key": "e42",
+      "source_key": "product",
+      "locator": "US/USD表示、価格／All Materials Included／Righty? Lefty?／商品レビュー",
+      "short_quote": null,
+      "context": "材料と編み始めの部品を届ける",
+      "capture_path": null,
+      "capture_sha256": null,
+      "method": "web_read"
+    },
+    {
+      "key": "e43",
+      "source_key": "product",
+      "locator": "US/USD表示、価格／All Materials Included／Righty? Lefty?／商品レビュー",
+      "short_quote": null,
+      "context": "購入品の作り方と質問支援を提供する",
+      "capture_path": null,
+      "capture_sha256": null,
+      "method": "web_read"
+    },
+    {
+      "key": "e44",
+      "source_key": "help",
+      "locator": "初心者用キット／Easy Peasy Yarn／tutorial access／returns",
+      "short_quote": null,
+      "context": "購入品の作り方と質問支援を提供する",
+      "capture_path": null,
+      "capture_sha256": null,
+      "method": "web_read"
+    }
+  ],
+  "records": [
+    {
+      "key": "r1",
+      "kind": "fact",
+      "domain": "product",
+      "subject_keys": [
+        "business"
+      ],
+      "text": "The Wooblesは初心者向けの編みぐるみキットを販売し、その作品に対応した動画教材と支援を組み合わせる。",
+      "origin": "observed",
+      "verification": "SUPPORTED",
+      "evidence_keys": [
+        "e1",
+        "e2"
+      ],
+      "basis_record_keys": [],
+      "time": {
+        "value": null,
+        "end": null,
+        "precision": "unknown",
+        "original": null
+      },
+      "metric": null,
+      "relationship": null,
+      "computation": null,
+      "attributes": {
+        "profile_id": "offer.v1",
+        "product_entity_key": "kit",
+        "payer_entity_key": "learner",
+        "charge_basis": "per_item",
+        "billing_interval": "注文時",
+        "service_unit": "一作品の材料＋対応教材・支援",
+        "price_record_keys": [
+          "r3"
+        ],
+        "region": "US/USD表示例",
+        "conditions": [
+          "税送料は別条件",
+          "教材は購入品に対応",
+          "追加材料は別購入"
+        ],
+        "share_record_keys": []
+      },
+      "notes": ""
+    },
+    {
+      "key": "r2",
+      "kind": "fact",
+      "domain": "product",
+      "subject_keys": [
+        "business"
+      ],
+      "text": "Pierreキットは編み始めた部品、初心者向け糸、詰め物、目、針、印、動画とPDFの編み図などを含む。",
+      "origin": "observed",
+      "verification": "SUPPORTED",
+      "evidence_keys": [
+        "e3"
+      ],
+      "basis_record_keys": [],
+      "time": {
+        "value": "2026-10-12",
+        "end": null,
+        "precision": "day",
+        "original": "2026-10-12"
+      },
+      "metric": null,
+      "relationship": null,
+      "computation": null,
+      "attributes": {},
+      "notes": ""
+    },
+    {
+      "key": "r3",
+      "kind": "metric",
+      "domain": "pricing",
+      "subject_keys": [
+        "business"
+      ],
+      "text": "米国向けPierre the Penguinキットの表示価格は30米ドル。",
+      "origin": "reported",
+      "verification": "SUPPORTED",
+      "evidence_keys": [
+        "e4"
+      ],
+      "basis_record_keys": [],
+      "time": {
+        "value": "2026-10-12",
+        "end": null,
+        "precision": "day",
+        "original": "2026-10-12"
+      },
+      "metric": {
+        "measure": "PRICE",
+        "definition": "米国向けPierre the Penguinキットの表示価格は30米ドル。",
+        "value": 30,
+        "lower": null,
+        "upper": null,
+        "operator": "exact",
+        "currency": "USD",
+        "unit": "キット",
+        "period_kind": "point",
+        "scope": "Pierre US/USD 1キット・税送料別条件",
+        "denominator": null,
+        "original_label": "30"
+      },
+      "relationship": null,
+      "computation": null,
+      "attributes": {},
+      "notes": ""
+    },
+    {
+      "key": "r4",
+      "kind": "fact",
+      "domain": "customer_and_demand",
+      "subject_keys": [
+        "business"
+      ],
+      "text": "右利き用と左利き用の動画があり、メールでの支援とオンライン質問機会も案内される。",
+      "origin": "observed",
+      "verification": "SUPPORTED",
+      "evidence_keys": [
+        "e5",
+        "e6"
+      ],
+      "basis_record_keys": [],
+      "time": {
+        "value": "2026-10-12",
+        "end": null,
+        "precision": "day",
+        "original": "2026-10-12"
+      },
+      "metric": null,
+      "relationship": null,
+      "computation": null,
+      "attributes": {},
+      "notes": ""
+    },
+    {
+      "key": "r5",
+      "kind": "fact",
+      "domain": "technology",
+      "subject_keys": [
+        "business"
+      ],
+      "text": "商品ごとの教材は購入品に対応し、カードのコードでアクセスする。教材アクセスと追加の材料購入は別である。",
+      "origin": "observed",
+      "verification": "SUPPORTED",
+      "evidence_keys": [
+        "e7",
+        "e8"
+      ],
+      "basis_record_keys": [],
+      "time": {
+        "value": "2026-10-12",
+        "end": null,
+        "precision": "day",
+        "original": "2026-10-12"
+      },
+      "metric": null,
+      "relationship": null,
+      "computation": null,
+      "attributes": {},
+      "notes": "Caryは2025年記事、Helpは確認時の機能。アプリの技術スタックや現在の実コストは推測しない。"
+    },
+    {
+      "key": "r6",
+      "kind": "fact",
+      "domain": "people",
+      "subject_keys": [
+        "business"
+      ],
+      "text": "Justine Tiuは利用者体験の設計経験を持ち、実際の初心者が編む様子を観察してキットを改善した。",
+      "origin": "reported",
+      "verification": "SUPPORTED",
+      "evidence_keys": [
+        "e9"
+      ],
+      "basis_record_keys": [],
+      "time": {
+        "value": "2024-08",
+        "end": null,
+        "precision": "month",
+        "original": "2024-08"
+      },
+      "metric": null,
+      "relationship": null,
+      "computation": null,
+      "attributes": {},
+      "notes": ""
+    },
+    {
+      "key": "r7",
+      "kind": "fact",
+      "domain": "product",
+      "subject_keys": [
+        "business"
+      ],
+      "text": "初心者が最初の難所を越えられるよう、編み始めの部品を用意し、裂けにくい専用糸と段階別動画を組み合わせた。",
+      "origin": "reported",
+      "verification": "SUPPORTED",
+      "evidence_keys": [
+        "e10",
+        "e11"
+      ],
+      "basis_record_keys": [],
+      "time": {
+        "value": null,
+        "end": null,
+        "precision": "unknown",
+        "original": null
+      },
+      "metric": null,
+      "relationship": null,
+      "computation": null,
+      "attributes": {},
+      "notes": ""
+    },
+    {
+      "key": "r8",
+      "kind": "fact",
+      "domain": "customer_and_demand",
+      "subject_keys": [
+        "business"
+      ],
+      "text": "Justineは複数の動画や図を見ながら独学で編み物を習い、初めて完成させた達成感を他の初心者へ渡したいと説明している。",
+      "origin": "reported",
+      "verification": "SUPPORTED",
+      "evidence_keys": [
+        "e12",
+        "e13"
+      ],
+      "basis_record_keys": [],
+      "time": {
+        "value": null,
+        "end": null,
+        "precision": "unknown",
+        "original": null
+      },
+      "metric": null,
+      "relationship": null,
+      "computation": null,
+      "attributes": {
+        "profile_id": "customer_context.v1",
+        "user_group": "初心者の手芸学習者",
+        "payer_group": "本人または贈り手",
+        "decision_maker": null,
+        "situation": "初めて編みぐるみを作る",
+        "desired_outcome": "自分で完成させたい",
+        "prior_alternative": "別々の動画・図を調べ、材料を自分で揃える",
+        "purchase_trigger": "作品・難易度と教材が一緒に揃う",
+        "voice_basis": "founder_claim",
+        "evidence_record_keys": [
+          "r2",
+          "r4",
+          "r7",
+          "r8"
+        ]
+      },
+      "notes": ""
+    },
+    {
+      "key": "r9",
+      "kind": "fact",
+      "domain": "identity",
+      "subject_keys": [
+        "business"
+      ],
+      "text": "2020年にJustine TiuとAdrian Zhangが事業を始めた。",
+      "origin": "reported",
+      "verification": "SUPPORTED",
+      "evidence_keys": [
+        "e14",
+        "e15"
+      ],
+      "basis_record_keys": [],
+      "time": {
+        "value": "2020",
+        "end": null,
+        "precision": "year",
+        "original": "2020"
+      },
+      "metric": null,
+      "relationship": null,
+      "computation": null,
+      "attributes": {},
+      "notes": ""
+    },
+    {
+      "key": "r10",
+      "kind": "metric",
+      "domain": "money_and_economics",
+      "subject_keys": [
+        "business"
+      ],
+      "text": "2022年放送で、2020年夏の販売開始からの累計売上が530万ドルと説明されたと報道。",
+      "origin": "reported",
+      "verification": "SUPPORTED",
+      "evidence_keys": [
+        "e16"
+      ],
+      "basis_record_keys": [],
+      "time": {
+        "value": "2020年夏〜番組収録時点",
+        "end": null,
+        "precision": "label",
+        "original": "2020年夏〜2022年放送の番組収録時点（正確な終期不明）"
+      },
+      "metric": {
+        "measure": "CUMULATIVE_REVENUE",
+        "definition": "2022年放送で、2020年夏の販売開始からの累計売上が530万ドルと説明されたと報道。",
+        "value": 5300000,
+        "lower": null,
+        "upper": null,
+        "operator": "exact",
+        "currency": "USD",
+        "unit": "USD",
+        "period_kind": "cumulative",
+        "scope": "The Woobles 創業者の番組内申告",
+        "denominator": null,
+        "original_label": "5300000"
+      },
+      "relationship": null,
+      "computation": null,
+      "attributes": {},
+      "notes": "2022-10-01公開/10-03更新。放送日と収録日、累計と年商を区別。"
+    },
+    {
+      "key": "r11",
+      "kind": "fact",
+      "domain": "money_and_economics",
+      "subject_keys": [
+        "business"
+      ],
+      "text": "Shark Tankでは45万ドルと株式6%の提案に合意したと会社発表。実際の資金移動はこの発表だけでは確定しない。",
+      "origin": "reported",
+      "verification": "SUPPORTED",
+      "evidence_keys": [
+        "e17",
+        "e18"
+      ],
+      "basis_record_keys": [],
+      "time": {
+        "value": "2022-09-30",
+        "end": null,
+        "precision": "day",
+        "original": "2022-09-30"
+      },
+      "metric": null,
+      "relationship": null,
+      "computation": null,
+      "attributes": {},
+      "notes": "資金調達の実行額には登録しない。検索上の後日不成立説は本文取得できず採用しない。"
+    },
+    {
+      "key": "r12",
+      "kind": "fact",
+      "domain": "distribution",
+      "subject_keys": [
+        "business"
+      ],
+      "text": "Etsyで反応を確かめた後、自社サイトへ進んだ。",
+      "origin": "reported",
+      "verification": "SUPPORTED",
+      "evidence_keys": [
+        "e19"
+      ],
+      "basis_record_keys": [],
+      "time": {
+        "value": "2020",
+        "end": null,
+        "precision": "year",
+        "original": "2020"
+      },
+      "metric": null,
+      "relationship": null,
+      "computation": null,
+      "attributes": {
+        "profile_id": "acquisition.v1",
+        "phase": "first_use",
+        "actor_entity_key": "business",
+        "audience": "初心者の手芸購入者",
+        "channel": "Etsy",
+        "action": "キットの需要を試し販売する",
+        "response_record_keys": [],
+        "cost_record_keys": [],
+        "causal_status": "reported_attribution"
+      },
+      "notes": ""
+    },
+    {
+      "key": "r13",
+      "kind": "fact",
+      "domain": "distribution",
+      "subject_keys": [
+        "business"
+      ],
+      "text": "初期の販売が増えた後、米国とカナダでFacebook広告を行ったと創業者取材で説明される。",
+      "origin": "reported",
+      "verification": "SUPPORTED",
+      "evidence_keys": [
+        "e20"
+      ],
+      "basis_record_keys": [],
+      "time": {
+        "value": "創業初期",
+        "end": null,
+        "precision": "label",
+        "original": "創業初期"
+      },
+      "metric": null,
+      "relationship": null,
+      "computation": null,
+      "attributes": {
+        "profile_id": "acquisition.v1",
+        "phase": "growth",
+        "actor_entity_key": "business",
+        "audience": "米国・カナダの手芸を始める人",
+        "channel": "Facebook広告",
+        "action": "キットの広告出稿",
+        "response_record_keys": [],
+        "cost_record_keys": [],
+        "causal_status": "reported_attribution"
+      },
+      "notes": ""
+    },
+    {
+      "key": "r14",
+      "kind": "fact",
+      "domain": "distribution",
+      "subject_keys": [
+        "business"
+      ],
+      "text": "カナダの小売Loblawsのバイヤーから取扱いの話が来て、大量注文への供給と店頭包装を準備した。",
+      "origin": "reported",
+      "verification": "SUPPORTED",
+      "evidence_keys": [
+        "e21"
+      ],
+      "basis_record_keys": [],
+      "time": {
+        "value": "創業後・正確な時期不明",
+        "end": null,
+        "precision": "label",
+        "original": "創業後・正確な時期不明"
+      },
+      "metric": null,
+      "relationship": null,
+      "computation": null,
+      "attributes": {},
+      "notes": ""
+    },
+    {
+      "key": "r15",
+      "kind": "fact",
+      "domain": "distribution",
+      "subject_keys": [
+        "business"
+      ],
+      "text": "顧客から人気キャラクターの要望が届き、2022年にLicensing Expoへ出向いた。予約が必要と知った後も担当者に話し、Pac-Manのライセンス契約につながったと取材で説明。",
+      "origin": "reported",
+      "verification": "SUPPORTED",
+      "evidence_keys": [
+        "e22"
+      ],
+      "basis_record_keys": [],
+      "time": {
+        "value": "2022",
+        "end": null,
+        "precision": "year",
+        "original": "2022"
+      },
+      "metric": null,
+      "relationship": null,
+      "computation": null,
+      "attributes": {
+        "profile_id": "market_observation.v1",
+        "signal_type": "customer_voice",
+        "observed_object": "キャラクター作品を求める要望とライセンス化",
+        "geography": "The Wooblesの顧客。国別母数不明",
+        "population": null,
+        "sample_n": null,
+        "subgroup_n": null,
+        "question_text": null,
+        "method": "創業者への2024年取材",
+        "normalization": "集計なし",
+        "comparison_time": null,
+        "metric_record_keys": [],
+        "source_family_keys": [
+          "inc.-inc"
+        ],
+        "direction": "unknown",
+        "limits": [
+          "要望人数や購入率は不明",
+          "手芸市場全体の成長ではない"
+        ],
+        "query_context": {}
+      },
+      "notes": ""
+    },
+    {
+      "key": "r16",
+      "kind": "fact",
+      "domain": "competition_and_market",
+      "subject_keys": [
+        "business"
+      ],
+      "text": "現在の公式サイトにPeanuts、Harry Potter、Minecraftなどのコラボ商品が掲載されている。",
+      "origin": "observed",
+      "verification": "SUPPORTED",
+      "evidence_keys": [
+        "e23"
+      ],
+      "basis_record_keys": [],
+      "time": {
+        "value": "2026-10-12",
+        "end": null,
+        "precision": "day",
+        "original": "2026-10-12"
+      },
+      "metric": null,
+      "relationship": null,
+      "computation": null,
+      "attributes": {},
+      "notes": "許諾期間・料率・各IP別売上は不明。第三者キャラクターの画像は納品に含めない。"
+    },
+    {
+      "key": "r17",
+      "kind": "fact",
+      "domain": "people",
+      "subject_keys": [
+        "business"
+      ],
+      "text": "最初の2年は追加の社員を雇わなかったとShopify取材で説明される。一方、Inc.取材では両家の親が部品の組立・梱包・発送を手伝ったとある。",
+      "origin": "reported",
+      "verification": "SUPPORTED",
+      "evidence_keys": [
+        "e24",
+        "e25"
+      ],
+      "basis_record_keys": [],
+      "time": {
+        "value": "創業後2年",
+        "end": null,
+        "precision": "relative",
+        "original": "創業後2年"
+      },
+      "metric": null,
+      "relationship": null,
+      "computation": null,
+      "attributes": {},
+      "notes": "社員ゼロと外部・家族の労働ゼロを混同しない。"
+    },
+    {
+      "key": "r18",
+      "kind": "fact",
+      "domain": "operations",
+      "subject_keys": [
+        "business"
+      ],
+      "text": "初期は自分たちで広告を作り、問い合わせへ返事をし、袋への印刷、糸の準備、梱包・発送まで行っていたとJustineが述べる。",
+      "origin": "reported",
+      "verification": "SUPPORTED",
+      "evidence_keys": [
+        "e26"
+      ],
+      "basis_record_keys": [],
+      "time": {
+        "value": "創業初期",
+        "end": null,
+        "precision": "label",
+        "original": "創業初期"
+      },
+      "metric": null,
+      "relationship": null,
+      "computation": null,
+      "attributes": {},
+      "notes": ""
+    },
+    {
+      "key": "r19",
+      "kind": "metric",
+      "domain": "money_and_economics",
+      "subject_keys": [
+        "business"
+      ],
+      "text": "初期の材料への支出は200米ドルと2025年の取材記事にある。",
+      "origin": "reported",
+      "verification": "SUPPORTED",
+      "evidence_keys": [
+        "e27"
+      ],
+      "basis_record_keys": [],
+      "time": {
+        "value": "2020",
+        "end": null,
+        "precision": "year",
+        "original": "2020"
+      },
+      "metric": {
+        "measure": "INITIAL_MATERIALS",
+        "definition": "初期の材料への支出は200米ドルと2025年の取材記事にある。",
+        "value": 200,
+        "lower": null,
+        "upper": null,
+        "operator": "exact",
+        "currency": "USD",
+        "unit": "USD",
+        "period_kind": "point",
+        "scope": "創業初期の材料のみ",
+        "denominator": null,
+        "original_label": "200"
+      },
+      "relationship": null,
+      "computation": null,
+      "attributes": {},
+      "notes": "労働・住宅・設備などを含む総開業費ではない。"
+    },
+    {
+      "key": "r20",
+      "kind": "fact",
+      "domain": "operations",
+      "subject_keys": [
+        "business"
+      ],
+      "text": "2025年9月の取材では、中国でキットを製造し、Durhamの倉庫から発送すると説明されている。",
+      "origin": "reported",
+      "verification": "SUPPORTED",
+      "evidence_keys": [
+        "e28"
+      ],
+      "basis_record_keys": [],
+      "time": {
+        "value": "2025-09",
+        "end": null,
+        "precision": "month",
+        "original": "2025-09"
+      },
+      "metric": null,
+      "relationship": null,
+      "computation": null,
+      "attributes": {},
+      "notes": ""
+    },
+    {
+      "key": "r21",
+      "kind": "metric",
+      "domain": "people",
+      "subject_keys": [
+        "business"
+      ],
+      "text": "2025年9月の取材記事は従業員50人と記載する。",
+      "origin": "reported",
+      "verification": "SUPPORTED",
+      "evidence_keys": [
+        "e29"
+      ],
+      "basis_record_keys": [],
+      "time": {
+        "value": "2025-09",
+        "end": null,
+        "precision": "month",
+        "original": "2025-09"
+      },
+      "metric": {
+        "measure": "EMPLOYEES",
+        "definition": "2025年9月の取材記事は従業員50人と記載する。",
+        "value": 50,
+        "lower": null,
+        "upper": null,
+        "operator": "exact",
+        "currency": null,
+        "unit": "人",
+        "period_kind": "point",
+        "scope": "The Woobles",
+        "denominator": null,
+        "original_label": "50"
+      },
+      "relationship": null,
+      "computation": null,
+      "attributes": {},
+      "notes": "2026年現在の人数とはしない。雇用範囲の詳細は未開示。"
+    },
+    {
+      "key": "r22",
+      "kind": "fact",
+      "domain": "technology",
+      "subject_keys": [
+        "business"
+      ],
+      "text": "WooCommerceで自社販売を始めたが、構築・ホスト管理に時間がかかり、ページの遅さと障害が売上機会を妨げたと創業者が説明。",
+      "origin": "reported",
+      "verification": "SUPPORTED",
+      "evidence_keys": [
+        "e30"
+      ],
+      "basis_record_keys": [],
+      "time": {
+        "value": null,
+        "end": null,
+        "precision": "unknown",
+        "original": null
+      },
+      "metric": null,
+      "relationship": null,
+      "computation": null,
+      "attributes": {},
+      "notes": ""
+    },
+    {
+      "key": "r23",
+      "kind": "event",
+      "domain": "timeline_and_outcomes",
+      "subject_keys": [
+        "business"
+      ],
+      "text": "Shopifyへの移行により販売基盤を外部へ任せた。創業者は構築を一午後で終えたと説明するが、独立した工数比較実験ではない。",
+      "origin": "reported",
+      "verification": "SUPPORTED",
+      "evidence_keys": [
+        "e31"
+      ],
+      "basis_record_keys": [],
+      "time": {
+        "value": null,
+        "end": null,
+        "precision": "unknown",
+        "original": null
+      },
+      "metric": null,
+      "relationship": null,
+      "computation": null,
+      "attributes": {},
+      "notes": ""
+    },
+    {
+      "key": "r24",
+      "kind": "fact",
+      "domain": "operations",
+      "subject_keys": [
+        "business"
+      ],
+      "text": "セット販売の在庫管理にShopify Bundlesを使い、構成商品の在庫を同期させる運用が紹介される。",
+      "origin": "reported",
+      "verification": "SUPPORTED",
+      "evidence_keys": [
+        "e32"
+      ],
+      "basis_record_keys": [],
+      "time": {
+        "value": null,
+        "end": null,
+        "precision": "unknown",
+        "original": null
+      },
+      "metric": null,
+      "relationship": null,
+      "computation": null,
+      "attributes": {},
+      "notes": "提供者による導入事例。現在の全構成・費用ではない。"
+    },
+    {
+      "key": "r25",
+      "kind": "fact",
+      "domain": "pricing",
+      "subject_keys": [
+        "business"
+      ],
+      "text": "FAQは返品に受取後14日という条件を示し、元の送料や返送送料の条件も設けている。",
+      "origin": "observed",
+      "verification": "SUPPORTED",
+      "evidence_keys": [
+        "e33"
+      ],
+      "basis_record_keys": [],
+      "time": {
+        "value": "2026-10-12",
+        "end": null,
+        "precision": "day",
+        "original": "2026-10-12"
+      },
+      "metric": null,
+      "relationship": null,
+      "computation": null,
+      "attributes": {},
+      "notes": ""
+    },
+    {
+      "key": "r26",
+      "kind": "observation",
+      "domain": "customer_and_demand",
+      "subject_keys": [
+        "business"
+      ],
+      "text": "自社商品ページには動画の速度や説明との相性に不満を述べるレビューもある。",
+      "origin": "observed",
+      "verification": "SUPPORTED",
+      "evidence_keys": [
+        "e34"
+      ],
+      "basis_record_keys": [],
+      "time": {
+        "value": "2026-10-12",
+        "end": null,
+        "precision": "day",
+        "original": "2026-10-12"
+      },
+      "metric": null,
+      "relationship": null,
+      "computation": null,
+      "attributes": {},
+      "notes": "個人名・文面の転載なし。運営者側に掲載された投稿で、購入実態や全顧客の頻度を独立検証していない。"
+    },
+    {
+      "key": "r27",
+      "kind": "observation",
+      "domain": "provenance_rights_and_uncertainty",
+      "subject_keys": [
+        "business"
+      ],
+      "text": "Caryの記事はShark Tankを2023年としているが、会社リリースと当時報道は2022年9月放送。年次は後者を採用する。",
+      "origin": "observed",
+      "verification": "SUPPORTED",
+      "evidence_keys": [
+        "e35",
+        "e36",
+        "e37"
+      ],
+      "basis_record_keys": [],
+      "time": {
+        "value": null,
+        "end": null,
+        "precision": "unknown",
+        "original": null
+      },
+      "metric": null,
+      "relationship": null,
+      "computation": null,
+      "attributes": {},
+      "notes": ""
+    },
+    {
+      "key": "r28",
+      "kind": "observation",
+      "domain": "provenance_rights_and_uncertainty",
+      "subject_keys": [
+        "business"
+      ],
+      "text": "Caryの「500万ドルの事業」という表現には売上の期間・評価額の区別がないため、収益指標には取り込まない。",
+      "origin": "observed",
+      "verification": "SUPPORTED",
+      "evidence_keys": [
+        "e38"
+      ],
+      "basis_record_keys": [],
+      "time": {
+        "value": null,
+        "end": null,
+        "precision": "unknown",
+        "original": null
+      },
+      "metric": null,
+      "relationship": null,
+      "computation": null,
+      "attributes": {},
+      "notes": ""
+    },
+    {
+      "key": "r29",
+      "kind": "observation",
+      "domain": "provenance_rights_and_uncertainty",
+      "subject_keys": [
+        "business"
+      ],
+      "text": "商品ページの累計学習者表現は100万人超、FAQ等には以前の50万人という表現も残る。両者の差から成長率を作らない。",
+      "origin": "observed",
+      "verification": "SUPPORTED",
+      "evidence_keys": [
+        "e39",
+        "e40"
+      ],
+      "basis_record_keys": [],
+      "time": {
+        "value": "2026-10-12",
+        "end": null,
+        "precision": "day",
+        "original": "2026-10-12"
+      },
+      "metric": null,
+      "relationship": null,
+      "computation": null,
+      "attributes": {},
+      "notes": "いずれも時点と計測方法が不明で、有料顧客数と同じではない。"
+    },
+    {
+      "key": "a1",
+      "kind": "analysis",
+      "domain": "customer_and_demand",
+      "subject_keys": [
+        "business"
+      ],
+      "text": "売り物は糸と完成した人形の中間にある。最初の難所を済ませ、作品に対応した学び方を渡すことで、自分で完成させたいという欲求を商品にしている。",
+      "origin": "inferred",
+      "verification": "SUPPORTED",
+      "evidence_keys": [],
+      "basis_record_keys": [
+        "r1",
+        "r2",
+        "r7",
+        "r8"
+      ],
+      "time": {
+        "value": null,
+        "end": null,
+        "precision": "unknown",
+        "original": null
+      },
+      "metric": null,
+      "relationship": null,
+      "computation": null,
+      "attributes": {
+        "profile_id": "business_pattern.v1",
+        "candidate_title": "最初の難所を済ませて、顧客が作る体験を残す",
+        "case_entity_keys": [
+          "business"
+        ],
+        "mapping": [
+          {
+            "entity_key": "business",
+            "record_keys": [
+              "r2",
+              "r4",
+              "r7",
+              "r8"
+            ]
+          }
+        ],
+        "shared_structure": "売り物は糸と完成した人形の中間にある。最初の難所を済ませ、作品に対応した学び方を渡すことで、自分で完成させたいという欲求を商品にしている。",
+        "differences": [],
+        "conditions": [
+          "この事例で確認された製品・提供条件に限る"
+        ],
+        "counterexamples": [],
+        "scope_limit": "1事例内の構造を整理した候補。事例横断の頻度・市場成長・成功確率は未計測。",
+        "verification_record_keys": [
+          "r2",
+          "r4",
+          "r7",
+          "r8"
+        ]
+      },
+      "notes": ""
+    },
+    {
+      "key": "a2",
+      "kind": "analysis",
+      "domain": "competition_and_market",
+      "subject_keys": [
+        "business"
+      ],
+      "text": "コラボは図柄だけの追加ではなく、すでに好きなキャラクターを作りたい人に、同じ学習形式へ入る理由を作る。ただし購入増の効果量は未計測。",
+      "origin": "inferred",
+      "verification": "SUPPORTED",
+      "evidence_keys": [],
+      "basis_record_keys": [
+        "r15",
+        "r16"
+      ],
+      "time": {
+        "value": null,
+        "end": null,
+        "precision": "unknown",
+        "original": null
+      },
+      "metric": null,
+      "relationship": null,
+      "computation": null,
+      "attributes": {},
+      "notes": ""
+    },
+    {
+      "key": "u1",
+      "kind": "fact",
+      "domain": "money_and_economics",
+      "subject_keys": [
+        "business"
+      ],
+      "text": "現在の年商・利益・キット別原価・ライセンス料率・返品率・広告獲得費は今回確認できていない。",
+      "origin": "unknown",
+      "verification": "UNVERIFIED",
+      "evidence_keys": [],
+      "basis_record_keys": [],
+      "time": {
+        "value": null,
+        "end": null,
+        "precision": "unknown",
+        "original": null
+      },
+      "metric": null,
+      "relationship": null,
+      "computation": null,
+      "attributes": {
+        "attempts": [
+          "公式商品・FAQ",
+          "Inc.2024取材",
+          "Cary2025取材",
+          "Woobles profit revenue manufacturing query"
+        ]
+      },
+      "notes": "未公表と断定せず、今回の確認範囲で不明。表示を埋めるための推定はしない。"
+    },
+    {
+      "key": "u2",
+      "kind": "fact",
+      "domain": "distribution",
+      "subject_keys": [
+        "business"
+      ],
+      "text": "最初の購入者個人と初回売上額は今回の公開資料では特定できない。",
+      "origin": "unknown",
+      "verification": "UNVERIFIED",
+      "evidence_keys": [],
+      "basis_record_keys": [],
+      "time": {
+        "value": null,
+        "end": null,
+        "precision": "unknown",
+        "original": null
+      },
+      "metric": null,
+      "relationship": null,
+      "computation": null,
+      "attributes": {
+        "attempts": [
+          "ShopifyのEtsy検証経緯とInc.初期広告の記事を確認"
+        ]
+      },
+      "notes": "未公表と断定せず、今回の確認範囲で不明。表示を埋めるための推定はしない。"
+    },
+    {
+      "key": "u3",
+      "kind": "fact",
+      "domain": "money_and_economics",
+      "subject_keys": [
+        "business"
+      ],
+      "text": "後日のShark Tank投資不成立に言及する検索結果はあったが、該当取材の本文を取得できなかった。",
+      "origin": "unknown",
+      "verification": "UNVERIFIED",
+      "evidence_keys": [],
+      "basis_record_keys": [],
+      "time": {
+        "value": null,
+        "end": null,
+        "precision": "unknown",
+        "original": null
+      },
+      "metric": null,
+      "relationship": null,
+      "computation": null,
+      "attributes": {
+        "attempts": [
+          "Bizjournals2URLの通常openが403/InternalError。回避せず停止。"
+        ]
+      },
+      "notes": "未公表と断定せず、今回の確認範囲で不明。表示を埋めるための推定はしない。"
+    },
+    {
+      "key": "rel1",
+      "kind": "relationship",
+      "domain": "pricing",
+      "subject_keys": [
+        "business"
+      ],
+      "text": "キットの代金を支払う",
+      "origin": "reported",
+      "verification": "SUPPORTED",
+      "evidence_keys": [
+        "e41"
+      ],
+      "basis_record_keys": [],
+      "time": {
+        "value": null,
+        "end": null,
+        "precision": "unknown",
+        "original": null
+      },
+      "metric": null,
+      "relationship": {
+        "from_key": "learner",
+        "to_key": "business",
+        "kind": "money",
+        "label": "キットの代金を支払う"
+      },
+      "computation": null,
+      "attributes": {
+        "profile_id": "money_flow.v1",
+        "from_entity_key": "learner",
+        "to_entity_key": "business",
+        "purpose": "キットの代金を支払う",
+        "money_kind": "sale",
+        "amount_record_keys": [
+          "r3"
+        ],
+        "timing": "プラン・注文・契約による",
+        "product_record_keys": [
+          "r1"
+        ]
+      },
+      "notes": ""
+    },
+    {
+      "key": "rel2",
+      "kind": "relationship",
+      "domain": "product",
+      "subject_keys": [
+        "business"
+      ],
+      "text": "材料と編み始めの部品を届ける",
+      "origin": "reported",
+      "verification": "SUPPORTED",
+      "evidence_keys": [
+        "e42"
+      ],
+      "basis_record_keys": [],
+      "time": {
+        "value": null,
+        "end": null,
+        "precision": "unknown",
+        "original": null
+      },
+      "metric": null,
+      "relationship": {
+        "from_key": "business",
+        "to_key": "learner",
+        "kind": "goods",
+        "label": "材料と編み始めの部品を届ける"
+      },
+      "computation": null,
+      "attributes": {},
+      "notes": ""
+    },
+    {
+      "key": "rel3",
+      "kind": "relationship",
+      "domain": "product",
+      "subject_keys": [
+        "business"
+      ],
+      "text": "購入品の作り方と質問支援を提供する",
+      "origin": "reported",
+      "verification": "SUPPORTED",
+      "evidence_keys": [
+        "e43",
+        "e44"
+      ],
+      "basis_record_keys": [],
+      "time": {
+        "value": null,
+        "end": null,
+        "precision": "unknown",
+        "original": null
+      },
+      "metric": null,
+      "relationship": {
+        "from_key": "business",
+        "to_key": "learner",
+        "kind": "information",
+        "label": "購入品の作り方と質問支援を提供する"
+      },
+      "computation": null,
+      "attributes": {},
+      "notes": ""
+    },
+    {
+      "key": "layout-woobles-learning",
+      "kind": "analysis",
+      "domain": "product",
+      "subject_keys": [
+        "business"
+      ],
+      "text": "図版「顧客に何を残し何を引き受けるのか」の構成指定。",
+      "origin": "inferred",
+      "verification": "SUPPORTED",
+      "evidence_keys": [],
+      "basis_record_keys": [
+        "r1",
+        "r2",
+        "r4",
+        "r7",
+        "a1"
+      ],
+      "time": {
+        "value": null,
+        "end": null,
+        "precision": "unknown",
+        "original": null
+      },
+      "metric": null,
+      "relationship": null,
+      "computation": null,
+      "attributes": {
+        "profile_id": "untyped_extension.v1",
+        "concept": "evidence_linked_visual_spec",
+        "description": "本文と同じ根拠を使い、表示部品またはSVG/PNGへ渡す図の仕様",
+        "payload": {
+          "template": "sequence",
+          "nodes": [
+            [
+              "難しい始まりを済ます",
+              "材料＋編み始めた部品",
+              "yarn"
+            ],
+            [
+              "自分で進めて学ぶ",
+              "その作品の動画＋質問支援",
+              "video"
+            ],
+            [
+              "自分の一体ができる",
+              "完成品ではなく、作る体験",
+              "finish"
+            ]
+          ],
+          "edges": [
+            "process",
+            "process"
+          ],
+          "product_reference": "Pierre beginner kit",
+          "literal_product_image": false
+        },
+        "proposed_mapping": "product visual renderer"
+      },
+      "notes": "図の設計情報。追加の企業事実ではない。"
+    },
+    {
+      "key": "layout-woobles-exchange",
+      "kind": "analysis",
+      "domain": "product",
+      "subject_keys": [
+        "business"
+      ],
+      "text": "図版「購入者が支払う対価は何か」の構成指定。",
+      "origin": "inferred",
+      "verification": "SUPPORTED",
+      "evidence_keys": [],
+      "basis_record_keys": [
+        "r1",
+        "r2",
+        "r3",
+        "r4",
+        "r5",
+        "rel1",
+        "rel2",
+        "rel3"
+      ],
+      "time": {
+        "value": null,
+        "end": null,
+        "precision": "unknown",
+        "original": null
+      },
+      "metric": null,
+      "relationship": null,
+      "computation": null,
+      "attributes": {
+        "profile_id": "untyped_extension.v1",
+        "concept": "evidence_linked_visual_spec",
+        "description": "本文と同じ根拠を使い、表示部品またはSVG/PNGへ渡す図の仕様",
+        "payload": {
+          "template": "exchange-rows",
+          "rows": [
+            [
+              "購入者",
+              "The Woobles",
+              "1キットの代金 $30",
+              "money",
+              "米国向けPierreの表示例"
+            ],
+            [
+              "The Woobles",
+              "購入者",
+              "糸・編み始め・道具",
+              "goods",
+              "一作品分の材料"
+            ],
+            [
+              "The Woobles",
+              "購入者",
+              "動画・質問できる窓口",
+              "information",
+              "購入した作品に対応"
+            ]
+          ],
+          "not_proportional": true
+        },
+        "proposed_mapping": "product visual renderer"
+      },
+      "notes": "図の設計情報。追加の企業事実ではない。"
+    }
+  ],
+  "article_state": "ready_for_review",
+  "article": {
+    "language": "ja",
+    "title": "The Woobles｜糸だけでなく、最初の一体を編めるところまで売る",
+    "list_line": "難しい編み始めを済ませた、動画付きの手芸キット。",
+    "headline_record_keys": [
+      "r1",
+      "r2",
+      "r7"
+    ],
+    "overview": [
+      {
+        "text": "The Wooblesは、小さな動物などを自分で編むためのキットを売る会社だ。糸や針だけを渡すのではなく、難しい編み始めを済ませた部品、その作品の動画、質問できる窓口を一緒に用意する。買うのは完成した人形ではなく、自分で仕上げるための一式だ。",
+        "record_keys": [
+          "r1",
+          "r2",
+          "r4",
+          "a1"
+        ],
+        "interpretation": true
+      },
+      {
+        "text": "米国向けのペンギンのキットは30ドル。2022年の番組では、販売開始からの累計売上530万ドルが紹介された。これは現在の年商ではない。素材を売る商売と、学ぶ体験を売る商売を組み合わせた事例として読める。",
+        "record_keys": [
+          "r3",
+          "r10",
+          "a1"
+        ],
+        "interpretation": true
+      }
+    ],
+    "key_record_keys": [
+      "r3",
+      "r10",
+      "r21"
+    ],
+    "gallery_visual_keys": [
+      "woobles-learning",
+      "woobles-exchange"
+    ],
+    "sections": [
+      {
+        "id": "insight",
+        "title": "目の付け所・買われる理由",
+        "lead": {
+          "text": "全部を代行せず、つまずきやすい入口だけを引き受けた。",
+          "record_keys": [
+            "a1"
+          ],
+          "interpretation": true
+        },
+        "blocks": [
+          {
+            "key": "b1",
+            "type": "text",
+            "title": "初心者の手が止まるところから、商品を変えた",
+            "record_keys": [
+              "r6",
+              "r7",
+              "r4",
+              "a1"
+            ],
+            "paragraphs": [
+              {
+                "text": "Justineは初めて編む人を観察して、どこで迷うかを確認した。そこで最初の部品を編んでおき、裂けにくい糸と、その作品を順番に作る動画を組み合わせた。右利きと左利きの動画もある。別々の教材を探し回る必要を減らし、目の前の一体を進められるようにしている。",
+                "record_keys": [
+                  "r6",
+                  "r7",
+                  "r4",
+                  "a1"
+                ],
+                "interpretation": true
+              }
+            ]
+          },
+          {
+            "key": "b2",
+            "type": "text",
+            "title": "自分で作る時間を、なくさない",
+            "record_keys": [
+              "r8",
+              "a1"
+            ],
+            "paragraphs": [
+              {
+                "text": "出発点は、Justineが独学で作品を完成させたときの達成感だった。商品は「早く人形を入手する方法」ではない。作りたい人の難所を減らしながら、作る工程と完成の実感は本人に残す。この違いが、糸単体や完成品とは別の購入理由になる。",
+                "record_keys": [
+                  "r8",
+                  "a1"
+                ],
+                "interpretation": true
+              }
+            ]
+          },
+          {
+            "key": "visual-woobles-learning",
+            "type": "visual",
+            "title": null,
+            "record_keys": [
+              "r1",
+              "r2",
+              "r4",
+              "r7",
+              "a1"
+            ],
+            "visual_key": "woobles-learning",
+            "caption": {
+              "text": "編み始めを済ませた材料と、その作品に対応した動画・支援を渡す。残りは購入者自身が作る。作品の絵は汎用の模式図。",
+              "record_keys": [
+                "r1",
+                "r2",
+                "r4",
+                "r7",
+                "a1"
+              ],
+              "interpretation": false
+            }
+          }
+        ]
+      },
+      {
+        "id": "money",
+        "title": "稼ぎ方",
+        "lead": {
+          "text": "一作品分の材料と学習支援を、一つの商品として販売する。",
+          "record_keys": [
+            "r1",
+            "r2",
+            "r3"
+          ],
+          "interpretation": false
+        },
+        "blocks": [
+          {
+            "key": "b3",
+            "type": "table",
+            "title": "代金の対象",
+            "record_keys": [
+              "r2",
+              "r3",
+              "r25",
+              "r4",
+              "r5",
+              "r1",
+              "r10"
+            ],
+            "columns": [
+              "販売物",
+              "条件",
+              "数字の意味"
+            ],
+            "rows": [
+              [
+                {
+                  "text": "Pierreの初心者用キット",
+                  "record_keys": [
+                    "r2"
+                  ],
+                  "interpretation": false
+                },
+                {
+                  "text": "30ドル／1キット",
+                  "record_keys": [
+                    "r3"
+                  ],
+                  "interpretation": false
+                },
+                {
+                  "text": "米国向けの商品表示。税・送料は別条件。",
+                  "record_keys": [
+                    "r3",
+                    "r25"
+                  ],
+                  "interpretation": false
+                }
+              ],
+              [
+                {
+                  "text": "キットに対応する教材・支援",
+                  "record_keys": [
+                    "r4",
+                    "r5"
+                  ],
+                  "interpretation": false
+                },
+                {
+                  "text": "材料の代金に含まれる",
+                  "record_keys": [
+                    "r1",
+                    "r2",
+                    "r4"
+                  ],
+                  "interpretation": false
+                },
+                {
+                  "text": "追加の材料は別購入。教材の継続課金と混同しない。",
+                  "record_keys": [
+                    "r5"
+                  ],
+                  "interpretation": false
+                }
+              ],
+              [
+                {
+                  "text": "累計売上の公表例",
+                  "record_keys": [
+                    "r10"
+                  ],
+                  "interpretation": false
+                },
+                {
+                  "text": "530万ドル",
+                  "record_keys": [
+                    "r10"
+                  ],
+                  "interpretation": false
+                },
+                {
+                  "text": "2020年夏から2022年放送の番組収録時点まで。",
+                  "record_keys": [
+                    "r10"
+                  ],
+                  "interpretation": false
+                }
+              ]
+            ],
+            "caption": null
+          },
+          {
+            "key": "b4",
+            "type": "text",
+            "title": "テレビで合意した金額は、調達済み現金とは限らない",
+            "record_keys": [
+              "r11"
+            ],
+            "paragraphs": [
+              {
+                "text": "Shark Tankでは45万ドルと株式6%の提案に合意したと発表された。ただし放送内の合意と、その後の契約・入金は別だ。この資料からは、45万ドルを調達実績として確定していない。",
+                "record_keys": [
+                  "r11"
+                ],
+                "interpretation": false
+              }
+            ]
+          },
+          {
+            "key": "visual-woobles-exchange",
+            "type": "visual",
+            "title": null,
+            "record_keys": [
+              "r1",
+              "r2",
+              "r3",
+              "r4",
+              "r5",
+              "rel1",
+              "rel2",
+              "rel3"
+            ],
+            "visual_key": "woobles-exchange",
+            "caption": {
+              "text": "購入者がキット代金を払い、会社は材料と作品別の学習支援を提供する。代金、物、教材を別の矢印にした。",
+              "record_keys": [
+                "r1",
+                "r2",
+                "r3",
+                "r4",
+                "r5",
+                "rel1",
+                "rel2",
+                "rel3"
+              ],
+              "interpretation": false
+            }
+          }
+        ]
+      },
+      {
+        "id": "acquisition",
+        "title": "最初の客と広がり方",
+        "lead": {
+          "text": "Etsyで試し、広告と小売へ広げ、顧客の要望をコラボ商品へつなげた。",
+          "record_keys": [
+            "r12",
+            "r13",
+            "r14",
+            "r15"
+          ],
+          "interpretation": false
+        },
+        "blocks": [
+          {
+            "key": "b5",
+            "type": "text",
+            "title": "最初の売り場を使って、反応を確かめた",
+            "record_keys": [
+              "r12",
+              "r13",
+              "r14"
+            ],
+            "paragraphs": [
+              {
+                "text": "Etsyで売って反応を見てから、自社サイトへ進んだ。売れ行きがつき始めた段階でFacebook広告を行い、小売店からの取扱いの話には大量注文と店頭包装の準備で応じた。自社サイトを作っただけでなく、商品が別の売り場へ出る条件も作っていた。",
+                "record_keys": [
+                  "r12",
+                  "r13",
+                  "r14"
+                ],
+                "interpretation": false
+              }
+            ]
+          },
+          {
+            "key": "b6",
+            "type": "text",
+            "title": "キャラクターの要望を、権利者との交渉に変えた",
+            "record_keys": [
+              "r15",
+              "r16",
+              "a2"
+            ],
+            "paragraphs": [
+              {
+                "text": "顧客が好きなキャラクターを作りたいと望んだため、2022年にライセンスの展示会へ出向いた。商談予約が必要だと現地で知ってからも担当者へ説明を続け、最初のPac-Man契約につながったという。現在の公式サイトにも複数のコラボがある。教材の形式を生かし、作る対象を増やす展開である。",
+                "record_keys": [
+                  "r15",
+                  "r16",
+                  "a2"
+                ],
+                "interpretation": true
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "operations",
+        "title": "作り方と運営",
+        "lead": {
+          "text": "材料を届ける仕事と、完成まで教える仕事が両方ある。",
+          "record_keys": [
+            "r1",
+            "r18",
+            "r20"
+          ],
+          "interpretation": false
+        },
+        "blocks": [
+          {
+            "key": "b7",
+            "type": "text",
+            "title": "社員がいなくても、作業がなかったわけではない",
+            "record_keys": [
+              "r17",
+              "r18"
+            ],
+            "paragraphs": [
+              {
+                "text": "最初の2年は追加の社員を雇わなかったとされる一方、家族が組立や梱包を手伝っていた。創業者も広告、問い合わせ、糸の準備、発送を担当した。「2人で始めた」という人数だけでは、必要な作業や支えられていた資源を捉え切れない。",
+                "record_keys": [
+                  "r17",
+                  "r18"
+                ],
+                "interpretation": true
+              }
+            ]
+          },
+          {
+            "key": "b8",
+            "type": "text",
+            "title": "製造・発送と教材を、同じ作品に結び付ける",
+            "record_keys": [
+              "r20",
+              "r5",
+              "a1"
+            ],
+            "paragraphs": [
+              {
+                "text": "2025年の取材は、中国でのキット製造とDurhamからの出荷を伝えている。キット内のコードは、その作品の教材へつながる。利用者がどの作品のどの段階にいるかが分かる形で説明を用意する点は、材料を詰めて発送するだけの運営とは異なる。",
+                "record_keys": [
+                  "r20",
+                  "r5",
+                  "a1"
+                ],
+                "interpretation": true
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "turning",
+        "title": "つまずきと転機",
+        "lead": {
+          "text": "無料の販売基盤を選んでも、その維持に時間がかかった。",
+          "record_keys": [
+            "r22"
+          ],
+          "interpretation": false
+        },
+        "blocks": [
+          {
+            "key": "b9",
+            "type": "text",
+            "title": "サイトの保守より、販売できる状態を優先した",
+            "record_keys": [
+              "r22",
+              "r23"
+            ],
+            "paragraphs": [
+              {
+                "text": "WooCommerceでは構築と原因調査に時間がかかり、人気が出るほど表示が遅くなったという。止まった時間は販売もできない。そこでShopifyへ移り、サイトの基盤を外部に任せた。これはShopifyの導入事例にある創業者の説明で、どの販売者にも同じ効果が出るという比較ではない。",
+                "record_keys": [
+                  "r22",
+                  "r23"
+                ],
+                "interpretation": false
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "history",
+        "title": "これまでと現在",
+        "lead": null,
+        "blocks": [
+          {
+            "key": "b10",
+            "type": "timeline",
+            "title": null,
+            "record_keys": [
+              "r9",
+              "r12",
+              "r15",
+              "r10",
+              "r11",
+              "r20",
+              "r21",
+              "r3",
+              "r4",
+              "r16"
+            ],
+            "events": [
+              {
+                "time": {
+                  "value": "2020",
+                  "end": null,
+                  "precision": "year",
+                  "original": "2020"
+                },
+                "title": "販売開始",
+                "content": {
+                  "text": "Etsyから自社販売へ進んだ。",
+                  "record_keys": [
+                    "r9",
+                    "r12"
+                  ],
+                  "interpretation": false
+                }
+              },
+              {
+                "time": {
+                  "value": "2022",
+                  "end": null,
+                  "precision": "year",
+                  "original": "2022"
+                },
+                "title": "人気キャラクターの許諾を交渉",
+                "content": {
+                  "text": "顧客の要望からライセンス展示会へ出向いた。",
+                  "record_keys": [
+                    "r15"
+                  ],
+                  "interpretation": false
+                }
+              },
+              {
+                "time": {
+                  "value": "2022-09-30",
+                  "end": null,
+                  "precision": "day",
+                  "original": "2022-09-30"
+                },
+                "title": "Shark Tankで紹介",
+                "content": {
+                  "text": "累計売上と投資提案が紹介された。投資実行は別扱い。",
+                  "record_keys": [
+                    "r10",
+                    "r11"
+                  ],
+                  "interpretation": false
+                }
+              },
+              {
+                "time": {
+                  "value": "2025-09",
+                  "end": null,
+                  "precision": "month",
+                  "original": "2025-09"
+                },
+                "title": "製造・発送体制を取材",
+                "content": {
+                  "text": "製造先と倉庫の分担、従業員50人と報道された。",
+                  "record_keys": [
+                    "r20",
+                    "r21"
+                  ],
+                  "interpretation": false
+                }
+              },
+              {
+                "time": {
+                  "value": "2026-10-12",
+                  "end": null,
+                  "precision": "day",
+                  "original": "2026-10-12"
+                },
+                "title": "初心者用キットとコラボ商品を確認",
+                "content": {
+                  "text": "価格と教材の提供条件を公式ページで確認した。",
+                  "record_keys": [
+                    "r3",
+                    "r4",
+                    "r16"
+                  ],
+                  "interpretation": false
+                }
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "excluded_sections": [
+      {
+        "id": "sources",
+        "reason": "個別の出典番号は本文のrecord_keys→evidence→sourcesで解決する。配布article.md末尾には同じsourcesから参照資料を自動出力するため、同じ出典一覧の二重記述を避ける。"
+      }
+    ]
+  },
+  "visuals": [
+    {
+      "key": "woobles-learning",
+      "kind": "diagram",
+      "state": "reviewed",
+      "question": "顧客に何を残し何を引き受けるのか",
+      "subject_keys": [
+        "business"
+      ],
+      "record_keys": [
+        "r1",
+        "r2",
+        "r4",
+        "r7",
+        "a1"
+      ],
+      "brief": "{\"template\": \"sequence\", \"nodes\": [[\"難しい始まりを済ます\", \"材料＋編み始めた部品\", \"yarn\"], [\"自分で進めて学ぶ\", \"その作品の動画＋質問支援\", \"video\"], [\"自分の一体ができる\", \"完成品ではなく、作る体験\", \"finish\"]], \"edges\": [\"process\", \"process\"], \"product_reference\": \"Pierre beginner kit\", \"literal_product_image\": false}",
+      "caption": {
+        "text": "編み始めを済ませた材料と、その作品に対応した動画・支援を渡す。残りは購入者自身が作る。作品の絵は汎用の模式図。",
+        "record_keys": [
+          "r1",
+          "r2",
+          "r4",
+          "r7",
+          "a1"
+        ],
+        "interpretation": false
+      },
+      "alt": "編み始めを済ませた材料と、その作品に対応した動画・支援を渡す。残りは購入者自身が作る。作品の絵は汎用の模式図。",
+      "variants": [
+        {
+          "path": "media/woobles-learning-wide.svg",
+          "content_type": "image/svg+xml",
+          "width": 1040,
+          "height": 530,
+          "role": "wide"
+        },
+        {
+          "path": "media/woobles-learning-wide.png",
+          "content_type": "image/png",
+          "width": 1040,
+          "height": 530,
+          "role": "wide"
+        },
+        {
+          "path": "media/woobles-learning-compact.svg",
+          "content_type": "image/svg+xml",
+          "width": 400,
+          "height": 890,
+          "role": "compact"
+        },
+        {
+          "path": "media/woobles-learning-compact.png",
+          "content_type": "image/png",
+          "width": 400,
+          "height": 890,
+          "role": "compact"
+        }
+      ],
+      "production": {
+        "producer": "ChatGPT",
+        "tool_version": "deterministic-svg-v1 / CairoSVG",
+        "created_at": "2026-10-11T16:29:17Z",
+        "input_source_keys": [
+          "help",
+          "inc",
+          "product"
+        ],
+        "rights_review": {
+          "decision": "allowed",
+          "basis": "policy",
+          "reference": "Original schematic artwork; shared collection requirements 1.1.0",
+          "reviewed_at": "2026-10-11T16:29:17Z",
+          "note": "第三者の絵・写真・ロゴ・ブランドキャラクターを使わず、汎用図形と出典付きの独自説明で制作。原資料の再配布を承認する意味ではない。"
+        },
+        "visual_review": "PASS"
+      }
+    },
+    {
+      "key": "woobles-exchange",
+      "kind": "diagram",
+      "state": "reviewed",
+      "question": "購入者が支払う対価は何か",
+      "subject_keys": [
+        "business"
+      ],
+      "record_keys": [
+        "r1",
+        "r2",
+        "r3",
+        "r4",
+        "r5",
+        "rel1",
+        "rel2",
+        "rel3"
+      ],
+      "brief": "{\"template\": \"exchange-rows\", \"rows\": [[\"購入者\", \"The Woobles\", \"1キットの代金 $30\", \"money\", \"米国向けPierreの表示例\"], [\"The Woobles\", \"購入者\", \"糸・編み始め・道具\", \"goods\", \"一作品分の材料\"], [\"The Woobles\", \"購入者\", \"動画・質問できる窓口\", \"information\", \"購入した作品に対応\"]], \"not_proportional\": true}",
+      "caption": {
+        "text": "購入者がキット代金を払い、会社は材料と作品別の学習支援を提供する。代金、物、教材を別の矢印にした。",
+        "record_keys": [
+          "r1",
+          "r2",
+          "r3",
+          "r4",
+          "r5",
+          "rel1",
+          "rel2",
+          "rel3"
+        ],
+        "interpretation": false
+      },
+      "alt": "購入者がキット代金を払い、会社は材料と作品別の学習支援を提供する。代金、物、教材を別の矢印にした。",
+      "variants": [
+        {
+          "path": "media/woobles-exchange-wide.svg",
+          "content_type": "image/svg+xml",
+          "width": 1040,
+          "height": 530,
+          "role": "wide"
+        },
+        {
+          "path": "media/woobles-exchange-wide.png",
+          "content_type": "image/png",
+          "width": 1040,
+          "height": 530,
+          "role": "wide"
+        },
+        {
+          "path": "media/woobles-exchange-compact.svg",
+          "content_type": "image/svg+xml",
+          "width": 400,
+          "height": 890,
+          "role": "compact"
+        },
+        {
+          "path": "media/woobles-exchange-compact.png",
+          "content_type": "image/png",
+          "width": 400,
+          "height": 890,
+          "role": "compact"
+        }
+      ],
+      "production": {
+        "producer": "ChatGPT",
+        "tool_version": "deterministic-svg-v1 / CairoSVG",
+        "created_at": "2026-10-11T16:29:17Z",
+        "input_source_keys": [
+          "cary",
+          "help",
+          "product"
+        ],
+        "rights_review": {
+          "decision": "allowed",
+          "basis": "policy",
+          "reference": "Original schematic artwork; shared collection requirements 1.1.0",
+          "reviewed_at": "2026-10-11T16:29:17Z",
+          "note": "第三者の絵・写真・ロゴ・ブランドキャラクターを使わず、汎用図形と出典付きの独自説明で制作。原資料の再配布を承認する意味ではない。"
+        },
+        "visual_review": "PASS"
+      }
+    }
+  ],
+  "topic_links": [
+    {
+      "kind": "pattern",
+      "target_id": null,
+      "candidate_title": "難しい入口だけを済ませ、完成させる体験を売る",
+      "relation": "direct",
+      "record_keys": [
+        "r2",
+        "r7",
+        "a1"
+      ],
+      "reason": "完成品でも素材単体でもない商品設計。顧客が作業を望む条件を残す。"
+    },
+    {
+      "kind": "demand",
+      "target_id": null,
+      "candidate_title": "好きなキャラクターを、自分で作ってみたい",
+      "relation": "direct",
+      "record_keys": [
+        "r15",
+        "r16",
+        "a2"
+      ],
+      "reason": "顧客の要望からライセンス商品へ展開した事例。手芸市場全体の伸びは示さない。"
+    },
+    {
+      "kind": "pattern",
+      "target_id": null,
+      "candidate_title": "最初の少人数運営と、隠れた家族労働を分ける",
+      "relation": "direct",
+      "record_keys": [
+        "r17",
+        "r18"
+      ],
+      "reason": "社員数だけで必要労働や再現費用を推定しない。"
+    }
+  ],
+  "dispositions": [
+    {
+      "record_key": "r1",
+      "destinations": [
+        "article"
+      ],
+      "note": "出典・時点・指標の意味を保って使用。"
+    },
+    {
+      "record_key": "r2",
+      "destinations": [
+        "article",
+        "trend"
+      ],
+      "note": "出典・時点・指標の意味を保って使用。"
+    },
+    {
+      "record_key": "r3",
+      "destinations": [
+        "article"
+      ],
+      "note": "出典・時点・指標の意味を保って使用。"
+    },
+    {
+      "record_key": "r4",
+      "destinations": [
+        "article"
+      ],
+      "note": "出典・時点・指標の意味を保って使用。"
+    },
+    {
+      "record_key": "r5",
+      "destinations": [
+        "article"
+      ],
+      "note": "出典・時点・指標の意味を保って使用。"
+    },
+    {
+      "record_key": "r6",
+      "destinations": [
+        "article"
+      ],
+      "note": "出典・時点・指標の意味を保って使用。"
+    },
+    {
+      "record_key": "r7",
+      "destinations": [
+        "article",
+        "trend"
+      ],
+      "note": "出典・時点・指標の意味を保って使用。"
+    },
+    {
+      "record_key": "r8",
+      "destinations": [
+        "article"
+      ],
+      "note": "出典・時点・指標の意味を保って使用。"
+    },
+    {
+      "record_key": "r9",
+      "destinations": [
+        "article"
+      ],
+      "note": "出典・時点・指標の意味を保って使用。"
+    },
+    {
+      "record_key": "r10",
+      "destinations": [
+        "article"
+      ],
+      "note": "出典・時点・指標の意味を保って使用。"
+    },
+    {
+      "record_key": "r11",
+      "destinations": [
+        "article"
+      ],
+      "note": "出典・時点・指標の意味を保って使用。"
+    },
+    {
+      "record_key": "r12",
+      "destinations": [
+        "article"
+      ],
+      "note": "出典・時点・指標の意味を保って使用。"
+    },
+    {
+      "record_key": "r13",
+      "destinations": [
+        "article"
+      ],
+      "note": "出典・時点・指標の意味を保って使用。"
+    },
+    {
+      "record_key": "r14",
+      "destinations": [
+        "article"
+      ],
+      "note": "出典・時点・指標の意味を保って使用。"
+    },
+    {
+      "record_key": "r15",
+      "destinations": [
+        "article",
+        "trend"
+      ],
+      "note": "出典・時点・指標の意味を保って使用。"
+    },
+    {
+      "record_key": "r16",
+      "destinations": [
+        "article",
+        "trend"
+      ],
+      "note": "出典・時点・指標の意味を保って使用。"
+    },
+    {
+      "record_key": "r17",
+      "destinations": [
+        "article",
+        "trend"
+      ],
+      "note": "出典・時点・指標の意味を保って使用。"
+    },
+    {
+      "record_key": "r18",
+      "destinations": [
+        "article",
+        "trend"
+      ],
+      "note": "出典・時点・指標の意味を保って使用。"
+    },
+    {
+      "record_key": "r19",
+      "destinations": [
+        "internal"
+      ],
+      "note": "出典・時点・指標の意味を保って使用。"
+    },
+    {
+      "record_key": "r20",
+      "destinations": [
+        "article"
+      ],
+      "note": "出典・時点・指標の意味を保って使用。"
+    },
+    {
+      "record_key": "r21",
+      "destinations": [
+        "article"
+      ],
+      "note": "出典・時点・指標の意味を保って使用。"
+    },
+    {
+      "record_key": "r22",
+      "destinations": [
+        "article"
+      ],
+      "note": "出典・時点・指標の意味を保って使用。"
+    },
+    {
+      "record_key": "r23",
+      "destinations": [
+        "article"
+      ],
+      "note": "出典・時点・指標の意味を保って使用。"
+    },
+    {
+      "record_key": "r24",
+      "destinations": [
+        "internal"
+      ],
+      "note": "出典・時点・指標の意味を保って使用。"
+    },
+    {
+      "record_key": "r25",
+      "destinations": [
+        "article"
+      ],
+      "note": "出典・時点・指標の意味を保って使用。"
+    },
+    {
+      "record_key": "r26",
+      "destinations": [
+        "internal"
+      ],
+      "note": "出典・時点・指標の意味を保って使用。"
+    },
+    {
+      "record_key": "r27",
+      "destinations": [
+        "internal"
+      ],
+      "note": "出典・時点・指標の意味を保って使用。"
+    },
+    {
+      "record_key": "r28",
+      "destinations": [
+        "internal"
+      ],
+      "note": "出典・時点・指標の意味を保って使用。"
+    },
+    {
+      "record_key": "r29",
+      "destinations": [
+        "internal"
+      ],
+      "note": "出典・時点・指標の意味を保って使用。"
+    },
+    {
+      "record_key": "a1",
+      "destinations": [
+        "article",
+        "trend"
+      ],
+      "note": "出典・時点・指標の意味を保って使用。"
+    },
+    {
+      "record_key": "a2",
+      "destinations": [
+        "article",
+        "trend"
+      ],
+      "note": "出典・時点・指標の意味を保って使用。"
+    },
+    {
+      "record_key": "u1",
+      "destinations": [
+        "hold"
+      ],
+      "note": "本文の断定や実績ランキングへ昇格させない。"
+    },
+    {
+      "record_key": "u2",
+      "destinations": [
+        "hold"
+      ],
+      "note": "本文の断定や実績ランキングへ昇格させない。"
+    },
+    {
+      "record_key": "u3",
+      "destinations": [
+        "hold"
+      ],
+      "note": "本文の断定や実績ランキングへ昇格させない。"
+    },
+    {
+      "record_key": "rel1",
+      "destinations": [
+        "internal",
+        "article"
+      ],
+      "note": "出典・時点・指標の意味を保って使用。"
+    },
+    {
+      "record_key": "rel2",
+      "destinations": [
+        "internal",
+        "article"
+      ],
+      "note": "出典・時点・指標の意味を保って使用。"
+    },
+    {
+      "record_key": "rel3",
+      "destinations": [
+        "internal",
+        "article"
+      ],
+      "note": "出典・時点・指標の意味を保って使用。"
+    },
+    {
+      "record_key": "layout-woobles-learning",
+      "destinations": [
+        "internal"
+      ],
+      "note": "図版の再描画・UI移植用。事実件数・市場集計に含めない。"
+    },
+    {
+      "record_key": "layout-woobles-exchange",
+      "destinations": [
+        "internal"
+      ],
+      "note": "図版の再描画・UI移植用。事実件数・市場集計に含めない。"
+    }
+  ],
+  "handoff": {
+    "delivery": "prepared",
+    "article_change_policy": "preserve_authored_text",
+    "r2_write_authorized": false,
+    "publication_authorized": false,
+    "remaining_work": [
+      "R2保存・正式IDの突合・公開目録への追加・既存UI接続は未実行。",
+      "mainのcase-pages一覧だけを読み取り確認。全カタログ・R2・他担当の作業予約を照合できていないため、新規性や重複なしは未確定。",
+      "出典別の商用表示・有料会員表示・原資料保持の正式な権利審査は未完了。",
+      "別担当による独立した原典監査は未実施。",
+      "現在の年商・利益・キット別原価・ライセンス料率・返品率・広告獲得費は今回確認できていない。",
+      "最初の購入者個人と初回売上額は今回の公開資料では特定できない。",
+      "後日のShark Tank投資不成立に言及する検索結果はあったが、該当取材の本文を取得できなかった。"
+    ],
+    "checks": [
+      {
+        "name": "same_agent_source_and_numeric_review",
+        "status": "PASS",
+        "by": "ChatGPT",
+        "note": "対象資料を読み、本文と指標の範囲・時期を照合。独立した第三者監査ではない。未取得や曖昧な指標は保留。"
+      },
+      {
+        "name": "same_agent_natural_japanese_review",
+        "status": "PASS",
+        "by": "ChatGPT",
+        "note": "事実列の連結ではなく、商売の理由と工程が分かる段落として執筆。本文を独立に読み直した。同一担当の編集レビュー。"
+      },
+      {
+        "name": "independent_evidence_review",
+        "status": "NOT_RUN",
+        "by": null,
+        "note": "別担当による原典の独立確認は未実施。"
+      },
+      {
+        "name": "commercial_rights_review",
+        "status": "NOT_RUN",
+        "by": null,
+        "note": "許諾が未確定の原資料は再配布せず、サイトの公開許可は別途必要。"
+      },
+      {
+        "name": "application_import",
+        "status": "NOT_RUN",
+        "by": null,
+        "note": "共通納品形式で保存。既存本番アダプターは未実行。"
+      },
+      {
+        "name": "r2_and_publication",
+        "status": "NOT_RUN",
+        "by": null,
+        "note": "外部書き込み権限を用いず、公開も行わない。"
+      },
+      {
+        "name": "same_agent_visual_review",
+        "status": "PASS",
+        "by": "ChatGPT",
+        "note": "6図のwide/compact PNGを目視確認。狭幅の改行と重なりを修正。SVGの画像化・キャンバス寸法も確認。既存UIの実ブラウザ検査ではない。"
+      }
+    ]
+  }
+}

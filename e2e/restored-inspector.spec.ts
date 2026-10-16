@@ -1,7 +1,7 @@
 import { test, expect } from '@playwright/test';
 import { PRIMARY, openDetails } from './reader-fixture';
 
-// 公開済みの事例（GoRails）の詳細で、数値・推測・出典・メモの各区画に、どの画面幅でも届くこと。
+// 公開済みの事例（GoRails）の詳細で、数値・推測・出典の各区画に、どの画面幅でも届くこと。
 // 詳細は entity.reader だけを読む（公開目録に入っている実際の reader。e2e/reader-fixture.ts の PRIMARY）。
 for (const width of [390, 768, 960, 1440]) {
   test(`restored case content remains reachable at ${width}px`, async ({ page }) => {
@@ -31,9 +31,6 @@ for (const width of [390, 768, 960, 1440]) {
     await sources.scrollIntoViewIfNeeded();
     await expect(sources).toBeVisible();
     await expect(sources).toContainText('GoRails 料金ページ');
-    await pane.getByRole('button', { name: 'メモ', exact: true }).click();
-    await pane.locator('#section-notes').scrollIntoViewIfNeeded();
-    await expect(pane.locator('#section-notes textarea')).toBeVisible();
     const bounds = await pane.boundingBox();
     expect(bounds).not.toBeNull();
     expect(bounds!.x).toBeGreaterThanOrEqual(0);

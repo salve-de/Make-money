@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1040" height="530" viewBox="0 0 1040 530" role="img" aria-labelledby="title desc"><title id="title">無料のフォームが、次の利用者を連れてくる</title><desc id="desc">無料で作ったフォームの表示を見た回答者が、次の利用者になる流れ。</desc>
+<rect width="1040" height="530" fill="#0c0e11"/>
+<text x="24" y="31" font-family="Noto Sans CJK JP, sans-serif" font-size="13" font-weight="600" fill="#ffac3b" text-anchor="start">TALLY  /  利用者が増える流れ</text>
+<text x="24" y="65" font-family="Noto Sans CJK JP, sans-serif" font-size="27" font-weight="600" fill="#f0f2f5" text-anchor="start">無料のフォームが、次の利用者を連れてくる</text>
+<text x="24" y="102" font-family="Noto Sans CJK JP, sans-serif" font-size="16" font-weight="400" fill="#b8c0cc" text-anchor="start">フォームが送られるたびに、回答した人がTallyを知る。</text>
+<rect x="24" y="149" width="296" height="255" rx="8" fill="#15191f" stroke="#303640"/>
+<text x="42" y="179" font-family="Noto Sans CJK JP, sans-serif" font-size="14" font-weight="600" fill="#ffac3b" text-anchor="start">01</text>
+<g transform="translate(134 181) scale(0.95)" fill="none" stroke="#ffac3b" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+<rect x="14" y="4" width="54" height="70" rx="4"/><path d="M24 19h30M24 30h17M24 52h24"/><rect x="24" y="35" width="33" height="10" rx="2"/><rect x="24" y="58" width="26" height="8" rx="2"/></g>
+<text x="42" y="295" font-family="Noto Sans CJK JP, sans-serif" font-size="22" font-weight="600" fill="#f0f2f5" text-anchor="start">無料でフォームを作る</text>
+<text x="42" y="329" font-family="Noto Sans CJK JP, sans-serif" font-size="17" font-weight="400" fill="#b8c0cc" text-anchor="start">公開して、回答を集める</text>
+<line x1="329" y1="267" x2="362" y2="267" stroke="#ffac3b" stroke-width="2"/>
+<line x1="362" y1="267" x2="354.5719794658129" y2="272.0817822605553" stroke="#ffac3b" stroke-width="2"/>
+<line x1="362" y1="267" x2="354.5719794658129" y2="261.9182177394447" stroke="#ffac3b" stroke-width="2"/>
+<rect x="372" y="149" width="296" height="255" rx="8" fill="#15191f" stroke="#303640"/>
+<text x="390" y="179" font-family="Noto Sans CJK JP, sans-serif" font-size="14" font-weight="600" fill="#ffac3b" text-anchor="start">02</text>
+<g transform="translate(482 181) scale(0.95)" fill="none" stroke="#ffac3b" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+<circle cx="40" cy="21" r="11"/><path d="M22 62V50a18 18 0 0 1 36 0v12M20 24a9 9 0 1 0 0 18M62 24a9 9 0 1 1 0 18M4 63v-7a15 15 0 0 1 12-15M76 63v-7a15 15 0 0 0-12-15"/></g>
+<text x="390" y="295" font-family="Noto Sans CJK JP, sans-serif" font-size="22" font-weight="600" fill="#f0f2f5" text-anchor="start">回答者がTallyを知る</text>
+<text x="390" y="329" font-family="Noto Sans CJK JP, sans-serif" font-size="17" font-weight="400" fill="#b8c0cc" text-anchor="start">「Made with Tally」の表示</text>
+<line x1="677" y1="267" x2="710" y2="267" stroke="#ffac3b" stroke-width="2"/>
+<line x1="710" y1="267" x2="702.5719794658129" y2="272.0817822605553" stroke="#ffac3b" stroke-width="2"/>
+<line x1="710" y1="267" x2="702.5719794658129" y2="261.9182177394447" stroke="#ffac3b" stroke-width="2"/>
+<rect x="720" y="149" width="296" height="255" rx="8" fill="#15191f" stroke="#303640"/>
+<text x="738" y="179" font-family="Noto Sans CJK JP, sans-serif" font-size="14" font-weight="600" fill="#ffac3b" text-anchor="start">03</text>
+<g transform="translate(830 181) scale(0.95)" fill="none" stroke="#ffac3b" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+<rect x="9" y="6" width="54" height="65" rx="4"/><path d="M21 24h27M21 36h17M51 61l19-19 6 6-19 19-10 4z"/></g>
+<text x="738" y="295" font-family="Noto Sans CJK JP, sans-serif" font-size="22" font-weight="600" fill="#f0f2f5" text-anchor="start">自分もフォームを作る</text>
+<text x="738" y="329" font-family="Noto Sans CJK JP, sans-serif" font-size="17" font-weight="400" fill="#b8c0cc" text-anchor="start">回答者の一部が利用者になる</text>
+<line x1="990" y1="404" x2="990" y2="423" stroke="#ffac3b" stroke-width="2"/>
+<line x1="990" y1="423" x2="43" y2="423" stroke="#ffac3b" stroke-width="2"/>
+<line x1="43" y1="423" x2="43" y2="412" stroke="#ffac3b" stroke-width="2"/>
+<line x1="43" y1="412" x2="48.081782260555315" y2="419.4280205341871" stroke="#ffac3b" stroke-width="2"/>
+<line x1="43" y1="412" x2="37.918217739444685" y2="419.4280205341871" stroke="#ffac3b" stroke-width="2"/>
+<text x="520" y="449" font-family="Noto Sans CJK JP, sans-serif" font-size="15" font-weight="400" fill="#ffac3b" text-anchor="middle">新しいフォームでも、同じことが起きる</text>
+<text x="24" y="504" font-family="Noto Sans CJK JP, sans-serif" font-size="14" font-weight="400" fill="#85909e" text-anchor="start">出典：Tally創業者の公開記録。</text>
+</svg>

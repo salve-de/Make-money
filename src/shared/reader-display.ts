@@ -1,5 +1,6 @@
 import type { ReaderDisplay } from './reader-case';
 import type { CasePage } from './case-page';
+import type { CaseArticle } from './case-article';
 
 /**
  * 画面用の編集文の正本5ファイル（data/list-lines.json など）の中身。
@@ -14,10 +15,12 @@ export interface DisplaySourceFiles {
   /** 事実の記録の文の言い直し（kind: fact / basis / period / formula / analysis）と、札（kind: labels。text は「、」区切り、hash は tagline の指紋） */
   /** 章ごとの文（data/case-pages.json。data/case-pages/<事例ID>.md から作る） */
   'case-pages'?: Array<{ entityId: string; page: CasePage }>;
+  /** 事例の記事（data/case-articles.json。data/case-articles/<事例ID>/article.json から作る）。reviewState が approved の記事だけを公開版に入れる。 */
+  'case-articles'?: Array<{ entityId: string; reviewState: 'draft' | 'ready_for_review' | 'approved'; generation: number; article: CaseArticle }>;
   'fact-lines'?: Array<{ entityId: string; kind: 'fact' | 'basis' | 'period' | 'formula' | 'analysis' | 'labels'; targetId: string; hash: string; text: string }>;
 }
 
-export const DISPLAY_SOURCE_FILE_NAMES = ['list-lines', 'summary-lines', 'detail-lines', 'success-points', 'case-chapters', 'fact-lines', 'case-pages'] as const;
+export const DISPLAY_SOURCE_FILE_NAMES = ['list-lines', 'summary-lines', 'detail-lines', 'success-points', 'case-chapters', 'fact-lines', 'case-pages', 'case-articles'] as const;
 
 /** その事例の編集文を1つにまとめる。どれも無ければ undefined（欄ごと付けない）。 */
 export function displayForEntity(files: DisplaySourceFiles, entityId: string): ReaderDisplay | undefined {
@@ -49,6 +52,8 @@ export function displayForEntity(files: DisplaySourceFiles, entityId: string): R
   }
   const casePage = (files['case-pages'] ?? []).find((x) => x.entityId === entityId);
   if (casePage) display.casePage = casePage.page;
+  const caseArticle = (files['case-articles'] ?? []).find((x) => x.entityId === entityId && x.reviewState === 'approved');
+  if (caseArticle) display.caseArticle = caseArticle.article;
   const lines = (files['fact-lines'] ?? []).filter((x) => x.entityId === entityId);
   const factLines = lines.filter((x): x is typeof x & { kind: 'fact' | 'basis' | 'period' | 'formula' | 'analysis' } => x.kind !== 'labels');
   if (factLines.length > 0) display.factLines = factLines.map((x) => ({ kind: x.kind, targetId: x.targetId, hash: x.hash, text: x.text }));

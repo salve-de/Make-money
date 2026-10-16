@@ -51,9 +51,9 @@ describe('sitemap', () => {
 
 describe('メタデータ', () => {
   it('公開ページは canonical・OG・Twitter カードを持つ', () => {
-    const meta = pageMetadata({ title: 'T | Make Money', description: 'D', path: '/discover' });
-    expect(meta.alternates?.canonical).toBe('https://example.com/discover');
-    expect(meta.openGraph).toMatchObject({ title: 'T | Make Money', url: 'https://example.com/discover', locale: 'ja_JP' });
+    const meta = pageMetadata({ title: 'T | Make Money', description: 'D', path: '/welcome' });
+    expect(meta.alternates?.canonical).toBe('https://example.com/welcome');
+    expect(meta.openGraph).toMatchObject({ title: 'T | Make Money', url: 'https://example.com/welcome', locale: 'ja_JP' });
     expect(meta.twitter).toMatchObject({ card: 'summary_large_image' });
     expect(meta.robots).toBeUndefined();
   });

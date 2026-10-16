@@ -7,10 +7,10 @@
  *
  * 流れ: data/catalog-release.json の details → .catalog-release/<hash>.json.gz
  *   → 本番と同じ読み込み（parseFinancialEntitiesResiliently → publicEntity → parseFinancialEntity）
- *   → CompanyInspectorPane と同じ部品・同じ props を renderToStaticMarkup で描く（台帳タブ + メモタブ）
+ *   → CompanyInspectorPane と同じ部品・同じ props を renderToStaticMarkup で描く（詳細の見出し + 本文）
  *   → 出どころの検査: fact・metric・source（data-fact / data-metric / data-source）の外にある文字は、ui-strings の許可リストに
  *      一致しなければ失敗。中身の無い見出しと、同じ画面での同じ fact ID の2回目も失敗。禁止語の一覧は fact.text への補助の検査。
- *   → 一覧（トップの InstitutionalDataGrid = スマホのカード + 表、/discover の DiscoveryRow）も1件ずつ描く（ListRow）
+ *   → 一覧（トップの InstitutionalDataGrid = スマホのカード + 表）も1件ずつ描く（ListRow）
  *   → タグを除いて画面の文字だけにする（title / aria-label / alt / placeholder も含める）。
  */
 import { createHash } from 'node:crypto';
@@ -22,19 +22,17 @@ import { renderToStaticMarkup } from 'react-dom/server';
 
 import { publicEntity, publicSummaryEntity } from '@/lib/company-access/public-entity';
 import { InstitutionalDataGrid } from '@/platform/components/grid/InstitutionalDataGrid';
-import { DetailPane, DiscoveryRow } from '@/app/discover/DiscoverClient';
 import { ExecutionReference } from '@/app/execute/[id]/ExecutionClient';
 import { executionSource } from '@/shared/execution-source';
-import { deriveDiscoveryDataset } from '@/features/discover';
 import { buildInspectorModel } from '@/features/company-inspector/model/inspector-model';
 import type { InspectorSectionProps } from '@/features/company-inspector/model/section-props';
-import { AnalystNotes } from '@/features/company-inspector/ui/AnalystNotes';
 import { CompanyHeader } from '@/features/company-inspector/ui/CompanyHeader';
 import { EntityMediaGallery } from '@/features/company-inspector/ui/EntityMediaGallery';
 import { ReaderLedger } from '@/features/company-inspector/ui/ReaderDetail';
 import { isGenerationHeading } from '@/platform/components/grid/generation';
 import { allowedUiTexts, isUnknownsLine } from '@/shared/ui-strings';
 import { casePageTexts } from '@/shared/case-page';
+import { caseArticleTexts } from '@/shared/case-article';
 import { parseFinancialEntitiesResiliently, parseFinancialEntity } from '@/shared/financial-entity-schema';
 import type { FinancialEntity } from '@/shared/terminal';
 import { INTERNAL_TERMS, LIST_ONLY_RES, PROCESS_RES, SCREEN_ONLY_RES, STANDALONE_LINES, analyzeScreen } from './screen-text-lib.mjs';
@@ -93,40 +91,28 @@ export function extractScreenText(html: string): { nodes: string[]; lines: strin
 
 // ---- 描画 --------------------------------------------------------------------------
 const noop = () => undefined;
-function baseProps(entity: FinancialEntity, tab: 'LEDGER' | 'AUDIT'): InspectorSectionProps {
+function baseProps(entity: FinancialEntity): InspectorSectionProps {
   return {
     entity, currency: CURRENCY, onClose: noop, isPro: false, isScrolled: false, scrollToSection: noop,
-    activeTags: [], analystNote: '', viewMode: 'ALL', mainTab: tab, setMainTab: noop, setViewMode: noop, isBookmarked: false,
+    activeTags: [], analystNote: '', viewMode: 'ALL', setViewMode: noop, isBookmarked: false,
     ...buildInspectorModel(entity, CURRENCY),
   } as unknown as InspectorSectionProps;
 }
 const h = React.createElement;
 /** [部品名, 画面, 描く関数]。同じ画面の部品は1つの HTML にまとめて出どころを検査する。 */
-type Part = [string, 'ledger' | 'audit' | 'list' | 'list2' | 'detail2' | 'execute', () => React.ReactElement | null];
+type Part = [string, 'ledger' | 'list' | 'execute', () => React.ReactElement | null];
 function parts(entity: FinancialEntity): Part[] {
-  const ledger = baseProps(entity, 'LEDGER');
-  const audit = baseProps(entity, 'AUDIT');
+  const ledger = baseProps(entity);
   const hz = Boolean(ledger.isHazardMode);
   return [
     ['CompanyHeader(台帳)', 'ledger', () => h(CompanyHeader, ledger)],
     ['ReaderLedger', 'ledger', () => h(ReaderLedger, { reader: entity.reader })],
     ['EntityMediaGallery', 'ledger', () => h(EntityMediaGallery, { entityId: entity.id, entityName: entity.name, isHazardMode: hz })],
-    ['CompanyHeader(メモ)', 'audit', () => h(CompanyHeader, audit)],
-    ['AnalystNotes', 'audit', () => h(AnalystNotes, audit)],
     // 一覧: トップは本番と同じく一覧用の要約（publicSummaryEntity）を InstitutionalDataGrid に渡す。
     ['ListRow', 'list', () => h(InstitutionalDataGrid, {
       entities: [{ ...publicSummaryEntity(entity), ...(FIXTURE && entity.reader ? { reader: entity.reader } : {}) } as unknown as FinancialEntity], selectedEntityId: null, onSelectEntity: noop,
       currency: CURRENCY, bookmarkedIds: new Set<string>(), onToggleBookmark: noop,
     })],
-    ['ListRow(探す)', 'list2', () => {
-      const item = deriveDiscoveryDataset([entity]).cases[0];
-      return item ? h(DiscoveryRow, { item, selected: false, onSelect: noop }) : null;
-    }],
-    // 探すの詳細ペイン（AI への文脈 buildContext も同じ reader から作る）
-    ['DetailPane(探す)', 'detail2', () => {
-      const item = deriveDiscoveryDataset([entity]).cases[0];
-      return item ? h(DetailPane, { item }) : null;
-    }],
     // 計画画面の参考事例
     ['ExecutionReference', 'execute', () => h(ExecutionReference, { entity: executionSource(entity) })],
   ];
@@ -219,6 +205,8 @@ for (const id of ids) {
   for (const label of entity.reader?.display?.labels?.labels ?? []) allowed.add(label);
   // 章ごとの文（case-page）の文字も、この事例のデータから来た文字
   for (const t of entity.reader?.display?.casePage ? casePageTexts(entity.reader.display.casePage) : []) allowed.add(t);
+  // 事例の記事（case-article）の文字も同じ
+  for (const t of entity.reader?.display?.caseArticle ? caseArticleTexts(entity.reader.display.caseArticle) : []) allowed.add(t);
   const isAllowed = (t: string) => allowed.has(t) || isUnknownsLine(t) || isGenerationHeading(t);
   const factIds = new Set((entity.reader?.facts ?? []).map((f) => f.id));
   for (const [screen, html] of screens) {

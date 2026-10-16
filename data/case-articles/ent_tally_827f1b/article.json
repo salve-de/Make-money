@@ -1,0 +1,951 @@
+{
+ "schema": "make-money.case-article.v2",
+ "entityId": "ent_tally_827f1b",
+ "name": "Tally",
+ "revision": "r6",
+ "reviewState": "ready_for_review",
+ "generation": 5,
+ "basedOn": {
+  "packageId": "mm-tally-20261012-r1",
+  "submissionSha256": "b220fb4389c31d42a2bd02365e205be717d49f7fc8f8b179cc82955b71b10475"
+ },
+ "listLine": "無料・無制限のフォームを250万人に広め、Tallyの表示を消したい企業の月額で月約7,500万円を売り上げるフォーム作成サービス",
+ "headline": "無料・無制限のフォームで250万人に広がり、企業向け月額で月約7,500万円を売り上げたTally",
+ "lead": "問い合わせやアンケートのフォームを無料で作れるサービス。無料フォームに付く「Made with Tally」の表示が新しい利用者を呼び、自社の名前で公開したい企業が月額プランを契約する。",
+ "sources": [
+  {
+   "no": 1,
+   "label": "Tally / How we grew Tally to $4M ARR, fully bootstrapped / 2025-10-15",
+   "url": "https://blog.tally.so/how-we-grew-tally-to-4m-arr-fully-bootstrapped/"
+  },
+  {
+   "no": 2,
+   "label": "Tally / Pricing / 公開日不明",
+   "url": "https://tally.so/pricing"
+  },
+  {
+   "no": 3,
+   "label": "Tally / Fair Use Policy / 公開日不明",
+   "url": "https://tally.so/help/fair-use-policy"
+  },
+  {
+   "no": 4,
+   "label": "Tally / Tally Pro / 公開日不明",
+   "url": "https://tally.so/help/tally-pro"
+  },
+  {
+   "no": 5,
+   "label": "Tally / 6 years in, $6 million far / 2026-09-22",
+   "url": "https://blog.tally.so/6-years-in-6-million-far/"
+  },
+  {
+   "no": 6,
+   "label": "Tally / Tally Business / 公開日不明",
+   "url": "https://tally.so/help/tally-business"
+  },
+  {
+   "no": 7,
+   "label": "Tally / Bootstrapping our SaaS from $10K to $20K MRR / 2022-06-16",
+   "url": "https://blog.tally.so/bootstrapping-our-saas-from-10k-to-20k-mrr/"
+  },
+  {
+   "no": 8,
+   "label": "Tally / Year 1: bootstrapping to 11K users and $5K MRR / 公開日不明",
+   "url": "https://blog.tally.so/year-1-how-we-bootstrapped-tally-to-11k-users-and-5k-mrr/"
+  },
+  {
+   "no": 9,
+   "label": "Tally / How we ended up building a no-code tool / 2021-04-08",
+   "url": "https://blog.tally.so/how-we-quit-our-jobs-to-work-on-our-startup-lost-half-of-our-clients-decided-to-pivot-and-ended-up-building-a-no-code-tool/"
+  }
+ ],
+ "sourceKeys": {
+  "1": "strategy",
+  "2": "pricing",
+  "3": "fair",
+  "4": "pro",
+  "5": "six",
+  "6": "businessplan",
+  "7": "cost",
+  "8": "year1",
+  "9": "origin"
+ },
+ "kpis": [
+  {
+   "label": "月の売上",
+   "value": "約50万1,000ドル",
+   "yen": "約7,500万円",
+   "period": "2026年9月",
+   "recordKeys": [
+    "r10"
+   ]
+  },
+  {
+   "label": "利用者",
+   "value": "250万人",
+   "period": "2026年9月",
+   "recordKeys": [
+    "r12"
+   ]
+  },
+  {
+   "label": "社員",
+   "value": "10人",
+   "period": "2026年9月",
+   "recordKeys": [
+    "r13"
+   ]
+  },
+  {
+   "label": "有料プランの最低料金",
+   "value": "月29ドル",
+   "yen": "約4,350円",
+   "recordKeys": [
+    "r5"
+   ]
+  }
+ ],
+ "topics": [
+  {
+   "id": "overview",
+   "lead": {
+    "text": "フォームを無料・無制限で作れるサービス。フォームからTallyの表示を消したい企業や、チームで管理したい企業が月額を払っている。",
+    "cites": [
+     1,
+     2,
+     3
+    ],
+    "recordKeys": [
+     "r1",
+     "r2",
+     "r4"
+    ]
+   },
+   "blocks": [
+    {
+     "type": "facts",
+     "rows": [
+      {
+       "label": "サービス内容",
+       "text": "問い合わせ・申し込み・アンケートのフォームを、文章を書くように質問を並べて作り、公開して回答を集められる",
+       "cites": [
+        1,
+        2
+       ],
+       "recordKeys": [
+        "r1"
+       ]
+      },
+      {
+       "label": "利用者",
+       "text": "250万人（2026年9月）。フォームの数にも回答の数にも上限がなく、無料で使える",
+       "cites": [
+        2,
+        3,
+        5
+       ],
+       "recordKeys": [
+        "r12",
+        "r2"
+       ]
+      },
+      {
+       "label": "有料の顧客",
+       "text": "フォームからTallyの表示を消したい企業、自社のドメインで公開したい企業、チームで管理したい企業",
+       "cites": [
+        2,
+        3,
+        4
+       ],
+       "recordKeys": [
+        "r4",
+        "a2"
+       ]
+      },
+      {
+       "label": "料金",
+       "text": "無料。有料プランはProが月29ドル（約4,350円）、Businessが月89ドル（約1万3,400円）",
+       "cites": [
+        4,
+        6
+       ],
+       "recordKeys": [
+        "r5",
+        "r7"
+       ]
+      },
+      {
+       "label": "競合",
+       "text": "Google Formsと、回答数が増えると有料になる他社のフォーム作成サービス",
+       "cites": [
+        1,
+        9
+       ],
+       "recordKeys": [
+        "r34"
+       ]
+      }
+     ]
+    },
+    {
+     "type": "subheading",
+     "text": "他のフォーム作成サービスとの違い"
+    },
+    {
+     "type": "list",
+     "items": [
+      {
+       "text": "Google Formsは無料だが、作れるフォームの見た目が限られる。Tallyは文書を編集するように、質問や説明文を自由に並べられる",
+       "cites": [
+        1,
+        2,
+        9
+       ],
+       "recordKeys": [
+        "r34",
+        "r1"
+       ]
+      },
+      {
+       "text": "他社のサービスの多くは、回答数が一定を超えると有料になる。Tallyは回答数が増えても無料のまま使える",
+       "cites": [
+        1,
+        2,
+        3
+       ],
+       "recordKeys": [
+        "r34",
+        "r2"
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "mechanism",
+   "lead": {
+    "text": "無料で作られたフォームに「Made with Tally」の表示が入り、回答した人がTallyを知って自分でもフォームを作る、という流れで利用者が増える。",
+    "cites": [
+     2,
+     3,
+     4
+    ],
+    "recordKeys": [
+     "r3",
+     "a1"
+    ]
+   },
+   "blocks": [
+    {
+     "type": "steps",
+     "items": [
+      {
+       "title": "フォームを作る",
+       "text": "利用者が、文章を書くように質問を並べてフォームを作る。料金はかからない。",
+       "cites": [
+        1,
+        2,
+        3
+       ],
+       "recordKeys": [
+        "r1",
+        "r2"
+       ]
+      },
+      {
+       "title": "フォームを送る",
+       "text": "作ったフォームを公開し、顧客や参加者に送って回答を集める。",
+       "cites": [
+        1,
+        2
+       ],
+       "recordKeys": [
+        "r1"
+       ]
+      },
+      {
+       "title": "回答者がTallyを知る",
+       "text": "無料で作ったフォームには「Made with Tally」という表示が入っている。回答した人は、この表示でTallyを知る。",
+       "cites": [
+        5,
+        7
+       ],
+       "recordKeys": [
+        "r3"
+       ]
+      },
+      {
+       "title": "回答者が次の利用者になる",
+       "text": "表示を見てTallyに登録した人が、今度は自分のフォームを作って送る。フォームが送られるたびに、Tallyを知る人が増える。",
+       "cites": [
+        2,
+        3,
+        4
+       ],
+       "recordKeys": [
+        "r3",
+        "a1"
+       ]
+      }
+     ]
+    },
+    {
+     "type": "figure",
+     "figureId": "tally-loop"
+    }
+   ]
+  },
+  {
+   "id": "revenue",
+   "lead": {
+    "text": "売上は有料プラン（ProとBusiness）の月額だけで、2026年9月の月の売上は約50万1,000ドル（約7,500万円）だった。",
+    "cites": [
+     4,
+     5,
+     6
+    ],
+    "recordKeys": [
+     "r10",
+     "rel1"
+    ]
+   },
+   "blocks": [
+    {
+     "type": "rates",
+     "caption": "プラン / 月額 / 内容",
+     "rows": [
+      {
+       "label": "Free",
+       "value": "無料",
+       "note": "フォームの作成と回答の受付。数の上限はない",
+       "cites": [
+        2,
+        3
+       ],
+       "recordKeys": [
+        "r2"
+       ]
+      },
+      {
+       "label": "Pro",
+       "value": "29ドル",
+       "yen": "約4,350円",
+       "note": "フォームからTallyの表示を消せる。自社のドメインで公開でき、チームで共同編集できる。年払いは290ドル（約4万3,500円）",
+       "cites": [
+        4
+       ],
+       "recordKeys": [
+        "r4",
+        "r5",
+        "r6"
+       ]
+      },
+      {
+       "label": "Business",
+       "value": "89ドル",
+       "yen": "約1万3,400円",
+       "note": "Proの機能に加え、回答データの保存期間を設定できる。年払いは890ドル（約13万4,000円）",
+       "cites": [
+        6
+       ],
+       "recordKeys": [
+        "r7",
+        "r8",
+        "r9"
+       ]
+      }
+     ]
+    },
+    {
+     "type": "list",
+     "items": [
+      {
+       "text": "ProもBusinessも、利用者1人ごとではなく、会社やチームの単位で契約する",
+       "cites": [
+        4,
+        6
+       ],
+       "recordKeys": [
+        "rel1"
+       ]
+      },
+      {
+       "text": "回答数が非常に多い状態が続く顧客には、通常の料金に上乗せする個別の料金を提示し、3か月ごとに請求する",
+       "cites": [
+        3
+       ],
+       "recordKeys": [
+        "r25",
+        "r26"
+       ]
+      }
+     ]
+    },
+    {
+     "type": "figure",
+     "figureId": "tally-plans"
+    },
+    {
+     "type": "table",
+     "caption": "月の売上の推移",
+     "columns": [
+      "時点",
+      "月の売上"
+     ],
+     "rows": [
+      {
+       "label": "2020年10月",
+       "cells": [
+        {
+         "text": "64ドル",
+         "yen": "約9,600円"
+        }
+       ],
+       "cites": [
+        8
+       ],
+       "recordKeys": [
+        "r17"
+       ]
+      },
+      {
+       "label": "2022年6月",
+       "cells": [
+        {
+         "text": "2万700ドル",
+         "yen": "約310万円"
+        }
+       ],
+       "cites": [
+        7
+       ],
+       "recordKeys": [
+        "r35"
+       ]
+      },
+      {
+       "label": "2026年9月",
+       "cells": [
+        {
+         "text": "約50万1,000ドル",
+         "yen": "約7,500万円"
+        }
+       ],
+       "cites": [
+        5
+       ],
+       "recordKeys": [
+        "r10"
+       ]
+      }
+     ]
+    },
+    {
+     "type": "list",
+     "items": [
+      {
+       "text": "2026年9月の月の売上を年換算すると、600万ドル（約9億円）を超える",
+       "cites": [
+        5
+       ],
+       "recordKeys": [
+        "r11"
+       ]
+      },
+      {
+       "text": "外部からの出資は受けておらず、顧客からの売上だけで運営している",
+       "cites": [
+        5
+       ],
+       "recordKeys": [
+        "r31"
+       ]
+      },
+      {
+       "text": "2022年6月の時点で、有料の顧客は775人。創業者2人だけで運営し、売上だけで黒字だった",
+       "cites": [
+        7
+       ],
+       "recordKeys": [
+        "r36",
+        "r21"
+       ]
+      },
+      {
+       "text": "2022年6月のサーバー代（Google Cloud）は月600ユーロ（約9万9,000円）、決済手数料（Stripe）は月836ユーロ（約13万8,000円）だった",
+       "cites": [],
+       "recordKeys": [
+        "r23",
+        "r24"
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "acquisition",
+   "lead": {
+    "text": "最初は創業者が、フォームを使いそうな人に1人ずつ連絡して試してもらった。2026年9月には、新規利用者の43％がChatGPTなどのAIに勧められて登録している。",
+    "cites": [
+     5,
+     8
+    ],
+    "recordKeys": [
+     "r16",
+     "r27"
+    ]
+   },
+   "blocks": [
+    {
+     "type": "timeline",
+     "items": [
+      {
+       "when": "2020年夏",
+       "text": "知人にフォームを試してもらい、意見を聞いて改良した",
+       "cites": [
+        8
+       ],
+       "recordKeys": [
+        "r16"
+       ]
+      },
+      {
+       "when": "2020年",
+       "text": "新製品の紹介サイトProduct HuntやTwitterで、自分でサービスを作っている人を探し、1人ずつ連絡して感想を求めた",
+       "cites": [
+        8
+       ],
+       "recordKeys": [
+        "r16"
+       ]
+      },
+      {
+       "when": "2021年3月",
+       "text": "Product Huntに掲載し、一般公開した",
+       "cites": [
+        7
+       ],
+       "recordKeys": [
+        "r18"
+       ]
+      }
+     ]
+    },
+    {
+     "type": "list",
+     "items": [
+      {
+       "text": "公開後は、無料のフォームに入る「Made with Tally」の表示を見た回答者が登録するようになった",
+       "cites": [
+        5,
+        7
+       ],
+       "recordKeys": [
+        "r3"
+       ]
+      },
+      {
+       "text": "2026年9月には、ChatGPTなどのAIに勧められて登録する人が、フォームの表示を見て登録する人を上回った",
+       "cites": [
+        5
+       ],
+       "recordKeys": [
+        "r28",
+        "r27"
+       ]
+      },
+      {
+       "text": "口コミやフォームの表示から登録した人のうち、有料プランに移るのは約1％",
+       "cites": [
+        5
+       ],
+       "recordKeys": [
+        "r38"
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "operations",
+   "lead": {
+    "text": "創業者2人で始め、2026年9月の社員は10人。2人だった2022年6月には、作業時間の半分を利用者からの問い合わせ対応に充てていた。",
+    "cites": [
+     5,
+     7
+    ],
+    "recordKeys": [
+     "r13",
+     "r37"
+    ]
+   },
+   "blocks": [
+    {
+     "type": "facts",
+     "rows": [
+      {
+       "label": "Marie Martens",
+       "text": "共同創業者。マーケティングを担当し、問い合わせに最初に対応する",
+       "cites": [
+        7,
+        9
+       ],
+       "recordKeys": [
+        "r14",
+        "r20"
+       ]
+      },
+      {
+       "label": "Filip Minev",
+       "text": "共同創業者。開発を担当し、技術的な問い合わせに対応する",
+       "cites": [
+        7,
+        9
+       ],
+       "recordKeys": [
+        "r14",
+        "r20"
+       ]
+      },
+      {
+       "label": "社員数",
+       "text": "2022年6月は創業者の2人だけ。2026年9月は10人",
+       "cites": [
+        5,
+        7
+       ],
+       "recordKeys": [
+        "r19",
+        "r13"
+       ]
+      },
+      {
+       "label": "本社",
+       "text": "ベルギーのヘント",
+       "cites": [
+        5
+       ],
+       "recordKeys": [
+        "r31"
+       ]
+      }
+     ]
+    },
+    {
+     "type": "list",
+     "items": [
+      {
+       "text": "問い合わせは、2人で共有できるメールソフトMissiveで受けた。よくある質問は、その都度ヘルプページに追加した",
+       "cites": [
+        7
+       ],
+       "recordKeys": [
+        "r20"
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "history",
+   "lead": {
+    "text": "コロナ禍で旅行関連の事業の顧客が減った創業者2人が、2020年夏にフォーム作成サービスを作り始め、6年で社員10人の会社になった。",
+    "cites": [
+     5,
+     9
+    ],
+    "recordKeys": [
+     "r15",
+     "r13"
+    ]
+   },
+   "blocks": [
+    {
+     "type": "timeline",
+     "items": [
+      {
+       "when": "2020年夏",
+       "text": "コロナ禍で、2人が運営していた旅行関連の事業Hotspotの顧客が減った。既存のフォーム作成サービスへの不満をきっかけに、Tallyを作り始めた",
+       "cites": [
+        9
+       ],
+       "recordKeys": [
+        "r14",
+        "r15"
+       ]
+      },
+      {
+       "when": "2020年10月",
+       "text": "月の売上は64ドル（約9,600円）",
+       "cites": [
+        8
+       ],
+       "recordKeys": [
+        "r17"
+       ]
+      },
+      {
+       "when": "2021年3月",
+       "text": "Product Huntに掲載し、一般公開した",
+       "cites": [
+        7
+       ],
+       "recordKeys": [
+        "r18"
+       ]
+      },
+      {
+       "when": "2022年6月",
+       "text": "月の売上が2万700ドル（約310万円）、有料の顧客が775人になった。創業者2人のまま黒字だった",
+       "cites": [
+        7
+       ],
+       "recordKeys": [
+        "r35",
+        "r36",
+        "r21"
+       ]
+      },
+      {
+       "when": "2026年9月",
+       "text": "月の売上が約50万1,000ドル（約7,500万円）、利用者が250万人、社員が10人になった",
+       "cites": [
+        5
+       ],
+       "recordKeys": [
+        "r10",
+        "r12",
+        "r13"
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "reasons",
+   "title": "無料フォームが利用者を呼び、企業の有料契約につながる",
+   "blocks": [
+    {
+     "type": "list",
+     "ordered": false,
+     "items": [
+      {
+       "lead": "無料のフォームが宣伝にもなる",
+       "text": "無料フォームの「Made with Tally」を見た回答者が、自分でもフォームを作って使い始める。",
+       "cites": [
+        2,
+        3,
+        4
+       ],
+       "recordKeys": [
+        "r3",
+        "a1"
+       ]
+      },
+      {
+       "lead": "企業が必要とする機能だけ課金",
+       "text": "自社ドメイン、ブランド表示の非表示、チーム管理など、業務に必要な機能を有料にした。",
+       "cites": [
+        2,
+        3,
+        4
+       ],
+       "recordKeys": [
+        "r4",
+        "a2",
+        "r38"
+       ]
+      }
+     ]
+    }
+   ]
+  }
+ ],
+ "figures": [
+  {
+   "id": "tally-loop",
+   "file": "tally-loop.svg",
+   "alt": "Tallyの利用者が増える流れ",
+   "width": 1040,
+   "height": 530
+  },
+  {
+   "id": "tally-plans",
+   "file": "tally-plans.svg",
+   "alt": "Tallyの料金プラン",
+   "width": 1040,
+   "height": 530
+  }
+ ],
+ "editorialChanges": [
+  {
+   "kind": "yen-added",
+   "where": "全体（本文・数字の帯・料金の表・決算の表）",
+   "text": "外貨の数字に円の概算を足した（11か所）。50万ドル→約7,500万円、50.1万ドル→約7,500万円、29ドル→約4,350円、290ドル→約4万3,500円、89ドル→約1万3,400円、890ドル→約13万4,000円、約50万1,000ドル→約7,500万円、64ドル→約9,600円",
+   "reason": "円の概算を添える決まり（docs/CASE_TEXT_STANDARD.md）。為替は1ドル=150円、1ユーロ=165円、1ポンド=195円、1SEK=14円",
+   "recordKeys": []
+  },
+  {
+   "kind": "other",
+   "where": "一覧の1行（listLine）",
+   "text": "無料のフォーム作成を10人で運営し、月約7,500万円の継続収益",
+   "reason": "指揮が決めた一覧の1行を設定した（見本の文ではない）",
+   "recordKeys": []
+  },
+  {
+   "kind": "not-in-article",
+   "where": "データの扱い",
+   "text": "公式料金ページはユーロ表示で月・年の切替がある。調査ではヘルプのUSD価格を採用し、異なる通貨・請求条件を同じ価格として合成していない。創業者の記事は初期の月別利用者数に食い違いがあり、人数の初期推移は使っていない。",
+   "reason": "見本の文に入っていない（採用基準の注記）",
+   "recordKeys": [
+    "r32",
+    "r33"
+   ]
+  },
+  {
+   "kind": "not-in-article",
+   "where": "未確認",
+   "text": "現在の利益額・給与・インフラ全費用・創業者の手取り、最初の有料顧客の個人は確認できていない。",
+   "reason": "調査の未確認欄",
+   "recordKeys": [
+    "u1",
+    "u2"
+   ]
+  },
+  {
+   "kind": "other",
+   "where": "全章",
+   "text": "8分類に合わせ、各章を「結論の1文 → 短いデータ」の形に書き直した。見本の文に無かった数字（年換算・利用者・2022年の規模・費用・資金）を章へ入れた。",
+   "reason": "オーナーの指示（長い文章でなく、最初に文、その下に数字・箇条書きでまとめる）",
+   "recordKeys": []
+  },
+  {
+   "kind": "yen-added",
+   "where": "お金",
+   "text": "2万700ドル→約310万円、600万ドル→約9億円、600ユーロ→約9万9,000円、836ユーロ→約13万8,000円",
+   "reason": "円の概算を添える決まり（docs/CASE_TEXT_STANDARD.md）。1ドル=150円、1ユーロ=165円",
+   "recordKeys": []
+  },
+  {
+   "kind": "other",
+   "where": "全文",
+   "text": "どの行も、その行だけ読んで意味が全部分かるように書き直した。かみ砕きすぎた言い方を普通の言葉（社員、月の売上、有料プランに移る）に戻し、「なぜ？」「何の事？」が残る行には、その答えまで書いた。一覧の1行・見出し・見出しの下の文・主な数字・図の中の文字も同じように直した。",
+   "reason": "オーナーの指摘（2026-10-13。それだけで丸わかりになるように書く）",
+   "recordKeys": []
+  },
+  {
+   "kind": "withheld",
+   "where": "旧独立理由章・冒頭",
+   "text": "無料の利用者がフォームを送るたびに、回答者にTallyの名前が伝わり、その一部が新しい利用者になった。",
+   "reason": "同じ趣旨を関連する6章ですでに説明。独立章の重複を解消。",
+   "recordKeys": [
+    "a1",
+    "r3",
+    "r13"
+   ]
+  },
+  {
+   "kind": "withheld",
+   "where": "旧独立理由章・項目",
+   "text": "創業者は、Google Formsでは作れるフォームの見た目が限られ、他社のサービスは回答数が増えると有料になることに不満を持っていた。そこでTallyは、フォームの数も回答の数も無制限で無料にした。",
+   "reason": "元の研究を保持し、すでに他章にある具体的な内容を繰り返さない。",
+   "recordKeys": [
+    "r34",
+    "r2"
+   ]
+  },
+  {
+   "kind": "withheld",
+   "where": "旧独立理由章・項目",
+   "text": "無料のフォームには「Made with Tally」の表示が入る。お金を払わない利用者も、フォームを送るたびにTallyを回答者に知らせることになり、その回答者が次の利用者になった。",
+   "reason": "元の研究を保持し、すでに他章にある具体的な内容を繰り返さない。",
+   "recordKeys": [
+    "r3",
+    "a1"
+   ]
+  },
+  {
+   "kind": "withheld",
+   "where": "旧独立理由章・項目",
+   "text": "有料にしたのは、Tallyの表示を消す、自社のドメインで公開する、チームで管理する、といった機能。個人は無料のまま使い続け、自社の名前でフォームを出したい企業が月額を払う。有料プランに移るのは登録者の約1％。",
+   "reason": "元の研究を保持し、すでに他章にある具体的な内容を繰り返さない。",
+   "recordKeys": [
+    "r4",
+    "a2",
+    "r38"
+   ]
+  },
+  {
+   "kind": "withheld",
+   "where": "旧独立理由章・項目",
+   "text": "ChatGPTなどのAIが、フォーム作成サービスとしてTallyを勧めるようになった。創業者は、AIの仕組みが変わればこの流入は減りうると話している。",
+   "reason": "元の研究を保持し、すでに他章にある具体的な内容を繰り返さない。",
+   "recordKeys": [
+    "r27",
+    "r28"
+   ]
+  },
+  {
+   "kind": "withheld",
+   "where": "運営・事故の記録",
+   "text": "2026年8月に起きた情報流出",
+   "reason": "通常の成功紹介の主役とは関係が薄い。元の事実はresearchに保持。",
+   "recordKeys": []
+  },
+  {
+   "kind": "withheld",
+   "where": "運営・事故の記録",
+   "text": "社内でデータ分析に使っていたソフトMetabaseを通じて、利用者のメールアドレスと、元に戻せない形に変換されたパスワードが流出した",
+   "reason": "通常の成功紹介の主役とは関係が薄い。元の事実はresearchに保持。",
+   "recordKeys": [
+    "r29"
+   ]
+  },
+  {
+   "kind": "withheld",
+   "where": "運営・事故の記録",
+   "text": "Tallyは流出を公表し、Metabaseの使用をやめて、社内の統計は自作の仕組みに切り替えた",
+   "reason": "通常の成功紹介の主役とは関係が薄い。元の事実はresearchに保持。",
+   "recordKeys": [
+    "r29",
+    "r30"
+   ]
+  },
+  {
+   "kind": "withheld",
+   "where": "運営・事故の記録",
+   "text": "情報セキュリティの国際的な認証（ISO27001とSOC2）を、2026年末までに取得する予定",
+   "reason": "通常の成功紹介の主役とは関係が薄い。元の事実はresearchに保持。",
+   "recordKeys": [
+    "r30"
+   ]
+  },
+  {
+   "kind": "withheld",
+   "where": "経緯・事故の記録",
+   "text": "社内のデータ分析ソフトから、利用者のメールアドレスなどが流出したと公表した",
+   "reason": "通常の成功紹介では掲載しない。研究原本に保持。",
+   "recordKeys": [
+    "r29"
+   ]
+  },
+  {
+   "kind": "other",
+   "where": "成功の理由（2026-10-15）",
+   "text": "既存の成功理由4項目から、重複・マイナス情報を避けた2項目を表示用に再構成した。",
+   "reason": "本文7分類と出典の現行UIに合わせる。元の調査記録は未変更。",
+   "recordKeys": [
+    "r3",
+    "a1",
+    "r4",
+    "a2",
+    "r38"
+   ]
+  }
+ ]
+}

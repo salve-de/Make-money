@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1040" height="530" viewBox="0 0 1040 530" role="img" aria-labelledby="title desc"><title id="title">各地の受信機のデータを、1つの地図にまとめる</title><desc id="desc">協力者の受信機から地図に表示されるまでの流れ。</desc>
+<rect width="1040" height="530" fill="#0c0e11"/>
+<text x="24" y="31" font-family="Noto Sans CJK JP, sans-serif" font-size="13" font-weight="600" fill="#ffac3b" text-anchor="start">FLIGHTRADAR24  /  データの流れ</text>
+<text x="24" y="65" font-family="Noto Sans CJK JP, sans-serif" font-size="27" font-weight="600" fill="#f0f2f5" text-anchor="start">各地の受信機のデータを、1つの地図にまとめる</text>
+<text x="24" y="102" font-family="Noto Sans CJK JP, sans-serif" font-size="16" font-weight="400" fill="#b8c0cc" text-anchor="start">データを送る協力者は、専用のプランを無料で使える。</text>
+<rect x="24" y="149" width="296" height="255" rx="8" fill="#15191f" stroke="#303640"/>
+<text x="42" y="179" font-family="Noto Sans CJK JP, sans-serif" font-size="14" font-weight="600" fill="#ffac3b" text-anchor="start">01</text>
+<g transform="translate(134 181) scale(0.95)" fill="none" stroke="#ffac3b" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+<path d="M40 22v48M25 70h30M30 28a14 14 0 0 1 20 0M20 18a28 28 0 0 1 40 0M8 8a45 45 0 0 1 64 0"/><circle cx="40" cy="35" r="4"/></g>
+<text x="42" y="295" font-family="Noto Sans CJK JP, sans-serif" font-size="22" font-weight="600" fill="#f0f2f5" text-anchor="start">協力者が受信する</text>
+<text x="42" y="329" font-family="Noto Sans CJK JP, sans-serif" font-size="17" font-weight="400" fill="#b8c0cc" text-anchor="start">飛行機の電波を受けて送る</text>
+<line x1="329" y1="267" x2="362" y2="267" stroke="#ffac3b" stroke-width="2"/>
+<line x1="362" y1="267" x2="354.5719794658129" y2="272.0817822605553" stroke="#ffac3b" stroke-width="2"/>
+<line x1="362" y1="267" x2="354.5719794658129" y2="261.9182177394447" stroke="#ffac3b" stroke-width="2"/>
+<rect x="372" y="149" width="296" height="255" rx="8" fill="#15191f" stroke="#303640"/>
+<text x="390" y="179" font-family="Noto Sans CJK JP, sans-serif" font-size="14" font-weight="600" fill="#ffac3b" text-anchor="start">02</text>
+<g transform="translate(482 181) scale(0.95)" fill="none" stroke="#ffac3b" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+<rect x="12" y="7" width="57" height="18" rx="3"/><rect x="12" y="32" width="57" height="18" rx="3"/><rect x="12" y="57" width="57" height="18" rx="3"/><path d="M25 16h28M25 41h28M25 66h28"/></g>
+<text x="390" y="295" font-family="Noto Sans CJK JP, sans-serif" font-size="22" font-weight="600" fill="#f0f2f5" text-anchor="start">まとめて便を特定する</text>
+<text x="390" y="329" font-family="Noto Sans CJK JP, sans-serif" font-size="17" font-weight="400" fill="#b8c0cc" text-anchor="start">衛星やレーダーの情報も使う</text>
+<line x1="677" y1="267" x2="710" y2="267" stroke="#ffac3b" stroke-width="2"/>
+<line x1="710" y1="267" x2="702.5719794658129" y2="272.0817822605553" stroke="#ffac3b" stroke-width="2"/>
+<line x1="710" y1="267" x2="702.5719794658129" y2="261.9182177394447" stroke="#ffac3b" stroke-width="2"/>
+<rect x="720" y="149" width="296" height="255" rx="8" fill="#15191f" stroke="#303640"/>
+<text x="738" y="179" font-family="Noto Sans CJK JP, sans-serif" font-size="14" font-weight="600" fill="#ffac3b" text-anchor="start">03</text>
+<g transform="translate(830 181) scale(0.95)" fill="none" stroke="#ffac3b" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+<rect x="5" y="12" width="70" height="57" rx="4"/><path d="M10 51l20-12 16 8 22-20M26 12v57M52 12v57M6 30h69M6 50h69"/><circle cx="30" cy="39" r="3"/><circle cx="68" cy="27" r="3"/></g>
+<text x="738" y="295" font-family="Noto Sans CJK JP, sans-serif" font-size="22" font-weight="600" fill="#f0f2f5" text-anchor="start">地図とデータで提供する</text>
+<text x="738" y="329" font-family="Noto Sans CJK JP, sans-serif" font-size="17" font-weight="400" fill="#b8c0cc" text-anchor="start">利用者には地図、企業にはデータ</text>
+<text x="24" y="504" font-family="Noto Sans CJK JP, sans-serif" font-size="14" font-weight="400" fill="#85909e" text-anchor="start">出典：Flightradar24公式サイトの説明。</text>
+</svg>

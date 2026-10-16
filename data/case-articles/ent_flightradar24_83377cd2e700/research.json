@@ -1,0 +1,3965 @@
+{
+  "schema_version": "make-money.collection-submission.v1",
+  "requirements_version": "1.1.0",
+  "package_id": "mm-flightradar24-20261012-r1",
+  "is_test_data": false,
+  "collector": {
+    "name": "ChatGPT",
+    "agent_version": null,
+    "capabilities": [
+      "web",
+      "code",
+      "file"
+    ]
+  },
+  "created_at": "2026-10-11T16:18:13Z",
+  "base": {
+    "app_commit": "faa4c5e504c3ecb7fddd21039321bb407df7e400",
+    "foundation_commit": null,
+    "prior_package_id": null,
+    "prior_submission_sha256": null
+  },
+  "scope": {
+    "purpose": "case",
+    "tier": "ENRICHED",
+    "declaration": "受信者への特典、データ統合、広告・有料機能・法人販売、異なる長さの決算期間を分離して調査。 公開資料を横断して、自然な記事と参照付きデータを同じ調査で作成。131細目の完全充足や全資料の網羅、独立監査を意味しない。",
+    "coverage": [
+      {
+        "domain": "identity",
+        "status": "found",
+        "attempts": [
+          "https://www.flightradar24.com/about/",
+          "https://www.allabolag.se/bokslut/flightradar24-ab/stockholm/internet-konsulter-operat%C3%B6rer/2K3LY99I5YFHL"
+        ],
+        "record_keys": [
+          "r18"
+        ],
+        "note": "この領域の一部を確認。領域内の全細目が判明した意味ではない。"
+      },
+      {
+        "domain": "people",
+        "status": "found",
+        "attempts": [
+          "https://www.flightradar24.com/about/",
+          "公式About/How it works/B2B契約を確認"
+        ],
+        "record_keys": [
+          "r2"
+        ],
+        "note": "この領域の一部を確認。領域内の全細目が判明した意味ではない。現在の詳細なチーム人数と自社インフラ構成・単位原価は未確認。"
+      },
+      {
+        "domain": "product",
+        "status": "found",
+        "attempts": [
+          "https://www.flightradar24.com/about/",
+          "https://www.flightradar24.com/how-it-works/",
+          "https://www.flightradar24.com/add-coverage",
+          "https://www.flightradar24.com/premium/"
+        ],
+        "record_keys": [
+          "r1",
+          "rel1",
+          "rel2"
+        ],
+        "note": "この領域の一部を確認。領域内の全細目が判明した意味ではない。"
+      },
+      {
+        "domain": "customer_and_demand",
+        "status": "found",
+        "attempts": [
+          "https://www.flightradar24.com/about/",
+          "https://www.flightradar24.com/blog/b2b/flightradar24-to-supply-flight-data-services-to-boeing/"
+        ],
+        "record_keys": [
+          "r15",
+          "r26"
+        ],
+        "note": "この領域の一部を確認。領域内の全細目が判明した意味ではない。"
+      },
+      {
+        "domain": "pricing",
+        "status": "found",
+        "attempts": [
+          "https://www.flightradar24.com/add-coverage",
+          "https://www.flightradar24.com/share-your-data",
+          "https://www.flightradar24.com/premium/",
+          "https://www.google.com/ads/publisher/stories/flightradar24/",
+          "https://www.flightradar24.com/blog/b2b/flightradar24-to-supply-flight-data-services-to-boeing/",
+          "premium本文は料金欠落",
+          "fr24api pricing openエラー"
+        ],
+        "record_keys": [
+          "r7",
+          "r8",
+          "r13",
+          "r14",
+          "a2",
+          "rel3",
+          "rel4",
+          "rel5"
+        ],
+        "note": "この領域の一部を確認。領域内の全細目が判明した意味ではない。現在のプラン金額、API単価は今回の取得結果では未確定。"
+      },
+      {
+        "domain": "money_and_economics",
+        "status": "found",
+        "attempts": [
+          "https://www.google.com/ads/publisher/stories/flightradar24/",
+          "https://www.allabolag.se/bokslut/flightradar24-ab/stockholm/internet-konsulter-operat%C3%B6rer/2K3LY99I5YFHL",
+          "Flightradar24 AB årsredovisning omsättning resultat 2025検索",
+          "Allabolag/Hitta掲載表確認。原本リンクの実データ未取得。"
+        ],
+        "record_keys": [
+          "r11",
+          "r19",
+          "r20",
+          "r21",
+          "r22"
+        ],
+        "note": "この領域の一部を確認。領域内の全細目が判明した意味ではない。署名済み決算原本、2026年実績、売上の広告・購読・法人別内訳、初期費用、機材維持費の詳細は未確認。"
+      },
+      {
+        "domain": "distribution",
+        "status": "found",
+        "attempts": [
+          "https://www.flightradar24.com/about/",
+          "Flightradar24 founders first customers revenue検索",
+          "about沿革、Google担当者取材"
+        ],
+        "record_keys": [
+          "r4",
+          "r28"
+        ],
+        "note": "この領域の一部を確認。領域内の全細目が判明した意味ではない。最初の有料契約者、初期の契約額、当時の広告獲得費は今回確認できなかった。"
+      },
+      {
+        "domain": "operations",
+        "status": "found",
+        "attempts": [
+          "https://www.flightradar24.com/how-it-works/",
+          "https://www.flightradar24.com/add-coverage",
+          "https://www.flightradar24.com/blog/b2b/flightradar24-to-supply-flight-data-services-to-boeing/",
+          "https://www.flightradar24.com/blog/flight-tracking-news/special-aircraft-tracking/spar19-becomes-the-most-tracked-flight-of-all-time/"
+        ],
+        "record_keys": [
+          "r6",
+          "r9",
+          "r10",
+          "r17",
+          "a1",
+          "a3"
+        ],
+        "note": "この領域の一部を確認。領域内の全細目が判明した意味ではない。"
+      },
+      {
+        "domain": "technology",
+        "status": "found",
+        "attempts": [
+          "https://www.flightradar24.com/how-it-works/",
+          "https://www.google.com/ads/publisher/stories/flightradar24/"
+        ],
+        "record_keys": [
+          "r5",
+          "r12"
+        ],
+        "note": "この領域の一部を確認。領域内の全細目が判明した意味ではない。"
+      },
+      {
+        "domain": "competition_and_market",
+        "status": "not_attempted",
+        "attempts": [],
+        "record_keys": [],
+        "note": "この領域の一部を確認。領域内の全細目が判明した意味ではない。"
+      },
+      {
+        "domain": "timeline_and_outcomes",
+        "status": "found",
+        "attempts": [
+          "https://www.flightradar24.com/about/",
+          "https://www.flightradar24.com/blog/flight-tracking-news/special-aircraft-tracking/spar19-becomes-the-most-tracked-flight-of-all-time/"
+        ],
+        "record_keys": [
+          "r3",
+          "r16",
+          "r27"
+        ],
+        "note": "この領域の一部を確認。領域内の全細目が判明した意味ではない。"
+      },
+      {
+        "domain": "provenance_rights_and_uncertainty",
+        "status": "found",
+        "attempts": [
+          "https://www.flightradar24.com/premium/",
+          "https://www.allabolag.se/bokslut/flightradar24-ab/stockholm/internet-konsulter-operat%C3%B6rer/2K3LY99I5YFHL",
+          "https://www.hitta.se/f%C3%B6retagsinformation/flightradar24%2Bab/5568951213"
+        ],
+        "record_keys": [
+          "r23",
+          "r24",
+          "r25"
+        ],
+        "note": "この領域の一部を確認。領域内の全細目が判明した意味ではない。"
+      }
+    ]
+  },
+  "entities": [
+    {
+      "key": "business",
+      "name": "Flightradar24",
+      "kind": "organization",
+      "official_url": "https://www.flightradar24.com/",
+      "aliases": [],
+      "app_entity_id": null,
+      "foundation_entity_id": null,
+      "country": "スウェーデン",
+      "status": "公開サイトで提供を確認"
+    },
+    {
+      "key": "contributor",
+      "name": "地上のデータ提供者",
+      "kind": "customer_group",
+      "official_url": null,
+      "aliases": [],
+      "app_entity_id": null,
+      "foundation_entity_id": null,
+      "country": null,
+      "status": null
+    },
+    {
+      "key": "viewer",
+      "name": "無料・有料の閲覧者",
+      "kind": "customer_group",
+      "official_url": null,
+      "aliases": [],
+      "app_entity_id": null,
+      "foundation_entity_id": null,
+      "country": null,
+      "status": null
+    },
+    {
+      "key": "advertiser",
+      "name": "広告主",
+      "kind": "customer_group",
+      "official_url": null,
+      "aliases": [],
+      "app_entity_id": null,
+      "foundation_entity_id": null,
+      "country": null,
+      "status": null
+    },
+    {
+      "key": "databuyer",
+      "name": "航空データの法人購入者",
+      "kind": "customer_group",
+      "official_url": null,
+      "aliases": [],
+      "app_entity_id": null,
+      "foundation_entity_id": null,
+      "country": null,
+      "status": null
+    },
+    {
+      "key": "aircraft",
+      "name": "航空機",
+      "kind": "other",
+      "official_url": null,
+      "aliases": [],
+      "app_entity_id": null,
+      "foundation_entity_id": null,
+      "country": null,
+      "status": null
+    },
+    {
+      "key": "boeing",
+      "name": "Boeing",
+      "kind": "organization",
+      "official_url": "https://www.boeing.com/",
+      "aliases": [],
+      "app_entity_id": null,
+      "foundation_entity_id": null,
+      "country": "アメリカ",
+      "status": null
+    },
+    {
+      "key": "map",
+      "name": "フライト追跡画面",
+      "kind": "service",
+      "official_url": "https://www.flightradar24.com/",
+      "aliases": [],
+      "app_entity_id": null,
+      "foundation_entity_id": null,
+      "country": null,
+      "status": null
+    }
+  ],
+  "primary_entity_key": "business",
+  "sources": [
+    {
+      "key": "about",
+      "url": "https://www.flightradar24.com/about/",
+      "title": "About Flightradar24",
+      "publisher": "Flightradar24",
+      "language": "en",
+      "kind": "official",
+      "published_time": {
+        "value": null,
+        "end": null,
+        "precision": "unknown",
+        "original": null
+      },
+      "retrieved_at": "2026-10-11T16:18:13Z",
+      "source_family_key": "flightradar24-about",
+      "access_state": "read",
+      "incentive_context": "提供者自身の説明。商品紹介・採用・信用形成の目的を含み、顧客全体の独立調査や会計監査ではない。",
+      "rights": {
+        "fetch": {
+          "decision": "pending",
+          "basis": "unknown",
+          "reference": null,
+          "reviewed_at": null,
+          "note": "公開ページの通常閲覧のみ。ログイン・有料壁・CAPTCHAの回避なし。提供元の自動取得・継続収集条件は正式レビュー未了。"
+        },
+        "private_evidence_storage": {
+          "decision": "pending",
+          "basis": "unknown",
+          "reference": null,
+          "reviewed_at": null,
+          "note": "原文全文・第三者画像の保存ファイルをこの納品に含めない。URLと該当箇所、自分の言葉による調査記録を保持。"
+        },
+        "internal_analysis": {
+          "decision": "pending",
+          "basis": "unknown",
+          "reference": null,
+          "reviewed_at": null,
+          "note": "原典を参照した調査。アカウント固有の有償データ契約や長期処理条件は未確認。"
+        },
+        "factual_paraphrase_display": {
+          "decision": "pending",
+          "basis": "unknown",
+          "reference": null,
+          "reviewed_at": null,
+          "note": "本文は独自の日本語要約。商用サイト掲載前に提供元別の公開ポリシーで審査する。"
+        },
+        "paid_member_display": {
+          "decision": "pending",
+          "basis": "unknown",
+          "reference": null,
+          "reviewed_at": null,
+          "note": "有料会員への掲載を本納品で自動承認しない。"
+        },
+        "media_display": {
+          "decision": "pending",
+          "basis": "unknown",
+          "reference": null,
+          "reviewed_at": null,
+          "note": "第三者の製品写真はURL参照のみ。複製・表示の許諾は別審査。"
+        },
+        "redistribution": {
+          "decision": "pending",
+          "basis": "unknown",
+          "reference": null,
+          "reviewed_at": null,
+          "note": "原資料の再配布を承認しない。納品に原文全文や第三者画像は含まない。"
+        }
+      }
+    },
+    {
+      "key": "how",
+      "url": "https://www.flightradar24.com/how-it-works/",
+      "title": "How it works",
+      "publisher": "Flightradar24",
+      "language": "en",
+      "kind": "official",
+      "published_time": {
+        "value": null,
+        "end": null,
+        "precision": "unknown",
+        "original": null
+      },
+      "retrieved_at": "2026-10-11T16:18:13Z",
+      "source_family_key": "flightradar24-how",
+      "access_state": "read",
+      "incentive_context": "提供者自身の説明。商品紹介・採用・信用形成の目的を含み、顧客全体の独立調査や会計監査ではない。",
+      "rights": {
+        "fetch": {
+          "decision": "pending",
+          "basis": "unknown",
+          "reference": null,
+          "reviewed_at": null,
+          "note": "公開ページの通常閲覧のみ。ログイン・有料壁・CAPTCHAの回避なし。提供元の自動取得・継続収集条件は正式レビュー未了。"
+        },
+        "private_evidence_storage": {
+          "decision": "pending",
+          "basis": "unknown",
+          "reference": null,
+          "reviewed_at": null,
+          "note": "原文全文・第三者画像の保存ファイルをこの納品に含めない。URLと該当箇所、自分の言葉による調査記録を保持。"
+        },
+        "internal_analysis": {
+          "decision": "pending",
+          "basis": "unknown",
+          "reference": null,
+          "reviewed_at": null,
+          "note": "原典を参照した調査。アカウント固有の有償データ契約や長期処理条件は未確認。"
+        },
+        "factual_paraphrase_display": {
+          "decision": "pending",
+          "basis": "unknown",
+          "reference": null,
+          "reviewed_at": null,
+          "note": "本文は独自の日本語要約。商用サイト掲載前に提供元別の公開ポリシーで審査する。"
+        },
+        "paid_member_display": {
+          "decision": "pending",
+          "basis": "unknown",
+          "reference": null,
+          "reviewed_at": null,
+          "note": "有料会員への掲載を本納品で自動承認しない。"
+        },
+        "media_display": {
+          "decision": "pending",
+          "basis": "unknown",
+          "reference": null,
+          "reviewed_at": null,
+          "note": "第三者の製品写真はURL参照のみ。複製・表示の許諾は別審査。"
+        },
+        "redistribution": {
+          "decision": "pending",
+          "basis": "unknown",
+          "reference": null,
+          "reviewed_at": null,
+          "note": "原資料の再配布を承認しない。納品に原文全文や第三者画像は含まない。"
+        }
+      }
+    },
+    {
+      "key": "contribute",
+      "url": "https://www.flightradar24.com/add-coverage",
+      "title": "Become a contributor",
+      "publisher": "Flightradar24",
+      "language": "en",
+      "kind": "official",
+      "published_time": {
+        "value": null,
+        "end": null,
+        "precision": "unknown",
+        "original": null
+      },
+      "retrieved_at": "2026-10-11T16:18:13Z",
+      "source_family_key": "flightradar24-contribute",
+      "access_state": "read",
+      "incentive_context": "提供者自身の説明。商品紹介・採用・信用形成の目的を含み、顧客全体の独立調査や会計監査ではない。",
+      "rights": {
+        "fetch": {
+          "decision": "pending",
+          "basis": "unknown",
+          "reference": null,
+          "reviewed_at": null,
+          "note": "公開ページの通常閲覧のみ。ログイン・有料壁・CAPTCHAの回避なし。提供元の自動取得・継続収集条件は正式レビュー未了。"
+        },
+        "private_evidence_storage": {
+          "decision": "pending",
+          "basis": "unknown",
+          "reference": null,
+          "reviewed_at": null,
+          "note": "原文全文・第三者画像の保存ファイルをこの納品に含めない。URLと該当箇所、自分の言葉による調査記録を保持。"
+        },
+        "internal_analysis": {
+          "decision": "pending",
+          "basis": "unknown",
+          "reference": null,
+          "reviewed_at": null,
+          "note": "原典を参照した調査。アカウント固有の有償データ契約や長期処理条件は未確認。"
+        },
+        "factual_paraphrase_display": {
+          "decision": "pending",
+          "basis": "unknown",
+          "reference": null,
+          "reviewed_at": null,
+          "note": "本文は独自の日本語要約。商用サイト掲載前に提供元別の公開ポリシーで審査する。"
+        },
+        "paid_member_display": {
+          "decision": "pending",
+          "basis": "unknown",
+          "reference": null,
+          "reviewed_at": null,
+          "note": "有料会員への掲載を本納品で自動承認しない。"
+        },
+        "media_display": {
+          "decision": "pending",
+          "basis": "unknown",
+          "reference": null,
+          "reviewed_at": null,
+          "note": "第三者の製品写真はURL参照のみ。複製・表示の許諾は別審査。"
+        },
+        "redistribution": {
+          "decision": "pending",
+          "basis": "unknown",
+          "reference": null,
+          "reviewed_at": null,
+          "note": "原資料の再配布を承認しない。納品に原文全文や第三者画像は含まない。"
+        }
+      }
+    },
+    {
+      "key": "share",
+      "url": "https://www.flightradar24.com/share-your-data",
+      "title": "Share your ADS-B data",
+      "publisher": "Flightradar24",
+      "language": "en",
+      "kind": "official",
+      "published_time": {
+        "value": null,
+        "end": null,
+        "precision": "unknown",
+        "original": null
+      },
+      "retrieved_at": "2026-10-11T16:18:13Z",
+      "source_family_key": "flightradar24-share",
+      "access_state": "read",
+      "incentive_context": "提供者自身の説明。商品紹介・採用・信用形成の目的を含み、顧客全体の独立調査や会計監査ではない。",
+      "rights": {
+        "fetch": {
+          "decision": "pending",
+          "basis": "unknown",
+          "reference": null,
+          "reviewed_at": null,
+          "note": "公開ページの通常閲覧のみ。ログイン・有料壁・CAPTCHAの回避なし。提供元の自動取得・継続収集条件は正式レビュー未了。"
+        },
+        "private_evidence_storage": {
+          "decision": "pending",
+          "basis": "unknown",
+          "reference": null,
+          "reviewed_at": null,
+          "note": "原文全文・第三者画像の保存ファイルをこの納品に含めない。URLと該当箇所、自分の言葉による調査記録を保持。"
+        },
+        "internal_analysis": {
+          "decision": "pending",
+          "basis": "unknown",
+          "reference": null,
+          "reviewed_at": null,
+          "note": "原典を参照した調査。アカウント固有の有償データ契約や長期処理条件は未確認。"
+        },
+        "factual_paraphrase_display": {
+          "decision": "pending",
+          "basis": "unknown",
+          "reference": null,
+          "reviewed_at": null,
+          "note": "本文は独自の日本語要約。商用サイト掲載前に提供元別の公開ポリシーで審査する。"
+        },
+        "paid_member_display": {
+          "decision": "pending",
+          "basis": "unknown",
+          "reference": null,
+          "reviewed_at": null,
+          "note": "有料会員への掲載を本納品で自動承認しない。"
+        },
+        "media_display": {
+          "decision": "pending",
+          "basis": "unknown",
+          "reference": null,
+          "reviewed_at": null,
+          "note": "第三者の製品写真はURL参照のみ。複製・表示の許諾は別審査。"
+        },
+        "redistribution": {
+          "decision": "pending",
+          "basis": "unknown",
+          "reference": null,
+          "reviewed_at": null,
+          "note": "原資料の再配布を承認しない。納品に原文全文や第三者画像は含まない。"
+        }
+      }
+    },
+    {
+      "key": "premium",
+      "url": "https://www.flightradar24.com/premium/",
+      "title": "Subscription plans",
+      "publisher": "Flightradar24",
+      "language": "en",
+      "kind": "official",
+      "published_time": {
+        "value": null,
+        "end": null,
+        "precision": "unknown",
+        "original": null
+      },
+      "retrieved_at": "2026-10-11T16:18:13Z",
+      "source_family_key": "flightradar24-premium",
+      "access_state": "read",
+      "incentive_context": "提供者自身の説明。商品紹介・採用・信用形成の目的を含み、顧客全体の独立調査や会計監査ではない。",
+      "rights": {
+        "fetch": {
+          "decision": "pending",
+          "basis": "unknown",
+          "reference": null,
+          "reviewed_at": null,
+          "note": "公開ページの通常閲覧のみ。ログイン・有料壁・CAPTCHAの回避なし。提供元の自動取得・継続収集条件は正式レビュー未了。"
+        },
+        "private_evidence_storage": {
+          "decision": "pending",
+          "basis": "unknown",
+          "reference": null,
+          "reviewed_at": null,
+          "note": "原文全文・第三者画像の保存ファイルをこの納品に含めない。URLと該当箇所、自分の言葉による調査記録を保持。"
+        },
+        "internal_analysis": {
+          "decision": "pending",
+          "basis": "unknown",
+          "reference": null,
+          "reviewed_at": null,
+          "note": "原典を参照した調査。アカウント固有の有償データ契約や長期処理条件は未確認。"
+        },
+        "factual_paraphrase_display": {
+          "decision": "pending",
+          "basis": "unknown",
+          "reference": null,
+          "reviewed_at": null,
+          "note": "本文は独自の日本語要約。商用サイト掲載前に提供元別の公開ポリシーで審査する。"
+        },
+        "paid_member_display": {
+          "decision": "pending",
+          "basis": "unknown",
+          "reference": null,
+          "reviewed_at": null,
+          "note": "有料会員への掲載を本納品で自動承認しない。"
+        },
+        "media_display": {
+          "decision": "pending",
+          "basis": "unknown",
+          "reference": null,
+          "reviewed_at": null,
+          "note": "第三者の製品写真はURL参照のみ。複製・表示の許諾は別審査。"
+        },
+        "redistribution": {
+          "decision": "pending",
+          "basis": "unknown",
+          "reference": null,
+          "reviewed_at": null,
+          "note": "原資料の再配布を承認しない。納品に原文全文や第三者画像は含まない。"
+        }
+      }
+    },
+    {
+      "key": "google",
+      "url": "https://www.google.com/ads/publisher/stories/flightradar24/",
+      "title": "Flightradar24 / Mats Lidgren",
+      "publisher": "Google for Publishers",
+      "language": "en",
+      "kind": "interview",
+      "published_time": {
+        "value": "2023",
+        "end": null,
+        "precision": "year",
+        "original": "2023"
+      },
+      "retrieved_at": "2026-10-11T16:18:13Z",
+      "source_family_key": "google-for-publishers-google",
+      "access_state": "read",
+      "incentive_context": "広告基盤Googleの顧客取材。Flightradar24の担当者発言。販促を含み、広告の因果効果の独立検証ではない。",
+      "rights": {
+        "fetch": {
+          "decision": "pending",
+          "basis": "unknown",
+          "reference": null,
+          "reviewed_at": null,
+          "note": "公開ページの通常閲覧のみ。ログイン・有料壁・CAPTCHAの回避なし。提供元の自動取得・継続収集条件は正式レビュー未了。"
+        },
+        "private_evidence_storage": {
+          "decision": "pending",
+          "basis": "unknown",
+          "reference": null,
+          "reviewed_at": null,
+          "note": "原文全文・第三者画像の保存ファイルをこの納品に含めない。URLと該当箇所、自分の言葉による調査記録を保持。"
+        },
+        "internal_analysis": {
+          "decision": "pending",
+          "basis": "unknown",
+          "reference": null,
+          "reviewed_at": null,
+          "note": "原典を参照した調査。アカウント固有の有償データ契約や長期処理条件は未確認。"
+        },
+        "factual_paraphrase_display": {
+          "decision": "pending",
+          "basis": "unknown",
+          "reference": null,
+          "reviewed_at": null,
+          "note": "本文は独自の日本語要約。商用サイト掲載前に提供元別の公開ポリシーで審査する。"
+        },
+        "paid_member_display": {
+          "decision": "pending",
+          "basis": "unknown",
+          "reference": null,
+          "reviewed_at": null,
+          "note": "有料会員への掲載を本納品で自動承認しない。"
+        },
+        "media_display": {
+          "decision": "pending",
+          "basis": "unknown",
+          "reference": null,
+          "reviewed_at": null,
+          "note": "第三者の製品写真はURL参照のみ。複製・表示の許諾は別審査。"
+        },
+        "redistribution": {
+          "decision": "pending",
+          "basis": "unknown",
+          "reference": null,
+          "reviewed_at": null,
+          "note": "原資料の再配布を承認しない。納品に原文全文や第三者画像は含まない。"
+        }
+      }
+    },
+    {
+      "key": "boeing",
+      "url": "https://www.flightradar24.com/blog/b2b/flightradar24-to-supply-flight-data-services-to-boeing/",
+      "title": "Flight Data Services to Boeing",
+      "publisher": "Flightradar24",
+      "language": "en",
+      "kind": "official",
+      "published_time": {
+        "value": "2025-12-22",
+        "end": null,
+        "precision": "day",
+        "original": "2025-12-22"
+      },
+      "retrieved_at": "2026-10-11T16:18:13Z",
+      "source_family_key": "flightradar24-boeing",
+      "access_state": "read",
+      "incentive_context": "提供者自身の説明。商品紹介・採用・信用形成の目的を含み、顧客全体の独立調査や会計監査ではない。",
+      "rights": {
+        "fetch": {
+          "decision": "pending",
+          "basis": "unknown",
+          "reference": null,
+          "reviewed_at": null,
+          "note": "公開ページの通常閲覧のみ。ログイン・有料壁・CAPTCHAの回避なし。提供元の自動取得・継続収集条件は正式レビュー未了。"
+        },
+        "private_evidence_storage": {
+          "decision": "pending",
+          "basis": "unknown",
+          "reference": null,
+          "reviewed_at": null,
+          "note": "原文全文・第三者画像の保存ファイルをこの納品に含めない。URLと該当箇所、自分の言葉による調査記録を保持。"
+        },
+        "internal_analysis": {
+          "decision": "pending",
+          "basis": "unknown",
+          "reference": null,
+          "reviewed_at": null,
+          "note": "原典を参照した調査。アカウント固有の有償データ契約や長期処理条件は未確認。"
+        },
+        "factual_paraphrase_display": {
+          "decision": "pending",
+          "basis": "unknown",
+          "reference": null,
+          "reviewed_at": null,
+          "note": "本文は独自の日本語要約。商用サイト掲載前に提供元別の公開ポリシーで審査する。"
+        },
+        "paid_member_display": {
+          "decision": "pending",
+          "basis": "unknown",
+          "reference": null,
+          "reviewed_at": null,
+          "note": "有料会員への掲載を本納品で自動承認しない。"
+        },
+        "media_display": {
+          "decision": "pending",
+          "basis": "unknown",
+          "reference": null,
+          "reviewed_at": null,
+          "note": "第三者の製品写真はURL参照のみ。複製・表示の許諾は別審査。"
+        },
+        "redistribution": {
+          "decision": "pending",
+          "basis": "unknown",
+          "reference": null,
+          "reviewed_at": null,
+          "note": "原資料の再配布を承認しない。納品に原文全文や第三者画像は含まない。"
+        }
+      }
+    },
+    {
+      "key": "outage",
+      "url": "https://www.flightradar24.com/blog/flight-tracking-news/special-aircraft-tracking/spar19-becomes-the-most-tracked-flight-of-all-time/",
+      "title": "SPAR19 traffic surge and service impact",
+      "publisher": "Flightradar24",
+      "language": "en",
+      "kind": "official",
+      "published_time": {
+        "value": "2022-08-02",
+        "end": null,
+        "precision": "day",
+        "original": "2022-08-02"
+      },
+      "retrieved_at": "2026-10-11T16:18:13Z",
+      "source_family_key": "flightradar24-outage",
+      "access_state": "read",
+      "incentive_context": "提供者自身の説明。商品紹介・採用・信用形成の目的を含み、顧客全体の独立調査や会計監査ではない。",
+      "rights": {
+        "fetch": {
+          "decision": "pending",
+          "basis": "unknown",
+          "reference": null,
+          "reviewed_at": null,
+          "note": "公開ページの通常閲覧のみ。ログイン・有料壁・CAPTCHAの回避なし。提供元の自動取得・継続収集条件は正式レビュー未了。"
+        },
+        "private_evidence_storage": {
+          "decision": "pending",
+          "basis": "unknown",
+          "reference": null,
+          "reviewed_at": null,
+          "note": "原文全文・第三者画像の保存ファイルをこの納品に含めない。URLと該当箇所、自分の言葉による調査記録を保持。"
+        },
+        "internal_analysis": {
+          "decision": "pending",
+          "basis": "unknown",
+          "reference": null,
+          "reviewed_at": null,
+          "note": "原典を参照した調査。アカウント固有の有償データ契約や長期処理条件は未確認。"
+        },
+        "factual_paraphrase_display": {
+          "decision": "pending",
+          "basis": "unknown",
+          "reference": null,
+          "reviewed_at": null,
+          "note": "本文は独自の日本語要約。商用サイト掲載前に提供元別の公開ポリシーで審査する。"
+        },
+        "paid_member_display": {
+          "decision": "pending",
+          "basis": "unknown",
+          "reference": null,
+          "reviewed_at": null,
+          "note": "有料会員への掲載を本納品で自動承認しない。"
+        },
+        "media_display": {
+          "decision": "pending",
+          "basis": "unknown",
+          "reference": null,
+          "reviewed_at": null,
+          "note": "第三者の製品写真はURL参照のみ。複製・表示の許諾は別審査。"
+        },
+        "redistribution": {
+          "decision": "pending",
+          "basis": "unknown",
+          "reference": null,
+          "reviewed_at": null,
+          "note": "原資料の再配布を承認しない。納品に原文全文や第三者画像は含まない。"
+        }
+      }
+    },
+    {
+      "key": "accounts",
+      "url": "https://www.allabolag.se/bokslut/flightradar24-ab/stockholm/internet-konsulter-operat%C3%B6rer/2K3LY99I5YFHL",
+      "title": "Flightradar24 AB Bokslut",
+      "publisher": "Allabolag",
+      "language": "sv",
+      "kind": "independent_reporting",
+      "published_time": {
+        "value": null,
+        "end": null,
+        "precision": "unknown",
+        "original": null
+      },
+      "retrieved_at": "2026-10-11T16:18:13Z",
+      "source_family_key": "swedish-accounts-5568951213",
+      "access_state": "read",
+      "incentive_context": "企業情報提供会社の決算転載。原本の署名済み財務諸表はこの調査で取得していない。独立した監査実施済みの数値として昇格しない。",
+      "rights": {
+        "fetch": {
+          "decision": "pending",
+          "basis": "unknown",
+          "reference": null,
+          "reviewed_at": null,
+          "note": "公開ページの通常閲覧のみ。ログイン・有料壁・CAPTCHAの回避なし。提供元の自動取得・継続収集条件は正式レビュー未了。"
+        },
+        "private_evidence_storage": {
+          "decision": "pending",
+          "basis": "unknown",
+          "reference": null,
+          "reviewed_at": null,
+          "note": "原文全文・第三者画像の保存ファイルをこの納品に含めない。URLと該当箇所、自分の言葉による調査記録を保持。"
+        },
+        "internal_analysis": {
+          "decision": "pending",
+          "basis": "unknown",
+          "reference": null,
+          "reviewed_at": null,
+          "note": "原典を参照した調査。アカウント固有の有償データ契約や長期処理条件は未確認。"
+        },
+        "factual_paraphrase_display": {
+          "decision": "pending",
+          "basis": "unknown",
+          "reference": null,
+          "reviewed_at": null,
+          "note": "本文は独自の日本語要約。商用サイト掲載前に提供元別の公開ポリシーで審査する。"
+        },
+        "paid_member_display": {
+          "decision": "pending",
+          "basis": "unknown",
+          "reference": null,
+          "reviewed_at": null,
+          "note": "有料会員への掲載を本納品で自動承認しない。"
+        },
+        "media_display": {
+          "decision": "pending",
+          "basis": "unknown",
+          "reference": null,
+          "reviewed_at": null,
+          "note": "第三者の製品写真はURL参照のみ。複製・表示の許諾は別審査。"
+        },
+        "redistribution": {
+          "decision": "pending",
+          "basis": "unknown",
+          "reference": null,
+          "reviewed_at": null,
+          "note": "原資料の再配布を承認しない。納品に原文全文や第三者画像は含まない。"
+        }
+      }
+    },
+    {
+      "key": "hitta",
+      "url": "https://www.hitta.se/f%C3%B6retagsinformation/flightradar24%2Bab/5568951213",
+      "title": "Flightradar24 AB företagsinformation",
+      "publisher": "Hitta",
+      "language": "sv",
+      "kind": "independent_reporting",
+      "published_time": {
+        "value": null,
+        "end": null,
+        "precision": "unknown",
+        "original": null
+      },
+      "retrieved_at": "2026-10-11T16:18:13Z",
+      "source_family_key": "swedish-accounts-5568951213",
+      "access_state": "read",
+      "incentive_context": "企業情報DB。同じ提出決算に由来し得るので独立2標本とは扱わない。",
+      "rights": {
+        "fetch": {
+          "decision": "pending",
+          "basis": "unknown",
+          "reference": null,
+          "reviewed_at": null,
+          "note": "公開ページの通常閲覧のみ。ログイン・有料壁・CAPTCHAの回避なし。提供元の自動取得・継続収集条件は正式レビュー未了。"
+        },
+        "private_evidence_storage": {
+          "decision": "pending",
+          "basis": "unknown",
+          "reference": null,
+          "reviewed_at": null,
+          "note": "原文全文・第三者画像の保存ファイルをこの納品に含めない。URLと該当箇所、自分の言葉による調査記録を保持。"
+        },
+        "internal_analysis": {
+          "decision": "pending",
+          "basis": "unknown",
+          "reference": null,
+          "reviewed_at": null,
+          "note": "原典を参照した調査。アカウント固有の有償データ契約や長期処理条件は未確認。"
+        },
+        "factual_paraphrase_display": {
+          "decision": "pending",
+          "basis": "unknown",
+          "reference": null,
+          "reviewed_at": null,
+          "note": "本文は独自の日本語要約。商用サイト掲載前に提供元別の公開ポリシーで審査する。"
+        },
+        "paid_member_display": {
+          "decision": "pending",
+          "basis": "unknown",
+          "reference": null,
+          "reviewed_at": null,
+          "note": "有料会員への掲載を本納品で自動承認しない。"
+        },
+        "media_display": {
+          "decision": "pending",
+          "basis": "unknown",
+          "reference": null,
+          "reviewed_at": null,
+          "note": "第三者の製品写真はURL参照のみ。複製・表示の許諾は別審査。"
+        },
+        "redistribution": {
+          "decision": "pending",
+          "basis": "unknown",
+          "reference": null,
+          "reviewed_at": null,
+          "note": "原資料の再配布を承認しない。納品に原文全文や第三者画像は含まない。"
+        }
+      }
+    },
+    {
+      "key": "api-unread",
+      "url": "https://fr24api.flightradar24.com/pricing",
+      "title": "API pricing（本文取得不十分）",
+      "publisher": "Flightradar24",
+      "language": "en",
+      "kind": "official",
+      "published_time": {
+        "value": null,
+        "end": null,
+        "precision": "unknown",
+        "original": null
+      },
+      "retrieved_at": null,
+      "source_family_key": "flightradar24-api-unread",
+      "access_state": "unavailable",
+      "incentive_context": "提供者自身の説明。商品紹介・採用・信用形成の目的を含み、顧客全体の独立調査や会計監査ではない。",
+      "rights": {
+        "fetch": {
+          "decision": "pending",
+          "basis": "unknown",
+          "reference": null,
+          "reviewed_at": null,
+          "note": "公開ページの通常閲覧のみ。ログイン・有料壁・CAPTCHAの回避なし。提供元の自動取得・継続収集条件は正式レビュー未了。"
+        },
+        "private_evidence_storage": {
+          "decision": "pending",
+          "basis": "unknown",
+          "reference": null,
+          "reviewed_at": null,
+          "note": "原文全文・第三者画像の保存ファイルをこの納品に含めない。URLと該当箇所、自分の言葉による調査記録を保持。"
+        },
+        "internal_analysis": {
+          "decision": "pending",
+          "basis": "unknown",
+          "reference": null,
+          "reviewed_at": null,
+          "note": "原典を参照した調査。アカウント固有の有償データ契約や長期処理条件は未確認。"
+        },
+        "factual_paraphrase_display": {
+          "decision": "pending",
+          "basis": "unknown",
+          "reference": null,
+          "reviewed_at": null,
+          "note": "本文は独自の日本語要約。商用サイト掲載前に提供元別の公開ポリシーで審査する。"
+        },
+        "paid_member_display": {
+          "decision": "pending",
+          "basis": "unknown",
+          "reference": null,
+          "reviewed_at": null,
+          "note": "有料会員への掲載を本納品で自動承認しない。"
+        },
+        "media_display": {
+          "decision": "pending",
+          "basis": "unknown",
+          "reference": null,
+          "reviewed_at": null,
+          "note": "第三者の製品写真はURL参照のみ。複製・表示の許諾は別審査。"
+        },
+        "redistribution": {
+          "decision": "pending",
+          "basis": "unknown",
+          "reference": null,
+          "reviewed_at": null,
+          "note": "原資料の再配布を承認しない。納品に原文全文や第三者画像は含まない。"
+        }
+      }
+    }
+  ],
+  "evidence": [
+    {
+      "key": "e1",
+      "source_key": "about",
+      "locator": "history: 2006/2007/2009/2010/2024／現在の規模",
+      "short_quote": null,
+      "context": "航空機の位置を地図で確認し、過去の航跡や追加情報を見るWeb・アプリサービス。",
+      "capture_path": null,
+      "capture_sha256": null,
+      "method": "web_read"
+    },
+    {
+      "key": "e2",
+      "source_key": "premium",
+      "locator": "Free/Silver/Gold/Business／FAQ：毎月・毎年／APIは別契約",
+      "short_quote": null,
+      "context": "航空機の位置を地図で確認し、過去の航跡や追加情報を見るWeb・アプリサービス。",
+      "capture_path": null,
+      "capture_sha256": null,
+      "method": "web_read"
+    },
+    {
+      "key": "e3",
+      "source_key": "about",
+      "locator": "history: 2006/2007/2009/2010/2024／現在の規模",
+      "short_quote": null,
+      "context": "Micke RobertssonとOlov Lindbergが2006年に受信機を置き、既存の航空券比較サイトFlygresorから始めた。",
+      "capture_path": null,
+      "capture_sha256": null,
+      "method": "web_read"
+    },
+    {
+      "key": "e4",
+      "source_key": "about",
+      "locator": "history: 2006/2007/2009/2010/2024／現在の規模",
+      "short_quote": null,
+      "context": "2007年に独立したサイトとして展開、2009年には他の受信者からデータを受け入れた。",
+      "capture_path": null,
+      "capture_sha256": null,
+      "method": "web_read"
+    },
+    {
+      "key": "e5",
+      "source_key": "about",
+      "locator": "history: 2006/2007/2009/2010/2024／現在の規模",
+      "short_quote": null,
+      "context": "2010年のアイスランド火山噴火で、止まった空の様子が国際的な注目を集めたと公式沿革で説明。",
+      "capture_path": null,
+      "capture_sha256": null,
+      "method": "web_read"
+    },
+    {
+      "key": "e6",
+      "source_key": "how",
+      "locator": "ADS-B／MLAT／satellite／radar／schedule data",
+      "short_quote": null,
+      "context": "地上受信者のADS-B信号を集める。航空機が送る識別・位置・速度・高度などの情報を受信する仕組み。",
+      "capture_path": null,
+      "capture_sha256": null,
+      "method": "web_read"
+    },
+    {
+      "key": "e7",
+      "source_key": "how",
+      "locator": "ADS-B／MLAT／satellite／radar／schedule data",
+      "short_quote": null,
+      "context": "衛星受信、レーダー、MLATなど複数のデータ源と、便や航空機に関する情報を組み合わせる。",
+      "capture_path": null,
+      "capture_sha256": null,
+      "method": "web_read"
+    },
+    {
+      "key": "e8",
+      "source_key": "contribute",
+      "locator": "3 ways to share／Contributor activation／API／停止7日後のFree移行",
+      "short_quote": null,
+      "context": "受信データを送る協力者には、専用Contributorプランを無償提供する。",
+      "capture_path": null,
+      "capture_sha256": null,
+      "method": "web_read"
+    },
+    {
+      "key": "e9",
+      "source_key": "share",
+      "locator": "既存の受信機からの送信／Contributor plan",
+      "short_quote": null,
+      "context": "受信データを送る協力者には、専用Contributorプランを無償提供する。",
+      "capture_path": null,
+      "capture_sha256": null,
+      "method": "web_read"
+    },
+    {
+      "key": "e10",
+      "source_key": "contribute",
+      "locator": "3 ways to share／Contributor activation／API／停止7日後のFree移行",
+      "short_quote": null,
+      "context": "Contributorの特典にAPI利用は含まれない。送信停止後7日以内に復旧しない場合はFreeへ戻り、再開すれば再びContributorになる。",
+      "capture_path": null,
+      "capture_sha256": null,
+      "method": "web_read"
+    },
+    {
+      "key": "e11",
+      "source_key": "contribute",
+      "locator": "3 ways to share／Contributor activation／API／停止7日後のFree移行",
+      "short_quote": null,
+      "context": "自分で受信機を用意する、既存受信機のデータを共有する、提供機材へ応募する方法がある。機材を誰にでも自動配布する制度ではない。",
+      "capture_path": null,
+      "capture_sha256": null,
+      "method": "web_read"
+    },
+    {
+      "key": "e12",
+      "source_key": "boeing",
+      "locator": "契約発表本文／Boeing側担当者発言／55,000台超",
+      "short_quote": null,
+      "context": "2025年12月の会社発表ではADS-B受信機ネットワークが55,000台超。",
+      "capture_path": null,
+      "capture_sha256": null,
+      "method": "web_read"
+    },
+    {
+      "key": "e13",
+      "source_key": "google",
+      "locator": "収益源3種類／Google Ad Manager／Open Bidding",
+      "short_quote": null,
+      "context": "収入源は広告、購読、法人向け航空データの販売と、担当者が2023年取材で説明。",
+      "capture_path": null,
+      "capture_sha256": null,
+      "method": "web_read"
+    },
+    {
+      "key": "e14",
+      "source_key": "google",
+      "locator": "収益源3種類／Google Ad Manager／Open Bidding",
+      "short_quote": null,
+      "context": "無料利用を広告で支え、広告管理にGoogle Ad Manager、複数広告経路の競争にOpen Biddingを使うと説明。",
+      "capture_path": null,
+      "capture_sha256": null,
+      "method": "web_read"
+    },
+    {
+      "key": "e15",
+      "source_key": "premium",
+      "locator": "Free/Silver/Gold/Business／FAQ：毎月・毎年／APIは別契約",
+      "short_quote": null,
+      "context": "個人向けSilver・Goldと、業務利用を含むBusinessがあり、月払いと年払いに対応。",
+      "capture_path": null,
+      "capture_sha256": null,
+      "method": "web_read"
+    },
+    {
+      "key": "e16",
+      "source_key": "premium",
+      "locator": "Free/Silver/Gold/Business／FAQ：毎月・毎年／APIは別契約",
+      "short_quote": null,
+      "context": "画面の購読とAPI契約は別。BusinessプランにもAPIは含まれない。",
+      "capture_path": null,
+      "capture_sha256": null,
+      "method": "web_read"
+    },
+    {
+      "key": "e17",
+      "source_key": "boeing",
+      "locator": "契約発表本文／Boeing側担当者発言／55,000台超",
+      "short_quote": null,
+      "context": "2025年12月22日にBoeingへ現在・過去のフライトデータを供給する契約を発表。Boeing側は機材性能・整備に関する分析を補うと説明。",
+      "capture_path": null,
+      "capture_sha256": null,
+      "method": "web_read"
+    },
+    {
+      "key": "e18",
+      "source_key": "outage",
+      "locator": "Impact on Flightradar24 service。2024-06-18更新。",
+      "short_quote": null,
+      "context": "多数の人が一便へ集中した2022年8月、負荷対策として有料購読者を優先する一時待合室を使い、着陸後に通常アクセスへ戻した。",
+      "capture_path": null,
+      "capture_sha256": null,
+      "method": "web_read"
+    },
+    {
+      "key": "e19",
+      "source_key": "outage",
+      "locator": "Impact on Flightradar24 service。2024-06-18更新。",
+      "short_quote": null,
+      "context": "その後も特に注目の集まる便に耐えるため、処理容量の改善を続けると説明。",
+      "capture_path": null,
+      "capture_sha256": null,
+      "method": "web_read"
+    },
+    {
+      "key": "e20",
+      "source_key": "about",
+      "locator": "history: 2006/2007/2009/2010/2024／現在の規模",
+      "short_quote": null,
+      "context": "サービスはStockholmを拠点とし、会社情報DBではFlightradar24 AB、組織番号556895-1213。",
+      "capture_path": null,
+      "capture_sha256": null,
+      "method": "web_read"
+    },
+    {
+      "key": "e21",
+      "source_key": "accounts",
+      "locator": "Org.nr／BOKSLUTSPERIOD／RESULTATRÄKNING：千SEK、2025-12列と2024-08列",
+      "short_quote": null,
+      "context": "サービスはStockholmを拠点とし、会社情報DBではFlightradar24 AB、組織番号556895-1213。",
+      "capture_path": null,
+      "capture_sha256": null,
+      "method": "web_read"
+    },
+    {
+      "key": "e22",
+      "source_key": "accounts",
+      "locator": "Org.nr／BOKSLUTSPERIOD／RESULTATRÄKNING：千SEK、2025-12列と2024-08列",
+      "short_quote": null,
+      "context": "2025年12月期の純売上高Nettoomsättningは7億353万SEK。",
+      "capture_path": null,
+      "capture_sha256": null,
+      "method": "web_read"
+    },
+    {
+      "key": "e23",
+      "source_key": "accounts",
+      "locator": "Org.nr／BOKSLUTSPERIOD／RESULTATRÄKNING：千SEK、2025-12列と2024-08列",
+      "short_quote": null,
+      "context": "同16か月決算の減価償却後営業利益は4億6,015万SEK。",
+      "capture_path": null,
+      "capture_sha256": null,
+      "method": "web_read"
+    },
+    {
+      "key": "e24",
+      "source_key": "accounts",
+      "locator": "Org.nr／BOKSLUTSPERIOD／RESULTATRÄKNING：千SEK、2025-12列と2024-08列",
+      "short_quote": null,
+      "context": "2024年8月期の純売上高は4億1,794万3,000SEK。",
+      "capture_path": null,
+      "capture_sha256": null,
+      "method": "web_read"
+    },
+    {
+      "key": "e25",
+      "source_key": "accounts",
+      "locator": "Org.nr／BOKSLUTSPERIOD／RESULTATRÄKNING：千SEK、2025-12列と2024-08列",
+      "short_quote": null,
+      "context": "同12か月決算の減価償却後営業利益は2億7,207万1,000SEK。",
+      "capture_path": null,
+      "capture_sha256": null,
+      "method": "web_read"
+    },
+    {
+      "key": "e26",
+      "source_key": "accounts",
+      "locator": "Org.nr／BOKSLUTSPERIOD／RESULTATRÄKNING：千SEK、2025-12列と2024-08列",
+      "short_quote": null,
+      "context": "Hittaにも同期間の営業利益など同額が載るが、双方が同じ決算に由来し得る。2つの独立した会計監査と数えない。",
+      "capture_path": null,
+      "capture_sha256": null,
+      "method": "web_read"
+    },
+    {
+      "key": "e27",
+      "source_key": "hitta",
+      "locator": "Resultaträkning(TKR)／会計期間の注記",
+      "short_quote": null,
+      "context": "Hittaにも同期間の営業利益など同額が載るが、双方が同じ決算に由来し得る。2つの独立した会計監査と数えない。",
+      "capture_path": null,
+      "capture_sha256": null,
+      "method": "web_read"
+    },
+    {
+      "key": "e28",
+      "source_key": "accounts",
+      "locator": "Org.nr／BOKSLUTSPERIOD／RESULTATRÄKNING：千SEK、2025-12列と2024-08列",
+      "short_quote": null,
+      "context": "2025-12列は16か月、2024-08列は12か月。合計額の増加をそのまま前年比成長率として出さない。",
+      "capture_path": null,
+      "capture_sha256": null,
+      "method": "web_read"
+    },
+    {
+      "key": "e29",
+      "source_key": "premium",
+      "locator": "Free/Silver/Gold/Business／FAQ：毎月・毎年／APIは別契約",
+      "short_quote": null,
+      "context": "公式料金表のプランと請求頻度は読めたが、取得本文では現在の金額を確定できなかった。",
+      "capture_path": null,
+      "capture_sha256": null,
+      "method": "web_read"
+    },
+    {
+      "key": "e30",
+      "source_key": "about",
+      "locator": "history: 2006/2007/2009/2010/2024／現在の規模",
+      "short_quote": null,
+      "context": "一般利用者が空の動きを見る用途と、Boeingが機材・整備分析へ使う用途が同じデータ事業の中にある。",
+      "capture_path": null,
+      "capture_sha256": null,
+      "method": "web_read"
+    },
+    {
+      "key": "e31",
+      "source_key": "boeing",
+      "locator": "契約発表本文／Boeing側担当者発言／55,000台超",
+      "short_quote": null,
+      "context": "一般利用者が空の動きを見る用途と、Boeingが機材・整備分析へ使う用途が同じデータ事業の中にある。",
+      "capture_path": null,
+      "capture_sha256": null,
+      "method": "web_read"
+    },
+    {
+      "key": "e32",
+      "source_key": "about",
+      "locator": "history: 2006/2007/2009/2010/2024／現在の規模",
+      "short_quote": null,
+      "context": "2024年にAPIを公開したと公式沿革に記載。",
+      "capture_path": null,
+      "capture_sha256": null,
+      "method": "web_read"
+    },
+    {
+      "key": "e33",
+      "source_key": "about",
+      "locator": "history: 2006/2007/2009/2010/2024／現在の規模",
+      "short_quote": null,
+      "context": "2006年に既存の航空券比較サイトから始めたため、完全な白紙の集客基盤からの出発ではない。",
+      "capture_path": null,
+      "capture_sha256": null,
+      "method": "web_read"
+    },
+    {
+      "key": "e34",
+      "source_key": "contribute",
+      "locator": "3 ways to share／Contributor activation／API／停止7日後のFree移行",
+      "short_quote": null,
+      "context": "地域で受信した航空データを送る",
+      "capture_path": null,
+      "capture_sha256": null,
+      "method": "web_read"
+    },
+    {
+      "key": "e35",
+      "source_key": "how",
+      "locator": "ADS-B／MLAT／satellite／radar／schedule data",
+      "short_quote": null,
+      "context": "地域で受信した航空データを送る",
+      "capture_path": null,
+      "capture_sha256": null,
+      "method": "web_read"
+    },
+    {
+      "key": "e36",
+      "source_key": "contribute",
+      "locator": "3 ways to share／Contributor activation／API／停止7日後のFree移行",
+      "short_quote": null,
+      "context": "Contributorの追加機能を提供",
+      "capture_path": null,
+      "capture_sha256": null,
+      "method": "web_read"
+    },
+    {
+      "key": "e37",
+      "source_key": "premium",
+      "locator": "Free/Silver/Gold/Business／FAQ：毎月・毎年／APIは別契約",
+      "short_quote": null,
+      "context": "有料画面の月額・年額料金",
+      "capture_path": null,
+      "capture_sha256": null,
+      "method": "web_read"
+    },
+    {
+      "key": "e38",
+      "source_key": "google",
+      "locator": "収益源3種類／Google Ad Manager／Open Bidding",
+      "short_quote": null,
+      "context": "広告表示への代金（広告基盤を介する）",
+      "capture_path": null,
+      "capture_sha256": null,
+      "method": "web_read"
+    },
+    {
+      "key": "e39",
+      "source_key": "google",
+      "locator": "収益源3種類／Google Ad Manager／Open Bidding",
+      "short_quote": null,
+      "context": "業務用フライトデータの契約代金",
+      "capture_path": null,
+      "capture_sha256": null,
+      "method": "web_read"
+    },
+    {
+      "key": "e40",
+      "source_key": "boeing",
+      "locator": "契約発表本文／Boeing側担当者発言／55,000台超",
+      "short_quote": null,
+      "context": "業務用フライトデータの契約代金",
+      "capture_path": null,
+      "capture_sha256": null,
+      "method": "web_read"
+    }
+  ],
+  "records": [
+    {
+      "key": "r1",
+      "kind": "fact",
+      "domain": "product",
+      "subject_keys": [
+        "business"
+      ],
+      "text": "航空機の位置を地図で確認し、過去の航跡や追加情報を見るWeb・アプリサービス。",
+      "origin": "observed",
+      "verification": "SUPPORTED",
+      "evidence_keys": [
+        "e1",
+        "e2"
+      ],
+      "basis_record_keys": [],
+      "time": {
+        "value": null,
+        "end": null,
+        "precision": "unknown",
+        "original": null
+      },
+      "metric": null,
+      "relationship": null,
+      "computation": null,
+      "attributes": {},
+      "notes": ""
+    },
+    {
+      "key": "r2",
+      "kind": "fact",
+      "domain": "people",
+      "subject_keys": [
+        "business"
+      ],
+      "text": "Micke RobertssonとOlov Lindbergが2006年に受信機を置き、既存の航空券比較サイトFlygresorから始めた。",
+      "origin": "reported",
+      "verification": "SUPPORTED",
+      "evidence_keys": [
+        "e3"
+      ],
+      "basis_record_keys": [],
+      "time": {
+        "value": "2006",
+        "end": null,
+        "precision": "year",
+        "original": "2006"
+      },
+      "metric": null,
+      "relationship": null,
+      "computation": null,
+      "attributes": {},
+      "notes": ""
+    },
+    {
+      "key": "r3",
+      "kind": "event",
+      "domain": "timeline_and_outcomes",
+      "subject_keys": [
+        "business"
+      ],
+      "text": "2007年に独立したサイトとして展開、2009年には他の受信者からデータを受け入れた。",
+      "origin": "reported",
+      "verification": "SUPPORTED",
+      "evidence_keys": [
+        "e4"
+      ],
+      "basis_record_keys": [],
+      "time": {
+        "value": "2007〜2009",
+        "end": null,
+        "precision": "label",
+        "original": "2007〜2009"
+      },
+      "metric": null,
+      "relationship": null,
+      "computation": null,
+      "attributes": {},
+      "notes": ""
+    },
+    {
+      "key": "r4",
+      "kind": "fact",
+      "domain": "distribution",
+      "subject_keys": [
+        "business"
+      ],
+      "text": "2010年のアイスランド火山噴火で、止まった空の様子が国際的な注目を集めたと公式沿革で説明。",
+      "origin": "reported",
+      "verification": "SUPPORTED",
+      "evidence_keys": [
+        "e5"
+      ],
+      "basis_record_keys": [],
+      "time": {
+        "value": "2010",
+        "end": null,
+        "precision": "year",
+        "original": "2010"
+      },
+      "metric": null,
+      "relationship": null,
+      "computation": null,
+      "attributes": {
+        "profile_id": "acquisition.v1",
+        "phase": "growth",
+        "actor_entity_key": "business",
+        "audience": "航空利用者・報道機関・愛好家",
+        "channel": "報道・話題化",
+        "action": "航空状況を地図で可視化",
+        "response_record_keys": [],
+        "cost_record_keys": [],
+        "causal_status": "reported_attribution"
+      },
+      "notes": ""
+    },
+    {
+      "key": "r5",
+      "kind": "fact",
+      "domain": "technology",
+      "subject_keys": [
+        "business"
+      ],
+      "text": "地上受信者のADS-B信号を集める。航空機が送る識別・位置・速度・高度などの情報を受信する仕組み。",
+      "origin": "observed",
+      "verification": "SUPPORTED",
+      "evidence_keys": [
+        "e6"
+      ],
+      "basis_record_keys": [],
+      "time": {
+        "value": "2026-10-12",
+        "end": null,
+        "precision": "day",
+        "original": "2026-10-12"
+      },
+      "metric": null,
+      "relationship": null,
+      "computation": null,
+      "attributes": {},
+      "notes": ""
+    },
+    {
+      "key": "r6",
+      "kind": "fact",
+      "domain": "operations",
+      "subject_keys": [
+        "business"
+      ],
+      "text": "衛星受信、レーダー、MLATなど複数のデータ源と、便や航空機に関する情報を組み合わせる。",
+      "origin": "observed",
+      "verification": "SUPPORTED",
+      "evidence_keys": [
+        "e7"
+      ],
+      "basis_record_keys": [],
+      "time": {
+        "value": "2026-10-12",
+        "end": null,
+        "precision": "day",
+        "original": "2026-10-12"
+      },
+      "metric": null,
+      "relationship": null,
+      "computation": null,
+      "attributes": {},
+      "notes": ""
+    },
+    {
+      "key": "r7",
+      "kind": "fact",
+      "domain": "pricing",
+      "subject_keys": [
+        "business"
+      ],
+      "text": "受信データを送る協力者には、専用Contributorプランを無償提供する。",
+      "origin": "observed",
+      "verification": "SUPPORTED",
+      "evidence_keys": [
+        "e8",
+        "e9"
+      ],
+      "basis_record_keys": [],
+      "time": {
+        "value": "2026-10-12",
+        "end": null,
+        "precision": "day",
+        "original": "2026-10-12"
+      },
+      "metric": null,
+      "relationship": null,
+      "computation": null,
+      "attributes": {},
+      "notes": ""
+    },
+    {
+      "key": "r8",
+      "kind": "fact",
+      "domain": "pricing",
+      "subject_keys": [
+        "business"
+      ],
+      "text": "Contributorの特典にAPI利用は含まれない。送信停止後7日以内に復旧しない場合はFreeへ戻り、再開すれば再びContributorになる。",
+      "origin": "observed",
+      "verification": "SUPPORTED",
+      "evidence_keys": [
+        "e10"
+      ],
+      "basis_record_keys": [],
+      "time": {
+        "value": "2026-10-12",
+        "end": null,
+        "precision": "day",
+        "original": "2026-10-12"
+      },
+      "metric": null,
+      "relationship": null,
+      "computation": null,
+      "attributes": {},
+      "notes": ""
+    },
+    {
+      "key": "r9",
+      "kind": "fact",
+      "domain": "operations",
+      "subject_keys": [
+        "business"
+      ],
+      "text": "自分で受信機を用意する、既存受信機のデータを共有する、提供機材へ応募する方法がある。機材を誰にでも自動配布する制度ではない。",
+      "origin": "observed",
+      "verification": "SUPPORTED",
+      "evidence_keys": [
+        "e11"
+      ],
+      "basis_record_keys": [],
+      "time": {
+        "value": "2026-10-12",
+        "end": null,
+        "precision": "day",
+        "original": "2026-10-12"
+      },
+      "metric": null,
+      "relationship": null,
+      "computation": null,
+      "attributes": {},
+      "notes": ""
+    },
+    {
+      "key": "r10",
+      "kind": "metric",
+      "domain": "operations",
+      "subject_keys": [
+        "business"
+      ],
+      "text": "2025年12月の会社発表ではADS-B受信機ネットワークが55,000台超。",
+      "origin": "reported",
+      "verification": "SUPPORTED",
+      "evidence_keys": [
+        "e12"
+      ],
+      "basis_record_keys": [],
+      "time": {
+        "value": "2025-12-22",
+        "end": null,
+        "precision": "day",
+        "original": "2025-12-22"
+      },
+      "metric": {
+        "measure": "RECEIVERS",
+        "definition": "2025年12月の会社発表ではADS-B受信機ネットワークが55,000台超。",
+        "value": 55000,
+        "lower": null,
+        "upper": null,
+        "operator": "gt",
+        "currency": null,
+        "unit": "台",
+        "period_kind": "point",
+        "scope": "Flightradar24 ADS-B network",
+        "denominator": null,
+        "original_label": "55000"
+      },
+      "relationship": null,
+      "computation": null,
+      "attributes": {},
+      "notes": "顧客数や自社保有機材数と同じではない。現在の50,000+表示との間から減少率を作らない。"
+    },
+    {
+      "key": "r11",
+      "kind": "fact",
+      "domain": "money_and_economics",
+      "subject_keys": [
+        "business"
+      ],
+      "text": "収入源は広告、購読、法人向け航空データの販売と、担当者が2023年取材で説明。",
+      "origin": "reported",
+      "verification": "SUPPORTED",
+      "evidence_keys": [
+        "e13"
+      ],
+      "basis_record_keys": [],
+      "time": {
+        "value": "2023",
+        "end": null,
+        "precision": "year",
+        "original": "2023"
+      },
+      "metric": null,
+      "relationship": null,
+      "computation": null,
+      "attributes": {},
+      "notes": ""
+    },
+    {
+      "key": "r12",
+      "kind": "fact",
+      "domain": "technology",
+      "subject_keys": [
+        "business"
+      ],
+      "text": "無料利用を広告で支え、広告管理にGoogle Ad Manager、複数広告経路の競争にOpen Biddingを使うと説明。",
+      "origin": "reported",
+      "verification": "SUPPORTED",
+      "evidence_keys": [
+        "e14"
+      ],
+      "basis_record_keys": [],
+      "time": {
+        "value": "2023",
+        "end": null,
+        "precision": "year",
+        "original": "2023"
+      },
+      "metric": null,
+      "relationship": null,
+      "computation": null,
+      "attributes": {},
+      "notes": ""
+    },
+    {
+      "key": "r13",
+      "kind": "fact",
+      "domain": "pricing",
+      "subject_keys": [
+        "business"
+      ],
+      "text": "個人向けSilver・Goldと、業務利用を含むBusinessがあり、月払いと年払いに対応。",
+      "origin": "observed",
+      "verification": "SUPPORTED",
+      "evidence_keys": [
+        "e15"
+      ],
+      "basis_record_keys": [],
+      "time": {
+        "value": "2026-10-12",
+        "end": null,
+        "precision": "day",
+        "original": "2026-10-12"
+      },
+      "metric": null,
+      "relationship": null,
+      "computation": null,
+      "attributes": {
+        "profile_id": "offer.v1",
+        "product_entity_key": "map",
+        "payer_entity_key": "viewer",
+        "charge_basis": "subscription",
+        "billing_interval": "月または年",
+        "service_unit": "閲覧画面の機能",
+        "price_record_keys": [],
+        "region": null,
+        "conditions": [
+          "APIは別契約",
+          "7日試用後に課金",
+          "現行の表示金額は未取得"
+        ],
+        "share_record_keys": []
+      },
+      "notes": ""
+    },
+    {
+      "key": "r14",
+      "kind": "fact",
+      "domain": "pricing",
+      "subject_keys": [
+        "business"
+      ],
+      "text": "画面の購読とAPI契約は別。BusinessプランにもAPIは含まれない。",
+      "origin": "observed",
+      "verification": "SUPPORTED",
+      "evidence_keys": [
+        "e16"
+      ],
+      "basis_record_keys": [],
+      "time": {
+        "value": "2026-10-12",
+        "end": null,
+        "precision": "day",
+        "original": "2026-10-12"
+      },
+      "metric": null,
+      "relationship": null,
+      "computation": null,
+      "attributes": {},
+      "notes": ""
+    },
+    {
+      "key": "r15",
+      "kind": "event",
+      "domain": "customer_and_demand",
+      "subject_keys": [
+        "business"
+      ],
+      "text": "2025年12月22日にBoeingへ現在・過去のフライトデータを供給する契約を発表。Boeing側は機材性能・整備に関する分析を補うと説明。",
+      "origin": "reported",
+      "verification": "SUPPORTED",
+      "evidence_keys": [
+        "e17"
+      ],
+      "basis_record_keys": [],
+      "time": {
+        "value": "2025-12-22",
+        "end": null,
+        "precision": "day",
+        "original": "2025-12-22"
+      },
+      "metric": null,
+      "relationship": null,
+      "computation": null,
+      "attributes": {
+        "profile_id": "market_observation.v1",
+        "signal_type": "request",
+        "observed_object": "Boeingへのフライトデータ供給契約",
+        "geography": "法人の業務利用。契約地域の範囲は不明",
+        "population": "公表された1契約",
+        "sample_n": null,
+        "subgroup_n": null,
+        "question_text": null,
+        "method": "供給者の契約発表、購入者担当者のコメント",
+        "normalization": "なし",
+        "comparison_time": null,
+        "metric_record_keys": [],
+        "source_family_keys": [
+          "flightradar24-boeing"
+        ],
+        "direction": "unknown",
+        "limits": [
+          "金額・開始日・受注全体は不明",
+          "業界の契約増加率ではない"
+        ],
+        "query_context": {}
+      },
+      "notes": "供給価格・契約額・収益計上時期は発表なし。"
+    },
+    {
+      "key": "r16",
+      "kind": "event",
+      "domain": "timeline_and_outcomes",
+      "subject_keys": [
+        "business"
+      ],
+      "text": "多数の人が一便へ集中した2022年8月、負荷対策として有料購読者を優先する一時待合室を使い、着陸後に通常アクセスへ戻した。",
+      "origin": "reported",
+      "verification": "SUPPORTED",
+      "evidence_keys": [
+        "e18"
+      ],
+      "basis_record_keys": [],
+      "time": {
+        "value": "2022-08-02",
+        "end": null,
+        "precision": "day",
+        "original": "2022-08-02"
+      },
+      "metric": null,
+      "relationship": null,
+      "computation": null,
+      "attributes": {},
+      "notes": ""
+    },
+    {
+      "key": "r17",
+      "kind": "fact",
+      "domain": "operations",
+      "subject_keys": [
+        "business"
+      ],
+      "text": "その後も特に注目の集まる便に耐えるため、処理容量の改善を続けると説明。",
+      "origin": "reported",
+      "verification": "SUPPORTED",
+      "evidence_keys": [
+        "e19"
+      ],
+      "basis_record_keys": [],
+      "time": {
+        "value": "2022-08-02",
+        "end": null,
+        "precision": "day",
+        "original": "2022-08-02"
+      },
+      "metric": null,
+      "relationship": null,
+      "computation": null,
+      "attributes": {},
+      "notes": ""
+    },
+    {
+      "key": "r18",
+      "kind": "fact",
+      "domain": "identity",
+      "subject_keys": [
+        "business"
+      ],
+      "text": "サービスはStockholmを拠点とし、会社情報DBではFlightradar24 AB、組織番号556895-1213。",
+      "origin": "reported",
+      "verification": "SUPPORTED",
+      "evidence_keys": [
+        "e20",
+        "e21"
+      ],
+      "basis_record_keys": [],
+      "time": {
+        "value": "2026-10-12",
+        "end": null,
+        "precision": "day",
+        "original": "2026-10-12"
+      },
+      "metric": null,
+      "relationship": null,
+      "computation": null,
+      "attributes": {},
+      "notes": ""
+    },
+    {
+      "key": "r19",
+      "kind": "metric",
+      "domain": "money_and_economics",
+      "subject_keys": [
+        "business"
+      ],
+      "text": "2025年12月期の純売上高Nettoomsättningは7億353万SEK。",
+      "origin": "reported",
+      "verification": "SUPPORTED",
+      "evidence_keys": [
+        "e22"
+      ],
+      "basis_record_keys": [],
+      "time": {
+        "value": "2024-09-01",
+        "end": "2025-12-31",
+        "precision": "range",
+        "original": "2024-09-01〜2025-12-31（16か月）"
+      },
+      "metric": {
+        "measure": "NET_TURNOVER",
+        "definition": "2025年12月期の純売上高Nettoomsättningは7億353万SEK。",
+        "value": 703530000,
+        "lower": null,
+        "upper": null,
+        "operator": "exact",
+        "currency": "SEK",
+        "unit": "SEK",
+        "period_kind": "fiscal_year",
+        "scope": "Flightradar24 AB / Allabolag転載",
+        "denominator": null,
+        "original_label": "703530000"
+      },
+      "relationship": null,
+      "computation": null,
+      "attributes": {},
+      "notes": "原表は千SEK単位。単位展開した数値。原本未照合、第三者転載。比較期間長が異なる。連結全体や創業者の手取りではない。"
+    },
+    {
+      "key": "r20",
+      "kind": "metric",
+      "domain": "money_and_economics",
+      "subject_keys": [
+        "business"
+      ],
+      "text": "同16か月決算の減価償却後営業利益は4億6,015万SEK。",
+      "origin": "reported",
+      "verification": "SUPPORTED",
+      "evidence_keys": [
+        "e23"
+      ],
+      "basis_record_keys": [],
+      "time": {
+        "value": "2024-09-01",
+        "end": "2025-12-31",
+        "precision": "range",
+        "original": "2024-09-01〜2025-12-31（16か月）"
+      },
+      "metric": {
+        "measure": "OPERATING_INCOME",
+        "definition": "同16か月決算の減価償却後営業利益は4億6,015万SEK。",
+        "value": 460150000,
+        "lower": null,
+        "upper": null,
+        "operator": "exact",
+        "currency": "SEK",
+        "unit": "SEK",
+        "period_kind": "fiscal_year",
+        "scope": "Flightradar24 AB / Allabolag転載",
+        "denominator": null,
+        "original_label": "460150000"
+      },
+      "relationship": null,
+      "computation": null,
+      "attributes": {},
+      "notes": "原表は千SEK単位。単位展開した数値。原本未照合、第三者転載。比較期間長が異なる。連結全体や創業者の手取りではない。"
+    },
+    {
+      "key": "r21",
+      "kind": "metric",
+      "domain": "money_and_economics",
+      "subject_keys": [
+        "business"
+      ],
+      "text": "2024年8月期の純売上高は4億1,794万3,000SEK。",
+      "origin": "reported",
+      "verification": "SUPPORTED",
+      "evidence_keys": [
+        "e24"
+      ],
+      "basis_record_keys": [],
+      "time": {
+        "value": "2023-09-01",
+        "end": "2024-08-31",
+        "precision": "range",
+        "original": "2023-09-01〜2024-08-31（12か月）"
+      },
+      "metric": {
+        "measure": "NET_TURNOVER",
+        "definition": "2024年8月期の純売上高は4億1,794万3,000SEK。",
+        "value": 417943000,
+        "lower": null,
+        "upper": null,
+        "operator": "exact",
+        "currency": "SEK",
+        "unit": "SEK",
+        "period_kind": "fiscal_year",
+        "scope": "Flightradar24 AB / Allabolag転載",
+        "denominator": null,
+        "original_label": "417943000"
+      },
+      "relationship": null,
+      "computation": null,
+      "attributes": {},
+      "notes": "原表は千SEK単位。単位展開した数値。原本未照合、第三者転載。比較期間長が異なる。連結全体や創業者の手取りではない。"
+    },
+    {
+      "key": "r22",
+      "kind": "metric",
+      "domain": "money_and_economics",
+      "subject_keys": [
+        "business"
+      ],
+      "text": "同12か月決算の減価償却後営業利益は2億7,207万1,000SEK。",
+      "origin": "reported",
+      "verification": "SUPPORTED",
+      "evidence_keys": [
+        "e25"
+      ],
+      "basis_record_keys": [],
+      "time": {
+        "value": "2023-09-01",
+        "end": "2024-08-31",
+        "precision": "range",
+        "original": "2023-09-01〜2024-08-31（12か月）"
+      },
+      "metric": {
+        "measure": "OPERATING_INCOME",
+        "definition": "同12か月決算の減価償却後営業利益は2億7,207万1,000SEK。",
+        "value": 272071000,
+        "lower": null,
+        "upper": null,
+        "operator": "exact",
+        "currency": "SEK",
+        "unit": "SEK",
+        "period_kind": "fiscal_year",
+        "scope": "Flightradar24 AB / Allabolag転載",
+        "denominator": null,
+        "original_label": "272071000"
+      },
+      "relationship": null,
+      "computation": null,
+      "attributes": {},
+      "notes": "原表は千SEK単位。単位展開した数値。原本未照合、第三者転載。比較期間長が異なる。連結全体や創業者の手取りではない。"
+    },
+    {
+      "key": "r23",
+      "kind": "observation",
+      "domain": "provenance_rights_and_uncertainty",
+      "subject_keys": [
+        "business"
+      ],
+      "text": "Hittaにも同期間の営業利益など同額が載るが、双方が同じ決算に由来し得る。2つの独立した会計監査と数えない。",
+      "origin": "observed",
+      "verification": "SUPPORTED",
+      "evidence_keys": [
+        "e26",
+        "e27"
+      ],
+      "basis_record_keys": [],
+      "time": {
+        "value": null,
+        "end": null,
+        "precision": "unknown",
+        "original": null
+      },
+      "metric": null,
+      "relationship": null,
+      "computation": null,
+      "attributes": {},
+      "notes": ""
+    },
+    {
+      "key": "r24",
+      "kind": "observation",
+      "domain": "provenance_rights_and_uncertainty",
+      "subject_keys": [
+        "business"
+      ],
+      "text": "2025-12列は16か月、2024-08列は12か月。合計額の増加をそのまま前年比成長率として出さない。",
+      "origin": "observed",
+      "verification": "SUPPORTED",
+      "evidence_keys": [
+        "e28"
+      ],
+      "basis_record_keys": [],
+      "time": {
+        "value": null,
+        "end": null,
+        "precision": "unknown",
+        "original": null
+      },
+      "metric": null,
+      "relationship": null,
+      "computation": null,
+      "attributes": {},
+      "notes": ""
+    },
+    {
+      "key": "r25",
+      "kind": "observation",
+      "domain": "provenance_rights_and_uncertainty",
+      "subject_keys": [
+        "business"
+      ],
+      "text": "公式料金表のプランと請求頻度は読めたが、取得本文では現在の金額を確定できなかった。",
+      "origin": "observed",
+      "verification": "SUPPORTED",
+      "evidence_keys": [
+        "e29"
+      ],
+      "basis_record_keys": [],
+      "time": {
+        "value": "2026-10-12",
+        "end": null,
+        "precision": "day",
+        "original": "2026-10-12"
+      },
+      "metric": null,
+      "relationship": null,
+      "computation": null,
+      "attributes": {},
+      "notes": ""
+    },
+    {
+      "key": "r26",
+      "kind": "fact",
+      "domain": "customer_and_demand",
+      "subject_keys": [
+        "business"
+      ],
+      "text": "一般利用者が空の動きを見る用途と、Boeingが機材・整備分析へ使う用途が同じデータ事業の中にある。",
+      "origin": "reported",
+      "verification": "SUPPORTED",
+      "evidence_keys": [
+        "e30",
+        "e31"
+      ],
+      "basis_record_keys": [],
+      "time": {
+        "value": null,
+        "end": null,
+        "precision": "unknown",
+        "original": null
+      },
+      "metric": null,
+      "relationship": null,
+      "computation": null,
+      "attributes": {},
+      "notes": ""
+    },
+    {
+      "key": "a1",
+      "kind": "analysis",
+      "domain": "operations",
+      "subject_keys": [
+        "business"
+      ],
+      "text": "データが欲しい利用者の一部に、データを集める役も担ってもらう。地域ごとの受信を集約し、参加の見返りとして機能を提供する構造。",
+      "origin": "inferred",
+      "verification": "SUPPORTED",
+      "evidence_keys": [],
+      "basis_record_keys": [
+        "r5",
+        "r7",
+        "r8",
+        "r9"
+      ],
+      "time": {
+        "value": null,
+        "end": null,
+        "precision": "unknown",
+        "original": null
+      },
+      "metric": null,
+      "relationship": null,
+      "computation": null,
+      "attributes": {
+        "profile_id": "business_pattern.v1",
+        "candidate_title": "利用者にデータ供給へ参加する特典を渡す",
+        "case_entity_keys": [
+          "business"
+        ],
+        "mapping": [
+          {
+            "entity_key": "business",
+            "record_keys": [
+              "r5",
+              "r7",
+              "r8",
+              "r9"
+            ]
+          }
+        ],
+        "shared_structure": "データが欲しい利用者の一部に、データを集める役も担ってもらう。地域ごとの受信を集約し、参加の見返りとして機能を提供する構造。",
+        "differences": [],
+        "conditions": [
+          "この事例で確認された製品・提供条件に限る"
+        ],
+        "counterexamples": [],
+        "scope_limit": "1事例内の構造を整理した候補。事例横断の頻度・市場成長・成功確率は未計測。",
+        "verification_record_keys": [
+          "r5",
+          "r7",
+          "r8",
+          "r9"
+        ]
+      },
+      "notes": ""
+    },
+    {
+      "key": "a2",
+      "kind": "analysis",
+      "domain": "pricing",
+      "subject_keys": [
+        "business"
+      ],
+      "text": "同じ基礎データを、無料の閲覧、詳しく調べる有料画面、業務システムへ渡すデータとして売り分ける。利用目的により支払者と納品物が変わる。",
+      "origin": "inferred",
+      "verification": "SUPPORTED",
+      "evidence_keys": [],
+      "basis_record_keys": [
+        "r1",
+        "r11",
+        "r13",
+        "r14",
+        "r15"
+      ],
+      "time": {
+        "value": null,
+        "end": null,
+        "precision": "unknown",
+        "original": null
+      },
+      "metric": null,
+      "relationship": null,
+      "computation": null,
+      "attributes": {},
+      "notes": ""
+    },
+    {
+      "key": "a3",
+      "kind": "analysis",
+      "domain": "operations",
+      "subject_keys": [
+        "business"
+      ],
+      "text": "参加者が受信してくれても、データの統合・補完・安定配信は運営側に残る。受信機を自社で全て持たないことと、原価ゼロは同じではない。",
+      "origin": "inferred",
+      "verification": "SUPPORTED",
+      "evidence_keys": [],
+      "basis_record_keys": [
+        "r5",
+        "r6",
+        "r9",
+        "r16",
+        "r17"
+      ],
+      "time": {
+        "value": null,
+        "end": null,
+        "precision": "unknown",
+        "original": null
+      },
+      "metric": null,
+      "relationship": null,
+      "computation": null,
+      "attributes": {},
+      "notes": ""
+    },
+    {
+      "key": "r27",
+      "kind": "event",
+      "domain": "timeline_and_outcomes",
+      "subject_keys": [
+        "business"
+      ],
+      "text": "2024年にAPIを公開したと公式沿革に記載。",
+      "origin": "reported",
+      "verification": "SUPPORTED",
+      "evidence_keys": [
+        "e32"
+      ],
+      "basis_record_keys": [],
+      "time": {
+        "value": "2024",
+        "end": null,
+        "precision": "year",
+        "original": "2024"
+      },
+      "metric": null,
+      "relationship": null,
+      "computation": null,
+      "attributes": {},
+      "notes": ""
+    },
+    {
+      "key": "r28",
+      "kind": "fact",
+      "domain": "distribution",
+      "subject_keys": [
+        "business"
+      ],
+      "text": "2006年に既存の航空券比較サイトから始めたため、完全な白紙の集客基盤からの出発ではない。",
+      "origin": "reported",
+      "verification": "SUPPORTED",
+      "evidence_keys": [
+        "e33"
+      ],
+      "basis_record_keys": [],
+      "time": {
+        "value": "2006",
+        "end": null,
+        "precision": "year",
+        "original": "2006"
+      },
+      "metric": null,
+      "relationship": null,
+      "computation": null,
+      "attributes": {},
+      "notes": ""
+    },
+    {
+      "key": "u1",
+      "kind": "fact",
+      "domain": "distribution",
+      "subject_keys": [
+        "business"
+      ],
+      "text": "最初の有料契約者、初期の契約額、当時の広告獲得費は今回確認できなかった。",
+      "origin": "unknown",
+      "verification": "UNVERIFIED",
+      "evidence_keys": [],
+      "basis_record_keys": [],
+      "time": {
+        "value": null,
+        "end": null,
+        "precision": "unknown",
+        "original": null
+      },
+      "metric": null,
+      "relationship": null,
+      "computation": null,
+      "attributes": {
+        "attempts": [
+          "Flightradar24 founders first customers revenue検索",
+          "about沿革、Google担当者取材"
+        ]
+      },
+      "notes": "未公表と断定せず、今回の確認範囲で不明。表示を埋めるための推定はしない。"
+    },
+    {
+      "key": "u2",
+      "kind": "fact",
+      "domain": "pricing",
+      "subject_keys": [
+        "business"
+      ],
+      "text": "現在のプラン金額、API単価は今回の取得結果では未確定。",
+      "origin": "unknown",
+      "verification": "UNVERIFIED",
+      "evidence_keys": [],
+      "basis_record_keys": [],
+      "time": {
+        "value": null,
+        "end": null,
+        "precision": "unknown",
+        "original": null
+      },
+      "metric": null,
+      "relationship": null,
+      "computation": null,
+      "attributes": {
+        "attempts": [
+          "premium本文は料金欠落",
+          "fr24api pricing openエラー"
+        ]
+      },
+      "notes": "未公表と断定せず、今回の確認範囲で不明。表示を埋めるための推定はしない。"
+    },
+    {
+      "key": "u3",
+      "kind": "fact",
+      "domain": "money_and_economics",
+      "subject_keys": [
+        "business"
+      ],
+      "text": "署名済み決算原本、2026年実績、売上の広告・購読・法人別内訳、初期費用、機材維持費の詳細は未確認。",
+      "origin": "unknown",
+      "verification": "UNVERIFIED",
+      "evidence_keys": [],
+      "basis_record_keys": [],
+      "time": {
+        "value": null,
+        "end": null,
+        "precision": "unknown",
+        "original": null
+      },
+      "metric": null,
+      "relationship": null,
+      "computation": null,
+      "attributes": {
+        "attempts": [
+          "Flightradar24 AB årsredovisning omsättning resultat 2025検索",
+          "Allabolag/Hitta掲載表確認。原本リンクの実データ未取得。"
+        ]
+      },
+      "notes": "未公表と断定せず、今回の確認範囲で不明。表示を埋めるための推定はしない。"
+    },
+    {
+      "key": "u4",
+      "kind": "fact",
+      "domain": "people",
+      "subject_keys": [
+        "business"
+      ],
+      "text": "現在の詳細なチーム人数と自社インフラ構成・単位原価は未確認。",
+      "origin": "unknown",
+      "verification": "UNVERIFIED",
+      "evidence_keys": [],
+      "basis_record_keys": [],
+      "time": {
+        "value": null,
+        "end": null,
+        "precision": "unknown",
+        "original": null
+      },
+      "metric": null,
+      "relationship": null,
+      "computation": null,
+      "attributes": {
+        "attempts": [
+          "公式About/How it works/B2B契約を確認"
+        ]
+      },
+      "notes": "未公表と断定せず、今回の確認範囲で不明。表示を埋めるための推定はしない。"
+    },
+    {
+      "key": "rel1",
+      "kind": "relationship",
+      "domain": "product",
+      "subject_keys": [
+        "business"
+      ],
+      "text": "地域で受信した航空データを送る",
+      "origin": "reported",
+      "verification": "SUPPORTED",
+      "evidence_keys": [
+        "e34",
+        "e35"
+      ],
+      "basis_record_keys": [],
+      "time": {
+        "value": null,
+        "end": null,
+        "precision": "unknown",
+        "original": null
+      },
+      "metric": null,
+      "relationship": {
+        "from_key": "contributor",
+        "to_key": "business",
+        "kind": "information",
+        "label": "地域で受信した航空データを送る"
+      },
+      "computation": null,
+      "attributes": {},
+      "notes": ""
+    },
+    {
+      "key": "rel2",
+      "kind": "relationship",
+      "domain": "product",
+      "subject_keys": [
+        "business"
+      ],
+      "text": "Contributorの追加機能を提供",
+      "origin": "reported",
+      "verification": "SUPPORTED",
+      "evidence_keys": [
+        "e36"
+      ],
+      "basis_record_keys": [],
+      "time": {
+        "value": null,
+        "end": null,
+        "precision": "unknown",
+        "original": null
+      },
+      "metric": null,
+      "relationship": {
+        "from_key": "business",
+        "to_key": "contributor",
+        "kind": "information",
+        "label": "Contributorの追加機能を提供"
+      },
+      "computation": null,
+      "attributes": {},
+      "notes": ""
+    },
+    {
+      "key": "rel3",
+      "kind": "relationship",
+      "domain": "pricing",
+      "subject_keys": [
+        "business"
+      ],
+      "text": "有料画面の月額・年額料金",
+      "origin": "reported",
+      "verification": "SUPPORTED",
+      "evidence_keys": [
+        "e37"
+      ],
+      "basis_record_keys": [],
+      "time": {
+        "value": null,
+        "end": null,
+        "precision": "unknown",
+        "original": null
+      },
+      "metric": null,
+      "relationship": {
+        "from_key": "viewer",
+        "to_key": "business",
+        "kind": "money",
+        "label": "有料画面の月額・年額料金"
+      },
+      "computation": null,
+      "attributes": {
+        "profile_id": "money_flow.v1",
+        "from_entity_key": "viewer",
+        "to_entity_key": "business",
+        "purpose": "有料画面の月額・年額料金",
+        "money_kind": "sale",
+        "amount_record_keys": [],
+        "timing": "プラン・注文・契約による",
+        "product_record_keys": [
+          "r1"
+        ]
+      },
+      "notes": ""
+    },
+    {
+      "key": "rel4",
+      "kind": "relationship",
+      "domain": "pricing",
+      "subject_keys": [
+        "business"
+      ],
+      "text": "広告表示への代金（広告基盤を介する）",
+      "origin": "reported",
+      "verification": "SUPPORTED",
+      "evidence_keys": [
+        "e38"
+      ],
+      "basis_record_keys": [],
+      "time": {
+        "value": null,
+        "end": null,
+        "precision": "unknown",
+        "original": null
+      },
+      "metric": null,
+      "relationship": {
+        "from_key": "advertiser",
+        "to_key": "business",
+        "kind": "money",
+        "label": "広告表示への代金（広告基盤を介する）"
+      },
+      "computation": null,
+      "attributes": {
+        "profile_id": "money_flow.v1",
+        "from_entity_key": "advertiser",
+        "to_entity_key": "business",
+        "purpose": "広告表示への代金（広告基盤を介する）",
+        "money_kind": "sale",
+        "amount_record_keys": [],
+        "timing": "プラン・注文・契約による",
+        "product_record_keys": [
+          "r1"
+        ]
+      },
+      "notes": ""
+    },
+    {
+      "key": "rel5",
+      "kind": "relationship",
+      "domain": "pricing",
+      "subject_keys": [
+        "business"
+      ],
+      "text": "業務用フライトデータの契約代金",
+      "origin": "reported",
+      "verification": "SUPPORTED",
+      "evidence_keys": [
+        "e39",
+        "e40"
+      ],
+      "basis_record_keys": [],
+      "time": {
+        "value": null,
+        "end": null,
+        "precision": "unknown",
+        "original": null
+      },
+      "metric": null,
+      "relationship": {
+        "from_key": "databuyer",
+        "to_key": "business",
+        "kind": "money",
+        "label": "業務用フライトデータの契約代金"
+      },
+      "computation": null,
+      "attributes": {
+        "profile_id": "money_flow.v1",
+        "from_entity_key": "databuyer",
+        "to_entity_key": "business",
+        "purpose": "業務用フライトデータの契約代金",
+        "money_kind": "sale",
+        "amount_record_keys": [],
+        "timing": "プラン・注文・契約による",
+        "product_record_keys": [
+          "r1"
+        ]
+      },
+      "notes": ""
+    },
+    {
+      "key": "layout-fr24-data",
+      "kind": "analysis",
+      "domain": "product",
+      "subject_keys": [
+        "business"
+      ],
+      "text": "図版「分散した受信から何を商品にするか」の構成指定。",
+      "origin": "inferred",
+      "verification": "SUPPORTED",
+      "evidence_keys": [],
+      "basis_record_keys": [
+        "r5",
+        "r6",
+        "r7",
+        "r8",
+        "r9",
+        "a1",
+        "a3"
+      ],
+      "time": {
+        "value": null,
+        "end": null,
+        "precision": "unknown",
+        "original": null
+      },
+      "metric": null,
+      "relationship": null,
+      "computation": null,
+      "attributes": {
+        "profile_id": "untyped_extension.v1",
+        "concept": "evidence_linked_visual_spec",
+        "description": "本文と同じ根拠を使い、表示部品またはSVG/PNGへ渡す図の仕様",
+        "payload": {
+          "template": "sequence",
+          "nodes": [
+            [
+              "各地で受信する",
+              "航空機の信号を共有する",
+              "receiver"
+            ],
+            [
+              "統合・補完する",
+              "衛星・レーダー等も組み合わせる",
+              "server"
+            ],
+            [
+              "目的別に提供する",
+              "閲覧画面／業務用データ",
+              "map"
+            ]
+          ],
+          "edge_kinds": [
+            "information",
+            "information"
+          ],
+          "additional_relation": "operator -> contributor: features, not API",
+          "not_proportional": true
+        },
+        "proposed_mapping": "product visual renderer"
+      },
+      "notes": "図の設計情報。追加の企業事実ではない。"
+    },
+    {
+      "key": "layout-fr24-revenues",
+      "kind": "analysis",
+      "domain": "product",
+      "subject_keys": [
+        "business"
+      ],
+      "text": "図版「誰が何に料金を支払うのか」の構成指定。",
+      "origin": "inferred",
+      "verification": "SUPPORTED",
+      "evidence_keys": [],
+      "basis_record_keys": [
+        "r11",
+        "r12",
+        "r13",
+        "r14",
+        "r15",
+        "rel3",
+        "rel4",
+        "rel5"
+      ],
+      "time": {
+        "value": null,
+        "end": null,
+        "precision": "unknown",
+        "original": null
+      },
+      "metric": null,
+      "relationship": null,
+      "computation": null,
+      "attributes": {
+        "profile_id": "untyped_extension.v1",
+        "concept": "evidence_linked_visual_spec",
+        "description": "本文と同じ根拠を使い、表示部品またはSVG/PNGへ渡す図の仕様",
+        "payload": {
+          "template": "payments",
+          "rows": [
+            [
+              "広告主",
+              "Flightradar24",
+              "広告枠の代金",
+              "money",
+              "無料閲覧者へ広告を届ける"
+            ],
+            [
+              "有料の閲覧者",
+              "Flightradar24",
+              "画面の購読料",
+              "money",
+              "詳しい表示・履歴など"
+            ],
+            [
+              "航空データの顧客",
+              "Flightradar24",
+              "データ供給の契約料",
+              "money",
+              "API・契約に基づく供給"
+            ]
+          ],
+          "unknown_revenue_shares": true
+        },
+        "proposed_mapping": "product visual renderer"
+      },
+      "notes": "図の設計情報。追加の企業事実ではない。"
+    }
+  ],
+  "article_state": "ready_for_review",
+  "article": {
+    "language": "ja",
+    "title": "Flightradar24｜地上の受信者をつなぎ、飛行機の動きを商品にする",
+    "list_line": "データを送る人に特典を渡し、広告・有料画面・法人販売で稼ぐ。",
+    "headline_record_keys": [
+      "r1",
+      "r7",
+      "r11"
+    ],
+    "overview": [
+      {
+        "text": "Flightradar24では、地図に表示された飛行機の位置や航跡を調べられる。その裏側には、地上の受信者から届く信号と、衛星やレーダーなどを組み合わせる仕組みがある。受信データを提供する人には専用の機能を無償で渡し、集めた情報を閲覧と業務用データに使う。",
+        "record_keys": [
+          "r1",
+          "r5",
+          "r6",
+          "r7"
+        ],
+        "interpretation": false
+      },
+      {
+        "text": "収入は広告、画面の購読、法人へのデータ販売。2025年12月にはBoeingへの供給契約も発表した。一般の人が飛行機を見るサービスが、専門家の分析へデータを渡す商売にもなっている。",
+        "record_keys": [
+          "r11",
+          "r15",
+          "a2"
+        ],
+        "interpretation": true
+      }
+    ],
+    "key_record_keys": [
+      "r10",
+      "r19",
+      "r20"
+    ],
+    "gallery_visual_keys": [
+      "fr24-data",
+      "fr24-revenues"
+    ],
+    "sections": [
+      {
+        "id": "insight",
+        "title": "目の付け所・買われる理由",
+        "lead": {
+          "text": "地域ごとに観測する人と、世界の動きを見たい人をつないだ。",
+          "record_keys": [
+            "a1"
+          ],
+          "interpretation": true
+        },
+        "blocks": [
+          {
+            "key": "b1",
+            "type": "text",
+            "title": "「見る人」の一部に「集める人」になってもらう",
+            "record_keys": [
+              "r5",
+              "r7",
+              "a1"
+            ],
+            "paragraphs": [
+              {
+                "text": "地上で航空機の信号を受信し、そのデータを送る人を募っている。参加するとContributorの追加機能を使える。受信協力への見返りとして、見たい情報を使いやすくする機能を返す。各地域からの情報を、ひとつのサービスへまとめる構造だ。",
+                "record_keys": [
+                  "r5",
+                  "r7",
+                  "a1"
+                ],
+                "interpretation": true
+              }
+            ]
+          },
+          {
+            "key": "b2",
+            "type": "text",
+            "title": "同じデータでも、欲しい形は違う",
+            "record_keys": [
+              "r26",
+              "a2"
+            ],
+            "paragraphs": [
+              {
+                "text": "一般の利用者は地図や過去の航跡を見たい。一方、Boeingの発表は機材性能や整備に関する分析を用途に挙げる。前者には画面、後者には自社の分析へ使えるデータを提供する。支払う相手を増やすために、同じものを全員へ同じ形で売っているわけではない。",
+                "record_keys": [
+                  "r26",
+                  "a2"
+                ],
+                "interpretation": true
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "money",
+        "title": "稼ぎ方",
+        "lead": {
+          "text": "広告・購読・法人データ。画面の契約をしても、APIは別の商品である。",
+          "record_keys": [
+            "r11",
+            "r14"
+          ],
+          "interpretation": false
+        },
+        "blocks": [
+          {
+            "key": "b3",
+            "type": "table",
+            "title": "誰が何に支払うか",
+            "record_keys": [
+              "r11",
+              "r12",
+              "r13",
+              "r14",
+              "r15"
+            ],
+            "columns": [
+              "支払者",
+              "対価",
+              "契約の区別"
+            ],
+            "rows": [
+              [
+                {
+                  "text": "広告主",
+                  "record_keys": [
+                    "r11"
+                  ],
+                  "interpretation": false
+                },
+                {
+                  "text": "無料閲覧者へ届く広告",
+                  "record_keys": [
+                    "r11",
+                    "r12"
+                  ],
+                  "interpretation": false
+                },
+                {
+                  "text": "広告基盤を通じた取引",
+                  "record_keys": [
+                    "r12"
+                  ],
+                  "interpretation": false
+                }
+              ],
+              [
+                {
+                  "text": "詳しく調べる利用者",
+                  "record_keys": [
+                    "r13"
+                  ],
+                  "interpretation": false
+                },
+                {
+                  "text": "Silver・Gold・Businessの機能",
+                  "record_keys": [
+                    "r13"
+                  ],
+                  "interpretation": false
+                },
+                {
+                  "text": "月払い・年払い。APIは含まない。",
+                  "record_keys": [
+                    "r13",
+                    "r14"
+                  ],
+                  "interpretation": false
+                }
+              ],
+              [
+                {
+                  "text": "航空会社・メーカーなど",
+                  "record_keys": [
+                    "r15"
+                  ],
+                  "interpretation": false
+                },
+                {
+                  "text": "現在・過去のフライトデータ",
+                  "record_keys": [
+                    "r15"
+                  ],
+                  "interpretation": false
+                },
+                {
+                  "text": "個別のデータ供給。Boeingの契約額は非記載。",
+                  "record_keys": [
+                    "r15"
+                  ],
+                  "interpretation": false
+                }
+              ]
+            ],
+            "caption": null
+          },
+          {
+            "key": "b4",
+            "type": "text",
+            "title": "直近の掲載決算は、12か月ではなく16か月分",
+            "record_keys": [
+              "r19",
+              "r20",
+              "r24"
+            ],
+            "paragraphs": [
+              {
+                "text": "企業情報DBのAllabolagには、2024年9月から2025年12月までの純売上高が7億353万スウェーデンクローナ、営業利益が4億6,015万クローナとある。前の決算は12か月分なので、合計額の差をそのまま前年比成長率にできない。ここで掲載するのは第三者DBの転載値で、決算原本は未照合である。",
+                "record_keys": [
+                  "r19",
+                  "r20",
+                  "r24"
+                ],
+                "interpretation": false
+              }
+            ]
+          },
+          {
+            "key": "visual-fr24-revenues",
+            "type": "visual",
+            "title": null,
+            "record_keys": [
+              "r11",
+              "r12",
+              "r13",
+              "r14",
+              "r15",
+              "rel3",
+              "rel4",
+              "rel5"
+            ],
+            "visual_key": "fr24-revenues",
+            "caption": {
+              "text": "広告主は広告表示、有料利用者は画面機能、法人客は業務用データに支払う。線の太さは売上の内訳を表さない。",
+              "record_keys": [
+                "r11",
+                "r12",
+                "r13",
+                "r14",
+                "r15",
+                "rel3",
+                "rel4",
+                "rel5"
+              ],
+              "interpretation": false
+            }
+          }
+        ]
+      },
+      {
+        "id": "acquisition",
+        "title": "最初の客と広がり方",
+        "lead": {
+          "text": "航空券比較サイトの小さな実験から、報道される航空状況の地図へ広がった。",
+          "record_keys": [
+            "r2",
+            "r3",
+            "r4"
+          ],
+          "interpretation": false
+        },
+        "blocks": [
+          {
+            "key": "b5",
+            "type": "text",
+            "title": "既存サイトから始め、データ提供者を増やした",
+            "record_keys": [
+              "r2",
+              "r3",
+              "r4",
+              "r28"
+            ],
+            "paragraphs": [
+              {
+                "text": "2006年、創業者たちは受信機を置き、すでに運営していた航空券比較サイトで飛行機の動きを見せ始めた。独立したサイトにした後、他の受信者のデータも受け入れた。2010年のアイスランド火山噴火では、航空便が止まる状況が地図で分かり、国際的に注目されたという。",
+                "record_keys": [
+                  "r2",
+                  "r3",
+                  "r4",
+                  "r28"
+                ],
+                "interpretation": false
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "operations",
+        "title": "作り方と運営",
+        "lead": {
+          "text": "信号を受け取るだけでなく、補完して見られる情報へ変える。",
+          "record_keys": [
+            "r5",
+            "r6"
+          ],
+          "interpretation": false
+        },
+        "blocks": [
+          {
+            "key": "b6",
+            "type": "text",
+            "title": "地上受信だけでは埋まらない部分を、別の情報で補う",
+            "record_keys": [
+              "r5",
+              "r6"
+            ],
+            "paragraphs": [
+              {
+                "text": "位置などを送るADS-B信号のほか、複数地点の受信時刻から位置を求めるMLAT、衛星受信、レーダーなども使う。便の予定や航空機情報と結び付けることで、単なる信号の一覧ではなく、利用者が調べられる情報になる。",
+                "record_keys": [
+                  "r5",
+                  "r6"
+                ],
+                "interpretation": false
+              }
+            ]
+          },
+          {
+            "key": "b7",
+            "type": "text",
+            "title": "参加の特典も、送信の状態に結び付いている",
+            "record_keys": [
+              "r8",
+              "r9"
+            ],
+            "paragraphs": [
+              {
+                "text": "受信機は自分で用意する方法、既存機材を使う方法、無償提供へ応募する方法がある。送信が止まり一定期間復旧しなければ特典もFreeへ戻る。特典にAPIは含まれない。協力を得る仕組みと、データを商品として使える範囲を分けている。",
+                "record_keys": [
+                  "r8",
+                  "r9"
+                ],
+                "interpretation": false
+              }
+            ]
+          },
+          {
+            "key": "visual-fr24-data",
+            "type": "visual",
+            "title": null,
+            "record_keys": [
+              "r5",
+              "r6",
+              "r7",
+              "r8",
+              "r9",
+              "a1",
+              "a3"
+            ],
+            "visual_key": "fr24-data",
+            "caption": {
+              "text": "地上の受信データを他の情報源と組み合わせ、画面や法人向けデータにする。協力者にはContributor機能を返す。APIは特典に含まれない。",
+              "record_keys": [
+                "r5",
+                "r6",
+                "r7",
+                "r8",
+                "r9",
+                "a1",
+                "a3"
+              ],
+              "interpretation": false
+            }
+          }
+        ]
+      },
+      {
+        "id": "turning",
+        "title": "つまずきと転機",
+        "lead": {
+          "text": "データを持っていても、閲覧が集中すれば配信能力が限界になる。",
+          "record_keys": [
+            "r16",
+            "a3"
+          ],
+          "interpretation": true
+        },
+        "blocks": [
+          {
+            "key": "b8",
+            "type": "text",
+            "title": "一時待合室を設け、有料利用者のアクセスを優先した",
+            "record_keys": [
+              "r16",
+              "r17",
+              "a3"
+            ],
+            "paragraphs": [
+              {
+                "text": "2022年8月に特定の一便へ関心が集中した際、負荷が大きくなり、一時的な待合室を使った。有料購読者を優先し、着陸後に通常アクセスへ戻したと会社が説明する。参加者が観測を支えてくれても、集中する閲覧をさばく仕事は運営側に残る。",
+                "record_keys": [
+                  "r16",
+                  "r17",
+                  "a3"
+                ],
+                "interpretation": true
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "history",
+        "title": "これまでと現在",
+        "lead": null,
+        "blocks": [
+          {
+            "key": "b9",
+            "type": "timeline",
+            "title": null,
+            "record_keys": [
+              "r2",
+              "r3",
+              "r4",
+              "r27",
+              "r15",
+              "r7",
+              "r8",
+              "r13",
+              "r14"
+            ],
+            "events": [
+              {
+                "time": {
+                  "value": "2006",
+                  "end": null,
+                  "precision": "year",
+                  "original": "2006"
+                },
+                "title": "既存サイト内で開始",
+                "content": {
+                  "text": "創業者2人が航空信号を受信し、地図に表示した。",
+                  "record_keys": [
+                    "r2"
+                  ],
+                  "interpretation": false
+                }
+              },
+              {
+                "time": {
+                  "value": "2009",
+                  "end": null,
+                  "precision": "year",
+                  "original": "2009"
+                },
+                "title": "外部の受信者が参加",
+                "content": {
+                  "text": "地域のデータを集める形へ広げた。",
+                  "record_keys": [
+                    "r3"
+                  ],
+                  "interpretation": false
+                }
+              },
+              {
+                "time": {
+                  "value": "2010",
+                  "end": null,
+                  "precision": "year",
+                  "original": "2010"
+                },
+                "title": "火山噴火で国際的に注目",
+                "content": {
+                  "text": "航空状況を示す地図として紹介された。",
+                  "record_keys": [
+                    "r4"
+                  ],
+                  "interpretation": false
+                }
+              },
+              {
+                "time": {
+                  "value": "2024",
+                  "end": null,
+                  "precision": "year",
+                  "original": "2024"
+                },
+                "title": "APIを公開",
+                "content": {
+                  "text": "画面以外からデータを使う製品を追加。",
+                  "record_keys": [
+                    "r27"
+                  ],
+                  "interpretation": false
+                }
+              },
+              {
+                "time": {
+                  "value": "2025-12-22",
+                  "end": null,
+                  "precision": "day",
+                  "original": "2025-12-22"
+                },
+                "title": "Boeingへの供給を発表",
+                "content": {
+                  "text": "ライブと過去のフライトデータを業務に提供。",
+                  "record_keys": [
+                    "r15"
+                  ],
+                  "interpretation": false
+                }
+              },
+              {
+                "time": {
+                  "value": "2026-10-12",
+                  "end": null,
+                  "precision": "day",
+                  "original": "2026-10-12"
+                },
+                "title": "現行の契約と参加条件を確認",
+                "content": {
+                  "text": "Contributorの特典、画面プラン、APIの分離を確認。",
+                  "record_keys": [
+                    "r7",
+                    "r8",
+                    "r13",
+                    "r14"
+                  ],
+                  "interpretation": false
+                }
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "excluded_sections": [
+      {
+        "id": "sources",
+        "reason": "個別の出典番号は本文のrecord_keys→evidence→sourcesで解決する。配布article.md末尾には同じsourcesから参照資料を自動出力するため、同じ出典一覧の二重記述を避ける。"
+      }
+    ]
+  },
+  "visuals": [
+    {
+      "key": "fr24-data",
+      "kind": "diagram",
+      "state": "reviewed",
+      "question": "分散した受信から何を商品にするか",
+      "subject_keys": [
+        "business"
+      ],
+      "record_keys": [
+        "r5",
+        "r6",
+        "r7",
+        "r8",
+        "r9",
+        "a1",
+        "a3"
+      ],
+      "brief": "{\"template\": \"sequence\", \"nodes\": [[\"各地で受信する\", \"航空機の信号を共有する\", \"receiver\"], [\"統合・補完する\", \"衛星・レーダー等も組み合わせる\", \"server\"], [\"目的別に提供する\", \"閲覧画面／業務用データ\", \"map\"]], \"edge_kinds\": [\"information\", \"information\"], \"additional_relation\": \"operator -> contributor: features, not API\", \"not_proportional\": true}",
+      "caption": {
+        "text": "地上の受信データを他の情報源と組み合わせ、画面や法人向けデータにする。協力者にはContributor機能を返す。APIは特典に含まれない。",
+        "record_keys": [
+          "r5",
+          "r6",
+          "r7",
+          "r8",
+          "r9",
+          "a1",
+          "a3"
+        ],
+        "interpretation": false
+      },
+      "alt": "地上の受信データを他の情報源と組み合わせ、画面や法人向けデータにする。協力者にはContributor機能を返す。APIは特典に含まれない。",
+      "variants": [
+        {
+          "path": "media/fr24-data-wide.svg",
+          "content_type": "image/svg+xml",
+          "width": 1040,
+          "height": 530,
+          "role": "wide"
+        },
+        {
+          "path": "media/fr24-data-wide.png",
+          "content_type": "image/png",
+          "width": 1040,
+          "height": 530,
+          "role": "wide"
+        },
+        {
+          "path": "media/fr24-data-compact.svg",
+          "content_type": "image/svg+xml",
+          "width": 400,
+          "height": 890,
+          "role": "compact"
+        },
+        {
+          "path": "media/fr24-data-compact.png",
+          "content_type": "image/png",
+          "width": 400,
+          "height": 890,
+          "role": "compact"
+        }
+      ],
+      "production": {
+        "producer": "ChatGPT",
+        "tool_version": "deterministic-svg-v1 / CairoSVG",
+        "created_at": "2026-10-11T16:29:17Z",
+        "input_source_keys": [
+          "contribute",
+          "how",
+          "share"
+        ],
+        "rights_review": {
+          "decision": "allowed",
+          "basis": "policy",
+          "reference": "Original schematic artwork; shared collection requirements 1.1.0",
+          "reviewed_at": "2026-10-11T16:29:17Z",
+          "note": "第三者の絵・写真・ロゴ・ブランドキャラクターを使わず、汎用図形と出典付きの独自説明で制作。原資料の再配布を承認する意味ではない。"
+        },
+        "visual_review": "PASS"
+      }
+    },
+    {
+      "key": "fr24-revenues",
+      "kind": "diagram",
+      "state": "reviewed",
+      "question": "誰が何に料金を支払うのか",
+      "subject_keys": [
+        "business"
+      ],
+      "record_keys": [
+        "r11",
+        "r12",
+        "r13",
+        "r14",
+        "r15",
+        "rel3",
+        "rel4",
+        "rel5"
+      ],
+      "brief": "{\"template\": \"payments\", \"rows\": [[\"広告主\", \"Flightradar24\", \"広告枠の代金\", \"money\", \"無料閲覧者へ広告を届ける\"], [\"有料の閲覧者\", \"Flightradar24\", \"画面の購読料\", \"money\", \"詳しい表示・履歴など\"], [\"航空データの顧客\", \"Flightradar24\", \"データ供給の契約料\", \"money\", \"API・契約に基づく供給\"]], \"unknown_revenue_shares\": true}",
+      "caption": {
+        "text": "広告主は広告表示、有料利用者は画面機能、法人客は業務用データに支払う。線の太さは売上の内訳を表さない。",
+        "record_keys": [
+          "r11",
+          "r12",
+          "r13",
+          "r14",
+          "r15",
+          "rel3",
+          "rel4",
+          "rel5"
+        ],
+        "interpretation": false
+      },
+      "alt": "広告主は広告表示、有料利用者は画面機能、法人客は業務用データに支払う。線の太さは売上の内訳を表さない。",
+      "variants": [
+        {
+          "path": "media/fr24-revenues-wide.svg",
+          "content_type": "image/svg+xml",
+          "width": 1040,
+          "height": 530,
+          "role": "wide"
+        },
+        {
+          "path": "media/fr24-revenues-wide.png",
+          "content_type": "image/png",
+          "width": 1040,
+          "height": 530,
+          "role": "wide"
+        },
+        {
+          "path": "media/fr24-revenues-compact.svg",
+          "content_type": "image/svg+xml",
+          "width": 400,
+          "height": 890,
+          "role": "compact"
+        },
+        {
+          "path": "media/fr24-revenues-compact.png",
+          "content_type": "image/png",
+          "width": 400,
+          "height": 890,
+          "role": "compact"
+        }
+      ],
+      "production": {
+        "producer": "ChatGPT",
+        "tool_version": "deterministic-svg-v1 / CairoSVG",
+        "created_at": "2026-10-11T16:29:17Z",
+        "input_source_keys": [
+          "boeing",
+          "google",
+          "premium"
+        ],
+        "rights_review": {
+          "decision": "allowed",
+          "basis": "policy",
+          "reference": "Original schematic artwork; shared collection requirements 1.1.0",
+          "reviewed_at": "2026-10-11T16:29:17Z",
+          "note": "第三者の絵・写真・ロゴ・ブランドキャラクターを使わず、汎用図形と出典付きの独自説明で制作。原資料の再配布を承認する意味ではない。"
+        },
+        "visual_review": "PASS"
+      }
+    }
+  ],
+  "topic_links": [
+    {
+      "kind": "pattern",
+      "target_id": null,
+      "candidate_title": "データの利用者に、収集へ参加する見返りを用意する",
+      "relation": "direct",
+      "record_keys": [
+        "r7",
+        "r8",
+        "a1"
+      ],
+      "reason": "データ参加の特典はAPI販売とは別。参加者数や貢献が多いだけで品質保証とはしない。"
+    },
+    {
+      "kind": "pattern",
+      "target_id": null,
+      "candidate_title": "一つのデータを、閲覧と業務用供給に売り分ける",
+      "relation": "direct",
+      "record_keys": [
+        "r11",
+        "r13",
+        "r14",
+        "r15",
+        "a2"
+      ],
+      "reason": "広告主、個人、業務購入者で対価が異なる。"
+    },
+    {
+      "kind": "demand",
+      "target_id": null,
+      "candidate_title": "フライトの動きを、機材性能や整備の分析に使いたい",
+      "relation": "direct",
+      "record_keys": [
+        "r15"
+      ],
+      "reason": "Boeingへの実際の供給発表に基づく。市場全体の発注増や契約金額を示さない。"
+    }
+  ],
+  "dispositions": [
+    {
+      "record_key": "r1",
+      "destinations": [
+        "article"
+      ],
+      "note": "出典・時点・指標の意味を保って使用。"
+    },
+    {
+      "record_key": "r2",
+      "destinations": [
+        "article"
+      ],
+      "note": "出典・時点・指標の意味を保って使用。"
+    },
+    {
+      "record_key": "r3",
+      "destinations": [
+        "article"
+      ],
+      "note": "出典・時点・指標の意味を保って使用。"
+    },
+    {
+      "record_key": "r4",
+      "destinations": [
+        "article"
+      ],
+      "note": "出典・時点・指標の意味を保って使用。"
+    },
+    {
+      "record_key": "r5",
+      "destinations": [
+        "article"
+      ],
+      "note": "出典・時点・指標の意味を保って使用。"
+    },
+    {
+      "record_key": "r6",
+      "destinations": [
+        "article"
+      ],
+      "note": "出典・時点・指標の意味を保って使用。"
+    },
+    {
+      "record_key": "r7",
+      "destinations": [
+        "article",
+        "trend"
+      ],
+      "note": "出典・時点・指標の意味を保って使用。"
+    },
+    {
+      "record_key": "r8",
+      "destinations": [
+        "article",
+        "trend"
+      ],
+      "note": "出典・時点・指標の意味を保って使用。"
+    },
+    {
+      "record_key": "r9",
+      "destinations": [
+        "article"
+      ],
+      "note": "出典・時点・指標の意味を保って使用。"
+    },
+    {
+      "record_key": "r10",
+      "destinations": [
+        "article"
+      ],
+      "note": "出典・時点・指標の意味を保って使用。"
+    },
+    {
+      "record_key": "r11",
+      "destinations": [
+        "article",
+        "trend"
+      ],
+      "note": "出典・時点・指標の意味を保って使用。"
+    },
+    {
+      "record_key": "r12",
+      "destinations": [
+        "article"
+      ],
+      "note": "出典・時点・指標の意味を保って使用。"
+    },
+    {
+      "record_key": "r13",
+      "destinations": [
+        "article",
+        "trend"
+      ],
+      "note": "出典・時点・指標の意味を保って使用。"
+    },
+    {
+      "record_key": "r14",
+      "destinations": [
+        "article",
+        "trend"
+      ],
+      "note": "出典・時点・指標の意味を保って使用。"
+    },
+    {
+      "record_key": "r15",
+      "destinations": [
+        "article",
+        "trend"
+      ],
+      "note": "出典・時点・指標の意味を保って使用。"
+    },
+    {
+      "record_key": "r16",
+      "destinations": [
+        "article"
+      ],
+      "note": "出典・時点・指標の意味を保って使用。"
+    },
+    {
+      "record_key": "r17",
+      "destinations": [
+        "article"
+      ],
+      "note": "出典・時点・指標の意味を保って使用。"
+    },
+    {
+      "record_key": "r18",
+      "destinations": [
+        "internal"
+      ],
+      "note": "出典・時点・指標の意味を保って使用。"
+    },
+    {
+      "record_key": "r19",
+      "destinations": [
+        "article"
+      ],
+      "note": "出典・時点・指標の意味を保って使用。"
+    },
+    {
+      "record_key": "r20",
+      "destinations": [
+        "article"
+      ],
+      "note": "出典・時点・指標の意味を保って使用。"
+    },
+    {
+      "record_key": "r21",
+      "destinations": [
+        "internal"
+      ],
+      "note": "出典・時点・指標の意味を保って使用。"
+    },
+    {
+      "record_key": "r22",
+      "destinations": [
+        "internal"
+      ],
+      "note": "出典・時点・指標の意味を保って使用。"
+    },
+    {
+      "record_key": "r23",
+      "destinations": [
+        "internal"
+      ],
+      "note": "出典・時点・指標の意味を保って使用。"
+    },
+    {
+      "record_key": "r24",
+      "destinations": [
+        "article"
+      ],
+      "note": "出典・時点・指標の意味を保って使用。"
+    },
+    {
+      "record_key": "r25",
+      "destinations": [
+        "internal"
+      ],
+      "note": "出典・時点・指標の意味を保って使用。"
+    },
+    {
+      "record_key": "r26",
+      "destinations": [
+        "article"
+      ],
+      "note": "出典・時点・指標の意味を保って使用。"
+    },
+    {
+      "record_key": "a1",
+      "destinations": [
+        "article",
+        "trend"
+      ],
+      "note": "出典・時点・指標の意味を保って使用。"
+    },
+    {
+      "record_key": "a2",
+      "destinations": [
+        "article",
+        "trend"
+      ],
+      "note": "出典・時点・指標の意味を保って使用。"
+    },
+    {
+      "record_key": "a3",
+      "destinations": [
+        "article"
+      ],
+      "note": "出典・時点・指標の意味を保って使用。"
+    },
+    {
+      "record_key": "r27",
+      "destinations": [
+        "article"
+      ],
+      "note": "出典・時点・指標の意味を保って使用。"
+    },
+    {
+      "record_key": "r28",
+      "destinations": [
+        "article"
+      ],
+      "note": "出典・時点・指標の意味を保って使用。"
+    },
+    {
+      "record_key": "u1",
+      "destinations": [
+        "hold"
+      ],
+      "note": "本文の断定や実績ランキングへ昇格させない。"
+    },
+    {
+      "record_key": "u2",
+      "destinations": [
+        "hold"
+      ],
+      "note": "本文の断定や実績ランキングへ昇格させない。"
+    },
+    {
+      "record_key": "u3",
+      "destinations": [
+        "hold"
+      ],
+      "note": "本文の断定や実績ランキングへ昇格させない。"
+    },
+    {
+      "record_key": "u4",
+      "destinations": [
+        "hold"
+      ],
+      "note": "本文の断定や実績ランキングへ昇格させない。"
+    },
+    {
+      "record_key": "rel1",
+      "destinations": [
+        "internal"
+      ],
+      "note": "出典・時点・指標の意味を保って使用。"
+    },
+    {
+      "record_key": "rel2",
+      "destinations": [
+        "internal"
+      ],
+      "note": "出典・時点・指標の意味を保って使用。"
+    },
+    {
+      "record_key": "rel3",
+      "destinations": [
+        "internal",
+        "article"
+      ],
+      "note": "出典・時点・指標の意味を保って使用。"
+    },
+    {
+      "record_key": "rel4",
+      "destinations": [
+        "internal",
+        "article"
+      ],
+      "note": "出典・時点・指標の意味を保って使用。"
+    },
+    {
+      "record_key": "rel5",
+      "destinations": [
+        "internal",
+        "article"
+      ],
+      "note": "出典・時点・指標の意味を保って使用。"
+    },
+    {
+      "record_key": "layout-fr24-data",
+      "destinations": [
+        "internal"
+      ],
+      "note": "図版の再描画・UI移植用。事実件数・市場集計に含めない。"
+    },
+    {
+      "record_key": "layout-fr24-revenues",
+      "destinations": [
+        "internal"
+      ],
+      "note": "図版の再描画・UI移植用。事実件数・市場集計に含めない。"
+    }
+  ],
+  "handoff": {
+    "delivery": "prepared",
+    "article_change_policy": "preserve_authored_text",
+    "r2_write_authorized": false,
+    "publication_authorized": false,
+    "remaining_work": [
+      "R2保存・正式IDの突合・公開目録への追加・既存UI接続は未実行。",
+      "mainのcase-pages一覧だけを読み取り確認。全カタログ・R2・他担当の作業予約を照合できていないため、新規性や重複なしは未確定。",
+      "出典別の商用表示・有料会員表示・原資料保持の正式な権利審査は未完了。",
+      "別担当による独立した原典監査は未実施。",
+      "最初の有料契約者、初期の契約額、当時の広告獲得費は今回確認できなかった。",
+      "現在のプラン金額、API単価は今回の取得結果では未確定。",
+      "署名済み決算原本、2026年実績、売上の広告・購読・法人別内訳、初期費用、機材維持費の詳細は未確認。",
+      "現在の詳細なチーム人数と自社インフラ構成・単位原価は未確認。"
+    ],
+    "checks": [
+      {
+        "name": "same_agent_source_and_numeric_review",
+        "status": "PASS",
+        "by": "ChatGPT",
+        "note": "対象資料を読み、本文と指標の範囲・時期を照合。独立した第三者監査ではない。未取得や曖昧な指標は保留。"
+      },
+      {
+        "name": "same_agent_natural_japanese_review",
+        "status": "PASS",
+        "by": "ChatGPT",
+        "note": "事実列の連結ではなく、商売の理由と工程が分かる段落として執筆。本文を独立に読み直した。同一担当の編集レビュー。"
+      },
+      {
+        "name": "independent_evidence_review",
+        "status": "NOT_RUN",
+        "by": null,
+        "note": "別担当による原典の独立確認は未実施。"
+      },
+      {
+        "name": "commercial_rights_review",
+        "status": "NOT_RUN",
+        "by": null,
+        "note": "許諾が未確定の原資料は再配布せず、サイトの公開許可は別途必要。"
+      },
+      {
+        "name": "application_import",
+        "status": "NOT_RUN",
+        "by": null,
+        "note": "共通納品形式で保存。既存本番アダプターは未実行。"
+      },
+      {
+        "name": "r2_and_publication",
+        "status": "NOT_RUN",
+        "by": null,
+        "note": "外部書き込み権限を用いず、公開も行わない。"
+      },
+      {
+        "name": "same_agent_visual_review",
+        "status": "PASS",
+        "by": "ChatGPT",
+        "note": "6図のwide/compact PNGを目視確認。狭幅の改行と重なりを修正。SVGの画像化・キャンバス寸法も確認。既存UIの実ブラウザ検査ではない。"
+      }
+    ]
+  }
+}

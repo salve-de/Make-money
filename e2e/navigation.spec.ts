@@ -1,4 +1,4 @@
-import { openNotes, selectCompany } from './inspector-actions';
+import { selectCompany } from './inspector-actions';
 import { expect, test } from '@playwright/test';
 import { CATALOG_NAMES, PRIMARY, SECONDARY } from './reader-fixture';
 
@@ -40,29 +40,12 @@ test('search and screener change the company list and reset cleanly', async ({ p
   expect(errors).toEqual([]);
 });
 
-test('analyst note survives reload and remains attached to the selected company', async ({ page }) => {
-  const errors: string[] = [];
-  page.on('pageerror', (error) => errors.push(error.message));
-  await page.goto(`/?entity=${PRIMARY.id}`);
-  await openNotes(page);
-  const note = page.locator('#section-notes textarea');
-  await note.fill('Smoke note: verify the quoted operating margin before comparison.');
-  await page.reload();
-  await openNotes(page);
-  await expect(note).toHaveValue('Smoke note: verify the quoted operating margin before comparison.');
-  await selectCompany(page, SECONDARY.name);
-  await expect(note).not.toHaveValue('Smoke note: verify the quoted operating margin before comparison.');
-  await selectCompany(page, PRIMARY.name);
-  await expect(note).toHaveValue('Smoke note: verify the quoted operating margin before comparison.');
-  expect(errors).toEqual([]);
-});
-
 test('legacy finder redirects into the usable current ledger rather than a deleted sheet', async ({ page }) => {
   const errors: string[] = [];
   page.on('pageerror', (error) => errors.push(error.message));
   await page.goto('/finder');
   await expect(page).toHaveURL(/\/$/);
-  await expect(page.getByRole('region', { name: '事例を検索・絞り込み' })).toBeVisible();
+  await expect(page.getByRole('textbox', { name: '事例を検索' })).toBeVisible();
   await selectCompany(page, PRIMARY.name);
   await page.getByRole('button', { name: '閉じる', exact: true }).click();
   await expect(page.getByRole('heading', { name: PRIMARY.name, exact: true })).toHaveCount(0);
@@ -88,9 +71,9 @@ test('leaving a topic for the ledger clears topic routing and survives reload', 
   await page.goto('/?topic=solo_empire');
   await page.getByRole('navigation', { name: '主要ナビゲーション', exact: true }).getByRole('link', { name: '事例', exact: true }).click();
   await expect(page).toHaveURL(/\/$/);
-  await expect(page.getByRole('region', { name: '事例を検索・絞り込み' })).toBeVisible();
+  await expect(page.getByRole('textbox', { name: '事例を検索' })).toBeVisible();
   await page.reload();
-  await expect(page.getByRole('region', { name: '事例を検索・絞り込み' })).toBeVisible();
+  await expect(page.getByRole('textbox', { name: '事例を検索' })).toBeVisible();
 });
 
 test('closing a case leaves no history entry that reopens it', async ({ page }) => {

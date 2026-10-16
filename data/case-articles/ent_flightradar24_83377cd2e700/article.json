@@ -1,0 +1,919 @@
+{
+ "schema": "make-money.case-article.v2",
+ "entityId": "ent_flightradar24_83377cd2e700",
+ "name": "Flightradar24",
+ "revision": "r6",
+ "reviewState": "ready_for_review",
+ "generation": 5,
+ "basedOn": {
+  "packageId": "mm-flightradar24-20261012-r1",
+  "submissionSha256": "156673ee2525d1888668cbdf30e87d678db76c09026493fca8acf61b8a40b132"
+ },
+ "listLine": "世界中の協力者の受信機5万5,000台で飛行機の現在地を地図に映し、16か月で約98億円を売り上げた飛行機追跡サービス",
+ "headline": "協力者の受信機5万5,000台で飛行機を追跡し、広告・会員・企業向け販売で16か月約98億円",
+ "lead": "Flightradar24は、いま空を飛んでいる飛行機の位置を、地図の上でリアルタイムに見られるサービス。飛行機は自分の位置や高度を電波で発信していて、世界各地の協力者が受信機でその電波を受け、Flightradar24に送っている。協力者は見返りに、協力者専用のプランを無料で使える。地図は広告つきで誰でも無料で見られ、より詳しい情報を見たい個人は有料会員になり、Boeingのような企業は飛行データそのものを買う。",
+ "sources": [
+  {
+   "no": 1,
+   "label": "Flightradar24 / About Flightradar24 / 公開日不明",
+   "url": "https://www.flightradar24.com/about/"
+  },
+  {
+   "no": 2,
+   "label": "Flightradar24 / Subscription plans / 公開日不明",
+   "url": "https://www.flightradar24.com/premium/"
+  },
+  {
+   "no": 3,
+   "label": "Flightradar24 / How it works / 公開日不明",
+   "url": "https://www.flightradar24.com/how-it-works/"
+  },
+  {
+   "no": 4,
+   "label": "Flightradar24 / Become a contributor / 公開日不明",
+   "url": "https://www.flightradar24.com/add-coverage"
+  },
+  {
+   "no": 5,
+   "label": "Flightradar24 / Share your ADS-B data / 公開日不明",
+   "url": "https://www.flightradar24.com/share-your-data"
+  },
+  {
+   "no": 6,
+   "label": "Google for Publishers / Flightradar24 / Mats Lidgren / 2023",
+   "url": "https://www.google.com/ads/publisher/stories/flightradar24/"
+  },
+  {
+   "no": 7,
+   "label": "Flightradar24 / Flight Data Services to Boeing / 2025-12-22",
+   "url": "https://www.flightradar24.com/blog/b2b/flightradar24-to-supply-flight-data-services-to-boeing/"
+  },
+  {
+   "no": 8,
+   "label": "Allabolag / Flightradar24 AB Bokslut / 公開日不明",
+   "url": "https://www.allabolag.se/bokslut/flightradar24-ab/stockholm/internet-konsulter-operat%C3%B6rer/2K3LY99I5YFHL"
+  },
+  {
+   "no": 9,
+   "label": "Flightradar24 / SPAR19 traffic surge and service impact / 2022-08-02",
+   "url": "https://www.flightradar24.com/blog/flight-tracking-news/special-aircraft-tracking/spar19-becomes-the-most-tracked-flight-of-all-time/"
+  }
+ ],
+ "sourceKeys": {
+  "1": "about",
+  "2": "premium",
+  "3": "how",
+  "4": "contribute",
+  "5": "share",
+  "6": "google",
+  "7": "boeing",
+  "8": "accounts",
+  "9": "outage"
+ },
+ "kpis": [
+  {
+   "label": "売上",
+   "value": "7億353万クローナ",
+   "yen": "約98億円",
+   "period": "2024年9月〜2025年12月（16か月）",
+   "recordKeys": [
+    "r19"
+   ]
+  },
+  {
+   "label": "営業利益",
+   "value": "4億6,015万クローナ",
+   "yen": "約64億円",
+   "period": "同じ16か月",
+   "recordKeys": [
+    "r20"
+   ]
+  },
+  {
+   "label": "受信機",
+   "value": "5万5,000台以上",
+   "period": "2025年12月",
+   "recordKeys": [
+    "r10"
+   ]
+  }
+ ],
+ "topics": [
+  {
+   "id": "overview",
+   "lead": {
+    "text": "飛行中の飛行機の現在地を地図で見られるサービス。誰でも無料で見られ、広告、有料会員、企業へのデータ販売で売上を得ている。",
+    "cites": [
+     1,
+     2,
+     6
+    ],
+    "recordKeys": [
+     "r1",
+     "r11",
+     "r26"
+    ]
+   },
+   "blocks": [
+    {
+     "type": "facts",
+     "rows": [
+      {
+       "label": "サービス内容",
+       "text": "いま飛んでいる飛行機の位置を、ウェブとアプリの地図で確認できる。過去に飛んだ経路も見られる",
+       "cites": [
+        1,
+        2
+       ],
+       "recordKeys": [
+        "r1"
+       ]
+      },
+      {
+       "label": "無料の利用者",
+       "text": "広告が表示される代わりに、無料で地図を見られる",
+       "cites": [
+        6
+       ],
+       "recordKeys": [
+        "r12"
+       ]
+      },
+      {
+       "label": "有料の顧客",
+       "text": "より詳しい情報を見たい個人、業務で使う会社、飛行データを自社のシステムで使いたい企業",
+       "cites": [
+        2,
+        6,
+        7
+       ],
+       "recordKeys": [
+        "r11",
+        "r13",
+        "r15"
+       ]
+      }
+     ]
+    },
+    {
+     "type": "list",
+     "items": [
+      {
+       "text": "飛行機が発信する位置の電波を、世界各地にある5万5,000台以上の受信機で集めている（2025年12月）。受信機を設置しているのは、各地の協力者",
+       "cites": [
+        3,
+        4,
+        7
+       ],
+       "recordKeys": [
+        "r10",
+        "r5",
+        "a3"
+       ]
+      },
+      {
+       "text": "2025年12月、航空機メーカーのBoeingに、現在と過去の飛行データを供給する契約を発表した。Boeingは、機体の性能や整備の分析に使うと説明している",
+       "cites": [
+        7
+       ],
+       "recordKeys": [
+        "r15"
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "mechanism",
+   "lead": {
+    "text": "各地の協力者が受信機で飛行機の電波を受けて送り、Flightradar24がそれをまとめて地図に表示する。協力者は見返りに、専用のプランを無料で使える。",
+    "cites": [
+     3,
+     4,
+     5
+    ],
+    "recordKeys": [
+     "r5",
+     "r7",
+     "a1"
+    ]
+   },
+   "blocks": [
+    {
+     "type": "steps",
+     "items": [
+      {
+       "title": "協力者が電波を受信する",
+       "text": "飛行機は、機体の識別番号、位置、速度、高度を電波で発信している。協力者は、設置した受信機でこの電波を受ける。",
+       "cites": [
+        3
+       ],
+       "recordKeys": [
+        "r5"
+       ]
+      },
+      {
+       "title": "データを送る",
+       "text": "受信したデータを、Flightradar24に送る。",
+       "cites": [
+        3,
+        4
+       ],
+       "recordKeys": [
+        "r5",
+        "rel1"
+       ]
+      },
+      {
+       "title": "Flightradar24がまとめる",
+       "text": "各地から届いたデータを、衛星やレーダーの情報と組み合わせ、どの便のどの機体かを特定して地図に表示する。",
+       "cites": [
+        3
+       ],
+       "recordKeys": [
+        "r6"
+       ]
+      },
+      {
+       "title": "協力者は無料で使える",
+       "text": "データを送っている協力者は、協力者専用のプラン「Contributor」を無料で使える。",
+       "cites": [
+        4,
+        5
+       ],
+       "recordKeys": [
+        "r7",
+        "rel2"
+       ]
+      }
+     ]
+    },
+    {
+     "type": "figure",
+     "figureId": "fr24-data"
+    },
+    {
+     "type": "subheading",
+     "text": "協力者になる3つの方法"
+    },
+    {
+     "type": "list",
+     "items": [
+      {
+       "text": "受信機を自分で購入して設置する",
+       "cites": [
+        4
+       ],
+       "recordKeys": [
+        "r9"
+       ]
+      },
+      {
+       "text": "すでに持っている受信機のデータを、Flightradar24に共有する",
+       "cites": [
+        4
+       ],
+       "recordKeys": [
+        "r9"
+       ]
+      },
+      {
+       "text": "Flightradar24が提供する受信機に応募する",
+       "cites": [
+        4
+       ],
+       "recordKeys": [
+        "r9"
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "revenue",
+   "lead": {
+    "text": "売上は広告、有料会員、企業向けのデータ販売の3つ。2025年12月までの16か月の売上は7億353万クローナ（約98億円）、営業利益は4億6,015万クローナ（約64億円）だった。",
+    "cites": [
+     1,
+     2,
+     6
+    ],
+    "recordKeys": [
+     "r11",
+     "r19",
+     "a2"
+    ]
+   },
+   "blocks": [
+    {
+     "type": "list",
+     "items": [
+      {
+       "lead": "広告",
+       "text": "無料で地図を見る利用者に広告を表示し、広告主から広告料を得る",
+       "cites": [
+        6
+       ],
+       "recordKeys": [
+        "r12",
+        "rel4"
+       ]
+      },
+      {
+       "lead": "有料会員（個人）",
+       "text": "SilverとGoldの2つのプランがある。月払いと年払いを選べる",
+       "cites": [
+        2
+       ],
+       "recordKeys": [
+        "r13",
+        "rel3"
+       ]
+      },
+      {
+       "lead": "有料会員（業務用）",
+       "text": "業務で使う会社向けのBusinessプラン。月払いと年払いを選べる",
+       "cites": [
+        2
+       ],
+       "recordKeys": [
+        "r13"
+       ]
+      },
+      {
+       "lead": "企業向けのデータ販売",
+       "text": "企業が飛行データを自社のシステムに取り込んで使う。地図を見るための有料会員とは別の契約になる",
+       "cites": [
+        2,
+        6,
+        7
+       ],
+       "recordKeys": [
+        "r14",
+        "rel5"
+       ]
+      }
+     ]
+    },
+    {
+     "type": "figure",
+     "figureId": "fr24-revenues"
+    },
+    {
+     "type": "subheading",
+     "text": "決算（通貨はスウェーデン・クローナ）"
+    },
+    {
+     "type": "facts",
+     "rows": [
+      {
+       "label": "2024年8月期",
+       "text": "12か月の決算。売上4億1,794万クローナ（約58億円）、営業利益2億7,207万クローナ（約38億円）",
+       "cites": [
+        8
+       ],
+       "recordKeys": [
+        "r21",
+        "r22"
+       ]
+      },
+      {
+       "label": "2025年12月期",
+       "text": "16か月の決算。売上7億353万クローナ（約98億円）、営業利益4億6,015万クローナ（約64億円）",
+       "cites": [
+        8
+       ],
+       "recordKeys": [
+        "r19",
+        "r20"
+       ]
+      }
+     ]
+    },
+    {
+     "type": "list",
+     "items": [
+      {
+       "text": "どちらの期も、営業利益は売上の約65％にあたる",
+       "cites": [
+        8
+       ],
+       "recordKeys": [
+        "r19",
+        "r20",
+        "r21",
+        "r22"
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "acquisition",
+   "lead": {
+    "text": "すでに利用者がいた航空券比較サイトの一機能として始まり、2010年のアイスランドの火山噴火で、空の様子を見られるサイトとして世界に知られた。",
+    "cites": [
+     1
+    ],
+    "recordKeys": [
+     "r2",
+     "r28",
+     "r4"
+    ]
+   },
+   "blocks": [
+    {
+     "type": "list",
+     "items": [
+      {
+       "text": "2006年、既存の航空券比較サイトFlygresorに、飛行機の現在地を表示するページを追加した。すでにサイトに利用者がいたので、利用者ゼロからの出発ではなかった",
+       "cites": [
+        1
+       ],
+       "recordKeys": [
+        "r2",
+        "r28"
+       ]
+      },
+      {
+       "text": "2009年から、他の人が設置した受信機のデータも受け入れ始めた。データを送った人は、協力者専用のプランを無料で使える",
+       "cites": [
+        1,
+        4,
+        5
+       ],
+       "recordKeys": [
+        "r3",
+        "r7"
+       ]
+      },
+      {
+       "text": "2010年、アイスランドの火山が噴火して空の便が止まった。飛行機が飛ばなくなった空を映す地図が、世界で注目された",
+       "cites": [
+        1
+       ],
+       "recordKeys": [
+        "r4"
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "operations",
+   "lead": {
+    "text": "各地から届くデータを便ごとにまとめて地図に表示するのがFlightradar24の仕事で、アクセスが集中しても止まらないように処理能力を増やしている。",
+    "cites": [
+     3,
+     4,
+     9
+    ],
+    "recordKeys": [
+     "r6",
+     "a3",
+     "r16"
+    ]
+   },
+   "blocks": [
+    {
+     "type": "facts",
+     "rows": [
+      {
+       "label": "本社",
+       "text": "スウェーデンのストックホルム",
+       "cites": [
+        1,
+        8
+       ],
+       "recordKeys": [
+        "r18"
+       ]
+      },
+      {
+       "label": "受信機",
+       "text": "設置しているのは各地の協力者。届いたデータをまとめ、欠けた部分を補い、安定して配信する作業と費用は、Flightradar24が負担する",
+       "cites": [
+        3,
+        4,
+        9
+       ],
+       "recordKeys": [
+        "a3"
+       ]
+      }
+     ]
+    },
+    {
+     "type": "list",
+     "items": [
+      {
+       "text": "協力者の受信機のデータに、衛星やレーダーの情報を組み合わせて、どの便のどの機体かを特定している",
+       "cites": [
+        3
+       ],
+       "recordKeys": [
+        "r6"
+       ]
+      }
+     ]
+    },
+    {
+     "type": "subheading",
+     "text": "アクセスが集中した時の対応"
+    },
+    {
+     "type": "list",
+     "items": [
+      {
+       "text": "2022年8月、1つの便に閲覧者が集中した。サーバーの負荷を抑えるため、有料会員を優先して通す順番待ちの画面を一時的に設け、その便が着陸した後に通常の状態へ戻した",
+       "cites": [
+        9
+       ],
+       "recordKeys": [
+        "r16"
+       ]
+      },
+      {
+       "text": "その後も、注目が集まる便があっても表示が止まらないように、処理能力の増強を続けている",
+       "cites": [
+        9
+       ],
+       "recordKeys": [
+        "r17"
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "history",
+   "lead": {
+    "text": "2006年に航空券比較サイトの一機能として始まり、2010年の火山噴火で知られ、2025年にはBoeingへのデータ供給契約を発表した。",
+    "cites": [
+     1,
+     7
+    ],
+    "recordKeys": [
+     "r2",
+     "r15"
+    ]
+   },
+   "blocks": [
+    {
+     "type": "timeline",
+     "items": [
+      {
+       "when": "2006年",
+       "text": "創業者のMicke RobertssonとOlov Lindbergが受信機を設置し、航空券比較サイトFlygresorで飛行機の現在地の表示を始めた",
+       "cites": [
+        1
+       ],
+       "recordKeys": [
+        "r2"
+       ]
+      },
+      {
+       "when": "2007年",
+       "text": "航空券比較サイトから切り離し、独立したサイトにした",
+       "cites": [
+        1
+       ],
+       "recordKeys": [
+        "r3"
+       ]
+      },
+      {
+       "when": "2009年",
+       "text": "他の人が設置した受信機のデータを受け入れ始めた",
+       "cites": [
+        1
+       ],
+       "recordKeys": [
+        "r3"
+       ]
+      },
+      {
+       "when": "2010年",
+       "text": "アイスランドの火山噴火で空の便が止まり、空の様子を見られるサイトとして世界で注目された",
+       "cites": [
+        1
+       ],
+       "recordKeys": [
+        "r4"
+       ]
+      },
+      {
+       "when": "2022年8月",
+       "text": "1つの便に閲覧者が集中し、有料会員を優先する順番待ちの画面を一時的に設けた",
+       "cites": [
+        9
+       ],
+       "recordKeys": [
+        "r16"
+       ]
+      },
+      {
+       "when": "2024年",
+       "text": "企業が自社のシステムに飛行データを取り込める機能（API）を公開した",
+       "cites": [
+        1
+       ],
+       "recordKeys": [
+        "r27"
+       ]
+      },
+      {
+       "when": "2025年12月",
+       "text": "Boeingに飛行データを供給する契約を発表した。受信機は5万5,000台を超えた",
+       "cites": [
+        7
+       ],
+       "recordKeys": [
+        "r15",
+        "r10"
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "reasons",
+   "title": "利用者の協力で飛行データを集め、3つの販路で収益化",
+   "blocks": [
+    {
+     "type": "list",
+     "ordered": false,
+     "items": [
+      {
+       "lead": "利用者もデータ収集に参加する",
+       "text": "各地の利用者が受信機を設置し、データ提供の見返りとして専用プランを無料で使える仕組みにした。",
+       "cites": [
+        3,
+        4,
+        5
+       ],
+       "recordKeys": [
+        "a1",
+        "r7",
+        "r10"
+       ]
+      },
+      {
+       "lead": "同じ飛行データを別の相手に売る",
+       "text": "地図を無料で見る人には広告を表示し、詳しく見る有料会員と業務で使う企業からも収益を得る。",
+       "cites": [
+        1,
+        2,
+        6
+       ],
+       "recordKeys": [
+        "a2",
+        "r11",
+        "r13",
+        "r15"
+       ]
+      }
+     ]
+    }
+   ]
+  }
+ ],
+ "figures": [
+  {
+   "id": "fr24-data",
+   "file": "fr24-data.svg",
+   "alt": "協力者の受信機から地図に表示されるまでの流れ",
+   "width": 1040,
+   "height": 530
+  },
+  {
+   "id": "fr24-revenues",
+   "file": "fr24-revenues.svg",
+   "alt": "広告主・有料会員・企業が払う代金",
+   "width": 1040,
+   "height": 530
+  }
+ ],
+ "editorialChanges": [
+  {
+   "kind": "yen-added",
+   "where": "全体（本文・数字の帯・料金の表・決算の表）",
+   "text": "外貨の数字に円の概算を足した（4か所）。7億353万SEK→約98億円、4億6,015万SEK→約64億円、約7億353万スウェーデンクローナ→約98億円、約4億6,015万スウェーデンクローナ→約64億円",
+   "reason": "円の概算を添える決まり（docs/CASE_TEXT_STANDARD.md）。為替は1ドル=150円、1ユーロ=165円、1ポンド=195円、1SEK=14円",
+   "recordKeys": []
+  },
+  {
+   "kind": "other",
+   "where": "一覧の1行（listLine）",
+   "text": "飛行機の位置を世界中から集めて見せ、16か月で売上約98億円",
+   "reason": "指揮が決めた一覧の1行を設定した（見本の文ではない）",
+   "recordKeys": []
+  },
+  {
+   "kind": "not-in-article",
+   "where": "料金",
+   "text": "公式料金表のプランと請求頻度は読めたが、現在の金額（個人プラン・API単価）は確定できていない。",
+   "reason": "見本の文に入っていない。金額は未確認",
+   "recordKeys": [
+    "r25",
+    "u2"
+   ]
+  },
+  {
+   "kind": "not-in-article",
+   "where": "未確認",
+   "text": "最初の有料契約者・初期契約額・広告獲得費、署名済み決算原本、2026年実績、売上の広告・購読・法人別内訳、初期費用、機材維持費、現在の詳細なチーム人数とインフラ構成は確認できていない。",
+   "reason": "調査の未確認欄",
+   "recordKeys": [
+    "u1",
+    "u3",
+    "u4"
+   ]
+  },
+  {
+   "kind": "other",
+   "where": "全章",
+   "text": "8分類に合わせ、各章を「結論の1文 → 短いデータ」の形に書き直した。受信機の台数、前期の決算、成功・失敗の理由の章を足した。",
+   "reason": "オーナーの指示（長い文章でなく、最初に文、その下に数字・箇条書きでまとめる）",
+   "recordKeys": []
+  },
+  {
+   "kind": "yen-added",
+   "where": "お金",
+   "text": "4億1,794万SEK→約58億円、2億7,207万SEK→約38億円",
+   "reason": "円の概算を添える決まり（docs/CASE_TEXT_STANDARD.md）。1スウェーデン・クローナ=14円",
+   "recordKeys": []
+  },
+  {
+   "kind": "other",
+   "where": "全章",
+   "text": "8分類に合わせ、各章を「結論の1文 → 短いデータ」の形に書き直した。受信機の台数、前期の決算、成功・失敗の理由の章を足した。",
+   "reason": "オーナーの指示（長い文章でなく、最初に文、その下に数字・箇条書きでまとめる）",
+   "recordKeys": []
+  },
+  {
+   "kind": "yen-added",
+   "where": "お金",
+   "text": "4億1,794万SEK→約58億円、2億7,207万SEK→約38億円",
+   "reason": "円の概算を添える決まり（docs/CASE_TEXT_STANDARD.md）。1スウェーデン・クローナ=14円",
+   "recordKeys": []
+  },
+  {
+   "kind": "other",
+   "where": "全章",
+   "text": "8分類に合わせ、各章を「結論の1文 → 短いデータ」の形に書き直した。受信機の台数、前期の決算、成功・失敗の理由の章を足した。",
+   "reason": "オーナーの指示（長い文章でなく、最初に文、その下に数字・箇条書きでまとめる）",
+   "recordKeys": []
+  },
+  {
+   "kind": "yen-added",
+   "where": "お金",
+   "text": "4億1,794万SEK→約58億円、2億7,207万SEK→約38億円",
+   "reason": "円の概算を添える決まり（docs/CASE_TEXT_STANDARD.md）。1スウェーデン・クローナ=14円",
+   "recordKeys": []
+  },
+  {
+   "kind": "other",
+   "where": "全章",
+   "text": "8分類に合わせ、各章を「結論の1文 → 短いデータ」の形に書き直した。受信機の台数、前期の決算、成功・失敗の理由の章を足した。",
+   "reason": "オーナーの指示（長い文章でなく、最初に文、その下に数字・箇条書きでまとめる）",
+   "recordKeys": []
+  },
+  {
+   "kind": "yen-added",
+   "where": "お金",
+   "text": "4億1,794万SEK→約58億円、2億7,207万SEK→約38億円",
+   "reason": "円の概算を添える決まり（docs/CASE_TEXT_STANDARD.md）。1スウェーデン・クローナ=14円",
+   "recordKeys": []
+  },
+  {
+   "kind": "other",
+   "where": "全文",
+   "text": "どの行も、その行だけ読んで意味が全部分かるように書き直した。かみ砕きすぎた言い方を普通の言葉（利用者、有料会員、閲覧者、処理能力）に戻し、「なぜ？」「何の事？」が残る行には、その答えまで書いた。一覧の1行・見出し・見出しの下の文・主な数字・図の中の文字も同じように直した。営業利益が売上の約65％という行は、決算の2つの数字から計算した。",
+   "reason": "オーナーの指摘（2026-10-13。それだけで丸わかりになるように書く）",
+   "recordKeys": [
+    "r19",
+    "r20",
+    "r21",
+    "r22"
+   ]
+  },
+  {
+   "kind": "withheld",
+   "where": "旧独立理由章・冒頭",
+   "text": "飛行機の動きを見たい利用者自身に受信機を置いてもらってデータを集め、同じデータを広告、有料会員、企業向け販売の3通りで売上にした。",
+   "reason": "同じ趣旨を関連する6章ですでに説明。独立章の重複を解消。",
+   "recordKeys": [
+    "a1",
+    "a2"
+   ]
+  },
+  {
+   "kind": "withheld",
+   "where": "旧独立理由章・項目",
+   "text": "飛行機の動きを見たい人の一部が、自分で受信機を設置してデータを送っている。受信機は5万5,000台を超え、Flightradar24は世界中に自前で受信機を置かずに済んだ。協力者への見返りは、専用プランの無料提供。",
+   "reason": "元の研究を保持し、すでに他章にある具体的な内容を繰り返さない。",
+   "recordKeys": [
+    "a1",
+    "r7",
+    "r10"
+   ]
+  },
+  {
+   "kind": "withheld",
+   "where": "旧独立理由章・項目",
+   "text": "無料で地図を見る人には広告を表示し、詳しく見たい人からは会員料を取り、Boeingのような企業には飛行データそのものを販売する。集めるデータは同じでも、売上の入り方は3つある。",
+   "reason": "元の研究を保持し、すでに他章にある具体的な内容を繰り返さない。",
+   "recordKeys": [
+    "a2",
+    "r11",
+    "r13",
+    "r15"
+   ]
+  },
+  {
+   "kind": "withheld",
+   "where": "旧独立理由章・項目",
+   "text": "2006年、既存の航空券比較サイトの一機能として始めたので、最初から見てくれる人がいた。2010年の火山噴火で空の便が止まると、空の様子を見られるサイトとして世界に知られた。",
+   "reason": "元の研究を保持し、すでに他章にある具体的な内容を繰り返さない。",
+   "recordKeys": [
+    "r28",
+    "r4"
+   ]
+  },
+  {
+   "kind": "withheld",
+   "where": "旧独立理由章・項目",
+   "text": "受信機を置くのは協力者だが、届いたデータをまとめ、欠けた部分を補い、安定して配信するのはFlightradar24。2022年8月には1つの便に閲覧者が集中し、有料会員を優先する順番待ちを設けた。",
+   "reason": "元の研究を保持し、すでに他章にある具体的な内容を繰り返さない。",
+   "recordKeys": [
+    "a3",
+    "r16"
+   ]
+  },
+  {
+   "kind": "withheld",
+   "where": "revenue",
+   "text": "2025年12月期は16か月分の決算なので、12か月分の前の期とは金額をそのまま比べられない",
+   "reason": "成功事例の理解に新しい価値を与えない補足。元researchは保持。",
+   "recordKeys": [
+    "r24"
+   ]
+  },
+  {
+   "kind": "withheld",
+   "where": "仕組み・Contributorの細かな規約",
+   "text": "協力者専用プラン「Contributor」の条件",
+   "reason": "主要な仕組みを説明する内容ではない。元researchに保持。",
+   "recordKeys": []
+  },
+  {
+   "kind": "withheld",
+   "where": "仕組み・Contributorの細かな規約",
+   "text": "データの送信が止まり、7日以内に再開しないと、無料プランに戻る。送信を再開すれば、またContributorになる",
+   "reason": "主要な仕組みを説明する内容ではない。元researchに保持。",
+   "recordKeys": [
+    "r8"
+   ]
+  },
+  {
+   "kind": "withheld",
+   "where": "仕組み・Contributorの細かな規約",
+   "text": "自分のプログラムから飛行データを取得する機能（API）は、Contributorには含まれない",
+   "reason": "主要な仕組みを説明する内容ではない。元researchに保持。",
+   "recordKeys": [
+    "r8"
+   ]
+  },
+  {
+   "kind": "withheld",
+   "where": "仕組み・応募条件",
+   "text": "Flightradar24が提供する受信機に応募する。応募すれば誰でも受け取れるわけではない",
+   "reason": "読者に役立たない否定注記を外し、応募方法のみ記載。",
+   "recordKeys": [
+    "r9"
+   ]
+  },
+  {
+   "kind": "other",
+   "where": "成功の理由（2026-10-15）",
+   "text": "旧独立理由章を、読者が価値を理解できる2つの要点へ再編。",
+   "reason": "最新の採用分類と成功事例中心の編集方針。調査原本は未変更。",
+   "recordKeys": [
+    "a1",
+    "r7",
+    "r10",
+    "a2",
+    "r11",
+    "r13",
+    "r15"
+   ]
+  }
+ ]
+}

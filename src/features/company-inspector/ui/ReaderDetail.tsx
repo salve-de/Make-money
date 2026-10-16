@@ -16,6 +16,7 @@ import { scrubAbsence } from '@/shared/absence-text';
 import { factLineFor } from '@/shared/fact-lines';
 import { ANALYSIS_LABELS, FACT_SECTIONS, UI } from '@/shared/ui-strings';
 import { AnalysisGroups, CasePageView, Fold, KeyStrip, planKeyStrip, SectionGap, WhatIs } from './ReaderOverview';
+import { CaseArticleView } from './CaseArticleView';
 import { ReaderSection } from './ReaderSection';
 
 type ReaderProps = { reader?: ReaderCase; evidencePrefix?: string };
@@ -209,6 +210,8 @@ export function ReaderLedger({ reader: rawReader, detailState, onRetry, media }:
   ) : null;
   if (!reader && status) return status;
   if (!reader) return <p className="px-2.5 py-3 text-sm text-term-muted sm:px-3">{UI.NO_READER}</p>;
+  // 新しい記事（caseArticle）がある事例は、その記事だけを出す
+  if (reader.display?.caseArticle) return <>{status}<CaseArticleView article={reader.display.caseArticle} media={media} /></>;
   // 章ごとの文がある事例は、その章だけを出す（古い章・数値の表・事実の一覧は出さない）
   if (reader.display?.casePage) return <>{status}<CasePageView page={reader.display.casePage} media={media} /></>;
   const plan = planKeyStrip(reader);
