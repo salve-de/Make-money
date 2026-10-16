@@ -140,17 +140,18 @@ def parse_md(md: str, research: dict, case: dict):
         if not cs:notes.append(f"unlinked source in {record_id}: {clean(text)[:60]}")
         return {"text":clean(text),"cites":[source_no[s] for s in cs],"recordKeys":[record_id]}
     def parse_sections(md):
-        sections=[];current=None;out=[];legacy=[]
+        sections=[];current=None;out=[];legacy=[];seen_section=False
         for line in md.splitlines()[1:]:
             m=re.match(r"^##\s+(?:\d+\.\s*)?(.+?)\s*$",line)
             if m:
+                seen_section=True
                 name=m.group(1).strip()
                 if name in HEADINGS:
                     current={"id":HEADINGS[name],"original_heading":name,"body":[]};sections.append(current)
                     if name not in ("概要","仕組み","お金","集客","運営","経緯","成功の理由"):legacy.append(name)
-                else:current=None;out.append(name)
+                else:current=None
             elif current is not None:current["body"].append(line)
-            else:out.append(line)
+            elif not seen_section:out.append(line)
         return sections,legacy,out
     sections,legacy,front=parse_sections(md)
     require(sections,"no recognized article chapters")
