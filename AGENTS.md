@@ -1,3 +1,5 @@
+> **【2026-10-16 Codexへの手動ファイル移動は行わない】**：Codexへ一言で ChatGPT Library『/Make money/』のZIPを**直接一覧・取得**、個別+累積を重複/改訂を管理して非公開UI・永続台帳に取り込むことが最優先。[PR #230のゼロ手動受渡し仕様](https://github.com/salve-de/Make-money/blob/feat/library-article-intake-20261016/docs/MAKEMONEY_CODEX_ONE_PHRASE_LIBRARY_PULL_20261016.md)。ユーザーにZIPのダウンロード・移動・添付・解凍を要求しない。未実証なら技術ブロッカーを明示。本番公開・課金等は別承認。
+
 > **【2026-10-16 最新・事例収集と記事編集の優先正本】**：[成功事例の調査・執筆・文体・7本文分類＋出典・図表・原本・品質・理由の統一正本](docs/MAKEMONEY_CASE_RESEARCH_EDITORIAL_SSOT_20261016.md)／[全収集AIの実行入口](docs/MAKEMONEY_COLLECTOR_START_HERE_20261016.md)。最重要：**表示を考えながら幅広く調査し、調査中に自然な完成記事を執筆する。後工程で研究断片をつぎはぎしない。** ChatGPT等は原稿・出典・研究・必要な図まで、Codexは受領後の形式変換・原本保全・非公開UI。本文は概要／仕組み／お金／集客／運営／経緯／成功の理由＋別枠出典。旧い「唯一の入口」「最高正本」、固定欄/P&L/章数、直接R2/Drive書込義務等の記述は**その時点の歴史・技術背景**として保持し、収集・執筆の現行指示としては適用しない。商用権利・本番公開承認・その他の機能範囲は勝手に変えない。**更新はPR #228の作業ブランチのみで本番未反映**。
 
 > **2026-09-30**: Make-Money の唯一の入口は [docs/OWNER_INTENT.md](docs/OWNER_INTENT.md)。この文書と食い違う所は OWNER_INTENT が優先（食い違う箇所には「廃止」の注記あり）。
