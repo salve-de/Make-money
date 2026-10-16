@@ -6,19 +6,25 @@
 >
 > 記事制作の正本：PR #228の `docs/MAKEMONEY_PUBLICATION_FIRST_CASE_WORKFLOW_20261016.md`。参照記事・UI：PR #224のPlausible Analytics。
 
-## オーナーの操作
+## オーナーの操作（2026-10-16最優先・手動ZIP移動は禁止）
 
-ChatGPT Library「Make money」から累積ZIP `MAKEMONEY_まとめてDL_最新版.zip` をダウンロードし、Macの `~/Downloads/MAKEMONEY-inbox/` に置く。累積版に欠落がある場合は、個別ZIPも一緒に置く。解凍・ファイル名変更・旧新マージ・重複選別・JSON編集はしない。
+**オーナーにChatGPT Libraryからのダウンロード／MacのDownloadsへのファイル移動／添付／解凍を頼まない。** Codexに一言だけでLibraryから直接未取込を巻き取りたい、という最新のオーナー指示に従う。
 
-Codexへ「MAKEMONEYの未取込事例を全部取り込んで。公開せず非公開で表示して」と依頼する。
+[Codexの一言・Library直取込・全件台帳の実装と検証の正本](./MAKEMONEY_CODEX_ONE_PHRASE_LIBRARY_PULL_20261016.md)を必ず先に読む。
 
-## Codexが実際に動かすコマンド
+> MAKEMONEYのChatGPT Library「Make money」から未取込の事例を全部直接取得して、重複・改訂を整理し、記事原文を失わず非公開UIに取り込んで。受領済み・表示済み・編集待ちを台帳更新して結果を報告。ファイルDL・移動・添付は頼まないで。
+
+**ただしCodexの実セッションに第一者Libraryへの正式な直接読取・ZIPバイト転送が出るかは未実証。** できないときは最初のエラー／不足する権限を報告し、従来の手動移動方式を「実装完了」に含めない。
+
+## CodexがLibraryから自動取得できた後に実行する手順
+
+### 既存の変換コマンド（入力はCodexがLibraryから自動取得した作業フォルダ）
 
 作業ブランチ `feat/library-article-intake-20261016` を利用する。
 
 ```bash
 python3 scripts/case-articles/intake-library.py \
-  --input "$HOME/Downloads/MAKEMONEY-inbox" \
+  --input "<Codexが正式なLibrary機能から自動取得したZIPフォルダ>" \
   --out .catalog-release-preview/library-intake
 ```
 
