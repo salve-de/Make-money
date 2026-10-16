@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1100" height="530" viewBox="0 0 1100 530" role="img" aria-labelledby="title desc">
+<title id="title">Sleep Jarの無料・有料会員の違い。睡眠物語は無料41話、有料178話。瞑想は無料2本、有料100本</title>
+<desc id="desc">2026年10月に確認したSleep Jar公式のPremium比較表を、読者向けに整理したオリジナル棒グラフ</desc>
+<rect width="1100" height="530" fill="#0b0c0e"/>
+<g font-family="-apple-system,BlinkMacSystemFont,'Hiragino Sans','Noto Sans JP',sans-serif">
+<text x="32" y="51" fill="#fff" font-size="31" font-weight="700">有料会員は睡眠物語178話・瞑想100本を聴ける</text>
+<text x="32" y="89" fill="#b4b8be" font-size="20">無料で使える内容と、会費を払うと増える内容</text>
+<path d="M32 123H1068" stroke="#32363a" stroke-width="2"/>
+<text x="32" y="202" fill="#e8eaed" font-size="27" font-weight="700">睡眠物語</text>
+<text x="176" y="201" fill="#9ca3a9" font-size="20">無料</text>
+<rect x="345" y="178" width="136.4" height="23" rx="3" fill="#727980"/>
+<text x="493.35955056179773" y="198" font-size="22" fill="#d8dbe0">41話</text>
+<text x="176" y="248" fill="#ffb052" font-size="20">有料</text>
+<rect x="345" y="222" width="592.0" height="23" rx="3" fill="#ff9f1a"/>
+<text x="949" y="242" font-size="22" fill="#fff" font-weight="700">178話</text>
+<text x="32" y="351" fill="#e8eaed" font-size="27" font-weight="700">瞑想</text>
+<text x="176" y="350" fill="#9ca3a9" font-size="20">無料</text>
+<rect x="345" y="327" width="6.7" height="23" rx="3" fill="#727980"/>
+<text x="363.65168539325845" y="347" font-size="22" fill="#d8dbe0">2本</text>
+<text x="176" y="397" fill="#ffb052" font-size="20">有料</text>
+<rect x="345" y="371" width="332.6" height="23" rx="3" fill="#ff9f1a"/>
+<text x="689.5842696629213" y="391" font-size="22" fill="#fff" font-weight="700">100本</text>
+<path d="M32 465H1068" stroke="#32363a" stroke-width="2"/>
+<text x="32" y="494" fill="#a0a6ad" font-size="18">Sleep Jar公式Premium比較表（2026年10月確認）</text>
+</g></svg>

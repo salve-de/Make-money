@@ -2,7 +2,7 @@
  "version": 1,
  "source": {
   "manifest": "data/case-articles/*/article.json",
-  "manifestSha256": "19f5d29d7c373417b5bd444d0300098dccc73d09f5c0a5749734724984ccbac4",
+  "manifestSha256": "998b2a7ecd4c7754286b339987a905fece3054be03e37443fb01d21b4c4156a0",
   "artifactsDir": "",
   "collectedAt": "2026-10-12T00:00:00.000Z",
   "generation": 5
@@ -217,6 +217,232 @@
        "確認日：2026-10-12"
       ],
       "url": "https://www.flightradar24.com/blog/flight-tracking-news/special-aircraft-tracking/spar19-becomes-the-most-tracked-flight-of-all-time/",
+      "sourceNote": "公開部分を読み、事実を自分の言葉で書いた。本文・画像は転載しない",
+      "sourceClass": "INDEPENDENT_SECONDARY"
+     }
+    ],
+    "observationsStream": [],
+    "observations": [],
+    "claimBindings": [],
+    "publishability": "PARTIAL",
+    "batchId": "gen5_case_articles_20261012",
+    "financialStatus": "UNAVAILABLE",
+    "incumbentDilemma": "",
+    "blindspot": "",
+    "moatDescription": "",
+    "unknownsNotes": [],
+    "isGrowthUnconfirmed": true
+   }
+  },
+  {
+   "id": "ent_sleep_jar_20261014",
+   "provenance": {
+    "detailsHash": "5ab708b568298e5ff429abd3a8a1509f5feb14809b34237bff469e250994ac04",
+    "artifactSha256": "67bdcf2e62becdb08484cd5eca19cf5c565fcd5d8869c20fb22ad3a85b678667"
+   },
+   "record": {
+    "id": "ent_sleep_jar_20261014",
+    "ticker": "SLEEPJAR20261014",
+    "name": "Sleep Jar",
+    "tagline": "雨音を流すAlexaアプリから、有料会員10万人超の睡眠音サービスへ",
+    "description": "Amazon Echo向けの環境音から始まり、夜間に音が途切れない再生を有料化。現在は睡眠物語や瞑想も提供する。",
+    "sector": "UNKNOWN",
+    "scale": "UNKNOWN",
+    "founder": "未確認",
+    "country": "アメリカ",
+    "url": "https://sleepjar.com/premium",
+    "officialUrl": "https://sleepjar.com/",
+    "verifiedBadge": false,
+    "growthRateYoY": 0,
+    "architecturePattern": "",
+    "pipelineStack": "",
+    "targetPainWallet": "",
+    "tags": [
+     "収集事例"
+    ],
+    "pnl": {
+     "monthlyRevenue": 0,
+     "cogs": 0,
+     "grossProfit": 0,
+     "grossMargin": 0,
+     "operatingExpenses": {
+      "serverAndApi": 0,
+      "advertising": 0,
+      "subcontracting": 0,
+      "toolsAndSaaS": 0,
+      "other": 0
+     },
+     "operatingProfit": 0,
+     "operatingMargin": 0,
+     "estimatedAnnualNetProfit": 0,
+     "isRevenueUnconfirmed": true,
+     "isOperatingProfitUnconfirmed": true,
+     "isMarginUnconfirmed": true,
+     "isGrossProfitUnconfirmed": true,
+     "isGrossMarginUnconfirmed": true,
+     "isCogsUnconfirmed": true,
+     "isCostsUnconfirmed": true,
+     "isNetProfitUnconfirmed": true,
+     "financialStatus": "UNAVAILABLE",
+     "dataSnapshotPeriod": "各事実の対象期間を参照。現在の完全な損益は未確認",
+     "revenueLabel": "",
+     "sourceDoc": "https://www.flightradar24.com/about/"
+    },
+    "operations": {
+     "teamSize": 0,
+     "weeklyHours": 0,
+     "initialCapitalRequired": 0,
+     "automationLevel": 0,
+     "primaryChannels": [],
+     "toolStack": [],
+     "isTeamSizeUnconfirmed": true,
+     "isWeeklyHoursUnconfirmed": true,
+     "isCapitalUnconfirmed": true,
+     "isAutomationUnconfirmed": true
+    },
+    "strategy": {
+     "moatType": "UNKNOWN",
+     "blindspot": "",
+     "moatDescription": "",
+     "secretInsight": "",
+     "initialTraction": [],
+     "actionPlaybook": [],
+     "coldOutreachTemplate": "",
+     "incumbentDilemma": ""
+    },
+    "evidenceCards": [
+     {
+      "id": "ent_sleep_jar_20261014-S1",
+      "type": "UNKNOWN_AUDIT",
+      "title": "出典1：Alexa公式：創業者の起業・有料化・会員数",
+      "badge": "出典",
+      "evidenceStatus": "REPORTED",
+      "punchline": "出典の所在。数字の読み方は事例の画面の注記に従う",
+      "details": [
+       "URL：https://developer.amazon.com/en-US/blogs/alexa/alexa-skills-kit/2022/06/nick-schwab-june-2022",
+       "確認日：2026-10-12"
+      ],
+      "url": "https://developer.amazon.com/en-US/blogs/alexa/alexa-skills-kit/2022/06/nick-schwab-june-2022",
+      "sourceNote": "公開部分を読み、事実を自分の言葉で書いた。本文・画像は転載しない",
+      "sourceClass": "INDEPENDENT_SECONDARY"
+     },
+     {
+      "id": "ent_sleep_jar_20261014-S2",
+      "type": "UNKNOWN_AUDIT",
+      "title": "出典2：Sleep Jar公式：Premium料金と収録内容（2026年10月確認）",
+      "badge": "出典",
+      "evidenceStatus": "REPORTED",
+      "punchline": "出典の所在。数字の読み方は事例の画面の注記に従う",
+      "details": [
+       "URL：https://sleepjar.com/premium",
+       "確認日：2026-10-12"
+      ],
+      "url": "https://sleepjar.com/premium",
+      "sourceNote": "公開部分を読み、事実を自分の言葉で書いた。本文・画像は転載しない",
+      "sourceClass": "INDEPENDENT_SECONDARY"
+     },
+     {
+      "id": "ent_sleep_jar_20261014-S3",
+      "type": "UNKNOWN_AUDIT",
+      "title": "出典3：Alexa公式：朗読物語の制作工程（2023年8月）",
+      "badge": "出典",
+      "evidenceStatus": "REPORTED",
+      "punchline": "出典の所在。数字の読み方は事例の画面の注記に従う",
+      "details": [
+       "URL：https://developer.amazon.com/en-US/blogs/alexa/alexa-skills-kit/2023/08/sleep-stories-sleepjar-alexa-august-2023",
+       "確認日：2026-10-12"
+      ],
+      "url": "https://developer.amazon.com/en-US/blogs/alexa/alexa-skills-kit/2023/08/sleep-stories-sleepjar-alexa-august-2023",
+      "sourceNote": "公開部分を読み、事実を自分の言葉で書いた。本文・画像は転載しない",
+      "sourceClass": "INDEPENDENT_SECONDARY"
+     },
+     {
+      "id": "ent_sleep_jar_20261014-S4",
+      "type": "UNKNOWN_AUDIT",
+      "title": "出典4：Alexa公式：初期の雨音スキルと反響",
+      "badge": "出典",
+      "evidenceStatus": "REPORTED",
+      "punchline": "出典の所在。数字の読み方は事例の画面の注記に従う",
+      "details": [
+       "URL：https://developer.amazon.com/en-US/blogs/alexa/post/cf473bfc-b504-4575-bdcd-556de233517a/alexa-skill-developer-spotlight-nick-schwa",
+       "確認日：2026-10-12"
+      ],
+      "url": "https://developer.amazon.com/en-US/blogs/alexa/post/cf473bfc-b504-4575-bdcd-556de233517a/alexa-skill-developer-spotlight-nick-schwa",
+      "sourceNote": "公開部分を読み、事実を自分の言葉で書いた。本文・画像は転載しない",
+      "sourceClass": "INDEPENDENT_SECONDARY"
+     },
+     {
+      "id": "ent_sleep_jar_20261014-S5",
+      "type": "UNKNOWN_AUDIT",
+      "title": "出典5：Alexa公式：Amazon紹介報酬の事例（2022年11月）",
+      "badge": "出典",
+      "evidenceStatus": "REPORTED",
+      "punchline": "出典の所在。数字の読み方は事例の画面の注記に従う",
+      "details": [
+       "URL：https://developer.amazon.com/en-US/blogs/alexa/alexa-skills-kit/2022/11/amazon-associates-on-alexa-blog-november-2022",
+       "確認日：2026-10-12"
+      ],
+      "url": "https://developer.amazon.com/en-US/blogs/alexa/alexa-skills-kit/2022/11/amazon-associates-on-alexa-blog-november-2022",
+      "sourceNote": "公開部分を読み、事実を自分の言葉で書いた。本文・画像は転載しない",
+      "sourceClass": "INDEPENDENT_SECONDARY"
+     },
+     {
+      "id": "ent_sleep_jar_20261014-S6",
+      "type": "UNKNOWN_AUDIT",
+      "title": "出典6：Sleep Jar公式：スマホとAlexaの利用・連携",
+      "badge": "出典",
+      "evidenceStatus": "REPORTED",
+      "punchline": "出典の所在。数字の読み方は事例の画面の注記に従う",
+      "details": [
+       "URL：https://sleepjar.com/faq",
+       "確認日：2026-10-12"
+      ],
+      "url": "https://sleepjar.com/faq",
+      "sourceNote": "公開部分を読み、事実を自分の言葉で書いた。本文・画像は転載しない",
+      "sourceClass": "INDEPENDENT_SECONDARY"
+     },
+     {
+      "id": "ent_sleep_jar_20261014-S7",
+      "type": "UNKNOWN_AUDIT",
+      "title": "出典7：Alexa公式：創業者Nick Schwabの経歴",
+      "badge": "出典",
+      "evidenceStatus": "REPORTED",
+      "punchline": "出典の所在。数字の読み方は事例の画面の注記に従う",
+      "details": [
+       "URL：https://developer.amazon.com/en-US/alexa/champions/nick-schwab",
+       "確認日：2026-10-12"
+      ],
+      "url": "https://developer.amazon.com/en-US/alexa/champions/nick-schwab",
+      "sourceNote": "公開部分を読み、事実を自分の言葉で書いた。本文・画像は転載しない",
+      "sourceClass": "INDEPENDENT_SECONDARY"
+     },
+     {
+      "id": "ent_sleep_jar_20261014-S8",
+      "type": "UNKNOWN_AUDIT",
+      "title": "出典8：Alexa公式：2022年のアプリ内課金状況",
+      "badge": "出典",
+      "evidenceStatus": "REPORTED",
+      "punchline": "出典の所在。数字の読み方は事例の画面の注記に従う",
+      "details": [
+       "URL：https://developer.amazon.com/en-US/blogs/alexa/alexa-skills-kit/2022/04/Alexa-in-skill-purchasing-available-canada-april-2022",
+       "確認日：2026-10-12"
+      ],
+      "url": "https://developer.amazon.com/en-US/blogs/alexa/alexa-skills-kit/2022/04/Alexa-in-skill-purchasing-available-canada-april-2022",
+      "sourceNote": "公開部分を読み、事実を自分の言葉で書いた。本文・画像は転載しない",
+      "sourceClass": "INDEPENDENT_SECONDARY"
+     },
+     {
+      "id": "ent_sleep_jar_20261014-S9",
+      "type": "UNKNOWN_AUDIT",
+      "title": "出典9：Sleep Jar公式：会員と別売りのアラーム",
+      "badge": "出典",
+      "evidenceStatus": "REPORTED",
+      "punchline": "出典の所在。数字の読み方は事例の画面の注記に従う",
+      "details": [
+       "URL：https://sleepjar.com/alarms",
+       "確認日：2026-10-12"
+      ],
+      "url": "https://sleepjar.com/alarms",
       "sourceNote": "公開部分を読み、事実を自分の言葉で書いた。本文・画像は転載しない",
       "sourceClass": "INDEPENDENT_SECONDARY"
      }
