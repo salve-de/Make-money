@@ -175,7 +175,14 @@ def parse_md(md: str, research: dict, case: dict):
         def flush_list():
             nonlocal p_list
             if p_list:
-                blocks.append(p_list);p_list=None
+                # The existing UI limits each list row to 140 characters.
+                # Keep long sourced explanations as paragraphs instead of truncating.
+                if any(len(item["text"])>140 for item in p_list["items"]):
+                    for item in p_list["items"]:
+                        if len(item["text"])>240: notes.append("item exceeds paragraph limit: "+item["text"][:80])
+                        blocks.append({"type":"paragraph",**item})
+                else:blocks.append(p_list)
+                p_list=None
         def flush_table():
             nonlocal table_lines
             if table_lines:
