@@ -1,3 +1,5 @@
+> **【2026-10-16 全AI向け最新正本へ統一】**：実際の収集・完成日本語記事・7本文分類＋末尾出典・文体・掲載画像/図表・根拠原本・経緯/改訂・独立品質判定は、[MAKEMONEY統一正本（PR #228、2026-10-16）](https://github.com/salve-de/Make-money/blob/docs/makemoney-owner-reality-20261015/docs/MAKEMONEY_CASE_RESEARCH_EDITORIAL_SSOT_20261016.md)と[誰でも使う収集実行手順](https://github.com/salve-de/Make-money/blob/docs/makemoney-owner-reality-20261015/docs/MAKEMONEY_COLLECTOR_START_HERE_20261016.md)を最優先。調査中から完成記事を編集し、収集断片の後付け連結で記事を作らない。旧本文の固定章・図数・利益表・直接保存要件や古い『最高正本』と矛盾する部分は**歴史資料**であり現行指示ではない。元記事全文をChatGPT/編集担当が完成し、Codexは原文保全・形式変換・非公開レビューUIを担当する。掲載・本番deploy・課金は別承認。本書とコードの現時点の検証状況は混同しない。
+
 > **2026-10-15 最優先の編集責務**：ChatGPTが実在事例の調査・文章制作・追加調査・全文推敲・出典・意味のある表や図の用意を完了してからCodexへ渡す。読者がその商売を具体的に理解できる記事そのものが品質基準。**記事のJSON/ZIP変換・Drive/R2/GitHubへの格納・UI反映・実機検査はCodexの仕事であり、調査AIの完成条件にしない**。以前の保存形式・ゲート中心の指示より優先。不要な否定注記、内部メモ、一般論、重複、価値のない数字や図は載せない。
 
 # MAKEMONEY 事例の収集・編集・図解・掲載 共通基準
