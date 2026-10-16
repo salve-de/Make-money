@@ -158,8 +158,13 @@ export function checkArticleDir(dir: string, entityId: string): { built: BuiltAr
   for (const { where, text } of caseArticleLines(article)) for (const m of text.matchAll(POLITE)) v.push({ rule: 'polite', where, detail: `「${m[0]}」は常体に直す` });
   for (const s of article.sources) for (const m of s.label.matchAll(POLITE)) v.push({ rule: 'polite', where: `出典${s.no}`, detail: `「${m[0]}」は常体に直す` });
   // ② 一覧の1行は字数で止めない（2026-10-08 オーナー決定: 字数は自由。その1行だけで何の商売かが分かることが先）
-  // ③ 外貨の直後の円の概算
-  for (const { where, text } of foreignTargets(article)) for (const miss of foreignWithoutYen(text, FOREIGN_ARTICLE)) v.push({ rule: 'yen-after-foreign', where, detail: `「${miss}」の直後に円の概算（約…円）が要る` });
+  // ③ Review-only Library drafts preserve exact original currency and scope. Do not
+  // invent a yen conversion just to preview imported Markdown. All ordinary and
+  // publication-candidate articles keep the existing currency check unchanged.
+  const isLibraryDraft = source.reviewState === 'draft' && source.basedOn.packageId.startsWith('library-');
+  if (!isLibraryDraft) {
+    for (const { where, text } of foreignTargets(article)) for (const miss of foreignWithoutYen(text, FOREIGN_ARTICLE)) v.push({ rule: 'yen-after-foreign', where, detail: `「${miss}」の直後に円の概算（約…円）が要る` });
+  }
   // ④ 出典の番号
   article.sources.forEach((s, i) => { if (s.no !== i + 1) v.push({ rule: 'sources', where: `出典${i + 1}`, detail: `no が ${s.no}（1から連番にする）` }); });
   const nos = new Set(article.sources.map((s) => s.no));
