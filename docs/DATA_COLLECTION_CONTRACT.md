@@ -1,3 +1,5 @@
+> **【2026-10-16 最新・事例収集と記事編集の優先正本】**：[調査から読者向け完成記事までの統一正本](./MAKEMONEY_CASE_RESEARCH_EDITORIAL_SSOT_20261016.md)／[1件を集める実行Runbook](./MAKEMONEY_COLLECTOR_START_HERE_20261016.md)。**広範に調べ、UIで何を示すか考えながら自然な完成日本語を執筆・再取材する。断片の後付け連結をしない。** 本文7分類「概要／仕組み／お金／集客／運営／経緯／成功の理由」＋別枠「出典」、実際に必要な章・表・図だけ採用。古い本文の固定文字数・旧章名・旧型・必須費用・未実証のR2/Drive自動納品は最新版を優先し、過去の事故記録として保持。収集AI＝記事完成、Codex＝受入・形式変換・非公開UI、掲載は別承認。
+
 > **2026-09-14 最高運用契約（ゼロプロンプト宣言）**: ユーザーは長文指示やプロンプトを絶対に書かない。他AIへの委託指示は「GitHubの `docs/DATA_COLLECTION_MASTER_GUIDE.md` （または raw URL）を読め」の1行のみ。何を集めるか・何を気をつけるか・過去の全ミス/フィードバック地雷録の統括正本は [`docs/DATA_COLLECTION_MASTER_GUIDE.md`](./DATA_COLLECTION_MASTER_GUIDE.md)。収集仕様は [`docs/GOLDEN_INGEST_SCHEMA.md`](./GOLDEN_INGEST_SCHEMA.md)（10大属性、円換算P&L、LOOT_BLUEPRINT必須、完全体JSON）。横断契約は [`docs/architecture/AUTONOMOUS_DATA_INGEST_PROTOCOL.md`](./architecture/AUTONOMOUS_DATA_INGEST_PROTOCOL.md)。保存先は [`docs/architecture/STORAGE.md`](./architecture/STORAGE.md)（3層メダリオン構造、物理移動ゼロ、EDINET完全不可侵）。業種・規模・形態の限定を排し、手堅い実業から検死まで柔軟に自走完遂せよ。
 
 # データ収集契約（Universal Foundation連携）
